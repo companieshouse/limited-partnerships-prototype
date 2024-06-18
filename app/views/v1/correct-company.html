@@ -1,0 +1,84 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirm this is the correct company – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+{% set serviceName %}
+         Update a registered email address
+
+{% endset%}
+{% block beforeContent %}
+ 
+  {% include "../includes/user-bar.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+       {% include "../includes/back-link.html" %}
+
+      <h1 class="govuk-heading-xl">Confirm this is the correct company</h1>
+
+            <h1 class="govuk-heading-l">WEST HAM FOOTBALL CLUB LIMITED</h1>
+
+ 
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Company number	"
+      },
+    value: {
+            text: "00066516"
+      }
+    },
+    {
+      key: {
+        text: "Status"
+      },
+      value: {
+        html: "Active"
+      }
+    },
+        {
+      key: {
+        text: "Incorporation date"
+      },
+      value: {
+        text: "5 July 1900"
+      }
+    },
+        {
+      key: {
+        text: "Company type	"
+      },
+      value: {
+        text: "Private Limited Company"
+      }
+    },
+        {
+      key: {
+        text: "Registered office address"
+      },
+      value: {
+        html: "10 Bressenden Place,<br> London,<br> England,<br> SW1E 5DH"
+      }
+    }
+  ]
+}) }}
+
+
+   {{ govukButton({
+  text: "Confirm and continue",
+  href: "auth-code"
+}) }}  
+
+<p><a href="company-number">Choose a different company</a></p>
+    </div>
+  </div>
+{% endblock %}

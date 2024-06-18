@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What is the company number? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% set serviceName %}
+    
+{% endset%}
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="correct-company" method="post">
+
+
+
+      {{ govukInput({
+  label: {
+    text: "What is the company number?",
+    classes: "govuk-label--xl",
+    isPageHeading: true
+  },
+  hint: {
+    text: "The 8-character reference issued by Companies House when the company was set up"
+  },
+    classes: "govuk-!-width-one-half",
+  id: "company-number",
+  name: "company-number",
+  value: data['company-number']
+}) }}
+
+
+
+{{ govukDetails({
+  summaryText: "Help with company number",
+  html: 'Use the <a class="govuk-link" href="https://find-and-update.company-information.service.gov.uk/">Companies House service</a> to find it.'
+}) }}
+      
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

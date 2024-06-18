@@ -7,13 +7,51 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
+    <!--{% include "govuk-prototype-kit/includes/homepage-top.njk" %}-->
 
     <h1 class="govuk-heading-xl">
-      {{ serviceName }}
+      {{ serviceName }} 
     </h1>
 
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+
+
+     <h2 class="govuk-heading-m govuk-!-padding-top-4">
+      Prototypes
+    </h2>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="col">Version</th>
+          <th class="govuk-table__header" scope="col">Sprint</th>
+          <th class="govuk-table__header" scope="col">Date</th>
+          <th class="govuk-table__header" scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+ 
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <a href="v1/index">V1</a>
+          </td>
+          <td class="govuk-table__cell">
+            N/A
+          </td>
+          <td class="govuk-table__cell">
+            June 2024
+          </td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--red">
+              Not tested
+            </strong>
+          </td>
+        </tr>
+
+
+      </tbody>
+    </table>
+
+   <!--{% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}-->
   </div>
 </div>
 

@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="V1" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!--{% include "govuk-prototype-kit/includes/homepage-top.njk" %}-->
+
+    <h1 class="govuk-heading-xl">
+      {{ serviceName }}: V1
+    </h1>
+
+    {{ govukWarningText({
+      text: "This prototype is being actively worked on - things might break or change very quickly",
+      iconFallbackText: "Warning"
+    }) }}
+
+     <h2 class="govuk-heading-m govuk-!-padding-top-4">Shortcuts</h2>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li><a class="govuk-link" href="#">To be added</a></li>
+  <li><a class="govuk-link" href="#">To be added</a></li>
+  <li><a class="govuk-link" href="#">To be added</a></li>
+  <li><a class="govuk-link" href="#">To be added</a></li>
+  <li><a class="govuk-link" href="#">To be added</a></li>
+</ul>
+
+   <!--{% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}-->
+  </div>
+</div>
+
+{% endblock %}

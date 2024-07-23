@@ -16,7 +16,7 @@
       <form class="form" action="" method="post">
 
 <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
-<h1 class="govuk-heading-xl">Limited Partnership information</h1>
+<h1 class="govuk-heading-xl">Limited partnership information</h1>
       
       
       
@@ -26,11 +26,11 @@
 <div class="govuk-form-group">
   <h1 class="govuk-label-wrapper">
     <label class="govuk-label govuk-label--l" for="sic-code">
-      SIC Code
+     Standard Industrial Classification (SIC) Code
     </label>
   </h1>
   <p id="sic-code" class="govuk-hint">
-    Use <a href="https://resources.companieshouse.gov.uk/sic/" class="govuk-link">this list</a> to find an appropriate SIC code.
+    <a href="https://resources.companieshouse.gov.uk/sic/" class="govuk-link">Find your SIC code using our look up tool</a>.
   </p>
   <input class="govuk-input govuk-!-width-one-half" id="event-name" name="eventName" type="text" aria-describedby="event-name-hint">
 </div>
@@ -62,17 +62,6 @@
 
 <h2 class="govuk-heading-l">Registered office address</h2>
 <div class="govuk-form-group">
-  <label class="govuk-label" for="propertyName">
-    Property name or number
-  </label>
-
-  <div id="propertyName-hint" class="govuk-hint">
-    For example, &#39;The Mill&#39;, &#39;116&#39; or &#39;Flat 37a&#39;
-  </div>
-
-<input class="govuk-input" id="propertyName" name="propertyName" type="text" aria-describedby="propertyName-hint">
-
-</div>
 
 <div class="govuk-form-group">
   <label class="govuk-label" for="addressOne">
@@ -94,7 +83,7 @@
 
 <div class="govuk-form-group">
   <label class="govuk-label" for="town">
-    City or town
+    Town or city
   </label>
 
 <input class="govuk-input" id="town" name="town" type="text">
@@ -107,6 +96,14 @@
   </label>
 
 <input class="govuk-input" id="county" name="county" type="text">
+
+</div>
+<div class="govuk-form-group">
+  <label class="govuk-label" for="postcode">
+    Postcode or ZIP
+  </label>
+
+<input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
 
 </div>
 
@@ -1133,14 +1130,7 @@
   </select>
 </div>
 
-        <div class="govuk-form-group">
-  <label class="govuk-label" for="postcode">
-    Postcode or ZIP
-  </label>
 
-<input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
-
-</div>
 
 
 <div class="govuk-form-group">
@@ -2171,7 +2161,7 @@
 <div class="govuk-form-group">
   <h1 class="govuk-label-wrapper">
     <label class="govuk-label govuk-label--m" for="partnershipTerm">
-      Term of Partnership
+      Terms of partnership
     </label>
   </h1>
   <div id="partnershipTerm-hint" class="govuk-hint">

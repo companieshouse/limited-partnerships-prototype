@@ -1,0 +1,129 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="General partner legal entity" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+
+
+      <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+<h1 class="govuk-heading-xl">General partner information</h1>
+
+{{ govukInput({
+  label: {
+    text: "What is the legal entity's name?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Hint text."
+  },
+  id: "entity-name",
+  name: "entityName"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "What is the governing law?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "This is the law that the entity operates under"
+  },
+  id: "governing-law",
+  name: "governing-law"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "What is its legal form?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "For example, limited company"
+  },
+  id: "legal-form",
+  name: "legalForm"
+}) }}
+
+
+
+
+<div class="govuk-form-group">
+  <h2 class="gov-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="entity-address">
+      Principal office address
+    </label>
+  </h2>
+  <div id="entityAddress-hint" class="govuk-hint">
+    Hint text
+  </div>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="entityAddress">
+    Address line 1
+  </label>
+
+<input class="govuk-input" id="addressOne" name="addressOne" type="text">
+
+</div>
+        
+<div class="govuk-form-group">
+  <label class="govuk-label" for="addressTwo">
+    Address line 2 (optional)
+  </label>
+
+<input class="govuk-input" id="addressTwo" name="addressTwo" type="text">
+
+</div>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="town">
+    Town or city
+  </label>
+
+<input class="govuk-input" id="town" name="town" type="text">
+
+</div>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="county">
+    County (optional)
+  </label>
+
+<input class="govuk-input" id="county" name="county" type="text">
+
+</div>
+<div class="govuk-form-group">
+  <label class="govuk-label" for="postcode">
+    Postcode 
+  </label>
+
+<input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
+ 
+ 
+ 
+ 
+ <br>
+ <br>     
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

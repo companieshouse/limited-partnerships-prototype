@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
  
-{% set pageName="General partner legal entity" %}
+{% set pageName="Limited partner legal entity" %}
 
 {% block beforeContent %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
@@ -18,11 +18,11 @@
 
 
       <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
-<h1 class="govuk-heading-xl">General partner information</h1>
+<h1 class="govuk-heading-xl">Limited partner information</h1>
 
 {{ govukInput({
   label: {
-    text: "What is the general partner's name?",
+    text: "What is the limited partner's name?",
     classes: "govuk-label--l",
     isPageHeading: true
   },
@@ -36,7 +36,7 @@
 {% set previousHtmlPerson %}
 {{ govukInput({
   label: {
-    text: "What is the general partner's previous name?"
+    text: "What is the limited partner's previous name?"
   },
   id: "previous-name-person",
   name: "previousNamePerson"
@@ -49,7 +49,7 @@
   name: "previousNameOfficer",
   fieldset: {
     legend: {
-      text: "Does the general partner have a previous name?",
+      text: "Does the limited partner have a previous name?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }

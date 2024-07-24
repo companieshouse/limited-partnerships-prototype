@@ -22,7 +22,7 @@
 
 {{ govukInput({
   label: {
-    text: "What is the legal entity's name?",
+    text: "What is the limited partner's name?",
     classes: "govuk-label--l",
     isPageHeading: true
   },
@@ -33,199 +33,13 @@
   name: "entityName"
 }) }}
 
+{% set previousHtmlPerson %}
 {{ govukInput({
   label: {
-    text: "What is the governing law?",
-    classes: "govuk-label--l",
-    isPageHeading: true
+    text: "What is the limited partner's previous name?"
   },
-  hint: {
-    text: "This is the law that the entity operates under"
-  },
-  id: "governing-law",
-  name: "governing-law"
-}) }}
-
-{{ govukInput({
-  label: {
-    text: "What is its legal form?",
-    classes: "govuk-label--l",
-    isPageHeading: true
-  },
-  hint: {
-    text: "For example, limited company"
-  },
-  id: "legal-form",
-  name: "legalForm"
-}) }}
-
-
-
-
-<div class="govuk-form-group">
-  <h2 class="gov-label-wrapper">
-    <label class="govuk-label govuk-label--l" for="entity-address">
-      Principal office address
-    </label>
-  </h2>
-  <div id="entityAddress-hint" class="govuk-hint">
-    Hint text
-  </div>
-
-<div class="govuk-form-group">
-  <label class="govuk-label" for="entityAddress">
-    Address line 1
-  </label>
-
-<input class="govuk-input" id="addressOne" name="addressOne" type="text">
-
-</div>
-        
-<div class="govuk-form-group">
-  <label class="govuk-label" for="addressTwo">
-    Address line 2 (optional)
-  </label>
-
-<input class="govuk-input" id="addressTwo" name="addressTwo" type="text">
-
-</div>
-
-<div class="govuk-form-group">
-  <label class="govuk-label" for="town">
-    Town or city
-  </label>
-
-<input class="govuk-input" id="town" name="town" type="text">
-
-</div>
-
-<div class="govuk-form-group">
-  <label class="govuk-label" for="county">
-    County (optional)
-  </label>
-
-<input class="govuk-input" id="county" name="county" type="text">
-
-</div>
-<div class="govuk-form-group">
-  <label class="govuk-label" for="postcode">
-    Postcode 
-  </label>
-
-<input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
- <br>
- <br>
-
-{% set differentHtml %}
-        {% call govukFieldset({
-  
-}) %}
-
-  {{ govukInput({
-    label: {
-      text: "Address line 1"
-    },
-    id: "address-line-1",
-    name: "addressLine1",
-    autocomplete: "address-line1"
-  }) }}
-
-  {{ govukInput({
-    label: {
-      text: "Address line 2 (optional)"
-    },
-    id: "address-line-2",
-    name: "addressLine2",
-    autocomplete: "address-line2"
-  }) }}
-
-  {{ govukInput({
-    label: {
-      text: "Town or city"
-    },
-    classes: "govuk-!-width-two-thirds",
-    id: "address-town",
-    name: "addressTown",
-    autocomplete: "address-level2"
-  }) }}
-
-  {{ govukInput({
-    label: {
-      text: "County (optional)"
-    },
-    classes: "govuk-!-width-two-thirds",
-    id: "address-county",
-    name: "addressCounty"
-  }) }}
-
-  {{ govukInput({
-    label: {
-      text: "Postcode"
-    },
-    classes: "govuk-input--width-10",
-    id: "address-postcode",
-    name: "addressPostcode",
-    autocomplete: "postal-code"
-  }) }}
-
-{% endcall %}
-      {% endset -%}
-<br>
-
- {{ govukRadios({
-  name: "serviceAddress",
-  fieldset: {
-    legend: {
-      text: "What is the general partner's service address?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  hint: {
-    text: "Hint text."
-  },
-  items: [
-    {
-      value: "sameAsPOA",
-      text: "The same as the principal office address"
-    },
-    {
-      value: "differentAddress",
-      text: "A different address",
-      conditional: {
-              html: differentHtml
-            }
-    }
-  ]
-}) }}
-<br>
-
-<h2 class="govuk-heading-xl">Registered officer information</h2>
-<p class=govuk-hint>Some info, unsure why spacing is whack</p>
- 
- {{ govukInput({
-  label: {
-    text: "What is the registered officer's name?",
-    classes: "govuk-label--l",
-    isPageHeading: true
-  },
-  hint: {
-    text: "Hint text"
-  },
-  id: "officer-name",
-  name: "officerName"
-}) }}
-
-
-
-
-{% set previousHtml %}
-{{ govukInput({
-  label: {
-    text: "What is the officer's previous name?"
-  },
-  id: "previous-name",
-  name: "previousName"
+  id: "previous-name-person",
+  name: "previousNamePerson"
 }) }}
 {% endset -%}
 
@@ -235,7 +49,7 @@
   name: "previousNameOfficer",
   fieldset: {
     legend: {
-      text: "Does the registered officer have a previous name?",
+      text: "Does the limited partner have a previous name?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
@@ -248,7 +62,7 @@
       value: "yes",
       text: "Yes",
       conditional: {
-          html: previousHtml
+          html: previousHtmlPerson
       }
     },
     {
@@ -257,7 +71,6 @@
     }
   ]
 }) }}
-
 
 {{ govukDateInput({
   id: "date-of-birth",
@@ -1193,8 +1006,8 @@
   
   </select>
 </div>
-<br>
-<br>
+
+
 
 {% call govukFieldset({
   legend: {
@@ -1253,21 +1066,7 @@
 
 {% endcall %}
 <br>
-<br>
- {{ govukInput({
-  label: {
-    text: "What is their Companies House personal code?",
-    classes: "govuk-label--l",
-    isPageHeading: true
-  },
-  id: "event-name",
-  name: "eventName",
-  classes: "govuk-input govuk-!-width-one-half"
-}) }}
- <br>
 
-
-   
 
  {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>

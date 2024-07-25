@@ -2189,6 +2189,8 @@
   </select>
 </div>
 
+
+
 <div class="govuk-form-group">
   <h1 class="govuk-label-wrapper">
     <label class="govuk-label govuk-label--m" for="partnershipTerm">
@@ -2200,6 +2202,78 @@
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
 </div>
+
+
+{% set specificReveal %}
+{{ govukInput({
+  label: {
+    text: "How many years?",
+    classes: "govuk-label",
+    isPageHeading: true
+  },
+  
+  id: "specific",
+  name: "specific",
+  classes: "govuk-!-width-one-half"
+}) }}
+{% endset -%}
+
+{% set endingReveal %}
+{{ govukDateInput({
+  id: "ending-date",
+  namePrefix: "ending-date",
+  fieldset: {
+    legend: {
+      text: "When will the limited partnership end?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "For example, 27 3 2007"
+  }
+}) }}
+{% endset -%}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "term-of-partnership",
+  fieldset: {
+    legend: {
+      text: "Term of partnership",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "The term, if any, for which the limited partnership is to be entered into"
+  },
+  items: [
+    {
+      value: "specific",
+      text: "A specific term (in years)",
+      conditional: {
+              html: specificReveal
+            }
+    },
+    {
+      value: "ending",
+      text: "Ending on a specific date",
+      conditional: {
+              html: endingReveal
+            }
+    },
+    {
+      value: "unspecified",
+      text: "Unspecified"
+    }
+  ]
+}) }}
+
+
+
+
 
 {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>

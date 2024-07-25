@@ -12,7 +12,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-<form class="form" action="general-partner-section" method="post">
+<form class="form" action="/v2/general-partner-section" method="post">
    
 
 <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
@@ -21,18 +21,49 @@
       
       
       
-      
-
-<div class="govuk-form-group">
-  <h1 class="govuk-label-wrapper">
+   <h1 class="govuk-label-wrapper">
     <label class="govuk-label govuk-label--l" for="sic-code">
      Standard Industrial Classification (SIC) Code
     </label>
-  </h1>
+  </h1>   
+<!-- haven't been able to get this working, see application.js for the javascript. See 'nationality' page in add directors and application.js in directors for code copied for this -->
+<div class="govuk-form-group">
   <p id="sic-code" class="govuk-hint">
     <a href="https://resources.companieshouse.gov.uk/sic/" class="govuk-link">Find your SIC code using our look up tool</a>.
   </p>
-  <input class="govuk-input govuk-!-width-one-half" id="event-name" name="eventName" type="text" aria-describedby="event-name-hint">
+  <input class="govuk-input govuk-!-width-one-half" id="sicCode" name="sicCode" type="text" aria-describedby="sic-code-hint">
+</div>
+<p class="govuk-body">
+          <a href="#" id="second-sic-link" class="govuk-link govuk-link--no-visited-state">Add a second SIC code</a>
+        </p>
+<!-- <button id="second-sic-button" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Add another SIC code
+</button> -->
+
+<div id="second-sic" class="second-sic" style="display: none"> 
+
+<div class="govuk-form-group">
+<label class="govuk-label govuk-label" for="second-sic">
+     Add another Standard Industrial Classification (SIC) Code (if relevant)
+    </label>
+  <input class="govuk-input govuk-!-width-one-half" id="second-sic" name="secondSic" type="text" aria-describedby="second-sic-code-hint">
+</div>
+<p class="govuk-body">
+          <a href="#" id="third-sic-link" class="govuk-link govuk-link--no-visited-state">Add a third SIC code</a>
+        </p>
+<!-- <button id="third-sic-button" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Add another SIC code
+</button> -->
+
+<div id="third-sic" class="third-sic" style="display: none"> 
+
+<div class="govuk-form-group">
+<label class="govuk-label govuk-label" for="third-sic">
+     Add another Standard Industrial Classification (SIC) Code (if relevant)
+    </label>
+  <input class="govuk-input govuk-!-width-one-half" id="third-sic" name="thirdSic" type="text" aria-describedby="third-sic-code-hint">
+</div>
+</div>
 </div>
 
 
@@ -40,10 +71,10 @@
 
 
 
-{{ govukButton({
-  text: "Add another SIC code",
-  classes: "govuk-button--secondary"
-}) }}
+
+
+
+
 
 <br>
 {{ govukInput({
@@ -2183,4 +2214,7 @@
 </form>
     </div>
   </div>
+
+
+  
 {% endblock %}

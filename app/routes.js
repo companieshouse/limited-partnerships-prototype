@@ -58,6 +58,6 @@ router.post('/lp-add-another', function(request, response) {
         response.redirect("/v2/lp-legal-entity")
     } 
     else {
-        response.redirect("/v2/psc-idv")
+        response.redirect("/v2/check-your-answers")
     }
 })

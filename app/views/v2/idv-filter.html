@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Identity verification" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<form class="form" action="/idv-filter" method="post">
+
+
+
+      <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+
+
+
+{{ govukRadios({
+  name: "idvCodes",
+  value: data['idvCodes'],
+  fieldset: {
+    legend: {
+      text: "Have you IDVd?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  hint: {
+    text: "Hint text."
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+      
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

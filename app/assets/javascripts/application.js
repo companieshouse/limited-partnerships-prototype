@@ -13,12 +13,12 @@ $(document).ready(function () {
   // Code snippet for the nationality page
   $('#second-sic-link').click(function() {
     $('#second-sic').show();
-    $('#second-sic-button').hide();
+    $('#second-sic-link').hide();
     return false;
   });
   $('#third-sic-link').click(function() {
     $('#third-sic').show();
-    $('#third-sic-button').hide();
+    $('#third-sic-link').hide();
     return false;
   });       
 })

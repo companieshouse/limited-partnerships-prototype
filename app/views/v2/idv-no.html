@@ -1,0 +1,33 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Identity verification" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="limited-partner-choice" method="post">
+
+
+
+      <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+      <h1 class="govuk-heading-xl">You need to go away and IDV!</h1>
+      
+           <p class="govuk-body">Some information.</p>
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

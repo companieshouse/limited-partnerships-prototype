@@ -3,8 +3,10 @@
 {% set pageName="Add a general partner (legal entity)" %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
 {% endblock %}
+
 
 
 
@@ -113,8 +115,8 @@
   </label>
 
 <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
- <br>
- <br>
+ 
+ 
  <div class="govuk-form-group">
   <label class="govuk-label govuk-body" for="country">
     Country
@@ -1139,8 +1141,8 @@
 </div>
  
  
- <br>
- <br>
+ 
+ 
 
 {% set differentHtml %}
         {% call govukFieldset({
@@ -1197,7 +1199,7 @@
 {% endcall %}
       {% endset -%}
 <!-- not sure how I'd add country to the reveal for service address -->
-<br>
+
 
 
  {{ govukRadios({
@@ -2224,8 +2226,8 @@
   
   </select>
 </div>
-<br>
-<br>
+
+
 
 {% call govukFieldset({
   legend: {
@@ -2283,7 +2285,7 @@
   }) }}
 
 {% endcall %}
-<br>
+
 <div class="govuk-form-group">
   <label class="govuk-label govuk-body" for="country">
     Country
@@ -3306,8 +3308,8 @@
   
   </select>
 </div>
-<br>
-<br>
+
+
  {{ govukInput({
   label: {
     text: "What is the registered officer's Companies House personal code?",

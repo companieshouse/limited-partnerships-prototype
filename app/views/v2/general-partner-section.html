@@ -3,8 +3,10 @@
 {% set pageName="Add general partner information" %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
 {% endblock %}
+
 
 
 
@@ -18,7 +20,11 @@
 
 
       <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
-<h1 class="govuk-heading-xl">You are now going to add general partner information</h1>
+      <h1 class="govuk-heading-xl">You are now going to add general partner information</h1>
+
+     <p class="govuk-body">Some information.</p>
+
+
       
 {{ govukButton({
   text: "Continue"

@@ -3,8 +3,11 @@
 {% set pageName="Confirm this is the correct limited partnership" %}
 
 {% block beforeContent %}
-  {% include "../includes/user-bar.html" %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
 {% endblock %}
+
+
 
 
 
@@ -15,7 +18,6 @@
     <div class="govuk-grid-column-two-thirds">
 <form class="form" action="limited-partnership-info" method="post">
 
-       {% include "../includes/back-link.html" %}
 
       <h1 class="govuk-heading-xl">Confirm this is the correct limited partnership</h1>
 

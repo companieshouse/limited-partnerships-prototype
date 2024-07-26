@@ -5,6 +5,10 @@
 
 // Add extra styles here
 
+@import "accessible-autocomplete";
+
+
+
 //Styles for user bar
 
 ul#navigation {
@@ -20,18 +24,6 @@ ul#navigation {
       a {margin-left: 0.9em;}
     }
   }
+
+
   
-    .corporate-annotations-text {
-      background-color: #eee;
-      margin-bottom: 1em !important;
-      border: 1px solid black;
-    
-      .govuk-warning-text__icon {
-        margin-left: 0.25em;
-      }
-    
-      .govuk-warning-text__text {
-        margin-bottom: 0.1em;
-        margin-left: 0.5em;
-      }
-    }

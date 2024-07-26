@@ -23,11 +23,11 @@ router.post('/general-partner-choice', function(request, response) {
 
 router.post('/gp-add-another', function(request, response) {
 
-    var addAnother = request.session.data['addAnother']
-    if (addAnother == "addPerson"){
+    var addAnotherGP = request.session.data['addAnotherGP']
+    if (addAnotherGP == "addPersonGP"){
         response.redirect("/v2/gp-person")
     } 
-    if (addAnother == "addEntity"){
+    if (addAnotherGP == "addEntityGP"){
         response.redirect("/v2/gp-legal-entity")
     } 
     else {
@@ -50,11 +50,11 @@ router.post('/limited-partner-choice', function(request, response) {
 //lp add another
 router.post('/lp-add-another', function(request, response) {
 
-    var addAnother = request.session.data['addAnother']
-    if (addAnother == "addPerson"){
+    var addAnotherLP = request.session.data['addAnotherLP']
+    if (addAnotherLP == "addPersonLP"){
         response.redirect("/v2/lp-person")
     } 
-    if (addAnother == "addEntity"){
+    if (addAnotherLP == "addEntityLP"){
         response.redirect("/v2/lp-legal-entity")
     } 
     else {

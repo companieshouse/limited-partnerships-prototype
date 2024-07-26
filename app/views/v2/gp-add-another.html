@@ -24,8 +24,8 @@
 
 
 {{ govukRadios({
-  name: "addAnother",
-  value: data['addAnother'],
+  name: "addAnotherGP",
+  value: data['addAnotherGP'],
   fieldset: {
     legend: {
       text: "Do you need to add another general partner?",
@@ -38,11 +38,11 @@
   },
   items: [
     {
-      value: "addPerson",
+      value: "addPersonGP",
       text: "Yes, a person"
     },
     {
-      value: "addEntity",
+      value: "addEntityGP",
       text: "Yes, a legal entity"
     },
     {

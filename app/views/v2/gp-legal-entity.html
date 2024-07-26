@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
  
-{% set pageName="General partner legal entity" %}
+{% set pageName="Add a general partner (legal entity)" %}
 
 {% block beforeContent %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
@@ -23,7 +23,7 @@
 {{ govukInput({
   label: {
     text: "What is the legal entity's name?",
-    classes: "govuk-label--l",
+    classes: "govuk-label--m",
     isPageHeading: true
   },
   hint: {
@@ -36,7 +36,7 @@
 {{ govukInput({
   label: {
     text: "What is the governing law?",
-    classes: "govuk-label--l",
+    classes: "govuk-label--m",
     isPageHeading: true
   },
   hint: {
@@ -49,7 +49,7 @@
 {{ govukInput({
   label: {
     text: "What is its legal form?",
-    classes: "govuk-label--l",
+    classes: "govuk-label--m",
     isPageHeading: true
   },
   hint: {
@@ -64,7 +64,7 @@
 
 <div class="govuk-form-group">
   <h2 class="gov-label-wrapper">
-    <label class="govuk-label govuk-label--l" for="entity-address">
+    <label class="govuk-label govuk-label--m" for="entity-address">
       Principal office address
     </label>
   </h2>
@@ -1206,7 +1206,7 @@
     legend: {
       text: "What is the general partner's service address?",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
+      classes: "govuk-fieldset__legend--m"
     }
   },
   hint: {
@@ -1226,15 +1226,15 @@
     }
   ]
 }) }}
-<br>
 
-<h2 class="govuk-heading-xl">Registered officer information</h2>
-<p class=govuk-hint>Some info, unsure why spacing is whack</p>
+
+<h2 class="govuk-heading-l govuk-!-margin-bottom-2">Registered officer information</h2>
+<p class="govuk-hint govuk-!-margin-bottom-7">Some info.</p>
  
  {{ govukInput({
   label: {
     text: "What is the registered officer's name?",
-    classes: "govuk-label--l",
+    classes: "govuk-label--m",
     isPageHeading: true
   },
   hint: {
@@ -1268,7 +1268,7 @@
     legend: {
       text: "Does the registered officer have a previous name?",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
+      classes: "govuk-fieldset__legend--m"
     }
   },
   hint: {
@@ -1295,9 +1295,9 @@
   namePrefix: "date-of-birth",
   fieldset: {
     legend: {
-      text: "Date of birth",
+      text: "What is their date of birth?",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
+      classes: "govuk-fieldset__legend--m"
     }
   },
   hint: {
@@ -1306,7 +1306,7 @@
 }) }}
 
 <div class="govuk-form-group">
-  <label class="govuk-label govuk-label--l" for="nationality">
+  <label class="govuk-label govuk-label--m" for="nationality">
     What is their nationality?
   </label>
 
@@ -2229,8 +2229,8 @@
 
 {% call govukFieldset({
   legend: {
-    text: "Usual residential address",
-    classes: "govuk-fieldset__legend--l",
+    text: "What is their usual residential address?",
+    classes: "govuk-fieldset__legend--m",
     isPageHeading: true
   }
 }) %}
@@ -3310,15 +3310,18 @@
 <br>
  {{ govukInput({
   label: {
-    text: "What is their Companies House personal code?",
-    classes: "govuk-label--l",
+    text: "What is the registered officer's Companies House personal code?",
+    classes: "govuk-label--m",
     isPageHeading: true
   },
-  id: "event-name",
-  name: "eventName",
+  id: "gp-personal-code",
+  name: "gp-personal-code",
+    hint: {
+    text: "Some info."
+  },
   classes: "govuk-input govuk-!-width-one-half"
 }) }}
- <br>
+
 
 
    

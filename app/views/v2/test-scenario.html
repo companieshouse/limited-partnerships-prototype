@@ -14,6 +14,11 @@
 
     <form class="form" action="start" method="post">
 
+{{ govukInsetText({
+  text: "For User Research use - this screen would not be shown to user"
+}) }}
+
+
 
       {{ govukRadios({
         name: "testScenario",
@@ -26,12 +31,12 @@
         },
         items: [
           {
-            value: "PDF",
-            text: "PDF"
+            value: "transition",
+            text: "Transition"
           },
           {
-            value: "Web",
-            text: "Web"
+            value: "postTransition",
+            text: "Post-transition"
           }
         ]
       }) }}

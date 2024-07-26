@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
  
-{% set pageName="Limited partner person" %}
+{% set pageName="Add a limited partner (person)" %}
 
 {% block beforeContent %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
@@ -90,7 +90,7 @@
     legend: {
       text: "Does the limited partner have a previous name?",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
+      classes: "govuk-fieldset__legend--m"
     }
   },
   hint: {
@@ -118,7 +118,7 @@
     legend: {
       text: "Date of birth",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
+      classes: "govuk-fieldset__legend--m"
     }
   },
   hint: {
@@ -127,7 +127,7 @@
 }) }}
 
 <div class="govuk-form-group">
-  <label class="govuk-label govuk-label--l" for="nationality">
+  <label class="govuk-label govuk-label--m" for="nationality">
     What is their nationality?
   </label>
 
@@ -1050,8 +1050,8 @@
 
 {% call govukFieldset({
   legend: {
-    text: "Usual residential address",
-    classes: "govuk-fieldset__legend--l",
+    text: "What is their usual residential address?",
+    classes: "govuk-fieldset__legend--m",
     isPageHeading: true
   }
 }) %}
@@ -2128,7 +2128,7 @@
   
   </select>
 </div>
-<br>
+
  {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>
                 <p>Some info</p>"

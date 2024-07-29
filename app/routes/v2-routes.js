@@ -102,14 +102,18 @@ router.post('/limited-partner-choice', function(request, response) {
 router.post('/lp-add-another', function(request, response) {
 
     var addAnotherLP = request.session.data['addAnotherLP']
+    var lpNumber = request.session.data['lpNumber']
     if (addAnotherLP == "addPersonLP"){
         response.redirect("/v2/lp-person")
     } 
-    if (addAnotherLP == "addEntityLP"){
+   else if (addAnotherLP == "addEntityLP"){
         response.redirect("/v2/lp-legal-entity")
     } 
-    else {
+    else if (lpNumber == "123"){
         response.redirect("/v2/psc-idv")
+    } 
+    else {
+        response.redirect("/v2/check-your-answers")
     }
 })
 

@@ -23,7 +23,7 @@
 
 
 
-<!--
+{# 
 {% if data['lpNumber'].startsWith("SL") %}
   This is limited partnership with an SL prefix
 {% elseif data['lpNumber'].startsWith("SG") %}
@@ -31,7 +31,7 @@
 {% elseif data['lpNumber'].startsWith("NL") %}
   This is limited partnership with an NL prefix
 {% endif %}
--->
+ #}
 
 {{ govukRadios({
   name: "idvCodes",

@@ -10,7 +10,24 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 
 
+// Sign in
+router.post('/sign-in', function(request, response) {
+
+    var email = request.session.data['email']
+    if (email == "someone@test.com"){
+        response.redirect("/v2/not-eligible")
+    } 
+    else {
+        response.redirect("/v2/company-number")
+    }
+  })
+
+
+
+  
+
 //Has the LP done IDV
+
 router.post('/idv-filter', function(request, response) {
 
   var idvCodes = request.session.data['idvCodes']
@@ -21,6 +38,24 @@ router.post('/idv-filter', function(request, response) {
       response.redirect("/v2/limited-partnership-info")
   }
 })
+
+// LP number confirm - transition or post-transition
+
+router.post('/company-number', function (req, res) {
+    res.redirect('/v2/correct-company')
+  })
+
+
+router.post('/correct-company', function(request, response) {
+
+    var lpNumber = request.session.data['lpNumber']
+    if (lpNumber == "LP654321"){
+        response.redirect("/v2/auth-code")
+    } 
+    else {
+        response.redirect("/v2/idv-filter")
+    }
+  })
 
 
 

@@ -109,7 +109,7 @@ router.post('/lp-add-another', function(request, response) {
    else if (addAnotherLP == "addEntityLP"){
         response.redirect("/v2/lp-legal-entity")
     } 
-    else if (lpNumber == "123"){
+    else if (lpNumber.startsWith("SL") || lpNumber.startsWith("SG")) {
         response.redirect("/v2/psc-idv")
     } 
     else {

@@ -1,0 +1,36 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Add general partner information" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+
+
+      
+      <h1 class="govuk-heading-xl">You are not eligible to use this service</h1>
+
+     <p class="govuk-body">You must be a registered ACSP to use this service</p>
+
+
+      
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

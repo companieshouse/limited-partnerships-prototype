@@ -19,11 +19,10 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
-       <form class="form" action="confirmation-page" method="post">
 
       <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
 
-      <h2 class="govuk-heading-m">Personal details</h2>
+      <!--<h2 class="govuk-heading-m">Personal details</h2>-->
 
       {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
@@ -116,7 +115,7 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">Application details</h2>
+     <!-- <h2 class="govuk-heading-m">Application details</h2>
 
       {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
@@ -190,21 +189,21 @@
             }
           }
         ]
-      }) }}
+      }) }}-->
 
-      <h2 class="govuk-heading-m">Now send your application</h2>
+     <!-- <h2 class="govuk-heading-m">Now send your application</h2>
 
-      <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+      <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p
 
       <form action="/form-handler" method="post" novalidate>
 
-        <input type="hidden" name="answers-checked" value="true">
+        <input type="hidden" name="answers-checked" value="true">-->
 
         {{ govukButton({
-          text: "Accept and send"
+          text: "Continue to payment",
+          href: "payment-review"
         }) }}
 
-      </form>
 
     </div>
   </div>

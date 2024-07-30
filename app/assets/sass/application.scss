@@ -26,4 +26,40 @@ ul#navigation {
   }
 
 
+  //Payment
+
+.payment-summary {
+  border-top: 2px solid #005ea5;
+  padding: 15px;
+  background-color: #f8f8f8;
+}
+
+.sticky {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0;
+}
+
+.card-images {
+  position: relative;
+
+  img {
+    height: 35px;
+  }
+
+  .original-accepted {
+    margin: 10px 0 0;
+    max-width: 340px;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+img.card-image {
+  margin: -5px 0 0 8px;
+  max-height: 38px;
+  padding-top: 2px;
+  vertical-align: middle;
+}
+
   

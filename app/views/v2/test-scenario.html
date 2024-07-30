@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Test scenario" %}
+{% set pageName="Test instructions" %}
 
 {% block beforeContent %}
   {% include "includes/phase-banner.html" %}
@@ -12,14 +12,14 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="start" method="post">
 
 
 <h1 class="govuk-heading-xl">Testing instructions</h1>
 
-{{ govukInsetText({
-  text: "Different screens or parts of screens are shown, depending on values you enter into the prototype"
-}) }}
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
+      <li>Different screens or parts of screens are shown, depending on values you enter into the prototype.</li>
+      <li>Use the <a href="/manage-prototype/clear-data">Clear data</a> link in the footer to start a fresh journey.</li>
+    </ul>
 
 
 
@@ -27,22 +27,56 @@
 
   <p>On the <a href="sign-in">Sign in screen</a>, enter the email address <span class="govuk-!-font-weight-bold">someone@test.com</span>  to see <a href="not-eligible">the screen shown to ineligible users (non-ASCPs)</a>.</p>
 
+  <p><span id="cp-email" class="govuk-visually-hidden">someone@test.com</span> <button id="cp-btn" class="govuk-button govuk-button--secondary">Copy email address</button></p>
+
 
   <h2 class="govuk-heading-m">What is the limited partnership number?</h2>
 
   <p>On the <a href="company-number">What is the limited partnership number?</a> screen, entering different numbers will result in different journeys:</p>
-   <ul class="govuk-list govuk-list--bullet">
-        <li><span class="govuk-!-font-weight-bold">LP654321</span> will result in the post-transition journey <span class="govuk-!-font-size-16">more detail to be added<span></li>
-         <li>Any value starting with <span class="govuk-!-font-weight-bold">SL</span> will show any screens (or parts of screens) specific to Scottish LPs <span class="govuk-!-font-size-16">more detail to be added<span></li>
-          <li>Any value starting with <span class="govuk-!-font-weight-bold">SG</span> will show any screens (or parts of screens) specific to Scottish Qualifying Partnership <span class="govuk-!-font-size-16">more detail to be added<span></li>
-              <li>Any value starting with <span class="govuk-!-font-weight-bold">NL</span> will show any screens (or parts of screens) specific to Northern Irish LPs <span class="govuk-!-font-size-16">more detail to be added<span></li>
-      </ul>
+  <p><span class="govuk-!-font-weight-bold">LP654321</span> will result in the post-transition journey <span class="govuk-!-font-size-16">more detail to be added<span></p>
+
+    <p><span id="cp-lp" class="govuk-visually-hidden">LP654321</span> <button id="cp-btn-2" class="govuk-button govuk-button--secondary">Copy LP number</button></p>
+
+  <p>Any value starting with <span class="govuk-!-font-weight-bold">SL</span> will show any screens (or parts of screens) specific to Scottish LPs <span class="govuk-!-font-size-16">more detail to be added<span></p>
+
+  <p>Any value starting with <span class="govuk-!-font-weight-bold">SG</span> will show any screens (or parts of screens) specific to Scottish Qualifying Partnership <span class="govuk-!-font-size-16">more detail to be added<span></p>
+
+  <p>Any value starting with <span class="govuk-!-font-weight-bold">NL</span> will show any screens (or parts of screens) specific to Northern Irish LPs <span class="govuk-!-font-size-16">more detail to be added<span></p>
 
 
 
-</form>
+
+
 
   </div>
 </div>
+
+<script type="text/javascript">
+document.getElementById("cp-btn").addEventListener("click", copy_password);
+
+function copy_password() {
+    var copyText = document.getElementById("cp-email");
+    var textArea = document.createElement("textarea");
+    textArea.value = copyText.textContent;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("Copy");
+    textArea.remove();
+}
+</script>
+
+<script type="text/javascript">
+document.getElementById("cp-btn-2").addEventListener("click", copy_password);
+
+function copy_password() {
+    var copyText = document.getElementById("cp-lp");
+    var textArea = document.createElement("textarea");
+    textArea.value = copyText.textContent;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("Copy");
+    textArea.remove();
+}
+</script>
 
 {% endblock %}

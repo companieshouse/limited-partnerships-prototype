@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Confirm all the identity verification statements" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="limited-partner-section" method="post">
+
+
+
+      <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+    
+
+              {{ govukCheckboxes({
+                name: "idvConfirm",
+                fieldset: {
+                  legend: {
+                    text: "Confirm all the identity verification statements",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                  }
+                },
+
+                items: [
+                     {
+                    value: "lisa",
+                    text: "I confirm that Lisa Limited Partner has verified their identity."
+                  },
+                         {
+                    value: "ryan",
+                    text: "I confirm that Ryan Registered Officer has verified their identity."
+                  },
+                  {
+                    value: "gpRyan",
+                    text: "General Partner Co has confirmed that Ryan Registered Officer is the registered officer of this entity."
+                  },
+                  {
+                    value: "ryanGp",
+                    text: "Ryan Registered Officer has confirmed that they are a registered officer of General Partner Co."
+                  }
+                ]
+              }) }}
+
+
+
+
+      
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

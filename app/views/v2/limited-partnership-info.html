@@ -1135,6 +1135,34 @@
 
 
 
+{{ govukRadios({
+  name: "jurisdiction",
+  fieldset: {
+    legend: {
+      text: "Jurisdiction",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+    hint: {
+    text: "Some info"
+  },
+  items: [
+    {
+      value: "england-wales",
+      text: "England and Wales"
+    },
+    {
+      value: "scotland",
+      text: "Scotland"
+    },
+    {
+      value: "northern-ireland",
+      text: "Northern Ireland"
+    }
+  ]
+}) }}
+
 
 <div class="govuk-form-group">
   <label class="govuk-label govuk-label--m" for="businessPlace">

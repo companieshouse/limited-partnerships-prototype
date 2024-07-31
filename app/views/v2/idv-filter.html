@@ -22,7 +22,6 @@
       <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
 
 
-<h1 class="govuk-heading-xl">Identity verification for general partners</h1>
 
 {# 
 {% if data['lpNumber'].startsWith("SL") %}
@@ -40,18 +39,49 @@
  #}
 
 
-<p>Before you can file an update for a limited partnership (LP), its general partners need to <a href="">verify their identity for Companies House (opens in a new tab)</a>.</p>
+{% if data['lpNumber'].startsWith("SL") %}
 
-<p>If a general partner is a legal entity, the registered officer for the entity needs to verify their identity.</p>
-
-<p class="govuk-!-margin-bottom-8">When they've verified, we'll give them a Companies House personal code, which they will need to share with you.</p>
-
-
-
-
-
+<h1 class="govuk-heading-xl">Identity verification for general partners and PSCs</h1>
+  <p>Before you can file an update for a limited partnership (LP), its general partners and people with significant control (PSCs) need to <a href="javascript:void(0)">verify their identity for Companies House (opens in a new tab)</a>.</p>
+  <p>If a general partner is a legal entity, the registered officer for the entity needs to verify their identity.</p>
+<p>When they've verified, we'll give them a Companies House personal code, which they will need to share with you.</p>
 
 {{ govukRadios({
+    classes: "govuk-radios--inline",
+  name: "idvCodes",
+  value: data['idvCodes'],
+  fieldset: {
+    legend: {
+      text: "Do you have a Companies House personal code for all general partners and PSCs?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+    hint: {
+    text: "This includes the registered officers for general partners that are legal entities."
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+{% else %}
+
+
+<h1 class="govuk-heading-xl">Identity verification for general partners</h1>
+<p>Before you can file an update for a limited partnership (LP), its general partners need to <a href="javascript:void(0)">verify their identity for Companies House (opens in a new tab)</a>.</p>
+<p>If a general partner is a legal entity, the registered officer for the entity needs to verify their identity.</p>
+<p>When they've verified, we'll give them a Companies House personal code, which they will need to share with you.</p>
+
+{{ govukRadios({
+    classes: "govuk-radios--inline",
   name: "idvCodes",
   value: data['idvCodes'],
   fieldset: {
@@ -75,6 +105,9 @@
     }
   ]
 }) }}
+
+{% endif %}
+
       
 {{ govukButton({
   text: "Continue"

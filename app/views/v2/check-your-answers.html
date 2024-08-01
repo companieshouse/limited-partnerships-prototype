@@ -22,17 +22,17 @@
 
       <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
 
-      <!--<h2 class="govuk-heading-m">Personal details</h2>-->
+      <h2 class="govuk-heading-m">Limited partnership information</h2>
 
       {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
         rows: [
           {
             key: {
-              text: "Name"
+              text: "Label"
             },
             value: {
-              text: "Sarah Philips"
+              text: "Answer"
             },
             actions: {
               items: [
@@ -46,10 +46,10 @@
           },
           {
             key: {
-              text: "Date of birth"
+              text: "Label"
             },
             value: {
-              text: "5 January 1978"
+              text: "Answer"
             },
             actions: {
               items: [
@@ -63,10 +63,10 @@
           },
           {
             key: {
-              text: "Customer reference"
+              text: "Label"
             },
             value: {
-              text: "Not provided"
+              text: "Answer"
             },
             actions: {
               items: [
@@ -77,37 +77,62 @@
                 }
               ]
             }
-          },
+          }
+        ]
+      }) }}
+
+    <h2 class="govuk-heading-m">General partners</h2>
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
           {
             key: {
-              text: "Address"
+              text: "Label"
             },
             value: {
-              html: "72 Guild Street<br>London<br>SE23 6FH"
+              text: "Answer"
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "address"
+                  visuallyHiddenText: "name"
                 }
               ]
             }
           },
           {
             key: {
-              text: "Contact details"
+              text: "Label"
             },
             value: {
-              html: '<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>'
+              text: "Answer"
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "contact details"
+                  visuallyHiddenText: "date of birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Label"
+            },
+            value: {
+              text: "Answer"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "customer reference"
                 }
               ]
             }
@@ -115,89 +140,69 @@
         ]
       }) }}
 
-     <!-- <h2 class="govuk-heading-m">Application details</h2>
-
-      {{ govukSummaryList({
+    <h3 class="govuk-heading-m">Limited partners</h3>
+    {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
         rows: [
           {
             key: {
-              text: "Previous application number"
+              text: "Label"
             },
             value: {
-              text: "502135326"
+              text: "Answer"
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "previous application number"
+                  visuallyHiddenText: "name"
                 }
               ]
             }
           },
           {
             key: {
-              text: "Licence type"
+              text: "Label"
             },
             value: {
-              text: "For personal use"
+              text: "Answer"
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "licence type"
+                  visuallyHiddenText: "date of birth"
                 }
               ]
             }
           },
           {
             key: {
-              text: "Home address"
+              text: "Label"
             },
             value: {
-              html: "72 Guild Street<br>London<br>SE23 6FH"
+              text: "Answer"
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "home address"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Licence period"
-            },
-            value: {
-              text: "Valid for 6 months"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "licence period"
+                  visuallyHiddenText: "customer reference"
                 }
               ]
             }
           }
         ]
-      }) }}-->
-
-     <!-- <h2 class="govuk-heading-m">Now send your application</h2>
+      }) }}
 
       <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p
 
       <form action="/form-handler" method="post" novalidate>
 
-        <input type="hidden" name="answers-checked" value="true">-->
+        <input type="hidden" name="answers-checked" value="true">
 
         {{ govukButton({
           text: "Continue to payment",

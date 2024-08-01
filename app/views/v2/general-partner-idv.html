@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="PSC identity verification" %}
+{% set pageName="General partner identity verification" %}
 
 {% block beforeContent %}
   {% include "/includes/user-bar.html" %}
@@ -22,7 +22,7 @@
       <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
 
 
-<h1 class="govuk-heading-xl">Provide identity verification details for people with significant control (PSCs)</h1>
+<h1 class="govuk-heading-xl">Provide identity verification details for general partners</h1>
 <div class="govuk-!-padding-bottom-0"></div>
 <!-- can't work out this weird spacing -->
 <p class="govuk-body">Some info</p>
@@ -33,16 +33,8 @@
 }) }}
 
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m">Name</h2>
-        <p class="govuk-body">Jane DOE</p>
-      </div>
-      <div class="govuk-grid-column-one-third">
-        <h2 class="govuk-heading-m">Date of birth</h2>
-        <p class="govuk-body">February 1980</p>
-      </div>
-    </div>
+        <h2 class="govuk-heading-m">Lisa Limited Partner</h2>
+ 
 
 
 {{ govukInput({
@@ -54,7 +46,7 @@
   name: "oneHalf"
 }) }}
 {{ govukCheckboxes({
-  name: "confirm",
+  name: "lisaConfirm",
   fieldset: {
     legend: {
       text: "",
@@ -64,8 +56,8 @@
   },
   items: [
     {
-      value: "confirm",
-      text: "I can confirm that Jane DOE has verified their identity"
+      value: "lisa",
+      text: "I can confirm that Lisa Limited Partner has verified their identity"
     }
   ]
 }) }}
@@ -76,16 +68,7 @@
 
 
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m">Name</h2>
-        <p class="govuk-body">John Smith</p>
-      </div>
-      <div class="govuk-grid-column-one-third">
-        <h2 class="govuk-heading-m">Date of birth</h2>
-        <p class="govuk-body">December 1970</p>
-      </div>
-    </div>
+        <h2 class="govuk-heading-m">Ryan Registered Officer</h2>
 
 
 {{ govukInput({
@@ -96,22 +79,32 @@
   id: "one-half",
   name: "oneHalf"
 }) }}
-{{ govukCheckboxes({
-  name: "confirm",
-  fieldset: {
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  items: [
-    {
-      value: "confirm",
-      text: "I can confirm that Jane DOE has verified their identity"
-    }
-  ]
-}) }}
+          {{ govukCheckboxes({
+                name: "ryanConfirm",
+                fieldset: {
+                  legend: {
+                    text: "Confirm all the identity verification statements",
+                    isPageHeading: true,
+                    classes: "govuk-visually-hidden"
+                  }
+                },
+
+                items: [
+                  {
+                    value: "ryan",
+                    text: "I confirm that Ryan Registered Officer has verified their identity."
+                  },
+                  {
+                    value: "gpRyan",
+                    text: "General Partner Co has confirmed that Ryan Registered Officer is the registered officer of this entity."
+                  },
+                  {
+                    value: "ryanGp",
+                    text: "Ryan Registered Officer has confirmed that they are a registered officer of General Partner Co."
+                  }
+                ]
+              }) }}
+              
 {{ govukButton({
   text: "Submit",
   classes: "govuk-button--secondary"

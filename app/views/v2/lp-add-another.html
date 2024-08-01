@@ -22,6 +22,59 @@
 
 
 
+      <h2 class="govuk-heading-m govuk-!-margin-top-6">Limited partners you have added so far:</h2>
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Person"
+            },
+            value: {
+              text: "Lisa Limited Partner"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Lisa Limited Partner"
+                },
+                  {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "Lisa Limited Partner"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Legal Entity"
+            },
+            value: {
+              text: "ACME Legal Entity Inc"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "ACME Legal Entity Inc"
+                },
+                 {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "ACME Legal Entity Inc"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
 {{ govukRadios({
   name: "addAnotherLP",
   fieldset: {

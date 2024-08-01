@@ -21,6 +21,58 @@
 
       <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
 
+       <h2 class="govuk-heading-m govuk-!-margin-top-6">General partners you have added so far:</h2>
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Person"
+            },
+            value: {
+              text: "Georgina Limited Partner"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Limited Partner"
+                },
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "Georgina Limited Partner"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Legal Entity"
+            },
+            value: {
+              text: "Ryan Registered Officer"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Ryan Registered Officer"
+                },
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "Ryan Registered Officer"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
 
 
 {{ govukRadios({

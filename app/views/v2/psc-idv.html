@@ -27,10 +27,16 @@
 <!-- can't work out this weird spacing -->
 <p class="govuk-body">Some info</p>
 
-{{ govukDetails({
-  summaryText: "Where to find the Companies House personal code",
-  text: "Text"
-}) }}
+ <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Where to find the Companies House personal code
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    This is an 11 character code that is given to a person once they have verified their identity. If any general partner has not verified their identity and received a code, they need to do this before you can file this confirmation statement.
+  </div>
+</details>
 
 
     <div class="govuk-grid-row">

@@ -18,7 +18,7 @@
    
 
 <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
-<h1 class="govuk-heading-xl">Limited partnership information</h1>
+<h1 class="govuk-heading-xl">Tell us about the limited partnership</h1>
       
       
       
@@ -34,7 +34,7 @@
 <!--- see very bottom of page, this content gets replaced when user clicks the link - so any changes made here might also need to be made below ***THIS CODE IS NOT FOR PRODUCTION***-->
 <div id="sic">
   <div class="govuk-form-group"> 
-    <p id="sic-code" class="govuk-hint">You can add up to 4. 
+    <p id="sic-code" class="govuk-hint">You should use the SIC code that best describes the partnership’s nature of business, it does not have to be an exact match. You can add up to 4 codes.
     <a href="https://resources.companieshouse.gov.uk/sic/" class="govuk-link" rel="noreferrer noopener" target="_blank">Find your SIC code using our look up tool (link opens in a new tab)</a>.
   </p>
     <input class="govuk-input govuk-!-width-one-half" id="sicCode" name="sicCode" type="text" aria-describedby="sic-code-hint"> 
@@ -56,14 +56,21 @@
     isPageHeading: true
   },
   hint: {
-    text: "Hint text"
+    text: "This needs to be an email address that Companies House can use to contact the partnership."
   },
   id: "registered-email",
   name: "registeredEmail"
 }) }}
 
+{{ govukDetails({
+  summaryText: "If the email address is for someone acting on behalf of the partnership",
+  html: "<p>You must have agreement from the members of the limited partnership.</p>
+  <p>If you provide an email address for someone who is not a member of the partnership without agreement, we could suspend or stop your business from acting as an authorised agent. </p>"
+}) }}
+
 
 <h2 class="govuk-heading-m">Registered office address</h2>
+    <p class="govuk-hint">This must be a physical UK address. For example, you cannot use a PO Box address.</p>
 <div class="govuk-form-group">
 
 <div class="govuk-form-group">
@@ -1145,8 +1152,8 @@
     }
   },
     hint: {
-    text: "Some info"
-  },
+    text: "Where the partnership was formed."
+  }, 
   items: [
     {
       value: "england-wales",
@@ -1168,9 +1175,9 @@
   <label class="govuk-label govuk-label--m" for="businessPlace">
     Principal place of business
   </label>
-<div id="businessPlace-hint" class="govuk-hint">
-    Hint text
-  </div>
+<!--<div id="businessPlace-hint" class="govuk-hint">
+    Where the partnership carries out its activities.
+  </div> -->
 
   <select class="govuk-select" id="country" name="country">
   
@@ -2247,26 +2254,26 @@
     }
   },
   hint: {
-    text: "The term, if any, for which the limited partnership is to be entered into"
+    text: "The length of time, if any, for which the limited partnership is to be entered into."
   },
   items: [
     {
       value: "specific",
-      text: "A specific term (in years)",
+      text: "A set term (in years)",
       conditional: {
               html: specificReveal
             }
     },
     {
       value: "ending",
-      text: "Ending on a specific date",
+      text: "Ending on a set date",
       conditional: {
               html: endingReveal
             }
     },
     {
       value: "unspecified",
-      text: "Unspecified term, at the discretion of general partner"
+      text: "No set term, at the discretion of general partner"
     }
   ]
 }) }}
@@ -2277,7 +2284,7 @@
 
 {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>
-                <p>Some info</p>"
+                <p>To be confirmed.</p>"
         }) }}
 
       

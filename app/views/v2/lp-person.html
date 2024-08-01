@@ -2131,6 +2131,24 @@
   </select>
 </div>
 
+{{ govukInput({
+  id: "amount-contributed-person",
+  name: "amount-contributed-person",
+  label: {
+    text: "What is the amount contributed?",
+    classes: "govuk-label--m",
+    isPageHeading: true
+  },
+  prefix: {
+    text: "£"
+  },
+  classes: "govuk-input--width-5",
+  spellcheck: false
+}) }}
+
+
+
+
  {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>
                 <p>Some info</p>"

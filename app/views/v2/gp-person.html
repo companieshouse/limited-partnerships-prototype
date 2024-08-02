@@ -37,9 +37,7 @@
     classes: "govuk-label--m",
     isPageHeading: true
   },
-  hint: {
-    text: "Enter the limited partner's full first name"
-  },
+
   id: "lp-name",
   name: "lpName",
   classes: "govuk-!-width-one-half"
@@ -51,9 +49,7 @@
     classes: "govuk-label--m",
     isPageHeading: true
   },
-  hint: {
-    text: "Enter the limited partner's full middle name or names"
-  },
+
   id: "lp-name",
   name: "lpName",
   classes: "govuk-!-width-one-half"
@@ -95,9 +91,7 @@
       classes: "govuk-fieldset__legend--m"
     }
   },
-  hint: {
-    text: "Hint text."
-  },
+
   items: [
     {
       value: "yes",
@@ -124,7 +118,7 @@
     }
   },
   hint: {
-    text: "For example, 27 3 2007"
+    text: "For example, 27 3 2000"
   }
 }) }}
 
@@ -133,11 +127,7 @@
     What is their nationality?
   </label>
 
-  
-  
-  <div id="nationality-hint" class="govuk-hint">
-    Hint text
-  </div>
+ 
 
   <select class="govuk-select" id="nationality" name="nationality" aria-describedby="nationality-hint">
   
@@ -2138,6 +2128,12 @@
   </h3>
 
   
+
+
+
+  <input class="govuk-input govuk-input govuk-!-width-one-half" id="gp-personal-code" name="gp-personal-code" type="text" aria-describedby="gp-personal-code-hint">
+
+</div>
  <details class="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
@@ -2150,16 +2146,10 @@
 </details>
 
 
-  <input class="govuk-input govuk-input govuk-!-width-one-half" id="gp-personal-code" name="gp-personal-code" type="text" aria-describedby="gp-personal-code-hint">
-
-</div>
-
-
-
 
  {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>
-                <p>Some info</p>"
+                <p>To be confirmed</p>"
         }) }}
 
 

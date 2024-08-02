@@ -20,7 +20,9 @@
 
 
       <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+              <h1 class="govuk-heading-xl">General partners</h1>
 
+<!--
        <h2 class="govuk-heading-m govuk-!-margin-top-6">General partners you have added so far:</h2>
 
       {{ govukSummaryList({
@@ -71,8 +73,60 @@
             }
           }
         ]
-      }) }}
+      }) }} -->
 
+
+        {{ govukTable({
+          caption: 'What you have added so far' | safe,
+          captionClasses: "govuk-table__caption--m",
+          classes: "govuk-!-margin-bottom-8",
+          firstCellIsHeader: true,
+          head: [
+          {
+            text: "Name",
+            classes: "govuk-visually-hidden"
+          },
+          {
+            text: "Type",
+            classes: "govuk-visually-hidden"
+          },
+            {
+              text: "Change or remove",
+              classes: "govuk-visually-hidden"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Georgina Limited Partner"
+              },
+              {
+                text: "Person"
+              },
+              {
+                html: '<a href="/register/beneficial-owner-individual-completed">Change<span class="govuk-visually-hidden">Georgina Limited Partner</span></a>'
+              },
+             {
+                html: '<a href="/register/beneficial-owner-individual-completed">Remove <span class="govuk-visually-hidden">Georgina Limited Partner</span></a>'
+              }
+             ],
+
+            [
+              {
+                text: "Ryan Registered Officer"
+              },
+              {
+                text: "Legal entity"
+              },
+              {
+                html: '<a href="/register/beneficial-owner-individual-completed">Change<span class="govuk-visually-hidden">Ryan Registered Officer</span></a>'
+              },
+             {
+                html: '<a href="/register/beneficial-owner-individual-completed">Remove <span class="govuk-visually-hidden">Ryan Registered Officer</span></a>'
+              }
+             ]
+          ]
+        }) }}
 
 
 {{ govukRadios({
@@ -80,13 +134,11 @@
   fieldset: {
     legend: {
       text: "Do you need to add another general partner?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--xl"
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
     }
   },
-  hint: {
-    text: "Hint text."
-  },
+
   items: [
     {
       value: "addPersonGP",

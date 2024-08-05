@@ -67,16 +67,67 @@
     }
   ]
 }) }}
-{{ govukButton({
-  text: "Submit",
-  classes: "govuk-button--secondary"
-}) }}
+
+
+
+
+
+<div class="govuk-inset-text" id="name-mismatch-warning" style="display:none;">
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Why is the name you've provided different to the director's verified name?
+      </h1>
+    </legend>
+    <p>
+      This general partner’s verified name does not match the name you’ve provided. Either <a href="gp-person" class="govuk-link">change the name provided in this filing</a> or, if possible, tell us why the names do not match. We may contact you if we need more information
+    </p>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="changedName">
+          Legally changed name (for example, marriage or divorce)
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="changedName-2">
+          Preferred name
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changedName-3" name="changedName" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="changedName-3">
+          Translation or a different naming convention
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changedName-4" name="changedName" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="changedName-4">
+          Prefer not to say
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+</div>
+
+
+
+
+
+<a href="javascript:void(0)" class="govuk-button govuk-button--secondary" data-module="govuk-button" onclick="ShowDiv()">
+  Submit <span class="govuk-visually-hidden">personal code for Georgina General Partner</span>
+</a>
+
 
 
 
         <h2 class="govuk-heading-m">Ryan Registered Officer</h2>
 
-
+<div id="name-match">
 {{ govukInput({
   label: {
     text: "What is their Companies House personal code?"
@@ -110,12 +161,21 @@
                   }
                 ]
               }) }}
-              
-{{ govukButton({
+</div>
+
+
+
+
+<a href="javascript:void(0)" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="name-match-link" >
+  Submit <span class="govuk-visually-hidden">personal code for Ryan Registered Officer</span>
+</a>
+
+
+{# {{ govukButton({
   text: "Submit",
   classes: "govuk-button--secondary"
 }) }}
-<br>
+<br> #}
 
 {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>
@@ -130,4 +190,48 @@
 </form>
     </div>
   </div>
+
+<script type="text/javascript">
+function ShowDiv() {
+    document.getElementById("name-mismatch-warning").style.display = "";
+    
+}
+</script>
+
+<script type="text/javascript">
+document.getElementById('name-match-link').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default action of the link
+
+    // The new HTML to replace the content of the <div id="sic">
+    const newContent = `
+      <ul class="govuk-list">
+  <li class="govuk-!-margin-bottom-4"> <strong class="govuk-tag govuk-tag--green">
+          Accepted
+        </strong> <span class="govuk-!-font-weight-bold">
+X77-R2D2-C3PQ</span> 
+</li>
+<li class="govuk-!-margin-bottom-4"><strong class="govuk-tag govuk-tag--green">
+          Accepted
+        </strong> 
+I confirm that Ryan Registered Officer has verified their identity.
+</li>
+<li class="govuk-!-margin-bottom-4"><strong class="govuk-tag govuk-tag--green">
+          Accepted
+        </strong>
+General Partner Co has confirmed that Ryan Registered Officer is the registered officer of this entity.
+</li>
+<li class="govuk-!-margin-bottom-4"><strong class="govuk-tag govuk-tag--green">
+          Accepted
+        </strong>
+Ryan Registered Officer has confirmed that they are a registered officer of General Partner Co.
+</li>
+</ul>
+    `;
+
+    // Find the <div id="sic"> and replace its content
+    document.getElementById('name-match').innerHTML = newContent;
+});
+</script>
+
+
 {% endblock %}

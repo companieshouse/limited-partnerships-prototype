@@ -22,8 +22,11 @@
       <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
               <h1 class="govuk-heading-xl">General partners</h1>
 
-<!--
-       <h2 class="govuk-heading-m govuk-!-margin-top-6">General partners you have added so far:</h2>
+    </div>
+    </div>
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+       <h2 class="govuk-heading-m">General partners you have added so far:</h2>
 
       {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
@@ -73,10 +76,11 @@
             }
           }
         ]
-      }) }} -->
+      }) }} 
+</div>
+</div>
 
-
-        {{ govukTable({
+  <!--      {{ govukTable({
           caption: 'What you have added so far' | safe,
           captionClasses: "govuk-table__caption--m",
           classes: "govuk-!-margin-bottom-8",
@@ -126,9 +130,10 @@
               }
              ]
           ]
-        }) }}
+        }) }} -->
 
-
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
 {{ govukRadios({
   name: "addAnotherGP",
   fieldset: {

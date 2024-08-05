@@ -76,9 +76,9 @@
   <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-      <h2 class="govuk-fieldset__heading">
+      <h1 class="govuk-fieldset__heading">
         Why is the name you've provided different to the director's verified name?
-      </h2>
+      </h1>
     </legend>
     <p>
       This general partner’s verified name does not match the name you’ve provided. Either <a href="gp-person" class="govuk-link">change the name provided in this filing</a> or, if possible, tell us why the names do not match. We may contact you if we need more information
@@ -117,10 +117,16 @@
 
 
 
-
-<a href="javascript:void(0)" class="govuk-button govuk-button--secondary" data-module="govuk-button" onclick="ShowDiv()">
-  Submit <span class="govuk-visually-hidden">personal code for Georgina General Partner</span>
-</a>
+      <!-- This is (hopefully obviously) NOT production code -->
+   <div id="one-container">
+        <div id="one-div" class="hidden-div">
+          <p class="govuk-paragraph govuk-!-font-weight-bold ch-idv-accepted">
+          Companies House personal code and statements accepted
+          </p>
+        </div>
+        <button id="one" class="govuk-button govuk-button--secondary" data-module="govuk-button" type="button" onclick="removeItem(); return false;">  Submit <span class="govuk-visually-hidden">personal code for Georgina General Partner</span>
+        </button>
+      </div>
 
 
 
@@ -163,15 +169,61 @@
               }) }}
 </div>
 
-<!--
-<p class="govuk-paragraph govuk-!-font-weight-bold ch-idv-accepted">
-Companies House personal code and statements accepted
-  </p>-->
 
 
-<a href="javascript:void(0)" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="name-match-link" >
-  Submit <span class="govuk-visually-hidden">personal code for Ryan Registered Officer</span>
-</a>
+
+   
+         <!-- This is (hopefully obviously) NOT production code -->
+
+    <div id="two-container">
+        <div id="two-div" class="hidden-div govuk-form-group govuk-inset-text">
+
+         
+              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  <h2 class="govuk-fieldset__heading">
+                    Why is the name you've provided different to the  general partner’s verified name?
+                  </h2>
+                </legend>
+                <p>
+                  This general partner’s verified name does not match the name you’ve provided. Either <a href="gp-legal-entity#gp-legal-registered-officer-1" class="govuk-link">change the name provided in this filing</a> or, if possible, tell us why the names do not match. We may contact you if we need more information
+                </p>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="changedName">
+                      Legally changed name (for example, marriage or divorce)
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                      Preferred name
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="changedName-3" name="changedName" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="changedName-3">
+                      Translation or a different naming convention
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="changedName-4" name="changedName" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="changedName-4">
+                      Prefer not to say
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+   
+
+        <button id="two" class="govuk-button govuk-button--secondary" data-module="govuk-button" type="button" onclick="removeItem(); return false;"> Submit <span class="govuk-visually-hidden">personal code for Ryan Registered Officer</span></button>
+
+    </div>
+
+
 
 
 {# {{ govukButton({
@@ -193,47 +245,18 @@ Companies House personal code and statements accepted
 </form>
     </div>
   </div>
+      <!-- This is (hopefully obviously) NOT production code -->
 
 <script type="text/javascript">
-function ShowDiv() {
-    document.getElementById("name-mismatch-warning").style.display = "";
-    
-}
-</script>
+        document.getElementById('one').addEventListener('click', function() {
+            const divOne = document.getElementById('one-div');
+            divOne.style.display = 'block';
+        });
 
-<script type="text/javascript">
-document.getElementById('name-match-link').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default action of the link
-
-    // The new HTML to replace the content of the <div id="sic">
-    const newContent = `
-      <ul class="govuk-list">
-  <li class="govuk-!-margin-bottom-4"> <strong class="govuk-tag govuk-tag--green">
-          Accepted
-        </strong> <span class="govuk-!-font-weight-bold">
-X77-R2D2-C3PQ</span> 
-</li>
-<li class="govuk-!-margin-bottom-4"><strong class="govuk-tag govuk-tag--green">
-          Accepted
-        </strong> 
-I confirm that Ryan Registered Officer has verified their identity.
-</li>
-<li class="govuk-!-margin-bottom-4"><strong class="govuk-tag govuk-tag--green">
-          Accepted
-        </strong>
-General Partner Co has confirmed that Ryan Registered Officer is the registered officer of this entity.
-</li>
-<li class="govuk-!-margin-bottom-4"><strong class="govuk-tag govuk-tag--green">
-          Accepted
-        </strong>
-Ryan Registered Officer has confirmed that they are a registered officer of General Partner Co.
-</li>
-</ul>
-    `;
-
-    // Find the <div id="sic"> and replace its content
-    document.getElementById('name-match').innerHTML = newContent;
-});
+        document.getElementById('two').addEventListener('click', function() {
+            const divTwo = document.getElementById('two-div');
+            divTwo.style.display = 'block';
+        });
 </script>
 
 

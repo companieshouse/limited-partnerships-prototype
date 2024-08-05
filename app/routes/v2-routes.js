@@ -82,7 +82,7 @@ router.post('/gp-add-another', function(request, response) {
         response.redirect("/v2/gp-legal-entity")
     } 
     else {
-        response.redirect("/v2/limited-partner-section")
+        response.redirect("/v2/general-partner-idv")
     }
 })
 

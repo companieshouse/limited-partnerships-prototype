@@ -28,9 +28,7 @@
     classes: "govuk-label--m",
     isPageHeading: true
   },
-  hint: {
-    text: "Hint text."
-  },
+
   id: "entity-name",
   name: "entityName"
 }) }}
@@ -42,7 +40,7 @@
     isPageHeading: true
   },
   hint: {
-    text: "This is the law that the entity operates under"
+    text: "This is the law that the entity operates under."
   },
   id: "governing-law",
   name: "governing-law"
@@ -55,7 +53,7 @@
     isPageHeading: true
   },
   hint: {
-    text: "For example, limited company"
+    text: "For example, limited company."
   },
   id: "legal-form",
   name: "legalForm"
@@ -70,9 +68,7 @@
       Principal office address
     </label>
   </h2>
-  <div id="entityAddress-hint" class="govuk-hint">
-    Hint text
-  </div>
+
 
 <div class="govuk-form-group">
   <label class="govuk-label" for="entityAddress">
@@ -118,7 +114,7 @@
  
  
  <div class="govuk-form-group">
-  <label class="govuk-label govuk-body" for="country">
+  <label class="govuk-label" for="country">
     Country
   </label>
 
@@ -2229,13 +2225,13 @@
   name: "serviceAddress",
   fieldset: {
     legend: {
-      text: "What is the general partner's service address?",
+      text: "What is the general partner's correspondence address?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--m"
     }
   },
   hint: {
-    text: "Hint text."
+    text: "This is also known as the service address."
   },
   items: [
     {
@@ -2254,7 +2250,7 @@
 
 
 <h2 class="govuk-heading-l govuk-!-margin-bottom-2" id="gp-legal-registered-officer-1">Registered officer information</h2>
-<p class="govuk-hint govuk-!-margin-bottom-7">Some info.</p>
+<p class="govuk-hint govuk-!-margin-bottom-7">This can be a director of the entity, or someone whose roles and responsibilities correspond to that of a company director.</p>
 {#  
  <div class="govuk-form-group govuk-input--width-30">
           <label for="autocomplete-default" class="govuk-label">Professional or honorary title (if relevant)</label>
@@ -2269,9 +2265,7 @@
     text: "First name",
     classes: "govuk-label--m"
   },
-  hint: {
-    text: "Enter the limited partner's full first name"
-  },
+
   id: "lp-name",
   name: "lpName",
   classes: "govuk-!-width-full"
@@ -2282,9 +2276,7 @@
     text: "Middle names",
     classes: "govuk-label--m"
   },
-  hint: {
-    text: "Enter the limited partner's full middle name or names"
-  },
+
   id: "lp-name",
   name: "lpName",
   classes: "govuk-!-width-full"
@@ -2327,9 +2319,7 @@
       classes: "govuk-fieldset__legend--m"
     }
   },
-  hint: {
-    text: "Hint text."
-  },
+
   items: [
     {
       value: "yes",
@@ -2366,11 +2356,6 @@
     What is their nationality?
   </label>
 
-  
-  
-  <div id="nationality-hint" class="govuk-hint">
-    Hint text
-  </div>
 
   <select class="govuk-select" id="nationality" name="nationality" aria-describedby="nationality-hint">
   
@@ -4393,7 +4378,7 @@
 
  {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>
-                <p>Some info</p>"
+                <p>To be confirmed.</p>"
         }) }}
 
 

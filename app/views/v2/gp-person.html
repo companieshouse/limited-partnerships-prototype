@@ -2142,7 +2142,22 @@
   </div>
 </details> #}
 
-
+{{ govukCheckboxes({
+  name: "gp-person-disqualification-statement",
+  classes: "govuk-!-margin-top-6",
+  fieldset: {
+    legend: {
+      text: "General partner - person - disqualification statement",
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "gp-person-disqualification-statement",
+      text: "I confirm the general partner is not disqualified under the directors disqualification legislation"
+    }
+  ]
+}) }}
 
  {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>

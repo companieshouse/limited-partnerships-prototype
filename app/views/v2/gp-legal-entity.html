@@ -2223,7 +2223,6 @@
 
  {{ govukRadios({
   name: "serviceAddress",
-  values: data['serviceAddress']
   fieldset: {
     legend: {
       text: "What is the general partner's correspondence address?",
@@ -2248,6 +2247,26 @@
     }
   ]
 }) }}
+
+
+
+{{ govukCheckboxes({
+  name: "gp-legal-entity-disqualification-statement",
+  classes: "govuk-!-margin-bottom-7",
+  fieldset: {
+    legend: {
+      text: "General partner - legal entity - disqualification statement",
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "gp-legal-entity-disqualification-statement",
+      text: "I confirm the general partner is not disqualified under the directors disqualification legislation"
+    }
+  ]
+}) }}
+
 
 
 <h2 class="govuk-heading-l govuk-!-margin-bottom-2" id="gp-legal-registered-officer-1">Registered officer information</h2>
@@ -4374,6 +4393,22 @@
 </div> #}
 
 
+{{ govukCheckboxes({
+  name: "gp-legal-entity-registered-officer-statement",
+  classes: "govuk-!-margin-top-9",
+  fieldset: {
+    legend: {
+      text: "General partner - legal entity - registered officer statement",
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+       {
+      value: "gp-legal-entity-registered-officer-statement",
+      text: "I confirm the registered officer for the legal entity is not disqualified under the directors disqualification legislation"
+    }
+  ]
+}) }}
 
    
 

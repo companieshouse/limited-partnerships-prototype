@@ -443,15 +443,15 @@
         rows: [
           {
             key: {
-              text: "Label"
+              text: "Limited partner name"
             },
             value: {
-              text: "Answer"
+              text: "Lisa Limited Partner"
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "lp-person",
                   text: "Change",
                   visuallyHiddenText: "name"
                 }
@@ -460,34 +460,68 @@
           },
           {
             key: {
-              text: "Label"
+              text: "Previous name"
             },
             value: {
-              text: "Answer"
+              text: "Smith"
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "lp-person",
                   text: "Change",
-                  visuallyHiddenText: "date of birth"
+                  visuallyHiddenText: "previous name"
                 }
               ]
             }
           },
           {
             key: {
-              text: "Label"
+              text: "Nationality"
             },
             value: {
-              text: "Answer"
+              text: "French"
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "lp-person",
                   text: "Change",
-                  visuallyHiddenText: "customer reference"
+                  visuallyHiddenText: "nationality"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Usual residential address"
+            },
+            value: {
+              text: "1 Champs Elysee, Paris, 705001, France"
+            },
+            actions: {
+              items: [
+                {
+                  href: "lp-person",
+                  text: "Change",
+                  visuallyHiddenText: "usual residential address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Amount contributed"
+            },
+            value: {
+              text: "£1,000"
+            },
+            actions: {
+              items: [
+                {
+                  href: "lp-person",
+                  text: "Change",
+                  visuallyHiddenText: "amount contributed"
                 }
               ]
             }
@@ -500,15 +534,15 @@
         rows: [
           {
             key: {
-              text: "Label"
+              text: "Legal entity name"
             },
             value: {
-              text: "Answer"
+              text: "ACME Legal Entity Inc"
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "lp-legal-entity",
                   text: "Change",
                   visuallyHiddenText: "name"
                 }
@@ -517,34 +551,85 @@
           },
           {
             key: {
-              text: "Label"
+              text: "Governing law"
             },
             value: {
-              text: "Answer"
+              text: "England and Wales"
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "lp-legal-entity",
                   text: "Change",
-                  visuallyHiddenText: "date of birth"
+                  visuallyHiddenText: "governing law"
                 }
               ]
             }
           },
           {
             key: {
-              text: "Label"
+              text: "Legal form"
             },
             value: {
-              text: "Answer"
+              text: "Incorporated business"
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "lp-legal-entity",
                   text: "Change",
-                  visuallyHiddenText: "customer reference"
+                  visuallyHiddenText: "legal form"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Principal office address"
+            },
+            value: {
+              text: "1 Hyde Road, London, SW1 1LE, United Kingdom"
+            },
+            actions: {
+              items: [
+                {
+                  href: "lp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "Principal office address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Correspondence address"
+            },
+            value: {
+              text: "The same as the principal office address"
+            },
+            actions: {
+              items: [
+                {
+                  href: "lp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "correspondence address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Amount contributed"
+            },
+            value: {
+              text: "£20,000"
+            },
+            actions: {
+              items: [
+                {
+                  href: "lp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "Amount contributed"
                 }
               ]
             }
@@ -552,62 +637,7 @@
         ]
       }) }}
 
-       {{ govukSummaryList({
-        classes: "govuk-!-margin-bottom-9",
-        rows: [
-          {
-            key: {
-              text: "Label"
-            },
-            value: {
-              text: "Answer"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "name"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Label"
-            },
-            value: {
-              text: "Answer"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "date of birth"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Label"
-            },
-            value: {
-              text: "Answer"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "customer reference"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
+       
 
       <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p
 

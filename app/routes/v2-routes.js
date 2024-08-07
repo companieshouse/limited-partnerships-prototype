@@ -110,7 +110,7 @@ router.post('/lp-add-another', function(request, response) {
         response.redirect("/v2/lp-legal-entity")
     } 
     else if (lpNumber.startsWith("SL") || lpNumber.startsWith("SG")) {
-        response.redirect("/v2/psc-idv")
+        response.redirect("/v2/psc-section")
     } 
     else {
         response.redirect("/v2/check-your-answers")

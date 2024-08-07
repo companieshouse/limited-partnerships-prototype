@@ -113,7 +113,7 @@
 <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
  
  
- <div class="govuk-form-group">
+  <div class="govuk-form-group govuk-!-margin-top-6">
   <label class="govuk-label" for="country">
     Country
   </label>
@@ -1191,12 +1191,11 @@
     name: "addressPostcode",
     autocomplete: "postal-code"
   }) }}
-
+  
   <div class="govuk-form-group govuk-!-margin-top-6">
   <label class="govuk-label govuk-body" for="country">
     Country
   </label>
-
 
   <select class="govuk-select" id="country" name="country">
   
@@ -2213,9 +2212,10 @@
     
   
   </select>
-</div>
-
+  </div>
 {% endcall %}
+
+
       {% endset -%}
 <!-- not sure how I'd add country to the reveal for service address -->
 

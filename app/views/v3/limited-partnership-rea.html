@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="What is the registered email address?" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/v3/limited-partnership-roa" method="post">
+   
+
+<span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+      
+      
+      
+
+
+
+{{ govukInput({
+  label: {
+    text: "What is the registered email address?",
+    classes: "govuk-label--xl",
+    isPageHeading: true
+  },
+  hint: {
+    text: "This needs to be an email address that Companies House can use to contact the partnership."
+  },
+  id: "registered-email",
+  name: "registeredEmail"
+}) }}
+
+{{ govukDetails({
+  summaryText: "If the email address is for someone acting on behalf of the partnership",
+  html: "<p>You must have agreement from the members of the limited partnership.</p>
+  <p>If you provide an email address for someone who is not a member of the partnership without agreement, we could suspend or stop your business from acting as an authorised agent. </p>"
+}) }}
+
+
+
+{{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>
+                <p>To be confirmed.</p>"
+        }) }}
+
+      
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

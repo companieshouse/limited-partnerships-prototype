@@ -1,0 +1,160 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "JAVASCRIPT:VOID(0)"
+      },
+      {
+        text: "Section",
+        href: "JAVASCRIPT:VOID(0)"
+      },
+      {
+        text: "Subsection"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="sign-in" method="post">
+
+      <h1 class="govuk-heading-xl">
+        {{ serviceName }}
+      </h1>
+
+      <p>All limited partnerships must file an update statement by XX DATE. This is due to new measures introduced by the Economic Crime and Corporate Transparency Act 2023.</p>
+
+      <p>Use this service to provide the update statement for an existing limited partnership. This will include information that was given when the partnership was registered and new details that are now required by law.
+</p>
+
+
+      <h2 class="govuk-heading-m">Who can use this service</h2>
+
+    <p> The update must be filed by a Companies House authorised agent. This is also known as an authorised corporate service provider (ACSP).</p> 
+
+  <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What is a Companies House authorised agent? 
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>Authorised agents are businesses that are registered with a UK Anti-Money Laundering (AML) supervisory body. For example, accountants, solicitors or company formation agents.</p>
+    <p>They must register with us to be able to:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>file on behalf of clients</li>
+            <li>verify the identity of clients for Companies House</li>
+            </ul>
+            <p>For more information, read the <a href="JAVASCRIPT:VOID(0)">guidance on how to register as a Companies House authorised agent</a>.</p>
+  </div>
+</details>
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+    <p>All general partners need to <a href="javascript:void(0)" class="govuk-link">verify their identity for Companies House</a>. If a general partner is a legal entity, a registered officer for the entity will need to verify. </p>
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What is a registered officer?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    A registered officer must be a director of the entity, or someone whose roles and responsibilities correspond to that of a company director. 
+  </div>
+</details>
+    <p>If you’re filing an update for a Scottish limited partnership, people with significant control will also need to verify their identity. </p>
+
+    <p>When they've verified, we'll give them a Companies House personal code, which they will need to share with you. You will need to provide their personal code as part of the update. </p>
+
+      <h2 class="govuk-heading-m">What you'll need</h2>
+
+      <p>You’ll need to tell us details about the:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>limited partnership</li>
+            <li>general partners </li>
+            <li>limited partners </li>
+            <li>people with significant control, if you’re providing an update about a Scottish limited partnership (SLP)</li>
+          </ul>
+
+
+  <p>You'll need to:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>sign in, or create sign in details</li>
+        <li>give the limited partnership number </li>
+        <li>pay £XX using a credit or debit card</li>
+</li>
+      </ul>
+
+   <!--   <p>Registering takes around 5 minutes.</p> -->
+
+      {{ govukButton({
+        text: "Start now",
+        isStartButton: true
+      }) }}
+
+
+
+      <p class="govuk-body "><a href="https://mcmw.abilitynet.org.uk/" class="govuk-link">Read advice from AbilityNet on how to adapt your device to meet your needs</a>. For example, changing the background colour or text size.</p>
+
+
+      <h2 class="govuk-heading-m">
+        After you’ve filed the update statement
+      </h2>
+
+            <p class="govuk-body">We'll send an authentication code to the registered office address you provide for the limited partnership. This will be needed for all future filings.</p>
+
+
+
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}

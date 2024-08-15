@@ -1,0 +1,36 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Add general partner information" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="#" method="post">
+
+
+
+      <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+      <h1 class="govuk-heading-xl">LP Services List</h1>
+
+     <p class="govuk-body">Some information.</p>
+
+
+      
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

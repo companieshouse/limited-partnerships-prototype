@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="You need to register as a Companies House authorised agent" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+
+
+      
+      <h1 class="govuk-heading-xl">You need to register as a Companies House authorised agent</h1>
+
+     <p class="govuk-body">To file an update for a limited partnership, your business must be registered as a Companies House authorised agent. This is also known as an authorised corporate service provider (ACSP).</p>
+
+<p class="govuk-body">If you work for a business that's already registered as an authorised agent, you'll need to ask another user to add you to the account.</p>
+
+<!--Hidden info about public list of authorised agents
+  <p>Check the <a href="">public list of Companies House authorised agents</a> to find out if your business is already registered. </p>-->
+
+<p>Otherwise, you'll need to <a href="">apply to register as an authorised agent</a>.</p>
+
+
+      <!--
+{{ govukButton({
+  text: "Continue"
+}) }} -->
+
+</form>
+    </div>
+  </div>
+{% endblock %}

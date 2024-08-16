@@ -95,7 +95,166 @@
     
   </div>
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="general-partners">
-    <h2 class="govuk-heading-l">Past week</h2>
+    {{ govukButton({
+  text: "Add a new general partner",
+  classes: "govuk-button--secondary"
+}) }}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "ABC Company Ltd"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "ABC Company Ltd"
+        },
+        {
+          href: "#",
+          text: "Change",
+          visuallyHiddenText: "ABC Company Ltd"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Governing law"
+      },
+      value: {
+        html: "England and Wales"
+      }
+    },
+    {
+      key: {
+        text: "Legal form"
+      },
+      value: {
+        html: "Limited company"
+      }
+    },
+    {
+      key: {
+        text: "Principal office address"
+      },
+      value: {
+        html: "24 Candy Lane, London, W1 3EE, United Kingdom"
+      }
+    },
+    {
+      key: {
+        text: "Correspondence address"
+      },
+      value: {
+        html: "The same as the principal office address"
+      }
+    },
+    {
+      key: {
+        text: "Registered officer name"
+      },
+      value: {
+        html: "Ryan Jones"
+      }
+    },
+    {
+      key: {
+        text: "Previous name"
+      },
+      value: {
+        html: "No"
+      }
+    },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        html: "28 February 1968"
+      }
+    },
+    {
+      key: {
+        text: "Nationality"
+      },
+      value: {
+        html: "American"
+      }
+    },
+    {
+      key: {
+        text: "Usual residential address"
+      },
+      value: {
+        html: "94 Drury Lane, London, W2 7DY, United Kingdom"
+      }
+    }
+  ]
+}) }}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Georgina Smith"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "Georgina Smith"
+        },
+        {
+          href: "#",
+          text: "Change",
+          visuallyHiddenText: "Georgina Smith"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Previous name"
+      },
+      value: {
+        html: "No"
+      }
+    },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        html: "21 August 1989"
+      }
+    },
+    {
+      key: {
+        text: "Nationality"
+      },
+      value: {
+        html: "British"
+      }
+    },
+    {
+      key: {
+        text: "Usual residential address"
+      },
+      value: {
+        html: "13 Luck Lane, Bristol, BS1 8LY, United Kingdom"
+      }
+    }
+  ]
+}) }}
+
+
+
+
    
   </div>
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="legal-partners">

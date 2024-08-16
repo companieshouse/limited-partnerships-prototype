@@ -35,7 +35,7 @@ router.post('/idv-filter', function(request, response) {
       response.redirect("/v3/idv-no")
   } 
   else {
-      response.redirect("/v3/limited-partnership-info")
+      response.redirect("/v3/limited-partnership-rea")
   }
 })
 

@@ -257,8 +257,146 @@
 
    
   </div>
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="legal-partners">
-    <h2 class="govuk-heading-l">Past month</h2>
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="limited-partners">
+    
+{{ govukButton({
+  text: "Add a new limited partner",
+  classes: "govuk-button--secondary"
+}) }}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "ACME Legal Entity Inc"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "ACME Legal Entity Inc"
+        },
+        {
+          href: "#",
+          text: "Change",
+          visuallyHiddenText: "ACME Legal Entity Inc"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Governing law"
+      },
+      value: {
+        html: "England and Wales"
+      }
+    },
+    {
+      key: {
+        text: "Legal form"
+      },
+      value: {
+        html: "Incorporated business"
+      }
+    },
+    {
+      key: {
+        text: "Principal office address"
+      },
+      value: {
+        html: "1 Hyde Road, London, SW1 1LE, United Kingdom"
+      }
+    },
+    {
+      key: {
+        text: "Correspondence address"
+      },
+      value: {
+        html: "The same as the principal office address"
+      }
+    },
+    {
+      key: {
+        text: "Amount contributed"
+      },
+      value: {
+        html: "£20,000"
+      }
+    }
+  ]
+}) }}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Lisa Taylor"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "Lisa Taylor"
+        },
+        {
+          href: "#",
+          text: "Change",
+          visuallyHiddenText: "Lisa Taylor"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Previous name"
+      },
+      value: {
+        html: "Smith"
+      }
+    },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        html: "13 March 1975"
+      }
+    },
+    {
+      key: {
+        text: "Nationality"
+      },
+      value: {
+        html: "French"
+      }
+    },
+    {
+      key: {
+        text: "Usual residential address"
+      },
+      value: {
+        html: "1 Champs Elysee, Paris, 705001, France"
+      }
+    },
+    {
+      key: {
+        text: "Amount contributed"
+      },
+      value: {
+        html: "£20,000"
+      }
+    }
+  ]
+}) }}
+
+
+
+
 
   </div>
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="pscs">

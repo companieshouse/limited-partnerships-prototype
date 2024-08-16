@@ -53,7 +53,7 @@ router.post('/correct-company', function(request, response) {
         response.redirect("/v3/auth-code")
     } 
     else {
-        response.redirect("/v3/idv-filter")
+        response.redirect("/v3/transition-start")
     }
   })
 

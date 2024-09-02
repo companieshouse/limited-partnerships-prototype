@@ -1,0 +1,404 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "JAVASCRIPT:VOID(0)"
+      },
+      {
+        text: "Business and industry",
+        href: "JAVASCRIPT:VOID(0)"
+      },
+      {
+        text: "Limited companies and partnerships"
+      },
+      {
+        text: "Partnerships"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="sign-in" method="post">
+
+
+      <span class="govuk-caption-l">Guidance</span>
+      <h1 class="govuk-heading-l">
+       Set up and run a limited partnership
+      </h1>
+
+<p class=govuk-body-l>Explains your responsibilities, including choosing a name, having a registered address, appointing partners and registering with Companies House </p>
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<button class="govuk-body-s gem-c-single-page-notification-button__submit" type="submit" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;subscribe&quot;,&quot;index_link&quot;:1,&quot;index_total&quot;:2,&quot;section&quot;:&quot;Top&quot;,&quot;url&quot;:&quot;/email/subscriptions/single-page/new&quot;}">  <svg class="gem-c-single-page-notification-button__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="30" width="18" viewBox="0 0 459.334 459.334"><path fill="currentColor" d="M177.216 404.514c-.001.12-.009.239-.009.359 0 30.078 24.383 54.461 54.461 54.461s54.461-24.383 54.461-54.461c0-.12-.008-.239-.009-.359H175.216zM403.549 336.438l-49.015-72.002v-89.83c0-60.581-43.144-111.079-100.381-122.459V24.485C254.152 10.963 243.19 0 229.667 0s-24.485 10.963-24.485 24.485v27.663c-57.237 11.381-100.381 61.879-100.381 122.459v89.83l-49.015 72.002a24.76 24.76 0 0 0 20.468 38.693H383.08a24.761 24.761 0 0 0 20.469-38.694z"></path></svg><span class="gem-c-single-page-notication-button__text">Get emails about this page</span>
+</button>
+
+{# <p class="govuk-body">Contents</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li><a class="govuk-link" href="javascript:void(0)">Choose a name</a></li>
+  <li><a class="govuk-link" href="javascript:void(0)">Business names</a></li>
+  <li><a class="govuk-link" href="javascript:void(0)">Registered address</a></li>
+  <li><a class="govuk-link" href="javascript:void(0)">Partners' responsibilities</a></li>
+  <li><a class="govuk-link" href="javascript:void(0)">Register your limited partership</a></li>
+  <li><a class="govuk-link" href="javascript:void(0)">Becoming an authorised partnership</a></li>
+  <li><a class="govuk-link" href="javascript:void(0)">Changes you must report</a></li>
+  <li><a class="govuk-link" href="javascript:void(0)">Where to send your forms</a></li>
+</ul> #}
+
+
+<aside class="govuk-prototype-kit-common-templates-mainstream-guide-contents-list" role="complementary">
+        <nav class="govuk-prototype-kit-common-templates-contents-list" aria-label="Pages in this guide" role="navigation">
+          <h2 class="govuk-prototype-kit-common-templates-contents-list__title">
+            Contents
+          </h2>
+          <ol class="govuk-prototype-kit-common-templates-contents-list__list">
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed govuk-prototype-kit-common-templates-contents-list__list-item--active">
+              <a href="#choose-a-name">
+                Choose a name
+              </a>
+            </li>
+            <li aria-current="true" class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed"><a href="#business-name">
+              Business names </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#registered-address">
+                Registered address
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#partners-responsibilities">
+                Partners' responsibilities
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#register-limited-partnership">
+                Register your limited partership
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#authorised-partnership">
+                Becoming an authorised partnership
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#report-changes">
+                Changes you must report
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#address">
+                Where to send your forms
+              </a>
+            </li>
+          </ol>
+        </nav>
+      </aside>
+
+
+<button class="govuk-link govuk-body-s gem-c-print-link__button" data-module="print-link" data-print-link-module-started="true">Print this page</button>
+
+<p class="govuk-body">You can set up a limited partnership to run your business.</p>
+<p class="govuk-body">You must have at least one ‘general partner’ and one ‘limited partner’. General and limited partners have different responsibilities and levels of liability for any debts the business cannot pay. All partners pay tax on their share of the profits.</p>
+
+<p class="govuk-body">You'll need to:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>choose a name</li>
+  <li>have a registered address (also known as your principal place of business)</li>
+  <li>appoint general and limited partners</li>
+  <li>register with Companies House</li>
+</ul>
+
+<p class="govuk-body">The rules are different for setting up a <a class"govuk-link" href="javascript:void(0)">limited liability partnership</a>, an <a class"govuk-link" href="javascript:void(0)">'ordinary' business partnership</a> or a <a class"govuk-link" href="javascript:void(0)">private limited company</a>. </p>
+
+<h2 class="govuk-heading-m" id="choose-a-name">Choose a name</h2>
+<p class="govuk-body">You can trade under your own names, or you can choose another name for your business. You do not need to register your name.</p>
+<p class="govuk-body">You must include all the partners’ names and the business name (if you have one) on official paperwork, for example invoices and letters.</p>
+
+
+<h2 class="govuk-heading-m" id="business-name">Business names</h2>
+<p class="govuk-body">Limited partnership names must not:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>include ‘limited liability partnership’, ‘LLP’, ‘public limited company’ or ‘plc’</li>
+  <li>be offensive</li>
+  <li>be the same as an <a class"govuk-link" href="javascript:void(0)">existing trade mark</a></li>
+  <li>register with Companies House</li>
+</ul>
+
+<p class="govuk-body">Your name also cannot contain a ‘sensitive’ word or expression, or suggest a connection with government or local authorities, unless you get permission.</p>
+
+<h3 class="govuk-heading-s">Example</h3>
+<p class="govuk-body">To use ‘Accredited’ in your company’s name, you need permission from the Department for Business and Trade (DBT).</p>
+
+<p class="govuk-body">Check which <a class"govuk-link" href="javascript:void(0)">words you need permission to use, and who from</a>.</p>
+
+<div class="govuk-inset-text">
+  You'll need to <a class"govuk-link" href="javascript:void(0)">register your name as a trade mark</a> if you want to stop people from trading under your business name
+</div>
+
+<h2 class="govuk-heading-m" id="registered-address">Registered address</h2>
+<p class="govuk-body">Your registered address (known as principal place of business) is where official communications are sent, for example letters from HMRC.</p>
+
+<p class="govuk-body">It must be:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>a physical address</li>
+  <li>your main place of business</li>
+  <li>in the same country that your limited partnership is registered in (for example, a limited partnership registered in Scotland must have a registered office address in Scotland) — once you’re incorporated you can move anywhere in UK</li>
+</ul>
+<p class="govuk-body">You can use your home address — this will be publicly available.</p>
+
+<h2 class="govuk-heading-m" id="partners-responsibilities">Partner's responsibilities</h2>
+<p class="govuk-body">You must have at least one ‘general partner’ and one ‘limited partner’ — a partner can be an individual or a company.</p>
+
+<p class="govuk-body">What type of partner you are makes a difference to:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>your liability for the partnership’s debts</li>
+  <li>your responsibilities</li>
+</ul>
+
+<p class="govuk-body">You cannot be a general and a limited partner at the same time.</p>
+<p class="govuk-body">All partners are equally responsible for any debts or obligations until the partnership has been registered.</p>
+
+<h3 class="govuk-heading-s">Limited partners</h3>
+<p class="govuk-body">As a limited partner you:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>contribute an amount of money or property to the business when it’s set up</li>
+  <li>are only liable for debts up to the amount you’ve contributed</li>
+  <li>cannot manage the business</li>
+  <li>cannot remove your original contribution
+</li>
+</ul>
+
+<p class="govuk-body">You must <a class"govuk-link" href="javascript:void(0)">register for Self Assessment with HMRC</a>.</p>
+
+<h3 class="govuk-heading-s">General partners</h3>
+<p class="govuk-body">As a general partner you:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>are liable for any debts the business cannot pay</li>
+  <li>control and manage the business</li>
+  <li>can make irreversible (‘binding’) decisions for the business</li>
+  <li>can apply for your business to act as an authorised contractual scheme (ACS)
+</li>
+</ul>
+
+<p class="govuk-body">you must:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>register the business with Companies House</li>
+  <li><a class"govuk-link" href="javascript:void(0)">register the business for Self Assessment</a> with HMRC - you must also <a class"govuk-link" href="javascript:void(0)"> register separately as an individual </a></li>
+  <li><a class"govuk-link" href="javascript:void(0)">register the business for VAT</a> if you expect sales to be more than £90,000 a year</li>
+  <li>act for the business if it’s wound up and dissolved
+</li>
+</ul>
+
+<p class="govuk-body">You may have to <a class"govuk-link" href="javascript:void(0)">send accounts to Companies House if the general partner is a limited company</a>.</p>
+
+
+<h2 class="govuk-heading-m" id="register-limited-partnership">Register your limited partnership</h2>
+<p class="govuk-body">Download and fill in the <a class"govuk-link" href="javascript:void(0)">application to register a limited partnership</a>.</p>
+<p class="govuk-body">All partners must sign the form.</p>
+<p class="govuk-body">Send it by post with a fee of £71 (by cheque, made payable to ‘Companies House’, or by postal order).</p>
+<p class="govuk-body">Companies House will usually register your limited partnership within 5 days of getting your application.</p>
+
+
+<h2 class="govuk-heading-m" id="authorised-partnership">Becoming an authorised partnership</h2>
+<p class="govuk-body">General partners can apply for the limited partnership to act as an authorised contractual scheme (ACS).</p>
+<p class="govuk-body">In an ACS money or property (‘assets’) are pooled and managed on behalf of the partners. Partners co-own the assets but only pay tax on their share of any profits — the scheme does not pay <a class"govuk-link" href="javascript:void(0)">Corporation Tax </a>.</p>
+<p class="govuk-body">The Financial Conduct Authority (FCA) has <a class"govuk-link" href="javascript:void(0)">guidance on getting a limited partnership authorised</a>.</p>
+
+<h3 class="govuk-heading-s">Tell Companies House</h3>
+<p class="govuk-body">You must tell Companies House if the FCA has authorised your limited partnership to act as an ACS.</p>
+
+<p class="govuk-body">Download and fill in the <a class"govuk-link" href="javascript:void(0)">change of details for a limited partnership form - </a> you must include your ACS authorisation number. There's no fee.</p>
+
+<h2 class="govuk-heading-m" id="report-changes">Changes you must report</h2>
+<p class="govuk-body">You must tel Companies House about changes to your limited partnership including:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>its registered address</li>
+  <li>its <a class"govuk-link" href="javascript:void(0)">registered name</a></li>
+  <li>its type of business activity</li>
+  <li>partners’ details (for example, changes of name, new partners)
+</li>
+<li>partners’ liability (for example, if a limited partner becomes a general partner)</li>
+<li>the sum contributed by a limited partner</li>
+<li>closure</li>
+</ul>
+
+
+<p class="govuk-body">Download and fill in the <a class"govuk-link" href="javascript:void(0)">change of details for a limited partnership form </a>.</p>
+
+<h3 class="govuk-heading-s">If you're an authorised partnership</h3>
+<p class="govuk-body">If you’re part of an authorised contractual scheme (ACS), you do not need to tell Companies House about:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>changes to limited partners</li>
+  <li>changes in sums contributed by limited partners
+</li>
+</ul>
+
+<h2 class="govuk-heading-m" id="address">Where to send your forms</h2>
+<p class="govuk-body">Send your forms to Companies House main office.</p>
+<p class="govuk-body govuk-!-padding-left-5">Companies House</p>
+<p class="govuk-body govuk-!-padding-left-5 govuk-!-margin-bottom-0">Crown Way</p>
+<p class="govuk-body govuk-!-padding-left-5 govuk-!-margin-bottom-0">Cardiff</p>
+<p class="govuk-body govuk-!-padding-left-5">CF14 3UZ</p>
+<p class="govuk-body govuk-!-padding-left-5">DX 33050 Cardiff</p>
+
+<p class="govuk-body">It’s important to send your forms to the correct address, or your post will be re-directed and will take longer to reach us.</p>
+
+
+
+
+{# 
+      <p>All limited partnerships must file an update statement by XX DATE. This is due to new measures introduced by the Economic Crime and Corporate Transparency Act 2023.</p>
+
+      <p>Use this service to provide the update statement for an existing limited partnership. This will include information that was given when the partnership was registered and new details that are now required by law.
+</p>
+
+
+      <h2 class="govuk-heading-m">Who can use this service</h2>
+
+    <p> The update must be filed by a Companies House authorised agent. This is also known as an authorised corporate service provider (ACSP).</p> 
+
+  <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What is a Companies House authorised agent? 
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>Authorised agents are businesses that are registered with a UK Anti-Money Laundering (AML) supervisory body. For example, accountants, solicitors or company formation agents.</p>
+    <p>They must register with us to be able to:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>file on behalf of clients</li>
+            <li>verify the identity of clients for Companies House</li>
+            </ul>
+            <p>For more information, read the <a href="JAVASCRIPT:VOID(0)">guidance on how to register as a Companies House authorised agent</a>.</p>
+  </div>
+</details>
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+    <p>All general partners need to <a href="javascript:void(0)" class="govuk-link">verify their identity for Companies House</a>. If a general partner is a legal entity, a registered officer for the entity will need to verify. </p>
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What is a registered officer?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    A registered officer must be a director of the entity, or someone whose roles and responsibilities correspond to that of a company director. 
+  </div>
+</details>
+    <p>If you’re filing an update for a Scottish limited partnership, people with significant control will also need to verify their identity. </p>
+
+    <p>When they've verified, we'll give them a Companies House personal code, which they will need to share with you. You will need to provide their personal code as part of the update. </p>
+
+      <h2 class="govuk-heading-m">What you'll need</h2>
+
+      <p>You’ll need to tell us details about the:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>limited partnership</li>
+            <li>general partners </li>
+            <li>limited partners </li>
+            <li>people with significant control, if you’re providing an update about a Scottish limited partnership (SLP)</li>
+          </ul>
+
+
+  <p>You'll need to:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>sign in, or create sign in details</li>
+        <li>give the limited partnership number </li>
+        <li>pay £XX using a credit or debit card</li>
+</li>
+      </ul> #}
+
+   <!--   <p>Registering takes around 5 minutes.</p> -->
+
+      {{ govukButton({
+        text: "Start now",
+        isStartButton: true
+      }) }}
+
+
+
+      {# <p class="govuk-body "><a href="https://mcmw.abilitynet.org.uk/" class="govuk-link">Read advice from AbilityNet on how to adapt your device to meet your needs</a>. For example, changing the background colour or text size.</p>
+
+
+      <h2 class="govuk-heading-m">
+        After you’ve filed the update statement
+      </h2>
+
+            <p class="govuk-body">We'll send an authentication code to the registered office address you provide for the limited partnership. This will be needed for all future filings.</p>
+ #}
+
+
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Register a limited partnership
+              </a>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Register a limited liability partnership (LL IN01)
+              </a>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Use a formation agent to register your company
+              </a>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Memorandum of association templates for limited companies
+              </a>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Model articles for private companies limited by guarantee
+              </a>
+            </li>
+            <li>
+              <p class="govuk-body-s">Detailed guidance</p>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Set up and run a limited liability partnership (LLP)
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}

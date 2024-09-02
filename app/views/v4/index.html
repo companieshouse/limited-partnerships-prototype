@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="V3" %}
+{% set pageName="V4" %}
 
 {% block beforeContent %}
   {% include "includes/phase-banner.html" %}
@@ -10,7 +10,7 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full width">
 
     <!--{% include "govuk-prototype-kit/includes/homepage-top.njk" %}-->
 
@@ -18,12 +18,15 @@
 
 
 
-    <span class="govuk-caption-xl">Version 3</span>
+    <span class="govuk-caption-xl">Version 4</span>
     <h1 class="govuk-heading-xl">
       {{ serviceName }}
     </h1>
 
-
+    {{ govukWarningText({
+      text: "This prototype is being actively worked on - things might break or change very quickly",
+      iconFallbackText: "Warning"
+    }) }}
 
 
 
@@ -69,11 +72,11 @@
         <li><a class="govuk-link" href="main-start-page">Start</a></li>
         <li><a class="govuk-link" href="sign-in">Sign in</a> | <a class="govuk-link" href="sign-out">Sign out</a></li>
        <li><a class="govuk-link" href="not-eligible">Not eligible (non-ACSP)</a></li>
-        <li><a class="govuk-link" href="company-number">What is the limited partnership number?</a></li>
-        <li><a class="govuk-link" href="correct-company">Confirm this is the correct limited partnership</a></li>
+        <li><a class="govuk-link" href="company-number">What is the limited partnership number?</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link" href="correct-company">Confirm this is the correct limited partnership</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
         <li><a class="govuk-link" href="idv-filter">Do you have the personal codes? (IDV)</a></li>
         <li><a class="govuk-link" href="idv-no">You need to verify (IDV)</a></li>
-        <li><a class="govuk-link" href="auth-code">Auth code</a></li>
+        <li><a class="govuk-link" href="auth-code">Auth code</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
       </ul>
 
       <h2 class="govuk-heading-m" id="initial">Limited partnership overview</h2>
@@ -100,8 +103,8 @@
         <li><a class="govuk-link" href="start">Start</a></li>
         <li><a class="govuk-link" href="sign-in">Sign in</a> | <a class="govuk-link" href="sign-out">Sign out</a></li>
        <li><a class="govuk-link" href="not-eligible">Not eligible (non-ACSP)</a></li>
-        <li><a class="govuk-link" href="company-number">What is the limited partnership number?</a></li>
-        <li><a class="govuk-link" href="correct-company">Confirm this is the correct limited partnership</a></li>
+        <li><a class="govuk-link" href="company-number">What is the limited partnership number?</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link" href="correct-company">Confirm this is the correct limited partnership</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
         <li><a class="govuk-link" href="idv-filter">Do you have the personal codes? (IDV)</a></li>
         <li><a class="govuk-link" href="idv-no">You need to verify (IDV)</a></li>
       </ul>
@@ -112,7 +115,7 @@
       <li><s><a class="govuk-link" href="limited-partnership-info">Limited partnership info</a></s></li>
         <li><a class="govuk-link" href="limited-partnership-rea">Registered email address</a></li>
         <li><a class="govuk-link" href="limited-partnership-roa">Registered office address</a></li>
-        <li><a class="govuk-link" href="limited-partnership-jurisdiction">Jurisdiction</a></li>
+        <li><s><a class="govuk-link" href="limited-partnership-jurisdiction">Jurisdiction</a></s></li>
         <li><a class="govuk-link" href="limited-partnership-ppob">Principal place of business</a></li>
         <li><a class="govuk-link" href="limited-partnership-terms">Terms of the limited partnership</a></li>
         <li><a class="govuk-link" href="limited-partnership-sic">SIC code(s)</a></li>
@@ -157,11 +160,7 @@
         <li><a class="govuk-link" href="confirmation-page">Confirmation</a></li>
       </ul>
 
-<h2 class="govuk-heading-m" id="other">Other screens</h2>
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a class="govuk-link" href="../accessibility-statement">Accessibility statement</a></li>
-      </ul>
 
 
     <h2 class="govuk-heading-m" id="emails">Emails</h2>
@@ -175,7 +174,11 @@
   </div>
 </div>
 
+<h2 class="govuk-heading-m" id="other">Other screens</h2>
 
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="../accessibility-statement">Accessibility statement</a></li>
+      </ul>
 
 
    <!--{% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}-->

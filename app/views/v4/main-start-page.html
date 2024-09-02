@@ -1,0 +1,117 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Start" %}
+
+
+
+
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="sign-in" method="post">
+
+      <h1 class="govuk-heading-xl">
+        File for a limited partnership
+      </h1>
+
+      <p>Limited partnerships must use a Companies House authorised agent to file on their behalf. Authorised agents are also known as Authorised Corporate Service Providers (ACSPs).</p>
+
+  <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Finding an authorised agent to file for your limited partnership
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>Authorised agents are businesses that have registered with Companies House to be able to file on behalf of clients.</p>
+    <p> To register, they must be supervised for Anti-Money Laundering (AML) purposes. For example, they could be accountants, legal professionals or company formation agents.</p>
+        <p>When you contact an agent, you should check:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>if they are registered as an authorised agent with Companies House - this is also known as an Authorised Corporate Service Provider (ACSP)
+            <li>if they can offer the services you need</li>
+            <li>how much they charge for their services</li>
+
+  </div>
+</details>
+
+      <p>Authorised agents can use this service to:</p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>update a limited partnership’s details - for example, to change the registered office address</li>
+            <li>update details for a general or limited partner</li>
+            <li>add or remove a general or limited partner </li>
+            <li>file a confirmation statement</li>
+            <li>close a limited partnership</li>
+          </ul>
+
+      <h2 class="govuk-heading-m">Who can use this service</h2>
+
+
+
+    <p>You, or the business you work for, must be registered as a Companies House authorised agent to use this service. </p> 
+
+    <p>Read the <a href="javascript:void(0)">guidance to find out who can register as an authorised agent</a>.</p>
+
+
+
+      <h2 class="govuk-heading-m">What you'll need</h2>
+
+
+            <p>To file for a limited partnership you’ll need: </p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>to sign in to your account</li>
+            <li>the limited partnership number</li>
+            <li>the limited partnership authentication code </li>
+            <li>a credit or debit card  - if the filing you need to make has a fee</li>
+          </ul>
+
+
+  <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Fees to file for a limited partnership
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>There is a fee to file a:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>change to the limited partnership's name - this costs £XX</li>
+            <li>confirmation statement - this costs £XX</li>
+  </div>
+</details>
+
+      <h2 class="govuk-heading-m">How to get an authentication code</h2>
+
+      <p>If this is the first online filing for the limited partnership, you’ll need to use this service to file a full update. You must do this by XX DATE.</p>
+
+      <p>We'll ask you to provide information that was given when the partnership was registered and new details that are now required by law. <a href="javascript:void(0)">Read the guidance on what limited partnership information you need to provide</a>. </p>
+
+      <p>When you have submitted the update, we’ll send the authentication code to the registered office address for the limited partnership. </p>
+      <p>If we have already sent the limited partnership an authentication code, you’ll need to use the service to request a new authentication code. </p>
+
+   <!--   <p>Registering takes around 5 minutes.</p> -->
+
+      {{ govukButton({
+        text: "Start now",
+        isStartButton: true
+      }) }}
+
+
+
+      <p class="govuk-body "><a href="https://mcmw.abilitynet.org.uk/" class="govuk-link">Read advice from AbilityNet on how to adapt your device to meet your needs</a>. For example, changing the background colour or text size.</p>
+
+
+
+
+
+    </div>
+
+   
+  </div>
+
+{% endblock %}

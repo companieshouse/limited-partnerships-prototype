@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Sign in" %}
+
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+      <form class="form" action="/sign-in" method="post">
+
+      <h1 class="govuk-heading-xl">Sign in to Companies House</h1>
+      
+
+
+<p>You cannot use your WebFiling details to sign in. You must sign in to or register a Companies House account.</p>
+
+{{ govukInput({
+  label: {
+    text: "Email address",
+    classes: "govuk-label--s",
+    isPageHeading: false
+  },
+  id: "email",
+  name: "email",
+      value: data['email']
+
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Password",
+    classes: "govuk-label--s",
+    isPageHeading: false
+  },
+  id: "password",
+  name: "password",
+  type: 'password'
+}) }}
+{{ govukButton({
+  text: "Sign in"
+}) }}
+
+<p class="govuk-body"> <a href="javascript:void(0)" class="govuk-link">Create an account</a></p>
+<p class="govuk-body"> <a href="javascript:void(0)" class="govuk-link">I've forgotten my password</a></p>
+
+
+</form>
+    </div>
+  </div>
+
+{% endblock %}

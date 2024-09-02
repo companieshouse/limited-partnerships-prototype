@@ -1,0 +1,91 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="What is the registered office address?" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="limited-partnership-ppob" method="post">
+   
+
+<span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+
+
+
+<h1 class="govuk-heading-xl">What is the registered office address?</h1>
+    <p class="govuk-hint">This must be a physical UK address. For example, you cannot use a PO Box address.
+
+  <br> <br>
+
+  We'll send an authentication code to this address after you submit this statement. This code will be needed for all future filings.
+    </p>
+<div class="govuk-form-group">
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="addressOne">
+    Address line 1
+  </label>
+
+<input class="govuk-input" id="addressOne" name="addressOne" type="text">
+
+</div>
+        
+<div class="govuk-form-group">
+  <label class="govuk-label" for="addressTwo">
+    Address line 2 (optional)
+  </label>
+
+<input class="govuk-input" id="addressTwo" name="addressTwo" type="text">
+
+</div>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="town">
+    Town or city
+  </label>
+
+<input class="govuk-input" id="town" name="town" type="text">
+
+</div>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="county">
+    County (optional)
+  </label>
+
+<input class="govuk-input" id="county" name="county" type="text">
+
+</div>
+<div class="govuk-form-group">
+  <label class="govuk-label" for="postcode">
+    Postcode 
+  </label>
+
+<input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
+
+</div>
+
+{{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>
+                <p>To be confirmed.</p>"
+        }) }}
+
+      
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

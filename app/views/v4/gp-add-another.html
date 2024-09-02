@@ -1,0 +1,173 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Do you need to add another general partner?" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/gp-add-another" method="post">
+
+
+
+      <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+              <h1 class="govuk-heading-xl">General partners</h1>
+
+    </div>
+    </div>
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+       <h2 class="govuk-heading-m">General partners you have added so far:</h2>
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Person"
+            },
+            value: {
+              text: "Georgina Smith"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina General Partner"
+                },
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "Georgina General Partner"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Legal entity"
+            },
+            value: {
+              text: "ABC Company ltd"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "ABC Company ltd"
+                },
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "ABC Company ltd"
+                }
+              ]
+            }
+          }
+        ]
+      }) }} 
+</div>
+</div>
+
+  <!--      {{ govukTable({
+          caption: 'What you have added so far' | safe,
+          captionClasses: "govuk-table__caption--m",
+          classes: "govuk-!-margin-bottom-8",
+          firstCellIsHeader: true,
+          head: [
+          {
+            text: "Name",
+            classes: "govuk-visually-hidden"
+          },
+          {
+            text: "Type",
+            classes: "govuk-visually-hidden"
+          },
+            {
+              text: "Change or remove",
+              classes: "govuk-visually-hidden"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Georgina Limited Partner"
+              },
+              {
+                text: "Person"
+              },
+              {
+                html: '<a href="/register/beneficial-owner-individual-completed">Change<span class="govuk-visually-hidden">Georgina Limited Partner</span></a>'
+              },
+             {
+                html: '<a href="/register/beneficial-owner-individual-completed">Remove <span class="govuk-visually-hidden">Georgina Limited Partner</span></a>'
+              }
+             ],
+
+            [
+              {
+                text: "Ryan Registered Officer"
+              },
+              {
+                text: "Legal entity"
+              },
+              {
+                html: '<a href="/register/beneficial-owner-individual-completed">Change<span class="govuk-visually-hidden">Ryan Registered Officer</span></a>'
+              },
+             {
+                html: '<a href="/register/beneficial-owner-individual-completed">Remove <span class="govuk-visually-hidden">Ryan Registered Officer</span></a>'
+              }
+             ]
+          ]
+        }) }} -->
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+{{ govukRadios({
+  name: "addAnotherGP",
+  fieldset: {
+    legend: {
+      text: "Do you need to add another general partner?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+
+  items: [
+    {
+      value: "addPersonGP",
+      text: "Yes, a person"
+    },
+    {
+      value: "addEntityGP",
+      text: "Yes, a legal entity"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+      
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

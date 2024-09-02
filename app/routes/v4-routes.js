@@ -11,17 +11,20 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 
 // Sign in
-router.post('/sign-in', function(request, response) {
+ router.post('/sign-in', function(request, response) {
 
     var email = request.session.data['email']
     if (email == "someone@test.com"){
-        response.redirect("/v4/not-eligible")
+         response.redirect("/v4/not-eligible")
+     } 
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "registration"){
+        response.redirect("/v4/registration/lp-name")
     } 
     else {
         response.redirect("/v4/company-number")
     }
   })
-
 
 
   
@@ -123,6 +126,18 @@ router.post('/lp-add-another', function(request, response) {
 router.post('/in-scotland', function(request, response) {
     response.redirect('/v4/registration/which-type')
 })
+
+// Registration - LP name
+router.post('/lp-name', function(request, response) {
+    response.redirect('/v4/registration/lp-statement')
+})
+
+
+// Choose test scenario - registration or transition
+router.post('/registration-or-transition', function(request, response) {
+    response.redirect('/v4/start')
+})
+
 
 
 

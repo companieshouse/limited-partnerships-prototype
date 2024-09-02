@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Choose test scenario" %}
+
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/registration-or-transition" method="post">
+
+
+
+
+{{ govukRadios({
+  classes: "govuk-radios",
+  name: "registrationOrTransition",
+  fieldset: {
+    legend: {
+      text: "Choose test scenario",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  hint: {
+    text: "This screen would NOT be seen by users."
+  },
+  items: [
+    {
+      value: "registration",
+      text: "Registration"
+    },
+    {
+      value: "transition",
+      text: "Transition"
+    }
+  ]
+}) }}
+    {{ govukButton({
+  text: "Save and continue"
+}) }}  
+
+
+
+</form>
+    </div>
+  </div>
+{% endblock %}

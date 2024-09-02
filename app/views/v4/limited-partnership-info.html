@@ -17,7 +17,13 @@
 <form class="form" action="/v3/general-partner-section" method="post">
    
 
-<span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% endif %}
+
+
 <h1 class="govuk-heading-xl">Tell us about the limited partnership</h1>
       
       

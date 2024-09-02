@@ -19,7 +19,12 @@
 
 
 
-      <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% endif %}
+
 
 
 

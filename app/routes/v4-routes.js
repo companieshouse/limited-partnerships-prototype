@@ -132,6 +132,11 @@ router.post('/lp-name', function(request, response) {
     response.redirect('/v4/registration/lp-statement')
 })
 
+// Registration - LP statement
+router.post('/lp-statement', function(request, response) {
+    response.redirect('/v4/idv-filter')
+})
+
 
 // Choose test scenario - registration or transition
 router.post('/registration-or-transition', function(request, response) {

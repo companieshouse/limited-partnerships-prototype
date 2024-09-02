@@ -19,7 +19,14 @@
 
 
 
-      <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% endif %}
+
+
+
       <h1 class="govuk-heading-xl">You now need to provide identity verification details for people with significant control (PSCs)</h1>
 
      <p class="govuk-body">We'll ask you to provide Companies House personal codes for all the PSCs we currently have on record. </p>

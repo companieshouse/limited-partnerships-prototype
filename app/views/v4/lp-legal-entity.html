@@ -19,7 +19,13 @@
 
 
 
-      <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% endif %}
+
+
 <h1 class="govuk-heading-xl">Add a limited partner (legal entity)</h1>
 
 {{ govukInput({

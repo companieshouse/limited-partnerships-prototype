@@ -118,4 +118,13 @@ router.post('/lp-add-another', function(request, response) {
 })
 
 
+
+// Registration - in Scotland or not
+router.post('/in-scotland', function(request, response) {
+    response.redirect('/v4/registration/which-type')
+})
+
+
+
+
 module.exports=router;

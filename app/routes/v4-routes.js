@@ -140,11 +140,50 @@ router.post('/lp-statement', function(request, response) {
 
 // Choose test scenario - registration or transition
 router.post('/registration-or-transition', function(request, response) {
-    response.redirect('/v4/start')
+
+var registrationOrTransition = request.session.data['registrationOrTransition']
+if (registrationOrTransition == "post"){
+    response.redirect("/v4/main-start-page")
+} else {
+    response.redirect("/v4/start")
+}
 })
 
+//Registered office address
 
+router.post('/limited-partnership-roa', function(request, response) {
 
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "post"){
+        response.redirect("/v4/filing-confirmation")
+    } else {
+        response.redirect("/v4/limited-partnership-ppob")
+    }
+})
+
+//PPOB
+
+router.post('/limited-partnership-ppob', function(request, response) {
+
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "post"){
+        response.redirect("/v4/filing-confirmation")
+    } else {
+        response.redirect("/v4/limited-partnership-terms")
+    }
+})
+
+// Terms of partnership
+
+router.post('/limited-partnership-terms', function(request, response) {
+
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "post"){
+        response.redirect("/v4/filing-confirmation")
+    } else {
+        response.redirect("/v4/limited-partnership-sic")
+    }
+})
 
 
 module.exports=router;

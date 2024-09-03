@@ -113,7 +113,7 @@
     actions: {
       items: [
         {
-          href: "javascript:void(0)",
+          href: "remove/remove-general-partner",
           text: "Remove",
           visuallyHiddenText: "ABC Company Ltd"
         },
@@ -271,6 +271,72 @@
   classes: "govuk-button--secondary"
 }) }}
 
+
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Lisa Taylor"
+    },
+    actions: {
+      items: [
+        {
+          href: "remove/remove-limited-partner",
+          text: "Remove",
+          visuallyHiddenText: "Lisa Taylor"
+        },
+        {
+          href: "javascript:void(0)",
+          text: "Change",
+          visuallyHiddenText: "Lisa Taylor"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Previous name"
+      },
+      value: {
+        html: "Smith"
+      }
+    },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        html: "13 March 1975"
+      }
+    },
+    {
+      key: {
+        text: "Nationality"
+      },
+      value: {
+        html: "French"
+      }
+    },
+    {
+      key: {
+        text: "Usual residential address"
+      },
+      value: {
+        html: "1 Champs Elysee, Paris, 705001, France"
+      }
+    },
+    {
+      key: {
+        text: "Amount contributed"
+      },
+      value: {
+        html: "£20,000"
+      }
+    }
+  ]
+}) }}
+
 {{ govukSummaryList({
   card: {
     title: {
@@ -334,72 +400,6 @@
     }
   ]
 }) }}
-
-{{ govukSummaryList({
-  card: {
-    title: {
-      text: "Lisa Taylor"
-    },
-    actions: {
-      items: [
-        {
-          href: "javascript:void(0)",
-          text: "Remove",
-          visuallyHiddenText: "Lisa Taylor"
-        },
-        {
-          href: "javascript:void(0)",
-          text: "Change",
-          visuallyHiddenText: "Lisa Taylor"
-        }
-      ]
-    }
-  },
-  rows: [
-    {
-      key: {
-        text: "Previous name"
-      },
-      value: {
-        html: "Smith"
-      }
-    },
-    {
-      key: {
-        text: "Date of birth"
-      },
-      value: {
-        html: "13 March 1975"
-      }
-    },
-    {
-      key: {
-        text: "Nationality"
-      },
-      value: {
-        html: "French"
-      }
-    },
-    {
-      key: {
-        text: "Usual residential address"
-      },
-      value: {
-        html: "1 Champs Elysee, Paris, 705001, France"
-      }
-    },
-    {
-      key: {
-        text: "Amount contributed"
-      },
-      value: {
-        html: "£20,000"
-      }
-    }
-  ]
-}) }}
-
-
 
 
 

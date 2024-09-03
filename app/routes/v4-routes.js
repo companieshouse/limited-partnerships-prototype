@@ -141,10 +141,10 @@ router.post('/lp-statement', function(request, response) {
 router.post('/registration-or-transition', function(request, response) {
 
 var registrationOrTransition = request.session.data['registrationOrTransition']
-if (registrationOrTransition == "post"){
-    response.redirect("/v4/main-start-page")
-} else {
+if (registrationOrTransition == "registration"){
     response.redirect("/v4/start")
+} else {
+    response.redirect("/v4/main-start-page")
 }
 })
 

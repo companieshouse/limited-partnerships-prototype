@@ -50,9 +50,8 @@ router.post('/company-number', function (req, res) {
 
 
 router.post('/correct-company', function(request, response) {
-
-    var lpNumber = request.session.data['lpNumber']
-    if (lpNumber == "LP654321"){
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "post"){
         response.redirect("/v4/auth-code")
     } 
     else {

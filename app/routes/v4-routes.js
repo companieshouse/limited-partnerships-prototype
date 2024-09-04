@@ -19,7 +19,7 @@ const router = govukPrototypeKit.requests.setupRouter()
      } 
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "registration"){
-        response.redirect("/v4/registration/lp-name")
+        response.redirect("/v4/registration/in-scotland")
     } 
     else {
         response.redirect("/v4/company-number")

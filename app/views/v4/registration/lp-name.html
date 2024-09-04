@@ -44,7 +44,7 @@
 {% set otherHtml %}
 
 {{ govukRadios({
-  name: "whereDoYouLive",
+  name: "nameEnding",
   fieldset: {
     legend: {
       text: "What other name ending would you prefer? ",
@@ -54,19 +54,19 @@
   },
   items: [
     {
-      value: "ltd.",
+      value: "Ltd.",
       text: "Ltd."
     },
     {
-      value: "cynfyngedig",
+      value: "Cynfyngedig",
       text: "Cynfyngedig"
     },
     {
-      value: "cyf",
+      value: "Ccyf",
       text: "Cyf"
     },
     {
-      value: "cyf.",
+      value: "Cyf.",
       text: "Cyf."
     }
   ]
@@ -75,7 +75,7 @@
 
 
 {{ govukRadios({
-  name: "signIn",
+  name: "nameEnding",
   fieldset: {
     legend: {
       text: "Which limited partnership name ending would you prefer to go on the public record?",
@@ -99,7 +99,7 @@
       text: "L.P."
     },
     {
-      value: "other",
+      value: "",
       text: "Other name endings - including Welsh *** THESE NEED UPDATING ***",
       conditional: {
         html: otherHtml
@@ -119,4 +119,7 @@
 </form>
     </div>
   </div>
+
+  <script src="/public/javascripts/lp-name.js"></script>
+
 {% endblock %}

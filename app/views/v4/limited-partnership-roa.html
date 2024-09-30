@@ -25,13 +25,38 @@
 
 
 <h1 class="govuk-heading-xl">What is the registered office address?</h1>
-    <p class="govuk-hint">This must be a physical UK address. For example, you cannot use a PO Box address.
-
-  <br> <br>
-
-  We'll send an authentication code to this address after you submit this statement. This code will be needed for all future filings.
+    <p class="govuk-hint">This must be a physical UK address. For example, you cannot use a PO Box address.</p>
+    <p class="govuk-hint">We'll send an authentication code to this address after you submit this statement. This code will be needed for all future filings.
     </p>
-<div class="govuk-form-group">
+
+
+<fieldset class="govuk-fieldset">
+  <legend class="govuk-visually-hidden">
+      What is the registered office address?
+  </legend>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="address-line-1">
+      Property name or number (optional)
+    </label>
+    <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+  </div>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="address-postcode">
+      Postcode
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+  </div>
+
+  <p><a href="javascript:void(0)">Enter address manually</a><p>
+
+  {{ govukButton({
+  text: "Find address"
+}) }}
+</fieldset>
+
+
+<!--<div class="govuk-form-group">
 
 <div class="govuk-form-group">
   <label class="govuk-label" for="addressOne">
@@ -75,7 +100,7 @@
 
 <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
 
-</div>
+
 
 {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>
@@ -85,7 +110,7 @@
       
 {{ govukButton({
   text: "Save and continue"
-}) }}
+}) }}</div>-->
 </form>
     </div>
   </div>

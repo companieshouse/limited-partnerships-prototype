@@ -148,9 +148,18 @@ if (registrationOrTransition == "registration"){
 }
 })
 
-//Registered office address
-
+//Registered office address (postcode look-up)
 router.post('/limited-partnership-roa', function(request, response) {
+    response.redirect('/v4/limited-partnership-roa-choose-address')
+})
+
+//Registered office address (choose address)
+router.post('/limited-partnership-roa-choose-address', function(request, response) {
+    response.redirect('/v4/limited-partnership-roa-confirm-address')
+})
+
+//Registered office address (confirm address)
+router.post('/limited-partnership-roa-confirm-address', function(request, response) {
 
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
@@ -159,6 +168,8 @@ router.post('/limited-partnership-roa', function(request, response) {
         response.redirect("/v4/limited-partnership-ppob")
     }
 })
+
+
 
 //PPOB
 

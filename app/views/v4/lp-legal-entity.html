@@ -65,7 +65,22 @@
   name: "legalForm"
 }) }}
 
-
+{{ govukCheckboxes({
+  name: "legalFormStatementLP",
+  fieldset: {
+    legend: {
+      text: "Placeholder text for legal form statement",
+      isPageHeading: true,
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "agreeLP",
+      text: "Placeholder text for legal form statement"
+    }
+  ]
+}) }}
 
 
 <div class="govuk-form-group">

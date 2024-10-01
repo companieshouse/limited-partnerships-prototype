@@ -4385,6 +4385,9 @@
   classes: "govuk-input govuk-!-width-one-half"
 }) }} -->
 
+{% if (data['registrationOrTransition'] == "registration" or data['registrationOrTransition'] == "post") %}
+
+
 {{ govukInput({
   id: "amount-contributed-entity",
   name: "amount-contributed-entity",
@@ -4400,7 +4403,8 @@
   spellcheck: false
 }) }}
 
-   
+   {% endif %}
+
 
  {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>

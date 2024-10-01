@@ -178,7 +178,11 @@ router.post('/limited-partnership-ppob', function(request, response) {
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
         response.redirect("/v4/filing-confirmation")
-    } else {
+    }     
+    else if (registrationOrTransition == "transition"){
+         response.redirect("/v4//limited-partnership-sic")
+     } 
+     else {
         response.redirect("/v4/limited-partnership-terms")
     }
 })

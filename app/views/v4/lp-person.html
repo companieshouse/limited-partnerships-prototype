@@ -2123,6 +2123,11 @@
   </select>
 </div>
 
+
+
+{% if (data['registrationOrTransition'] == "registration" or data['registrationOrTransition'] == "post") %}
+
+
 {{ govukInput({
   id: "amount-contributed-person",
   name: "amount-contributed-person",
@@ -2139,6 +2144,7 @@
 }) }}
 
 
+{% endif %}
 
 
  {{ govukInsetText({

@@ -150,8 +150,18 @@ if (registrationOrTransition == "registration"){
 
 //Registered office address (postcode look-up)
 router.post('/limited-partnership-roa', function(request, response) {
-    response.redirect('/v4/limited-partnership-roa-choose-address')
-})
+    const propertyNumber = request.body.propertyNumber;
+    const addressPostcode = request.body.addressPostcode;
+
+    if (propertyNumber && addressPostcode) {
+        response.redirect('/v4/limited-partnership-roa-confirm-address');
+    } else if (!propertyNumber && addressPostcode) {
+        response.redirect('/v4/limited-partnership-roa-choose-address');
+    } else {
+        // Optionally handle the case where neither propertyNumber nor addressPostcode are provided
+        response.redirect('/v4/limited-partnership-roa');
+    }
+});
 
 //Registered office address (choose address)
 router.post('/limited-partnership-roa-choose-address', function(request, response) {

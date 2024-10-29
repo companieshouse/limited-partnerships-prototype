@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Confirm this is the correct limited partnership" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/correct-company" method="post">
+
+
+      <h1 class="govuk-heading-xl">Confirm this is the correct limited partnership</h1>
+
+            <h1 class="govuk-heading-l">ACME LIMITED PARTNERSHIP</h1>
+
+ 
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Limited partership number	"
+      },
+    value: {
+            text: "LP123456"
+      }
+    },
+   
+        {
+      key: {
+        text: "Registered on"
+      },
+      value: {
+        text: "25 May 1977"
+      }
+    }
+  ]
+}) }}
+
+
+   {{ govukButton({
+  text: "Confirm and continue"
+  
+}) }}  
+
+<p><a href="company-number">Enter a different limited partnership number</a></p>
+    </div>
+  </div>
+{% endblock %}

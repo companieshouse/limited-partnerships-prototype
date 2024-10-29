@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Add general partner information" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="general-partner-choice" method="post">
+
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% endif %}
+
+
+      <h1 class="govuk-heading-xl">You now need to tell us about the general partners</h1>
+
+     <p class="govuk-body">You'll need to tell us about all the current general partners.   </p>
+
+        <p class="govuk-body">If the partnership has more than one general partner, you'll add them one at a time.
+     </p>
+<!--
+     <p>You'll need to give the Companies House personal code for each general partner. If a general partner is an entity, you will need to give a code for an officer of the entity. </p>
+     <p>If any of the general partners or officers do not have a personal code, they will need to <a href="">verify their identity for Companies House (opens in a new tab)</a> before you can file an update. </p>
+
+-->
+      
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

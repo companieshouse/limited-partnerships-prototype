@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Limited partner" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="limited-partner-choice" method="post">
+
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% endif %}
+
+      <h1 class="govuk-heading-xl">You now need to tell us about the limited partners</h1>
+
+     <p class="govuk-body">You'll need to tell us about all the current limited partners. 
+      <br><br>
+      If the partnership has more than one limited partner, you'll add them one at a time.
+      
+     </p>
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

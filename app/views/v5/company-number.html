@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="What is the limited partnership number?" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/company-number" method="post">
+
+
+
+      {{ govukInput({
+        label: {
+          text: "What is the limited partnership number?",
+          classes: "govuk-label--xl",
+          isPageHeading: true
+        },
+        hint: {
+          text: "This is 2 letters followed by 6 numbers."
+        },
+          classes: "govuk-!-width-one-half",
+        id: "lpNumberr",
+        name: "lpNumber",
+        value: data['lpNumber']
+      }) }}
+
+
+
+
+
+{{ govukDetails({
+  summaryText: "Help with the limited partnership number",
+  html: 'This will start with LP, NL, SL or SG. 
+  <br><br>If you do not know the limited partnership number, use the <a class="govuk-link" href="https://find-and-update.company-information.service.gov.uk/">Companies House service</a> to find it.'
+}) }}
+      
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

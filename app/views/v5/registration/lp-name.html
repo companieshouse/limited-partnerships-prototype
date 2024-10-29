@@ -1,0 +1,125 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Limited partnership name" %}
+
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/lp-name" method="post">
+
+        <h1 class="govuk-heading-xl">Limited partnership name</h1>{{ govukInput({
+  label: {
+    text: "What is the limited partnership name?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Do not enter the limited partnership name ending, such as LIMITED PARTNERSHIP, LP, or L.P., in this box. We will add it for you."
+  },
+  id: "lpChooseName",
+  name: "lpChooseName",
+  suffix: {
+    text: "Limited Partnership"
+  }
+}) }}
+
+{{ govukDetails({
+  summaryText: "Check the limited partnership name against an existing trademark",
+  html: 'Use the <a href="https://www.gov.uk/search-for-trademark" target="_blank">trademark search (link opens in a new tab)</a> to check if the limited partnership name matches an existing trademark. If it does, consider choosing a different name. Companies House won&lsquo;t carry out this check for you.'
+}) }}
+
+
+
+{% set otherHtml %}
+
+{{ govukRadios({
+  name: "nameEnding",
+  fieldset: {
+    legend: {
+      text: "What other name ending would you prefer? ",
+      isPageHeading: true,
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "Ltd.",
+      text: "Ltd."
+    },
+    {
+      value: "Cynfyngedig",
+      text: "Cynfyngedig"
+    },
+    {
+      value: "Ccyf",
+      text: "Cyf"
+    },
+    {
+      value: "Cyf.",
+      text: "Cyf."
+    }
+  ]
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  name: "nameEnding",
+  fieldset: {
+    legend: {
+      text: "Which limited partnership name ending would you prefer to go on the public record?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "There is no difference between the name ending 'LIMITED PARTNERSHIP', 'LP', or 'L.P.', except for how they look."
+  },
+  items: [
+    {
+      value: "Limited Partnership",
+      text: "Limited Partnership"
+    },
+    {
+      value: "LP",
+      text: "LP"
+    },    {
+      value: "L.P.",
+      text: "L.P."
+    },
+    {
+      value: "",
+      text: "Other name endings - including Welsh *** THESE NEED UPDATING ***",
+      conditional: {
+        html: otherHtml
+      }
+    }
+  ]
+}) }}
+
+
+
+    {{ govukButton({
+  text: "Save and continue"
+}) }}  
+
+
+
+</form>
+    </div>
+  </div>
+
+  <script src="/public/javascripts/lp-name.js"></script>
+
+{% endblock %}

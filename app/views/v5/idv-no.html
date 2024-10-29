@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Identity verification" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% endif %}
+
+
+
+{% if data['lpNumber'].startsWith("SL") %}
+     
+      <h1 class="govuk-heading-xl">All general partners and people with significant control (PSCs) need to verify their identity</h1>
+      <p class="govuk-body">Before you can file an update for a limited partnership, its general partners and people with significant control (PSCs) need to verify their identity. If a general partner is a legal entity, an officer of the entity needs to verify their identity.</p>
+      <p>They can do this using the <a href="javascript:void(0)">Verify your identity for Companies House service (opens in a new tab)</a>.</p>
+      <p>When they've verified their identity, we'll give them a Companies House personal code. They need to share this with you, as you'll be asked to provide the codes for all general partners and PSCs and registered officers when you file the update.</p>
+
+{% else %}
+
+      <h1 class="govuk-heading-xl">All general partners need to verify their identity</h1>
+      <p class="govuk-body">Before you can file an update for this limited partnership, its general partners need to verify their identity. If a general partner is a legal entity, an officer of the entity needs to verify their identity.</p>
+      <p>They can do this using the <a href="javascript:void(0)">Verify your identity for Companies House service (opens in a new tab)</a>.</p>
+      <p>When they've verified their identity, we'll give them a Companies House personal code. They need to share this with you, as you'll be asked to provide the codes for all general partners and registered officers when you file the update.</p>
+
+{% endif %}
+
+    </div>
+  </div>
+{% endblock %}

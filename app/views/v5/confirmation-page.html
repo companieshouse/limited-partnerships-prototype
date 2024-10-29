@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Confirmation" %}
+
+
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+{% endblock %}
+
+
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: "Application complete",
+        html: "Your reference number<br><strong>HDJ2123F</strong>"
+      }) }}
+
+      <p class="govuk-body">We've sent a confirmation email to <strong>agent@authorised-agent.com</strong> and <strong>lp@limited-partnership.com</strong>.</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        We'll update the information about ACME LIMITED PARTNERSHIP (LP123456) on the public register. 
+      </p>
+      <!--<p class="govuk-body">
+       We'll email <strong>lp@limited-partnership.com</strong> with instructions on how to request an authentication code. This will be needed for all future filings.
+      </p>-->
+      <p class="govuk-body">
+        We'll send an authentication code to the registered office address you've provided. This code will be needed for all future filings.
+       </p>
+
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+      </p>
+    </div>
+  </div>
+{% endblock %}

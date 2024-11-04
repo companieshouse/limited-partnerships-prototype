@@ -20,7 +20,6 @@
 
 
 
-{% if (data['registeredScotland'] == "yes") %}
 
 {{ govukRadios({
   classes: "govuk-radios",
@@ -36,13 +35,17 @@
     text: "A hint, if needed."
   },
   items: [
+      {
+      value: "registerLp",
+      text: "Limited Partnership"
+    },
+    {
+      value: "RegisterPflp",
+      text: "Private Fund Limited Partnership"
+    },
     {
       value: "registerSlp",
       text: "Scottish Limited Partnership"
-    },
-    {
-      value: "registerPflp",
-      text: "Private Fund Limited Partnership"
     },
     {
       value: "registerSqp",
@@ -51,36 +54,6 @@
   ]
 }) }}
 
-{% else %}
-
-
-
-{{ govukRadios({
-  classes: "govuk-radios",
-  name: "registerType",
-  fieldset: {
-    legend: {
-      text: "Which type of partnership do you want to register?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--xl"
-    }
-  },
-  hint: {
-    text: "A hint, if needed."
-  },
-  items: [
-    {
-      value: "registerLp",
-      text: "Limited Partnership"
-    },
-    {
-      value: "RegisterPflp",
-      text: "Private Fund Limited Partnership"
-    }
-  ]
-}) }}
-
-{% endif %}
 
 
 

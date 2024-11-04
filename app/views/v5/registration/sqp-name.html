@@ -1,0 +1,86 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Scottish Qualifying Partnership name" %}
+
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="sqp-name" method="post">
+
+        <h1 class="govuk-heading-xl">Scottish Qualifying Partnership name</h1>{{ govukInput({
+  label: {
+    text: "What is the Scottish Qualifying Partnership name?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Not sure what the hint text should be - requirements are the user has two choices, either SP or nothing"
+  },
+  id: "lpChooseName",
+  name: "lpChooseName",
+  suffix: {
+    text: "SP"
+  }
+}) }}
+
+{{ govukDetails({
+  summaryText: "Check the Scottish Qualifying Partnership name against an existing trademark",
+  html: 'Use the <a href="https://www.gov.uk/search-for-trademark" target="_blank">trademark search (link opens in a new tab)</a> to check if the Scottish Qualifying Partnership name matches an existing trademark. If it does, consider choosing a different name. Companies House won&lsquo;t carry out this check for you.'
+}) }}
+
+
+
+
+
+
+{{ govukRadios({
+  name: "nameEnding",
+  fieldset: {
+    legend: {
+      text: "Which Scottish Qualifying Partnership name ending would you prefer to go on the public record?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Not sure what the hint text should be - requirements are the user has two choices, either SP or nothing"
+  },
+  items: [
+    {
+      value: "SP",
+      text: "SP"
+    },
+        {
+      value: "",
+      text: "None"
+    }
+  ]
+}) }}
+
+
+
+
+    {{ govukButton({
+  text: "Save and continue"
+}) }}  
+
+
+
+</form>
+    </div>
+  </div>
+
+  <script src="/public/javascripts/lp-name.js"></script>
+
+{% endblock %}

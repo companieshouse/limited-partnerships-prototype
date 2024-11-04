@@ -1,0 +1,34 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Placeholder" %}
+
+{% set serviceName %}
+{% endset%}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+      <form class="form" action="/gov-onelogin-placeholder" method="post">
+
+      
+
+
+<p>Placeholder - several GOV.UK One Login would be seen here.</p>
+
+
+
+    {{ govukButton({
+    text: "Continue",
+    classes: "govuk-button--secondary"
+  }) }}
+</form>
+    </div>
+  </div>
+
+{% endblock %}

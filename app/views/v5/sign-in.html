@@ -1,8 +1,9 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Sign in" %}
+{% set pageName="Create your GOV.UK One Login or sign in" %}
 
-
+{% set serviceName %}
+{% endset%}
 
 
 
@@ -15,42 +16,32 @@
 
       <form class="form" action="/sign-in" method="post">
 
-      <h1 class="govuk-heading-xl">Sign in to Companies House</h1>
+      <h1 class="govuk-heading-xl">Create your GOV.UK One Login or sign in</h1>
       
 
 
-<p>You cannot use your WebFiling details to sign in. You must sign in to or register a Companies House account.</p>
+<p>You can use your GOV.UK One Login to access some government services.</p>
 
-{{ govukInput({
-  label: {
-    text: "Email address",
-    classes: "govuk-label--s",
-    isPageHeading: false
-  },
-  id: "email",
-  name: "email",
-      value: data['email']
+<p>In the future, you’ll be able to use it to access all services on GOV.UK.</p>
 
-}) }}
+<p>You’ll need:</p>
 
-{{ govukInput({
-  label: {
-    text: "Password",
-    classes: "govuk-label--s",
-    isPageHeading: false
-  },
-  id: "password",
-  name: "password",
-  type: 'password'
-}) }}
-{{ govukButton({
-  text: "Sign in"
-}) }}
+<ul class="govuk-list govuk-list--bullet">
+  <li>an email address</li>
+  <li>a way to get security codes - this can be a mobile phone number or an authenticator app</li>
+</ul>
+<div class="govuk-inset-text">
+You can also <a href="javascript:void(0)">use GOV.UK One Login in Welsh (Cymraeg)</a>.</div>
 
-<p class="govuk-body"> <a href="javascript:void(0)" class="govuk-link">Create an account</a></p>
-<p class="govuk-body"> <a href="javascript:void(0)" class="govuk-link">I've forgotten my password</a></p>
-
-
+  {{ govukButton({
+    text: "Create your GOV.UK One login"
+  }) }}
+  <br>
+    {{ govukButton({
+    text: "Sign in",
+    classes: "govuk-button--secondary"
+  }) }}
+<p><a href="javascript:void(0)">Services you can use with GOV.UK One Login (opens in new tab)</a></p>
 </form>
     </div>
   </div>

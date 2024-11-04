@@ -11,22 +11,30 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 
 // Sign in
- router.post('/sign-in', function(request, response) {
 
-    var email = request.session.data['email']
-    if (email == "someone@test.com"){
-         response.redirect("/v5/not-eligible")
-     } 
+  router.post('/sign-in', function(request, response) {
+    response.redirect("/v5/gov-onelogin-placeholder")
+})
+
+
+
+
+
+  // GOV One Login
+
+  router.post('/gov-onelogin-placeholder', function(request, response) {
+
     var registrationOrTransition = request.session.data['registrationOrTransition']
-    if (registrationOrTransition == "registration"){
-        response.redirect("/v5/registration/in-scotland")
-    } 
-    else {
+    if (registrationOrTransition == "post"){
         response.redirect("/v5/company-number")
+    }     
+    else if (registrationOrTransition == "transition"){
+         response.redirect("/v5/company-number")
+     } 
+     else {
+        response.redirect("/v5/registration/which-type")
     }
-  })
-
-
+})
   
 
 //Has the LP done IDV

@@ -35,6 +35,29 @@ const router = govukPrototypeKit.requests.setupRouter()
         response.redirect("/v5/registration/which-type")
     }
 })
+
+  // name ending
+
+  router.post('/which-type', function(request, response) {
+
+    var registerType = request.session.data['registerType']
+    if (registerType == "RegisterPflp"){
+        response.redirect("/v5/registration/pflp-name")
+    }     
+    else if (registerType == "registerSlp"){
+        response.redirect("/v5/registration/slp-name")
+     } 
+     else if (registerType == "registerSqp"){
+        response.redirect("/v5/registration/sqp-name")
+     } 
+     else {
+        response.redirect("/v5/registration/lp-name")
+    }
+})
+
+router.post(['/lp-name', '/pflp-name', '/slp-name', '/sqp-name'], (request, response) => {
+    response.redirect("/v5/registration/lp-statement");
+});
   
 
 //Has the LP done IDV

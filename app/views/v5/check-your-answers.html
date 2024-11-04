@@ -543,10 +543,23 @@
 
         <input type="hidden" name="answers-checked" value="true">
 
+
+{% if (data['registrationOrTransition'] == "registration" or data['registrationOrTransition'] == "post") %}
+
+
         {{ govukButton({
           text: "Continue to payment",
           href: "payment"
         }) }}
+
+{% elif data['registrationOrTransition'] == "transition" %}
+
+    {{ govukButton({
+      text: "Continue",
+      href: "confirmation-page"
+    }) }}
+
+{% endif %}
 
 
     </div>

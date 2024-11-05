@@ -218,7 +218,7 @@ router.post('/limited-partnership-ppob', function(request, response) {
 
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
-        response.redirect("/v5/filing-confirmation")
+        response.redirect("/v5/post-check-your-answers")
     }     
     else if (registrationOrTransition == "transition"){
          response.redirect("/v5//limited-partnership-sic")
@@ -234,7 +234,7 @@ router.post('/limited-partnership-terms', function(request, response) {
 
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
-        response.redirect("/v5/filing-confirmation")
+        response.redirect("/v5/post-check-your-answers")
     } else {
         response.redirect("/v5/limited-partnership-sic")
     }

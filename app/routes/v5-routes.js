@@ -83,7 +83,7 @@ router.post('/company-number', function (req, res) {
 router.post('/correct-company', function(request, response) {
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
-        response.redirect("/v5/auth-code")
+        response.redirect("/v5/limited-partnership-overview")
     } 
     else {
         response.redirect("/v5/transition-start")

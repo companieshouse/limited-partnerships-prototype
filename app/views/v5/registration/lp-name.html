@@ -20,12 +20,12 @@
 
         <h1 class="govuk-heading-xl">Limited partnership name</h1>{{ govukInput({
   label: {
-    text: "What is the limited partnership name?",
+    text: "What will the name of the limited partnership be?",
     classes: "govuk-label--l",
     isPageHeading: true
   },
   hint: {
-    text: "Do not enter the limited partnership name ending, such as Limited Partnership, LP, or L.P., in this box. We will add it for you."
+    text: "Do not enter a name ending like Limited Partnership or LP. We will add this for you."
   },
   id: "lpChooseName",
   name: "lpChooseName",
@@ -35,8 +35,11 @@
 }) }}
 
 {{ govukDetails({
-  summaryText: "Check the limited partnership name against an existing trademark",
-  html: 'Use the <a href="https://www.gov.uk/search-for-trademark" target="_blank">trademark search (link opens in a new tab)</a> to check if the limited partnership name matches an existing trademark. If it does, consider choosing a different name. Companies House won&lsquo;t carry out this check for you.'
+  summaryText: "More information about the rules for names",
+  html: 'Your name cannot be the same as another registered company’s name. To check whether a company with your preferred name already exists, use the <a href="https://find-and-update.company-information.service.gov.uk/company-name-availability" target="_blank">Company name availability checker (link opens in a new tab)</a>.
+  <br> <br>
+  If your name is too similar to another company’s name or trade mark, you may have to change it if someone makes a complaint.
+  To check whether your preferred name matches an existing trade mark, use the <a href="https://www.gov.uk/search-for-trademark" target="_blank">trade mark search (link opens in a new tab)</a>. Companies House will not carry out this check for you.'
 }) }}
 
 
@@ -74,13 +77,13 @@
   name: "nameEnding",
   fieldset: {
     legend: {
-      text: "Which limited partnership name ending would you prefer to go on the public record?",
+      text: "Which name ending would you like to go on the public record?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
   },
   hint: {
-    text: "There is no difference between the name ending 'LIMITED PARTNERSHIP', 'LP', or 'L.P.', except for how they look."
+    text: "There is no difference between these options except how they look."
   },
   items: [
     {
@@ -96,7 +99,7 @@
     },
     {
       value: "",
-      text: "Other name endings - including Welsh",
+      text: "A Welsh name ending",
       conditional: {
         html: otherHtml
       }

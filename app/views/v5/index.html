@@ -15,7 +15,9 @@
     <!--{% include "govuk-prototype-kit/includes/homepage-top.njk" %}-->
 
  
-
+    {{ govukNotificationBanner({
+  text: "This version of the prototype is being actively worked on - some things might not work correctly and/or change very quickly."
+}) }}
 
 
     <span class="govuk-caption-xl">Version 5</span>
@@ -23,10 +25,7 @@
       {{ serviceName }}
     </h1>
 
-    {{ govukWarningText({
-      text: "This prototype is being actively worked on - things might break or change very quickly",
-      iconFallbackText: "Warning"
-    }) }}
+
 
 
 

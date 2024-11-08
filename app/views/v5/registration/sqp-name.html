@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Scottish Qualifying Partnership name" %}
+{% set pageName="Scottish qualifying partnership name" %}
 
 
 {% block beforeContent %}
@@ -18,14 +18,14 @@
 
       <form class="form" action="/sqp-name" method="post">
 
-        <h1 class="govuk-heading-xl">Scottish Qualifying Partnership name</h1>{{ govukInput({
+        <h1 class="govuk-heading-xl">Scottish qualifying partnership name</h1>{{ govukInput({
   label: {
-    text: "What is the Scottish Qualifying Partnership name?",
+    text: "What's the name of the Scottish qualifying partnership?",
     classes: "govuk-label--l",
     isPageHeading: true
   },
   hint: {
-    text: "Not sure what the hint text should be - requirements are the user has two choices, either SP or nothing"
+    text: "Do not enter SP at the end of the name. If you'd like to include this, we'll add it for you."
   },
   id: "lpChooseName",
   name: "lpChooseName",
@@ -35,8 +35,8 @@
 }) }}
 
 {{ govukDetails({
-  summaryText: "Check the Scottish Qualifying Partnership name against an existing trademark",
-  html: 'Use the <a href="https://www.gov.uk/search-for-trademark" target="_blank">trademark search (link opens in a new tab)</a> to check if the Scottish Qualifying Partnership name matches an existing trademark. If it does, consider choosing a different name. Companies House won&lsquo;t carry out this check for you.'
+  summaryText: "Check the Scottish qualifying partnership name against an existing trade mark",
+  html: 'Use the <a href="https://www.gov.uk/search-for-trade mark" target="_blank">trade mark search (link opens in a new tab)</a> to check if the Scottish qualifying partnership name matches an existing trade mark. If it does, consider choosing a different name. Companies House will not carry out this check for you.'
 }) }}
 
 
@@ -48,22 +48,22 @@
   name: "nameEnding",
   fieldset: {
     legend: {
-      text: "Which Scottish Qualifying Partnership name ending would you prefer to go on the public record?",
+      text: "Would you like to include the name ending SP on the public record?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
   },
   hint: {
-    text: "Not sure what the hint text should be - requirements are the user has two choices, either SP or nothing"
+    text: ""
   },
   items: [
     {
       value: "SP",
-      text: "SP"
+      text: "Yes, include SP"
     },
         {
       value: "",
-      text: "None"
+      text: "No, do not include a name ending"
     }
   ]
 }) }}

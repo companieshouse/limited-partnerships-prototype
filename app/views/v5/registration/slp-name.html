@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Scottish Limited Partnership name" %}
+{% set pageName="Scottish limited partnership name" %}
 
 
 {% block beforeContent %}
@@ -18,14 +18,14 @@
 
       <form class="form" action="/slp-name" method="post">
 
-        <h1 class="govuk-heading-xl">Scottish Limited Partnership name</h1>{{ govukInput({
+        <h1 class="govuk-heading-xl">Scottish limited partnership name</h1>{{ govukInput({
   label: {
-    text: "What is the Scottish Limited Partnership name?",
+    text: "What's the name of the Scottish limited partnership?",
     classes: "govuk-label--l",
     isPageHeading: true
   },
   hint: {
-    text: "Do not enter the Scottish Limited Partnership name ending, such as Limited Partnership, Scottish Limited Partnership, LP, or L.P. in this box. We will add it for you."
+    text: "Do not enter a name ending like Limited Partnership, LP or S LP. We will add this for you."
   },
   id: "lpChooseName",
   name: "lpChooseName",
@@ -35,8 +35,8 @@
 }) }}
 
 {{ govukDetails({
-  summaryText: "Check the Scottish Limited Partnership name against an existing trademark",
-  html: 'Use the <a href="https://www.gov.uk/search-for-trademark" target="_blank">trademark search (link opens in a new tab)</a> to check if the Scottish Limited Partnership name matches an existing trademark. If it does, consider choosing a different name. Companies House won&lsquo;t carry out this check for you.'
+  summaryText: "Check the name against an existing trade mark",
+  html: 'Use the <a href="https://www.gov.uk/search-for-trade mark" target="_blank">trade mark search (link opens in a new tab)</a> to check if your name matches an existing trade mark. If it does, consider choosing a different name. Companies House will not carry out this check for you.'
 }) }}
 
 
@@ -48,13 +48,13 @@
   name: "nameEnding",
   fieldset: {
     legend: {
-      text: "Which Scottish Limited Partnership name ending would you prefer to go on the public record?",
+      text: "Which name ending would you prefer to go on the public record?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
   },
   hint: {
-    text: "There is no difference between the name ending 'Limited Partnership', 'Scottish Limited Partnership', 'LP', 'L.P.', 'S LP' or 'SLP LP', except for how they look."
+    text: "There's no difference between these name endings, except for how they look."
   },
   items: [
     {
@@ -62,8 +62,8 @@
       text: "Limited Partnership"
     },
         {
-      value: "Scottish Limited Partnership",
-      text: "Scottish Limited Partnership"
+      value: "Scottish limited partnership",
+      text: "Scottish limited partnership"
     },
     {
       value: "LP",

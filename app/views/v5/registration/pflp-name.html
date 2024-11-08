@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Private Fund Limited Partnership name" %}
+{% set pageName="Private fund limited partnership name" %}
 
 
 {% block beforeContent %}
@@ -18,14 +18,14 @@
 
       <form class="form" action="/pflp-name" method="post">
 
-        <h1 class="govuk-heading-xl">Private Fund Limited Partnership name</h1>{{ govukInput({
+        <h1 class="govuk-heading-xl">Private fund limited partnership name</h1>{{ govukInput({
   label: {
-    text: "What is the Private Fund Limited Partnership name?",
+    text: "What's the name of the private fund limited partnership'?",
     classes: "govuk-label--l",
     isPageHeading: true
   },
   hint: {
-    text: "Do not enter the Private Fund Limited Partnership name ending, such as Limited Partnership, LP, L.P., or PFLP in this box. We will add it for you."
+    text: "Do not enter a name ending like Limited Partnership or PFLP. We will add this for you."
   },
   id: "lpChooseName",
   name: "lpChooseName",
@@ -35,8 +35,8 @@
 }) }}
 
 {{ govukDetails({
-  summaryText: "Check the Private Fund Limited Partnership name against an existing trademark",
-  html: 'Use the <a href="https://www.gov.uk/search-for-trademark" target="_blank">trademark search (link opens in a new tab)</a> to check if the Private Fund Limited Partnership name matches an existing trademark. If it does, consider choosing a different name. Companies House won&lsquo;t carry out this check for you.'
+  summaryText: "Check the name against an existing trade mark",
+  html: 'Use the <a href="https://www.gov.uk/search-for-trade mark" target="_blank">trade mark search (link opens in a new tab)</a> to check if your name matches an existing trade mark. If it does, consider choosing a different name. Companies House will not carry out this check for you.'
 }) }}
 
 
@@ -74,13 +74,13 @@
   name: "nameEnding",
   fieldset: {
     legend: {
-      text: "Which Private Fund Limited Partnership name ending would you prefer to go on the public record?",
+      text: "Which private fund limited partnership name ending would you prefer to go on the public record?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
   },
   hint: {
-    text: "There is no difference between the name ending 'LIMITED PARTNERSHIP', 'LP', 'L.P.', or 'PFLP', except for how they look."
+    text: "There's no difference between the name endings Limited Partnership, LP, L.P., and PFLP, except for how they look."
   },
   items: [
     {
@@ -101,7 +101,7 @@
     },
     {
       value: "",
-      text: "Other name endings - including Welsh",
+      text: "A Welsh name ending",
       conditional: {
         html: otherHtml
       }

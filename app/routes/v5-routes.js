@@ -63,7 +63,7 @@ router.post(['/lp-name', '/pflp-name', '/slp-name', '/sqp-name'], (request, resp
     } else if (lpChooseName && lpChooseName.toLowerCase().includes("bank")) {
         response.redirect("/v5/registration/sensitive-name");
     } else {
-        response.redirect("/v5/lp-statement");
+        response.redirect("/v5/registration/lp-statement");
     }
 })
   

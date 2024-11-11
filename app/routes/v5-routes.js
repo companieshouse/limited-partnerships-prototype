@@ -17,12 +17,10 @@ const router = govukPrototypeKit.requests.setupRouter()
 })
 
 
+// GOV One Login Check your phone
 
 
-
-  // GOV One Login
-
-  router.post('/gov-onelogin-placeholder', function(request, response) {
+router.post('/gov-onelogin-enter-code.html', function(request, response) {
 
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
@@ -35,6 +33,9 @@ const router = govukPrototypeKit.requests.setupRouter()
         response.redirect("/v5/registration/which-type")
     }
 })
+
+
+
 
   // name ending
 
@@ -126,7 +127,7 @@ router.post('/gp-add-another', function(request, response) {
         response.redirect("/v5/gp-legal-entity")
     } 
     else {
-        response.redirect("/v5/general-partner-idv")
+        response.redirect("/v5/limited-partner-section")
     }
 })
 
@@ -157,7 +158,7 @@ router.post('/lp-add-another', function(request, response) {
         response.redirect("/v5/psc-section")
     } 
     else {
-        response.redirect("/v5/check-your-answers")
+        response.redirect("/v5/general-partner-idv")
     }
 })
 
@@ -201,7 +202,7 @@ router.post('/limited-partnership-roa', function(request, response) {
         response.redirect('/v5/limited-partnership-roa-choose-address');
     } else {
         // Optionally handle the case where neither propertyNumber nor addressPostcode are provided
-        response.redirect('/v5/limited-partnership-roa');
+        response.redirect('/v5/limited-partnership-roa-choose-address');
     }
 });
 

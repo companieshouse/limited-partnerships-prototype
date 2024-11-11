@@ -25,7 +25,7 @@
     isPageHeading: true
   },
   hint: {
-    text: "Do not enter a name ending like Limited Partnership or LP. We will add this for you."
+    text: "Do not enter a name ending, like Limited Partnership or LP. We'll add this for you."
   },
   id: "lpChooseName",
   name: "lpChooseName",
@@ -35,8 +35,10 @@
 }) }}
 
 {{ govukDetails({
-  summaryText: "Check the name against an existing trade mark",
-  html: 'Use the <a href="https://www.gov.uk/search-for-trade mark" target="_blank">trade mark search (link opens in a new tab)</a> to check if your name matches an existing trade mark. If it does, consider choosing a different name. Companies House will not carry out this check for you.'
+  summaryText: "Check you can use the name",
+  html: '<p>You must check the name is not the same as an existing limited partnership on the <a href="#/">Companies House register (link opens in a new tab)</a>. If it is, we will reject your application.</p>
+  <p>You should also use the <a href="https://www.gov.uk/search-for-trade mark" target="_blank">trade mark search (link opens in a new tab)</a> to check if your name matches an existing trade mark. If it does, consider choosing a different name. Companies House will not carry out this check for you.</p>
+  '
 }) }}
 
 

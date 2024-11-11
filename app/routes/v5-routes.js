@@ -13,7 +13,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 // Sign in
 
   router.post('/sign-in', function(request, response) {
-    response.redirect("/v5/gov-onelogin-placeholder")
+    response.redirect("/v5/gov-onelogin-email")
 })
 
 

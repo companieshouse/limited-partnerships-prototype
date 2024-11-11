@@ -16,10 +16,11 @@
 
       <form class="form" action="/sign-in" method="post">
 
-      <h1 class="govuk-heading-xl">Create your GOV.UK One Login or sign in</h1>
+      <h1 class="govuk-heading-xl">Sign in to GOV.UK One Login</h1>
       
+<p>Some content.</p>
 
-
+<!--
 <p>You can use your GOV.UK One Login to access some government services.</p>
 
 <p>In the future, you’ll be able to use it to access all services on GOV.UK.</p>
@@ -31,17 +32,25 @@
   <li>a way to get security codes - this can be a mobile phone number or an authenticator app</li>
 </ul>
 <div class="govuk-inset-text">
-You can also <a href="javascript:void(0)">use GOV.UK One Login in Welsh (Cymraeg)</a>.</div>
+You can also <a href="javascript:void(0)">use GOV.UK One Login in Welsh (Cymraeg)</a>.</div>-->
 
   {{ govukButton({
-    text: "Create your GOV.UK One login"
+    text: "Sign in"
   }) }}
-  <br>
-    {{ govukButton({
-    text: "Sign in",
-    classes: "govuk-button--secondary"
-  }) }}
-<p><a href="javascript:void(0)">Services you can use with GOV.UK One Login (opens in new tab)</a></p>
+<p><a href="javascript:void(0)">I do not have a GOV.UK One Login account</a></p>
+
+<!--
+{{ govukDetails({
+  summaryText: "About GOV.UK One Login",
+  html: '  <p class="govuk-body">GOV.UK One Login is new. At the moment you can only use it to access some government services.</p>
+
+            <p class="govuk-body">It does not work with all government accounts or services yet (for example Government Gateway or Universal Credit).</p>
+              
+            <p class="govuk-body">In the future, you’ll be able to use GOV.UK One Login to access all services on GOV.UK.</p>'
+}) }}-->
+
+<!--
+<p><a href="javascript:void(0)">Services you can use with GOV.UK One Login (opens in new tab)</a></p>-->
 </form>
     </div>
   </div>

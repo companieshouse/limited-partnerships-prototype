@@ -43,7 +43,10 @@ const router = govukPrototypeKit.requests.setupRouter()
     var registerType = request.session.data['registerType']
     if (registerType == "RegisterPflp"){
         response.redirect("/v5/registration/pflp-name")
-    }     
+    }  
+    else if (registerType == "RegisterPflpSco"){
+        response.redirect("/v5/registration/scottish-pflp-name")
+     }    
     else if (registerType == "registerSlp"){
         response.redirect("/v5/registration/slp-name")
      } 

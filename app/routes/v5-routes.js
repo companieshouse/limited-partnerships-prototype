@@ -63,7 +63,7 @@ router.post(['/lp-name', '/pflp-name', '/slp-name', '/sqp-name'], (request, resp
     } else if (lpChooseName && lpChooseName.toLowerCase().includes("bank")) {
         response.redirect("/v5/registration/sensitive-name");
     } else {
-        response.redirect("/v5/registration/lp-statement");
+        response.redirect("/v5/idv-filter");
     }
 })
   
@@ -167,13 +167,13 @@ router.post('/in-scotland', function(request, response) {
 
 // Registration - LP name
 router.post('/lp-name', function(request, response) {
-    response.redirect('/v5/registration/lp-statement')
+    response.redirect('/v5/idv-filter')
 })
 
 // Registration - LP statement
-router.post('/lp-statement', function(request, response) {
-    response.redirect('/v5/idv-filter')
-})
+//router.post('/lp-statement', function(request, response) {
+//   response.redirect('/v5/idv-filter')
+//})
 
 
 // Choose test scenario - registration or transition

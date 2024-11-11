@@ -56,8 +56,16 @@ const router = govukPrototypeKit.requests.setupRouter()
 })
 
 router.post(['/lp-name', '/pflp-name', '/slp-name', '/sqp-name'], (request, response) => {
-    response.redirect("/v5/registration/lp-statement");
-});
+    var lpChooseName = request.session.data['lpChooseName'];
+    
+    if (lpChooseName && lpChooseName.toLowerCase().includes("harrods")) {
+        response.redirect("/v5/registration/same-as-name");
+    } else if (lpChooseName && lpChooseName.toLowerCase().includes("bank")) {
+        response.redirect("/v5/registration/sensitive-name");
+    } else {
+        response.redirect("/v5/lp-statement");
+    }
+})
   
 
 //Has the LP done IDV
@@ -239,6 +247,8 @@ router.post('/limited-partnership-terms', function(request, response) {
         response.redirect("/v5/limited-partnership-sic")
     }
 })
+
+
 
 
 module.exports=router;

@@ -79,29 +79,12 @@
               ]
             }
           },
-          {
-            key: {
-              text: "Jurisdiction"
-            },
-            value: {
-              text: "England and Wales"
-            },
-            actions: {
-              items: [
-                {
-                  href: "limited-partnership-info",
-                  text: "Change",
-                  visuallyHiddenText: "jurisdiction"
-                }
-              ]
-            }
-          },
-          {
+               {
             key: {
               text: "Principal place of business"
             },
             value: {
-              text: "United Kingdom"
+              text: "1 Apple Street, Cardiff, CF12 3AB"
             },
             actions: {
               items: [
@@ -552,7 +535,7 @@
           href: "payment"
         }) }}
 
-{% elif data['registrationOrTransition'] == "transition" %}
+{% else  %}
 
     {{ govukButton({
       text: "Continue",

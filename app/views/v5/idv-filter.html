@@ -82,8 +82,8 @@
 
 
 <h1 class="govuk-heading-xl">Identity verification for general partners who are people</h1>
-<p>If you have any general partners who are people, they need to <a href="javascript:void(0)">verify their identity for Companies House (opens in a new tab)</a>. We'll give them a Companies House personal code as evidence that they've done this. They'll need to share this code with you.</p>
-<p>If you only have general partners that are legal entities, this requirement does not affect you.</p>
+<p>If the limited partnership has general partners who are people, they need to <a href="javascript:void(0)">verify their identity for Companies House (opens in a new tab)</a> before you can register the partnership.</p>
+<p>When they have verified, we’ll give them a Companies House personal code which they’ll need to share with you. We’ll ask you to provide a personal code for all general partners who are people. </p>
 
 {{ govukRadios({
     classes: "govuk-radios",
@@ -102,7 +102,10 @@
   items: [
     {
       value: "yes",
-      text: "Yes"
+      text: "Yes",
+      hint: {
+        text:"You'll need to provide their personal code later in the service."
+      }
     },
    
     {
@@ -111,14 +114,14 @@
     },
     {
       value: "yes",
-      text: "The limited partnership has no general partners who are people, so this does not apply"
+      text: "The general partners are legal entities"
     }
   ]
 
 }) }}
 
 {% endif %}
-<p>We'll ask you for these personal codes later in the service (if applicable).</p>
+<!--<p>We'll ask you for these personal codes later in the service (if applicable).</p> -->
       
 {{ govukButton({
   text: "Save and continue"

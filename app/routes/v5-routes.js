@@ -10,11 +10,17 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 
 
-// Sign in
+// GOV One Login Sign in
 
-  router.post('/sign-in', function(request, response) {
-    response.redirect("/v5/gov-onelogin-email")
-})
+  router.post('/gov-onelogin-email', function(request, response) {
+    var govOneLoginEmail = request.session.data['govOneLoginEmail']
+    if (govOneLoginEmail == "someone@test.com"){
+        response.redirect("/v5/not-eligible")
+    } 
+    else {
+        response.redirect("/v5/gov-onelogin-password")
+    }
+  })
 
 
 // GOV One Login Check your phone
@@ -95,7 +101,7 @@ router.post('/company-number', function (req, res) {
 router.post('/correct-company', function(request, response) {
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
-        response.redirect("/v5/limited-partnership-overview")
+        response.redirect("/v5/limited-partnership-overview-cya")
     } 
     else {
         response.redirect("/v5/transition-start")

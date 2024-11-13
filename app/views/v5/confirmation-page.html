@@ -22,6 +22,16 @@
         html: "Your reference number<br><strong>HDJ2123F</strong>"
       }) }}
 
+
+{% if data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"] or data['lpNumber'].startsWith("SL") %}
+
+     
+         <p class="govuk-body">Scottish specific content.</p>
+
+{% else %}
+
+
+
       <p class="govuk-body">We've received your application to register. We've sent an  email to <strong>agent@authorised-agent.com</strong> and <strong>lp@limited-partnership.com</strong> confirming this.</p>
 
       <h2 class="govuk-heading-m">What happens next</h2>
@@ -36,7 +46,7 @@
         We'll send an authentication code to the registered office address you've provided. This code will be needed for all future filings.
        </p>-->
 
-
+{% endif %}
       <p class="govuk-body">
         <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
       </p>

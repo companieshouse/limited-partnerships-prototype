@@ -25,7 +25,9 @@
 
 
 
-{% if data['lpNumber'].startsWith("SL") %}
+<!--{% if data['lpNumber'].startsWith("SL") %}-->
+{% if data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"] or data['lpNumber'].startsWith("SL") %}
+
      
       <h1 class="govuk-heading-xl">All general partners and people with significant control (PSCs) need to verify their identity</h1>
       <p class="govuk-body">Before you can file an update for a limited partnership, its general partners and people with significant control (PSCs) need to verify their identity. If a general partner is a legal entity, an officer of the entity needs to verify their identity.</p>

@@ -188,14 +188,21 @@ router.post('/lp-name', function(request, response) {
 
 // Choose test scenario - registration or transition
 router.post('/registration-or-transition', function(request, response) {
-
-var registrationOrTransition = request.session.data['registrationOrTransition']
-if (registrationOrTransition == "registration"){
-    response.redirect("/v5/start")
-} else {
-    response.redirect("/v5/main-start-page")
-}
+    response.redirect('/v5/start')
 })
+
+// Start
+
+router.post('/start', function(request, response) {
+
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "registration"){
+        response.redirect("/v5/registration/registration-start-page")
+    } 
+    else {
+        response.redirect("/v5/sign-in")
+    }
+  })
 
 //Registered office address (postcode look-up)
 router.post('/limited-partnership-roa', function(request, response) {

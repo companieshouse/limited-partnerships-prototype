@@ -57,7 +57,7 @@ router.post('/gov-onelogin-enter-code.html', function(request, response) {
     else if (registerType == "registerSlp"){
         response.redirect("/v5/registration/slp-name")
      } 
-     else if (registerType == "registerSqp"){
+     else if (registerType == "RegisterSqp"){
         response.redirect("/v5/registration/sqp-name")
      } 
      else {

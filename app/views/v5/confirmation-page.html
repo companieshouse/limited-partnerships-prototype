@@ -23,12 +23,7 @@
       }) }}
 
 
-{% if data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"] or data['lpNumber'].startsWith("SL") %}
 
-     
-         <p class="govuk-body">Scottish specific content.</p>
-
-{% else %}
 
 
 
@@ -45,6 +40,13 @@
       <!--<p class="govuk-body">
         We'll send an authentication code to the registered office address you've provided. This code will be needed for all future filings.
        </p>-->
+
+       {% if data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"] or data['lpNumber'].startsWith("SL") %}
+
+     
+         <p class="govuk-body">Scottish specific content.</p>
+
+{% else %}
 
 {% endif %}
       <p class="govuk-body">

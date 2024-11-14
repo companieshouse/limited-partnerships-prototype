@@ -206,17 +206,8 @@ router.post('/start', function(request, response) {
 
 //Registered office address (postcode look-up)
 router.post('/limited-partnership-roa', function(request, response) {
-    const propertyNumber = request.body.propertyNumber;
-    const addressPostcode = request.body.addressPostcode;
+    response.redirect('/v5/limited-partnership-ppob')
 
-    if (propertyNumber && addressPostcode) {
-        response.redirect('/v5/limited-partnership-roa-confirm-address');
-    } else if (!propertyNumber && addressPostcode) {
-        response.redirect('/v5/limited-partnership-roa-choose-address');
-    } else {
-        // Optionally handle the case where neither propertyNumber nor addressPostcode are provided
-        response.redirect('/v5/limited-partnership-roa-choose-address');
-    }
 });
 
 //Registered office address (choose address)
@@ -225,32 +216,22 @@ router.post('/limited-partnership-roa-choose-address', function(request, respons
 })
 
 //Registered office address (confirm address)
-router.post('/limited-partnership-roa-confirm-address', function(request, response) {
+//router.post('/limited-partnership-roa-confirm-address', function(request, response) {
 
-    var registrationOrTransition = request.session.data['registrationOrTransition']
-    if (registrationOrTransition == "post"){
-        response.redirect("/v5/filing-confirmation")
-    } else {
-        response.redirect("/v5/limited-partnership-ppob")
-    }
-})
+ //   var registrationOrTransition = request.session.data['registrationOrTransition']
+ //   if (registrationOrTransition == "post"){
+ //       response.redirect("/v5/filing-confirmation")
+ //   } else {
+ //       response.redirect("/v5/limited-partnership-ppob")
+//   }
+//})
 
 
 
 //PPOB
 
 router.post('/limited-partnership-ppob', function(request, response) {
-
-    var registrationOrTransition = request.session.data['registrationOrTransition']
-    if (registrationOrTransition == "post"){
-        response.redirect("/v5/post-check-your-answers")
-    }     
-    else if (registrationOrTransition == "transition"){
-         response.redirect("/v5//limited-partnership-sic")
-     } 
-     else {
-        response.redirect("/v5/limited-partnership-terms")
-    }
+    response.redirect('/v5/limited-partnership-terms')
 })
 
 // Terms of partnership

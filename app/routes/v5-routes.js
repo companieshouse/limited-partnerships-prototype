@@ -198,9 +198,12 @@ router.post('/start', function(request, response) {
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "registration"){
         response.redirect("/v5/registration/registration-start-page")
-    } 
+    }
+    else if (registrationOrTransition == "transition"){
+        response.redirect("/v5/transition-start-page")
+    }
     else {
-        response.redirect("/v5/sign-in")
+        response.redirect("/v5/post-transition-start-page")
     }
   })
 

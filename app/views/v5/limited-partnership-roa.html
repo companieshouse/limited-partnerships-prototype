@@ -88,6 +88,35 @@
     autocomplete: "postal-code"
   }) }}
 
+  {{ govukRadios({
+  name: "roaCountry",
+  fieldset: {
+    legend: {
+      text: "Country",
+      isPageHeading: false,
+      classes: "govuk-!-font-weight-regular"
+    }
+  },
+  items: [
+    {
+      value: "england",
+      text: "England"
+    },
+    {
+      value: "scotland",
+      text: "Scotland"
+    },
+    {
+      value: "wales",
+      text: "Wales"
+    },
+    {
+      value: "northern-ireland",
+      text: "Northern Ireland"
+    }
+  ]
+}) }}
+
 {% endcall %}
 
 <!--

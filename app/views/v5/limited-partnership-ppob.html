@@ -93,6 +93,34 @@
 {% if (data['registrationOrTransition'] == "registration") %}
 
 <!-- At Registration, PPOB must be in the UK - so hide the country field -->
+ {{ govukRadios({
+  name: "ppobCountry",
+  fieldset: {
+    legend: {
+      text: "Country",
+      isPageHeading: false,
+      classes: "govuk-!-font-weight-regular"
+    }
+  },
+  items: [
+    {
+      value: "england",
+      text: "England"
+    },
+    {
+      value: "scotland",
+      text: "Scotland"
+    },
+    {
+      value: "wales",
+      text: "Wales"
+    },
+    {
+      value: "northern-ireland",
+      text: "Northern Ireland"
+    }
+  ]
+}) }}
 
 {% else %}  
 <div class="govuk-form-group">

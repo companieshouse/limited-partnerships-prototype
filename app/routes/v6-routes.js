@@ -15,10 +15,10 @@ const router = govukPrototypeKit.requests.setupRouter()
   router.post('/gov-onelogin-email', function(request, response) {
     var govOneLoginEmail = request.session.data['govOneLoginEmail']
     if (govOneLoginEmail == "someone@test.com"){
-        response.redirect("/v5/not-eligible")
+        response.redirect("/v6/not-eligible")
     } 
     else {
-        response.redirect("/v5/gov-onelogin-password")
+        response.redirect("/v6/gov-onelogin-password")
     }
   })
 
@@ -30,13 +30,13 @@ router.post('/gov-onelogin-enter-code.html', function(request, response) {
 
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
-        response.redirect("/v5/company-number")
+        response.redirect("/v6/company-number")
     }     
     else if (registrationOrTransition == "transition"){
-         response.redirect("/v5/company-number")
+         response.redirect("/v6/company-number")
      } 
      else {
-        response.redirect("/v5/registration/which-type")
+        response.redirect("/v6/registration/which-type")
     }
 })
 
@@ -49,19 +49,19 @@ router.post('/gov-onelogin-enter-code.html', function(request, response) {
 
     var registerType = request.session.data['registerType']
     if (registerType == "RegisterPflp"){
-        response.redirect("/v5/registration/pflp-name")
+        response.redirect("/v6/registration/pflp-name")
     }  
     else if (registerType == "RegisterPflpSco"){
-        response.redirect("/v5/registration/scottish-pflp-name")
+        response.redirect("/v6/registration/scottish-pflp-name")
      }    
     else if (registerType == "registerSlp"){
-        response.redirect("/v5/registration/slp-name")
+        response.redirect("/v6/registration/slp-name")
      } 
      else if (registerType == "RegisterSqp"){
-        response.redirect("/v5/registration/sqp-name")
+        response.redirect("/v6/registration/sqp-name")
      } 
      else {
-        response.redirect("/v5/registration/lp-name")
+        response.redirect("/v6/registration/lp-name")
     }
 })
 
@@ -69,11 +69,11 @@ router.post(['/lp-name', '/pflp-name', '/slp-name', '/sqp-name'], (request, resp
     var lpChooseName = request.session.data['lpChooseName'];
     
     if (lpChooseName && lpChooseName.toLowerCase().includes("harrods")) {
-        response.redirect("/v5/registration/same-as-name");
+        response.redirect("/v6/registration/same-as-name");
     } else if (lpChooseName && lpChooseName.toLowerCase().includes("bank")) {
-        response.redirect("/v5/registration/sensitive-name");
+        response.redirect("/v6/registration/sensitive-name");
     } else {
-        response.redirect("/v5/idv-filter");
+        response.redirect("/v6/idv-filter");
     }
 })
   
@@ -84,27 +84,27 @@ router.post('/idv-filter', function(request, response) {
 
   var idvCodes = request.session.data['idvCodes']
   if (idvCodes == "no"){
-      response.redirect("/v5/idv-no")
+      response.redirect("/v6/idv-no")
   } 
   else {
-      response.redirect("/v5/limited-partnership-rea")
+      response.redirect("/v6/limited-partnership-rea")
   }
 })
 
 // LP number confirm - transition or post-transition
 
 router.post('/company-number', function (req, res) {
-    res.redirect('/v5/correct-company')
+    res.redirect('/v6/correct-company')
   })
 
 
 router.post('/correct-company', function(request, response) {
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
-        response.redirect("/v5/limited-partnership-overview-cya")
+        response.redirect("/v6/limited-partnership-overview-cya")
     } 
     else {
-        response.redirect("/v5/transition-start")
+        response.redirect("/v6/transition-start")
     }
   })
 
@@ -115,9 +115,9 @@ router.post('/general-partner-choice', function(request, response) {
 
     var generalPartner = request.session.data['generalPartner']
     if (generalPartner == "person"){
-        response.redirect("/v5/gp-person")
+        response.redirect("/v6/gp-person")
     } else {
-        response.redirect("/v5/gp-legal-entity")
+        response.redirect("/v6/gp-legal-entity")
     }
 })
 
@@ -127,13 +127,13 @@ router.post('/gp-add-another', function(request, response) {
 
     var addAnotherGP = request.session.data['addAnotherGP']
     if (addAnotherGP == "addPersonGP"){
-        response.redirect("/v5/gp-person")
+        response.redirect("/v6/gp-person")
     } 
     if (addAnotherGP == "addEntityGP"){
-        response.redirect("/v5/gp-legal-entity")
+        response.redirect("/v6/gp-legal-entity")
     } 
     else {
-        response.redirect("/v5/limited-partner-section")
+        response.redirect("/v6/limited-partner-section")
     }
 })
 
@@ -143,9 +143,9 @@ router.post('/limited-partner-choice', function(request, response) {
 
     var limitedPartner = request.session.data['limitedPartner']
     if (limitedPartner == "person"){
-        response.redirect("/v5/lp-person")
+        response.redirect("/v6/lp-person")
     } else {
-        response.redirect("/v5/lp-legal-entity")
+        response.redirect("/v6/lp-legal-entity")
     }
 })
 
@@ -155,16 +155,16 @@ router.post('/lp-add-another', function(request, response) {
     var addAnotherLP = request.session.data['addAnotherLP']
     var lpNumber = request.session.data['lpNumber']
     if (addAnotherLP == "addPersonLP"){
-        response.redirect("/v5/lp-person")
+        response.redirect("/v6/lp-person")
     } 
    else if (addAnotherLP == "addEntityLP"){
-        response.redirect("/v5/lp-legal-entity")
+        response.redirect("/v6/lp-legal-entity")
     } 
     else if (lpNumber.startsWith("SL") || lpNumber.startsWith("SG")) {
-        response.redirect("/v5/psc-section")
+        response.redirect("/v6/psc-section")
     } 
     else {
-        response.redirect("/v5/general-partner-idv")
+        response.redirect("/v6/general-partner-idv")
     }
 })
 
@@ -172,23 +172,23 @@ router.post('/lp-add-another', function(request, response) {
 
 // Registration - in Scotland or not
 router.post('/in-scotland', function(request, response) {
-    response.redirect('/v5/registration/which-type')
+    response.redirect('/v6/registration/which-type')
 })
 
 // Registration - LP name
 router.post('/lp-name', function(request, response) {
-    response.redirect('/v5/idv-filter')
+    response.redirect('/v6/idv-filter')
 })
 
 // Registration - LP statement
 //router.post('/lp-statement', function(request, response) {
-//   response.redirect('/v5/idv-filter')
+//   response.redirect('/v6/idv-filter')
 //})
 
 
 // Choose test scenario - registration or transition
 router.post('/registration-or-transition', function(request, response) {
-    response.redirect('/v5/start')
+    response.redirect('/v6/start')
 })
 
 // Start
@@ -197,25 +197,25 @@ router.post('/start', function(request, response) {
 
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "registration"){
-        response.redirect("/v5/registration/registration-start-page")
+        response.redirect("/v6/registration/registration-start-page")
     }
     else if (registrationOrTransition == "transition"){
-        response.redirect("/v5/transition-start-page")
+        response.redirect("/v6/transition-start-page")
     }
     else {
-        response.redirect("/v5/post-transition-start-page")
+        response.redirect("/v6/post-transition-start-page")
     }
   })
 
 //Registered office address (postcode look-up)
 router.post('/limited-partnership-roa', function(request, response) {
-    response.redirect('/v5/limited-partnership-ppob')
+    response.redirect('/v6/limited-partnership-ppob')
 
 });
 
 //Registered office address (choose address)
 router.post('/limited-partnership-roa-choose-address', function(request, response) {
-    response.redirect('/v5/limited-partnership-roa-confirm-address')
+    response.redirect('/v6/limited-partnership-roa-confirm-address')
 })
 
 //Registered office address (confirm address)
@@ -223,9 +223,9 @@ router.post('/limited-partnership-roa-choose-address', function(request, respons
 
  //   var registrationOrTransition = request.session.data['registrationOrTransition']
  //   if (registrationOrTransition == "post"){
- //       response.redirect("/v5/filing-confirmation")
+ //       response.redirect("/v6/filing-confirmation")
  //   } else {
- //       response.redirect("/v5/limited-partnership-ppob")
+ //       response.redirect("/v6/limited-partnership-ppob")
 //   }
 //})
 
@@ -234,20 +234,42 @@ router.post('/limited-partnership-roa-choose-address', function(request, respons
 //PPOB
 
 router.post('/limited-partnership-ppob', function(request, response) {
-    response.redirect('/v5/limited-partnership-terms')
+    response.redirect('/v6/limited-partnership-terms')
 })
 
 // Terms of partnership
+
+
+router.post('/start', function(request, response) {
+
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "registration"){
+        response.redirect("/v6/registration/registration-start-page")
+    }
+    else if (registrationOrTransition == "transition"){
+        response.redirect("/v6/transition-start-page")
+    }
+    else {
+        response.redirect("/v6/post-transition-start-page")
+    }
+  })
 
 router.post('/limited-partnership-terms', function(request, response) {
 
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
-        response.redirect("/v5/post-check-your-answers")
-    } else {
-        response.redirect("/v5/limited-partnership-sic")
+        response.redirect("/v6/post-check-your-answers")
+    }
+    else if (registrationOrTransition == "transition"){
+        response.redirect("/v6/general-partner-section")
+    }
+    else {
+        response.redirect("/v6/limited-partnership-sic")
     }
 })
+
+
+
 
 
 

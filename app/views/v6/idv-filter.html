@@ -1,0 +1,133 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Identity verification" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<form class="form" action="/idv-filter" method="post">
+
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% endif %}
+
+
+
+
+{# 
+{% if data['lpNumber'].startsWith("SL") %}
+  This is limited partnership with an SL prefix
+  <h1 for SLPs> Identity verification for general partners and PSCs
+  Before you can file an update for a limited partnership (LP), its general partners and people with significant control (PSCs) need to verify their identity for Companies House (opens in a new tab).
+
+  <h2 for SLPs>Do you have a Companies House personal code for all general partners and PSCs?
+  
+{% elseif data['lpNumber'].startsWith("SG") %}
+  This is limited partnership with an SG prefix
+{% elseif data['lpNumber'].startsWith("NL") %}
+  This is limited partnership with an NL prefix
+{% endif %}
+ #}
+
+
+{% if data['lpNumber'].startsWith("SL") %}
+
+<h1 class="govuk-heading-xl">Identity verification for general partners</h1>
+  <p>Before you can file an update for a limited partnership, its general partners and people with significant control (PSCs) need to <a href="javascript:void(0)">verify their identity for Companies House (opens in a new tab)</a>.</p>
+  <p>If a general partner is a legal entity, an officer of the entity needs to verify their identity.</p>
+<p>When they've verified, we'll give them a Companies House personal code, which they will need to share with you.</p>
+
+{{ govukRadios({
+    classes: "govuk-radios",
+  name: "idvCodes",
+  value: data['idvCodes'],
+  fieldset: {
+    legend: {
+      text: "Do you have a Companies House personal code for all general partners and PSCs?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "After you've added information about the general partners, we'll ask you to provide their personal codes. "
+  },
+
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+{% else %}
+
+
+<h1 class="govuk-heading-xl">Identity verification for general partners</h1>
+<p>If the limited partnership has general partners who are people, they need to <a href="javascript:void(0)">verify their identity for Companies House (opens in a new tab)</a> before you can register the partnership.</p>
+<p>When they have verified, we’ll give them a Companies House personal code which they’ll need to share with you. We’ll ask you to provide a personal code for all general partners who are people. </p>
+
+{{ govukRadios({
+    classes: "govuk-radios",
+  name: "idvCodes",
+  value: data['idvCodes'],
+  fieldset: {
+    legend: {
+      text: "Do you have a Companies House personal code for all general partners who are people?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: " "
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      hint: {
+        text:"You'll need to provide their personal code later in the service."
+      }
+    },
+   
+    {
+      value: "no",
+      text: "No"
+    },
+    {
+      value: "yes",
+      text: "I do not have personal codes because all general partners are legal entities"
+    }
+  ]
+
+}) }}
+
+{% endif %}
+<!--<p>We'll ask you for these personal codes later in the service (if applicable).</p> -->
+      
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

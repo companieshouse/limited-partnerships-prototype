@@ -1,0 +1,85 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Scottish qualifying partnership name" %}
+
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/sqp-name" method="post">
+
+        <h1 class="govuk-heading-xl">Scottish qualifying partnership name</h1>{{ govukInput({
+  label: {
+    text: "What's the name of the Scottish qualifying partnership?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Do not enter SP at the end of the name. If you'd like to include this, we'll add it for you."
+  },
+  id: "lpChooseName",
+  name: "lpChooseName",
+  suffix: {
+    text: "SP"
+  }
+}) }}
+
+{{ govukInsetText({
+  html: 'Use the <a href="https://www.gov.uk/search-for-trade mark" target="_blank">trade mark search (link opens in a new tab)</a> to check if the Scottish qualifying partnership name matches an existing trade mark. If it does, consider choosing a different name. Companies House will not carry out this check for you.'
+}) }}
+
+
+
+
+
+
+{{ govukRadios({
+  name: "nameEnding",
+  fieldset: {
+    legend: {
+      text: "Would you like to include the name ending SP on the public record?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "SP",
+      text: "Yes, include SP"
+    },
+        {
+      value: "",
+      text: "No, do not include a name ending"
+    }
+  ]
+}) }}
+
+
+
+
+    {{ govukButton({
+  text: "Save and continue"
+}) }}  
+
+
+
+</form>
+    </div>
+  </div>
+
+  <script src="/public/javascripts/lp-name.js"></script>
+
+{% endblock %}

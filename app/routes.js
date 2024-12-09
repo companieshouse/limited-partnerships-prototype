@@ -11,7 +11,8 @@ const router = govukPrototypeKit.requests.setupRouter()
 //router.use('/', require('./routes/v2-routes.js'))
 //router.use('/', require('./routes/v3-routes.js'))
 //router.use('/', require('./routes/v4-routes.js'))
-router.use('/', require('./routes/v5-routes.js'))
+//router.use('/', require('./routes/v5-routes.js'))
+router.use('/', require('./routes/v6-routes.js'))
 
 
 // Show session data and URLs in the terminal  

@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName=" What is the Standard Industrial Classification (SIC) code?" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="general-partner-section" method="post">
+   
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% endif %}      
+      
+      
+      
+   <h1 class="govuk-label-wrapper">
+    <label class="govuk-heading-xl" for="sic-code">
+     What is the Standard Industrial Classification (SIC) code?
+    </label>
+  </h1>   
+<!--- see very bottom of page, this content gets replaced when user clicks the link - so any changes made here might also need to be made below ***THIS CODE IS NOT FOR PRODUCTION***-->
+<div id="sic">
+  <div class="govuk-form-group"> 
+    <p id="sic-code" class="govuk-hint">You should use the SIC code that best describes the partnership’s nature of business. It does not have to be an exact match. You can add up to 4 codes.
+    <a href="https://resources.companieshouse.gov.uk/sic/" class="govuk-link" rel="noreferrer noopener" target="_blank">Find your SIC code using our look up tool (link opens in a new tab)</a>.
+  </p>
+    <input class="govuk-input govuk-!-width-one-half" id="sicCode" name="sicCode" type="text" aria-describedby="sic-code-hint"> 
+    </div> 
+    <p class="govuk-body"> <a href="#" id="second-sic-link" class="govuk-button govuk-button--secondary">Add first SIC code</a> </p>
+     </div>
+
+
+
+
+
+
+
+
+{{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>
+                <p>We'll show the SIC code (or codes) on the public register.</p>"
+        }) }}
+
+      
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+
+<script type="text/javascript">
+document.getElementById('second-sic-link').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default action of the link
+
+    // The new HTML to replace the content of the <div id="sic">
+    const newContent = `
+      <div id="sic">
+        <div class="govuk-form-group"> 
+          <p id="sic-code" class="govuk-hint">You should use the SIC code that best describes the partnership’s nature of business, it does not have to be an exact match. You can add up to 4 codes.
+            <a href="https://resources.companieshouse.gov.uk/sic/" class="govuk-link" target="_blank">Find your SIC code using our look up tool (link opens in new tab)</a>.
+          </p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>62012	- Business and domestic software development <a href="javascript:void(0)">Remove</a></li>
+          </ul>
+          <input class="govuk-input govuk-!-width-one-half" id="sicCode2" name="sicCode2" type="text" aria-describedby="sic-code-hint">
+        </div>
+        <p class="govuk-body">
+         <a href="javascript:void(0)" id="third-sic-link" class="govuk-button govuk-button--secondary">Add a second SIC code</a>
+        </p>
+      </div>
+    `;
+
+    // Find the <div id="sic"> and replace its content
+    document.getElementById('sic').innerHTML = newContent;
+});
+</script>
+  
+{% endblock %}

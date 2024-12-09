@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="V5" %}
+{% set pageName="V6" %}
 
 {% block beforeContent %}
   {% include "includes/phase-banner.html" %}
@@ -15,9 +15,12 @@
     <!--{% include "govuk-prototype-kit/includes/homepage-top.njk" %}-->
 
  
+    {{ govukNotificationBanner({
+  text: "This version of the prototype is being actively worked on - some things might not work correctly and/or change very quickly."
+}) }}
 
 
-    <span class="govuk-caption-xl">Version 5</span>
+    <span class="govuk-caption-xl">Version 6</span>
     <h1 class="govuk-heading-xl">
       {{ serviceName }}
     </h1>

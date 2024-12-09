@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Confirmation" %}
+
+
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+{% endblock %}
+
+
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: "Application complete",
+        html: "Your reference number<br><strong>HDJ2123F</strong>"
+      }) }}
+
+
+
+
+
+
+      <p class="govuk-body">We've received your application to register. We've sent an  email to <strong>agent@authorised-agent.com</strong> and <strong>lp@limited-partnership.com</strong> confirming this.</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        We'll process the application as soon as possible, then we'll let you know by email if your application has been accepted or rejected.  Because this is a new service, we're not yet able to tell you exactly how long this will take.
+      </p>
+      <!--<p class="govuk-body">
+       We'll email <strong>lp@limited-partnership.com</strong> with instructions on how to request an authentication code. This will be needed for all future filings.
+      </p>-->
+      <!--<p class="govuk-body">
+        We'll send an authentication code to the registered office address you've provided. This code will be needed for all future filings.
+       </p>-->
+
+       {% if data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"] or data['lpNumber'].startsWith("SL") %}
+
+     
+       
+          <p class="govuk-body">To complete the registration process, you’ll also need to tell us about any people with significant control. To do this:
+            <ol class="govuk-list govuk-list--number">
+             
+        
+              <li>Find the forms you need at <a href="https://www.gov.uk/government/collections/companies-house-forms-for-scottish-limited-partnerships#people-with-significant-control-(psc)">Companies House forms for Scottish limited partnerships (opens in a new tab)</a>. </li>
+              <li><a href="https://find-and-update.company-information.service.gov.uk/efs-submission/start">Upload your forms online (opens in a new tab)</a>.</li>
+              
+            </ol>
+            
+      
+
+{% else %}
+
+{% endif %}
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+      </p>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Termination of a limited partner" %}
+
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="../filing-confirmation" method="post">
+
+
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+
+      <h1 class="govuk-heading-xl">Termination of a limited partner</h1>
+
+
+
+  <span class="govuk-caption-l">Lisa Taylor</span>
+
+{{ govukDateInput({
+  id: "lp-terminated-date",
+  namePrefix: "lp-terminated-date",
+  fieldset: {
+    legend: {
+      text: "When was the limited partner's appointment terminated?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "For example, 27 3 2025"
+  }
+}) }}
+
+
+{{ govukCheckboxes({
+  name: "terminate-gp-1",
+  fieldset: {
+    legend: {
+      text: "I confirm that I want to terminate Lisa Taylor as a limited partner",
+      isPageHeading: true,
+      classes: "govuk-visually-hidden"
+    }
+  },
+
+  items: [
+    {
+      value: "terminate- Lisa-Taylor",
+      text: "I confirm that I want to terminate  Lisa Taylor as a limited partner"
+    }
+  ]
+}) }}
+
+    {{ govukButton({
+  text: "Save and continue"
+}) }}  
+
+
+</form>
+    </div>
+  </div>
+{% endblock %}

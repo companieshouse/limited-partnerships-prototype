@@ -1,0 +1,123 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Limited partnership name" %}
+
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/lp-name" method="post">
+
+        <h1 class="govuk-heading-xl">Limited partnership name</h1>{{ govukInput({
+  label: {
+    text: "What's the name of the limited partnership?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Do not enter a name ending, like Limited Partnership or LP. We'll add this for you."
+  },
+  id: "lpChooseName",
+  name: "lpChooseName",
+  suffix: {
+    text: "Limited Partnership"
+  }
+}) }}
+
+{{ govukInsetText({
+  html: '<p>You must check the name is not the same as an existing partnership or company on the <a href="#/">Companies House register (opens in a new tab)</a>. If it is, we’ll reject your application.</p>
+  <p>If the name includes <a href="https://www.gov.uk/government/publications/incorporation-and-names/annex-a-sensitive-words-and-expressions-or-words-that-could-imply-a-connection-with-government" target="_blank">sensitive words or expressions that require approval (opens in a new tab)</a>, you must get permission before you register. </p>
+  <p>You should also use the <a href="https://www.gov.uk/search-for-trade mark" target="_blank">trade mark search (opens in a new tab)</a> to check if your name matches an existing trade mark. If it does, consider choosing a different name. Companies House will not carry out this check for you.</p>
+  '
+}) }}
+
+
+
+{% set otherHtml %}
+
+{{ govukRadios({
+  name: "nameEnding",
+  fieldset: {
+    legend: {
+      text: "What other name ending would you prefer? ",
+      isPageHeading: true,
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "Partneriaeth Cyfyngedig",
+      text: "Partneriaeth Cyfyngedig"
+    },
+    {
+      value: "PC",
+      text: "PC"
+    },
+    {
+      value: "P.C.",
+      text: "P.C."
+    }
+  ]
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  name: "nameEnding",
+  fieldset: {
+    legend: {
+      text: "Which name ending would you prefer to go on the public record?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "There's no difference between the name endings Limited Partnership, LP and L.P. except for how they look."
+  },
+  items: [
+    {
+      value: "Limited Partnership",
+      text: "Limited Partnership"
+    },
+    {
+      value: "LP",
+      text: "LP"
+    },    {
+      value: "L.P.",
+      text: "L.P."
+    },
+    {
+      value: "",
+      text: "A Welsh name ending",
+      conditional: {
+        html: otherHtml
+      }
+    }
+  ]
+}) }}
+
+
+
+    {{ govukButton({
+  text: "Save and continue"
+}) }}  
+
+
+
+</form>
+    </div>
+  </div>
+
+  <script src="/public/javascripts/lp-name.js"></script>
+
+{% endblock %}

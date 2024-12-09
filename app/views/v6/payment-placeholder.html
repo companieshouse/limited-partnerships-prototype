@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Confirm your payment" %}
+
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="confirmation-page" method="get" class="form">
+        <h1 class="govuk-heading-l">
+          [Placeholder]
+        </h1>
+
+        <p>GOV Pay screens would be shown here.</p>
+
+                <p>User would enter payment card details.</p>
+
+
+       
+
+        <p>
+          <a href="confirmation-page" class="govuk-link">Continue</a>
+        </p>
+
+      </form>
+
+    </div>
+    <!--govuk-grid-row-->
+
+    <!--govuk-grid-column-two-thirds-->
+  </div>
+  <!--govuk-grid-column-two-thirds-->
+
+</main>
+</div>
+<!---govuk-width-container-->
+
+{% endblock %}

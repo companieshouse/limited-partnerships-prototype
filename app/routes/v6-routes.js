@@ -237,6 +237,23 @@ router.post('/limited-partnership-ppob', function(request, response) {
     response.redirect('/v6/limited-partnership-terms')
 })
 
+
+// Starting new?
+
+router.post('/starting-new', function(request, response) {
+
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "registration"){
+        response.redirect("/v6/sign-in")
+    }
+    else if (registrationOrTransition == "transition"){
+        response.redirect("/starting-new")
+    }
+    else {
+        response.redirect("/starting-new")
+    }
+  })
+
 // Terms of partnership
 
 

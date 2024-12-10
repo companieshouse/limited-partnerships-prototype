@@ -188,8 +188,17 @@ router.post('/lp-name', function(request, response) {
 
 // Choose test scenario - registration or transition
 router.post('/registration-or-transition', function(request, response) {
-    response.redirect('/v6/start')
-})
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "registration"){
+        response.redirect("/v6/registration/registration-start-page")
+    }
+    else if (registrationOrTransition == "transition"){
+        response.redirect("/v6/transition-start-page")
+    }
+    else {
+        response.redirect("/v6/post-transition-start-page")
+    }
+  })
 
 // Start
 

@@ -27,7 +27,14 @@
 <h1 class="govuk-heading-xl">What is the registered office address of the partnership?</h1>
 <p class="govuk-hint">This is where official communications will be sent. </p>
 <p class="govuk-hint">It must be a physical UK address. You cannot use a PO Box address.</p>
+
+{% if data['registerType'] == "registerLp" or data['registerType'] == "RegisterPflp" %}
 <p class="govuk-hint">The partnership will be registered in the jurisdiction of this address (either England, Wales or Northern Ireland).</p>
+{% else  %}
+<p class="govuk-hint">The partnership will be registered in the jurisdiction of this address (Scotland).</p>
+{% endif %}
+
+
 
 
 
@@ -88,6 +95,8 @@
     autocomplete: "postal-code"
   }) }}
 
+{% if data['registerType'] == "registerLp" or data['registerType'] == "RegisterPflp" %}
+
   {{ govukRadios({
   name: "roaCountry",
   fieldset: {
@@ -103,10 +112,6 @@
       text: "England"
     },
     {
-      value: "scotland",
-      text: "Scotland"
-    },
-    {
       value: "wales",
       text: "Wales"
     },
@@ -116,6 +121,9 @@
     }
   ]
 }) }}
+{% else  %}
+{% endif %}
+
 
 {% endcall %}
 

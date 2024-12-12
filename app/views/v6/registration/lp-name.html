@@ -20,7 +20,7 @@
 
         <h1 class="govuk-heading-xl">Limited partnership name</h1>{{ govukInput({
   label: {
-    text: "What's the name of the limited partnership?",
+    text: "What's the name of the partnership?",
     classes: "govuk-label--l",
     isPageHeading: true
   },
@@ -37,7 +37,7 @@
 {{ govukInsetText({
   html: '<p>‘Same as’ rules now apply to limited partnerships.</p>
   <p>We’ll reject your registration if the name is the same as another registered partnership or company. To check if your preferred name is available, use the <a href="https://find-and-update.company-information.service.gov.uk/company-name-availability" target="_blank">company name availability checker (opens in a new tab)</a>. </p>
-  <p>  Read our <a href="https://www.gov.uk/limited-company-formation/choose-company-name" target="_blank">guidance on rules for names (opens in a new tab)</a>. You should <a href="https://www.gov.uk/search-for-trademark" target="_blank">check that the name does not match a current trademark (opens in a new tab)</a>. If the name you choose does not meet requirements or someone complains that it is ‘too like’ another company name, you may need to change it later.</p>
+  <p>  Read our <a href="https://www.gov.uk/limited-company-formation/choose-company-name" target="_blank">guidance on rules for names (opens in a new tab)</a>. You should <a href="https://www.gov.uk/search-for-trademark" target="_blank">check that the name does not match a current trade mark (opens in a new tab)</a>. If the name you choose does not meet requirements or someone complains that it is ‘too like’ another company name, you may need to change it later.</p>
   '
 }) }}
 
@@ -69,7 +69,7 @@
     }
   ],
   hint: {
-    text: "The partnership's principal place of business must be in Wales to choose these options."
+    text: "These name endings can only be used if the partnership's principal place of business is in Wales."
   }
 }) }}
 {% endset -%}
@@ -85,7 +85,7 @@
     }
   },
   hint: {
-    text: "There's no difference between the name endings Limited Partnership, LP and L.P. except for how they look."
+    text: "There's no difference between the name endings Limited Partnership, LP and L.P. except how they look."
   },
   items: [
     {

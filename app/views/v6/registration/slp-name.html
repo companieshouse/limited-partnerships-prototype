@@ -20,12 +20,12 @@
 
         <h1 class="govuk-heading-xl">Scottish limited partnership name</h1>{{ govukInput({
   label: {
-    text: "What's the name of the Scottish limited partnership?",
+    text: "What's the name of the partnership?",
     classes: "govuk-label--l",
     isPageHeading: true
   },
   hint: {
-    text: "Do not enter a name ending like Limited Partnership, LP or S LP. We will add this for you."
+    text: "Do not enter a name ending like Limited Partnership or LP. We'll add this for you."
   },
   id: "lpChooseName",
   name: "lpChooseName",
@@ -35,7 +35,10 @@
 }) }}
 
 {{ govukInsetText({
-  html: 'Use the <a href="https://www.gov.uk/search-for-trademark" target="_blank">trade mark search (link opens in a new tab)</a> to check if your name matches an existing trade mark. If it does, consider choosing a different name. Companies House will not carry out this check for you.'
+  html: '<p>‘Same as’ rules now apply to limited partnerships.</p>
+  <p>We’ll reject your registration if the name is the same as another registered partnership or company. To check if your preferred name is available, use the <a href="https://find-and-update.company-information.service.gov.uk/company-name-availability" target="_blank">company name availability checker (opens in a new tab)</a>. </p>
+  <p>  Read our <a href="https://www.gov.uk/limited-company-formation/choose-company-name" target="_blank">guidance on rules for names (opens in a new tab)</a>. You should <a href="https://www.gov.uk/search-for-trademark" target="_blank">check that the name does not match a current trade mark (opens in a new tab)</a>. If the name you choose does not meet requirements or someone complains that it is ‘too like’ another company name, you may need to change it later.</p>
+  '
 }) }}
 
 
@@ -53,7 +56,7 @@
     }
   },
   hint: {
-    text: "There's no difference between these name endings, except for how they look."
+    text: "There's no difference between these name endings except how they look."
   },
   items: [
     {

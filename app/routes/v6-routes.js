@@ -243,9 +243,23 @@ router.post('/limited-partnership-roa-choose-address', function(request, respons
 //PPOB
 
 router.post('/limited-partnership-ppob', function(request, response) {
-    response.redirect('/v6/limited-partnership-terms')
+    var registerType = request.session.data['registerType']
+    if (registerType == "RegisterPflp"){
+        response.redirect("/v6/general-partner-section")
+    }  
+    else if (registerType == "RegisterPflpSco"){
+        response.redirect("/v6/general-partner-section")
+     }    
+    else if (registerType == "registerSlp"){
+        response.redirect("/v6/limited-partnership-terms")
+     } 
+     else if (registerType == "RegisterSqp"){
+        response.redirect("/v6/limited-partnership-terms")
+     } 
+     else {
+        response.redirect("/v6/limited-partnership-terms")
+    }
 })
-
 
 // Starting new?
 

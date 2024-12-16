@@ -2,8 +2,11 @@
 
 {% set pageName="Are you sure you want to sign out?" %}
 
-{% block signOut %}
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
 
+{% block signOut %}
 {% endblock %}
 
 {% block beforeContent %}

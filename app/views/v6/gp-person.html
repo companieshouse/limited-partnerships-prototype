@@ -2,6 +2,12 @@
  
 {% set pageName="Add a general partner (person)" %}
 
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}
  {% include "/includes/user-bar.html" %}

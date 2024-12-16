@@ -2,6 +2,10 @@
 
 {% set pageName="Add general partner information" %}
 
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}
  {% include "/includes/user-bar.html" %}

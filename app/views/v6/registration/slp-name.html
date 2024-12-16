@@ -2,6 +2,9 @@
 
 {% set pageName="Scottish limited partnership name" %}
 
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
 
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}

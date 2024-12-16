@@ -2,6 +2,10 @@
 
 {% set pageName="Is the general partner a person or legal entity?" %}
 
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}
  {% include "/includes/user-bar.html" %}

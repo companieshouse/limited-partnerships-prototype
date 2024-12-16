@@ -2,6 +2,9 @@
 
 {% set pageName="Title to be added" %}
 
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
 
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}

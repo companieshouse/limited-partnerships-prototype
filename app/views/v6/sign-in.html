@@ -2,6 +2,10 @@
 
 {% set pageName="Create your GOV.UK One Login or sign in" %}
 
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
 {% block beforeContent %}
   {% include "/includes/phase-banner.html" %}
   {% include "/includes/back-link.html" %}

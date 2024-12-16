@@ -7,9 +7,15 @@
 {% endblock %}
 
 
-{% set serviceName %}
-{% endset%}
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "/",
+    classes: "govuk-header--full-width-border"
+}) }}
 
+{{ govukServiceNavigation({
+}) }}
+{% endblock %}
 
 
 

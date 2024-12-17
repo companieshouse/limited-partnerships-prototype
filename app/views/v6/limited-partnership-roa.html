@@ -48,7 +48,7 @@
 
 
 
-
+<!--
 {% call govukFieldset({
   legend: {
     text: "What is the registered office address of the partnership?",
@@ -136,7 +136,7 @@
 
 {% endcall %}
 
-<!--
+
 <div class="govuk-form-group">
   <label class="govuk-label" for="sort">
     Country
@@ -1157,14 +1157,14 @@
     
   
   </select>
-</div>-->
-<!--
+</div>
+-->
 <fieldset class="govuk-fieldset">
   <legend class="govuk-visually-hidden">
       What is the registered office address?
   </legend>
   <div class="govuk-form-group">
-    <label class="govuk-label" for="address-line-1">
+    <label class="govuk-label govuk-!-margin-top-4" for="address-line-1">
       Property name or number (optional)
     </label>
     <input class="govuk-input" id="property-number" name="propertyNumber" type="text" autocomplete="address-line1">
@@ -1182,7 +1182,7 @@
   {{ govukButton({
   text: "Find address"
 }) }}
-</fieldset>-->
+</fieldset>
 
 
 <!--<div class="govuk-form-group">
@@ -1236,11 +1236,11 @@
                 <p>We'll show the registered office address on the public register.</p>"
         }) }}
 
-      
+      <!--
 {{ govukButton({
   text: "Save and continue"
 }) }}
-
+-->
 
 </form>
     </div>

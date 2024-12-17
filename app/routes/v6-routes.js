@@ -218,7 +218,7 @@ router.post('/start', function(request, response) {
 
 //Registered office address (postcode look-up)
 router.post('/limited-partnership-roa', function(request, response) {
-    response.redirect('/v6/limited-partnership-ppob')
+    response.redirect('/v6/limited-partnership-roa-choose-address')
 
 });
 
@@ -228,15 +228,15 @@ router.post('/limited-partnership-roa-choose-address', function(request, respons
 })
 
 //Registered office address (confirm address)
-//router.post('/limited-partnership-roa-confirm-address', function(request, response) {
+router.post('/limited-partnership-roa-confirm-address', function(request, response) {
 
- //   var registrationOrTransition = request.session.data['registrationOrTransition']
- //   if (registrationOrTransition == "post"){
- //       response.redirect("/v6/filing-confirmation")
- //   } else {
- //       response.redirect("/v6/limited-partnership-ppob")
-//   }
-//})
+   var registrationOrTransition = request.session.data['registrationOrTransition']
+   if (registrationOrTransition == "post"){
+      response.redirect("/v6/filing-confirmation")
+   } else {
+      response.redirect("/v6/limited-partnership-ppob")
+  }
+})
 
 
 

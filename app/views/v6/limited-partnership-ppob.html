@@ -44,6 +44,59 @@
 
 
 
+
+
+{% set ppobDifferentHtml %}
+
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-margin-top-6" for="address-line-1">
+      Property name or number (optional)
+    </label>
+    <input class="govuk-input" id="property-number" name="propertyNumber" type="text" autocomplete="address-line1">
+  </div>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="address-postcode">
+      Postcode
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+  </div>
+
+  <p class="govuk-!-margin-top-5 govuk-!-margin-bottom-7"><a href="javascript:void(0)">Enter address manually</a><p>
+
+      {{ govukButton({
+      text: "Find address",
+      href: "javascript:void(0)"
+    }) }}
+
+{% endset -%}
+
+{{ govukRadios({
+  name: "addressPPOB",
+  classes: "govuk-!-margin-top-4",
+
+  fieldset: {
+    legend: {
+      text: "What is the principal place of business?",
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "ppobSame",
+      text: "The principal place of business address is the same as the registered office address"
+    },
+    {
+      value: "ppobDifferent",
+      text: "A different address",
+      conditional: {
+        html: ppobDifferentHtml
+      }
+    }
+  ]
+}) }}
+
+<!--
 {% call govukFieldset({
   legend: {
     text: "What is the principal place of business?",
@@ -103,9 +156,9 @@
 
 
 {% if (data['registrationOrTransition'] == "registration") %}
-
+-->
 <!-- At Registration, PPOB must be in the UK - so hide the country field -->
- {{ govukRadios({
+<!--{{ govukRadios({
   name: "ppobCountry",
   fieldset: {
     legend: {
@@ -1159,6 +1212,9 @@
 
 {% endif %}
 
+-->
+
+
 
 
 
@@ -1166,27 +1222,6 @@
 
 
 <!--
-  <div class="govuk-form-group">
-    <label class="govuk-label" for="address-line-1">
-      Property name or number (optional)
-    </label>
-    <input class="govuk-input" id="property-number" name="propertyNumber" type="text" autocomplete="address-line1">
-  </div>
-
-  <div class="govuk-form-group">
-    <label class="govuk-label" for="address-postcode">
-      Postcode
-    </label>
-    <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
-  </div>
-
-  <p><a href="javascript:void(0)">Enter address manually</a><p>
-
-  {{ govukButton({
-  text: "Find address"
-}) }}
-</fieldset>
-
 {% else %}  
 <fieldset class="govuk-fieldset">
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
@@ -1248,9 +1283,9 @@ What is the principal place of business?
 
 <div id="businessPlace-hint" class="govuk-hint">
     Where the partnership carries out its activities.
-  </div> -->
+  </div> 
 
-  <!--
+
 <div class="govuk-form-group govuk-!-margin-top-8">
 
     <label class="govuk-visually-hidden" for="ppob-country">

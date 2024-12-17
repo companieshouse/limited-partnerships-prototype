@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Choose the registered office address" %}
+{% set pageName="Choose the principal place of business address" %}
 
 {% block header %}
    {% include "/includes/dynamic-service-name.html" %}
@@ -19,7 +19,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-<form class="form" action="/limited-partnership-roa-choose-address" method="post">
+<form class="form" action="/limited-partnership-ppob-choose-address" method="post">
    
 
 {% if (data['registrationOrTransition'] == "registration") %}
@@ -32,10 +32,10 @@
 
 
 {{ govukRadios({
-  name: "chooseROA",
+  name: "choosePPOB",
   fieldset: {
     legend: {
-      text: "Choose the registered office address",
+      text: "Choose the principal place of business address",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--xl"
     }

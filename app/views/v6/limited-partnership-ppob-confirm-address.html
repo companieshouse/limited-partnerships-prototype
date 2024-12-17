@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Confirm the registered office address" %}
+{% set pageName="Confirm the principal place of business address" %}
 
 {% block header %}
    {% include "/includes/dynamic-service-name.html" %}
@@ -19,7 +19,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-<form class="form" action="/limited-partnership-roa-confirm-address" method="post">
+<form class="form" action="/limited-partnership-ppob-confirm-address" method="post">
    
 
 {% if (data['registrationOrTransition'] == "registration") %}
@@ -31,7 +31,7 @@
 
 
 
-<h1 class="govuk-heading-xl">Confirm the registered office address</h1>
+<h1 class="govuk-heading-xl">Confirm the principal place of business address</h1>
 <p>1 Orchard Street<br>
 Whitchurch<br>
 Cardiff<br>

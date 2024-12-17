@@ -219,7 +219,6 @@ router.post('/start', function(request, response) {
 //Registered office address (postcode look-up)
 router.post('/limited-partnership-roa', function(request, response) {
     response.redirect('/v6/limited-partnership-roa-choose-address')
-
 });
 
 //Registered office address (choose address)
@@ -242,8 +241,10 @@ router.post('/limited-partnership-roa-confirm-address', function(request, respon
 
 //PPOB
 
-router.post('/limited-partnership-ppob', function(request, response) {
-    var registerType = request.session.data['registerType']
+
+
+ router.post('/limited-partnership-ppob', function(request, response) {
+   var registerType = request.session.data['registerType']
     if (registerType == "RegisterPflp"){
         response.redirect("/v6/general-partner-section")
     }  
@@ -259,7 +260,7 @@ router.post('/limited-partnership-ppob', function(request, response) {
      else {
         response.redirect("/v6/limited-partnership-terms")
     }
-})
+ })
 
 // Starting new?
 

@@ -2,11 +2,18 @@
 
 {% set pageName="Choose test scenario" %}
 
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "/",
+    classes: "govuk-header--full-width-border"
+}) }}
+
+{{ govukServiceNavigation({
+}) }}
+{% endblock %}
 
 {% block beforeContent %}
   {% include "/includes/phase-banner.html" %}
-  {% include "/includes/user-bar.html" %}
-  {% include "/includes/back-link.html" %}
 {% endblock %}
 
 

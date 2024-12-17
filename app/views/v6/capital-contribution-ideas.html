@@ -20,7 +20,10 @@
     <div class="govuk-grid-column-two-thirds">
 
 
-
+{{ govukTag({
+  text: "Version A",
+   classes: "govuk-!-margin-bottom-5"
+}) }}
 
 <fieldset class="govuk-fieldset">
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -71,7 +74,7 @@
 
 {{ govukInput({
   id: "totalCapitalContribution",
-  name: "cost",
+  name: "totalCapitalContribution",
   label: {
     text: "What is their total capital contribution?",
     classes: "govuk-visually-hidden"
@@ -83,7 +86,7 @@
       
 
 {{ govukRadios({
-  name: "whereDoYouLive",
+  name: "totalCapitalContributionOtherCurrency",
   fieldset: {
     legend: {
       text: "Where do you live?",
@@ -135,9 +138,143 @@
 
 </details>
 
-
 </fieldset>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{ govukTag({
+  text: "Version B",
+   classes: "govuk-!-margin-bottom-5 govuk-!-margin-top-9"
+}) }}
+
+
+
+
+{% set GBPHtml %}
+{{ govukInput({
+  label: {
+    text: "Enter the capital contribution amount",
+    classes: "govuk-label--s"
+  },
+  classes: "govuk-input--width-10",
+  id: "account-number",
+  name: "accountNumber",
+  inputmode: "numeric",
+  spellcheck: false
+}) }}
+{% endset -%}
+
+{% set DifferentHtml %}
+{{ govukInput({
+  label: {
+    text: "Enter the capital contribution amount",
+    classes: "govuk-label--s"
+  },
+  classes: "govuk-input--width-10",
+  id: "account-number",
+  name: "accountNumber",
+  inputmode: "numeric",
+  spellcheck: false
+}) }}
+
+{{ govukSelect({
+  id: "otherCurrencySelectorAlt2",
+  name: "otherCurrencySelectorAlt2",
+  label: {
+    text: "Select currency",
+    classes: "govuk-visually-hidden"
+  },
+  items: [
+    {
+      value: "",
+      text: "Select currency",
+      selected: true
+    },
+    {
+      value: "AED",
+      text: "United Arab Emirates dirham (AED)"
+    },
+    {
+      value: "AFN",
+      text: "Afghan afghani (AFN)"
+    },
+    {
+      value: "ALL",
+      text: "Albanian lek (ALL)"
+    },
+    {
+      value: "etc",
+      text: "-- etc --"
+    },
+    {
+      value: "ZWB",
+      text: "Zimbabwean bonds (ZWB)"
+    }
+  ]
+}) }}
+{% endset -%}
+
+{% set NonMonetaryHtml %}
+    {{ govukTextarea({
+      name: "moreDetail",
+      id: "more-detail",
+      label: {
+        text: "Enter details of the non-monetary capital contribution",
+        classes: "govuk-label--s govuk-!-margin-top-5",
+        isPageHeading: true
+      },
+      hint: {
+        text: "For example '6 pigs and 2 chickens'."
+      }
+    }) }}
+{% endset -%}
+
+{{ govukRadios({
+  name: "totalCapitalContribution",
+  fieldset: {
+    legend: {
+      text: "What is their total capital contribution?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "GBPalternate2",
+      text: "A value in £ (GBP)",
+      conditional: {
+        html: GBPHtml
+      }
+    },
+    {
+      value: "different",
+      text: "A value in a different currency",
+      conditional: {
+        html: DifferentHtml
+      }
+    },
+    {
+      value: "non",
+      text: "A non-monetary value",
+      conditional: {
+        html: NonMonetaryHtml
+      }
+    }
+  ]
+}) }}
 
     </div>
   </div>

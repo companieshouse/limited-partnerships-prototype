@@ -31,6 +31,40 @@
       {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
         rows: [
+            {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: data['lpChooseName']['nameEnding'] or "ACME LP"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Name"
+                }
+              ]
+            }
+          },
+               {
+            key: {
+              text: "Type"
+            },
+            value: {
+              text: "Limited partnership in England, Wales or Northern Ireland"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Name"
+                }
+              ]
+            }
+          },
           {
             key: {
               text: "Standard Industrial Classification (SIC) code"
@@ -41,7 +75,7 @@
             actions: {
               items: [
                 {
-                  href: "limited-partnership-info",
+                  href: "javascript:void(0)",
                   text: "Change",
                   visuallyHiddenText: "Standard Industrial Classification code"
                 }
@@ -58,7 +92,7 @@
             actions: {
               items: [
                 {
-                  href: "limited-partnership-info",
+                  href: "javascript:void(0)",
                   text: "Change",
                   visuallyHiddenText: "registered email address"
                 }
@@ -76,7 +110,7 @@
             actions: {
               items: [
                 {
-                  href: "limited-partnership-info",
+                  href: "javascript:void(0)",
                   text: "Change",
                   visuallyHiddenText: "registered office address"
                 }
@@ -93,7 +127,7 @@
             actions: {
               items: [
                 {
-                  href: "limited-partnership-info",
+                  href: "javascript:void(0)",
                   text: "Change",
                   visuallyHiddenText: "principal place of business"
                 }
@@ -110,7 +144,7 @@
             actions: {
               items: [
                 {
-                  href: "limited-partnership-info",
+                  href: "javascript:void(0)",
                   text: "Change",
                   visuallyHiddenText: "registered office address"
                 }

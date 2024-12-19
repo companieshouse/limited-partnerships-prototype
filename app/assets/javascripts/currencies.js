@@ -4,6 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   currencySelector.addEventListener('change', () => {
     const selectedCurrency = currencySelector.value;
-    prefixElement.textContent = selectedCurrency || 'AED'; // Default to 'AED' if no value is selected
+    prefixElement.textContent = selectedCurrency || ' '; // Default to ' ' if no value is selected
   });
 });

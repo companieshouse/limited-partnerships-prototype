@@ -73,7 +73,7 @@ router.post(['/lp-name', '/pflp-name', '/slp-name', '/sqp-name'], (request, resp
     } else if (lpChooseName && lpChooseName.toLowerCase().includes("bank")) {
         response.redirect("/v6/registration/sensitive-name");
     } else {
-        response.redirect("/v6/idv-filter");
+        response.redirect("/v6//limited-partnership-rea");
     }
 })
   
@@ -164,7 +164,7 @@ router.post('/lp-add-another', function(request, response) {
         response.redirect("/v6/psc-section")
     } 
     else {
-        response.redirect("/v6/general-partner-idv")
+        response.redirect("/v6/check-your-answers")
     }
 })
 

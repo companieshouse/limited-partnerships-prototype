@@ -3,8 +3,19 @@
 {% set pageName="Payment review" %}
 
 {% block header %}
-   {% include "/includes/dynamic-service-name.html" %}
+{{ govukHeader({
+  homepageUrl: "/",
+    classes: "govuk-header--full-width-border"
+}) }}
+
+{{ govukServiceNavigation({
+}) }}
 {% endblock %}
+
+
+{% set serviceName %}
+  GOV Pay
+{% endset%}
 
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}

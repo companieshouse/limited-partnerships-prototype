@@ -2,6 +2,20 @@
 
 {% set pageName="Confirm your payment" %}
 
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "/",
+    classes: "govuk-header--full-width-border"
+}) }}
+
+{{ govukServiceNavigation({
+}) }}
+{% endblock %}
+
+
+{% set serviceName %}
+  GOV Pay
+{% endset%}
 
 {% block beforeContent %}
   {% include "includes/phase-banner.html" %}

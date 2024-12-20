@@ -9,21 +9,34 @@
 
 
 
-//Styles for user bar
+//Styles for user bar and language toggle
 
 ul#navigation {
     font-size: 0.9em;
     margin-top: 15px;
     text-align: right;
     font-family: 'GDS Transport', Arial, Helvetica, sans-serif;
-    display: block;    
+    display: block;  
     li {
       display: inline;
-      font-size: 16px;
+      font-size: 19px;
       overflow-wrap: break-word;
       a {margin-left: 0.9em;}
     }
   }
+
+  ul#navigation.language-toggle {  
+    display: inline-block;
+    float: right;
+    margin-bottom: 15px;
+  }
+ul.language-toggle li {
+    font-size: 19px !important;
+    span {
+      margin-left: 0.5em;
+      margin-right:-0.5em;
+    }
+}
 
 
   //Payment

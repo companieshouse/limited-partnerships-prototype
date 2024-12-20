@@ -87,3 +87,13 @@ img.card-image {
 // Making LP names uppercase
 .uppercase {text-transform: uppercase;}
   
+
+
+// UR shortcuts - not part of actual service
+
+.ur-shortcuts {
+  margin-top: 3em;
+  p, ul, li, a {
+  color: #b1b4b6  !important;
+  }
+}

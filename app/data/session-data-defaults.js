@@ -2,7 +2,8 @@ module.exports = {
 
   // Insert values here
 
-'email': 'ascp@example.com',
+'email': 'agent@authorised-agent.com',
+'registeredEmail': 'lp@limited-partnership.com',
 'lpNumber' : '',
 'lpChooseName' : 'ACME',
 'nameEnding' : 'LIMITED PARTNERSHIP'

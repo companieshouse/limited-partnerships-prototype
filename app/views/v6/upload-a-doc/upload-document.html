@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="HERE" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "/",
+    classes: "govuk-header--full-width-border"
+}) }}
+
+{{ govukServiceNavigation({
+}) }}
+{% endblock %}
+
+
+{% set serviceName %}
+  Upload a document to Companies House
+{% endset%}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="upload-check-answers" method="post">
+
+      <h1 class="govuk-heading-xl">Title</h1>
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

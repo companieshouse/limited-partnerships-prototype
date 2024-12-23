@@ -97,3 +97,20 @@ img.card-image {
   color: #b1b4b6  !important;
   }
 }
+
+// Second nationality
+
+/* Hide the link by default */
+#second-nationality-link {
+  display: none;
+}
+
+/* Show the link only when JavaScript is enabled */
+.js-enabled #second-nationality-link {
+  display: inline;
+}
+
+/* Hide the div when JavaScript is enabled */
+.js-enabled #second-nationality-div {
+  display: none;
+}

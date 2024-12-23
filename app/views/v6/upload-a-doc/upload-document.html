@@ -42,6 +42,12 @@
   <li>use a PDF format</li>
 </ul>
 
+
+<!-- Spinner container -->
+<div id="spinner-container" style="display: none; text-align: center; margin-top: 20px;">
+  <img src="/public/images/spinner.gif" alt="Loading..." style="width: 50px; height: 50px;">
+</div>
+
 {{ govukFileUpload({
   id: "file-upload-1",
   name: "fileUpload1",
@@ -49,6 +55,8 @@
     text: "Upload a file"
   }
 }) }}
+
+
 
       {{ govukButton({
         text: "Continue"
@@ -58,5 +66,25 @@
   </div>
 </div>
 
+
+
+<script>
+  // Get the file input element
+  const fileInput = document.getElementById('file-upload-1');
+  const spinnerContainer = document.getElementById('spinner-container');
+
+  // Add an event listener for the 'change' event
+  fileInput.addEventListener('change', function () {
+    if (fileInput.files.length > 0) {
+      // Show the spinner
+      spinnerContainer.style.display = 'block';
+
+      // Delay for 2 seconds before navigating
+      setTimeout(function () {
+        window.location.href = 'upload-confirm-document';
+      }, 2000);
+    }
+  });
+</script>
 
 {% endblock %}

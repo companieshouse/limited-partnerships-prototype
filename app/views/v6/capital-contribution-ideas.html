@@ -315,7 +315,7 @@
 {% set GBPHtml %}
 {{ govukInput({
   label: {
-    text: "Enter the capital contribution amount",
+    text: "Enter the total amount contributed",
     classes: "govuk-label--s"
   },
     prefix: {
@@ -520,7 +520,7 @@
 
 {{ govukInput({
   label: {
-    text: "Enter the capital contribution amount",
+    text: "Enter the total amount contributed",
     classes: "govuk-label--s"
   },
     prefix: {
@@ -545,9 +545,6 @@
         text: "Enter details of the non-monetary capital contribution",
         classes: "govuk-label--s govuk-!-margin-top-5",
         isPageHeading: true
-      },
-      hint: {
-        text: "For example '6 pigs and 2 chickens'."
       }
     }) }}
 {% endset -%}
@@ -556,7 +553,7 @@
   name: "totalCapitalContributionAlt2",
   fieldset: {
     legend: {
-      text: "What is their total capital contribution?",
+      text: "What is their capital contribution?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--m"
     }
@@ -564,14 +561,14 @@
   items: [
     {
       value: "GBPalternate2",
-      text: "A value in £ (GBP)",
+      text: "An amount in pounds (GBP)",
       conditional: {
         html: GBPHtml
       }
     },
     {
       value: "different",
-      text: "A value in a different currency",
+      text: "An amount in a different currency",
       conditional: {
         html: DifferentHtml
       }
@@ -581,6 +578,9 @@
       text: "A non-monetary value",
       conditional: {
         html: NonMonetaryHtml
+      },
+      hint: {
+        text:"For example, if they contributed goods or services."
       }
     }
   ]

@@ -22,7 +22,29 @@
 
       <form class="form" action="/lp-name" method="post">
 
-        <h1 class="govuk-heading-xl">Limited partnership name</h1>{{ govukInput({
+        <h1 class="govuk-heading-xl">Limited partnership name</h1>
+        
+        {{ govukInsetText({
+  html: '<p>There are rules for what name a limited partnership can use. We will reject the application if the name does not meet all the rules. 
+    
+
+  '
+}) }}
+
+
+ <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      How to check if the limited partnership’s name meets the rules
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>The limited partnership’s name cannot be the same as another registered partnership or company. To check the name, use the <a href="https://find-and-update.company-information.service.gov.uk/company-name-availability" target="_blank">company name availability checker (opens in a new tab)</a>. </p>
+    <p>To find out all the rules the limited partnership's name needs to meet, read the <a href="https://www.gov.uk/limited-company-formation/choose-company-name" target="_blank">guidance on choosing a company name (opens in a new tab)</a>.</p>
+  </div>
+</details>       
+        
+        {{ govukInput({
   label: {
     text: "What's the name of the partnership?",
     classes: "govuk-label--l"
@@ -37,12 +59,6 @@
   }
 }) }}
 
-{{ govukInsetText({
-  html: '<p>‘Same as’ rules now apply to limited partnerships.</p>
-  <p>We’ll reject your registration if the name is the same as another registered partnership or company. To check if your preferred name is available, use the <a href="https://find-and-update.company-information.service.gov.uk/company-name-availability" target="_blank">company name availability checker (opens in a new tab)</a>. </p>
-  <p>  Read our <a href="https://www.gov.uk/limited-company-formation/choose-company-name" target="_blank">guidance on rules for names (opens in a new tab)</a>. You should <a href="https://www.gov.uk/search-for-trademark" target="_blank">check that the name does not match a current trade mark (opens in a new tab)</a>. If the name you choose does not meet requirements or someone complains that it is ‘too like’ another company name, you may need to change it later.</p>
-  '
-}) }}
 
 
 

@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="HERE" %}
+{% set pageName="Upload a document to Companies House" %}
 
 {% block header %}
 {{ govukHeader({
@@ -28,16 +28,16 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="upload-login-password" method="post">
+        
+      <span class="govuk-caption-l">Guidance</span>
+      <h1 class="govuk-heading-xl">Upload a document to Companies House</h1>
 
-      <h1 class="govuk-heading-xl">Title</h1>
+      <p class="govuk-body-l">How to file certain documents online that would usually be sent to us in a paper format.</p>
 
-
-      {{ govukButton({
-        text: "Continue"
+      {{ govukInsetText({
+        text: "This guidance has been created for the Upload a document to Companies House service to enable paperless filing in response to the coronavirus (COVID-19) outbreak."
       }) }}
 
-    </form>
   </div>
 </div>
 

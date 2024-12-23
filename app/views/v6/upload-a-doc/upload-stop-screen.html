@@ -38,8 +38,10 @@
 
       <p class="govuk-body-l">Only Companies House authorised agents can upload Scottish limited partnership forms.</p>
 
-      <p class="govuk-paragraph">More information...</p>
-
+      {{ govukDetails({
+        summaryText: "What is a Companies House authorised agent?",
+        text: "Text"
+      }) }}
 
 
          <h2 class="govuk-heading-m">What do you want to do next?</h2>

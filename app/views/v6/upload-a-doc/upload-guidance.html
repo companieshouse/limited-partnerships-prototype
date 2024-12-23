@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Enter your password" %}
+{% set pageName="HERE" %}
 
 {% block header %}
 {{ govukHeader({
@@ -17,9 +17,9 @@
   Upload a document to Companies House
 {% endset%}
 
+
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}
-
 {% endblock %}
 
 
@@ -28,26 +28,14 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="upload-company-number" method="post">
+      <form class="form" action="upload-login-password" method="post">
 
-{{ govukInput({
-  label: {
-    text: "Enter your password",
-    classes: "govuk-label--l",
-    isPageHeading: true
-  },
-  id: "govOneLoginPassword",
-  name: "govOneLoginPassword",
-  type: "password"
-}) }}
-
-<p><a href="javascript:void(0)">I’ve forgotten my password</a></p>
+      <h1 class="govuk-heading-xl">Title</h1>
 
 
-    {{ govukButton({
-    text: "Continue",
-    classes: "govuk-button"
-  }) }}
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
     </form>
   </div>

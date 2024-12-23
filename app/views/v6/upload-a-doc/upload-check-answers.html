@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="HERE" %}
+{% set pageName="Confirm this is the correct company" %}
 
 {% block header %}
 {{ govukHeader({
@@ -16,11 +16,8 @@
 {% set serviceName %}
   Upload a document to Companies House
 {% endset%}
-
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}
- {% include "/includes/user-bar.html" %}
-  {% include "/includes/back-link-language-toggle.html" %}
 {% endblock %}
 
 
@@ -29,9 +26,50 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="upload-confirmation" method="post">
+      <form class="form" action="upload-select-document" method="post">
 
-      <h1 class="govuk-heading-xl">Title</h1>
+      <h1 class="govuk-heading-xl">Confirm this is the correct company</h1>
+
+         {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Company name"
+            },
+            value: {
+              text: "ACME LIMITED"
+            }
+          },
+          {
+            key: {
+              text: "Company number"
+            },
+               value: {
+                  text: data['uploadCompanyNumber'] or "00006400"
+               }
+            },
+          {
+            key: {
+              text: "Incorporation date	"
+            },
+            value: {
+              text: "4 May 1977"
+            }
+          },
+          {
+            key: {
+              text: "Registered office address"
+            },
+            value: {
+              html: "72 Guild Street, London, SE23 6FH"
+            }
+          }
+
+        ]
+      }) }}
+
+
 
 
       {{ govukButton({

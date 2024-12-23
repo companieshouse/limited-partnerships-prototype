@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="HERE" %}
+{% set pageName="Enter your email address to sign in to your GOV.UK One Login" %}
 
 {% block header %}
 {{ govukHeader({
@@ -20,8 +20,7 @@
 
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}
- {% include "/includes/user-bar.html" %}
-  {% include "/includes/back-link-language-toggle.html" %}
+
 {% endblock %}
 
 
@@ -32,12 +31,23 @@
     <div class="govuk-grid-column-two-thirds">
       <form class="form" action="upload-login-password" method="post">
 
-      <h1 class="govuk-heading-xl">Title</h1>
 
 
-      {{ govukButton({
-        text: "Continue"
-      }) }}
+ {{ govukInput({
+  label: {
+    text: "Enter your email address to sign in to your GOV.UK One Login",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  id: "govOneLoginEmail",
+  name: "govOneLoginEmail"
+}) }}
+
+
+    {{ govukButton({
+    text: "Continue",
+    classes: "govuk-button"
+  }) }}
 
     </form>
   </div>

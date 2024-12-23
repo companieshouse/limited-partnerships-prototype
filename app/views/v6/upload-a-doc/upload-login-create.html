@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="HERE" %}
+{% set pageName="Create a GOV.UK One Login or sign in" %}
 
 {% block header %}
 {{ govukHeader({
@@ -19,8 +19,6 @@
 
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}
- {% include "/includes/user-bar.html" %}
-  {% include "/includes/back-link-language-toggle.html" %}
 {% endblock %}
 
 
@@ -31,11 +29,34 @@
     <div class="govuk-grid-column-two-thirds">
       <form class="form" action="upload-login-email" method="post">
 
-      <h1 class="govuk-heading-xl">Title</h1>
 
+      <h1 class="govuk-heading-xl">Create a GOV.UK One Login or sign in</h1>
+      
+<p>You'll need:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>an email address</li>
+  <li>a way to get security code - this can be a mobile phone number or an authenticator app
+</ul>
 
-      {{ govukButton({
-        text: "Continue"
+{{ govukInsetText({
+  html: 'The GOV.UK One Login is also available <a href="javascript:void(0)">in Welsh (Cymraeg)</a>'
+}) }}
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Create a GOV.UK One login",
+    href: "javascript:void(0)"
+  }) }}
+
+ {{ govukButton({
+        text: "Sign in",
+        classes: "govuk-button--secondary"
+      }) }}
+  </div>
+
+     {{ govukDetails({
+        summaryText: "About GOV.UK One Login",
+        text: "Some help text"
       }) }}
 
     </form>

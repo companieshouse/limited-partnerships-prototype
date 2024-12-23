@@ -6,6 +6,7 @@ module.exports = {
 'registeredEmail': 'lp@limited-partnership.com',
 'lpNumber' : '',
 'lpChooseName' : 'ACME',
-'nameEnding' : 'LIMITED PARTNERSHIP'
+'nameEnding' : 'LIMITED PARTNERSHIP',
+'uploadCompanyNumber' : '00006400'
 
 }

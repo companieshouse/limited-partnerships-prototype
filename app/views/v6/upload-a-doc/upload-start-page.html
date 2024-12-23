@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Start" %}
+{% set pageName="Upload a document to Companies House" %}
 
 {% block header %}
 {{ govukHeader({
@@ -24,101 +24,47 @@
         Upload a document to Companies House
       </h1>
 
-      <p>Use this service to apply to register a: </p>
-
-          <ul class="govuk-list govuk-list--bullet">
-            <li>limited partnership in England, Wales or Northern Ireland</li>
-            <li>private fund limited partnership in England, Wales or Northern Ireland</li>
-            <li>Scottish limited partnership</li>
-            <li>private fund limited partnership in Scotland</li>
-            </ul>
-
-            <p> <a href="#/">Find out more about different types of limited partnership</a>.
-
-<p>This service has replaced the paper forms LP5, LP5(s), LP7 and LP7(s).</p>
-
-      <h2 class="govuk-heading-m">Who can use this service </h2>
-<p>Only Companies House authorised agents (also known as Authorised Corporate Service Providers, or ACSPs) can register limited partnerships.</p>
-<p>
-Authorised agents are businesses like accountants, solicitors or company formation agents, that have registered with Companies House to be able to file on behalf of clients. </p><p>Read the <a href="#/">guidance to check if you can register as an authorised agent</a>.
-
-If you cannot, you will need to find an authorised agent to file for you. </p>  
-
-      <h2 class="govuk-heading-m">What you'll need</h2>
-
-<p>You’ll need to give details about the limited partnership, including: </p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>a registered office address </li>
-            <li>a principal office address </li>
-            <li>a registered email address </li>
-            <li>the term of the partnership, if relevant</li>
-            <li>a Standard Industrial Classification (SIC) code to describe the nature of business</li>
-            <li>details about the general and limited partners</li>
-            </ul>
-
- <!-- IDV content removed from this version-->      
-<!--<details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      If a general partner is a person
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-                <p>They will need to verify their identity before you can register the limited partnership. You'll need to give their Companies House personal code as part of the registration.</p>
-  </div>
-</details>-->
-
-<div class="govuk-inset-text">New requirements mean you now need to provide more information when you register a limited partnership. Before you start, you should <a href="#/">read the guidance on registering a limited partnership</a> to check you have all the information you'll need. </div>
+      <p class="govuk-body-l">Use this service to file certain documents online that would usually be sent to us in a paper format.</p>
 
 
+<p class="govuk-body">In this service, you can upload certain documents for:</p>
 
 
-        <p>You'll need a credit or debit card to pay the £XX registration fee. </p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>share capital</li>
+  <li>registrar's powers</li>
+  <li>change of constitution</li>
+  <li>Scottish limited partnerships (Companies House authorised agents only)</li>
+  <li>Scottish qualifying partnerships</li>
+  <li>insolvency (registered insolvency practitioners only)</li>
+</ul>
+<p class="govuk-body">You cannot use this service to upload documents for an overseas entity.</p>
+
+<p class="govuk-body"><a href="upload-guidance" class="govuk-link">Read the guidance to find out how to upload a document</a>, including which documents you can file.</p>
+
+<p class="govuk-body">There is separate <a href="https://find-and-update.company-information.service.gov.uk/efs-submission/insolvency-guidance" class="govuk-link">guidance for uploading insolvency documents</a>.</p>
+
+{{ govukInsetText({
+  text: "This service was created to enable paperless filing in response to the coronavirus (COVID-19) outbreak. It's quicker to upload your documents than to send them by post."
+}) }}
 
 
+<p class="govuk-body">You'll need:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>to sign in to or create a Companies House account</li>
+  <li>the completed document or <a href="https://www.gov.uk/government/collections/forms-for-company-registration-and-filing" class="govuk-link">Companies House form</a></li>
+  <li>to save the completed document to the device you are using</li>
+</ul>
+<p class="govuk-body">TFor some document types, you'll need:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>the company authentication code</li>
+  <li>to pay for the document</li>
+  <li>to include supporting evidence</li>
+</ul>
 
 
-
-<!--      <h2 class="govuk-heading-m">Before you start </h2>
-
-<p>You should check you have all the information you'll need to provide. There are different requirements depending on the type of partnership you need to register.</p> 
-
-
-
-<p>You’ll need to give a Companies House personal code for any people who are required to verify their identity for the limited partnership. </p>
-
-<p>This is a requirement for: </p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>general partners who are people</li>
-            <li>people with significant control (PSC)s – if you’re registering a Scottish limited partnership</li>
-          </ul>
-
-  <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      How to get a Companies House personal code
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <p>A personal code is an 11 character code we give when someone verifies their identity for Companies House. </p>
-    <p>If a person has already verified their identity, they can either find their personal code in the:
-</p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>Manage account section of their Companies House account</li>
-            <li>email we sent when they were verified
-</li></ul>
-
-  </div>
-
-  <p>Otherwise, they’ll need to <a href="#/">verify their identity for Companies House</a></p>. 
-</details>
--->
-
-
-
-   <!--   <p>Registering takes around 5 minutes.</p> -->
-
-   <p>It takes around XX minutes to use this service.</p>
 
       {{ govukButton({
         text: "Start now",
@@ -127,9 +73,16 @@ If you cannot, you will need to find an authorised agent to file for you. </p>
 
 
 
-      <p class="govuk-body "><a href="https://mcmw.abilitynet.org.uk/" class="govuk-link">Read advice from AbilityNet on how to adapt your device to meet your needs</a>. For example, changing the background colour or text size.</p>
+    <h2 class="govuk-heading-m">Before you start</h2>
+<p class="govuk-body">There are different services available if you need to:</p>
 
-
+<ul class="govuk-list govuk-list--bullet">
+  <li><a href="https://www.gov.uk/set-up-limited-company" class="govuk-link">register a company</a></li>
+  <li><a href="https://www.gov.uk/file-your-company-annual-accounts" class="govuk-link">file company accounts</a></li>
+  <li><a href="https://www.gov.uk/file-your-confirmation-statement-with-companies-house" class="govuk-link">file a confirmation statement for a company</a></li>
+  <li><a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" class="govuk-link">make changes to a company</a></li>
+  <li><a href="https://www.gov.uk/closing-a-limited-company" class="govuk-link">close a company</a></li>
+</ul>
 
 
 

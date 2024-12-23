@@ -1,6 +1,7 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="HERE" %}
+{% set pageName="Select a document
+" %}
 
 {% block header %}
 {{ govukHeader({
@@ -19,8 +20,6 @@
 
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}
- {% include "/includes/user-bar.html" %}
-  {% include "/includes/back-link-language-toggle.html" %}
 {% endblock %}
 
 
@@ -31,8 +30,60 @@
     <div class="govuk-grid-column-two-thirds">
       <form class="form" action="upload-document" method="post">
 
-      <h1 class="govuk-heading-xl">Title</h1>
 
+      <span class="govuk-caption-l">Scottish limited partnership</span>
+{{ govukRadios({
+  name: "slpSelectDocument",
+  fieldset: {
+    legend: {
+      text: "Select a document",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "SLP CS01 - Confirmation statement for a Scottish limited partnership",
+      text: "SLP CS01 - Confirmation statement for a Scottish limited partnership"
+    },
+    {
+      value: "SLP PSC01 - Give notice of individual person with significant control of a Scottish limited partnership",
+      text: "SLP PSC01 - Give notice of individual person with significant control of a Scottish limited partnership"
+    },
+    {
+      value: "SLP PSC02 - Give notice of relevant legal entity with significant control of a Scottish limited partnership",
+      text: "SLP PSC02 - Give notice of relevant legal entity with significant control of a Scottish limited partnership"
+    },
+    {
+      value: "SLP PSC03 - Give notice of other registrable person with significant control of a Scottish limited partnershi",
+      text: "SLP PSC03 - Give notice of other registrable person with significant control of a Scottish limited partnershi"
+    },
+    {
+      value: "SLP PSC04 - Give notice to change details of a person with significant control of a Scottish limited partnership",
+      text: "SLP PSC04 - Give notice to change details of a person with significant control of a Scottish limited partnership"
+    },
+    {
+      value: "SLP PSC05 - Give details of relevant legal entity with significant control of a Scottish limited partnership",
+      text: "SLP PSC05 - Give details of relevant legal entity with significant control of a Scottish limited partnership"
+    },
+    {
+      value: "SLP PSC06 - Give notice changing details of other person with significant control of a Scottish limited partnership",
+      text: "SLP PSC06 - Give notice changing details of other person with significant control of a Scottish limited partnership"
+    },
+    {
+      value: "SLP PSC07 - Give notice of ceasing to be a PSC, RLE or ORP of a Scottish limited partnership",
+      text: "SLP PSC07 - Give notice of ceasing to be a PSC, RLE or ORP of a Scottish limited partnership"
+    },
+    {
+      value: "SLP PSC08 - Give notice of a person of PSC statements for a Scottish limited partnership",
+      text: "SLP PSC08 - Give notice of a person of PSC statements for a Scottish limited partnership"
+    },
+    {
+      value: "SLP PSC09 - Give notice of update to PSC statements for a Scottish limited partnership",
+      text: "SLP PSC09 - Give notice of update to PSC statements for a Scottish limited partnership"
+    }
+  ]
+}) }}
 
       {{ govukButton({
         text: "Continue"

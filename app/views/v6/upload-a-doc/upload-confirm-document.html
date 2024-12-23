@@ -19,6 +19,8 @@
 
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
 {% endblock %}
 
 
@@ -27,7 +29,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="upload-confirm-document" method="post">
+      <form class="form" action="upload-check-answers" method="post">
 
       <span class="govuk-caption-l">Company name: ACME LIMITED</span>
 
@@ -42,13 +44,38 @@
   <li>use a PDF format</li>
 </ul>
 
-{{ govukFileUpload({
-  id: "file-upload-1",
-  name: "fileUpload1",
-  label: {
-    text: "Upload a file"
-  }
+
+{{ govukTable({
+  caption: "1 attached file",
+  captionClasses: "govuk-table__caption--s",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "File name"
+    },
+    {
+      text: "Size"
+    },
+    {
+      text: "Action"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "AnExampleLP-Document.pdf"
+      },
+      {
+        text: "875.7Kb"
+      },
+      {
+        html: '<a href="javascript:void(0)">Remove'
+      }
+    ]
+  ]
 }) }}
+
+
 
       {{ govukButton({
         text: "Continue"

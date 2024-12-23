@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Confirm this is the correct company" %}
+{% set pageName="Check your details before submitting your uploaded document" %}
 
 {% block header %}
 {{ govukHeader({
@@ -26,11 +26,14 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="upload-select-document" method="post">
+      <form class="form" action="upload-confirmation" method="post">
 
-      <h1 class="govuk-heading-xl">Confirm this is the correct company</h1>
+      <h1 class="govuk-heading-xl">Check your details before submitting your uploaded document</h1>
 
-         {{ govukSummaryList({
+     <h2 class="govuk-heading-m">Company details</h2>
+
+
+        {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
         rows: [
           {
@@ -38,42 +41,68 @@
               text: "Company name"
             },
             value: {
-              text: "ACME LIMITED"
+              text: "ACME SCOTTISH LIMITED PARTNERSHIP"
             }
           },
           {
             key: {
               text: "Company number"
             },
-               value: {
+            value: {
                   text: data['uploadCompanyNumber'] or "00006400"
                }
-            },
+          }
+        ]
+      }) }}
+
+
+    <h2 class="govuk-heading-m">Document details</h2>
+
+
+ {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
           {
             key: {
-              text: "Incorporation date	"
+              text: "Document type"
             },
-            value: {
-              text: "4 May 1977"
+              value: {
+                  text: data['slpSelectDocument'] or "SLP PSC09 - Give notice of update to PSC statements for a Scottish limited partnership"
+               },
+            actions: {
+              items: [
+                {
+                  href: "upload-select-document",
+                  text: "Change",
+                  visuallyHiddenText: "document type"
+                }
+              ]
             }
           },
           {
             key: {
-              text: "Registered office address"
+              text: "Document uploaded"
             },
             value: {
-              html: "72 Guild Street, London, SE23 6FH"
+              text: "AnExampleLP-Document.pdf"
+            },
+            actions: {
+              items: [
+                {
+                  href: "upload-select-document",
+                  text: "Change",
+                  visuallyHiddenText: "document uploaded"
+                }
+              ]
             }
           }
-
         ]
       }) }}
 
 
 
-
       {{ govukButton({
-        text: "Continue"
+        text: "Submit document"
       }) }}
 
     </form>

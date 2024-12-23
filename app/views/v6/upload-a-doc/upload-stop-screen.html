@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="HERE" %}
+{% set pageName="You are not eligible to upload Scottish limited partnership forms" %}
 
 {% block header %}
 {{ govukHeader({
@@ -19,8 +19,11 @@
 
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}
- {% include "/includes/user-bar.html" %}
-  {% include "/includes/back-link-language-toggle.html" %}
+
+   {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
 {% endblock %}
 
 
@@ -29,16 +32,23 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="/gov-onelogin-email" method="post">
 
-      <h1 class="govuk-heading-xl">Title</h1>
+            <h1 class="govuk-heading-xl">You are not eligible to upload Scottish limited partnership forms</h1>
 
 
-      {{ govukButton({
-        text: "Continue"
-      }) }}
+      <p class="govuk-body-l">Only Companies House authorised agents can upload Scottish limited partnership forms.</p>
 
-    </form>
+      <p class="govuk-paragraph">More information...</p>
+
+
+
+         <h2 class="govuk-heading-m">What do you want to do next?</h2>
+          <ul class="govuk-list">
+        <li><a href="upload-company-number" class="govuk-link">Choose a different company</a></li>
+        <li><a href="upload-login-email" class="govuk-link">Sign in with a different account</a></li>
+        <li><a href="javascript:void(0)" class="govuk-link">Register as a Companies House authorised agent</a></li>
+      </ul>
+
   </div>
 </div>
 

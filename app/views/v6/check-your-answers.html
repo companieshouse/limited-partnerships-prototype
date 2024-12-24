@@ -155,7 +155,98 @@
       }) }}
 
     <h2 class="govuk-heading-m">General partners</h2>
+     {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "General partner name"
+            },
+            value: {
+            text: (data['gp1FirstName'] or "Georgina") + " " + (data['gp1LastName'] or "Smith")
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Previous name"
+            },
+            value: {
+              text: "Georgina Silver"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Silver previous name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "21 August 1989"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith date of birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Nationality"
+            },
+            value: {
+              text: "British"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith nationality"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Usual residential address"
+            },
+            value: {
+              text: "13 Luck Lane, Bristol, BS1 8LY, United Kingdom"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith usual residential address"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
 
+      
       {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
         rows: [
@@ -247,96 +338,7 @@
         ]
       }) }}
 
-       {{ govukSummaryList({
-        classes: "govuk-!-margin-bottom-9",
-        rows: [
-          {
-            key: {
-              text: "General partner name"
-            },
-            value: {
-              text: data['gp1FirstName']['gplastName'] or "Georgina Smith"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Georgina Smith name"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Previous name"
-            },
-            value: {
-              text: "Georgina Silver"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Georgina Silver previous name"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Date of birth"
-            },
-            value: {
-              text: "21 August 1989"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Georgina Smith date of birth"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Nationality"
-            },
-            value: {
-              text: "British"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Georgina Smith nationality"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Usual residential address"
-            },
-            value: {
-              text: "13 Luck Lane, Bristol, BS1 8LY, United Kingdom"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Georgina Smith usual residential address"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
+  
 
 
     <h3 class="govuk-heading-m">Limited partners</h3>

@@ -48,7 +48,7 @@
               text: "Person"
             },
             value: {
-              text: data['gp1FirstName']['gp1LastName'] or "Georgina Smith"
+            text: (data['gp1FirstName'] or "Georgina") + " " + (data['gp1LastName'] or "Smith")
             },
             actions: {
               items: [

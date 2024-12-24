@@ -2137,7 +2137,8 @@
 
 
 
-{% if (data['registrationOrTransition'] == "registration" or data['registrationOrTransition'] == "post") %}
+{% if (data['registrationOrTransition'] in ["registration", "post"] and data['registerType'] in ["registerLp", "registerSlp"]) %}
+
 
 
 {{ govukInput({

@@ -40,9 +40,8 @@
     classes: "govuk-label--m",
     isPageHeading: true
   },
-
-  id: "entity-name",
-  name: "entityName"
+  id: "gp1EntityNamme",
+  name: "gp1EntityName"
 }) }}
 
 {{ govukInput({
@@ -54,8 +53,8 @@
   hint: {
     text: "This is the law that the entity operates under. For example, Jersey law."
   },
-  id: "governing-law",
-  name: "governing-law"
+  id: "gp1GoverningLawaw",
+  name: "gp1GoverningLaw"
 }) }}
 
 {{ govukInput({
@@ -67,14 +66,14 @@
   hint: {
     text: "For example, limited company."
   },
-  id: "legal-form",
-  name: "legalForm"
+  id: "gp1LegalForm",
+  name: "gp1LegalForm"
 }) }}
 
 
 
 {{ govukCheckboxes({
-  name: "legalFormStatementGP",
+  name: "gp1LegalFormStatement",
   fieldset: {
     legend: {
       text: "I confirm the entity has legal personality. ",
@@ -84,7 +83,7 @@
   },
   items: [
     {
-      value: "agreeGP",
+      value: "gp1LegalFormStatement",
       text: "I confirm the entity has legal personality. "
     }
   ]
@@ -94,62 +93,62 @@
 
 <div class="govuk-form-group">
   <h2 class="gov-label-wrapper">
-    <label class="govuk-label govuk-label--m" for="entity-address">
+    <label class="govuk-label govuk-label--m" for="gp1EntityAddress">
       Principal office address
     </label>
   </h2>
 
 
 <div class="govuk-form-group">
-  <label class="govuk-label" for="entityAddress">
+  <label class="govuk-label" for="gp1EntityAddress1">
     Address line 1
   </label>
 
-<input class="govuk-input" id="addressOne" name="addressOne" type="text">
+<input class="govuk-input" id="gp1EntityAddress1" name="gp1EntityAddress2" type="text">
 
 </div>
         
 <div class="govuk-form-group">
-  <label class="govuk-label" for="addressTwo">
+  <label class="govuk-label" for="gp1EntityAddres2">
     Address line 2 (optional)
   </label>
 
-<input class="govuk-input" id="addressTwo" name="addressTwo" type="text">
+<input class="govuk-input" id="gp1EntityAddres2" name="gp1EntityAddres2" type="text">
 
 </div>
 
 <div class="govuk-form-group">
-  <label class="govuk-label" for="town">
+  <label class="govuk-label" for="gp1EntityAddressTown">
     Town or city
   </label>
 
-<input class="govuk-input" id="town" name="town" type="text">
+<input class="govuk-input" id="gp1EntityAddressTown" name="gp1EntityAddressTown" type="text">
 
 </div>
 
 <div class="govuk-form-group">
-  <label class="govuk-label" for="county">
+  <label class="govuk-label" for="gp1EntityAddressCounty">
     County (optional)
   </label>
 
-<input class="govuk-input" id="county" name="county" type="text">
+<input class="govuk-input" id="gp1EntityAddressCounty" name="gp1EntityAddressCounty" type="text">
 
 </div>
 <div class="govuk-form-group">
-  <label class="govuk-label" for="postcode">
+  <label class="govuk-label" for="gp1EntityAddressPostcode">
     Postcode 
   </label>
 
-<input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
+<input class="govuk-input govuk-input--width-10" id="gp1EntityAddressPostcode" name="gp1EntityAddressPostcode" type="text">
  
  
   <div class="govuk-form-group govuk-!-margin-top-6">
-  <label class="govuk-label" for="country">
+  <label class="govuk-label" for="gp1EntityAddressCountry">
     Country
   </label>
 
 
-  <select class="govuk-select" id="country" name="country">
+  <select class="govuk-select" id="gp1EntityAddressCountry" name="gp1EntityAddressCountry">
   
     
       <option value="">Select a country</option>
@@ -1181,16 +1180,16 @@
       text: "Address line 1"
     },
     id: "address-line-1",
-    name: "addressLine1",
-    autocomplete: "address-line1"
+    name: "gp1DifferentAddressLine1",
+    autocomplete: "gp1DifferentAddressLine1"
   }) }}
 
   {{ govukInput({
     label: {
       text: "Address line 2 (optional)"
     },
-    id: "address-line-2",
-    name: "addressLine2",
+    id: "gp1DifferentAddressLine2",
+    name: "gp1DifferentAddressLine2",
     autocomplete: "address-line2"
   }) }}
 
@@ -1199,8 +1198,8 @@
       text: "Town or city"
     },
     classes: "govuk-!-width-two-thirds",
-    id: "address-town",
-    name: "addressTown",
+    id: "gp1DifferentAddressTown",
+    name: "gp1DifferentAddressTown",
     autocomplete: "address-level2"
   }) }}
 
@@ -1209,8 +1208,8 @@
       text: "County (optional)"
     },
     classes: "govuk-!-width-two-thirds",
-    id: "address-county",
-    name: "addressCounty"
+    id: "gp1DifferentAddressCounty",
+    name: "gp1DifferentAddressCounty"
   }) }}
 
   {{ govukInput({
@@ -1218,17 +1217,17 @@
       text: "Postcode"
     },
     classes: "govuk-input--width-10",
-    id: "address-postcode",
-    name: "addressPostcode",
+    id: "gp1DifferentAddressPostcode",
+    name: "gp1DifferentAddressPostcode",
     autocomplete: "postal-code"
   }) }}
   
   <div class="govuk-form-group govuk-!-margin-top-6">
-  <label class="govuk-label govuk-body" for="country">
+  <label class="govuk-label govuk-body" for="gp1DifferentAddressCountry">
     Country
   </label>
 
-  <select class="govuk-select" id="country" name="country">
+  <select class="govuk-select" id="gp1DifferentAddressCountry" name="gp1DifferentAddressCountry">
   
     
       <option value="">Select a country</option>

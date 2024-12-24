@@ -48,19 +48,19 @@
               text: "Person"
             },
             value: {
-              text: "Georgina Smith"
+              text: data['gp1FirstName']['gp1LastName'] or "Georgina Smith"
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "Georgina General Partner"
+                  visuallyHiddenText: "Georgina Smith - General Partner"
                 },
                 {
                   href: "#",
                   text: "Remove",
-                  visuallyHiddenText: "Georgina General Partner"
+                  visuallyHiddenText: "Georgina Smith - General Partner"
                 }
               ]
             }
@@ -70,19 +70,19 @@
               text: "Legal entity"
             },
             value: {
-              text: "ABC Company ltd"
+              text: data['gp1EntityName'] or "ABC Company Limited"
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "ABC Company ltd"
+                  visuallyHiddenText: "ABC Company Limited - Legal entity"
                 },
                 {
                   href: "#",
                   text: "Remove",
-                  visuallyHiddenText: "ABC Company ltd"
+                  visuallyHiddenText: "ABC Company Limited - Legal entity"
                 }
               ]
             }

@@ -50,30 +50,19 @@
     classes: "govuk-label--m"
   },
 
-  id: "lp-name",
-  name: "lpName",
+  id: "gp1FirstName",
+  name: "gp1FirstName",
   classes: "govuk-!-width-full"
 }) }}
-<!--
-{{ govukInput({
-  label: {
-    text: "Middle names",
-    classes: "govuk-label--m"
-  },
 
-  id: "lp-name",
-  name: "lpName",
-  classes: "govuk-!-width-full"
-}) }}
--->
 {{ govukInput({
   label: {
     text: "Last name",
     classes: "govuk-label--m"
   },
   
-  id: "lp-name",
-  name: "lpName",
+  id: "gp1LastName",
+  name: "gp1LastName",
   classes: "govuk-!-width-one-full"
 }) }}
 
@@ -85,15 +74,15 @@
   hint: {
             text: "If the partner has more than one previous name, separate each name with a comma."
           },
-  id: "previous-name-person",
-  name: "previousNamePerson"
+  id: "gp1PreviousName",
+  name: "gp1PreviousName"
 }) }}
 {% endset -%}
 
 
 
 {{ govukRadios({
-  name: "previousNameOfficer",
+  name: "gp1PreviousNameYesNo",
   fieldset: {
     legend: {
       text: "Does the general partner have a previous name?",
@@ -120,8 +109,8 @@
 }) }}
 
 {{ govukDateInput({
-  id: "date-of-birth",
-  namePrefix: "date-of-birth",
+  id: "gp1DOB",
+  namePrefix: "gp1DOBrth",
   fieldset: {
     legend: {
       text: "Date of birth",
@@ -135,13 +124,13 @@
 }) }}
 
 <div class="govuk-form-group">
-  <label class="govuk-label govuk-label--m" for="gp-nationality-1">
+  <label class="govuk-label govuk-label--m" for="gp1Nationality1">
     What is their nationality?
   </label>
 
  
 
-  <select class="govuk-select" id="gp-nationality-1" name="gp-nationality-1" aria-describedby="nationality-hint">
+  <select class="govuk-select" id="gp1Nationality1" name="gp1Nationality1" aria-describedby="nationality-hint">
   
     
       <option value="">Select a nationality</option>
@@ -1057,13 +1046,13 @@
 </a></p>
 
 <div id="second-nationality-div" class="govuk-form-group">
-  <label class="govuk-label govuk-label--m" for="gp-nationality-2">
+  <label class="govuk-label govuk-label--m" for="gp1Nationality2">
     What is their second nationality (if relevant)?
   </label>
 
  <p class="govuk-hint">Dual citizenship (also known as dual nationality) is allowed in some countries. This means you can be a citizen of your own country and another country.</p>
 
-  <select class="govuk-select" id="gp-nationality-2" name="gp-nationality-2" aria-describedby="nationality-hint">
+  <select class="govuk-select" id="gp1Nationality2" name="gp1Nationality2" aria-describedby="nationality-hint">
   
     
       <option value="">Select a second nationality</option>
@@ -1985,8 +1974,8 @@
     label: {
       text: "Address line 1"
     },
-    id: "address-line-1",
-    name: "addressLine1",
+    id: "gp1addressLine1-1",
+    name: "gp1addressLine1",
     autocomplete: "address-line1"
   }) }}
 
@@ -1994,8 +1983,8 @@
     label: {
       text: "Address line 2 (optional)"
     },
-    id: "address-line-2",
-    name: "addressLine2",
+    id: "gp1addressLine2",
+    name: "gp1addressLine2",
     autocomplete: "address-line2"
   }) }}
 
@@ -2004,8 +1993,8 @@
       text: "Town or city"
     },
     classes: "govuk-!-width-two-thirds",
-    id: "address-town",
-    name: "addressTown",
+    id: "gp1addressTown",
+    name: "gp1addressTown",
     autocomplete: "address-level2"
   }) }}
 
@@ -2014,8 +2003,8 @@
       text: "County (optional)"
     },
     classes: "govuk-!-width-two-thirds",
-    id: "address-county",
-    name: "addressCounty"
+    id: "gp1addressCountyy",
+    name: "gp1addressCounty"
   }) }}
 
   {{ govukInput({
@@ -2023,20 +2012,20 @@
       text: "Postcode"
     },
     classes: "govuk-input--width-10",
-    id: "address-postcode",
-    name: "addressPostcode",
+    id: "gp1addressPostcode",
+    name: "gp1addressPostcode",
     autocomplete: "postal-code"
   }) }}
 
 {% endcall %}
 
 <div class="govuk-form-group">
-  <label class="govuk-label govuk-body" for="country">
+  <label class="govuk-label govuk-body" for="gp1addressCountry">
     Country
   </label>
 
 
-  <select class="govuk-select" id="country" name="country">
+  <select class="govuk-select" id="gp1addressCountry" name="gp1addressCountry">
   
     
       <option value="">Select a country</option>

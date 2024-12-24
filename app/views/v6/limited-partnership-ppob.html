@@ -50,8 +50,7 @@
 {% call govukFieldset({
   legend: {
     text: "What is the principal place of business address?",
-    classes: "govuk-visually-hidden",
-    isPageHeading: true
+    classes: "govuk-visually-hidden"
   }
 }) %}
 
@@ -59,8 +58,8 @@
     label: {
       text: "Address line 1"
     },
-    id: "address-line-1",
-    name: "addressLine1",
+    id: "ppobAddressLine1",
+    name: "ppobAddressLine1",
     autocomplete: "address-line1"
   }) }}
 
@@ -68,8 +67,8 @@
     label: {
       text: "Address line 2 (optional)"
     },
-    id: "address-line-2",
-    name: "addressLine2",
+    id: "ppobAddressLine2",
+    name: "ppobAddressLine2",
     autocomplete: "address-line2"
   }) }}
 
@@ -78,8 +77,8 @@
       text: "Town or city"
     },
     classes: "govuk-!-width-two-thirds",
-    id: "address-town",
-    name: "addressTown",
+    id: "ppobAddressTown",
+    name: "ppobAddressTown",
     autocomplete: "address-level2"
   }) }}
 
@@ -88,8 +87,8 @@
       text: "County (optional)"
     },
     classes: "govuk-!-width-two-thirds",
-    id: "address-county",
-    name: "addressCounty"
+    id: "ppobAddressCountynty",
+    name: "ppobAddressCounty"
   }) }}
 
   {{ govukInput({
@@ -97,8 +96,8 @@
       text: "Postcode"
     },
     classes: "govuk-input--width-10",
-    id: "address-postcode",
-    name: "addressPostcode",
+    id: "ppobAddressPostcode",
+    name: "ppobAddressPostcode",
     autocomplete: "postal-code"
   }) }}
 
@@ -115,7 +114,7 @@
   </label>
 
 
-  <select class="govuk-select" id="country" name="country">
+  <select class="govuk-select" id="ppobCountry" name="ppobCountry">
   
     
       <option value="">Select a country</option>
@@ -1153,7 +1152,10 @@
   items: [
     {
       value: "ppobSame",
-      text: "The principal place of business address is the same as the registered office address"
+      text: "The principal place of business address is the same as the registered office address",
+      hint: {
+        text: "1 Orchard Street, Whitchurch, Cardiff CF14 3UZ"
+      }
     },
     {
       value: "ppobDifferent",

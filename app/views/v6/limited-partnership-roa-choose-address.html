@@ -29,7 +29,55 @@
 {% endif %}
 
 
+    {% if data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"] %}
 
+
+{{ govukRadios({
+  name: "chooseROA",
+  fieldset: {
+    legend: {
+      text: "Choose the registered office address",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "1",
+      text: "1 Rose Street, Edinburgh, EH1 2AB"
+    },
+    {
+      value: "2 ",
+      text: "2 Rose Street, Edinburgh, EH1 2AB"
+    },    {
+      value: "3",
+      text: "3 Rose Street, Edinburgh, EH1 2AB"
+    },    {
+      value: "4",
+      text: "4 Rose Street, Edinburgh, EH1 2AB"
+    },    {
+      value: "5",
+      text: "5 Rose Street, Edinburgh, EH1 2AB"
+    },    {
+      value: "6",
+      text: "6 Rose Street, Edinburgh, EH1 2AB"
+    },    {
+      value: "7",
+      text: "7 Rose Street, Edinburgh, EH1 2AB"
+    },    {
+      value: "8",
+      text: "8 Rose Street, Edinburgh, EH1 2AB"
+    },    {
+      value: "9",
+      text: "9 Rose Street, Edinburgh, EH1 2AB"
+    },    {
+      value: "10",
+      text: "10 Rose Street, Edinburgh, EH1 2AB"
+    }
+  ]
+}) }}
+
+{% else %}
 
 {{ govukRadios({
   name: "chooseROA",
@@ -75,6 +123,8 @@
     }
   ]
 }) }}
+
+{% endif %}
 
   <p><a href="javascript:void(0)">The address is not on the list</a><p>
 

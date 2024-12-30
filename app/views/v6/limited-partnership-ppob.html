@@ -1139,6 +1139,42 @@
 
 {% endset -%}
 
+
+
+
+    {% if data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"] %}
+
+{{ govukRadios({
+  name: "addressPPOB",
+  classes: "govuk-!-margin-top-4",
+
+  fieldset: {
+    legend: {
+      text: "What is the principal place of business?",
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "ppobSame",
+      text: "The principal place of business address is the same as the registered office address",
+      hint: {
+        text: "1 Rose Street, Edinburgh EH1 2EB"
+      }
+    },
+    {
+      value: "ppobDifferent",
+      text: "A different address",
+      conditional: {
+        html: ppobDifferentHtml
+      }
+    }
+  ]
+}) }}
+
+{% else %}
+
+
 {{ govukRadios({
   name: "addressPPOB",
   classes: "govuk-!-margin-top-4",
@@ -1166,6 +1202,8 @@
     }
   ]
 }) }}
+
+{% endif %}
 
 
 

@@ -29,13 +29,23 @@
 {% endif %}
 
 
+    {% if data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"] %}
 
 
 <h1 class="govuk-heading-xl">Confirm the registered office address</h1>
+<p>1 Rose Street<br>
+Edinburgh<br>
+EH1 2EB</p>
+
+{% else %}
+
 <p>1 Orchard Street<br>
 Whitchurch<br>
 Cardiff<br>
 CF14 3UZ</p>
+
+{% endif %}
+
 
   <p><a href="limited-partnership-roa">Change <span class="govuk-visually-hidden">registered office address</span></a><p>
 

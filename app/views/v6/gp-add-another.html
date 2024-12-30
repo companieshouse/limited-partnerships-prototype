@@ -38,9 +38,17 @@
     </div>
     <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
+
        <h2 class="govuk-heading-m">General partners you have added so far:</h2>
 
-      {{ govukSummaryList({
+
+{% if data['gp1EntityName'] %}
+
+
+
+
+
+            {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
         rows: [
           {
@@ -89,6 +97,39 @@
           }
         ]
       }) }} 
+
+{% else %} 
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Person"
+            },
+            value: {
+            text: (data['gp1FirstName'] or "Georgina") + " " + (data['gp1LastName'] or "Smith")
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith - General Partner"
+                },
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "Georgina Smith - General Partner"
+                }
+              ]
+            }
+          }
+        ]
+      }) }} 
+
+{% endif %}
+
 </div>
 </div>
 

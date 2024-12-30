@@ -41,6 +41,11 @@
 
       <h2 class="govuk-heading-m">Limited partners you have added so far:</h2>
 
+
+
+{% if data['lp1EntityName'] %} <!-- only show the Legal Entity entry if a name has been types into the legal entity page -->
+
+
       {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
         rows: [
@@ -49,19 +54,19 @@
               text: "Person"
             },
             value: {
-              text: "Lisa Taylor"
+            text: (data['lp1FirstName'] or "Lisa") + " " + (data['lp1LastName'] or "Taylor")
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "Lisa Limited Partner"
+                  visuallyHiddenText: "Lisa Taylor Limited Partner"
                 },
                   {
                   href: "#",
                   text: "Remove",
-                  visuallyHiddenText: "Lisa Limited Partner"
+                  visuallyHiddenText: "Lisa Taylor Limited Partner"
                 }
               ]
             }
@@ -71,7 +76,7 @@
               text: "Legal entity"
             },
             value: {
-              text: "ACME Legal Entity Inc"
+              text: data['lp1EntityName'] or "ACME Legal Entity Inc"
             },
             actions: {
               items: [
@@ -90,6 +95,39 @@
           }
         ]
       }) }}
+
+{% else %} 
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Person"
+            },
+            value: {
+            text: (data['lp1FirstName'] or "Lisa") + " " + (data['lp1LastName'] or "Taylor")
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Lisa Taylor Limited Partner"
+                },
+                  {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "Lisa Taylor Limited Partner"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+{% endif %}
+
+
 
 </div>
 </div>

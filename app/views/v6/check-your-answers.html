@@ -15,10 +15,6 @@
 
 
 
-{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
-
-
 
 {% block content %}
   <div class="govuk-grid-row">
@@ -350,7 +346,7 @@
               text: "Limited partner name"
             },
             value: {
-              text: "Adrienne Leandres"
+              text: (data['lp1FirstName'] or "Adrienne") + " " + (data['gp1LastName'] or "Leandres")
             },
             actions: {
               items: [
@@ -441,7 +437,7 @@
               text: "Legal entity name"
             },
             value: {
-              text: "ACME Legal Entity Inc"
+              text: data['lp1EntityName'] or "ACME Legal Entity Inc"
             },
             actions: {
               items: [

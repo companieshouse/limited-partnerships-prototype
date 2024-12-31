@@ -1,23 +1,14 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-old-header.html" %}
 
 {% set pageName="Check your details before submitting your uploaded document" %}
-
-{% block header %}
-{{ govukHeader({
-  homepageUrl: "/",
-    classes: "govuk-header--full-width-border"
-}) }}
-
-{{ govukServiceNavigation({
-}) }}
-{% endblock %}
 
 
 {% set serviceName %}
   Upload a document to Companies House
 {% endset%}
 {% block beforeContent %}
-   {% include "/includes/phase-banner.html" %}
+   {% include "/includes/phase-banner-alpha.html" %}
+   {% include "/includes/back-link.html" %}
 {% endblock %}
 
 

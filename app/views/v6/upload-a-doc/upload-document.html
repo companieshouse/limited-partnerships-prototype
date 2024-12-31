@@ -1,16 +1,6 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-old-header.html" %}
 
 {% set pageName="Upload the completed document" %}
-
-{% block header %}
-{{ govukHeader({
-  homepageUrl: "/",
-    classes: "govuk-header--full-width-border"
-}) }}
-
-{{ govukServiceNavigation({
-}) }}
-{% endblock %}
 
 
 {% set serviceName %}
@@ -18,8 +8,10 @@
 {% endset%}
 
 {% block beforeContent %}
-   {% include "/includes/phase-banner.html" %}
+  {% include "/includes/phase-banner-alpha.html" %}
+  {% include "/includes/back-link.html" %}
 {% endblock %}
+
 
 
 

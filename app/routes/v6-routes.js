@@ -26,7 +26,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 // GOV One Login Check your phone
 
 
-router.post('/gov-onelogin-enter-code.html', function(request, response) {
+router.post('/gov-onelogin-enter-code', function(request, response) {
 
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){

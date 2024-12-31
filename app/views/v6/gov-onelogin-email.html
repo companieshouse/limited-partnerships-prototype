@@ -1,21 +1,14 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-old-header.html" %}
 
 {% set pageName="Enter your email address to sign in to your GOV.UK One Login" %}
 
 
-{% block header %}
-{{ govukHeader({
-  homepageUrl: "/",
-    classes: "govuk-header--full-width-border"
-}) }}
-
-{{ govukServiceNavigation({
-}) }}
-{% endblock %}
+{% set serviceName %}
+{% endset%}
 
 
 {% block beforeContent %}
-  {% include "/includes/back-link.html" %}
+    {% include "/includes/back-link-language-toggle.html" %}
 {% endblock %}
 
 

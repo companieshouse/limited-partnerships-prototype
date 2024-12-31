@@ -1,24 +1,17 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-old-header.html" %}
 
 {% set pageName="Create a GOV.UK One Login or sign in" %}
 
-{% block header %}
-{{ govukHeader({
-  homepageUrl: "/",
-    classes: "govuk-header--full-width-border"
-}) }}
 
-{{ govukServiceNavigation({
-}) }}
-{% endblock %}
 
 
 {% set serviceName %}
-  Upload a document to Companies House
 {% endset%}
 
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}
+       {% include "/includes/back-link-language-toggle.html" %}
+
 {% endblock %}
 
 

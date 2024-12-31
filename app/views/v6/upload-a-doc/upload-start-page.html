@@ -1,15 +1,15 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-old-header.html" %}
 
 {% set pageName="Upload a document to Companies House" %}
 
-{% block header %}
-{{ govukHeader({
-  homepageUrl: "/",
-    classes: "govuk-header--full-width-border"
-}) }}
 
-{{ govukServiceNavigation({
-}) }}
+
+{% set serviceName %}
+ Upload a document to Companies House
+{% endset%}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner-alpha.html" %}
 {% endblock %}
 
 

@@ -7,6 +7,6 @@ module.exports = {
 'lpNumber' : '',
 'lpChooseName' : 'ACME',
 'nameEnding' : 'LIMITED PARTNERSHIP',
-'uploadCompanyNumber' : '00006400'
+'uploadCompanyNumber' : 'LP123456'
 
 }

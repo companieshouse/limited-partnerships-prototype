@@ -21,8 +21,7 @@
     <div class="govuk-grid-column-two-thirds">
       <form class="form" action="upload-document" method="post">
 
-
-      <span class="govuk-caption-l">ACME SCOTTISH LIMITED PARTNERSHIP</span>
+      <span class="govuk-caption-l">ACME SCOTTISH LIMITED PARTNERSHIP ({{ data['uploadCompanyNumber'] }})</span>
 {{ govukRadios({
   name: "slpSelectDocument",
   fieldset: {

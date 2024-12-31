@@ -55,10 +55,11 @@
 
        {% if data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"] or data['lpNumber'].startsWith("SL") %}
 
-           <h2 class="govuk-heading-m">If the application is accepted</h2>
+       <p>To finish registering the Scottish limited partnership, you'll then need to tell us about any people with significant control (PSCs).</p>
+
+           <h2 class="govuk-heading-m">How to tell us about PSCs</h2>
 
        
-          <p class="govuk-body">You’ll need to tell us about any people with significant control (PSCs) to finish registering the partnership. To do this:</p>
             <ol class="govuk-list govuk-list--number">
              
         
@@ -66,9 +67,7 @@
               <li><a href="../upload-a-doc/upload-start-page">Upload your forms online (opens in a new tab)</a>.</li>
               
             </ol>
-            
-                 <h2 class="govuk-heading-m">If the application is rejected</h2>
-          <p class="govuk-body">We'll email to tell you why it has been rejected and what to do next. </p>
+
 
 {% else %}
 
@@ -86,8 +85,8 @@
       <!-- Not part of ACTUAL screen: only for UR purposes -->
       <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>
         <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
-          <li><a class="govuk-link" href="emails/application-received">Email - application received</a></li>
-          <li><a class="govuk-link" href="emails/application-accepted"> Email - application accepted</a></li>
+          <li><a class="govuk-link" href="emails/application-received-slp">Email - application received</a></li>
+          <li><a class="govuk-link" href="emails/application-accepted-slp"> Email - application accepted</a></li>
           <li><a class="govuk-link" href="emails/application-rejected"> Email - application rejected</a></li>
         </ul>
       </div>

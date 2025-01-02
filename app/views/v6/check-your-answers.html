@@ -24,6 +24,9 @@
 
       <h2 class="govuk-heading-m">Limited partnership information</h2>
 
+
+
+
       {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
         rows: [
@@ -49,7 +52,7 @@
               text: "Type"
             },
             value: {
-              text: data['registerType'] or "Limited partnership in England, Wales or Northern Ireland"
+              text:  "Scottish limited partnership"
             },
             actions: {
               items: [
@@ -84,7 +87,7 @@
               text: "Registered office address"
             },
             value: {
-              text: "1 Orchard Street, Whitchurch, Cardiff CF14 3UZ"
+              text: "1 Rose Street, Edinburgh, EH1 2EB"
             },
             actions: {
               items: [
@@ -101,7 +104,7 @@
               text: "Principal place of business"
             },
             value: {
-              text: "1 Orchard Street, Whitchurch, Cardiff CF14 3UZ"
+              text: "1 Rose Street, Edinburgh, EH1 2EB"
             },
             actions: {
               items: [
@@ -585,4 +588,9 @@
 
     </div>
   </div>
+
+
+
+    <script src="/public/javascripts/cya.js"></script>
+
 {% endblock %}

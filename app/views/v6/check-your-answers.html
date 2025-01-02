@@ -86,9 +86,11 @@
             key: {
               text: "Registered office address"
             },
-            value: {
-              text: "1 Rose Street, Edinburgh, EH1 2EB"
-            },
+      value: { 
+          text: "1 Orchard Street, Whitchurch, Cardiff CF14 3UZ" 
+          if data.registerType in ['registerLp', 'RegisterPflp'] 
+          else "1 Rose Street, Edinburgh, EH1 2EB"
+        },
             actions: {
               items: [
                 {
@@ -106,6 +108,11 @@
             value: {
               text: "1 Rose Street, Edinburgh, EH1 2EB"
             },
+       value: { 
+            text: "1 Orchard Street, Whitchurch, Cardiff CF14 3UZ" 
+            if data.registerType in ['registerLp', 'RegisterPflp'] 
+            else "1 Rose Street, Edinburgh, EH1 2EB"
+          },
             actions: {
               items: [
                 {

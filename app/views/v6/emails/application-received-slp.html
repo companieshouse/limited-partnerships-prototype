@@ -55,9 +55,8 @@
       <tr>
         <td bgcolor="#DEE0E2" align="left" valign="top" style="border: solid 1px #ffffff; font-family: Helvetica, Arial, sans-serif; font-size: 19px; padding:10px;">
           Limited partnership</td>
-        <td bgcolor="#DEE0E2" align="left" valign="top" style="border: solid 1px #ffffff; font-family: Helvetica, Arial, sans-serif; font-size: 19px;padding:10px;">
-                   {{ data['lpChooseName'] }} {{ data['nameEnding'] }}
-
+        <td bgcolor="#DEE0E2" align="left" valign="top" style="border: solid 1px #ffffff; font-family: Helvetica, Arial, sans-serif; font-size: 19px;padding:10px; text-transform: uppercase;">
+               {{ data['lpChooseName'] }} {{ data['nameEnding'] }}
         </td>
       </tr>
       <tr>
@@ -81,7 +80,7 @@
 
       <td colspan="2" style="padding:10px">
         <h3 class="govuk-heading-s">What happens if the application is accepted</h3>
-        <p style="font-family: Helvetica, Arial, sans-serif; font-size: 19px; line-height: 1.315789474; margin: 15px 0 0 0;">We'll email agent@authorised-agent.com to let you know if your application has been accepted.</p>
+        <p style="font-family: Helvetica, Arial, sans-serif; font-size: 19px; line-height: 1.315789474; margin: 15px 0 0 0;">We'll email <strong>{{ data['govOneLoginEmail'] }}</strong> to let you know if your application has been accepted.</p>
 
         <p style="font-family: Helvetica, Arial, sans-serif; font-size: 19px; line-height: 1.315789474; margin: 15px 0 0 0;">To finish registering the partnership, you'll then need to tell us about any people with significant control (PSCs).  </p>
       </td>

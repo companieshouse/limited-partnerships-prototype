@@ -41,7 +41,7 @@
 
 
  <p class="govuk-body">
-        We'll process the application as soon as possible. We'll email <strong>{{ data['email'] }}</strong> and <strong>{{ data['registeredEmail'] }}</strong> to let you know if your application has been accepted or rejected.  
+        We'll process the application as soon as possible. We'll email <strong>{{ data['govOneLoginEmail'] }}</strong> and <strong>{{ data['registeredEmail'] }}</strong> to let you know if your application has been accepted or rejected.  
       </p>
 
       <p>This will usually take no more than 3 to 5 working days.</p>
@@ -85,8 +85,10 @@
       <!-- Not part of ACTUAL screen: only for UR purposes -->
       <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>
         <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
-          <li><a class="govuk-link" href="emails/application-received-slp">Email - application received</a></li>
-          <li><a class="govuk-link" href="emails/application-accepted-slp"> Email - application accepted</a></li>
+          <li><a class="govuk-link" href="emails/application-received-slp">Email - application received (SLP)</a></li>
+          <li><a class="govuk-link" href="emails/application-accepted-slp"> Email - application accepted (SLP)</a></li>
+              <li><a class="govuk-link" href="emails/application-received">Email - application received</a></li>
+          <li><a class="govuk-link" href="emails/application-accepted"> Email - application accepted</a></li>
           <li><a class="govuk-link" href="emails/application-rejected"> Email - application rejected</a></li>
         </ul>
       </div>

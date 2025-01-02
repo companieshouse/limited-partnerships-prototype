@@ -55,7 +55,7 @@
       <tr>
         <td bgcolor="#DEE0E2" align="left" valign="top" style="border: solid 1px #ffffff; font-family: Helvetica, Arial, sans-serif; font-size: 19px; padding:10px;">
           Limited partnership</td>
-        <td bgcolor="#DEE0E2" align="left" valign="top" style="border: solid 1px #ffffff; font-family: Helvetica, Arial, sans-serif; font-size: 19px;padding:10px;">
+        <td bgcolor="#DEE0E2" align="left" valign="top" style="border: solid 1px #ffffff; font-family: Helvetica, Arial, sans-serif; font-size: 19px;padding:10px;text-transform: uppercase;">
                    {{ data['lpChooseName'] }} {{ data['nameEnding'] }}
 
         </td>
@@ -75,7 +75,7 @@
       <td colspan="2" style="padding:10px">
 
         <p style="font-family: Helvetica, Arial, sans-serif; font-size: 19px; line-height: 1.315789474; margin: 15px 0 0 0;">
-  Your application to register TEST LIMITED PARTNERSHIP (LP123456) was rejected for the following reasons:</p>
+  Your application to register <span style="text-transform: uppercase;">  {{ data['lpChooseName'] }} {{ data['nameEnding'] }} </span> was rejected for the following reasons:</p>
   <ul style="font-family: Helvetica, Arial, sans-serif; font-size: 19px; line-height: 1.315789474; margin: 15px 0 0 0;">
     <li>The name of the legal entity was missing or incomplete
   </li>

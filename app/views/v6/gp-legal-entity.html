@@ -1171,7 +1171,6 @@
 {% endset -%}
 
 
-    {% if data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"] %}
 
 
 
@@ -1191,8 +1190,9 @@
       value: "sameAsROA",
       text: "The same as the limited partnerships's registered office address",
       hint: {
-        text: "1 Rose Street, Edinburgh EH1 2EB"
-      }
+        text: "1 Orchard Street, Whitchurch, Cardiff CF14 3UZ" 
+          if data.registerType in ['registerLp', 'RegisterPflp'] 
+          else "1 Rose Street, Edinburgh, EH1 2EB"      }
     },
     {
       value: "differentToROA",
@@ -1204,39 +1204,8 @@
   ]
 }) }}
 
-{% else %}
 
 
-{{ govukRadios({
-  name: "gp1PrincipalOfficeAddress",
-  fieldset: {
-    legend: {
-      text: "What is the general partner's principal office address?",
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  hint: {
-    text: "This is the main address for the entity."
-  },
-  items: [
-    {
-      value: "sameAsROA",
-      text: "The same as the limited partnerships's registered office address",
-      hint: {
-        text: "1 Orchard Street, Whitchurch, Cardiff CF14 3UZ"
-      }
-    },
-    {
-      value: "differentToROA",
-      text: "A different address",
-      conditional: {
-        html: differentToROAHtml
-      }
-    }
-  ]
-}) }}
-
-{% endif %}
 
 <!--
 <div class="govuk-form-group">

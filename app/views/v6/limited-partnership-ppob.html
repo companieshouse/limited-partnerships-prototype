@@ -1142,37 +1142,7 @@
 
 
 
-    {% if data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"] %}
 
-{{ govukRadios({
-  name: "addressPPOB",
-  classes: "govuk-!-margin-top-4",
-
-  fieldset: {
-    legend: {
-      text: "What is the principal place of business?",
-      classes: "govuk-visually-hidden"
-    }
-  },
-  items: [
-    {
-      value: "ppobSame",
-      text: "The principal place of business address is the same as the registered office address",
-      hint: {
-        text: "1 Rose Street, Edinburgh EH1 2EB"
-      }
-    },
-    {
-      value: "ppobDifferent",
-      text: "A different address",
-      conditional: {
-        html: ppobDifferentHtml
-      }
-    }
-  ]
-}) }}
-
-{% else %}
 
 
 {{ govukRadios({
@@ -1190,7 +1160,9 @@
       value: "ppobSame",
       text: "The principal place of business address is the same as the registered office address",
       hint: {
-        text: "1 Orchard Street, Whitchurch, Cardiff CF14 3UZ"
+           text: "1 Orchard Street, Whitchurch, Cardiff CF14 3UZ" 
+          if data.registerType in ['registerLp', 'RegisterPflp'] 
+          else "1 Rose Street, Edinburgh, EH1 2EB"
       }
     },
     {
@@ -1203,7 +1175,7 @@
   ]
 }) }}
 
-{% endif %}
+
 
 
 

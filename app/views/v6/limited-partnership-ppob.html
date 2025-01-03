@@ -31,7 +31,7 @@
 
 
 <h1 class="govuk-heading-xl">What is the principal place of business?</h1>
-<p class="govuk-hint">This is where the day to day running of the business takes place. It could be the same as the registered office address, or a different address.<br><br>
+<p class="govuk-hint">This is the address where the day to day running of the business takes place. It could be the same as the registered office address, or a different address.<br><br>
  
 {% if data['registerType'] in ["RegisterPflp", "registerLp"] and data['nameEnding'] in ["PartneriaethCyfyngedig", "PC", "P.C."] %}
 <p class="govuk-hint">The address provided during registration must be in Wales.</p>
@@ -1158,7 +1158,7 @@
   items: [
     {
       value: "ppobSame",
-      text: "The principal place of business address is the same as the registered office address",
+      text: "The same as the registered office address",
       hint: {
            text: "1 Orchard Street, Whitchurch, Cardiff CF14 3UZ" 
           if data.registerType in ['registerLp', 'RegisterPflp'] 

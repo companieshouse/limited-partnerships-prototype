@@ -271,10 +271,10 @@ router.post('/starting-new', function(request, response) {
         response.redirect("/v6/sign-in")
     }
     else if (registrationOrTransition == "transition"){
-        response.redirect("/starting-new")
+        response.redirect("/v6/sign-in")
     }
     else {
-        response.redirect("/starting-new")
+        response.redirect("/v6/sign-in")
     }
   })
 

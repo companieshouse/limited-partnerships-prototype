@@ -232,7 +232,11 @@ router.post('/limited-partnership-roa-confirm-address', function(request, respon
    var registrationOrTransition = request.session.data['registrationOrTransition']
    if (registrationOrTransition == "post"){
       response.redirect("/v6/filing-confirmation")
-   } else {
+   }
+      else if (registrationOrTransition == "transition"){
+        response.redirect("/v6/general-partner-section")
+   } 
+   else {
       response.redirect("/v6/limited-partnership-ppob")
   }
 })

@@ -98,8 +98,13 @@
                 }
               ]
             }
-          },
-               {
+          }
+              
+] %}
+
+{% if data['registrationOrTransition'] == "registration" %}
+  {% set rows = rows.concat([
+     {
             key: {
               text: "Principal place of business"
             },
@@ -120,12 +125,8 @@
                 }
               ]
             }
-          }
-] %}
-
-{% if data['registrationOrTransition'] == "registration" %}
-  {% set rows = rows.concat([
-    {
+          },
+          {
             key: {
               text: "Term of partnership"
             },

@@ -27,9 +27,7 @@
 
 
 
-      {{ govukSummaryList({
-        classes: "govuk-!-margin-bottom-9",
-        rows: [
+      {% set rows = [
             {
             key: {
               text: "Name"
@@ -122,8 +120,12 @@
                 }
               ]
             }
-          },
-          {
+          }
+] %}
+
+{% if data['registrationOrTransition'] == "registration" %}
+  {% set rows = rows.concat([
+    {
             key: {
               text: "Term of partnership"
             },
@@ -153,12 +155,18 @@
                   href: "javascript:void(0)",
                   text: "Change",
                   visuallyHiddenText: "Standard Industrial Classification code"
-                }
-              ]
-            }
           }
         ]
-      }) }}
+      }
+    }
+  ]) %}
+{% endif %}
+
+{{ govukSummaryList({
+  classes: "govuk-!-margin-bottom-9",
+  rows: rows
+}) }}
+
 
     <h2 class="govuk-heading-m">General partners</h2>
      {{ govukSummaryList({
@@ -348,26 +356,25 @@
 
 
     <h3 class="govuk-heading-m">Limited partners</h3>
-    {{ govukSummaryList({
-        classes: "govuk-!-margin-bottom-9",
-        rows: [
-          {
-            key: {
-              text: "Limited partner name"
-            },
-            value: {
-              text: (data['lp1FirstName'] or "Adrienne") + " " + (data['gp1LastName'] or "Leandres")
-            },
-            actions: {
-              items: [
-                {
-                  href: "lp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Adrienne Leandres name"
-                }
-              ]
-            }
-          },
+
+{% set rows = [
+  {
+    key: {
+      text: "Limited partner name"
+    },
+    value: {
+      text: (data['lp1FirstName'] or "Adrienne") + " " + (data['gp1LastName'] or "Leandres")
+    },
+    actions: {
+      items: [
+        {
+          href: "lp-person",
+          text: "Change",
+          visuallyHiddenText: "Adrienne Leandres name"
+        }
+      ]
+    }
+  },
           {
             key: {
               text: "Date of birth"
@@ -418,31 +425,40 @@
                 }
               ]
             }
-          },
+          }
+] %}
+
+{% if data['registrationOrTransition'] == "registration" %}
+  {% set rows = rows.concat([
+    {
+      key: {
+        text: "Amount contributed"
+      },
+      value: {
+        text: "£1,000"
+      },
+      actions: {
+        items: [
           {
-            key: {
-              text: "Amount contributed"
-            },
-            value: {
-              text: "£1,000"
-            },
-            actions: {
-              items: [
-                {
-                  href: "lp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Adrienne Leandres amount contributed"
-                }
-              ]
-            }
+            href: "lp-person",
+            text: "Change",
+            visuallyHiddenText: "Adrienne Leandres amount contributed"
           }
         ]
-      }) }}
+      }
+    }
+  ]) %}
+{% endif %}
 
-       {{ govukSummaryList({
-        classes: "govuk-!-margin-bottom-9",
-        rows: [
-          {
+{{ govukSummaryList({
+  classes: "govuk-!-margin-bottom-9",
+  rows: rows
+}) }}
+
+
+
+    {% set rows = [
+      {
             key: {
               text: "Legal entity name"
             },
@@ -523,29 +539,39 @@
                   href: "lp-legal-entity",
                   text: "Change",
                   visuallyHiddenText: "ACME Legal Entity Inc correspondence address"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Amount contributed"
-            },
-            value: {
-              text: "£20,000"
-            },
-            actions: {
-              items: [
-                {
-                  href: "lp-legal-entity",
-                  text: "Change",
-                  visuallyHiddenText: "ACME Legal Entity Inc amount contributed"
-                }
+                   }
               ]
             }
           }
+] %}
+
+{% if data['registrationOrTransition'] == "registration" %}
+  {% set rows = rows.concat([
+    {
+      key: {
+        text: "Amount contributed"
+      },
+      value: {
+        text: "£1,000"
+      },
+      actions: {
+        items: [
+          {
+            href: "lp-legal-entity",
+            text: "Change",
+            visuallyHiddenText: "AACME Legal Entity Inc amount contributed"
+          }
         ]
-      }) }}
+      }
+    }
+  ]) %}
+{% endif %}
+
+{{ govukSummaryList({
+  classes: "govuk-!-margin-bottom-9",
+  rows: rows
+}) }}
+
 
        
 

@@ -4439,14 +4439,18 @@
 }) }}
 
 
-    <div class="ur-shortcuts">
-      <!-- Not part of ACTUAL screen: only for UR purposes -->
-      <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
-        <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
-          <li><a class="govuk-link" href="capital-contribution-ideas">Alternate capital contribution designs</a></li>
-        </ul>
-      </div>
 
+{% if data['registrationOrTransition'] == "transition" %}
+<!-- don't show thse UR shortcuts-->
+{% else %}
+  <div class="ur-shortcuts">
+  <!-- Not part of ACTUAL screen: only for UR purposes -->
+  <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
+  <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+    <li><a class="govuk-link" href="capital-contribution-ideas">Alternate capital contribution designs</a></li>
+  </ul>
+</div>
+{% endif %}
 
 </form>
     </div>

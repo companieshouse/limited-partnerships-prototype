@@ -104,7 +104,7 @@ router.post('/correct-company', function(request, response) {
         response.redirect("/v6/limited-partnership-overview-cya")
     } 
     else {
-        response.redirect("/v6/transition-start")
+        response.redirect("/v6/limited-partnership-rea")
     }
   })
 
@@ -241,26 +241,23 @@ router.post('/limited-partnership-roa-confirm-address', function(request, respon
 
 //PPOB
 
+router.post('/limited-partnership-ppob', function(request, response) {
+    var registrationOrTransition = request.session.data['registrationOrTransition'];
+    var registerType = request.session.data['registerType'];
 
-
- router.post('/limited-partnership-ppob', function(request, response) {
-   var registerType = request.session.data['registerType']
-    if (registerType == "RegisterPflp"){
-        response.redirect("/v6/general-partner-section")
-    }  
-    else if (registerType == "RegisterPflpSco"){
-        response.redirect("/v6/general-partner-section")
-     }    
-    else if (registerType == "registerSlp"){
-        response.redirect("/v6/limited-partnership-terms")
-     } 
-     else if (registerType == "RegisterSqp"){
-        response.redirect("/v6/limited-partnership-terms")
-     } 
-     else {
-        response.redirect("/v6/limited-partnership-terms")
+    if (registrationOrTransition === "transition") {
+        response.redirect("/v6/general-partner-section");
+    } else if (registerType === "RegisterPflp" || registerType === "RegisterPflpSco") {
+        response.redirect("/v6/general-partner-section");
+    } else if (registerType === "registerSlp" || registerType === "RegisterSqp") {
+        response.redirect("/v6/limited-partnership-terms");
+    } else {
+        response.redirect("/v6/limited-partnership-terms");
     }
- })
+});
+
+
+
 
 // Starting new?
 

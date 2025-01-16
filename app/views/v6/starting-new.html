@@ -25,7 +25,32 @@
 
       <form class="form" action="/starting-new" method="post">
 
-      
+           {% if data['registrationOrTransition'] == "transition" %}
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  name: "changedName",
+  fieldset: {
+    legend: {
+      text: "Are you starting a new update?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+{% else %}
+
 
 {{ govukRadios({
   classes: "govuk-radios--inline",
@@ -48,6 +73,8 @@
     }
   ]
 }) }}
+
+{% endif %}
 
 {{ govukButton({
   text: "Continue"

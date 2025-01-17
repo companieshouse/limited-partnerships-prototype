@@ -114,3 +114,14 @@ img.card-image {
 .js-enabled #second-nationality-div {
   display: none;
 }
+
+// Unstyling the GOV Suffix from a text inout (name ending)
+.ch-unstyled-suffix {
+  border: none;
+  background: none;
+}
+
+// Styling for alternate name ending pattern
+.ch-name-ending {
+  border-left: 0;
+}

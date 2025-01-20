@@ -125,3 +125,8 @@ img.card-image {
 .ch-name-ending {
   border-left: 0;
 }
+
+// Styling for hidden (not currently in scope) links on index
+.govuk-tabs__panel s, .govuk-tabs__panel s a:any-link {
+  color:#727279	;
+}

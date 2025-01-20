@@ -53,7 +53,7 @@
         We'll send an authentication code to the registered office address you've provided. This code will be needed for all future filings.
        </p>-->
 
-       {% if data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"] or data['lpNumber'].startsWith("SL") %}
+       {% if data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"] %}
 
        <h2 class="govuk-heading-m">You'll need to provide more information</h2>
 
@@ -66,9 +66,7 @@
       
 
            
-
-
-{% else %}
+  {% elseif data['registrationOrTransition'] in ["transition"] %}
 
 {% endif %}
       <p class="govuk-body">

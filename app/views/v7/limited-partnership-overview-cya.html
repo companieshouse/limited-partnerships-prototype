@@ -1,0 +1,491 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="File an update to your limited partnership" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "/includes/phase-banner.html" %}
+{% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      {{ govukNotificationBanner({
+  text: "It may take a while for changes to show CONTENT TBD"
+}) }}
+
+
+      <h1 class="govuk-heading-xl">File an update to your limited partnership</h1>
+
+
+      {{ govukSummaryList({
+  card: {
+    title: {
+      text: "ACME LIMITED PARTNERSHIP (LP123456)"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "File confirmation statement",
+          visuallyHiddenText: "for ACME LIMITED PARTNERSHIP (LP123456)"
+        },
+        {
+          href: "#",
+          text: "Close",
+          visuallyHiddenText: "ACME LIMITED PARTNERSHIP (LP123456)"
+        }
+      ]
+    }
+  },
+        rows: [
+             {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "ACME LIMITED PARTNERSHIP"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Limited partnership name"
+                }
+              ]
+            }
+          },
+                   {
+            key: {
+              text: "Type"
+            },
+            value: {
+              text: "Limited partnership in England, Wales or Northern Ireland"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Limited partnership type"
+                }
+              ]
+            }
+          },
+           {
+            key: {
+              text: "Confirmation statement"
+            },
+            value: {
+              text: "First statement date 1 February 2025  due by 15 February 2025"
+            }
+          },
+          {
+            key: {
+              text: "Standard Industrial Classification (SIC) code"
+            },
+            value: {
+              html: '<ul class="govuk-list govuk-list--bullet">
+                <li>64205 - Activities of financial services holding companies</li>
+                <li>64910 - Financial leasing</li>
+                <li>64922 - Activities of mortgage finance companies</li>
+              </ul>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Standard Industrial Classification code"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Registered email address"
+            },
+            value: {
+              text: "example@limitedpartnership.com"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "registered email address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Registered office address"
+            },
+            value: {
+              text: "64 Zoo Lane, 
+              London, W5 500"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "registered office address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Principal place of business"
+            },
+            value: {
+              text: "1 Apple Street, Cardiff, CF12 3AB"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "principal place of business"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Term of partnership"
+            },
+            value: {
+              text: "5 years"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "registered office address"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+   <!--<h2 class="govuk-heading-s">Confirmation statement</h2>
+    <p>First statement date <span class="govuk-body govuk-!-font-weight-bold"> 1 February 2025 </span> due by <span class="govuk-body govuk-!-font-weight-bold">15 February 2025</span></p>-->
+    <!--<p class="govuk-!-margin-0">Last statement dated <p class="govuk-body govuk-!-font-weight-bold">1 February 2024</p></p> -->
+
+     <!-- {{ govukButton({
+  text: "File confirmation statement"
+      }) }}-->
+
+
+
+
+    <h2 class="govuk-heading-l govuk-!-margin-top-8">General partners</h2>
+
+       {{ govukSummaryList({
+        card: {
+          title: {
+            text: "ABC Company Ltd"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "of University of Gloucestershire"
+              },
+              {
+                href: "#",
+                text: "Remove",
+                visuallyHiddenText: "from University of Gloucestershire"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Legal entity name"
+            },
+            value: {
+              text: "ABC Company Ltd"
+            }
+          },
+          {
+            key: {
+              text: "Governing law"
+            },
+            value: {
+              text: "England and Wales"
+            }
+          },
+          {
+            key: {
+              text: "Legal form"
+            },
+            value: {
+              text: "Limited company"
+            }
+          },
+          {
+            key: {
+              text: "Principal office address"
+            },
+            value: {
+              text: "24 Candy Lane, London, W1 3EE, United Kingdom"
+            }
+          },
+          {
+            key: {
+              text: "Correspondence address"
+            },
+            value: {
+              text: "The same as the principal office address"
+            }
+          }
+        ]
+      }) }}
+
+       {{ govukSummaryList({
+        card: {
+          title: {
+            text: "Georgina Smith"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "of University of Gloucestershire"
+              },
+              {
+                href: "#",
+                text: "Remove",
+                visuallyHiddenText: "from University of Gloucestershire"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "General partner name"
+            },
+            value: {
+              text: "Georgina Smith"
+            }
+          },
+          {
+            key: {
+              text: "Previous name"
+            },
+            value: {
+              text: "Georgina Silver"
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "21 August 1989"
+            }
+          },
+          {
+            key: {
+              text: "Nationality"
+            },
+            value: {
+              text: "British"
+            }
+          },
+          {
+            key: {
+              text: "Usual residential address"
+            },
+            value: {
+              text: "13 Luck Lane, Bristol, BS1 8LY, United Kingdom"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Add a new general partner",
+        classes: "govuk-button--secondary govuk-!-margin-bottom-9"
+      }) }}
+
+    <h2 class="govuk-heading-l">Limited partners</h2>
+
+       {{ govukSummaryList({
+        card: {
+          title: {
+            text: "Lisa Taylor"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "of University of Gloucestershire"
+              },
+              {
+                href: "#",
+                text: "Remove",
+                visuallyHiddenText: "from University of Gloucestershire"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Limited partner name"
+            },
+            value: {
+              text: "Adrienne Leandres"
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "13 March 1975"
+            }
+          },
+          {
+            key: {
+              text: "Nationality"
+            },
+            value: {
+              text: "French"
+            }
+          },
+          {
+            key: {
+              text: "Usual residential address"
+            },
+            value: {
+              text: "1 Champs Elysee, Paris, 705001, France"
+            }
+          },
+          {
+            key: {
+              text: "Amount contributed"
+            },
+            value: {
+              text: "£1,000"
+            }
+          }
+        ]
+      }) }}
+
+       {{ govukSummaryList({
+        card: {
+          title: {
+            text: "ACME Legal Entity Inc"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "of University of Gloucestershire"
+              },
+              {
+                href: "#",
+                text: "Remove",
+                visuallyHiddenText: "from University of Gloucestershire"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Legal entity name"
+            },
+            value: {
+              text: "ACME Legal Entity Inc"
+            }
+          },
+          {
+            key: {
+              text: "Governing law"
+            },
+            value: {
+              text: "England and Wales"
+            }
+          },
+          {
+            key: {
+              text: "Legal form"
+            },
+            value: {
+              text: "Incorporated business"
+            }
+          },
+          {
+            key: {
+              text: "Principal office address"
+            },
+            value: {
+              text: "1 Hyde Road, London, SW1 1LE, United Kingdom"
+            }
+          },
+          {
+            key: {
+              text: "Correspondence address"
+            },
+            value: {
+              text: "The same as the principal office address"
+            }
+          },
+          {
+            key: {
+              text: "Amount contributed"
+            },
+            value: {
+              text: "£20,000"
+            }
+          }
+        ]
+      }) }}
+
+             {{ govukButton({
+        text: "Add a new limited partner",
+        classes: "govuk-button--secondary govuk-!-margin-bottom-9"
+      }) }}
+
+      <div class="app-back-to-top app-back-to-top--fixed" data-module="app-back-to-top" data-app-back-to-top-init="">
+        <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+          <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg> Back to top
+        </a>
+      </div>
+
+
+    </div>
+  </div>
+{% endblock %}

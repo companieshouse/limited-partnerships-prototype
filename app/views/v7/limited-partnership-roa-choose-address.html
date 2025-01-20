@@ -1,0 +1,140 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Choose the registered office address" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/limited-partnership-roa-choose-address" method="post">
+   
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% endif %}
+
+
+    {% if data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"] %}
+
+
+{{ govukRadios({
+  name: "chooseROA",
+  fieldset: {
+    legend: {
+      text: "Choose the registered office address",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "1",
+      text: "1 Rose Street, Edinburgh, EH1 2AB"
+    },
+    {
+      value: "2 ",
+      text: "2 Rose Street, Edinburgh, EH1 2AB"
+    },    {
+      value: "3",
+      text: "3 Rose Street, Edinburgh, EH1 2AB"
+    },    {
+      value: "4",
+      text: "4 Rose Street, Edinburgh, EH1 2AB"
+    },    {
+      value: "5",
+      text: "5 Rose Street, Edinburgh, EH1 2AB"
+    },    {
+      value: "6",
+      text: "6 Rose Street, Edinburgh, EH1 2AB"
+    },    {
+      value: "7",
+      text: "7 Rose Street, Edinburgh, EH1 2AB"
+    },    {
+      value: "8",
+      text: "8 Rose Street, Edinburgh, EH1 2AB"
+    },    {
+      value: "9",
+      text: "9 Rose Street, Edinburgh, EH1 2AB"
+    },    {
+      value: "10",
+      text: "10 Rose Street, Edinburgh, EH1 2AB"
+    }
+  ]
+}) }}
+
+{% else %}
+
+{{ govukRadios({
+  name: "chooseROA",
+  fieldset: {
+    legend: {
+      text: "Choose the registered office address",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "1",
+      text: "1 Orchard Street, Whitchurch, Cardiff, CF14 3UZ"
+    },
+    {
+      value: "2 ",
+      text: "2 Orchard Street, Whitchurch, Cardiff, CF14 3UZ"
+    },    {
+      value: "3",
+      text: "3 Orchard Street, Whitchurch, Cardiff, CF14 3UZ"
+    },    {
+      value: "4",
+      text: "4 Orchard Street, Whitchurch, Cardiff, CF14 3UZ"
+    },    {
+      value: "5",
+      text: "5 Orchard Street, Whitchurch, Cardiff, CF14 3UZ"
+    },    {
+      value: "6",
+      text: "6 Orchard Street, Whitchurch, Cardiff, CF14 3UZ"
+    },    {
+      value: "7",
+      text: "7 Orchard Street, Whitchurch, Cardiff, CF14 3UZ"
+    },    {
+      value: "8",
+      text: "8 Orchard Street, Whitchurch, Cardiff, CF14 3UZ"
+    },    {
+      value: "9",
+      text: "9 Orchard Street, Whitchurch, Cardiff, CF14 3UZ"
+    },    {
+      value: "10",
+      text: "10 Orchard Street, Whitchurch, Cardiff, CF14 3UZ"
+    }
+  ]
+}) }}
+
+{% endif %}
+
+  <p><a href="javascript:void(0)">The address is not on the list</a><p>
+
+
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

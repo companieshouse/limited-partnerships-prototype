@@ -8,11 +8,13 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
 
-//router.use('/', require('./routes/v2-routes.js'))
-//router.use('/', require('./routes/v3-routes.js'))
-//router.use('/', require('./routes/v4-routes.js'))
-//router.use('/', require('./routes/v5-routes.js'))
-router.use('/', require('./routes/v6-routes.js'))
+//router.use('/v2', require('./routes/v2-routes.js'))
+//router.use('/v3', require('./routes/v3-routes.js'))
+//router.use('/v4', require('./routes/v4-routes.js'))
+//router.use('/v5', require('./routes/v5-routes.js'))
+//router.use('/v6', require('./routes/v6-routes.js'))
+router.use('/', require('./routes/v7-routes.js'));
+
 
 
 // Show session data and URLs in the terminal  

@@ -1,0 +1,124 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Scottish private fund limited partnership name" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/pflp-name" method="post">
+        <h1 class="govuk-heading-xl">Scottish private fund limited partnership name</h1>
+        
+                {{ govukInsetText({
+  html: '<p>There are rules about the name a limited partnership can use. We may reject the application if the name does not meet all the rules. 
+    
+
+  '
+}) }}
+
+
+ <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      How to check if the limited partnership’s name meets the rules
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>The limited partnership’s name cannot be the same as another registered partnership or company. To check the name, use the <a href="https://find-and-update.company-information.service.gov.uk/company-name-availability" target="_blank">company name availability checker (opens in a new tab)</a>. </p>
+    <p>To find out all the rules the limited partnership's name needs to meet, read the <a href="https://www.gov.uk/limited-company-formation/choose-company-name" target="_blank">guidance on choosing a company name (opens in a new tab)</a>.</p>
+  </div>
+</details>       
+        
+        {{ govukInput({
+  label: {
+    text: "What's the name of the partnership?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Do not enter a name ending like Limited Partnership or LP. We'll add this for you."
+  },
+  id: "lpChooseName",
+  name: "lpChooseName",
+  suffix: {
+    text: "Limited Partnership"
+  }
+}) }}
+
+
+
+
+
+
+
+
+{{ govukRadios({
+  name: "nameEnding",
+  fieldset: {
+    legend: {
+      text: "Which private fund limited partnership name ending would you prefer to go on the public record?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "There's no difference between these name endings except how they look."
+  },
+  items: [
+    {
+      value: "Limited Partnership",
+      text: "Limited Partnership"
+    },
+    {
+      value: "LP",
+      text: "LP"
+    },   
+    {
+      value: "L.P.",
+      text: "L.P."
+    }
+  ]
+}) }}
+
+
+
+    {{ govukButton({
+  text: "Save and continue"
+}) }}  
+
+
+
+</form>
+
+
+
+ <div class="ur-shortcuts">
+      <!-- Not part of ACTUAL screen: only for UR purposes -->
+      <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>
+        <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+          <li><a class="govuk-link" href="name-idea-1">Alternate name screen design 1</a></li>
+          <li><a class="govuk-link" href="name-idea-2">Alternate name screen design 2</a></li>
+          <li><a class="govuk-link" href="name-idea-3">Alternate name screen design 3</a></li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+
+  <script src="/public/javascripts/lp-name.js"></script>
+
+{% endblock %}

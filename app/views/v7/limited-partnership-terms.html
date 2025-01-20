@@ -1,0 +1,124 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="What are the terms of the limited partnership?" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/limited-partnership-terms" method="post">
+   
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% endif %}
+
+
+
+
+
+{% set specificReveal %}
+{{ govukInput({
+  label: {
+    text: "How many years?",
+    classes: "govuk-label",
+    isPageHeading: true
+  },
+  
+  id: "term-of-partnersh",
+  name: "term-of-partnersh",
+  classes: "govuk-!-width-one-half"
+}) }}
+{% endset -%}
+
+{% set endingReveal %}
+{{ govukDateInput({
+  id: "term-of-partnersh",
+  namePrefix: "term-of-partnershe",
+  fieldset: {
+    legend: {
+      text: "When will the limited partnership end?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "For example, 27 3 2030"
+  }
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  name: "term-of-partnership",
+  fieldset: {
+    legend: {
+      text: "What is the term of the partnership?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  hint: {
+    text: "This is the length of time for which the partnership will be entered into. "
+  },
+  items: [
+    {
+      value: "specific",
+      text: "A set term (in years)",
+      conditional: {
+              html: specificReveal
+            }
+    },
+    {
+      value: "ending",
+      text: "Ending on a set date",
+      conditional: {
+              html: endingReveal
+            }
+    },
+    {
+      value: "discretion",
+      text: "Term will be decided by some or all of the partners"
+    },
+    {
+      value: "none",
+      text: "No set term"
+    }
+  ]
+}) }}
+
+
+
+
+
+{{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+                <p>We'll show the term of partnership on the public register.</p>"
+        }) }}
+
+      
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

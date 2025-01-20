@@ -1,0 +1,280 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="General partner identity verification" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="check-your-answers" method="post">
+
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% endif %}
+
+<h1 class="govuk-heading-xl">Provide identity verification details</h1>
+
+<p class="govuk-body">Each general partner who is a person should have already <a href="javascript:void(0)">verified their identity for Companies House (opens in a new tab)</a>.</p>
+<p class="govuk-body"> We'll have given them an 11 character code, known as a Companies House personal code.</p>
+<p class="govuk-body">You must enter the Companies House personal code for every general partner who is a person, and confirm that they have verified their identity.</p>
+
+  <details class="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Where can a general partner find their Companies House personal code?
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      If they have a Companies House account, they can find their code in the ‘Manage account’ section of the Companies House website. They’ll need to sign in using the email address they provided when they verified.
+      
+      <br><br>Otherwise, we’ll have sent them the code in an email.
+    </div>
+  </details>
+
+
+
+
+
+      <span class="govuk-caption-m">General partner (person)</span>
+
+        <h2 class="govuk-heading-m">Georgina Smith</h2>
+ 
+
+
+{{ govukInput({
+  label: {
+    text: "What is their Companies House personal code?"
+  },
+  classes: "govuk-!-width-one-half",
+  id: "one-half",
+  name: "oneHalf"
+}) }}
+{{ govukCheckboxes({
+  name: "georginaConfirm",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "georgina",
+      text: "I confirm that Georgina Smith has verified their identity."
+    }
+  ]
+}) }}
+
+
+
+
+
+<div class="govuk-inset-text" id="name-mismatch-warning" style="display:none;">
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-fieldset__heading">
+        Why is the name you've provided different to the director's verified name?
+      </h1>
+    </legend>
+    <p>
+      This general partner’s verified name does not match the name you’ve provided. Either <a href="gp-person" class="govuk-link">change the name provided in this filing</a> or, if possible, tell us why the names do not match. We may contact you if we need more information
+    </p>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="changedName">
+          Legally changed name (for example, marriage or divorce)
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="changedName-2">
+          Preferred name
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changedName-3" name="changedName" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="changedName-3">
+          Translation or a different naming convention
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changedName-4" name="changedName" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="changedName-4">
+          Prefer not to say
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+</div>
+
+
+
+
+      <!-- This is (hopefully obviously) NOT production code -->
+   <div id="one-container">
+        <div id="one-div" class="hidden-div">
+          <p class="govuk-paragraph govuk-!-font-weight-bold ch-idv-accepted">
+          Companies House personal code accepted
+          </p>
+        </div>
+        <button id="one" class="govuk-button govuk-button--secondary" data-module="govuk-button" type="button" onclick="removeItem(); return false;">  Submit <span class="govuk-visually-hidden">personal code for Georgina General Partner</span>
+        </button>
+      </div>
+
+<!--
+
+      <span class="govuk-caption-m">Registered officer for ABC Company ltd</span>
+
+        <h2 class="govuk-heading-m">Ryan Jones</h2>
+
+<div id="name-match">
+{{ govukInput({
+  label: {
+    text: "What is their Companies House personal code?"
+  },
+  classes: "govuk-!-width-one-half",
+  id: "one-half",
+  name: "oneHalf"
+}) }}
+          {{ govukCheckboxes({
+                name: "ryanConfirm",
+                fieldset: {
+                  legend: {
+                    text: "Confirm all the identity verification statements",
+                    isPageHeading: true,
+                    classes: "govuk-visually-hidden"
+                  }
+                },
+
+                items: [
+                  {
+                    value: "ryan",
+                    text: "I confirm that Ryan Jones has verified their identity."
+                  },
+                  {
+                    value: "gpRyan",
+                    text: "General Partner Co has confirmed that Ryan Jones is the registered officer of this entity."
+                  },
+                  {
+                    value: "ryanGp",
+                    text: "Ryan Jones has confirmed that they are a registered officer of General Partner Co."
+                  }
+                ]
+              }) }}
+</div>
+
+
+
+
+   
+         <!-- This is (hopefully obviously) NOT production code -->
+<!--
+    <div id="two-container">
+        <div id="two-div" class="hidden-div govuk-form-group govuk-inset-text">
+
+         
+              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  <h2 class="govuk-fieldset__heading">
+                    Why is the name you've provided different to the registered officer's verified name?
+                  </h2>
+                </legend>
+                <p>
+                  This registered officer's verified name does not match the name you’ve provided. Either <a href="gp-legal-entity#gp-legal-registered-officer-1" class="govuk-link">change the name provided in this filing</a> or, if possible, tell us why the names do not match. We may contact you if we need more information
+                </p>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="changedName">
+                      Legally changed name (for example, marriage or divorce)
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                      Preferred name
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="changedName-3" name="changedName" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="changedName-3">
+                      Translation or a different naming convention
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="changedName-4" name="changedName" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="changedName-4">
+                      Prefer not to say
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+   
+
+        <button id="two" class="govuk-button govuk-button--secondary" data-module="govuk-button" type="button" onclick="removeItem(); return false;"> Submit <span class="govuk-visually-hidden">personal code for Ryan Jones</span></button>
+
+    </div>
+
+-->
+
+
+{# {{ govukButton({
+  text: "Submit",
+  classes: "govuk-button--secondary"
+}) }}
+<br> #}
+
+{{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>
+                <p>We'll publish the general partners' names and confirm that the general partners who are people have verified their identity. We will not publish their personal codes.</p>"
+        }) }}
+
+
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+      <!-- This is (hopefully obviously) NOT production code -->
+
+<script type="text/javascript">
+        document.getElementById('one').addEventListener('click', function() {
+            const divOne = document.getElementById('one-div');
+            divOne.style.display = 'block';
+        });
+
+        document.getElementById('two').addEventListener('click', function() {
+            const divTwo = document.getElementById('two-div');
+            divTwo.style.display = 'block';
+        });
+</script>
+
+
+{% endblock %}

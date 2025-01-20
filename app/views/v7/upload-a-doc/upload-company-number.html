@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="What is the company number?" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "/",
+    classes: "govuk-header--full-width-border"
+}) }}
+
+{{ govukServiceNavigation({
+}) }}
+{% endblock %}
+
+
+{% set serviceName %}
+  Upload a document to Companies House
+{% endset%}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="upload-company-confirm" method="post">
+
+
+      {{ govukInput({
+        label: {
+          text: "What is the company number?",
+          classes: "govuk-label--xl",
+          isPageHeading: true
+        },
+        hint: {
+          text: "Enter the 8 character company number.
+
+"
+        },
+          classes: "govuk-!-width-one-half",
+        id: "uploadCompanyNumber",
+        name: "uploadCompanyNumber"
+      }) }}
+      
+{{ govukInsetText({
+  text: "If you have a company number that's 7 characters or less, enter zeros at the start so that it's 8 characters in total. For example, if it's 12345, enter 00012345."
+}) }}
+
+
+
+
+{{ govukDetails({
+  summaryText: "How do I find the company number?",
+  html: 'You can find this by searching for the company on the <a class="govuk-link" target="_blank" href="https://find-and-update.company-information.service.gov.uk/">Companies House register (opens in a new tab).</a>'
+}) }}
+      
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,630 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+
+      <h2 class="govuk-heading-m">Limited partnership information</h2>
+
+
+
+
+      {% set rows = [
+            {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: data['lpChooseName']['nameEnding'] or "ACME LP"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Name"
+                }
+              ]
+            }
+          },
+               {
+            key: {
+              text: "Type"
+            },
+            value: {
+              text:  "Scottish limited partnership"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Type"
+                }
+              ]
+            }
+          },
+
+          {
+            key: {
+              text: "Registered email address"
+            },
+            value: {
+              text: data['registeredEmail'] or "example@limitedpartnership.com"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "registered email address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Registered office address"
+            },
+      value: { 
+          text: "1 Orchard Street, Whitchurch, Cardiff CF14 3UZ" 
+          if data.registerType in ['registerLp', 'RegisterPflp'] 
+          else "1 Rose Street, Edinburgh, EH1 2EB"
+        },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "registered office address"
+                }
+              ]
+            }
+          }
+              
+] %}
+
+{% if data['registrationOrTransition'] == "registration" %}
+  {% set rows = rows.concat([
+     {
+            key: {
+              text: "Principal place of business"
+            },
+            value: {
+              text: "1 Rose Street, Edinburgh, EH1 2EB"
+            },
+       value: { 
+            text: "1 Orchard Street, Whitchurch, Cardiff CF14 3UZ" 
+            if data.registerType in ['registerLp', 'RegisterPflp'] 
+            else "1 Rose Street, Edinburgh, EH1 2EB"
+          },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "principal place of business"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Term of partnership"
+            },
+            value: {
+              text: data['term-of-partners'] or "Term will be decided by some or all of the partners"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "registered office address"
+                }
+              ]
+            }
+          },          
+          {
+            key: {
+              text: "Standard Industrial Classification (SIC) code"
+            },
+            value: {
+              text: "62012 - Business and domestic software development"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Standard Industrial Classification code"
+          }
+        ]
+      }
+    }
+  ]) %}
+{% endif %}
+
+{{ govukSummaryList({
+  classes: "govuk-!-margin-bottom-9",
+  rows: rows
+}) }}
+
+
+    <h2 class="govuk-heading-m">General partners</h2>
+     {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "General partner name"
+            },
+            value: {
+            text: (data['gp1FirstName'] or "Georgina") + " " + (data['gp1LastName'] or "Smith")
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Previous name"
+            },
+            value: {
+              text: "Georgina Silver"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Silver previous name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "21 August 1989"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith date of birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Nationality"
+            },
+            value: {
+              text: "British"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith nationality"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Usual residential address"
+            },
+            value: {
+              text: "13 Luck Lane, Bristol, BS1 8LY, United Kingdom"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith usual residential address"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Legal entity name"
+            },
+            value: {
+              text: data['gp1EntityName'] or "ABC Company Limited"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "ABC Company Limited legal entity name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Governing law"
+            },
+            value: {
+              text: "England and Wales"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "ABC Company Limited governing law"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Legal form"
+            },
+            value: {
+              text: "Limited company"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "ABC Company Limited legal form"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Principal office address"
+            },
+            value: {
+              text: "24 Candy Lane, London, W1 3EE, United Kingdom"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "Principal office address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Correspondence address"
+            },
+            value: {
+              text: "The same as the principal office address"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "ABC Company Limited correspondence address"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+  
+
+
+    <h3 class="govuk-heading-m">Limited partners</h3>
+
+{% set rows = [
+  {
+    key: {
+      text: "Limited partner name"
+    },
+    value: {
+      text: (data['lp1FirstName'] or "Adrienne") + " " + (data['gp1LastName'] or "Leandres")
+    },
+    actions: {
+      items: [
+        {
+          href: "lp-person",
+          text: "Change",
+          visuallyHiddenText: "Adrienne Leandres name"
+        }
+      ]
+    }
+  },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "13 March 1975"
+            },
+            actions: {
+              items: [
+                {
+                  href: "lp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Adrienne Leandres date of birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Nationality"
+            },
+            value: {
+              text: "French"
+            },
+            actions: {
+              items: [
+                {
+                  href: "lp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Adrienne Leandres nationality"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Usual residential address"
+            },
+            value: {
+              text: "1 Champs Elysee, Paris, 705001, France"
+            },
+            actions: {
+              items: [
+                {
+                  href: "lp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Adrienne Leandres usual residential address"
+                }
+              ]
+            }
+          }
+] %}
+
+{% if data['registrationOrTransition'] == "registration" %}
+  {% set rows = rows.concat([
+    {
+      key: {
+        text: "Amount contributed"
+      },
+      value: {
+        text: "£1,000"
+      },
+      actions: {
+        items: [
+          {
+            href: "lp-person",
+            text: "Change",
+            visuallyHiddenText: "Adrienne Leandres amount contributed"
+          }
+        ]
+      }
+    }
+  ]) %}
+{% endif %}
+
+{{ govukSummaryList({
+  classes: "govuk-!-margin-bottom-9",
+  rows: rows
+}) }}
+
+
+
+    {% set rows = [
+      {
+            key: {
+              text: "Legal entity name"
+            },
+            value: {
+              text: data['lp1EntityName'] or "ACME Legal Entity Inc"
+            },
+            actions: {
+              items: [
+                {
+                  href: "lp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "ACME Legal Entity Inc name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Governing law"
+            },
+            value: {
+              text: "England and Wales"
+            },
+            actions: {
+              items: [
+                {
+                  href: "lp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "ACME Legal Entity Inc governing law"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Legal form"
+            },
+            value: {
+              text: "Incorporated business"
+            },
+            actions: {
+              items: [
+                {
+                  href: "lp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "ACME Legal Entity Inc legal form"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Principal office address"
+            },
+            value: {
+              text: "1 Hyde Road, London, SW1 1LE, United Kingdom"
+            },
+            actions: {
+              items: [
+                {
+                  href: "lp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "ACME Legal Entity Inc Principal office address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Correspondence address"
+            },
+            value: {
+              text: "The same as the principal office address"
+            },
+            actions: {
+              items: [
+                {
+                  href: "lp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "ACME Legal Entity Inc correspondence address"
+                   }
+              ]
+            }
+          }
+] %}
+
+{% if data['registrationOrTransition'] == "registration" %}
+  {% set rows = rows.concat([
+    {
+      key: {
+        text: "Amount contributed"
+      },
+      value: {
+        text: "£1,000"
+      },
+      actions: {
+        items: [
+          {
+            href: "lp-legal-entity",
+            text: "Change",
+            visuallyHiddenText: "AACME Legal Entity Inc amount contributed"
+          }
+        ]
+      }
+    }
+  ]) %}
+{% endif %}
+
+{{ govukSummaryList({
+  classes: "govuk-!-margin-bottom-9",
+  rows: rows
+}) }}
+
+
+       
+
+     <!-- <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p
+-->
+
+{{ govukCheckboxes({
+  name: "lpStatement",
+  fieldset: {
+    legend: {
+      text: "Confirm this statement", 
+      isPageHeading: false,
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "lp-statement",
+      text: "I confirm that the intended future activities of the limited partnership are lawful."
+    }
+  ]
+}) }}
+
+
+      <form action="/form-handler" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+
+{% if (data['registrationOrTransition'] == "registration" or data['registrationOrTransition'] == "post") %}
+
+
+        {{ govukButton({
+          text: "Continue to payment",
+          href: "payment-review"
+        }) }}
+
+{% else  %}
+
+    {{ govukButton({
+      text: "Continue",
+      href: "confirmation-page"
+    }) }}
+
+{% endif %}
+
+
+    </div>
+  </div>
+
+
+
+    <script src="/public/javascripts/cya.js"></script>
+
+{% endblock %}

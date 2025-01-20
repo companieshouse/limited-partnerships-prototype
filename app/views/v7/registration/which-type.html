@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Which type of partnership do you want to register" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/includes/phase-banner.html" %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/which-type" method="post">
+
+
+
+
+{{ govukRadios({
+  classes: "govuk-radios",
+  name: "registerType",
+  fieldset: {
+    legend: {
+      text: "Which type of partnership do you want to register?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+      {
+      value: "registerLp",
+      text: "Limited partnership in England, Wales or Northern Ireland"
+
+    },
+    {
+      value: "RegisterPflp",
+      text: "Private fund limited partnership in England, Wales or Northern Ireland"
+    },
+        {
+      value: "registerSlp",
+      text: "Scottish limited partnership"
+    },
+        {
+      value: "RegisterPflpSco",
+      text: "Private fund limited partnership in Scotland"
+    }
+   
+  ]
+}) }}
+
+
+
+
+    {{ govukButton({
+  text: "Continue"
+}) }}  
+
+
+
+</form>
+    </div>
+  </div>
+{% endblock %}

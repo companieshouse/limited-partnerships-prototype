@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Are you starting a new registration?" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/includes/phase-banner.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+      <form class="form" action="/starting-new" method="post">
+
+           {% if data['registrationOrTransition'] == "transition" %}
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  name: "changedName",
+  fieldset: {
+    legend: {
+      text: "Are you starting a new update?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+{% else %}
+
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  name: "changedName",
+  fieldset: {
+    legend: {
+      text: "Are you starting a new registration?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+{% endif %}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+
+{% endblock %}

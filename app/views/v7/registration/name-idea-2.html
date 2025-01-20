@@ -1,0 +1,131 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Limited partnership name" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/includes/phase-banner.html" %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/lp-name" method="post">
+
+        <h1 class="govuk-heading-xl">Limited partnership name</h1>
+        
+        {{ govukInsetText({
+  html: '<p>There are rules about the name a limited partnership can use. We may reject the application if the name does not meet all the rules. 
+    
+
+  '
+}) }}
+
+
+ <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      How to check if the limited partnership’s name meets the rules
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>The limited partnership’s name cannot be the same as another registered partnership or company. To check the name, use the <a href="https://find-and-update.company-information.service.gov.uk/company-name-availability" target="_blank">company name availability checker (opens in a new tab)</a>. </p>
+    <p>To find out all the rules the limited partnership's name needs to meet, read the <a href="https://www.gov.uk/limited-company-formation/choose-company-name" target="_blank">guidance on choosing a company name (opens in a new tab)</a>.</p>
+  </div>
+</details>     
+
+
+
+
+
+
+
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--l" for="lpChooseName">
+    What's the name of the partnership?
+  </label>
+  <span class="govuk-hint ">
+    Do not enter a name ending, like Limited Partnership or LP. We'll add this for you. There's no difference between the name endings except how they look.
+  </span>
+  <div class="govuk-input__wrapper govuk-!-margin-top-4">
+    <input class="govuk-input" id="lpChooseName" name="lpChooseName" type="text">
+    <div class="govuk-select-wrapper">
+      {{ govukSelect({
+        id: "selectNameEnding",
+        name: "selectNameEnding",
+        classes: "ch-name-ending",
+        label: {
+          text: "select partnership name ending",
+          classes: "govuk-visually-hidden"
+        },
+        items: [
+          {
+            value: "Limited Partnership",
+            text: "Limited Partnership"
+          },
+          {
+            value: "LP",
+            text: "LP"
+          },
+          {
+            value: "L.P.",
+            text: "L.P."
+          },
+          {
+            value: "Partneriaeth Cyfyngedig",
+            text: "Partneriaeth Cyfyngedig"
+          },
+          {
+            value: "PC",
+            text: "PC"
+          },
+          {
+            value: "P.C.",
+            text: "P.C."
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+</div>
+
+
+
+
+
+    {{ govukButton({
+  text: "Save and continue"
+}) }}  
+
+
+
+</form>
+
+
+    <div class="ur-shortcuts">
+      <!-- Not part of ACTUAL screen: only for UR purposes -->
+      <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>
+        <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+          <li><a class="govuk-link" href="name-idea-1">Alternate name screen design 1</a></li>
+          <li><a class="govuk-link" href="name-idea-2">Alternate name screen design 2</a></li>
+          <li><a class="govuk-link" href="name-idea-3">Alternate name screen design 3</a></li>
+        </ul>
+      </div>
+
+
+      
+    </div>
+  </div>
+
+
+{% endblock %}

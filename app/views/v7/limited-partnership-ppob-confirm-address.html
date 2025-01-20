@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Confirm the principal place of business address" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/limited-partnership-ppob-confirm-address" method="post">
+   
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% endif %}
+
+
+
+
+<h1 class="govuk-heading-xl">Confirm the principal place of business address</h1>
+<p>1 Orchard Street<br>
+Whitchurch<br>
+Cardiff<br>
+CF14 3UZ</p>
+
+  <p><a href="limited-partnership-roa">Change <span class="govuk-visually-hidden">registered office address</span></a><p>
+
+
+
+{{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>
+                <p>We'll show the registered office address on the public register.</p>"
+        }) }}
+
+      
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

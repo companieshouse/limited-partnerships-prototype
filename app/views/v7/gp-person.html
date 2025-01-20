@@ -29,7 +29,7 @@
 {% if (data['registrationOrTransition'] == "registration") %}
   <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
 {% else %}  
-  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
 {% endif %}
 
 

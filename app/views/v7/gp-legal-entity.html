@@ -100,6 +100,14 @@
 
   {{ govukInput({
     label: {
+      text: "Property name or number"
+    },
+    id: "gp1DifferentPrincipalOfficeAddressNameNumber",
+    name: "gp1DifferentPrincipalOfficeAddressNameNumber"
+  }) }}
+
+  {{ govukInput({
+    label: {
       text: "Address line 1"
     },
     id: "gp1DifferentPrincipalOfficeAddressLine1",
@@ -2293,13 +2301,19 @@
 {% call govukFieldset({
   
 }) %}
-
+  {{ govukInput({
+    label: {
+      text: "Property name or number"
+    },
+    id: "gp1CorrespondenceAddressNameNumber",
+    name: "gp1CorrespondenceAddressNameNumber"
+  }) }}
   {{ govukInput({
     label: {
       text: "Address line 1"
     },
     id: "address-line-1",
-    name: "gp1DCorrespondenceAddressLine1",
+    name: "gp1CorrespondenceAddressLine1",
     autocomplete: "gp1CorrespondenceAddressLine1"
   }) }}
 

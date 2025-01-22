@@ -101,7 +101,10 @@
   {{ govukInput({
     label: {
       text: "Property name or number"
-    },
+    },    
+    hint: {
+    text: "For example, 'The Mill', '116' or 'Flat 37a'"
+  },
     id: "lp1LegalNameNumber",
     name: "lp1LegalNameNumber"
   }) }}
@@ -1179,7 +1182,16 @@
         {% call govukFieldset({
   
 }) %}
-
+  {{ govukInput({
+    label: {
+      text: "Property name or number"
+    },  
+    hint: {
+    text: "For example, 'The Mill', '116' or 'Flat 37a'"
+  },
+    id: "lp1LegalCorrespondenceNameNumber",
+    name: "lp1LegalCorrespondenceNameNumber"
+  }) }}
   {{ govukInput({
     label: {
       text: "Address line 1"

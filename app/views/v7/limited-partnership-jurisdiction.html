@@ -19,15 +19,15 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-<form class="form" action="/v3/limited-partnership-ppob" method="post">
+<form class="form" action="limited-partnership-roa" method="post">
    
 
+
 {% if (data['registrationOrTransition'] == "registration") %}
-  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP</span>
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
 {% else %}  
   <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
 {% endif %}
-
 
 
 {{ govukRadios({

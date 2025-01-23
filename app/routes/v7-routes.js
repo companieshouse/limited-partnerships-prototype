@@ -110,6 +110,23 @@ router.post('/correct-company', function(request, response) {
 
 
 
+  router.post('/limited-partnership-rea', function(request, response) {
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "registration"){
+        response.redirect("/v7/limited-partnership-jurisdiction")
+    } 
+    else {
+        response.redirect("/v7/limited-partnership-roa")
+    }
+  })
+
+  router.post('/company-number', function (req, res) {
+    res.redirect('/v7/correct-company')
+  })
+
+
+
+
 //general partner choice page - branches to gp legal entity or gp person
 router.post('/general-partner-choice', function(request, response) {
 

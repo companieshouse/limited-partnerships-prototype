@@ -1,0 +1,166 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="What is the registered office address?" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/limited-partnership-roa-manual" method="post">
+   
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% endif %}
+
+
+<h1 class="govuk-heading-xl">What is the registered office address of the partnership?</h1>
+
+{% if data['registerType'] == "registerLp" or data['registerType'] == "RegisterPflp" %}
+<p class="govuk-hint">It must be a physical address in England, Wales or Northern Ireland. You cannot use a PO Box address.
+</p>
+<p class="govuk-hint">The partnership will be registered in the jurisdiction of this address (either England and Wales, or Northern Ireland).
+</p>
+{% else  %}
+<p class="govuk-hint">It must be a physical address in Scotland. You cannot use a PO Box address.</p>
+<p class="govuk-hint">The partnership will be registered in the jurisdiction of this address (Scotland).</p>
+{% endif %}
+
+
+
+
+
+
+{% call govukFieldset({
+  legend: {
+    text: "What is the registered office address of the partnership?",
+    classes: "govuk-visually-hidden"
+  }
+}) %}
+  {{ govukInput({
+    label: {
+      text: "Property name or number",
+      classes: "govuk-!-margin-top-5"
+    },
+        hint: {
+    text: "For example, 'The Mill', '116' or 'Flat 37a'"
+  },
+    id: "roaNameNumber",
+    name: "roabNameNumber"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Address line 1"
+    },
+    id: "roaaddress-line-1",
+    name: "roaaddressLine1",
+    autocomplete: "address-line1"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Address line 2 (optional)"
+    },
+    id: "roaaddress-line-2",
+    name: "roaaddressLine2",
+    autocomplete: "address-line2"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Town or city"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "roaaddress-town",
+    name: "roaaddressTown",
+    autocomplete: "address-level2"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "County (optional)"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "roaaddress-county",
+    name: "roaaddressCounty"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Postcode"
+    },
+    classes: "govuk-input--width-10",
+    id: "roaaddress-postcode",
+    name: "roaaddressPostcode",
+    autocomplete: "postal-code"
+  }) }}
+
+  {{ govukSelect({
+  id: "roaCountry",
+  name: "roaCountry",
+  label: {
+    text: "Country"
+  },
+  fieldset: {
+    legend: {
+      text: "Country",
+      isPageHeading: false,
+      classes: "govuk-!-font-weight-regular"
+    }
+  },
+  items: [
+      {
+      value: "Select country",
+      text: "Select country"
+    },
+    {
+      value: "england",
+      text: "England"
+    },
+    {
+      value: "scotland",
+      text: "Scotland"
+    },
+    {
+      value: "wales",
+      text: "Wales"
+    },
+    {
+      value: "northern-ireland",
+      text: "Northern Ireland"
+    }
+  ]
+}) }}
+
+{% endcall %}
+
+
+
+{{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>
+                <p>We'll show the registered office address on the public register.</p>"
+        }) }}
+
+      
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

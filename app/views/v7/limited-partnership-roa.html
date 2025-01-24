@@ -31,17 +31,11 @@
 
 
 <h1 class="govuk-heading-xl">What is the registered office address of the partnership?</h1>
-<p class="govuk-hint">This is where official communications will be sent. </p>
+<p class="govuk-hint">We'll use this address to send official communications. </p>
 
-{% if data['registerType'] == "registerLp" or data['registerType'] == "RegisterPflp" %}
-<p class="govuk-hint">It must be a physical address in England, Wales or Northern Ireland. You cannot use a PO Box address.
+<p class="govuk-hint">It must be a physical address in the jurisdiction where the partnership was formed. You cannot use a PO Box address.
 </p>
-<p class="govuk-hint">The partnership will be registered in the jurisdiction of this address (either England and Wales, or Northern Ireland).
-</p>
-{% else  %}
-<p class="govuk-hint">It must be a physical address in Scotland. You cannot use a PO Box address.</p>
-<p class="govuk-hint">The partnership will be registered in the jurisdiction of this address (Scotland).</p>
-{% endif %}
+
 
 
 

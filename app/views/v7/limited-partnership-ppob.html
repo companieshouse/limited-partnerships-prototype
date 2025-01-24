@@ -31,14 +31,10 @@
 
 
 <h1 class="govuk-heading-xl">What is the principal place of business?</h1>
-<p class="govuk-hint">This is the address where the day to day running of the business takes place. It could be the same as the registered office address, or a different address.<br><br>
- 
-{% if data['registerType'] in ["RegisterPflp", "registerLp"] and data['nameEnding'] in ["PartneriaethCyfyngedig", "PC", "P.C."] %}
-<p class="govuk-hint">The address provided during registration must be in Wales.</p>
+<p class="govuk-hint">This is the address where the day to day running of the business takes place. It could be the same as the registered office address, or a different address.</p>
 
-{% else  %}
-<p class="govuk-hint">The address provided during registration must be in the United Kingdom.</p>
-{% endif %}
+<p class="govuk-hint">It must be in the jurisdiction where the partnership was formed. It can be changed to an address outside of the jurisdiction after you've registered the partnership. </p>
+
 
 
 

@@ -30,6 +30,36 @@
 {% endif %}
 
 
+
+{% if data['registerType'] == "registerLp" or data['registerType'] == "RegisterPflp" %}
+{{ govukRadios({
+  name: "jurisdiction",
+  fieldset: {
+    legend: {
+      text: "Where is the jurisdiction?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+    hint: {
+    text: "Where the partnership was formed."
+  }, 
+  items: [
+    {
+      value: "england-wales",
+      text: "England and Wales"
+    },
+    {
+      value: "northern-ireland",
+      text: "Northern Ireland"
+    }
+  ]
+}) }}
+{% elif data['registerType'] == "registerSlp" or data['registerType'] == "RegisterPflpSco" %}
+<h1 class="govuk-heading-xl">A title</h1>
+<p class="govuk-body">Some text.</p>
+
+{% else %} 
 {{ govukRadios({
   name: "jurisdiction",
   fieldset: {
@@ -57,6 +87,9 @@
     }
   ]
 }) }}
+{% endif %}
+
+
 
 {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>

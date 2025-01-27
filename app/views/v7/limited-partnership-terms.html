@@ -32,19 +32,7 @@
 
 
 
-{% set specificReveal %}
-{{ govukInput({
-  label: {
-    text: "How many years?",
-    classes: "govuk-label",
-    isPageHeading: true
-  },
-  
-  id: "term-of-partnersh",
-  name: "term-of-partnersh",
-  classes: "govuk-!-width-one-half"
-}) }}
-{% endset -%}
+
 
 {% set endingReveal %}
 {{ govukDateInput({
@@ -77,13 +65,6 @@
     text: "This is the length of time for which the partnership will be entered into. "
   },
   items: [
-    {
-      value: "specific",
-      text: "A set term (in years)",
-      conditional: {
-              html: specificReveal
-            }
-    },
     {
       value: "ending",
       text: "Ending on a set date",

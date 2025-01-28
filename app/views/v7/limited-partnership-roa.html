@@ -28,9 +28,15 @@
 {% else %}  
   <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
 {% endif %}
-
-
 <h1 class="govuk-heading-xl">What is the registered office address of the partnership?</h1>
+
+{% if (data['registrationOrTransition'] == "post") %}
+<p class="govuk-hint">Content for post-transition</p>
+
+{% elif (data['registrationOrTransition'] == "transition") %}
+<p class="govuk-hint">Content for transition</p>
+{% else %}  
+
 <p class="govuk-hint">We'll use this address to send official communications. </p>
 
 <p class="govuk-hint">It must be a physical address in the jurisdiction where the partnership was formed. You cannot use a PO Box address.
@@ -38,7 +44,7 @@
 
 <p class="govuk-hint">It is not the principal place of business. You'll need to provide this later.
 </p>
-
+{% endif %}
 
 <fieldset class="govuk-fieldset">
   <legend class="govuk-visually-hidden">

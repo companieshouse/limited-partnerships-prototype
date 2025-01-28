@@ -31,10 +31,16 @@
 <h1 class="govuk-heading-xl">What is the registered office address of the partnership?</h1>
 
 {% if (data['registrationOrTransition'] == "post") %}
-<p class="govuk-hint">Content for post-transition</p>
+<p class="govuk-hint">We'll use this address to send official communications. </p>
+
+<p class="govuk-hint">It must be a physical address in the jurisdiction where the partnership was formed. You cannot use a PO Box address.
+</p>
 
 {% elif (data['registrationOrTransition'] == "transition") %}
-<p class="govuk-hint">Content for transition</p>
+<p class="govuk-hint">We'll use this address to send official communications. </p>
+
+<p class="govuk-hint">It must be a physical address in the jurisdiction where the partnership was formed. You cannot use a PO Box address.
+</p>
 {% else %}  
 
 <p class="govuk-hint">We'll use this address to send official communications. </p>

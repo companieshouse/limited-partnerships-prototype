@@ -130,3 +130,78 @@ img.card-image {
 .govuk-tabs__panel s, .govuk-tabs__panel s a:any-link {
   color:#727279	;
 }
+
+  //Styles for interrupt card
+
+  .interrupt-card {
+    background-color:#175B96; // this blue ensure sufficient colour contrast
+    color: #fff !important;
+    padding: 2em 2em 0em;
+  
+    h1, h2, h3, p, ul, li, a:link {
+      color:#fff;
+    }
+    a:hover, a:visited  {
+      color:   #f3f2f1		;
+    }
+    a:focus {
+      text-decoration:none;
+      color:  $govuk-focus-text-colour;
+      background-color:  $govuk-focus-colour	;
+    }
+  
+    .govuk-button {
+      background-color: #fff;
+      color: #000 !important;
+      &:visited {
+        background-color: #f3f2f1	;
+        color:  $govuk-focus-text-colour;
+      }
+      &:hover {
+        background-color: 	#b1b4b6 	;
+        color:  $govuk-focus-text-colour;
+      }
+  
+    }
+    .govuk-inset-text {
+      border-left-color: #fff !important;
+    }
+  
+  }
+
+
+
+  //Styles for interrupt card
+
+  .interrupt-card-rp {
+    background-color:#003078; // this blue ensure sufficient colour contrast
+    color: #fff !important;
+    padding: 2em 2em 0em;
+  
+    h1, h2, h3, p, ul, li, a:link {
+      color:#fff;
+    }
+    a:hover, a:visited  {
+      color:   #f3f2f1		;
+    }
+    a:focus {
+      text-decoration:none;
+      color:  $govuk-focus-text-colour;
+      background-color:  $govuk-focus-colour	;
+    }
+  
+    .govuk-button {
+      background-color: #fff;
+      color: #000 !important;
+      &:visited {
+        background-color: #f3f2f1	;
+        color:  $govuk-focus-text-colour;
+      }
+      &:hover {
+        background-color: 	#b1b4b6 	;
+        color:  $govuk-focus-text-colour;
+      }
+  
+    }
+  
+  }

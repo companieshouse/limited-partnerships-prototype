@@ -34,22 +34,7 @@
 
 
 
-{% set endingReveal %}
-{{ govukDateInput({
-  id: "term-of-partnersh",
-  namePrefix: "term-of-partnershe",
-  fieldset: {
-    legend: {
-      text: "When will the limited partnership end?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--s"
-    }
-  },
-  hint: {
-    text: "For example, 27 3 2030"
-  }
-}) }}
-{% endset -%}
+
 
 
 {{ govukRadios({
@@ -66,18 +51,15 @@
   },
   items: [
     {
-      value: "ending",
-      text: "Ending on a set date",
-      conditional: {
-              html: endingReveal
-            }
+      value: "Such term as decided by the partners within the partnership agreement",
+      text: "Such term as decided by the partners within the partnership agreement"
     },
     {
-      value: "discretion",
-      text: "Term will be decided by some or all of the partners"
+      value: "Until the general partner determines the partnership is dissolved",
+      text: "Until the general partner determines the partnership is dissolved"
     },
     {
-      value: "none",
+      value: "No set term",
       text: "No set term"
     }
   ]

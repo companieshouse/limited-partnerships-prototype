@@ -282,12 +282,29 @@
               ]
             }
           },
+                  {
+            key: {
+              text: "Legal form or corporate identity"
+            },
+            value: {
+              text: data['gp1LegalForm'] or "Private limited company"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "ABC Company Limited legal form or corporate identity"
+                }
+              ]
+            }
+          },
           {
             key: {
               text: "Governing law"
             },
             value: {
-              text: "England and Wales"
+              text: data['gp1GoverningLaw'] or "Companies Act 2006"
             },
             actions: {
               items: [
@@ -299,19 +316,53 @@
               ]
             }
           },
-          {
+              {
             key: {
-              text: "Legal form"
+              text: "Register"
             },
             value: {
-              text: "Limited company"
+              text: data['gp1Register'] or "Companies House public register"
             },
             actions: {
               items: [
                 {
                   href: "gp-legal-entity",
                   text: "Change",
-                  visuallyHiddenText: "ABC Company Limited legal form"
+                  visuallyHiddenText: "ABC Company Limited register"
+                }
+              ]
+            }
+          },
+              {
+            key: {
+              text: "Country registered in"
+            },
+            value: {
+              text: data['gp1CountryRegistered'] or "United Kingdom"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "ABC Company Limited country registered in"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Registration number"
+            },
+            value: {
+              text: data['gp1RegistrationNumber'] or "00876543"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "ABC Company Limited registration number"
                 }
               ]
             }
@@ -476,36 +527,87 @@
               ]
             }
           },
-          {
+                            {
             key: {
-              text: "Governing law"
+              text: "Legal form or corporate identity"
             },
             value: {
-              text: "England and Wales"
+              text: data['lp1LegalForm'] or "Private limited company"
             },
             actions: {
               items: [
                 {
-                  href: "lp-legal-entity",
+                  href: "gp-legal-entity",
                   text: "Change",
-                  visuallyHiddenText: "ACME Legal Entity Inc governing law"
+                  visuallyHiddenText: "ACME Legal Entity Inc legal form or corporate identity"
                 }
               ]
             }
           },
           {
             key: {
-              text: "Legal form"
+              text: "Governing law"
             },
             value: {
-              text: "Incorporated business"
+              text: data['lp1GoverningLaw'] or "Companies Act 2006"
             },
             actions: {
               items: [
                 {
-                  href: "lp-legal-entity",
+                  href: "gp-legal-entity",
                   text: "Change",
-                  visuallyHiddenText: "ACME Legal Entity Inc legal form"
+                  visuallyHiddenText: "ACME Legal Entity Inc governing law"
+                }
+              ]
+            }
+          },
+              {
+            key: {
+              text: "Register"
+            },
+            value: {
+              text: data['lp1Register'] or "Companies House public register"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "ACME Legal Entity Incregister"
+                }
+              ]
+            }
+          },
+              {
+            key: {
+              text: "Country registered in"
+            },
+            value: {
+              text: data['lp1CountryRegistered'] or "United Kingdom"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "ACME Legal Entity Inc country registered in"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Registration number"
+            },
+            value: {
+              text: data['lp1RegistrationNumber'] or "00001234"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-legal-entity",
+                  text: "Change",
+                  visuallyHiddenText: "ACME Legal Entity Inc registration number"
                 }
               ]
             }

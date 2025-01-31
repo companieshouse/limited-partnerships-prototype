@@ -1,0 +1,101 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Design history -  {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+  {% include "/includes/back-link" %}
+{% endblock %}
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">{{ serviceName }} </span>
+      <h1 class="govuk-heading-xl">Design history</h1>
+     
+ 
+    {{ govukNotificationBanner({
+    html: '<a href="/v7/test-scenario">Read the testing instructions</a> before clicking any links.'
+    }) }}
+
+
+<h2 class="govuk-heading-m">Week ending Fri 31 Jan 2025 {{ govukTag({
+  text: "V7"
+}) }}</h2>
+
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>Minor updates to the (potential) <a href="/v7/capital-contribution-ideas" class="govuk-link govuk-link--no-visited-state">capital contribution pattern</a> - making a radio button terminology clearer (from 'Other' to 'Other currency')</li>
+  <li>Minor updates to <a href="/v7/limited-partnership-terms" class="govuk-link govuk-link--no-visited-state">What is the term of the partnership?</a> - business has confirmed 'A set term (in years)' was not needed
+  <li>Again, from updated business requirements, added extra questions to the <a href="/v7/gp-legal-entity" class="govuk-link govuk-link--no-visited-state">Add a general partner (legal entity)</a> and <a href="/v7/lp-legal-entity" class="govuk-link govuk-link--no-visited-state">Add a limited partner (legal entity)</a> pages, to capture more information around governing law and registration on other registers.</li>
+  <li>Added an <a href="https://github.com/alphagov/govuk-design-system-backlog/issues/27" class="govuk-link govuk-link--no-visited-state">'interruption card'</a> which we'll test - this is to <a href="/v7/registration/important-information-about-pscs" class="govuk-link govuk-link--no-visited-state">'warn' users that they'll need to provide Scottish PSC information</a> later, on a different service.</li>
+  <li>Explored addition of <a href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1738231050580/464d0572ba034bcb1ab09889b7865df2df8845c3" class="govuk-link govuk-link--no-visited-state">the postcode look-up pattern on other address fields in the service (Mural link)</a>.</li>
+</ul>
+
+<h2 class="govuk-heading-m">Week ending Fri 24 Jan 2025 {{ govukTag({
+  text: "V6"
+}) }}</h2>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>Added a heading to the text we have on the Start pages around users being able to adjust their devices, on the advice of our Senior Accessibility Specialist. (Example - <a href="/v6/registration/registration-start-page" class="govuk-link govuk-link--no-visited-state">Registration start page</a>). Intent is this text/heading will be on all CH Start pages (user research has consistently proven two things: people who make minor adjustments such as increased text size do not seem themselves as users with accessibility needs, and many people do not realise these adjustments can be made).</li>
+  <li>Main focus this week was addresses. Have improved the functionality of the postcode look-up pattern so it's closer to what live will be - users can now opt to enter a manual address and opt to 'adjust' the address the postcode look-up suggests (for example, to add a “C/O” note). On advice of the business we've also re-introduced the <a href="/v6/limited-partnership-jurisdiction" class="govuk-link govuk-link--no-visited-state">Jurisdiction page</a>, because of complexities around rules of where the Registered Office Address and Principal Place Of Business Address must be in relation to the type of company. This Jurisdiction page is dynamic based on <a href="/v6/registration/which-type" class="govuk-link govuk-link--no-visited-state">the type of partnership being registered</a> (Scottish or Eng/Wales/NI)</li>
+</ul>
+
+
+<h2 class="govuk-heading-m">Week ending Fri 17 Jan 2025 {{ govukTag({
+  text: "V6"
+}) }}</h2>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>Main focus was revisiting <a href="/v6/registration-or-transition" class="govuk-link govuk-link--no-visited-state">the 'Transition' journey</a> in the prototype. Checking it still works correctly (it shares pages with the Registration journey). Had to 'remove' some pages (including IDV, Terms of Partnership, SIC codes, Principal Place of Business) and make a few other minor adjustments based on the latest requirements. The aim is to make as much of the design and content across both Transition and Registration as generic as possible so CH does not need to design, build and maintain two versions of each screen.</li>
+  <li>Some users are still not understanding the name endings pattern on Registration, trying to click <a href="https://design-system.service.gov.uk/components/text-input/#text-inputs-with-a-suffix" class="govuk-link govuk-link--no-visited-state">the grey suffix box</a>. And we know from conversations with teams on the <a href="https://www.gov.uk/limited-company-formation/register-your-company" class="govuk-link govuk-link--no-visited-state">Register your company</a> service name ending screen, a small minority are still typing in a name ending. So, I designed 3 alternatives: a suffix box which does not look like a button, a select (drop-down) for users to choose a name ending, and swapping the order; name ending first, name second. We will get user feedback on these and monitor the live service when it goes in to see if a change is needed.</li>
+  <li>Held a design crit of the Registration service prototype with the interaction design team - got some great feedback, but it was mostly suggestions that are currently not in scope because of project deadlines.</li>
+  <li>Alongside the other UCD people working on the project, we showcased the UCD work we have been doing at a User-Centred Design Show and Tell session.</li>
+</ul>
+
+
+<h2 class="govuk-heading-m">Week ending Fri 10 Jan 2025 {{ govukTag({
+  text: "V6"
+}) }}</h2>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>Added a proposed <a href="/v6/registration/check-your-name" class="govuk-link govuk-link--no-visited-state">Confirm your chosen partnership name</a> screen. We know from the Register your company service that a small number of users are still entering a name ending even though we add this for them, MY COMPANY LIMITED LIMITED. We had a very useful session with the internal support team this week and they confirmed this - users who make the mistake need to file a change of name form. This proposed screen will not go in for the first release - we hope that playing back the chosen name (and ending) at the top of screens throughout the rest of the registration journey will be enough for users to realise when a mistake has been made (name is also featured on <a href="/v6/check-your-answers" class="govuk-link govuk-link--no-visited-state">Check your answers</a> of course).</li>
+  <li>Alongside the other UCD people working on the project, we showcased the Registration prototype to the internal support team - got some good, useful feedback.</li>
+</ul>
+
+<h2 class="govuk-heading-m">Week ending Fri 3 Jan 2025 {{ govukTag({
+  text: "V6"
+}) }}</h2>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>To ensure more realistic user testing, the sample addresses shown throughout the prototype are now dynamic - either Cardiff or Edinburgh based on <a href="/v6/registration/which-type" class="govuk-link govuk-link--no-visited-state">the type of limited partnership chosen at registration</a>.</li>
+  <li>To ensure more realistic user testing, the <a href="/v6/gp-add-another" class="govuk-link govuk-link--no-visited-state">general partners you have added</a> and <a href="/v6/lp-add-another" class="govuk-link govuk-link--no-visited-state">limited partners you have added</a> pages are now slightly dynamic, names entered on the previous screens are shown, and legal entities for both are only shown if one is added</li>
+  <li>To ensure more realistic user testing <a href="/v6/check-your-answers" class="govuk-link govuk-link--no-visited-state">Check your answers</a> is slightly more dynamic - showing more of the users actual entered data (for examples, some names and addresses)</li>
+  <li>To ensure more realistic user testing, ensured service headers on other services - <a href="/v6/payment-review" class="govuk-link govuk-link--no-visited-state">GOV Pay</a>, <a href="/v6/upload-a-doc/upload-start-page" class="govuk-link govuk-link--no-visited-state">Upload a document</a> etc - are the same as (or close to) the actual services.</li>
+  <li>To ensure more realistic user testing, made the content of <a href="/v6/index#emails" class="govuk-link govuk-link--no-visited-state">emails</a> more dynamic, the chosen limited partnership name is shown.</li>
+  <li>Allowed users to re-use the limited partnership's registered office address as the general partner's principal office address on the <a href="/v6/gp-legal-entity" class="govuk-link govuk-link--no-visited-state">Add a general partner (legal entity)</a> page - based on info from the business.</li>
+</ul>
+
+<h2 class="govuk-heading-m">Week ending Fri 27 Dec 2024 {{ govukTag({
+  text: "V6"
+}) }}</h2>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>Designed <a href="/v6/capital-contribution-ideas" class="govuk-link govuk-link--no-visited-state">two alternative patterns to gather 'capital contribution' data</a> - the first pattern we built based on requirements only catered for a GBP value, but user research showed that users may want to enter a different currency or a non-monetary value.</li>
+  <li>Removed identity verification screens (for example, <a href="/v6/idv-filter" class="govuk-link govuk-link--no-visited-state">Identity verification for general partners</a>) from the Registration journey, as updated requirements meant these were no longer in scope.</li>
+  <li>A general improvement of the realism of the prototype, while we had time - much more of the users entered data is shown later on in the prototype.</li>
+  <li>Prototyped the <a href="/v6/index#upload" class="govuk-link govuk-link--no-visited-state">'Upload a document to Companies House' service</a> where users would supply PSC info for Scottish LPs/PFLPs. Completing this action as part of the main LP service is currently not in scope.</li>
+  <li><a href="/v6/limited-partnership-ppob" class="govuk-link govuk-link--no-visited-state">What is the principal place of business?</a> - adjusted the 'different' address pattern. Originally the proposal was for a postcode look-up, but because post-Registration this can be an overseas address, it is more efficient to use a 'standard' address pattern and simply make the County field dynamic (hidden at Registration because addresses need to be in the UK, shown post-Registration because the address can be overseas)</li>
+  <li>Added in the Welsh language toggle - unlikely to be functional in the prototype.</li>
+  <li>Updated service banner on payment screens, for example <a href="v6/payment-review" class="govuk-link govuk-link--no-visited-state">Payment review</a>. These screens are separate to the main service and so cannot yet use <a href="https://design-system.service.gov.uk/components/service-navigation/#showing-your-service-name-only" class="govuk-link govuk-link--no-visited-state">the new service name pattern</a>. Note, these screens should include <a href="https://design-system.service.gov.uk/components/header/#govuk-header-with-service-name" class="govuk-link govuk-link--no-visited-state">the service name in the black GOV header</a>, but don't at the time of writing.</li>
+  <li>Added in the option to submit a second nationality on the <a href="/v6/gp-person" class="govuk-link govuk-link--no-visited-state">Add a general partner (person)</a> and <a href="/v6/lp-person" class="govuk-link govuk-link--no-visited-state">Add a limited partner (person)</a> screens, based on new requirements.</li>
+  </ul>
+
+        </div>
+      </div>
+    {% endblock %}

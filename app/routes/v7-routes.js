@@ -352,6 +352,22 @@ router.post('/limited-partnership-terms', function(request, response) {
 
 
 
+//PSC - Scottish entities only
+
+router.post('/psc-choice', function(request, response) {
+
+    var psc = request.session.data['psc']
+    if (psc == "entity"){
+        response.redirect("/v7/pscs/psc-entity")
+    }
+    else if (psc == "orp"){
+        response.redirect("/v7/pscs/psc-orp")
+    }
+    else {
+        response.redirect("/v7/pscs/psc-person")
+    }
+  })
+
 
 
 

@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Add people with significant control (PSCs) information" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="psc-choice" method="post">
+
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}
+
+
+      <h1 class="govuk-heading-xl">You now need to tell us about the people with significant control (PSCs)</h1>
+
+        <p class="govuk-body">If the partnership has more than one PSC, you'll add them one at a time.
+     </p>
+<!--
+     <p>You'll need to give the Companies House personal code for each general partner. If a general partner is an entity, you will need to give a code for an officer of the entity. </p>
+     <p>If any of the general partners or officers do not have a personal code, they will need to <a href="">verify their identity for Companies House (opens in a new tab)</a> before you can file an update. </p>
+
+-->
+      
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

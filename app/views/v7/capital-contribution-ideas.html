@@ -25,12 +25,16 @@
    classes: "govuk-!-margin-bottom-5"
 }) }}
 
-<fieldset class="govuk-fieldset">
-  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-    <h1 class="govuk-fieldset__heading">
-      What is their total capital contribution?
-    </h1>
-  </legend>
+
+
+{% call govukFieldset({
+  legend: {
+    text: " What is their total capital contribution?",
+    classes: "govuk-fieldset__legend--l"
+  }
+}) %}
+
+
 
 {% set otherCurrencyHtml %}
 {{ govukSelect({
@@ -238,7 +242,7 @@
   name: "totalCapitalContributionOtherCurrency",
   fieldset: {
     legend: {
-      text: "Where do you live?",
+      text: "Which currency is their total capital contribution in?",
       classes: "govuk-visually-hidden"
     }
   },
@@ -281,13 +285,14 @@
         isPageHeading: true
       },
       hint: {
-        text: "For example '6 pigs and 2 chickens'."
+        text: "For example, if they contributed goods or services."
       }
     }) }}
 
 </details>
 
-</fieldset>
+{% endcall %}
+
 
 
 

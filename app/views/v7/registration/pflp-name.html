@@ -24,25 +24,14 @@
 
         <h1 class="govuk-heading-xl">Private fund limited partnership name</h1>
         
-                {{ govukInsetText({
-  html: '<p>There are rules about the name a limited partnership can use. We may reject the application if the name does not meet all the rules. 
-    
-
-  '
-}) }}
+<p>The partnership name needs to meet set rules. For example, it cannot be the same as another registered partnership or company, or include certain words or phrases. </p>
+<p>To find out the rules the limited partnership's name needs to meet, <a href="https://www.gov.uk/limited-company-formation/choose-company-name">read the guidance on choosing a company name (opens in a new tab)</a>.</p>
 
 
- <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      How to check if the limited partnership’s name meets the rules
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <p>The limited partnership’s name cannot be the same as another registered partnership or company. To check the name, use the <a href="https://find-and-update.company-information.service.gov.uk/company-name-availability" target="_blank">company name availability checker (opens in a new tab)</a>. </p>
-    <p>To find out all the rules the limited partnership's name needs to meet, read the <a href="https://www.gov.uk/limited-company-formation/choose-company-name" target="_blank">guidance on choosing a company name (opens in a new tab)</a>.</p>
-  </div>
-</details>       
+{{ govukWarningText({
+  text: "You must check the name meets the rules before you register the partnership. If it does not, we may reject your application, or you may need to change it later.",
+  iconFallbackText: "Warning"
+}) }}     
         
         
         {{ govukInput({

@@ -47,7 +47,7 @@
           },
                {
             key: {
-              text: "Type"
+              text: "Type of partnership"
             },
             value: {
               text:  "Scottish limited partnership"
@@ -175,7 +175,7 @@
         rows: [
           {
             key: {
-              text: "General partner name"
+              text: "Name"
             },
             value: {
             text: (data['gp1FirstName'] or "Georgina") + " " + (data['gp1LastName'] or "Smith")
@@ -267,7 +267,7 @@
         rows: [
           {
             key: {
-              text: "Legal entity name"
+              text: "Name"
             },
             value: {
               text: data['gp1EntityName'] or "ABC Company Limited"
@@ -412,7 +412,7 @@
 {% set rows = [
   {
     key: {
-      text: "Limited partner name"
+      text: "Name"
     },
     value: {
       text: (data['lp1FirstName'] or "Adrienne") + " " + (data['gp1LastName'] or "Leandres")
@@ -512,7 +512,7 @@
     {% set rows = [
       {
             key: {
-              text: "Legal entity name"
+              text: "Name"
             },
             value: {
               text: data['lp1EntityName'] or "ACME Legal Entity Inc"

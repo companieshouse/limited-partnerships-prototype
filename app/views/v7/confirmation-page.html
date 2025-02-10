@@ -20,32 +20,13 @@
 
 {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
+
+
+
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      {{ govukPanel({
-        titleText: "Application complete",
-        html: "Your reference number<br><strong>HDJ2123F</strong>"
-      }) }}
 
 
-
-
-
-
-      <p class="govuk-body">We've received your application to register. We've sent an email to <strong>{{ data['govOneLoginEmail'] }}</strong> and <strong>{{ data['registeredEmail'] }}</strong> to confirm.</p>
-
-
-      <h2 class="govuk-heading-m">What happens next</h2>
-
-
-
- <p class="govuk-body">
-        We'll process the application as soon as possible. We'll email <strong>{{ data['govOneLoginEmail'] }}</strong> and <strong>{{ data['registeredEmail'] }}</strong> to let you know if your application has been accepted or rejected.  
-      </p>
-
-      <p>This will usually take no more than 3 to 5 working days.</p>
-
+ 
       <!--<p class="govuk-body">
        We'll email <strong>lp@limited-partnership.com</strong> with instructions on how to request an authentication code. This will be needed for all future filings.
       </p>-->
@@ -54,6 +35,34 @@
        </p>-->
 
        {% if data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"] %}
+
+       <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          {{ govukPanel({
+            titleText: "Application submitted",
+            html: "Your reference number<br><strong>HDJ2123F</strong>"
+          }) }}
+    
+    
+    
+    
+    
+    
+          <p class="govuk-body">We've received your application to register. We've sent an email to <strong>{{ data['govOneLoginEmail'] }}</strong> and <strong>{{ data['registeredEmail'] }}</strong> to confirm.</p>
+    
+    
+          <h2 class="govuk-heading-m">What happens next</h2>
+    
+    
+    
+     <p class="govuk-body">
+            We'll process the application as soon as possible. We'll email <strong>{{ data['govOneLoginEmail'] }}</strong> and <strong>{{ data['registeredEmail'] }}</strong> to let you know if your application has been accepted or rejected.  
+          </p>
+    
+          <p>This will usually take no more than 3 to 5 working days.</p>
+
+          
+<!--Content to only show for Scottish partnerhships-->    
 
        <h2 class="govuk-heading-m">You'll need to provide more information</h2>
 
@@ -64,9 +73,56 @@
           <br><br>
       
       
-
+          <div class="ur-shortcuts">
+            <!-- Not part of ACTUAL screen: only for UR purposes -->
+            <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>
+              <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+                <li><a class="govuk-link" href="emails/application-received-slp">Email - application received (SLP)</a></li>
+                <li><a class="govuk-link" href="emails/application-accepted-slp"> Email - application accepted (SLP)</a></li>
+                    <li><a class="govuk-link" href="emails/application-received">Email - application received</a></li>
+                <li><a class="govuk-link" href="emails/application-accepted"> Email - application accepted</a></li>
+                <li><a class="govuk-link" href="emails/application-rejected"> Email - application rejected</a></li>
+              </ul>
+            </div>
+            
            
   {% elseif data['registrationOrTransition'] in ["transition"] %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: "Update submitted",
+        html: "Your reference number<br><strong>HDJ2123F</strong>"
+      }) }}
+
+
+
+
+
+
+      <p class="govuk-body">We’ve received your update for ACME LP. We've sent an email to <strong>{{ data['govOneLoginEmail'] }}</strong> to confirm.</p>
+
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+
+
+ <p class="govuk-body">
+  We’ll process the update as soon as possible. This will usually take no more than 5 working days.  </p>
+  <p>
+We’ll send an email to <strong>{{ data['govOneLoginEmail'] }}</strong> and <strong>{{ data['registeredEmail'] }}</strong> to confirm when we’ve updated the information on the public register. </p>
+
+
+
+
+<div class="ur-shortcuts">
+  <!-- Not part of ACTUAL screen: only for UR purposes -->
+  <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>
+    <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+      <li><a class="govuk-link" href="emails/transition-update-received">Email - application received</a></li>
+      <li><a class="govuk-link" href="emails/transition-accepted"> Email - application accepted</a></li>
+
+    </ul>
+  </div>
 
 {% endif %}
       <p class="govuk-body">
@@ -78,18 +134,7 @@
 
      
        
-      <div class="ur-shortcuts">
-      <!-- Not part of ACTUAL screen: only for UR purposes -->
-      <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>
-        <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
-          <li><a class="govuk-link" href="emails/application-received-slp">Email - application received (SLP)</a></li>
-          <li><a class="govuk-link" href="emails/application-accepted-slp"> Email - application accepted (SLP)</a></li>
-              <li><a class="govuk-link" href="emails/application-received">Email - application received</a></li>
-          <li><a class="govuk-link" href="emails/application-accepted"> Email - application accepted</a></li>
-          <li><a class="govuk-link" href="emails/application-rejected"> Email - application rejected</a></li>
-        </ul>
-      </div>
-      
+
 
 
     </div>

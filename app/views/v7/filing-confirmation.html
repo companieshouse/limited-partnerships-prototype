@@ -9,7 +9,17 @@
   {% include "/includes/back-link-language-toggle.html" %}
 {% endblock %}
 
-
+{% set references = [
+'<strong>HDJ2123F</strong>',
+'<strong>LOPF123F</strong>',
+'<strong>HLJ21789</strong>',
+'<strong>HLJ2DOP</strong>',
+'<strong>OPSF2DOP</strong>',
+'<strong>TYPF2DOP</strong>',
+'<strong>WERCVF</strong>',
+'<strong>SWERCVF</strong>',
+'<strong>TYU8764</strong>'
+] | random %}
 
 {% set mainClasses = "govuk-main-wrapper--l" %}
 
@@ -18,10 +28,13 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
       {{ govukPanel({
         titleText: "Content TBC",
-        html: "Your reference number<br><strong>HDJ2123F</strong>"
-      }) }}
+html: "Your reference number " + references
+}) }}
+
+  
 
 {{ govukInsetText({
   text: "It may take a while for this change to show on the limited partnership overview CONTENT TBD"
@@ -52,7 +65,7 @@
 
       {{ govukButton({
   text: "Return to limited partnership overview",
-  href: "limited-partnership-overview"
+  href: "limited-partnership-overview-cya"
 }) }}
 
 

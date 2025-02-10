@@ -15,8 +15,7 @@
 
 
 
-{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
+
 
 
 
@@ -41,12 +40,8 @@
       items: [
         {
           href: "#",
-          text: "File confirmation statement",
-          visuallyHiddenText: "for ACME LIMITED PARTNERSHIP (LP123456)"
-        },
-        {
-          href: "#",
           text: "Close",
+          classes: "govuk-button govuk-button--warning",
           visuallyHiddenText: "ACME LIMITED PARTNERSHIP (LP123456)"
         }
       ]
@@ -93,6 +88,15 @@
             },
             value: {
               text: "First statement date 1 February 2025  due by 15 February 2025"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "File",
+                  visuallyHiddenText: "Confirmation statement"
+                }
+              ]
             }
           },
           {
@@ -126,7 +130,7 @@
             actions: {
               items: [
                 {
-                  href: "javascript:void(0)",
+                  href: "change-email-address",
                   text: "Change",
                   visuallyHiddenText: "registered email address"
                 }
@@ -144,7 +148,7 @@
             actions: {
               items: [
                 {
-                  href: "javascript:void(0)",
+                  href: "limited-partnership-roa",
                   text: "Change",
                   visuallyHiddenText: "registered office address"
                 }
@@ -161,7 +165,7 @@
             actions: {
               items: [
                 {
-                  href: "javascript:void(0)",
+                  href: "limited-partnership-ppob",
                   text: "Change",
                   visuallyHiddenText: "principal place of business"
                 }
@@ -178,7 +182,7 @@
             actions: {
               items: [
                 {
-                  href: "javascript:void(0)",
+                  href: "limited-partnership-terms",
                   text: "Change",
                   visuallyHiddenText: "registered office address"
                 }
@@ -211,12 +215,12 @@
               {
                 href: "#",
                 text: "Change",
-                visuallyHiddenText: "of University of Gloucestershire"
+                visuallyHiddenText: "ABC Company Ltd"
               },
               {
-                href: "#",
+                href: "/v7/remove/remove-general-partner",
                 text: "Remove",
-                visuallyHiddenText: "from University of Gloucestershire"
+                visuallyHiddenText: "ABC Company Ltd"
               }
             ]
           }
@@ -275,12 +279,12 @@
               {
                 href: "#",
                 text: "Change",
-                visuallyHiddenText: "of University of Gloucestershire"
+                visuallyHiddenText: "Georgina Smith"
               },
               {
                 href: "#",
                 text: "Remove",
-                visuallyHiddenText: "from University of Gloucestershire"
+                visuallyHiddenText: "Georgina Smith"
               }
             ]
           }
@@ -331,6 +335,7 @@
 
       {{ govukButton({
         text: "Add a new general partner",
+        href: "general-partner-choice",
         classes: "govuk-button--secondary govuk-!-margin-bottom-9"
       }) }}
 
@@ -346,12 +351,12 @@
               {
                 href: "#",
                 text: "Change",
-                visuallyHiddenText: "of University of Gloucestershire"
+                visuallyHiddenText: "Lisa Taylor"
               },
               {
-                href: "#",
+                href: "/v7/remove/remove-limited-partner",
                 text: "Remove",
-                visuallyHiddenText: "from University of Gloucestershire"
+                visuallyHiddenText: "Lisa Taylor"
               }
             ]
           }
@@ -410,12 +415,12 @@
               {
                 href: "#",
                 text: "Change",
-                visuallyHiddenText: "of University of Gloucestershire"
+                visuallyHiddenText: "ACME Legal Entity Inc"
               },
               {
                 href: "#",
                 text: "Remove",
-                visuallyHiddenText: "from University of Gloucestershire"
+                visuallyHiddenText: "ACME Legal Entity Inc"
               }
             ]
           }
@@ -474,6 +479,7 @@
 
              {{ govukButton({
         text: "Add a new limited partner",
+        href: "limited-partner-choice",
         classes: "govuk-button--secondary govuk-!-margin-bottom-9"
       }) }}
 

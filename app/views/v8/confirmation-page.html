@@ -1,0 +1,169 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Confirmation" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+    {% include "/includes/user-bar.html" %}
+
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+
+
+
+{% block content %}
+
+     <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+    {% set panelTitle = "Update submitted" if data.registrationOrTransition in ['transition'] else "Application submitted" %}
+
+      {{ govukPanel({
+          titleText: panelTitle,
+          html: "Your reference number<br><strong>HDJ2123F</strong>"
+      }) }}
+
+       <!-- START OF content which only shows for Registration of  England/Wales/NI entities -->
+
+{% if data['registerType'] in ["registerLp", "RegisterPflp"] and data['registrationOrTransition'] == "registration" %}
+
+    
+          <p class="govuk-body">We've received your application to register. We've sent an email to <strong>{{ data['govOneLoginEmail'] }}</strong> to confirm.</p>
+    
+    
+          <h2 class="govuk-heading-m">What happens next</h2>
+    
+    
+    
+     <p class="govuk-body">
+            We'll process the application as soon as possible. We'll email <strong>{{ data['govOneLoginEmail'] }}</strong> to let you know if your application has been accepted or rejected.  
+          </p>
+    
+          <p>This will usually take no more than 3 to 5 working days.</p>
+
+          
+
+
+      
+      
+          <div class="ur-shortcuts">
+            <!-- Not part of ACTUAL screen: only for UR purposes -->
+            <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>
+              <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+              <li><a class="govuk-link" href="emails/application-received">Email - application received</a></li>
+                <li><a class="govuk-link" href="emails/application-accepted"> Email - application accepted</a></li>
+                <li><a class="govuk-link" href="emails/application-rejected"> Email - application rejected</a></li>
+              </ul>
+            </div>
+            
+       <!-- END OF content which only shows for Registration of England/Wales/NI entities -->
+ 
+       <!-- START OF content which only shows for Registration of Scottish entities OR IF NO TYPE HAS BEEN SET -->
+
+{% elif (not data['registerType'] or data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"]) and (not data['registrationOrTransition'] or data['registrationOrTransition'] == "registration") %}
+    
+    
+    
+          <p class="govuk-body">We've received your application to register. We've sent an email to <strong>{{ data['govOneLoginEmail'] }}</strong> and <strong>{{ data['registeredEmail'] }}</strong> to confirm.</p>
+    
+    
+          <h2 class="govuk-heading-m">What happens next</h2>
+    
+    
+    
+     <p class="govuk-body">
+            We'll process the application as soon as possible. We'll email <strong>{{ data['govOneLoginEmail'] }}</strong> and <strong>{{ data['registeredEmail'] }}</strong> to let you know if your application has been accepted or rejected.  
+          </p>
+    
+          <p>This will usually take no more than 3 to 5 working days.</p>
+
+          
+
+       <h2 class="govuk-heading-m">You'll need to provide more information</h2>
+
+       <p class="govuk-body">
+        If we accept your application, you'll need to tell us about any people with significant control (PSCs) within 14 days. </p>
+        
+        <p>To check what information you'll need to provide, download the relevant <a href="https://www.gov.uk/government/collections/companies-house-forms-for-scottish-limited-partnerships#people-with-significant-control-(psc)" target="_blank">forms for Scottish limited partnerships (opens in a new tab)</a>.
+          </p>
+      
+      
+          <div class="ur-shortcuts">
+            <!-- Not part of ACTUAL screen: only for UR purposes -->
+            <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>
+              <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+                <li><a class="govuk-link" href="emails/application-received-slp">Email - application received (SLP)</a></li>
+                <li><a class="govuk-link" href="emails/application-accepted-slp"> Email - application accepted (SLP)</a><li>
+              <li><a class="govuk-link" href="emails/application-received">Email - application received</a></li>
+                <li><a class="govuk-link" href="emails/application-accepted"> Email - application accepted</a></li>
+                <li><a class="govuk-link" href="emails/application-rejected"> Email - application rejected</a></li>
+              </ul>
+            </div>
+            
+       <!-- END OF content which only shows for Registration of Scottish entities  OR IF NO TYPE HAS BEEN SET -->
+
+
+       <!-- START OF content which only shows for Transition -->
+       
+           
+  {% elseif data['registrationOrTransition'] in ["transition"] %}
+
+    
+
+
+
+
+
+      <p class="govuk-body">We’ve received your update for ACME LIMITED PARTNERSHIP (LP123456). We've sent an email to <strong>{{ data['govOneLoginEmail'] }}</strong> to confirm.</p>
+
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+
+
+ <p class="govuk-body">
+  We’ll process the update as soon as possible. This will usually take no more than 5 working days.  </p>
+  <p>
+We’ll send an email to <strong>{{ data['govOneLoginEmail'] }}</strong> and <strong>{{ data['registeredEmail'] }}</strong> to confirm when we’ve updated the information on the public register. </p>
+
+
+
+
+<div class="ur-shortcuts">
+  <!-- Not part of ACTUAL screen: only for UR purposes -->
+  <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>
+    <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+      <li><a class="govuk-link" href="emails/transition-update-received">Email - application received</a></li>
+      <li><a class="govuk-link" href="emails/transition-accepted"> Email - application accepted</a></li>
+
+    </ul>
+  </div>
+
+{% endif %}
+
+       <!-- END OF content which only shows for Transition -->
+
+
+
+
+<!-- Shown in all scenarios-->
+  <p class="govuk-body">
+    <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+  </p>
+
+
+    </div>
+  </div>
+{% endblock %}

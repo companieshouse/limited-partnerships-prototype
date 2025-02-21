@@ -1,0 +1,146 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Limited partnership name" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/includes/phase-banner.html" %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/lp-name" method="post">
+
+        <h1 class="govuk-heading-xl">Limited partnership name</h1>
+        
+<p>The partnership name needs to meet set rules. For example, it cannot be the same as another registered partnership or company, or include certain words or phrases. </p>
+<p>To find out the rules the limited partnership's name needs to meet, <a href="https://www.gov.uk/limited-company-formation/choose-company-name">read the guidance on choosing a company name (opens in a new tab)</a>.</p>
+
+
+{{ govukWarningText({
+  text: "You must check the name meets the rules before you register the partnership. If it does not, we may reject your application, or you may need to change it later.",
+  iconFallbackText: "Warning"
+}) }}   
+        
+ 
+
+
+
+
+{% set otherHtml %}
+
+{{ govukRadios({
+  name: "nameEnding",
+  fieldset: {
+    legend: {
+      text: "What other name ending would you prefer? ",
+      isPageHeading: true,
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "Partneriaeth Cyfyngedig",
+      text: "Partneriaeth Cyfyngedig"
+    },
+    {
+      value: "PC",
+      text: "PC"
+    },
+    {
+      value: "P.C.",
+      text: "P.C."
+    }
+  ],
+  hint: {
+    text: "These name endings can only be used if the partnership's principal place of business is in Wales."
+  }
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  name: "nameEnding",
+  fieldset: {
+    legend: {
+      text: "Which name ending would you prefer to go on the public record?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "There's no difference between the name endings Limited Partnership, LP and L.P. except how they look. "
+  },
+  items: [
+    {
+      value: "Limited Partnership",
+      text: "Limited Partnership"
+    },
+    {
+      value: "LP",
+      text: "LP"
+    },    {
+      value: "L.P.",
+      text: "L.P."
+    },
+    {
+      value: "",
+      text: "A Welsh name ending",
+      conditional: {
+        html: otherHtml
+      }
+    }
+  ]
+}) }}
+
+       {{ govukInput({
+  label: {
+    text: "What's the name of the partnership?",
+    classes: "govuk-label--l"
+  },
+  hint: {
+    text: "Do not enter a name ending, like Limited Partnership or LP. We'll add this for you."
+  },
+  id: "lpChooseName",
+  name: "lpChooseName",
+  suffix: {
+    text: "Limited Partnership"
+  }
+}) }}
+
+    {{ govukButton({
+  text: "Save and continue"
+}) }}  
+
+
+
+</form>
+
+
+    <div class="ur-shortcuts">
+      <!-- Not part of ACTUAL screen: only for UR purposes -->
+      <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>
+        <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+          <li><a class="govuk-link" href="name-idea-1">Alternate name screen design 1</a></li>
+          <li><a class="govuk-link" href="name-idea-2">Alternate name screen design 2</a></li>
+          <li><a class="govuk-link" href="name-idea-3">Alternate name screen design 3</a></li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+
+  <script src="/public/javascripts/lp-name.js"></script>
+
+{% endblock %}

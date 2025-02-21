@@ -39,7 +39,11 @@
     classes: "govuk-label--xl",
     isPageHeading: true
   },
-  
+    hint: {
+    text: "A hint which only appears during transition" 
+            if data.registrationOrTransition in ['transition'] 
+            else ""
+  },
   id: "registeredEmaill",
   name: "registeredEmail"
 }) }}

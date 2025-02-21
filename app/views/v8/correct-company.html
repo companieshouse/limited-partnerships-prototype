@@ -40,16 +40,7 @@
                value: {
                   text: data['lpNumber'] or "LP123456"
                }
-            },
-          {
-            key: {
-              text: "Incorporation date	"
-            },
-            value: {
-              text: "4 May 1977"
             }
-          }
-
         ]
       }) }}
 
@@ -62,6 +53,19 @@
   text: "Continue"
   
 }) }}  
+
+{% if (data['registrationOrTransition'] == "transition") %}
+
+ <div class="ur-shortcuts">
+  <!-- Not part of ACTUAL screen: only for UR purposes -->
+  <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
+    <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+    <li><a class="govuk-link" href="transition-already-filed">Transition - already filed</a></li>
+
+    </ul>
+  </div>
+{% else  %}
+{% endif %}
 
     </div>
   </div>

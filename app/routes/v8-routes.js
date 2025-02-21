@@ -110,9 +110,20 @@ router.post('/idv-filter', function(request, response) {
 
 // LP number confirm - transition or post-transition
 
-router.post('/company-number', function (req, res) {
-    res.redirect('/v8/correct-company')
+
+
+
+  router.post('/company-number', function(request, response) {
+    var lpNumber = request.session.data['lpNumber']
+    if (lpNumber == "LP999999"){
+        response.redirect("/v8/transition-already-filed")
+    } 
+    else {
+        response.redirect("/v8/correct-company")
+    }
   })
+
+
 
 
 router.post('/correct-company', function(request, response) {

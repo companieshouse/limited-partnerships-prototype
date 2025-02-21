@@ -1,0 +1,38 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="You must be a Companies House authorised agent to use this service" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+
+      
+    <h1 class="govuk-heading-xl">Already filed</h1> <!-- CONTENT Make sure to update the pageName code in line 3 above too -->
+
+     <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo nibh, facilisis iaculis eros sit amet, lobortis cursus risus. Nunc eu commodo metus.</p>
+
+     <p class="govuk-body"><a href="company-number">File for a different limited partnership</a></p>
+  
+
+
+    </div>
+  </div>
+{% endblock %}

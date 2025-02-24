@@ -281,8 +281,7 @@
       id: "more-detail",
       label: {
         text: "Enter details of the non-monetary capital contribution",
-        classes: "govuk-label--s govuk-!-margin-top-5",
-        isPageHeading: true
+        classes: "govuk-label--s govuk-!-margin-top-5"
       },
       hint: {
         text: "For example, if they contributed goods or services."
@@ -559,7 +558,6 @@
   fieldset: {
     legend: {
       text: "What is their capital contribution?",
-      isPageHeading: true,
       classes: "govuk-fieldset__legend--m"
     }
   },
@@ -590,6 +588,26 @@
     }
   ]
 }) }}
+
+
+{{ govukTag({
+  text: "Version C",
+   classes: "govuk-!-margin-bottom-5"
+}) }}
+
+
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  label: {
+    text: "What is their capital contribution?",
+    classes: "govuk-label--m"
+  },
+  hint: {
+    text: "For example, '£25, 2 pigs, worth £4 each, and 18 shares to the value of 20p each'"
+  }
+}) }}
+
 
     </div>
   </div>

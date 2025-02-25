@@ -39,7 +39,7 @@
     actions: {
       items: [
         {
-          href: "#",
+          href: "javascript:void(0)",
           text: "Close",
           classes: "govuk-button govuk-button--warning",
           visuallyHiddenText: "ACME LIMITED PARTNERSHIP (LP123456)"
@@ -60,6 +60,7 @@
                 {
                   href: "javascript:void(0)",
                   text: "Change",
+                  classes: "govuk-link--no-visited-state",
                   visuallyHiddenText: "Limited partnership name"
                 }
               ]
@@ -77,6 +78,7 @@
                 {
                   href: "javascript:void(0)",
                   text: "Change",
+                  classes: "govuk-link--no-visited-state",
                   visuallyHiddenText: "Limited partnership type"
                 }
               ]
@@ -94,6 +96,7 @@
                 {
                   href: "javascript:void(0)",
                   text: "File",
+                  classes: "govuk-link--no-visited-state",
                   visuallyHiddenText: "Confirmation statement"
                 }
               ]
@@ -115,6 +118,7 @@
                 {
                   href: "javascript:void(0)",
                   text: "Change",
+                  classes: "govuk-link--no-visited-state",
                   visuallyHiddenText: "Standard Industrial Classification code"
                 }
               ]
@@ -132,6 +136,7 @@
                 {
                   href: "change-email-address",
                   text: "Change",
+                  classes: "govuk-link--no-visited-state",
                   visuallyHiddenText: "registered email address"
                 }
               ]
@@ -150,6 +155,7 @@
                 {
                   href: "limited-partnership-roa",
                   text: "Change",
+                  classes: "govuk-link--no-visited-state",
                   visuallyHiddenText: "registered office address"
                 }
               ]
@@ -167,6 +173,7 @@
                 {
                   href: "limited-partnership-ppob",
                   text: "Change",
+                  classes: "govuk-link--no-visited-state",
                   visuallyHiddenText: "principal place of business"
                 }
               ]
@@ -184,6 +191,7 @@
                 {
                   href: "limited-partnership-terms",
                   text: "Change",
+                  classes: "govuk-link--no-visited-state",
                   visuallyHiddenText: "registered office address"
                 }
               ]
@@ -213,13 +221,15 @@
           actions: {
             items: [
               {
-                href: "#",
+                href: "javascript:void(0)",
                 text: "Change",
+                classes: "govuk-link--no-visited-state",
                 visuallyHiddenText: "ABC Company Ltd"
               },
               {
                 href: "/v8/remove/remove-general-partner",
                 text: "Remove",
+                classes: "govuk-link--no-visited-state",
                 visuallyHiddenText: "ABC Company Ltd"
               }
             ]
@@ -236,18 +246,42 @@
           },
           {
             key: {
-              text: "Governing law"
+              text: "Legal form or corporate identity"
             },
             value: {
-              text: "England and Wales"
+              text: "Private limited company"
             }
           },
           {
             key: {
-              text: "Legal form"
+              text: "Governing law"
             },
             value: {
-              text: "Limited company"
+              text: "The Companies Act 2006"
+            }
+          },
+               {
+            key: {
+              text: "Register"
+            },
+            value: {
+              text: "Register of Companies UK"
+            }
+          },
+               {
+            key: {
+              text: "Country registered in"
+            },
+            value: {
+              text: "United Kingdom"
+            }
+          },
+               {
+            key: {
+              text: "Registration number"
+            },
+            value: {
+              text: "01234567"
             }
           },
           {
@@ -277,13 +311,15 @@
           actions: {
             items: [
               {
-                href: "#",
+                href: "javascript:void(0)",
                 text: "Change",
+                classes: "govuk-link--no-visited-state",
                 visuallyHiddenText: "Georgina Smith"
               },
               {
-                href: "#",
+                href: "javascript:void(0)",
                 text: "Remove",
+                classes: "govuk-link--no-visited-state",
                 visuallyHiddenText: "Georgina Smith"
               }
             ]
@@ -292,7 +328,7 @@
         rows: [
           {
             key: {
-              text: "General partner name"
+              text: "Name"
             },
             value: {
               text: "Georgina Smith"
@@ -332,12 +368,20 @@
           }
         ]
       }) }}
+<div class="govuk-button-group govuk-!-margin-bottom-9">
+  {{ govukButton({
+    text: "Add a new general partner (person)",
+    href: "javascript:void(0)",
+    classes: "govuk-button--secondary"
+  }) }}
 
       {{ govukButton({
-        text: "Add a new general partner",
-        href: "general-partner-choice",
-        classes: "govuk-button--secondary govuk-!-margin-bottom-9"
-      }) }}
+    text: "Add a new general partner (legal entity)",
+    href: "javascript:void(0)",
+    classes: "govuk-button--secondary"
+  }) }}
+</div>
+
 
     <h2 class="govuk-heading-l">Limited partners</h2>
 
@@ -349,13 +393,15 @@
           actions: {
             items: [
               {
-                href: "#",
+                href: "javascript:void(0)",
                 text: "Change",
+                classes: "govuk-link--no-visited-state",
                 visuallyHiddenText: "Lisa Taylor"
               },
               {
                 href: "/v8/remove/remove-limited-partner",
                 text: "Remove",
+                classes: "govuk-link--no-visited-state",
                 visuallyHiddenText: "Lisa Taylor"
               }
             ]
@@ -396,7 +442,7 @@
           },
           {
             key: {
-              text: "Amount contributed"
+              text: "Capital contribution"
             },
             value: {
               text: "£1,000"
@@ -413,13 +459,15 @@
           actions: {
             items: [
               {
-                href: "#",
+                href: "javascript:void(0)",
                 text: "Change",
+                classes: "govuk-link--no-visited-state",
                 visuallyHiddenText: "ACME Legal Entity Inc"
               },
               {
-                href: "#",
+                href: "javascript:void(0)",
                 text: "Remove",
+                classes: "govuk-link--no-visited-state",
                 visuallyHiddenText: "ACME Legal Entity Inc"
               }
             ]
@@ -436,18 +484,42 @@
           },
           {
             key: {
-              text: "Governing law"
+              text: "Legal form or corporate identity"
             },
             value: {
-              text: "England and Wales"
+              text: "Private limited company"
             }
           },
           {
             key: {
-              text: "Legal form"
+              text: "Governing law"
             },
             value: {
-              text: "Incorporated business"
+              text: "The Companies Act 2006"
+            }
+          },
+               {
+            key: {
+              text: "Register"
+            },
+            value: {
+              text: "Register of Companies UK"
+            }
+          },
+               {
+            key: {
+              text: "Country registered in"
+            },
+            value: {
+              text: "United Kingdom"
+            }
+          },
+               {
+            key: {
+              text: "Registration number"
+            },
+            value: {
+              text: "00112233"
             }
           },
           {
@@ -468,7 +540,7 @@
           },
           {
             key: {
-              text: "Amount contributed"
+              text: "Capital contribution"
             },
             value: {
               text: "£20,000"
@@ -477,11 +549,19 @@
         ]
       }) }}
 
-             {{ govukButton({
-        text: "Add a new limited partner",
-        href: "limited-partner-choice",
-        classes: "govuk-button--secondary govuk-!-margin-bottom-9"
-      }) }}
+<div class="govuk-button-group govuk-!-margin-bottom-9">
+  {{ govukButton({
+    text: "Add a new limited partner (person)",
+    href: "javascript:void(0)",
+    classes: "govuk-button--secondary"
+  }) }}
+
+      {{ govukButton({
+    text: "Add a new limited partner (legal entity)",
+    href: "javascript:void(0)",
+    classes: "govuk-button--secondary"
+  }) }}
+</div>
 
       <div class="app-back-to-top app-back-to-top--fixed" data-module="app-back-to-top" data-app-back-to-top-init="">
         <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">

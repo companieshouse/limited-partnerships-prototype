@@ -43,15 +43,45 @@
         </div>-->
 
 
+{% if data['registrationOrTransition'] == "post" %}
+    {% set gp1FirstNameValue = "Georgina" %}
+    {% set gp1LasttNameValue = "Smith" %}
+    {% set gp1PreviousNameYesNoValue = "checked" %}
+    {% set gp1PreviousNameValue = "Georgina Silver" %}
+    {% set gp1DOB_dayValue = "21" %}
+    {% set gp1DOB_monthValue = "8" %}
+    {% set gp1DOB_yearValue = "1989" %}
+    {% set gp1NameNumberValue = "13" %}
+    {% set gp1addressLine1Value = "Luck Lane" %}
+    {% set gp1addressCountyValue = "Bristol" %}
+    {% set gp1addressPostcodeValue = "BS1 8LY" %}
+    {% set gp1addressCountryValue = "United Kingdom" %}
+{% else %}
+    {% set gp1FirstNameValue = "" %}
+    {% set gp1LasttNameValue = "" %}
+    {% set gp1PreviousNameYesNoValue = "" %}
+    {% set gp1PreviousNameValue = "" %}
+    {% set gp1DOB_dayValue = "" %}
+    {% set gp1DOB_monthValue = "" %}
+    {% set gp1DOB_yearValue = "" %}
+    {% set gp1NameNumberValue = "" %}
+    {% set gp1addressLine1Value = "" %}
+    {% set gp1addressCountyValue = "" %}
+    {% set gp1addressPostcodeValue = "" %}
+    {% set gp1addressCountryValue = "" %}
+{% endif %}
+
+
+
 
 {{ govukInput({
   label: {
     text: "First name",
     classes: "govuk-label--m"
   },
-
   id: "gp1FirstName",
   name: "gp1FirstName",
+  value: gp1FirstNameValue,
   classes: "govuk-!-width-full"
 }) }}
 
@@ -63,6 +93,7 @@
   
   id: "gp1LastName",
   name: "gp1LastName",
+  value: gp1LasttNameValue,
   classes: "govuk-!-width-one-full"
 }) }}
 
@@ -75,7 +106,8 @@
             text: "If the partner has more than one previous name, separate each name with a comma."
           },
   id: "gp1PreviousName",
-  name: "gp1PreviousName"
+  name: "gp1PreviousName",
+    value: gp1PreviousNameValue
 }) }}
 {% endset -%}
 
@@ -83,6 +115,7 @@
 
 {{ govukRadios({
   name: "gp1PreviousNameYesNo",
+  value: gp1PreviousNameYesNoValue,
   fieldset: {
     legend: {
       text: "Does the general partner have a previous name?",
@@ -99,7 +132,8 @@
       text: "Yes",
       conditional: {
           html: previousHtmlPerson
-      }
+      },
+      checked: gp1PreviousNameYesNoValue
     },
     {
       value: "no",
@@ -108,20 +142,40 @@
   ]
 }) }}
 
+
+
+
 {{ govukDateInput({
   id: "gp1DOB",
-  namePrefix: "gp1DOBrth",
+  namePrefix: "gp1DOB",
   fieldset: {
     legend: {
       text: "Date of birth",
-      isPageHeading: true,
       classes: "govuk-fieldset__legend--m"
     }
   },
   hint: {
     text: "For example, 27 3 2000"
-  }
+  },
+  items: [
+    {
+      name: "day",
+      classes: "govuk-input--width-2",
+  value: gp1DOB_dayValue
+    },
+    {
+      name: "month",
+      classes: "govuk-input--width-2",
+  value: gp1DOB_monthValue
+    },
+    {
+      name: "year",
+      classes: "govuk-input--width-4",
+  value: gp1DOB_yearValue
+    }
+  ]
 }) }}
+
 
 <div class="govuk-form-group">
   <label class="govuk-label govuk-label--m" for="gp1Nationality1">
@@ -130,13 +184,15 @@
 
  
 
-  <select class="govuk-select" id="gp1Nationality1" name="gp1Nationality1" aria-describedby="nationality-hint">
-  
+  <select class="govuk-select" id="gp1Nationality1" name="gp1Nationality1" aria-describedby="nationality-hint" value="gp1Nationality1Value">
+
     
       <option value="">Select a nationality</option>
     
-        <option value="British">British</option>
-
+    <option value="British" 
+      {% if data['registrationOrTransition'] == "post" %}selected{% endif %}>
+      British
+    </option>
     
       <option value="Afghan">Afghan</option>
     
@@ -1965,8 +2021,7 @@
 {% call govukFieldset({
   legend: {
     text: "What is their usual residential address?",
-    classes: "govuk-fieldset__legend--m",
-    isPageHeading: true
+    classes: "govuk-fieldset__legend--m"
   }
 }) %}
   {{ govukInput({
@@ -1977,16 +2032,18 @@
     text: "For example, 'The Mill', '116' or 'Flat 37a'"
   },
     id: "gp1NameNumber",
-    name: "gp1NameNumber"
+    name: "gp1NameNumber",
+    value: gp1NameNumberValue
   }) }}
 
   {{ govukInput({
     label: {
       text: "Address line 1"
     },
-    id: "gp1addressLine1-1",
+    id: "gp1addressLine1",
     name: "gp1addressLine1",
-    autocomplete: "address-line1"
+    autocomplete: "address-line1",
+    value: gp1addressLine1Value
   }) }}
 
   {{ govukInput({
@@ -2013,10 +2070,11 @@
       text: "County (optional)"
     },
     classes: "govuk-!-width-two-thirds",
-    id: "gp1addressCountyy",
-    name: "gp1addressCounty"
+    id: "gp1addressCounty",
+    name: "gp1addressCounty",
+    value: gp1addressCountyValue
   }) }}
-
+  
   {{ govukInput({
     label: {
       text: "Postcode"
@@ -2024,9 +2082,9 @@
     classes: "govuk-input--width-10",
     id: "gp1addressPostcode",
     name: "gp1addressPostcode",
-    autocomplete: "postal-code"
+    autocomplete: "postal-code",
+    value: gp1addressPostcodeValue
   }) }}
-
 {% endcall %}
 
 <div class="govuk-form-group">
@@ -2039,8 +2097,10 @@
   
     
       <option value="">Select a country</option>
-    
-        <option value="United Kingdom">United Kingdom</option>
+        <option value="United Kingdom" 
+      {% if data['registrationOrTransition'] == "post" %}selected{% endif %}>
+      United Kingdom
+    </option>
 
     
       <option value="Afghanistan">Afghanistan</option>

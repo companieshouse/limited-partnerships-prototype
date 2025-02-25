@@ -28,7 +28,7 @@
      <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-    {% set panelTitle = "Update submitted" if data.registrationOrTransition in ['transition'] else "Application submitted" %}
+    {% set panelTitle = "Filing submitted" if data.registrationOrTransition in ['transition'] else "Application submitted" %}
 
       {{ govukPanel({
           titleText: panelTitle,
@@ -126,7 +126,7 @@
 
 
 
-      <p class="govuk-body">We’ve received your update for ACME LIMITED PARTNERSHIP (LP123456). We've sent an email to <strong>{{ data['govOneLoginEmail'] }}</strong> to confirm.</p>
+      <p class="govuk-body">We’ve received your filing for ACME LIMITED PARTNERSHIP (LP123456). We've sent an email to <strong>{{ data['govOneLoginEmail'] }}</strong> to confirm.</p>
 
 
       <h2 class="govuk-heading-m">What happens next</h2>

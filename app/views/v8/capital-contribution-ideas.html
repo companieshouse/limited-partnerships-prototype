@@ -269,18 +269,13 @@
   ]
 }) }}
 
-<details class="govuk-details">
-    <summary class="govuk-details__summary">
-      <span class="govuk-details__summary-text">
-        I need to report a non-monetary capital contribution
-      </span>
-    </summary>
+
 
     {{ govukTextarea({
       name: "moreDetail",
       id: "more-detail",
       label: {
-        text: "Enter details of the non-monetary capital contribution",
+        text: "Enter details of any non-monetary capital contribution",
         classes: "govuk-label--s govuk-!-margin-top-5"
       },
       hint: {
@@ -288,7 +283,7 @@
       }
     }) }}
 
-</details>
+
 
 {% endcall %}
 

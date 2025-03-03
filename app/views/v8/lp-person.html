@@ -2353,7 +2353,7 @@
   id: "totalCapitalContribution",
   name: "totalCapitalContribution",
   label: {
-    text: "What is their total capital contribution?",
+    text: "What is their capital contribution?",
     classes: "govuk-visually-hidden"
   },
   classes: "govuk-input--width-5",
@@ -2366,7 +2366,7 @@
   name: "totalCapitalContributionOtherCurrency",
   fieldset: {
     legend: {
-      text: "Which currency is their total capital contribution in?",
+      text: "Which currency is their capital contribution in?",
       classes: "govuk-visually-hidden"
     }
   },
@@ -2393,27 +2393,22 @@
   ]
 }) }}
 
-<details class="govuk-details">
-    <summary class="govuk-details__summary">
-      <span class="govuk-details__summary-text">
-        I need to report a non-monetary capital contribution
-      </span>
-    </summary>
+
 
     {{ govukTextarea({
       name: "moreDetail",
       id: "more-detail",
       label: {
-        text: "Enter details of the non-monetary capital contribution",
+        text: "Enter details of any other capital contributions",
         classes: "govuk-label--s govuk-!-margin-top-5",
         isPageHeading: true
       },
       hint: {
-        text: "For example, if they contributed goods or services."
+        text: "If you need to include a contribution that's not money, include the monetary value if possible. For example, 'land or property worth £200,000'.  "
       }
     }) }}
 
-</details>
+
 
 {% endcall %}
 

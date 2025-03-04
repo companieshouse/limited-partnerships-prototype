@@ -25,18 +25,7 @@ ul#navigation {
     }
   }
 
-  ul#navigation.language-toggle {  
-    display: inline-block;
-    float: right;
-    margin-bottom: 15px;
-  }
-ul.language-toggle li {
-    font-size: 19px !important;
-    span {
-      margin-left: 0.5em;
-      margin-right:-0.5em;
-    }
-}
+
 
 
   //Payment
@@ -210,3 +199,123 @@ img.card-image {
   .govuk-summary-card .govuk-button {
     margin-bottom: 0;
   }
+
+
+
+// CHS screens
+#chs-customer-insights-top {
+  position: relative;
+  background-color: #376EB3;
+  padding: 5px;
+  z-index: 10;
+  color: #fff;
+}
+
+
+
+.chs-account-banner {
+    text-align: right;
+    font-size: 16px;
+    font-family: 'proxima_nova', Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    z-index: 60;
+    clear: none;
+    background: transparent;
+    vertical-align: middle;
+}
+
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+
+.blue-banner a {
+  color: white;
+  margin: 30px;
+}
+
+.idv_warning_box {
+  background-color: #FDF2D5;
+  border-style: solid;
+  border-color: #F5C25C;
+  padding: 10px 10px 0px 10px; 
+  margin: -20px 0px 45px;
+}
+
+.grey-box {
+  background-color: #DFE1E1;
+  padding: 10px 10px 5px 10px; 
+}
+
+
+.tabs {
+  background-color: white !important;
+}
+
+
+.tabs li a {
+  padding: 16px;
+  font-size: 16px;
+  color: #1D70B8 !important;
+  font-weight: normal !important;
+}
+
+.tabs li a:hover {
+  text-decoration: underline;
+}
+
+.input-group {
+  border-collapse: separate;
+  display: table;
+  position: relative;
+  width:100%;
+}
+
+.input-group>div {
+  display: table-cell;
+}
+
+.input-group>div:first-child {
+  width: 100%;
+} 
+
+.search_input {
+  width: 95%;
+  line-height: 1.5;
+  height: 47px;
+  font-size: 1rem;
+  border: 2px solid black;
+  padding-left: 20px;
+  position: relative;
+}
+//
+//.search_container {
+ // background-color: #dee0e2;
+ // padding:8px 8px 8px 8px;
+ // background-image: url("/public/images/search_icon.png"); 
+ // background-repeat: no-repeat;
+  //background-size:47px;
+ // background-position:   95% 26% !important;
+ // max-height: 50px;
+//}
+
+.search_container {
+  background-color: #dee0e2;
+  padding:8px 8px 8px 8px;
+  max-height: 50px;
+}
+.search_icon {
+  width: 47px;
+  height: 47px;
+  float: right;
+  margin: -77px 3px 0 0;
+}
+
+
+
+.active_tab {
+  text-decoration: underline solid #275CA0 50%;
+  text-underline-offset: 13px;
+}

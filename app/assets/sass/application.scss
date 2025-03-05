@@ -313,9 +313,30 @@ img.card-image {
   margin: -77px 3px 0 0;
 }
 
+.tabs {
+  background-color: white !important;
+  padding-left: 0;
+}
+
+.tabs li {
+  display: inline-block;
+
+}
+.tabs li a {
+  padding: 16px;
+  font-size: 18px!important;
+  color: #1D70B8 !important;
+  font-weight: normal !important;
+  text-decoration-line: none;
+}
+
+.tabs li a:hover {
+  text-decoration: underline;
+}
 
 
 .active_tab {
-  text-decoration: underline solid #275CA0 50%;
+  text-decoration: underline solid #275CA0 50% !important;
   text-underline-offset: 13px;
 }
+

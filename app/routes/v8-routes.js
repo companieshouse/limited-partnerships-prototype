@@ -50,10 +50,10 @@ router.post('/gov-onelogin-enter-code', function(request, response) {
         response.redirect("/v8/company-number")
     }     
     else if (registrationOrTransition == "transition"){
-         response.redirect("/v8/company-number")
+         response.redirect("/v8/starting-new")
      } 
      else {
-        response.redirect("/v8/registration/which-type")
+        response.redirect("/v8/starting-new")
     }
 })
 
@@ -320,13 +320,13 @@ router.post('/starting-new', function(request, response) {
 
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "registration"){
-        response.redirect("/v8/sign-in")
+        response.redirect("/v8/registration/which-type")
     }
     else if (registrationOrTransition == "transition"){
-        response.redirect("/v8/sign-in")
+        response.redirect("/v8/company-number")
     }
     else {
-        response.redirect("/v8/sign-in")
+        response.redirect("/v8/company-number")
     }
   })
 

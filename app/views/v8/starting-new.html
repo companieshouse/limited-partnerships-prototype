@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Are you starting a new registration?" %}
+{% set pageName="Do you want to continue with a saved filing?" %}
 
 {% block header %}
    {% include "/includes/dynamic-service-name.html" %}
@@ -25,56 +25,38 @@
 
       <form class="form" action="/starting-new" method="post">
 
-           {% if data['registrationOrTransition'] == "transition" %}
 
 {{ govukRadios({
-  classes: "govuk-radios--inline",
-  name: "changedName",
+  classes: "govuk-radios",
+  name: "savedFiling",
   fieldset: {
     legend: {
-      text: "Are you starting a new filing?",
+      text: "Do you want to continue with a saved filing?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--xl"
     }
   },
-  items: [
-    {
-      value: "yes",
-      text: "Yes"
-    },
-    {
-      value: "no",
-      text: "No"
-    }
-  ]
-}) }}
-
-{% else %}
-
-
-{{ govukRadios({
-  classes: "govuk-radios--inline",
-  name: "changedName",
-  fieldset: {
-    legend: {
-      text: "Are you starting a new filing?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--xl"
-    }
+    hint: {
+    text: "If you have saved filings, you can continue with one of these or start a new one"
   },
   items: [
     {
       value: "yes",
-      text: "Yes"
+      text: "Yes - continue with a saved filing",
+      hint: {
+        text: "You’ll be able to choose which filing you want to continue with"
+      }
     },
     {
       value: "no",
-      text: "No"
+      text: "No - start a new filing",
+    hint: {
+        text: "This will not delete any saved filings"
+      }
     }
   ]
 }) }}
 
-{% endif %}
 
 {{ govukButton({
   text: "Continue"

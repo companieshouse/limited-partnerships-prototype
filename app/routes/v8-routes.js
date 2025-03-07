@@ -91,7 +91,7 @@ router.post(['/lp-name', '/pflp-name', '/slp-name', '/sqp-name'], (request, resp
     } else if (lpChooseName && lpChooseName.toLowerCase().includes("bank")) {
         response.redirect("/v8/registration/sensitive-name");
     } else if (request.path === '/lp-name' && registrationOrTransition === "post") {
-        response.redirect("/v8/manage/check-your-answers-name");
+        response.redirect("/v8/manage/check-your-answers-change-name");
     } else {
         response.redirect("/v8/limited-partnership-rea");
     }
@@ -390,7 +390,7 @@ router.post('/psc-choice', function(request, response) {
 
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
-        response.redirect("/v8/manage/confirmation-name")
+        response.redirect("/v8/manage/confirmation-change-name")
     }
     else {
         response.redirect("/v8/confirmation-page")

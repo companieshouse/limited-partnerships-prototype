@@ -22,9 +22,13 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+{% if (data['registrationOrTransition'] == "post") %}
+      <form class="form" action="manage/check-your-answers-change-gp-person" method="post">
+
+{% else %}  
       <form class="form" action="gp-add-another" method="post">
 
-
+{% endif %}
 
 {% if (data['registrationOrTransition'] == "registration") %}
   <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
@@ -51,11 +55,14 @@
     {% set gp1DOB_dayValue = "21" %}
     {% set gp1DOB_monthValue = "8" %}
     {% set gp1DOB_yearValue = "1989" %}
+    {% set gp1Nationality1Value= "British" %}
     {% set gp1NameNumberValue = "13" %}
     {% set gp1addressLine1Value = "Luck Lane" %}
     {% set gp1addressCountyValue = "Bristol" %}
     {% set gp1addressPostcodeValue = "BS1 8LY" %}
     {% set gp1addressCountryValue = "United Kingdom" %}
+    {% set gp1CorrespondenceAddressYesNoValue = "checked" %}
+    {% set gp1PersonDisqualificationStatementYesNoValue= "checked" %}
 {% else %}
     {% set gp1FirstNameValue = "" %}
     {% set gp1LasttNameValue = "" %}
@@ -64,11 +71,15 @@
     {% set gp1DOB_dayValue = "" %}
     {% set gp1DOB_monthValue = "" %}
     {% set gp1DOB_yearValue = "" %}
+    {% set gp1Nationality1Value= "" %}
     {% set gp1NameNumberValue = "" %}
     {% set gp1addressLine1Value = "" %}
     {% set gp1addressCountyValue = "" %}
     {% set gp1addressPostcodeValue = "" %}
     {% set gp1addressCountryValue = "" %}
+    {% set gp1CorrespondenceAddressYesNoValue = "" %}
+    {% set gp1PersonDisqualificationStatementYesNoValue= "" %}
+
 {% endif %}
 
 
@@ -189,10 +200,8 @@
     
       <option value="">Select a nationality</option>
     
-    <option value="British" 
-      {% if data['registrationOrTransition'] == "post" %}selected{% endif %}>
-      British
-    </option>
+  <option value="British" {% if gp1Nationality1Value == "British" %}selected{% endif %}>British</option>
+
     
       <option value="Afghan">Afghan</option>
     
@@ -3158,7 +3167,7 @@
     label: {
       text: "Address line 1"
     },
-    id: "address-line-1",
+    id: "gp1CorrespondenceAddressLine1",
     name: "gp1CorrespondenceAddressLine1",
     autocomplete: "gp1CorrespondenceAddressLine1"
   }) }}
@@ -3206,7 +3215,7 @@
     Country
   </label>
 
-  <select class="govuk-select" id="gp1CorrespondenceAddressCountry" name="gp1CorrespondenceCountry">
+  <select class="govuk-select" id="gp1CorrespondenceAddressCountry" name="gp1CorrespondenceAddressCountry">
   
     
       <option value="">Select a country</option>
@@ -4244,7 +4253,8 @@
   items: [
     {
       value: "sameAsPOA",
-      text: "The same as the usual residential address"
+      text: "The same as the usual residential address",
+      checked: gp1CorrespondenceAddressYesNoValue
     },
     {
       value: "differentToResidential",
@@ -4299,7 +4309,7 @@
 </details> #}
 
 {{ govukCheckboxes({
-  name: "gp-person-disqualification-statement",
+  name: "gp1PersonDisqualificationStatementnt",
   classes: "govuk-!-margin-top-6",
   fieldset: {
     legend: {
@@ -4310,7 +4320,8 @@
   items: [
     {
       value: "gp-person-disqualification-statement",
-      text: "I confirm the general partner is not disqualified under the directors disqualification legislation."
+      text: "I confirm the general partner is not disqualified under the directors disqualification legislation.",
+      checked: gp1PersonDisqualificationStatementYesNoValue
     }
   ]
 }) }}

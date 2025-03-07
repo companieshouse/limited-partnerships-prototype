@@ -33,6 +33,17 @@
   text: "You must check the name meets the rules before you register the partnership. If it does not, we may reject your application, or you may need to change it later.",
   iconFallbackText: "Warning"
 }) }}
+
+
+
+
+{% if data['registrationOrTransition'] == "post" %}
+    {% set lpChooseNameValue = "ACME" %}
+    {% set nameEndingCheckedValue = "true" %}
+{% else %}
+    {% set lpChooseNameValue = "" %}
+    {% set nameEndingCheckedValue = "" %}
+{% endif %}
         
         {{ govukInput({
   label: {
@@ -44,6 +55,7 @@
   },
   id: "lpChooseName",
   name: "lpChooseName",
+  value: lpChooseNameValue,
   suffix: {
     text: "Limited Partnership"
   }
@@ -99,7 +111,8 @@
   items: [
     {
       value: "Limited Partnership",
-      text: "Limited Partnership"
+      text: "Limited Partnership",
+      checked: nameEndingCheckedValue
     },
     {
       value: "LP",

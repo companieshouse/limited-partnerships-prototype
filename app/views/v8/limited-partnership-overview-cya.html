@@ -23,9 +23,18 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-      {{ govukNotificationBanner({
-  text: "It may take a while for changes to show CONTENT TBD"
-}) }}
+
+
+
+
+  {{ govukNotificationBanner({
+    text: "It may take a while for changes to show CONTENT TBD",
+    id: "pending-changes"
+  }) }}
+
+
+
+
 
 
       <h1 class="govuk-heading-xl">File an update to your limited partnership</h1>
@@ -58,7 +67,7 @@
             actions: {
               items: [
                 {
-                  href: "javascript:void(0)",
+                  href: "registration/lp-name",
                   text: "Change",
                   classes: "govuk-link--no-visited-state",
                   visuallyHiddenText: "Limited partnership name"
@@ -94,7 +103,7 @@
             actions: {
               items: [
                 {
-                  href: "javascript:void(0)",
+                  href: "manage/confirmation-statement",
                   text: "File",
                   classes: "govuk-link--no-visited-state",
                   visuallyHiddenText: "Confirmation statement"
@@ -116,7 +125,7 @@
             actions: {
               items: [
                 {
-                  href: "javascript:void(0)",
+                  href: "manage/sic",
                   text: "Change",
                   classes: "govuk-link--no-visited-state",
                   visuallyHiddenText: "Standard Industrial Classification code"
@@ -134,7 +143,7 @@
             actions: {
               items: [
                 {
-                  href: "change-email-address",
+                  href: "manage/rea",
                   text: "Change",
                   classes: "govuk-link--no-visited-state",
                   visuallyHiddenText: "registered email address"
@@ -566,4 +575,8 @@
 
     </div>
   </div>
+
+
+
+
 {% endblock %}

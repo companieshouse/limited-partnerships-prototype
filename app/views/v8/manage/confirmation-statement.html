@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Payment placeholder" %}
+
+
+
+
+
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="javascript:void(0)" method="post" class="form">
+        <h1 class="govuk-heading-l">
+          Confirmation statement  <!-- if changing this, update pageName above-->
+        </h1>
+
+        <p>Before filing your confirmation statement you should ensure you have made all the necessary updates in this service.</p>
+
+            {{ govukWarningText({
+              text: "The only change you can make in the confirmation statement is to Standard Industrial Classification (SIC) codes",
+              iconFallbackText: "Warning"
+            }) }}
+
+
+       
+
+  
+   {{ govukButton({
+          text: "Go to the File Confirmation Statement service"
+        }) }}      
+
+      </form>
+
+    </div>
+    <!--govuk-grid-row-->
+
+    <!--govuk-grid-column-two-thirds-->
+  </div>
+  <!--govuk-grid-column-two-thirds-->
+
+</main>
+</div>
+<!---govuk-width-container-->
+
+{% endblock %}

@@ -5,7 +5,8 @@
 
 
 {% block beforeContent %}
-    {% include "/includes/phase-banner.html" %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
   {% include "/includes/back-link-language-toggle.html" %}
 {% endblock %}
 
@@ -65,7 +66,7 @@ html: "Your reference number " + references
 
       {{ govukButton({
   text: "Return to limited partnership overview",
-  href: "limited-partnership-overview-cya"
+  href: "../limited-partnership-overview-cya"
 }) }}
 
 

@@ -1,19 +1,17 @@
-{% extends "layouts/main-old-header.html" %}
+{% extends "layouts/main.html" %}
 
-{% set pageName="Payment placeholder" %}
-
-
+{% set pageName=" Changing SIC codes" %}
 
 
 
-{% set serviceName %}
-  GOV Pay
-{% endset%}
+
+
+
 
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}
  {% include "/includes/user-bar.html" %}
-  {% include "/includes/back-link.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
 {% endblock %}
 
 {% block content %}
@@ -21,23 +19,18 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="/payment-placeholder" method="post" class="form">
+      <form action="confirmation-statement" method="post" class="form">
         <h1 class="govuk-heading-l">
-          [Placeholder]
+          Changing SIC codes <!-- if changing this, update pageName above-->
         </h1>
 
-        <p>GOV Pay screens would be shown here.</p>
-
-                <p>User would enter payment card details.</p>
-
-
+        <p>You can only change these when you file a Confirmation Statement</p>
        
 
   
    {{ govukButton({
           text: "Continue"
-
-        }) }}      
+        }) }}        
 
       </form>
 

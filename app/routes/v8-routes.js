@@ -84,15 +84,19 @@ router.post('/gov-onelogin-enter-code', function(request, response) {
 
 router.post(['/lp-name', '/pflp-name', '/slp-name', '/sqp-name'], (request, response) => {
     var lpChooseName = request.session.data['lpChooseName'];
+    var registrationOrTransition = request.session.data['registrationOrTransition'];
     
     if (lpChooseName && lpChooseName.toLowerCase().includes("harrods")) {
         response.redirect("/v8/registration/same-as-name");
     } else if (lpChooseName && lpChooseName.toLowerCase().includes("bank")) {
         response.redirect("/v8/registration/sensitive-name");
+    } else if (request.path === '/lp-name' && registrationOrTransition === "post") {
+        response.redirect("/v8/manage/check-your-answers-name");
     } else {
-        response.redirect("/v8//limited-partnership-rea");
+        response.redirect("/v8/limited-partnership-rea");
     }
-})
+});
+
   
 
 //Has the LP done IDV
@@ -222,10 +226,8 @@ router.post('/in-scotland', function(request, response) {
     response.redirect('/v8/registration/which-type')
 })
 
-// Registration - LP name
-router.post('/lp-name', function(request, response) {
-    response.redirect('/v8/idv-filter')
-})
+
+
 
 // Registration - LP statement
 //router.post('/lp-statement', function(request, response) {
@@ -376,6 +378,22 @@ router.post('/psc-choice', function(request, response) {
     }
     else {
         response.redirect("/v8/pscs/psc-person")
+    }
+  })
+
+
+
+  //Payment Placeholder
+
+
+  router.post('/payment-placeholder', function(request, response) {
+
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "post"){
+        response.redirect("/v8/manage/confirmation-name")
+    }
+    else {
+        response.redirect("/v8/confirmation-page")
     }
   })
 

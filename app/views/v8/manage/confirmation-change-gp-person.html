@@ -37,9 +37,7 @@ html: "Your reference number " + references
 
   
 
-{{ govukInsetText({
-  text: "It may take a while for this change to show on the limited partnership overview CONTENT TBD"
-}) }}
+
 
 
 
@@ -56,7 +54,11 @@ We'll email <strong>{{ data['govOneLoginEmail'] }}</strong> to let you know if y
 
 
 <h2 class="govuk-heading-m">If the application is accepted</h2>
-<p>We'll...</p>
+<p>We'll... and add the details to the Companies House public register.</p>
+
+{{ govukInsetText({
+  text: "It may take a while for this change to show on the limited partnership overview and CHS and the Confirmation Statement CONTENT TBD"
+}) }}
 
 <h2 class="govuk-heading-m">If the application is rejected </h2>
 <p>We'll explain why your application has been rejected and what you can do next.</p>

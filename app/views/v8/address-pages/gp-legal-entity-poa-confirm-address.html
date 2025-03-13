@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="What is the registered office address?" %}
+{% set pageName="Confirm the general partner's principal office address" %}
 
 
 {% block header %}
@@ -23,56 +23,31 @@
 <form class="form" action="/gp-legal-entity-poa-confirm-address" method="post">
    
 
-{% if (data['registrationOrTransition'] == "registration") %}
-  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
-{% else %}  
-  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
-{% endif %}
-<h1 class="govuk-heading-xl">What is the registered office address of the partnership?</h1>
-
-<p class="govuk-hint">This is the address for the entity's main office.</p>
+  <span class="govuk-caption-l uppercase"> {{ data['gp1EntityName'] or "CITRUS PARTNERS LIMITED" }} </span>
 
 
-<fieldset class="govuk-fieldset">
-  <legend class="govuk-visually-hidden">
-      What is the registered office address?
-  </legend>
-  <div class="govuk-form-group">
-    <label class="govuk-label govuk-!-margin-top-6" for="roaAddressLine1">
-      Property name or number (optional)
-    </label>
-    <input class="govuk-input" id="roaAddressLine1" name="roaAddressLine1" type="text" autocomplete="address-line1">
-  </div>
 
-  <div class="govuk-form-group">
-    <label class="govuk-label" for="roaPostcode">
-      Postcode
-    </label>
-    <input class="govuk-input govuk-input--width-10" id="roaPostcode" name="roaPostcode" type="text" autocomplete="postal-code">
-  </div>
+<h1 class="govuk-heading-xl">Confirm the general partner's principal office address</h1>
+
+<p>1 Grass Street<br>London<br>E17 5HG</p>
 
 
-  {{ govukButton({
-  text: "Find address"
+
+  <p><a href="gp-legal-entity-poa-manual">Change <span class="govuk-visually-hidden">registered office address</span></a><p>
+
+
+
+
+
+
+      
+{{ govukButton({
+  text: "Save and continue"
 }) }}
-
-  <p><a href="limited-partnership-roa-manual">Enter address manually</a><p>
-
-</fieldset>
-
-
-
-
 {{ govukInsetText({
   html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
         <p>We'll show general partner's principal office address on the public register.</p>"
 }) }}
-
-      <!--
-{{ govukButton({
-  text: "Save and continue"
-}) }}
--->
 
 </form>
     </div>

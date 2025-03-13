@@ -412,9 +412,14 @@ router.post('/gp-legal-entity-poa-where', function(request, response) {
   })
 
 
-  //Registered office address (manual)
+  //general partner's principal office address 
 router.post('/gp-legal-entity-poa-postcode-look-up', function(request, response) {
     response.redirect('/v8/address-pages/gp-legal-entity-poa-choose-address')
+})
+
+  //general partner's principal office address 
+  router.post('/gp-legal-entity-poa-choose-address', function(request, response) {
+    response.redirect('/v8/address-pages/gp-legal-entity-poa-confirm-address')
 })
 
 

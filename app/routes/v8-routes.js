@@ -398,7 +398,18 @@ router.post('/psc-choice', function(request, response) {
   })
 
 
+// Addresses //
 
+router.post('/gp-legal-entity-poa-where', function(request, response) {
+
+    var gpLegalEntityPOAWhere = request.session.data['gpLegalEntityPOAWhere']
+    if (gpLegalEntityPOAWhere == "gpLegalEntityPOAUK"){
+        response.redirect("/v8/address-pages/gp-legal-entity-poa-postcode-look-up")
+    }
+    else {
+        response.redirect("/v8/address-pages/gp-legal-entity-poa-manual")
+    }
+  })
 
 
 module.exports=router;

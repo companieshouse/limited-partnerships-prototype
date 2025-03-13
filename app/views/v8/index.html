@@ -83,6 +83,21 @@
 
 
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden " id="register">
+
+    {% set html %}
+  <p class="govuk-body">
+The prototype re-uses the same templates across multiple journeys and scenarios - the content and functionality on many pages <strong>will be different</strong> depending on the journey and the scenario.<p>
+  <p class="govuk-body">If you jump to pages using the links below without first <a class="govuk-notification-banner__link" href="registration-or-transition">choosing the appropriate test scenario</a> you may see the 'wrong' things.<p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
+
+
+
+
+
 <h2 class="govuk-heading-m" id="initial">Initial screens</h2>
 
       <ul class="govuk-list govuk-list--bullet">
@@ -237,6 +252,19 @@
 
 
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="transition">
+
+    {% set html %}
+  <p class="govuk-body">
+The prototype re-uses the same templates across multiple journeys and scenarios - the content and functionality on many pages <strong>will be different</strong> depending on the journey and the scenario.<p>
+  <p class="govuk-body">If you jump to pages using the links below without first <a class="govuk-notification-banner__link" href="registration-or-transition">choosing the appropriate test scenario</a> you may see the 'wrong' things.<p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
+
+
+
 <h2 class="govuk-heading-m" id="initial">Initial screens</h2>
 
       <ul class="govuk-list govuk-list--bullet">
@@ -356,6 +384,17 @@
 
 
   <div class="govuk-tabs__panel" id="post-transition">
+
+
+    {% set html %}
+  <p class="govuk-body">
+The prototype re-uses the same templates across multiple journeys and scenarios - the content and functionality on many pages <strong>will be different</strong> depending on the journey and the scenario.<p>
+  <p class="govuk-body">If you jump to pages using the links below without first <a class="govuk-notification-banner__link" href="registration-or-transition">choosing the appropriate test scenario</a> you may see the 'wrong' things.<p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
 
 <h2 class="govuk-heading-m" id="initial">Initial screens</h2>
 

@@ -412,4 +412,10 @@ router.post('/gp-legal-entity-poa-where', function(request, response) {
   })
 
 
+  //Registered office address (manual)
+router.post('/gp-legal-entity-poa-postcode-look-up', function(request, response) {
+    response.redirect('/v8/address-pages/gp-legal-entity-poa-choose-address')
+})
+
+
 module.exports=router;

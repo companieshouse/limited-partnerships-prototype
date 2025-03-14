@@ -25,11 +25,16 @@
 {% if (data['registrationOrTransition'] == "registration") %}
   <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
 {% else %}  
-  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})   </span>
 {% endif %}
 
-
-
+<!-- In the post-transition journey, we need to show the users 'existing' data-->
+{% if data['registrationOrTransition'] == "post" %}
+    {% set checkedValue= "checked" %}
+{% else %}
+    {% set checkedValue= "" %}
+{% endif %}
+<!-- -->
 
 
 
@@ -60,7 +65,9 @@
     },
     {
       value: "No set term",
-      text: "No set term"
+      text: "No set term",
+      checked: checkedValue
+
     }
   ]
 }) }}

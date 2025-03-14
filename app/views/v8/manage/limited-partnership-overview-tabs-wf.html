@@ -153,32 +153,10 @@ wf{% extends "layouts/main.html" %}
           },
           {
             key: {
-              text: "Standard Industrial Classification (SIC) code"
-            },
-            value: {
-              html: '<ul class="govuk-list govuk-list--bullet">
-                <li>64205 - Activities of financial services holding companies</li>
-                <li>64910 - Financial leasing</li>
-                <li>64922 - Activities of mortgage finance companies</li>
-              </ul>'
-            },
-            actions: {
-              items: [
-                {
-                  href: "change-sic",
-                  text: "Change",
-                  classes: "govuk-link--no-visited-state",
-                  visuallyHiddenText: "Standard Industrial Classification code"
-                }
-              ]
-            }
-          },
-          {
-            key: {
               text: "Registered email address"
             },
             value: {
-              text: "example@limitedpartnership.com"
+              text: "contact@acmelimitedpartnership.co.uk"
             },
             actions: {
               items: [
@@ -238,10 +216,32 @@ wf{% extends "layouts/main.html" %}
             actions: {
               items: [
                 {
-                href: "javascript:void(0)",
+                href: "../limited-partnership-terms",
                   text: "Change",
                   classes: "govuk-link--no-visited-state",
-                  visuallyHiddenText: "registered office address"
+                  visuallyHiddenText: "term of partnership"
+                }
+              ]
+            }
+          },         
+          {
+            key: {
+              text: "Standard Industrial Classification (SIC) code"
+            },
+            value: {
+              html: '<ul class="govuk-list govuk-list--bullet">
+                <li>64205 - Activities of financial services holding companies</li>
+                <li>64910 - Financial leasing</li>
+                <li>64922 - Activities of mortgage finance companies</li>
+              </ul>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "change-sic",
+                  text: "Change",
+                  classes: "govuk-link--no-visited-state",
+                  visuallyHiddenText: "Standard Industrial Classification code"
                 }
               ]
             }

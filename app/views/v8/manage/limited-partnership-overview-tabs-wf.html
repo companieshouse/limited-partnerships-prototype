@@ -296,7 +296,7 @@ wf{% extends "layouts/main.html" %}
         text: "21 August 1989"
       },
       {
-        html: '<a href="gp-person" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Georgina Smith</span></a>'
+        html: '<a href="../gp-person" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Georgina Smith</span></a>'
       },
       {
         html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Georgina Smith</span></a>'
@@ -310,7 +310,7 @@ wf{% extends "layouts/main.html" %}
         text: "1 March 2002"
       },
       {
-        html: '<a href="gp-person" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Alan Smith</span></a>'
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Alan Smith</span></a>'
       },
       {
         html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Alan Smith</span></a>'
@@ -350,7 +350,7 @@ wf{% extends "layouts/main.html" %}
         text: "United Kingdom"
       },
       {
-        html: '<a href="gp-person" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">	ABC Company Ltd</span></a>'
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">	ABC Company Ltd</span></a>'
       },
       {
         html: '<a href="/v8/remove/remove-general-partner" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">	ABC Company Ltd</span></a>'
@@ -378,7 +378,6 @@ wf{% extends "layouts/main.html" %}
   
 
 
-
 {{ govukTable({
   caption: "Limited partners (persons)",
   captionClasses: "govuk-table__caption--m",
@@ -399,21 +398,91 @@ wf{% extends "layouts/main.html" %}
   rows: [
     [
       {
-        text: "Lisa Taylor
-"
+        text: "Simon Richardson"
       },
       {
-        text: "13 March 1975"
+        text: "22 January 1980"
       },
       {
-        html: '<a href="gp-person" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Lisa Taylor</span></a>'
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Simon Richardson</span></a>'
       },
       {
-        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Lisa Taylor</span></a>'
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Simon Richardson</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Emily Johnson"
+      },
+      {
+        text: "15 July 1992"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Emily Johnson</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Emily Johnson</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Ahmed Khan"
+      },
+      {
+        text: "30 October 1978"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Ahmed Khan</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Ahmed Khan</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Olivia Marie Davis"
+      },
+      {
+        text: "5 May 2005"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Olivia Marie Davis</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Olivia Marie Davis</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Arjun Patel"
+      },
+      {
+        text: "18 December 1969"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Arjun Patel</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Arjun Patel</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Sophia Wilson"
+      },
+      {
+        text: "9 September 1990"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Sophia Wilson</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Sophia Wilson</span></a>'
       }
     ]
   ]
 }) }}
+
 
 
 
@@ -445,10 +514,52 @@ wf{% extends "layouts/main.html" %}
         text: "United Kingdom"
       },
       {
-        html: '<a href="gp-person" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">	ACME Legal Entity Inc</span></a>'
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">ACME Legal Entity Inc</span></a>'
       },
       {
-        html: '<a href="/v8/remove/remove-general-partner" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">	ACME Legal Entity Inc</span></a>'
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">ACME Legal Entity Inc</span></a>'
+      }
+    ],
+    [
+      {
+        text: "GlobalTech"
+      },
+      {
+        text: "United States"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">GlobalTech</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">GlobalTech</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Sunrise Solutions Limited"
+      },
+      {
+        text: "Ireland"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Sunrise Solutions Limited</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Sunrise Solutions Limited</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Vertex Innovations PLC"
+      },
+      {
+        text: "United Kingdom"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Vertex Innovations PLC</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Vertex Innovations PLC</span></a>'
       }
     ]
   ]

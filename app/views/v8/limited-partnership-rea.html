@@ -40,16 +40,16 @@
     isPageHeading: true
   },
     hint: {
-    text: "A hint which only appears during transition" 
+    html: "<pclass='govuk-hint'>This is a new requirement. We do not hold a registered email address for the limited partnership yet.</p><pclass='govuk-hint'>We'll use this email address to send important information that relates to the partnership. For example, new legislative requirements or warnings about missed deadlines.</pclass>"  
             if data.registrationOrTransition in ['transition'] 
-            else ""
+            else "<pclass='govuk-hint'>We'll use this email address to send important information that relates to the partnership. For example, new legislative requirements or warnings about missed deadlines.</pclass>"
   },
   id: "registeredEmaill",
   name: "registeredEmail"
 }) }}
 
 
-<details class="govuk-details" data-module="govuk-details">
+<!--<details class="govuk-details" data-module="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
       What is the registered email address used for?
@@ -59,7 +59,7 @@
      <p class="govuk-body">In future we'll use this to send important information that relates to the limited partnership. For example, new legislative requirements or warnings about missed deadlines.</p>
      <p class="govuk-body">It will not be shown on the public register.</p>
   </div>
-</details>
+</details>-->
 <!--
 {{ govukDetails({
   summaryText: "If the email address is for someone acting on behalf of the partnership",
@@ -79,7 +79,10 @@
               text: "Save and continue"
             }) }}
 
-
+            {{ govukInsetText({
+              html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+                    <p>We will not show the registered email address on the public register.</p>"
+            }) }}
 
 </form>
     </div>

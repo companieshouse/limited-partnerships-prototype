@@ -30,7 +30,11 @@
 <p class="govuk-hint">Content for post-transition</p>
 
 {% elif (data['registrationOrTransition'] == "transition") %}
-<p class="govuk-hint">Content for transition</p>
+<p class="govuk-hint">This is a new requirement. We do not hold a registered office address for the limited partnership yet. It may be different from the principal place of business address that we already hold. </p>
+<p class="govuk-hint">We'll use this address to send official communications. </p>
+
+<p class="govuk-hint">It must be a physical address in the jurisdiction where the partnership was formed. You cannot use a PO Box address.
+</p>
 {% else %}  
 
 <p class="govuk-hint">We'll use this address to send official communications. </p>
@@ -38,7 +42,7 @@
 <p class="govuk-hint">It must be a physical address in the jurisdiction where the partnership was formed. You cannot use a PO Box address.
 </p>
 
-<p class="govuk-hint">It is not the principal place of business. You'll need to provide this later.
+<p class="govuk-hint">You'll need to provide the principal place of business next.
 </p>
 {% endif %}
 
@@ -386,7 +390,7 @@
 
 
 {{ govukInsetText({
-          html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
                 <p>We'll show the registered office address on the public register.</p>"
         }) }}
 

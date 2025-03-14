@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Change type of partnership" %}
+
+
+
+
+
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="confirmation-change-type" method="post" class="form">
+          <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})</span>
+
+        <h1 class="govuk-heading-xl">
+          Change type of partnership  <!-- if changing this, update pageName above-->
+        </h1>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elit sem, posuere quis maximus at, ullamcorper ac nulla. Fusce et enim sit amet purus fermentum blandit. In arcu justo, ornare sed mi quis, venenatis pellentesque eros. Sed vehicula risus non sapien vestibulum hendrerit. </p>
+
+            {{ govukWarningText({
+              text: "Nunc viverra sagittis posuere. In lacinia, tortor quis sodales ultrices, nibh ex ullamcorper mi, quis feugiat massa mauris nec sem. Nulla eleifend neque at viverra venenatis.",
+              iconFallbackText: "Warning"
+            }) }}
+
+              {{ govukCheckboxes({
+                name: "confirmChange",
+                fieldset: {
+                  legend: {
+                    text: "Confirm you want to change the type of partnership",
+                    isPageHeading: true,
+                    classes: "govuk-visually-hidden"
+                  }
+                },
+                items: [
+                  {
+                    value: "confirmChangeType",
+                    text: "Change this limited partnership to a private fund limited partnership"
+                  }
+                ]
+              }) }}
+       
+
+  
+   {{ govukButton({
+          text: "Submit"
+        }) }}      
+
+      </form>
+
+    </div>
+    <!--govuk-grid-row-->
+
+    <!--govuk-grid-column-two-thirds-->
+  </div>
+  <!--govuk-grid-column-two-thirds-->
+
+</main>
+</div>
+<!---govuk-width-container-->
+
+{% endblock %}

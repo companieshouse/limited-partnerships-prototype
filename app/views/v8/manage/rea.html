@@ -20,7 +20,9 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form action="https://find-and-update.company-information.service.gov.uk/registered-email-address" method="post" class="form">
-        <h1 class="govuk-heading-l">
+
+        <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})</span>
+        <h1 class="govuk-heading-xl">
           Change registered email address	  <!-- if changing this, update pageName above-->
         </h1>
 

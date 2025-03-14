@@ -133,7 +133,7 @@ router.post('/idv-filter', function(request, response) {
 router.post('/correct-company', function(request, response) {
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
-        response.redirect("/v8/limited-partnership-overview-cya")
+        response.redirect("/v8/manage/limited-partnership-overview-tabs-wf")
     } 
     else {
         response.redirect("/v8/limited-partnership-rea")

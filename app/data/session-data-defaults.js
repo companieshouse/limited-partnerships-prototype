@@ -3,6 +3,7 @@ module.exports = {
   // Insert values here
 
 'email': 'agent@authorised-agent.com',
+'emailAddress': 'agent@authorised-agent.com',
 'govOneLoginEmail': 'agent@authorised-agent.com',
 'registeredEmail': 'lp@limited-partnership.com',
 'lpNumber' : 'LP123456',

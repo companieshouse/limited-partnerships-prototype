@@ -35,7 +35,8 @@ wf{% extends "layouts/main.html" %}
   }) }}
 </div>
 
-<!-- JavaScript to check the referrer and display the banner - banner should only be shown when the user returns to the page after making a change - at present all change journey end pages are within /manage -->
+<!-- NOT SUITABLE FOR PRODUCTION SITES
+JavaScript to check the referrer and display the banner - banner should only be shown when the user returns to the page after making a change - at present all change journey end pages are within /manage -->
 <script>
   // Check if the referer (previous URL) contains "/manage/"
   if (document.referrer.includes('/manage/')) {
@@ -296,7 +297,7 @@ wf{% extends "layouts/main.html" %}
         text: "21 August 1989"
       },
       {
-        html: '<a href="../gp-person" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Georgina Smith</span></a>'
+        html: '<a href="../gp-person?from=general-partners-change" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Georgina Smith</span></a>'
       },
       {
         html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Georgina Smith</span></a>'
@@ -360,7 +361,7 @@ wf{% extends "layouts/main.html" %}
 }) }}
 
 <p class="govuk-body govuk-!-margin-bottom-8">
-  <a href="javascript:void(0)" class="govuk-link govuk-link--no-visited-state">Add a new general partner</a>
+  <a href="/v8/general-partner-choice" class="govuk-link govuk-link--no-visited-state">Add a new general partner</a>
 </p>
 
 

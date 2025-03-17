@@ -46,9 +46,10 @@
           <div id="title" name="title" class="autocomplete-wrapper govuk-input--width-20"></div>
         </div>-->
 
-<!-- In the post-transition journey, we need to show the users 'existing' data-->
+<!-- THIS CODE NOT SUITABLE FOR PRODUCTION SITES
+In the post-transition journey, we need to show the users 'existing' data if they select Change on an existing partner, the code below prepopulates data if the user has come to this page via the href="../gp-person?from=general-partners-change" which has been set on lv8/manage/limited-partnership-overview-tabs-wf.html-->
 
-{% if data['registrationOrTransition'] == "post" %}
+{% if data['from'] == "general-partners-change" %}
     {% set gp1FirstNameValue = "Georgina" %}
     {% set gp1LasttNameValue = "Smith" %}
     {% set gp1PreviousNameYesNoValue = "checked" %}
@@ -56,33 +57,21 @@
     {% set gp1DOB_dayValue = "21" %}
     {% set gp1DOB_monthValue = "8" %}
     {% set gp1DOB_yearValue = "1989" %}
-    {% set gp1Nationality1Value= "British" %}
+    {% set gp1Nationality1Value = "British" %}
     {% set gp1NameNumberValue = "13" %}
     {% set gp1addressLine1Value = "Luck Lane" %}
     {% set gp1addressCountyValue = "Bristol" %}
     {% set gp1addressPostcodeValue = "BS1 8LY" %}
     {% set gp1addressCountryValue = "United Kingdom" %}
     {% set gp1CorrespondenceAddressYesNoValue = "checked" %}
-    {% set gp1PersonDisqualificationStatementYesNoValue= "checked" %}
-{% else %}
-    {% set gp1FirstNameValue = "" %}
-    {% set gp1LasttNameValue = "" %}
-    {% set gp1PreviousNameYesNoValue = "" %}
-    {% set gp1PreviousNameValue = "" %}
-    {% set gp1DOB_dayValue = "" %}
-    {% set gp1DOB_monthValue = "" %}
-    {% set gp1DOB_yearValue = "" %}
-    {% set gp1Nationality1Value= "" %}
-    {% set gp1NameNumberValue = "" %}
-    {% set gp1addressLine1Value = "" %}
-    {% set gp1addressCountyValue = "" %}
-    {% set gp1addressPostcodeValue = "" %}
-    {% set gp1addressCountryValue = "" %}
-    {% set gp1CorrespondenceAddressYesNoValue = "" %}
-    {% set gp1PersonDisqualificationStatementYesNoValue= "" %}
-
+    {% set gp1PersonDisqualificationStatementYesNoValue = "checked" %}
 {% endif %}
-<!-- -->
+
+
+
+
+
+
 
 
 

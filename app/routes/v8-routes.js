@@ -175,16 +175,20 @@ router.post('/general-partner-choice', function(request, response) {
 router.post('/gp-add-another', function(request, response) {
 
     var addAnotherGP = request.session.data['addAnotherGP']
-    if (addAnotherGP == "addPersonGP"){
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+
+    if (registrationOrTransition == "post") {
+        response.redirect("/v8/manage/confirmation-additional-gp")
+    } else if (addAnotherGP == "addPersonGP") {
         response.redirect("/v8/gp-person")
-    } 
-    if (addAnotherGP == "addEntityGP"){
+    } else if (addAnotherGP == "addEntityGP") {
         response.redirect("/v8/gp-legal-entity")
-    } 
-    else {
+    } else {
         response.redirect("/v8/limited-partner-section")
     }
+
 })
+
 
 //limited partner choice - entity or person
 

@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Choose the general partner's usual residential address" %}
+{% set pageName="Choose the limited partner's correspondence address" %}
 
 
 {% block header %}
@@ -23,48 +23,51 @@
 <form class="form" action="/gp-legal-entity-poa-choose-address" method="post">
    
 
-  <span class="govuk-caption-l uppercase"> {{ data['gp1FirstName'] or "Sally" }} {{ data['gp1LastName'] or "Wordsworth" }}</span>
+  <span class="govuk-caption-l uppercase"> {{ data['lp1EntityName'] or "ENCOM LTD" }} </span>
 {{ govukRadios({
-  name: "chooseURA",
+  name: "chooseCA",
   fieldset: {
     legend: {
-      text: "Choose the general partner's usual residential address",
+      text: "Choose the limited partner's correspondence address",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--xl"
     }
   },
+    hint: {
+    text: "This is also known as the service address."
+  },
   items: [
     {
       value: "1",
-      text: "1 Blue Road, Manchester, M12 3AB"
+      text: "1 Squirrel Avenue, Leeds, LS1 2AB"
     },
     {
       value: "2",
-      text: "2 Blue Road, Manchester, M12 3AB"
+      text: "2 Squirrel Avenue, Leeds, LS1 2AB"
     },    {
       value: "3",
-      text: "3 Blue Road, Manchester, M12 3AB"
+      text: "3 Squirrel Avenue, Leeds, LS1 2AB"
     },    {
       value: "4",
-      text: "4 Blue Road, Manchester, M12 3AB"
+      text: "4 Squirrel Avenue, Leeds, LS1 2AB"
     },    {
       value: "5",
-      text: "5 Blue Road, Manchester, M12 3AB"
+      text: "5 Squirrel Avenue, Leeds, LS1 2AB"
     },    {
       value: "6",
-      text: "6 Blue Road, Manchester, M12 3AB"
+      text: "6 Squirrel Avenue, Leeds, LS1 2AB"
     },    {
       value: "7",
-      text: "7 Blue Road, Manchester, M12 3AB"
+      text: "7 Squirrel Avenue, Leeds, LS1 2AB"
     },    {
       value: "8",
-      text: "8 Blue Road, Manchester, M12 3AB"
+      text: "8 Squirrel Avenue, Leeds, LS1 2AB"
     },    {
       value: "9",
-      text: "9 Blue Road, Manchester, M12 3AB"
+      text: "9 Squirrel Avenue, Leeds, LS1 2AB"
     },    {
       value: "10",
-      text: "10 Blue Road, Manchester, M12 3AB"
+      text: "10 Squirrel Avenue, Leeds, LS1 2AB"
     }
   ]
 }) }}
@@ -76,7 +79,7 @@
 
 {{ govukInsetText({
   html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
-        <p>We'll show the general partner's usual residential address on the public register.</p>"
+        <p>We'll show the limited partner's correspondence address on the public register.</p>"
 }) }}
 
    

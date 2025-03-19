@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Confirm the general partner's usual residential address" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/gp-legal-entity-poa-confirm-address" method="post">
+   
+
+  <span class="govuk-caption-l"> {{ data['gp1FirstName'] or "Georgina" }} {{ data['gp1LastName'] or "Smith" }}</span>
+
+
+
+<h1 class="govuk-heading-xl">Confirm the general partner's usual residential address</h1>
+
+<p>1 Blue Road<br>Manchester<br>M12 3AB</p>
+
+
+
+  <p><a href="gp-legal-entity-poa-manual">Change <span class="govuk-visually-hidden">registered office address</span></a><p>
+
+
+
+
+
+
+      
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+{{ govukInsetText({
+  html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+        <p>We'll show the general partner's usual residential address on the public register.</p>"
+}) }}
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

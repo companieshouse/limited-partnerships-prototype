@@ -1,0 +1,96 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Choose the limited partner's principal office address" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/gp-legal-entity-poa-choose-address" method="post">
+   
+
+  <span class="govuk-caption-l uppercase"> {{ data['lp1EntityName'] or "ENCOM LTD" }} </span>
+{{ govukRadios({
+  name: "choosePPOB",
+  fieldset: {
+    legend: {
+      text: "Choose the limited partner's principal office address",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+    hint: {
+    text: "This is the address for the entity's main office."
+  },
+  items: [
+    {
+      value: "1",
+      text: "1 Squirrel Avenue, Leeds, LS1 2AB"
+    },
+    {
+      value: "2",
+      text: "2 Squirrel Avenue, Leeds, LS1 2AB"
+    },    {
+      value: "3",
+      text: "3 Squirrel Avenue, Leeds, LS1 2AB"
+    },    {
+      value: "4",
+      text: "4 Squirrel Avenue, Leeds, LS1 2AB"
+    },    {
+      value: "5",
+      text: "5 Squirrel Avenue, Leeds, LS1 2AB"
+    },    {
+      value: "6",
+      text: "6 Squirrel Avenue, Leeds, LS1 2AB"
+    },    {
+      value: "7",
+      text: "7 Squirrel Avenue, Leeds, LS1 2AB"
+    },    {
+      value: "8",
+      text: "8 Squirrel Avenue, Leeds, LS1 2AB"
+    },    {
+      value: "9",
+      text: "9 Squirrel Avenue, Leeds, LS1 2AB"
+    },    {
+      value: "10",
+      text: "10 Squirrel Avenue, Leeds, LS1 2AB"
+    }
+  ]
+}) }}
+
+  <p><a href="javascript:void(0)">The address is not on the list</a><p>
+
+
+
+
+{{ govukInsetText({
+  html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+        <p>We'll show the limited partner's principal office address on the public register.</p>"
+}) }}
+
+   
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

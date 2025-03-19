@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="What is the general partner's usual residential address?" %}
+{% set pageName="What is the limited partner's principal office address?" %}
 
 
 {% block header %}
@@ -23,15 +23,16 @@
 <form class="form" action="/gp-legal-entity-poa-postcode-look-up" method="post">
    
 
-  <span class="govuk-caption-l uppercase"> {{ data['gp1FirstName'] or "Sally" }} {{ data['gp1LastName'] or "Wordsworth" }}</span>
-<h1 class="govuk-heading-xl">What is the general partner's usual residential address?</h1>
+  <span class="govuk-caption-l uppercase"> {{ data['lp1EntityName'] or "ENCOM LTD" }} </span>
+<h1 class="govuk-heading-xl">What is the limited partner's principal office address?</h1>
 
 
 
 <fieldset class="govuk-fieldset">
   <legend class="govuk-visually-hidden">
-     What is the general partner's usual residential address?
+     What is the limited partner's principal office address?
   </legend>
+  <p class="govuk-hint">This is the address for the entity's main office.</p>
 
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-margin-top-6" for="roaAddressLine1">
@@ -60,7 +61,7 @@
 
 {{ govukInsetText({
   html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
-        <p>We'll show the general partner's usual residential address on the public register.</p>"
+        <p>We'll show the limited partner's principal office address on the public register.</p>"
 }) }}
       <!--
 {{ govukButton({

@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="What is the limited partner's usual residential address?" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/gp-legal-entity-poa-postcode-look-up" method="post">
+   
+
+
+  <span class="govuk-caption-l"> {{ data['gp1FirstName'] or "Lisa" }} {{ data['gp1LastName'] or "Taylor" }}</span>
+  
+<h1 class="govuk-heading-xl">What is the limited partner's usual residential address?</h1>
+
+
+
+<fieldset class="govuk-fieldset">
+  <legend class="govuk-visually-hidden">
+     What is the limited partner's usual residential address?
+  </legend>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-margin-top-6" for="roaAddressLine1">
+      Property name or number (optional)
+    </label>
+    <input class="govuk-input" id="roaAddressLine1" name="roaAddressLine1" type="text" autocomplete="address-line1">
+  </div>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="roaPostcode">
+      Postcode
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="roaPostcode" name="roaPostcode" type="text" autocomplete="postal-code">
+  </div>
+
+
+  {{ govukButton({
+  text: "Find address"
+}) }}
+
+  <p><a href="gp-legal-entity-poa-manual">Enter address manually</a><p>
+
+</fieldset>
+
+
+
+{{ govukInsetText({
+  html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+        <p>We'll show the limited partner's usual residential address on the public register.</p>"
+}) }}
+      <!--
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+-->
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

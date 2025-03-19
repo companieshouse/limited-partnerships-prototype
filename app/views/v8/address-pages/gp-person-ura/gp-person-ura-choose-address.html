@@ -1,0 +1,93 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Choose the general partner's usual residential address" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/gp-legal-entity-poa-choose-address" method="post">
+   
+
+  <span class="govuk-caption-l"> {{ data['gp1FirstName'] or "Georgina" }} {{ data['gp1LastName'] or "Smith" }}</span>
+{{ govukRadios({
+  name: "chooseURA",
+  fieldset: {
+    legend: {
+      text: "Choose the general partner's usual residential address",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "1",
+      text: "1 Blue Road, Manchester, M12 3AB"
+    },
+    {
+      value: "2",
+      text: "2 Blue Road, Manchester, M12 3AB"
+    },    {
+      value: "3",
+      text: "3 Blue Road, Manchester, M12 3AB"
+    },    {
+      value: "4",
+      text: "4 Blue Road, Manchester, M12 3AB"
+    },    {
+      value: "5",
+      text: "5 Blue Road, Manchester, M12 3AB"
+    },    {
+      value: "6",
+      text: "6 Blue Road, Manchester, M12 3AB"
+    },    {
+      value: "7",
+      text: "7 Blue Road, Manchester, M12 3AB"
+    },    {
+      value: "8",
+      text: "8 Blue Road, Manchester, M12 3AB"
+    },    {
+      value: "9",
+      text: "9 Blue Road, Manchester, M12 3AB"
+    },    {
+      value: "10",
+      text: "10 Blue Road, Manchester, M12 3AB"
+    }
+  ]
+}) }}
+
+  <p><a href="javascript:void(0)">The address is not on the list</a><p>
+
+
+
+
+{{ govukInsetText({
+  html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+        <p>We'll show the general partner's usual residential address on the public register.</p>"
+}) }}
+
+   
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

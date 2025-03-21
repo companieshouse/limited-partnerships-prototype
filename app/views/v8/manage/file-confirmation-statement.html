@@ -42,15 +42,30 @@
             
         
   
-            <h2 class="govuk-heading-m">I've checked the information and submitted any changes needed</h2>
+      
 
-
+{{ govukCheckboxes({
+  name: "checked",
+  fieldset: {
+    legend: {
+      text: "Confirm you have checked the information and submitted any changes needed",
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "checked",
+      text: "I've checked the information and submitted any changes needed"
+    }
+  ]
+}) }}
        
 
   
-<p class="govuk-body">
-  <a href="javascript:void(0)" class="govuk-link" rel="noreferrer noopener" target="_blank">File a limited partnership confirmation statement (opens in new tab)</a>.
-</p>    
+
+{{ govukButton({
+  text: "File a limited partnership confirmation statement"
+}) }}
 
       </form>
 

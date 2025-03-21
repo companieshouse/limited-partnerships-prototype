@@ -408,22 +408,22 @@ router.post('/gp-legal-entity-poa-where', function(request, response) {
 
     var gpLegalEntityPOAWhere = request.session.data['gpLegalEntityPOAWhere']
     if (gpLegalEntityPOAWhere == "gpLegalEntityPOAUK"){
-        response.redirect("/v8/address-pages/gp-legal-entity-poa-postcode-look-up")
+        response.redirect("/v8/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-postcode-look-up")
     }
     else {
-        response.redirect("/v8/address-pages/gp-legal-entity-poa-manual")
+        response.redirect("/v8/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-manual")
     }
   })
 
 
   //general partner's principal office address 
 router.post('/gp-legal-entity-poa-postcode-look-up', function(request, response) {
-    response.redirect('/v8/address-pages/gp-legal-entity-poa-choose-address')
+    response.redirect('/v8/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-choose-address')
 })
 
   //general partner's principal office address 
   router.post('/gp-legal-entity-poa-choose-address', function(request, response) {
-    response.redirect('/v8/address-pages/gp-legal-entity-poa-confirm-address')
+    response.redirect('/v8/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-confirm-address')
 })
 
 

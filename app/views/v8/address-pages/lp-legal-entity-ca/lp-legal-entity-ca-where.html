@@ -20,13 +20,13 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-<form class="form" action="/gp-legal-entity-ca-where" method="post">
+<form class="form" action="/lp-legal-entity-ca-where" method="post">
    
 
   <span class="govuk-caption-l uppercase"> {{ data['lp1EntityName'] or "ENCOM LTD" }} </span>
 
 {{ govukRadios({
-  name: "gpLegalEntityCAWhere",
+  name: "lpLegalEntityCAWhere",
   fieldset: {
     legend: {
       text: "Where is the limited partner's correspondence address?",
@@ -39,11 +39,11 @@
   },
   items: [
     {
-      value: "gpLegalEntityCAUK",
+      value: "lpLegalEntityCAUK",
       text: "In the United Kingdom"
     },
     {
-      value: "gpLegalEntityCAOverseas",
+      value: "lpLegalEntityCAOverseas",
       text: "Overseas"
     }
   ]

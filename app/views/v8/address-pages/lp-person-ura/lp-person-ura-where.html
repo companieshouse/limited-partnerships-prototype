@@ -20,14 +20,14 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-<form class="form" action="/gp-legal-entity-poa-where" method="post">
+<form class="form" action="/lp-person-ura-where" method="post">
    
 
 
   <span class="govuk-caption-l"> {{ data['gp1FirstName'] or "Lisa" }} {{ data['gp1LastName'] or "Taylor" }}</span>
 
 {{ govukRadios({
-  name: "gpPersonURAWhere",
+  name: "lpPersonURAWhere",
   fieldset: {
     legend: {
       text: "Where is the limited partner's usual residential address?",
@@ -37,11 +37,11 @@
   },
   items: [
     {
-      value: "gpPersonURAUK",
+      value: "lpPersonURAUK",
       text: "In the United Kingdom"
     },
     {
-      value: "gpPersonURAOverseas",
+      value: "lpPersonURAOverseas",
       text: "Overseas"
     }
   ]

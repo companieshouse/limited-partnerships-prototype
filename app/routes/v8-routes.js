@@ -481,7 +481,30 @@ router.post('/lp-legal-entity-poa-postcode-look-up', function(request, response)
 
 
 
+// Limited partner - person //
 
+
+router.post('/lp-person-ura-where', function(request, response) {
+
+    var lpPersonURAWhere = request.session.data['lpPersonURAWhere']
+    if (lpPersonURAWhere == "lpPersonURAUK"){
+        response.redirect("/v8/address-pages/lp-person-ura/lp-person-ura-postcode-look-up")
+    }
+    else {
+        response.redirect("/v8/address-pages/lp-person-ura/lp-person-ura-manual")
+    }
+  })
+
+
+
+router.post('/lp-person-ura-postcode-look-up', function(request, response) {
+    response.redirect('/v8/address-pages/lp-person-ura/lp-person-ura-choose-address')
+})
+
+
+  router.post('/lp-person-ura-choose-address', function(request, response) {
+    response.redirect('/v8/address-pages/lp-person-ura/lp-person-ura-confirm-address')
+})
 
 
 

@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Confirmation statement" %}
+{% set pageName="Check before you file" %}
 
 
 
@@ -23,22 +23,27 @@
 
           <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})</span>
         <h1 class="govuk-heading-xl">
-          Confirmation statement  <!-- if changing this, update pageName above-->
+          Check before you file  <!-- if changing this, update pageName above-->
         </h1>
 
-        <p>Before filing your confirmation statement you should ensure you have made all the necessary updates in this service.</p>
+        <p>Before you file a confirmation statement, you must check that the information Companies House has about this limited partnership is correct. If you have not done this yet, <a href="" class="">go back and make any changes needed.</a></p> <!--link to go back here?-->
 
-            {{ govukWarningText({
+        <p>SIC codes can be changed within the confirmation statement.</p>
+
+            <!--{{ govukWarningText({
               text: "The only change you can make in the confirmation statement is to Standard Industrial Classification (SIC) codes",
               iconFallbackText: "Warning"
-            }) }}
+            }) }}-->
+        
+  
+            <h2 class="govuk-heading-m">I have checked the information and submitted any changes needed</h2>
 
 
        
 
   
 <p class="govuk-body">
-  <a href="javascript:void(0)" class="govuk-link" rel="noreferrer noopener" target="_blank">Go to the File a limited partnership confirmation statement service (opens in new tab)</a>
+  <a href="javascript:void(0)" class="govuk-link" rel="noreferrer noopener" target="_blank">File a limited partnership confirmation statement service (opens in new tab)</a>.
 </p>    
 
       </form>

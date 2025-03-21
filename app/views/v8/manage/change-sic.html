@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName=" Changing SIC codes" %}
+{% set pageName=" Change SIC codes" %}
 
 
 
@@ -23,16 +23,24 @@
 
           <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})</span>
         <h1 class="govuk-heading-xl">
-          Changing SIC codes <!-- if changing this, update pageName above-->
+          Change SIC codes <!-- if changing this, update pageName above-->
         </h1>
 
-        <p>You can only change these when you file a Confirmation Statement</p>
+        <p>SIC codes can only be changed within a confirmation statement.</p>
+
+        <p>If you have any other changes to make to this limited partnership’s information, <a href="" class="">go back</a> and do this first.</p><!-- back link here?-->
+        
+        <p class="govuk-body">
+          Then <a href="javascript:void(0)" class="govuk-link" rel="noreferrer noopener" target="_blank">File a limited partnership confirmation statement (opens in new tab)</a>.
+        </p>   
+
+
        
 
   
-   {{ govukButton({
+   <!--{{ govukButton({
           text: "Continue"
-        }) }}        
+        }) }} -->       
 
       </form>
 

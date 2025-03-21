@@ -26,8 +26,7 @@
       <form class="form" action="manage/check-your-answers-change-gp-person" method="post">
 
 {% else %}  
-      <form class="form" action="gp-add-another" method="post">
-
+    <form class="form" action="address-pages/gp-person-ura/gp-person-ura-where" method="post">
 {% endif %}
 
 {% if (data['registrationOrTransition'] == "registration") %}
@@ -2034,6 +2033,10 @@ In the post-transition journey, we need to show the users 'existing' data if the
   </select>
 </div>
 
+
+
+
+<!--
 {% call govukFieldset({
   legend: {
     text: "What is their usual residential address?",
@@ -4314,10 +4317,10 @@ In the post-transition journey, we need to show the users 'existing' data if the
     This is an 11 character code that is given to a person once they have verified their identity. If any general partner has not verified their identity and received a code, they need to do this before you can file this update.
   </div>
 </details> #}
-
+-->
 {{ govukCheckboxes({
   name: "gp1PersonDisqualificationStatementnt",
-  classes: "govuk-!-margin-top-6",
+  classes: "govuk-!-margin-top-3",
   fieldset: {
     legend: {
       text: "General partner - person - disqualification statement",
@@ -4335,8 +4338,8 @@ In the post-transition journey, we need to show the users 'existing' data if the
 
  {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
-                <p>We will not show the general partner’s usual residential address. We’ll only show the month and year of their birth date. </p>
-                <p>We’ll show all the other information you provide on this screen on the public register.</p>"
+                <p>We'll only show the month and year of their birth date. </p>
+                <p>We'll show all the other information you provide on this screen on the public register.</p>"
         }) }}
 
 

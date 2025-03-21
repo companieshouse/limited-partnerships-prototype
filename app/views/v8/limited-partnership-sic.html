@@ -37,13 +37,13 @@
   }
 }) %}
 
-<p class="govuk-hint" id="sic-hint">You should use the SIC code that best describes the partnership’s nature of business. It does not have to be an exact match.</p>
-<p class="govuk-hint govuk-!-margin-bottom-6"><a href="https://resources.companieshouse.gov.uk/sic/" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">Find your SIC code using our look up tool (opens in a new tab)</a>.</p>
+<p class="govuk-hint" id="sic-hint">You should use the SIC code that best describes the partnership’s nature of business.</p>
+<p class="govuk-hint govuk-!-margin-bottom-6"><a href="https://resources.companieshouse.gov.uk/sic/" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">Find your SIC code using our look up tool (opens in new tab)</a>.</p>
 
 
 {{ govukInput({
   label: {
-   text: "Enter your first Standard Industrial Classification (SIC) code",
+   text: "Enter the Standard Industrial Classification (SIC) code",
    classes: "govuk-visually-hidden",
    describedBy: "sic-hint"
   },
@@ -55,7 +55,7 @@
   spellcheck: false
 }) }}
 
-<p class="govuk-body">You can add up to 3 additional SIC codes (optional)</p>
+<p class="govuk-body">Enter up to 3 additional SIC codes (optional):</p>
 
 
 {{ govukInput({
@@ -105,7 +105,7 @@
       
 {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
-                <p>We'll show the SIC code (or codes) on the public register.</p>"
+                <p>We'll show the SIC codes on the public register.</p>"
         }) }}
 
       

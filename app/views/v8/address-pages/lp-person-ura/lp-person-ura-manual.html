@@ -27,6 +27,21 @@
   <span class="govuk-caption-l"> {{ data['gp1FirstName'] or "Lisa" }} {{ data['gp1LastName'] or "Taylor" }}</span>
 
 
+{% if from == "change" %}
+    {% set lp1PersonUsualResidentialAddressNameNumber = "1" %}
+    {% set lp1PersonUsualResidentialAddressLine1 = "Red Crest Lane" %}
+    {% set lp1PersonUsualResidentialAddressTown = "Birmingham" %}
+    {% set lp1PersonUsualResidentialAddressPostcode = "B12 3AB" %}
+{% else %}
+    {% set lp1PersonUsualResidentialAddressNameNumber = "" %}
+    {% set lp1PersonUsualResidentialAddressLine1 = "" %}
+    {% set lp1PersonUsualResidentialAddressTown = "" %}
+    {% set lp1PersonUsualResidentialAddressPostcode = "" %}
+{% endif %}
+
+
+
+
 {% call govukFieldset({
   legend: {
     text: "What is the limited partner's usual residential address?",
@@ -43,16 +58,18 @@
         hint: {
     text: "For example, 'The Mill', '116' or 'Flat 37a'"
   },
-    id: "gp1DifferentPrincipalOfficeAddressNameNumber",
-    name: "gp1DifferentPrincipalOfficeAddressNameNumber"
+    id: "lp1PersonUsualResidentialAddressNameNumber",
+    name: "lp1PersonUsualResidentialAddressNameNumber",
+    value: lp1PersonUsualResidentialAddressNameNumber
   }) }}
 
   {{ govukInput({
     label: {
       text: "Address line 1"
     },
-    id: "gp1DifferentPrincipalOfficeAddressLine1",
-    name: "gp1DifferentPrincipalOfficeAddressLine1",
+    id: "lp1PersonUsualResidentialAddressLine1",
+    name: "lp1PersonUsualResidentialAddressLine1",
+    value: lp1PersonUsualResidentialAddressLine1,
     autocomplete: "address-line1"
   }) }}
 
@@ -60,8 +77,8 @@
     label: {
       text: "Address line 2 (optional)"
     },
-    id: "gp1DifferentPrincipalOfficeAddressLine2",
-    name: "gp1DifferentPrincipalOfficeAddressLine2",
+    id: "lp1PersonUsualResidentialAddressLine2",
+    name: "lp1PersonUsualResidentialAddressLine2",
     autocomplete: "address-line2"
   }) }}
 
@@ -70,8 +87,9 @@
       text: "Town or city"
     },
     classes: "govuk-!-width-two-thirds",
-    id: "gp1DifferentPrincipalOfficeAddressTown",
-    name: "gp1DifferentPrincipalOfficeAddressTown",
+    id: "lp1PersonUsualResidentialAddressTown",
+    name: "lp1PersonUsualResidentialAddressTown",
+    value: lp1PersonUsualResidentialAddressTown,
     autocomplete: "address-level2"
   }) }}
 
@@ -80,8 +98,8 @@
       text: "County (optional)"
     },
     classes: "govuk-!-width-two-thirds",
-    id: "gp1DifferentPrincipalOfficeAddressCounty",
-    name: "gp1DifferentPrincipalOfficeAddressCounty"
+    id: "lp1PersonUsualResidentialAddressCounty",
+    name: "lp1PersonUsualResidentialAddressCounty"
   }) }}
 
   {{ govukInput({
@@ -89,8 +107,9 @@
       text: "Postcode"
     },
     classes: "govuk-input--width-10",
-    id: "gp1DifferentPrincipalOfficeAddressPostcode",
-    name: "gp1DifferentPrincipalOfficeAddressPostcode",
+    id: "lp1PersonUsualResidentialAddressPostcode",
+    name: "lp1PersonUsualResidentialAddressPostcode",
+    value: lp1PersonUsualResidentialAddressPostcode,
     autocomplete: "postal-code"
   }) }}
   

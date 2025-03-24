@@ -406,6 +406,15 @@ router.post('/psc-choice', function(request, response) {
 
 // General partner - legal entity //
 
+//This GET code is used to preppoluate the values when the user goes from Confirm the address to Manually entering it
+router.get('/v8/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-manual', function (req, res) {
+    res.render('v8/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-manual', {
+      from: req.query.from // This makes `from` available in Nunjucks
+    });
+  });
+
+
+
 router.post('/gp-legal-entity-poa-where', function(request, response) {
 
     var gpLegalEntityPOAWhere = request.session.data['gpLegalEntityPOAWhere']
@@ -430,7 +439,12 @@ router.post('/gp-legal-entity-poa-postcode-look-up', function(request, response)
 
 // General partner - person //
 // URA //
-
+//This GET code is used to preppoluate the values when the user goes from Confirm the address to Manuallu entering it
+router.get('/v8/address-pages/gp-person-ura/gp-person-ura-manual', function (req, res) {
+    res.render('v8/address-pages/gp-person-ura/gp-person-ura-manual', {
+      from: req.query.from // This makes `from` available in Nunjucks
+    });
+  });
 
 router.post('/gp-person-ura-where', function(request, response) {
 
@@ -455,7 +469,17 @@ router.post('/gp-person-ura-postcode-look-up', function(request, response) {
 })
 
 // General partner - person //
-// URA //
+// Correspondence Address //
+
+//This GET code is used to preppoluate the values when the user goes from Confirm the address to Manuallu entering it
+router.get('/v8/address-pages/gp-person-ca/gp-person-ca-manual', function (req, res) {
+    res.render('v8/address-pages/gp-person-ca/gp-person-ca-manual', {
+      from: req.query.from // This makes `from` available in Nunjucks
+    });
+  });
+
+
+
 router.post('/gp-person-ca-where', function(request, response) {
 
     var gpPersonCAWhere = request.session.data['gpPersonCAWhere']
@@ -482,6 +506,14 @@ router.post('/gp-person-ca-postcode-look-up', function(request, response) {
 
 // Limited partner - legal entity //
 
+//This GET code is used to preppoluate the values when the user goes from Confirm the address to Manuallu entering it
+router.get('/v8/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-manual', function (req, res) {
+    res.render('v8/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-manual', {
+      from: req.query.from // This makes `from` available in Nunjucks
+    });
+  });
+
+
 router.post('/lp-legal-entity-poa-where', function(request, response) {
 
     var lpLegalEntityPOAWhere = request.session.data['lpLegalEntityPOAWhere']
@@ -507,7 +539,12 @@ router.post('/lp-legal-entity-poa-postcode-look-up', function(request, response)
 
 
 // Limited partner - person //
-
+//This GET code is used to preppoluate the values when the user goes from Confirm the address to Manuallu entering it
+router.get('/v8/address-pages/lp-person-ura/lp-person-ura-manual', function (req, res) {
+    res.render('v8/address-pages/lp-person-ura/lp-person-ura-manual', {
+      from: req.query.from // This makes `from` available in Nunjucks
+    });
+  });
 
 router.post('/lp-person-ura-where', function(request, response) {
 

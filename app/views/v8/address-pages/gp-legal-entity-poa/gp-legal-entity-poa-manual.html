@@ -27,6 +27,22 @@
 
 
 
+{% if from == "change" %}
+    {% set gp1PrincipalOfficeAddressNameNumber = "1" %}
+    {% set gp1PrincipalOfficeAddressLine1 = "Grass Street" %}
+    {% set gp1PrincipalOfficeAddressTown = "London" %}
+    {% set gp1PrincipalOfficeAddressPostcode = "E17 5HG" %}
+{% else %}
+    {% set gp1PrincipalOfficeAddressNameNumber = "" %}
+    {% set gp1PrincipalOfficeAddressLine1 = "" %}
+    {% set gp1PrincipalOfficeAddressTown = "" %}
+    {% set gp1PrincipalOfficeAddressPostcode = "" %}
+{% endif %}
+
+
+
+
+
 {% call govukFieldset({
   legend: {
     text: "What is the general partner's principal office address?",
@@ -44,25 +60,27 @@
         hint: {
     text: "For example, 'The Mill', '116' or 'Flat 37a'"
   },
-    id: "gp1DifferentPrincipalOfficeAddressNameNumber",
-    name: "gp1DifferentPrincipalOfficeAddressNameNumber"
+    id: "gp1PrincipalOfficeAddressNameNumber",
+    name: "gp1PrincipalOfficeAddressNameNumber",
+    value: gp1PrincipalOfficeAddressNameNumber
   }) }}
 
   {{ govukInput({
     label: {
       text: "Address line 1"
     },
-    id: "gp1DifferentPrincipalOfficeAddressLine1",
-    name: "gp1DifferentPrincipalOfficeAddressLine1",
-    autocomplete: "address-line1"
+    id: "gp1PrincipalOfficeAddressLine1",
+    name: "gp1PrincipalOfficeAddressLine1",
+    autocomplete: "address-line1",
+    value: gp1PrincipalOfficeAddressLine1
   }) }}
 
   {{ govukInput({
     label: {
       text: "Address line 2 (optional)"
     },
-    id: "gp1DifferentPrincipalOfficeAddressLine2",
-    name: "gp1DifferentPrincipalOfficeAddressLine2",
+    id: "gp1PrincipalOfficeAddressLine2",
+    name: "gp1PrincipalOfficeAddressLine2",
     autocomplete: "address-line2"
   }) }}
 
@@ -71,8 +89,9 @@
       text: "Town or city"
     },
     classes: "govuk-!-width-two-thirds",
-    id: "gp1DifferentPrincipalOfficeAddressTown",
-    name: "gp1DifferentPrincipalOfficeAddressTown",
+    id: "gp1PrincipalOfficeAddressTown",
+    name: "gp1PrincipalOfficeAddressTown",
+    value: gp1PrincipalOfficeAddressTown,
     autocomplete: "address-level2"
   }) }}
 
@@ -81,8 +100,8 @@
       text: "County (optional)"
     },
     classes: "govuk-!-width-two-thirds",
-    id: "gp1DifferentPrincipalOfficeAddressCounty",
-    name: "gp1DifferentPrincipalOfficeAddressCounty"
+    id: "gp1PrincipalOfficeAddressCounty",
+    name: "gp1PrincipalOfficeAddressCounty"
   }) }}
 
   {{ govukInput({
@@ -90,17 +109,18 @@
       text: "Postcode"
     },
     classes: "govuk-input--width-10",
-    id: "gp1DifferentPrincipalOfficeAddressPostcode",
-    name: "gp1DifferentPrincipalOfficeAddressPostcode",
+    id: "gp1PrincipalOfficeAddressPostcode",
+    name: "gp1PrincipalOfficeAddressPostcode",
+    value: gp1PrincipalOfficeAddressPostcode,
     autocomplete: "postal-code"
   }) }}
   
   <div class="govuk-form-group govuk-!-margin-top-6">
-  <label class="govuk-label govuk-body" for="gp1DifferentAddressCountry">
+  <label class="govuk-label govuk-body" for="gp1AddressCountry">
     Country
   </label>
 
-  <select class="govuk-select" id="gp1DifferentCorrespondencAddressCountry" name="gp1DifferentCorrespondencAddressCountry">
+  <select class="govuk-select" id="gp1CorrespondencAddressCountry" name="gp1CorrespondencAddressCountry">
   
     
       <option value="">Select a country</option>

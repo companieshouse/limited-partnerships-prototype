@@ -27,6 +27,22 @@
 
 
 
+
+{% if from == "change" %}
+    {% set gp1DifferentPrincipalOfficeAddressNameNumber = "1" %}
+    {% set gp1DifferentPrincipalOfficeAddressLine1 = "Squirrel Avenue" %}
+    {% set gp1DifferentPrincipalOfficeAddressTown = "Leeds" %}
+    {% set gp1DifferentPrincipalOfficeAddressPostcode = "LS1 2AB" %}
+{% else %}
+    {% set gp1DifferentPrincipalOfficeAddressNameNumber = "" %}
+    {% set gp1DifferentPrincipalOfficeAddressLine1 = "" %}
+    {% set gp1DifferentPrincipalOfficeAddressTown = "" %}
+    {% set gp1DifferentPrincipalOfficeAddressPostcode = "" %}
+{% endif %}
+
+
+
+
 {% call govukFieldset({
   legend: {
     text: "What is the general partner's correspondence address?",
@@ -45,7 +61,8 @@
     text: "For example, 'The Mill', '116' or 'Flat 37a'"
   },
     id: "gp1DifferentPrincipalOfficeAddressNameNumber",
-    name: "gp1DifferentPrincipalOfficeAddressNameNumber"
+    name: "gp1DifferentPrincipalOfficeAddressNameNumber",
+    value: gp1DifferentPrincipalOfficeAddressNameNumber
   }) }}
 
   {{ govukInput({
@@ -54,7 +71,8 @@
     },
     id: "gp1DifferentPrincipalOfficeAddressLine1",
     name: "gp1DifferentPrincipalOfficeAddressLine1",
-    autocomplete: "address-line1"
+    autocomplete: "address-line1",
+    value: gp1DifferentPrincipalOfficeAddressLine1
   }) }}
 
   {{ govukInput({
@@ -73,6 +91,7 @@
     classes: "govuk-!-width-two-thirds",
     id: "gp1DifferentPrincipalOfficeAddressTown",
     name: "gp1DifferentPrincipalOfficeAddressTown",
+    value: gp1DifferentPrincipalOfficeAddressTown,
     autocomplete: "address-level2"
   }) }}
 
@@ -92,6 +111,7 @@
     classes: "govuk-input--width-10",
     id: "gp1DifferentPrincipalOfficeAddressPostcode",
     name: "gp1DifferentPrincipalOfficeAddressPostcode",
+    value: gp1DifferentPrincipalOfficeAddressPostcode,
     autocomplete: "postal-code"
   }) }}
   

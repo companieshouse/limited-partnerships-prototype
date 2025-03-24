@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="What is the limited partner's correspondence address?" %}
+{% set pageName="What is the general partner's correspondence address?" %}
 
 
 {% block header %}
@@ -20,17 +20,17 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-<form class="form" action="/gp-legal-entity-ca-postcode-look-up" method="post">
+<form class="form" action="/gp-person-ca-postcode-look-up" method="post">
    
 
-  <span class="govuk-caption-l uppercase"> {{ data['lp1EntityName'] or "ENCOM LTD" }} </span>
-<h1 class="govuk-heading-xl">What is the limited partner's correspondence address?</h1>
+  <span class="govuk-caption-l"> {{ data['gp1FirstName'] or "Georgina" }} {{ data['gp1LastName'] or "Smith" }}</span>
+<h1 class="govuk-heading-xl">What is the general partner's correspondence address?</h1>
 
 
 
 <fieldset class="govuk-fieldset">
   <legend class="govuk-visually-hidden">
-     What is the limited partner's correspondence address?
+     What is the general partner's correspondence address?
   </legend>
   <p class="govuk-hint">This is also known as the service address.</p>
 
@@ -53,7 +53,7 @@
   text: "Find address"
 }) }}
 
-  <p><a href="gp-legal-entity-poa-manual">Enter address manually</a><p>
+  <p><a href="gp-person-ca-manual">Enter address manually</a><p>
 
 </fieldset>
 
@@ -61,7 +61,7 @@
 
 {{ govukInsetText({
   html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
-        <p>We'll show the limited partner's correspondence address on the public register.</p>"
+        <p>We'll show the general partner's correspondence address on the public register.</p>"
 }) }}
       <!--
 {{ govukButton({

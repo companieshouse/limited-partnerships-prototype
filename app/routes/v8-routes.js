@@ -429,6 +429,7 @@ router.post('/gp-legal-entity-poa-postcode-look-up', function(request, response)
 })
 
 // General partner - person //
+// URA //
 
 
 router.post('/gp-person-ura-where', function(request, response) {
@@ -451,6 +452,30 @@ router.post('/gp-person-ura-postcode-look-up', function(request, response) {
 
   router.post('/gp-person-ura-choose-address', function(request, response) {
     response.redirect('/v8/address-pages/gp-person-ura/gp-person-ura-confirm-address')
+})
+
+// General partner - person //
+// URA //
+router.post('/gp-person-ca-where', function(request, response) {
+
+    var gpPersonCAWhere = request.session.data['gpPersonCAWhere']
+    if (gpPersonCAWhere == "gpPersonCAUK"){
+        response.redirect("/v8/address-pages/gp-person-ca/gp-person-ca-postcode-look-up")
+    }
+    else {
+        response.redirect("/v8/address-pages/gp-person-ca/gp-person-ca-manual")
+    }
+  })
+
+
+
+router.post('/gp-person-ca-postcode-look-up', function(request, response) {
+    response.redirect('/v8/address-pages/gp-person-ca/gp-person-ca-choose-address')
+})
+
+
+  router.post('/gp-person-ca-choose-address', function(request, response) {
+    response.redirect('/v8/address-pages/gp-person-ca/gp-person-ca-confirm-address')
 })
 
 

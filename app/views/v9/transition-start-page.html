@@ -1,0 +1,110 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Start" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="sign-in" method="post">
+
+      <h1 class="govuk-heading-xl">
+        Provide information about a limited partnership to meet new requirements
+      </h1>
+
+     <p>Use this service to provide more information about a limited partnership to confirm it is still active, and to meet new requirements. </p>
+     <p>All limited partnerships that were registered between XX DATE and XX DATE must do this. This is due to measures introduced by the Economic Crime and Corporate Transparency (ECCT) Act. </p> 
+     
+     <p>The transitional period to allow existing partnerships to meet the new requirements will end on XX DATE. If a limited partnership does not provide an update by this date, we will dissolve it and remove it from the register.    
+     </p>
+
+
+
+
+      <h2 class="govuk-heading-m">Who can use this service</h2>
+
+    <p> The update must be filed by an an Authorised Corporate Service Provider (ACSP). This is also known as a Companies House authorised agent.</p> 
+
+  <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What a Companies House authorised agent is and how to find one 
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>Authorised agents are businesses that are registered with a UK Anti-Money Laundering (AML) supervisory body. For example, accountants, solicitors or company formation agents. </p>
+    
+    <p>They must <a href="JAVASCRIPT:VOID(0)">register as an authorised agent with Companies House</a> to be able to file on behalf of clients.</p>
+
+    <p>To find an authorised agent, you should contact agents to check:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>if they are registered as an authorised agent with Companies House - this is also known as an Authorised Corporate Service Provider (ACSP)</li>
+                  <li>if they can offer the services you need</li>
+                  <li>how much they charge for their services</li>
+                </ul>
+
+  </div>
+</details>
+
+
+
+      <h2 class="govuk-heading-m">What you'll need</h2>
+
+
+ <p>You'll need to provide:</p>
+   <ul class="govuk-list govuk-list--bullet">
+            <li>the limited partnership number</li>
+            <li>a registered email address</li>
+            <li>a registered office address - this must be in the jurisdiction where the partnership was formed</li>
+            <li>information about all general and limited partners</li>
+          </ul>
+
+
+
+<!--
+  <p><a href="JAVASCRIPT:VOID(0)">Read the transition update guidance</a> to check you have everything you need before you start.</p>
+-->
+
+  <p>You'll need to sign in to use this service.</p>
+  <p>You can save your answers and resume your application later if you need to.</p>
+         
+
+
+
+   <!--   <p>Registering takes around 5 minutes.</p> -->
+
+      {{ govukButton({
+        text: "Start now",
+        isStartButton: true
+      }) }}
+
+
+
+
+
+      <h2 class="govuk-heading-m">Adapt your device to meet your needs</h2>
+
+      <p class="govuk-body "><a href="https://mcmw.abilitynet.org.uk/" class="govuk-link">Read advice from AbilityNet on how to make your device easier to use</a>. For example, learn how to change the background colour or text size.</p>
+
+
+
+
+
+
+</form>
+
+    </div>
+
+   
+  </div>
+
+{% endblock %}

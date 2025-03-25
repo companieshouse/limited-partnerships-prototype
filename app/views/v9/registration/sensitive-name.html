@@ -1,0 +1,129 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="The limited partnership name you've chosen contains words you need permission to use" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/sensitive-name" method="post">
+
+        <h1 class="govuk-heading-xl">The limited partnership name you've chosen contains words you need permission to use</h1>
+       
+
+
+<p class="govuk-body">Some words like 'king' and 'dental', for example, are sensitive words. You may be unable to use them in a limited partnership name unless you have permission.</p>
+
+{{ govukInsetText({
+  html: 'Check the <a href="https://www.gov.uk/government/publications/incorporation-and-names" class="govuk-link" rel="noreferrer noopener" target="_blank">guidance on incorporation and names (opens in new tab)</a> for help with sensitive words and how to get permission to use them.'
+}) }}
+
+
+<p class="govuk-body">If the sensitive word appears as part of another word, for example 'king' in 'walking', you may still be able to use it.</p>
+
+<p class="govuk-body">If it's not part of another word and you submit this application without changing the name or providing evidence, it could be rejected.</p>
+
+
+
+
+       {{ govukTable({
+  caption: "The limited partnership name you've chosen contains words you need permission to use",
+  captionClasses: "govuk-visually-hidden",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: ""
+    },
+    {
+      text: ""
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Proposed limited partnership name"
+      },
+      {
+        text: "MY BANK LIMITED PARTNERSHIP"
+      }
+    ],
+    [
+      {
+        text: "Words that could be rejected"
+      },
+      {
+        html: '<ul class="govuk-list govuk-list--bullet">
+                <li>BANK</li>
+              </ul>'
+      }
+    ]
+  ]
+}) }}
+
+
+
+{% set evidenceHtml %}
+{{ govukFileUpload({
+  id: "file-upload-1",
+  name: "fileUpload1",
+  label: {
+    text: "Upload a PDF that provides evidence that you're able to use this name. File must be smaller than 10MB."
+  }
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  name: "sensitiveNameEvidence",
+  fieldset: {
+    legend: {
+      text: "Can you provide evidence that you're legally allowed to use this name?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "no-change",
+      text: "No - I'd like to change the limited partnership name"
+    },
+    {
+      value: "no-continue",
+      text: "No - let me continue to register using this name without providing evidence, I understand it may get rejected"
+    },
+    {
+      value: "yes-evidence",
+      text: "Yes - let me provide evidence that I can use this name",
+       conditional: {
+        html: evidenceHtml
+      }
+    }
+  ]
+}) }}
+
+    {{ govukButton({
+  text: "Save and continue"
+}) }}  
+
+
+
+</form>
+    </div>
+  </div>
+
+
+{% endblock %}

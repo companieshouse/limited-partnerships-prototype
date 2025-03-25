@@ -1,0 +1,611 @@
+wf{% extends "layouts/main.html" %}
+
+{% set pageName="File an update to your limited partnership" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "/includes/phase-banner.html" %}
+{% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+
+
+
+
+<!-- Banner HTML (initially hidden) -->
+<div id="notification-banner-container" style="display: none;">
+  {{ govukNotificationBanner({
+    text: "It may take a while for changes to show CONTENT TBD",
+    id: "pending-changes"
+  }) }}
+</div>
+
+<!-- NOT SUITABLE FOR PRODUCTION SITES
+JavaScript to check the referrer and display the banner - banner should only be shown when the user returns to the page after making a change - at present all change journey end pages are within /manage -->
+<script>
+  // Check if the referer (previous URL) contains "/manage/"
+  if (document.referrer.includes('/manage/')) {
+    // Show the banner if the referer is from /manage/
+    document.getElementById('notification-banner-container').style.display = 'block';
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+   <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">ACME LIMITED PARTNERSHIP </h1>
+      <p class="govuk-body govuk-!-margin-bottom-9">Limited partnership number <strong>LP123456</strong></p>
+
+
+
+
+
+
+
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#overview">
+       Overview
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#general-partners">
+        General partners
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#limited-partners">
+        Limited partners
+      </a>
+    </li>
+    <!--<li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#pscs">
+       PSCs
+      </a>
+    </li>-->
+  </ul>
+
+
+
+  
+  <div class="govuk-tabs__panel" id="overview">
+     {{ govukSummaryList({
+      rows: [
+             {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "ACME LIMITED PARTNERSHIP"
+            },
+            actions: {
+              items: [
+                {
+                  href: "../registration/lp-name",
+                  text: "Change",
+                  classes: "govuk-link--no-visited-state",
+                  visuallyHiddenText: "Limited partnership name"
+                }
+              ]
+            }
+          },
+                   {
+            key: {
+              text: "Type"
+            },
+            value: {
+              text: "Limited partnership"
+            },
+            actions: {
+              items: [
+                {
+                  href: "change-type",
+                  text: "Change",
+                  classes: "govuk-link--no-visited-state",
+                  visuallyHiddenText: "Limited partnership type"
+                }
+              ]
+            }
+          },
+           {
+            key: {
+              text: "Confirmation statement"
+            },
+            value: {
+              text: "First statement date 1 February 2025  due by 15 February 2025"
+            },
+            actions: {
+              items: [
+                {
+                  href: "file-confirmation-statement",
+                  text: "File",
+                  classes: "govuk-link--no-visited-state",
+                  visuallyHiddenText: "Confirmation statement"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Registered email address"
+            },
+            value: {
+              text: "contact@acmelimitedpartnership.co.uk"
+            },
+            actions: {
+              items: [
+                {
+                  href: "change-rea",
+                  text: "Change",
+                  classes: "govuk-link--no-visited-state",
+                  visuallyHiddenText: "registered email address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Registered office address"
+            },
+            value: {
+              text: "64 Zoo Lane, 
+              London, W5 500"
+            },
+            actions: {
+              items: [
+                {
+                href: "javascript:void(0)",
+                  text: "Change",
+                  classes: "govuk-link--no-visited-state",
+                  visuallyHiddenText: "registered office address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Principal place of business"
+            },
+            value: {
+              text: "1 Apple Street, Cardiff, CF12 3AB"
+            },
+            actions: {
+              items: [
+                {
+                href: "javascript:void(0)",
+                  text: "Change",
+                  classes: "govuk-link--no-visited-state",
+                  visuallyHiddenText: "principal place of business"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Term of partnership"
+            },
+            value: {
+              text: "No set term"
+            },
+            actions: {
+              items: [
+                {
+                href: "../limited-partnership-terms",
+                  text: "Change",
+                  classes: "govuk-link--no-visited-state",
+                  visuallyHiddenText: "term of partnership"
+                }
+              ]
+            }
+          },         
+          {
+            key: {
+              text: "Standard Industrial Classification (SIC) code"
+            },
+            value: {
+              html: '<ul class="govuk-list govuk-list--bullet">
+                <li>64205 - Activities of financial services holding companies</li>
+                <li>64910 - Financial leasing</li>
+                <li>64922 - Activities of mortgage finance companies</li>
+              </ul>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "change-sic",
+                  text: "Change",
+                  classes: "govuk-link--no-visited-state",
+                  visuallyHiddenText: "Standard Industrial Classification code"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+{{ govukButton({
+  text: "Close this limited partnership",
+  classes: "govuk-button--warning"
+}) }}
+
+  </div>
+
+
+
+
+
+
+
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="general-partners">
+
+
+
+
+
+{{ govukTable({
+  caption: "General partners (persons)",
+  captionClasses: "govuk-table__caption--m",
+  head: [
+    {
+      text: "Name"
+    },
+    {
+      text: "Date of birth"
+    },
+    {
+      html: ' <span class="govuk-visually-hidden">Change</span>'
+    },
+    {
+      html: ' <span class="govuk-visually-hidden">Remove</span>'
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Georgina Smith"
+      },
+      {
+        text: "21 August 1989"
+      },
+      {
+        html: '<a href="../gp-person?from=general-partners-change" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Georgina Smith</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Georgina Smith</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Alan Smith"
+      },
+      {
+        text: "1 March 2002"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Alan Smith</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Alan Smith</span></a>'
+      }
+    ]
+  ]
+}) }}
+
+
+
+
+
+
+{{ govukTable({
+  caption: "General partners (legal entities)",
+  captionClasses: "govuk-table__caption--m",
+  head: [
+    {
+      text: "Name"
+    },
+    {
+      text: "Country of registration"
+    },
+    {
+      html: ' <span class="govuk-visually-hidden">Change</span>'
+    },
+    {
+      html: ' <span class="govuk-visually-hidden">Remove</span>'
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "	ABC Company Ltd"
+      },
+      {
+        text: "United Kingdom"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">	ABC Company Ltd</span></a>'
+      },
+      {
+        html: '<a href="/v9/remove/remove-general-partner" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">	ABC Company Ltd</span></a>'
+      }
+    ]
+  ]
+}) }}
+
+<p class="govuk-body govuk-!-margin-bottom-8">
+  <a href="/v9/general-partner-choice" class="govuk-link govuk-link--no-visited-state">Add a new general partner</a>
+</p>
+
+
+
+  </div>
+
+
+
+
+
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="limited-partners">
+  
+  
+
+
+{{ govukTable({
+  caption: "Limited partners (persons)",
+  captionClasses: "govuk-table__caption--m",
+  head: [
+    {
+      text: "Name"
+    },
+    {
+      text: "Date of birth"
+    },
+    {
+      html: ' <span class="govuk-visually-hidden">Change</span>'
+    },
+    {
+      html: ' <span class="govuk-visually-hidden">Remove</span>'
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Simon Richardson"
+      },
+      {
+        text: "22 January 1980"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Simon Richardson</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Simon Richardson</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Emily Johnson"
+      },
+      {
+        text: "15 July 1992"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Emily Johnson</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Emily Johnson</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Ahmed Khan"
+      },
+      {
+        text: "30 October 1978"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Ahmed Khan</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Ahmed Khan</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Olivia Marie Davis"
+      },
+      {
+        text: "5 May 2005"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Olivia Marie Davis</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Olivia Marie Davis</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Arjun Patel"
+      },
+      {
+        text: "18 December 1969"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Arjun Patel</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Arjun Patel</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Sophia Wilson"
+      },
+      {
+        text: "9 September 1990"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Sophia Wilson</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Sophia Wilson</span></a>'
+      }
+    ]
+  ]
+}) }}
+
+
+
+
+
+
+{{ govukTable({
+  caption: "Limited partners (legal entities)",
+  captionClasses: "govuk-table__caption--m",
+  head: [
+    {
+      text: "Name"
+    },
+    {
+      text: "Country of registration"
+    },
+    {
+      html: ' <span class="govuk-visually-hidden">Change</span>'
+    },
+    {
+      html: ' <span class="govuk-visually-hidden">Remove</span>'
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "ACME Legal Entity Inc"
+      },
+      {
+        text: "United Kingdom"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">ACME Legal Entity Inc</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">ACME Legal Entity Inc</span></a>'
+      }
+    ],
+    [
+      {
+        text: "GlobalTech"
+      },
+      {
+        text: "United States"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">GlobalTech</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">GlobalTech</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Sunrise Solutions Limited"
+      },
+      {
+        text: "Ireland"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Sunrise Solutions Limited</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Sunrise Solutions Limited</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Vertex Innovations PLC"
+      },
+      {
+        text: "United Kingdom"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Vertex Innovations PLC</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Vertex Innovations PLC</span></a>'
+      }
+    ]
+  ]
+}) }}
+
+<p class="govuk-body govuk-!-margin-bottom-8">
+  <a href="javascript:void(0)" class="govuk-link govuk-link--no-visited-state">Add a new limited partner</a>
+</p>
+  
+  
+  
+  </div>
+
+
+
+
+
+
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="pscs">
+    To be added
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

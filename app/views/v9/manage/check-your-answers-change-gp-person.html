@@ -1,0 +1,154 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+     <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+
+  {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+            text: (data['gp1FirstName'] or "Georgina") + " " + (data['gp1LastName'] or "Smith")
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Previous name"
+            },
+            value: {
+              text: "Georgina Silver"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Silver previous name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "21 August 1989"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith date of birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Nationality"
+            },
+            value: {
+            text: "British"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith nationality"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Usual residential address"
+            },
+            value: {
+              text: "13 Luck Lane, Bristol, BS1 8LY, United Kingdom"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith usual residential address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Correspondence address"
+            },
+            value: {
+              text: (data['gp1CorrespondenceAddressNameNumber']) + " " 
+              + (data['gp1CorrespondenceAddressLine1'])  + " " 
+              + (data['gp1CorrespondenceAddressLine2'])  + " " 
+              + (data['gp1CorrespondenceAddressTown'])  + " " 
+              + (data['gp1CorrespondenceAddressCounty'])  + " " 
+              + (data['gp1CorrespondenceAddressPostcode'])  + " " 
+              + (data['gp1CorrespondenceAddressCountry']) 
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith correspondence address"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+   
+  
+
+
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "confirmation-change-gp-person"
+        }) }}
+
+
+
+    </div>
+  </div>
+{% endblock %}

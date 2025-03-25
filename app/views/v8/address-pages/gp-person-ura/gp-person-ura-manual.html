@@ -96,7 +96,8 @@
     id: "gp1PersonUsualResidentialAddressCounty",
     name: "gp1PersonUsualResidentialAddressCounty"
   }) }}
-
+{% if from == "change" or from == "chooseORentermanual" %}
+<!-- only make the postcode mandatory if they've come from the post-code look-up pages which come AFTER they have said the address is a UK address-->
   {{ govukInput({
     label: {
       text: "Postcode"
@@ -107,7 +108,18 @@
     value: gp1PersonUsualResidentialAddressPostcode,
     autocomplete: "postal-code"
   }) }}
-  
+    {% else %}
+  {{ govukInput({
+    label: {
+      text: "Postcode (optional)"
+    },
+    classes: "govuk-input--width-10",
+    id: "gp1PersonUsualResidentialAddressPostcode",
+    name: "gp1PersonUsualResidentialAddressPostcode",
+    value: gp1PersonUsualResidentialAddressPostcode,
+    autocomplete: "postal-code"
+  }) }}
+  {% endif %}
   <div class="govuk-form-group govuk-!-margin-top-6">
   <label class="govuk-label govuk-body" for="gp1DifferentAddressCountry">
     Country

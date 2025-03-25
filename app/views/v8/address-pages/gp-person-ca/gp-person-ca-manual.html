@@ -104,6 +104,9 @@
     name: "gp1DifferentPrincipalOfficeAddressCounty"
   }) }}
 
+{% if from == "change" or from == "chooseORentermanual" %}
+<!-- only make the postcode mandatory if they've come from the post-code look-up pages which come AFTER they have said the address is a UK address-->
+
   {{ govukInput({
     label: {
       text: "Postcode"
@@ -114,7 +117,18 @@
     value: gp1DifferentPrincipalOfficeAddressPostcode,
     autocomplete: "postal-code"
   }) }}
-  
+    {% else %}
+  {{ govukInput({
+    label: {
+      text: "Postcode (optional)"
+    },
+    classes: "govuk-input--width-10",
+    id: "gp1DifferentPrincipalOfficeAddressPostcode",
+    name: "gp1DifferentPrincipalOfficeAddressPostcode",
+    value: gp1DifferentPrincipalOfficeAddressPostcode,
+    autocomplete: "postal-code"
+  }) }}
+  {% endif %}
   <div class="govuk-form-group govuk-!-margin-top-6">
   <label class="govuk-label govuk-body" for="gp1DifferentAddressCountry">
     Country

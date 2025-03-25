@@ -124,7 +124,8 @@
   
     
       <option value="">Select a country</option>
-    
+    {% if from == "change" or from == "chooseORentermanual" %}
+
   
             <option value="United Kingdom">United Kingdom</option>
 
@@ -1134,7 +1135,8 @@
     
       <option value="Zimbabwe">Zimbabwe</option>
     
-  
+      {% endif %}
+
   </select>
   </div>
 

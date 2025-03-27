@@ -25,15 +25,17 @@
 
           <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})</span>
         <h1 class="govuk-heading-xl">
-          Check before you file  <!-- if changing this, update pageName above-->
+          Before you file a confirmation statement  <!-- if changing this, update pageName above-->
         </h1>
 
-        <p>Before you file a confirmation statement, you must check that the information Companies House has about this limited partnership is correct. If you have not done this yet, <a href="limited-partnership-overview-tabs-wf" class="govuk-link govuk-link--no-visited-state">go back and make any changes needed.</a></p> <!--link to go back here?-->
+        <p>You must check that all the information Companies House holds for this limited partnership is correct, and <a href="limited-partnership-overview-tabs-wf" class="govuk-link govuk-link--no-visited-state">update any information that has changed</a>. 
 
         <div class="govuk-inset-text">
-          Any changes you’ve made might not show up straight away. If this happens, you can tell us in the confirmation statement that changes have been submitted and are pending.
+          If you submit updates to limited partnership information, these may not show in the service immediately. As long as the updates have been submitted, you can still file a confirmation statement.
         </div>
-        <p>SIC codes can be changed within the confirmation statement.</p>
+
+        <p>The only information you can update within the confirmation statement is the SIC codes.</p> <!--link to go back here?-->
+
 
             <!--{{ govukWarningText({
               text: "The only change you can make in the confirmation statement is to Standard Industrial Classification (SIC) codes",
@@ -57,7 +59,7 @@
   items: [
     {
       value: "checked",
-      text: "I've checked the information and submitted any changes needed"
+      text: "I have checked the limited partnership's information and submitted any updates"
     }
   ]
 }) }}

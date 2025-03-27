@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Check the SIC codes" %}
+
+{% set serviceName %}
+  {% include "/includes/confirmation-statement-service-name.html" %}
+{% endset%}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/check-sic" method="post">
+
+ <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})</span>
+ <h1 class="govuk-heading-xl">Check the SIC codes</h1><!-- If changing the H1 be sure to also change the page title, see set PageName above-->
+
+{{ govukDetails({
+  summaryText: "What is a SIC code?",
+  text: "The SIC (Standard Industrial Classification) code indicates the nature of the partnership's business. A partnership can have up to 4 SIC codes."
+}) }}
+
+
+<p class="govuk-body">Our records show these SIC codes for the limited partnership:</p>
+<ul class="govuk-list govuk-!-margin-bottom-9">
+  <li><span class="govuk-!-font-weight-bold">64205</span> - Activities of financial services holding companies
+</li>
+  <li><span class="govuk-!-font-weight-bold">64910</span> - Financial leasing
+</li>
+  <li><span class="govuk-!-font-weight-bold">64922</span> - Activities of mortgage finance companies
+</li>
+</ul>
+
+
+{{ govukRadios({
+  classes: "govuk-radios",
+  name: "checkSIC",
+  fieldset: {
+    legend: {
+      text: "Are the SIC codes correct?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+    {{ govukButton({
+  text: "Save and continue"
+}) }}  
+
+
+
+</form>
+    </div>
+  </div>
+{% endblock %}

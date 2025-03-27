@@ -7,20 +7,20 @@
 
   {{ govukServiceNavigation({
   serviceName: "Register a limited partnership",
-  serviceUrl: "/v8/registration/registration-start-page"
+  serviceUrl: "/v9/registration/registration-start-page"
   }) }}
 
 {% elif (data['registrationOrTransition'] == "transition") %}
 
   {{ govukServiceNavigation({
   serviceName: "Provide information about a limited partnership to meet new requirements",
-  serviceUrl: "/v8/transition-start-page"
+  serviceUrl: "/v9/transition-start-page"
   }) }}
 
 {% elif (data['registrationOrTransition'] == "post") %}
   {{ govukServiceNavigation({
   serviceName: "File for a limited partnership",
-  serviceUrl: "/v8/post-transition-start-page"
+  serviceUrl: "/v9/post-transition-start-page"
   }) }}
 
 {% else %}  

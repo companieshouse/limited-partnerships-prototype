@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Submit the confirmation statement" %}
+
+{% set serviceName %}
+  {% include "/includes/confirmation-statement-service-name.html" %}
+{% endset%}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="payment-review" method="post">
+
+
+ <h1 class="govuk-heading-xl">Submit the confirmation statement</h1><!-- If changing the H1 be sure to also change the page title, see set PageName above-->
+
+
+<p class="govuk-body govuk-!-margin-bottom-6">
+Limited partnership name: <span class="govuk-!-font-weight-bold">ACME LIMITED PARTNERSHIP</span><br>
+Limited partnership number: <span class="govuk-!-font-weight-bold">{{ data['lpNumber'] or "LP123456" }}</span><br>
+Confirmation statement date: <span class="govuk-!-font-weight-bold">31 May 2025</span>
+</p>
+
+
+
+{{ govukCheckboxes({
+  name: "submitConfirmationStatement",
+  fieldset: {
+    legend: {
+      text: "Submit the confirmation statement - you must agree to these statements",
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "I confirm that all information required to be delivered by the limited partnership pursuant to section 853A(1)(a) of the Companies Act 2006 in relation to the confirmation period ending 31 May 2025 either has been delivered or is being delivered with this statement.",
+      html: 'I confirm that all information required to be delivered by the limited partnership pursuant to <a href="https://www.legislation.gov.uk/ukpga/2006/46/section/853A" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">section 853A(1)(a) of the Companies Act 2006 (opens in new tab)</a> in relation to the confirmation period ending <span class="govuk-!-font-weight-bold">31 May 2025</span> either has been delivered or is being delivered with this statement.'
+    },
+    {
+      value: "I confirm that the intended future activities of the limited partnership are lawful.",
+      text: "I confirm that the intended future activities of the limited partnership are lawful."
+    }
+  ]
+}) }}
+
+
+<p class="govuk-body">You will need to pay a fee of <span class="govuk-!-font-weight-bold">£X</span> to submit your confirmation statement.</p>
+
+{{ govukButton({
+  text: "Confirm and pay"
+}) }}  
+
+
+
+</form>
+    </div>
+  </div>
+{% endblock %}

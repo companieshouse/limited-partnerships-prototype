@@ -568,8 +568,21 @@ router.post('/lp-person-ura-postcode-look-up', function(request, response) {
     response.redirect('/v9/address-pages/lp-person-ura/lp-person-ura-confirm-address')
 })
 
+////////////////////////////////
+// Confirmation statement //
 
 
+// Check SIC
 
+router.post('/check-sic', function(request, response) {
+
+    var checkSIC = request.session.data['checkSIC']
+    if (checkSIC == "no"){
+        response.redirect("/v9/limited-partnership-sic")
+    }
+    else {
+        response.redirect("/v9/confirmation-statement/submit-confirmation-statement")
+    }
+  })
 
 module.exports=router;

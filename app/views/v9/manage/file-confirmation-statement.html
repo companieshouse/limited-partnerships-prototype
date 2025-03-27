@@ -4,7 +4,9 @@
 
 
 
-
+{% set serviceName %}
+  {% include "/includes/confirmation-statement-service-name.html" %}
+{% endset%}
 
 
 
@@ -19,7 +21,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="javascript:void(0)" method="post" class="form">
+      <form action="../confirmation-statement/confirmation-statement-date" method="post" class="form">
 
           <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})</span>
         <h1 class="govuk-heading-xl">

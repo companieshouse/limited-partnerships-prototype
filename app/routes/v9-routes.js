@@ -369,9 +369,14 @@ router.post('/limited-partnership-terms', function(request, response) {
 
 /// SIC codes
 
-//Registered office address (manual)
 router.post('/limited-partnership-sic', function(request, response) {
-    response.redirect('/v9/general-partner-section')
+    var checkSIC = request.session.data['checkSIC']
+
+    if (checkSIC === "no") {
+        response.redirect('/v9/confirmation-statement/submit-confirmation-statement')
+    } else {
+        response.redirect('/v9/general-partner-section')
+    }
 })
 
 //PSC - Scottish entities only

@@ -29,6 +29,18 @@
 {% endif %}      
       
 
+
+
+{% if (data['checkSIC'] == "no") %}
+    {% set sic1 = "64205" %}
+    {% set sic2 = "64910" %}
+    {% set sic3 = "64922" %}
+{% else %}
+    {% set sic1 = "" %}
+    {% set sic2 = "" %}
+    {% set sic3 = "" %}
+{% endif %}
+
 {% call govukFieldset({
   legend: {
     text: "What is the Standard Industrial Classification (SIC) code?",
@@ -52,7 +64,8 @@
   name: "sic1",
   inputmode: "numeric",
   type: "text",
-  spellcheck: false
+  spellcheck: false,
+  value: sic1
 }) }}
 
 <p class="govuk-body">Enter up to 3 additional SIC codes (optional):</p>
@@ -69,7 +82,8 @@
   name: "sic2",
   inputmode: "numeric",
   type: "text",
-  spellcheck: false
+  spellcheck: false,
+  value: sic2
 }) }}
 
 {{ govukInput({
@@ -83,7 +97,8 @@
   name: "sic3",
   inputmode: "numeric",
   type: "text",
-  spellcheck: false
+  spellcheck: false,
+  value: sic3
 }) }}
 
 {{ govukInput({

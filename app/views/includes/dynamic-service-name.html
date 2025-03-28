@@ -23,6 +23,13 @@
   serviceUrl: "/v9/post-transition-start-page"
   }) }}
 
+<!-- the Check SIC page in the Confirmation Statement journey-->
+  {% elif (data['checkSIC'] == "no") %}
+  {{ govukServiceNavigation({
+  serviceName: "File a limited partnership confirmation statement",
+  serviceUrl: "/v9/post-transition-start-page"
+  }) }}
+
 {% else %}  
 
   {{ govukServiceNavigation({

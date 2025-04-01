@@ -20,7 +20,20 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+{% if (data['registrationOrTransition'] == "post") %}
+      <form class="form" action="../../manage/check-your-answers-change-gp-person" method="post">
+
+{% else %}  
 <form class="form" action="../../gp-add-another" method="post">
+
+{% endif %}
+
+
+
+
+
+
      <input type="hidden" name="from" value="{{ from }}">
 
 

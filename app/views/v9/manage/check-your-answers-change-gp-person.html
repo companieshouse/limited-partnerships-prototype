@@ -82,7 +82,7 @@
               text: "Nationality"
             },
             value: {
-            text: "British"
+              text: data['gp1Nationality1'] or "British"
             },
             actions: {
               items: [
@@ -99,7 +99,7 @@
               text: "Usual residential address"
             },
             value: {
-              text: "13 Luck Lane, Bristol, BS1 8LY, United Kingdom"
+              text: "1 Blue Road, Manchester, M12 3AB"
             },
             actions: {
               items: [
@@ -116,13 +116,7 @@
               text: "Correspondence address"
             },
             value: {
-              text: (data['gp1CorrespondenceAddressNameNumber']) + " " 
-              + (data['gp1CorrespondenceAddressLine1'])  + " " 
-              + (data['gp1CorrespondenceAddressLine2'])  + " " 
-              + (data['gp1CorrespondenceAddressTown'])  + " " 
-              + (data['gp1CorrespondenceAddressCounty'])  + " " 
-              + (data['gp1CorrespondenceAddressPostcode'])  + " " 
-              + (data['gp1CorrespondenceAddressCountry']) 
+              text: "1 Squirrel Avenue, Leeds, LS1 2AB"
             },
             actions: {
               items: [

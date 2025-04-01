@@ -381,6 +381,18 @@ router.post('/limited-partnership-sic', function(request, response) {
 
 //PSC - Scottish entities only
 
+
+
+router.post('/psc-statement', function(request, response) {
+    var pscStatement = request.session.data['pscStatement']
+
+    if (pscStatement && pscStatement.includes("There is no person identified as a person with significant control")) {
+        response.redirect('/v9/check-your-answers')
+    } else {
+        response.redirect('/v9/pscs/psc-choice')
+    }
+})
+
 router.post('/psc-choice', function(request, response) {
 
     var psc = request.session.data['psc']

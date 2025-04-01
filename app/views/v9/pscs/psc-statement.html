@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Title" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/psc-statement" method="post">
+
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}
+
+
+<!-- CONTENT - when updating the Title here, be sure to also update pageName on line 3-->
+{{ govukRadios({
+  name: "pscStatement",
+  fieldset: {
+    legend: {
+      text: "Title",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "On registration, there will be a person who will count as a person with
+significant control (either a registrable person or registrable RLE) in
+relation to the limited partnerships",
+      text: "On registration, there will be a person who will count as a person with
+significant control (either a registrable person or registrable RLE) in
+relation to the limited partnership"
+    },
+    {
+      value: "There is no person identified as a person with significant control (either a
+registrable person or RLE) in relation to the limited partnership",
+      text: "There is no person identified as a person with significant control (either a
+registrable person or RLE) in relation to the limited partnership"
+    }
+  ]
+}) }}
+      
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

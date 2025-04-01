@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Termination of a general partner" %}
+{% set pageName="Termination of a limited partner" %}
 
 {% block header %}
    {% include "/includes/dynamic-service-name.html" %}
@@ -20,23 +20,23 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="../manage/check-your-answers-remove-gp" method="post">
+      <form class="form" action="../manage/check-your-answers-remove-lp" method="post">
 
 
   <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
 
-      <h1 class="govuk-heading-xl">Termination of a general partner</h1>
+      <h1 class="govuk-heading-xl">Termination of a limited partner</h1>
 
 
 
-  <span class="govuk-caption-l">ABC Company Ltd</span>
+  <span class="govuk-caption-l">GlobalTech</span>
 
 {{ govukDateInput({
-  id: "gp-terminated-date",
-  namePrefix: "gp-terminated-date",
+  id: "lp-terminated-date",
+  namePrefix: "lp-terminated-date",
   fieldset: {
     legend: {
-      text: "When was the general partner's appointment terminated?",
+      text: "When was the limited partner's appointment terminated?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
@@ -48,10 +48,10 @@
 
 
 {{ govukCheckboxes({
-  name: "terminate-gp-1",
+  name: "terminate-lp-1",
   fieldset: {
     legend: {
-      text: "I confirm that I want to terminate ABC Company Ltd as a general partner",
+      text: "I confirm that I want to terminate GlobalTech as a limited partner",
       isPageHeading: true,
       classes: "govuk-visually-hidden"
     }
@@ -60,7 +60,7 @@
   items: [
     {
       value: "terminate-ABC-Company-Ltd",
-      text: "I confirm that I want to terminate ABC Company Ltd as a general partner"
+      text: "I confirm that I want to terminate ABC Company Ltd as a limited partner"
     }
   ]
 }) }}

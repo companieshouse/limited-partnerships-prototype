@@ -1,0 +1,85 @@
+{% extends "layouts/main.html" %}
+ 
+{% set pageName="Add a person with significant control (PSC) (ORP)" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+    {% include "/includes/phase-banner.html" %}
+{% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="address-pages/gp-legal-entity-poa/gp-legal-entity-poa-where" method="post">
+
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}
+
+<h1 class="govuk-heading-xl">Add a person with significant control (PSC) (ORP)</h1>
+
+{{ govukInput({
+  label: {
+    text: "What is the ORP's name?",
+    classes: "govuk-label--m",
+    isPageHeading: true
+  },
+  id: "pscORP1EntityName",
+  name: "pscORP1EntityName"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "What is its legal form or corporate identity?",
+    classes: "govuk-label--m"
+  },
+  hint: {
+    text: "This is the corporate body type. For example, private limited company."
+  },
+  id: "pscORP1LegalForm",
+  name: "pscORP1LegalForm"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "What is the governing law?",
+    classes: "govuk-label--m"
+  },
+  hint: {
+    text: "This is the law that the entity operates under. For example, the Companies Act 2006."
+  },
+  id: "pscORP1GoverningLaw",
+  name: "pscORP1GoverningLaw"
+}) }}
+
+ {{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+                <p>*** TO BE CONFIRMED ***</p>"
+        }) }}
+
+
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+  <script src="/public/javascripts/accessible-autocomplete.js"></script>
+{% endblock %}

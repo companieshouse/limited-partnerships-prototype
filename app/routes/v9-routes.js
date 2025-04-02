@@ -204,24 +204,31 @@ router.post('/limited-partner-choice', function(request, response) {
 
 //lp add another
 router.post('/lp-add-another', function(request, response) {
+    var addAnotherLP = request.session.data['addAnotherLP'];
+    var lpNumber = request.session.data['lpNumber'];
+    var registrationOrTransition = request.session.data['registrationOrTransition']; // ✅ Get value from session
+    var registerType = request.session.data['registerType']; // ✅ Get value from session
 
-    var addAnotherLP = request.session.data['addAnotherLP']
-    var lpNumber = request.session.data['lpNumber']
-    if (addAnotherLP == "addPersonLP"){
-        response.redirect("/v9/lp-person")
+    if (addAnotherLP == "addPersonLP") {
+        response.redirect("/v9/lp-person");
     } 
-   else if (addAnotherLP == "addEntityLP"){
-        response.redirect("/v9/lp-legal-entity")
+    else if (addAnotherLP == "addEntityLP") {
+        response.redirect("/v9/lp-legal-entity");
     } 
-    else if (lpNumber.startsWith("SL") || lpNumber.startsWith("SG")) {
-       // response.redirect("/v9/psc-section")
-       response.redirect("/v9/check-your-answers")
-
+    else if (
+        lpNumber.startsWith("SL") || 
+        lpNumber.startsWith("SG") || 
+        (registrationOrTransition === "registration" && 
+        (registerType === "registerSlp" || registerType === "RegisterPflpSco"))
+    ) {
+        // response.redirect("/v9/psc-section");
+        response.redirect("/v9/pscs/psc-section");
     } 
     else {
-        response.redirect("/v9/check-your-answers")
+        response.redirect("/v9/check-your-answers");
     }
-})
+});
+
 
 
 
@@ -395,11 +402,11 @@ router.post('/psc-statement', function(request, response) {
 
 router.post('/psc-choice', function(request, response) {
 
-    var psc = request.session.data['psc']
-    if (psc == "entity"){
-        response.redirect("/v9/pscs/psc-entity")
+    var pscType = request.session.data['pscType']
+    if (pscType == "entity"){
+        response.redirect("/v9/pscs/psc-legal-entity")
     }
-    else if (psc == "orp"){
+    else if (pscType == "orp"){
         response.redirect("/v9/pscs/psc-orp")
     }
     else {

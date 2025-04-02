@@ -25,7 +25,9 @@
  <h1 class="govuk-heading-xl">Confirmation statement date</h1><!-- If changing the H1 be sure to also change the page title, see set PageName above-->
 
 <p class="govuk-body-l">The expected date of your confirmation statement is: <span class="govuk-!-font-weight-bold">31 May 2025</span></p>
-<p class="govuk-body">The expected date is the latest date you can use and is based on your previous submissions or the limited partnership registration date.</p>
+<p class="govuk-body">The expected date is 12 months after the previous confirmation statement, or 12 months after the limited partnership's registration date.</p>
+
+<p class="govuk-body">The limited partnership information being delivered with this confirmation statement must be correct on this date.</p>
 
 
 {% set changeDateHtml %}
@@ -52,6 +54,9 @@
       text: "Do you want to change the date of your confirmation statement?",
       classes: "govuk-fieldset__legend--m"
     }
+  },
+  hint: {
+    text: "It cannot be later than the expected date."
   },
   items: [
     {

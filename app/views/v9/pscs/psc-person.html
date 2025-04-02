@@ -35,7 +35,14 @@
 
 <h1 class="govuk-heading-xl">Add a person with significant control (PSC) (person)</h1>
 
-
+{{ govukInput({
+  label: {
+    text: "Title",
+    classes: "govuk-label--m"
+  },
+  id: "psc1Title",
+  name: "psc1Title"
+}) }}
 
 {{ govukInput({
   label: {

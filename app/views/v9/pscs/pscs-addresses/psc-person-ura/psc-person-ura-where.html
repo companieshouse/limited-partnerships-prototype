@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Where is the PSC's usual residential address?" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="psc-person-ura-postcode-look-up" method="post">
+   
+
+  <span class="govuk-caption-l"> {{ data['psc1FirstName'] or "Georgina" }} {{ data['psc1LastName'] or "Smith" }}</span>
+
+{{ govukRadios({
+  name: "pscPersonURAWhere",
+  fieldset: {
+    legend: {
+      text: "Where is the PSC's usual residential address?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "pscPersonURAUK",
+      text: "In the United Kingdom"
+    },
+    {
+      value: "pscPersonURAOverseas",
+      text: "Overseas"
+    }
+  ]
+}) }}
+
+{{ govukInsetText({
+  html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+        <p>We'll show the PSC's usual residential address on the public register.</p>"
+}) }}
+
+     
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

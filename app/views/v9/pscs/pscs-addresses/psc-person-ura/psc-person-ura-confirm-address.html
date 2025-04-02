@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Confirm the PSC's usual residential address" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="../psc-person-ca/psc-person-ca-where" method="post">
+
+
+
+
+
+<form class="form" action="psc-person-ca/psc-person-ca-where" method="post">
+   
+
+  <span class="govuk-caption-l"> {{ data['psc1FirstName'] or "Georgina" }} {{ data['psc1LastName'] or "Smith" }}</span>
+
+
+
+<h1 class="govuk-heading-xl">Confirm the PSC's usual residential address</h1>
+
+<p>1 Olympus Road<br>Wrexham<br>W98 7AB</p>
+
+
+
+  <p><a href="javascript:void(0)">Change <span class="govuk-visually-hidden">registered office address</span></a><p>
+
+
+
+
+
+
+      
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+{{ govukInsetText({
+  html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+        <p>We'll show the PSC's usual residential address on the public register.</p>"
+}) }}
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

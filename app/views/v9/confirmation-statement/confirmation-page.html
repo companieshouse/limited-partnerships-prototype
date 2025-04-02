@@ -27,7 +27,7 @@
      <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-    {% set panelTitle = "Application submitted" %}
+    {% set panelTitle = "Confirmation statement submitted" %}
 
       {{ govukPanel({
           titleText: panelTitle,
@@ -39,24 +39,23 @@
 
 
 
-      <p class="govuk-body">We’ve received your filing for ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }}). We've sent an email to <strong>{{ data['govOneLoginEmail'] or "agent@example.com" }}</strong> to confirm.</p>
+      <p class="govuk-body">We’ve received your confirmation statement for ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }}).</p>
+      <p class="govuk-body">We've sent a confirmation email to <strong>{{ data['govOneLoginEmail'] or "agent@example.com" }}</strong>.</p>
 
 
       <h2 class="govuk-heading-m">What happens next</h2>
 
- <p class="govuk-body">
-  We’ll ... as soon as possible. This will usually take no more than 5 working days.  </p>
+ <p class="govuk-body">We’ll process your filing within 5 working days, and email to let you know if it's been accepted or rejected.</p>
 
-     <h2 class="govuk-heading-m">If the application is accepted    </h2>
-<p>We'll ... and add the details to the Companies House public register.</p>
-      
-<h2 class="govuk-heading-m">If the application is rejected </h2>
-<p>We'll explain why your application has been rejected and what you can do next. We'll also refund the £X registration fee.</p>
+ <p class="govuk-body">If it's accepted, the filing will appear in the limited partnership's filing history on the public register.</p>
+
+ <p class="govuk-body">If it's rejected, we'll explain why and tell you what to do next.</p>
+
 
 <h2 class="govuk-heading-m">What do you want to do next?</h2>
 <ul class="govuk-list">
   <li>
-      <a href="/v9/manage/limited-partnership-overview-tabs-wf" class="govuk-link govuk-link--no-visited-state">Return to the overview screen</a>
+      <a href="/v9/manage/limited-partnership-overview-tabs-wf" class="govuk-link govuk-link--no-visited-state">Return to the overview screen for this limited partnership</a>
   </li>
   <li>
       <a href="/v9/company-number" class="govuk-link govuk-link--no-visited-state">File for a different limited partnership</a>

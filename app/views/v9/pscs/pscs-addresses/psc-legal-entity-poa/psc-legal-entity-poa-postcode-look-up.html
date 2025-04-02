@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="What is the general partner's correspondence address?" %}
+{% set pageName="What is the PSC's principal office address?" %}
 
 
 {% block header %}
@@ -20,19 +20,19 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-<form class="form" action="/gp-person-ca-postcode-look-up" method="post">
+<form class="form" action="psc-legal-entity-poa-choose-address" method="post">
    
 
-  <span class="govuk-caption-l"> {{ data['gp1FirstName'] or "Georgina" }} {{ data['gp1LastName'] or "Smith" }}</span>
-<h1 class="govuk-heading-xl">What is the general partner's correspondence address?</h1>
+  <span class="govuk-caption-l uppercase"> {{ data['psc1EntityName'] or "GLOBALTECH" }} </span>
+<h1 class="govuk-heading-xl">What is the PSC's principal office address?</h1>
 
 
 
 <fieldset class="govuk-fieldset">
   <legend class="govuk-visually-hidden">
-     What is the general partner's correspondence address?
+     What is the PSC's principal office address?
   </legend>
-  <p class="govuk-hint">This is also known as the service address.</p>
+  <p class="govuk-hint">This is the address for the entity's main office.</p>
 
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-margin-top-6" for="roaAddressLine1">
@@ -61,7 +61,7 @@
 
 {{ govukInsetText({
   html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
-        <p>We'll show the general partner's correspondence address on the public register.</p>"
+        <p>We'll show the PSC's principal office address on the public register.</p>"
 }) }}
       <!--
 {{ govukButton({

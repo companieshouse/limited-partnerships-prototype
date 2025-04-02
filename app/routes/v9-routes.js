@@ -414,6 +414,27 @@ router.post('/psc-choice', function(request, response) {
     }
   })
 
+  // add another PSC
+
+
+  router.post('/psc-add-another', function(request, response) {
+
+    var addAnotherPSC = request.session.data['addAnotherPSC']
+    if (addAnotherPSC == "person"){
+        response.redirect("/v9/pscs/psc-person")
+    }
+    else if (addAnotherPSC == "entity"){
+        response.redirect("/v9/pscs/psc-legal-entity")
+    }
+    else if (addAnotherPSC == "orp"){
+        response.redirect("/v9/pscs/psc-orp")
+    }
+    else {
+        response.redirect("/v9/check-your-answers")
+    }
+  })
+
+
 
 
   //Payment Placeholder

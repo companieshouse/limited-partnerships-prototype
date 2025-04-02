@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Choose the general partner's principal office address" %}
+{% set pageName="Choose the PSC's principal office address" %}
 
 
 {% block header %}
@@ -20,15 +20,15 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-<form class="form" action="/gp-legal-entity-poa-choose-address" method="post">
+<form class="form" action="psc-legal-entity-poa-confirm-address" method="post">
    
 
-  <span class="govuk-caption-l uppercase"> {{ data['gp1EntityName'] or "CITRUS PARTNERS LIMITED" }} </span>
+  <span class="govuk-caption-l uppercase"> {{ data['psc1EntityName'] or "GLOBALTECH" }} </span>
 {{ govukRadios({
   name: "choosePPOB",
   fieldset: {
     legend: {
-      text: "Choose the general partner's principal office address",
+      text: "Choose the PSC's principal office address",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--xl"
     }
@@ -39,47 +39,47 @@
   items: [
     {
       value: "1",
-      text: "1 Grass Street, London, E17 5HG"
+      text: "1 Lemon Road, Hull, H12 3AB"
     },
     {
       value: "2 ",
-      text: "2 Grass Street, London, E17 5HG"
+      text: "2 Lemon Road, Hull, H12 3AB"
     },    {
       value: "3",
-      text: "3 Grass Street, London, E17 5HG"
+      text: "3 Lemon Road, Hull, H12 3AB"
     },    {
       value: "4",
-      text: "4 Grass Street, London, E17 5HG"
+      text: "4 Lemon Road, Hull, H12 3AB"
     },    {
       value: "5",
-      text: "5 Grass Street, London, E17 5HG"
+      text: "5 Lemon Road, Hull, H12 3AB"
     },    {
       value: "6",
-      text: "6 Grass Street, London, E17 5HG"
+      text: "6 Lemon Road, Hull, H12 3AB"
     },    {
       value: "7",
-      text: "7 Grass Street, London, E17 5HG"
+      text: "7 Lemon Road, Hull, H12 3AB"
     },    {
       value: "8",
-      text: "8 Grass Street, London, E17 5HG"
+      text: "8 Lemon Road, Hull, H12 3AB"
     },    {
       value: "9",
-      text: "9 Grass Street, London, E17 5HG"
+      text: "9 Lemon Road, Hull, H12 3AB"
     },    {
       value: "10",
-      text: "10 Grass Street, London, E17 5HG"
+      text: "10 Lemon Road, Hull, H12 3AB"
     }
   ]
 }) }}
 
-  <p><a href="gp-legal-entity-poa-manual?from=chooseORentermanual">The address is not on the list</a><p>
+  <p><a href="javascript:void(0)">The address is not on the list</a><p>
 
 
 
 
 {{ govukInsetText({
   html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
-        <p>We'll show the general partner's principal office address on the public register.</p>"
+        <p>We'll show the PSC's principal office address on the public register.</p>"
 }) }}
 
    

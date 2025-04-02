@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="What is the general partner's principal office address?" %}
+{% set pageName="What is the PSC's principal office address?" %}
 
 
 {% block header %}
@@ -20,17 +20,17 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-<form class="form" action="/gp-legal-entity-poa-postcode-look-up" method="post">
+<form class="form" action="psc-orp-poa-choose-address" method="post">
    
 
-  <span class="govuk-caption-l uppercase"> {{ data['gp1EntityName'] or "CITRUS PARTNERS LIMITED" }} </span>
-<h1 class="govuk-heading-xl">What is the general partner's principal office address?</h1>
+  <span class="govuk-caption-l uppercase"> {{ data['pscORP1EntityName'] or "VITA CORP LTD" }} </span>
+<h1 class="govuk-heading-xl">What is the PSC's principal office address?</h1>
 
 
 
 <fieldset class="govuk-fieldset">
   <legend class="govuk-visually-hidden">
-     What is the general partner's principal office address?
+     What is the PSC's principal office address?
   </legend>
   <p class="govuk-hint">This is the address for the entity's main office.</p>
 
@@ -53,7 +53,7 @@
   text: "Find address"
 }) }}
 
-  <p><a href="gp-legal-entity-poa-manual?from=chooseORentermanual">Enter address manually</a><p>
+  <p><a href="javascript:void(0)">Enter address manually</a><p>
 
 </fieldset>
 
@@ -61,7 +61,7 @@
 
 {{ govukInsetText({
   html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
-        <p>We'll show the general partner's principal office address on the public register.</p>"
+        <p>We'll show the PSC's principal office address on the public register.</p>"
 }) }}
       <!--
 {{ govukButton({

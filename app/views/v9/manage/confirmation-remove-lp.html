@@ -31,7 +31,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       {{ govukPanel({
-        titleText: "Content TBC",
+        titleText: "Update submitted",
 html: "Your reference number " + references
 }) }}
 
@@ -40,26 +40,23 @@ html: "Your reference number " + references
 
 
 
-<p class="govuk-body">We have sent a confirmation email to <strong>{{ data['govOneLoginEmail'] or "agent@example.com" }}</strong>.</p>
+<p class="govuk-body">We've received your filing to remove a limited partner of ACME LIMITED PARTNERSHIP (LP123456).
+  <p>We've sent a confirmation email to <strong>{{ data['govOneLoginEmail'] or "agent@example.com" }}</strong>.</p>
 
 
 <h2 class="govuk-heading-m">What happens next</h2>
 
-<p>We'll process the application as soon as possible. This will usually take no more than 3 to 5 working days.</p>
-<p class="govuk-body">
-We'll email <strong>{{ data['govOneLoginEmail'] }}</strong> to let you know if your application has been accepted or rejected.  
+<p>We'll process this filing within 5 working days, and email <strong>{{ data['govOneLoginEmail'] }}</strong> to let you know if it's been accepted or rejected.  
 </p>
 
-
-<h2 class="govuk-heading-m">If the application is accepted    </h2>
-<p>We'll... and add the details to the Companies House public register.</p>
-
 {{ govukInsetText({
-  text: "It may take a while for this change to show on the limited partnership overview and CHS and the Confirmation Statement CONTENT TBD"
+  text: "When you next log in to this service, you'll still see the limited partner listed until we have accepted the filing."
 }) }}
 
-<h2 class="govuk-heading-m">If the application is rejected </h2>
-<p>We'll explain why your application has been rejected and what you can do next.</p>
+
+<p>If it's accepted, the filing will appear in the limited partnership's filing history on the public register.
+
+ <p> If it's rejected, we'll explain why and tell you what to do next.</p>
 
 
 <p class="govuk-body">

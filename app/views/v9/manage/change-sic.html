@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName=" Change SIC codes" %}
+{% set pageName="Update SIC codes by filing a confirmation statement" %}
 
 
 
@@ -23,20 +23,21 @@
 
           <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})</span>
         <h1 class="govuk-heading-xl">
-          Change SIC codes <!-- if changing this, update pageName above-->
+          Update SIC codes by filing a confirmation statement <!-- if changing this, update pageName above-->
         </h1>
 
-        <p>SIC codes can only be changed within a confirmation statement.</p>
+        <p>SIC codes can only be updated within a confirmation statement.</p>
 
-        <p>If any other information about this limited partnership needs updating, <a href="limited-partnership-overview-tabs-wf" class="govuk-link govuk-link--no-visited-state">go back and make other changes first</a>.</p><!-- back link here?-->
+        <p>If any other information about this limited partnership needs updating, <a href="limited-partnership-overview-tabs-wf" class="govuk-link govuk-link--no-visited-state">go back and make other updates first</a>.</p><!-- back link here?-->
         
-        <div class="govuk-inset-text">
-          Any changes you’ve made might not show up straight away. If this happens, you can tell us in the confirmation statement that changes have been submitted and are pending.
+        
+          <div class="govuk-inset-text">
+            If you submit updates to limited partnership information, these may not show in the service straight away. As long as the updates have been submitted, you can still file a confirmation statement.
         </div>
 
-        <p class="govuk-body">
+        <!--<p class="govuk-body">
           You can then make changes to SIC codes in our File a limited partnership confirmation statement service.
-        </p>   
+        </p>-->
 
 
        

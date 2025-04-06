@@ -41,12 +41,12 @@ html: "Your reference number " + references
 
 
 <p class="govuk-body">We've received your filing to remove a limited partner of ACME LIMITED PARTNERSHIP (LP123456).
-  <p>We've sent a confirmation email to <strong>{{ data['govOneLoginEmail'] or "agent@example.com" }}</strong>.</p>
+  <p>We've sent a confirmation email to <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong>.</p>
 
 
 <h2 class="govuk-heading-m">What happens next</h2>
 
-<p>We'll process this filing within 5 working days, and email <strong>{{ data['govOneLoginEmail'] }}</strong> to let you know if it's been accepted or rejected.  
+<p>We'll process this filing within 5 working days, and email <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong> to let you know if it's been accepted or rejected.  
 </p>
 
 {{ govukInsetText({

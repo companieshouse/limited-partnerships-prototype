@@ -347,3 +347,16 @@ img.card-image {
   text-underline-offset: 13px;
 }
 
+.ch-overdue {
+  margin-bottom: 0;
+}
+.ch-overdue .govuk-warning-text__text  {
+  color: govuk-colour("red");
+  margin-bottom: 0;
+}
+.ch-overdue .govuk-warning-text__icon {
+  color: #fff;
+  border-color:govuk-colour("red");
+  background-color: govuk-colour("red");
+}
+

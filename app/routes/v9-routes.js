@@ -6,6 +6,11 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
+const lastUpdated = require('../middleware/last-updated')
+
+// Add the middleware to the router
+router.use(lastUpdated)
+
 // Add your routes here
 // Logging session data 
  

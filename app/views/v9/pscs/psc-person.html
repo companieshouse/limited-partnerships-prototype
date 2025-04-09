@@ -33,7 +33,7 @@
 {% endif %}
 
 
-<h1 class="govuk-heading-xl">Add a person with significant control (PSC) (person)</h1>
+<h1 class="govuk-heading-xl">Add an individual PSC</h1>
 
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
@@ -48,7 +48,7 @@
   items: [
     {
       value: "The proposed partners confirm that the person named below as an individual PSC knows that their particulars are being supplied as part of this applications",
-      text: "The proposed partners confirm that the person named below as an individual PSC knows that their particulars are being supplied as part of this application"
+      text: "The proposed partners confirm that this person knows that their details are being supplied as part of this application"
     }
   ]
 }) }}
@@ -56,11 +56,11 @@
 
 {{ govukInput({
   label: {
-    text: "Title (optional)",
+    text: "Professional or honorary title (if relevant)",
     classes: "govuk-label--m"
   },
    hint: {
-    text: "For example, Mr, Mrs, Miss, Ms, Dr."
+    text: "For example, Dr or Professor"
   },
   id: "psc1Title",
   name: "psc1Title"
@@ -68,7 +68,7 @@
 
 {{ govukInput({
   label: {
-    text: "First names",
+    text: "First name",
     classes: "govuk-label--m"
   },
 
@@ -1978,7 +1978,7 @@
           },
           {
             value: "more than 50% but less than 75%",
-            text: "more than 50% but less than 75%s"
+            text: "more than 50% but less than 75%"
           },
           {
             value: "75% or more",

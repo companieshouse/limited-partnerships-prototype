@@ -291,6 +291,7 @@
 
 
 
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 
 
@@ -585,6 +586,9 @@
 }) }}
 
 
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
 {{ govukTag({
   text: "Version C",
    classes: "govuk-!-margin-bottom-5 govuk-!-margin-top-9"
@@ -602,6 +606,291 @@
     text: "For example, '£25, 2 pigs, worth £4 each, and 18 shares to the value of 20p each'"
   }
 }) }}
+
+
+
+
+
+
+
+
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+
+
+
+{{ govukTag({
+  text: "Version D",
+   classes: "govuk-!-margin-bottom-5",
+   name: "version-D"
+}) }}
+
+
+
+{% call govukFieldset({
+  legend: {
+    text: "What is their total capital contribution?",
+    classes: "govuk-fieldset__legend--m"
+  }
+}) %}
+
+
+<p class="govuk-hint">Hint text</p>
+
+
+
+
+{{ govukInput({
+  id: "totalCapitalContribution",
+  name: "totalCapitalContribution",
+  label: {
+    text: "What is their total capital contribution?",
+    classes: "govuk-visually-hidden"
+  },
+  classes: "govuk-input--width-5",
+  inputmode: "numeric",
+  spellcheck: false
+}) }}
+      
+
+
+{{ govukSelect({
+  id: "otherCurrencySelector",
+  name: "otherCurrencySelector",
+  label: {
+    text: "Hint text",
+    classes: "govuk-visually-hidden"
+  },
+  items: [
+    {
+      value: "",
+      text: "Select currency",
+      selected: true
+    },
+    { "value": "AFN", "text": "Afghani (AFN)" },
+    { "value": "DZD", "text": "Algerian Dinar (DZD)" },
+    { "value": "AON", "text": "Angolan New Kwanza (AON)" },
+    { "value": "ARS", "text": "Argentine Peso (ARS)" },
+    { "value": "AMD", "text": "Armenian Dram (AMD)" },
+    { "value": "AWG", "text": "Aruban Guilder (AWG)" },
+    { "value": "AUD", "text": "Australian Dollar (AUD)" },
+    { "value": "AZN", "text": "Azerbaijanian New Manat (AZN)" },
+    { "value": "BSD", "text": "Bahamian Dollar (BSD)" },
+    { "value": "BHD", "text": "Bahraini Dinar (BHD)" },
+    { "value": "THB", "text": "Baht (THB)" },
+    { "value": "PAB", "text": "Balboa (PAB)" },
+    { "value": "BBD", "text": "Barbados Dollar (BBD)" },
+    { "value": "BYB", "text": "Belarussian Ruble (BYB)" },
+    { "value": "BEF", "text": "Belgian Franc (BEF)" },
+    { "value": "BZD", "text": "Belize Dollar (BZD)" },
+    { "value": "BMD", "text": "Bermuda Dollar (BMD)" },
+    { "value": "VEB", "text": "Bolivar (VEB)" },
+    { "value": "BOB", "text": "Boliviano (BOB)" },
+    { "value": "BRL", "text": "Brazilian Real (BRL)" },
+    { "value": "BND", "text": "Brunei Dollar (BND)" },
+    { "value": "BGN", "text": "Bulgarian Lev (BGN)" },
+    { "value": "BIF", "text": "Burundi Franc (BIF)" },
+    { "value": "CAD", "text": "Canadian Dollar (CAD)" },
+    { "value": "CVE", "text": "Cape Verde Escudo (CVE)" },
+    { "value": "KYD", "text": "Cayman Islands Dollar (KYD)" },
+    { "value": "GHS", "text": "Cedi (GHS)" },
+    { "value": "XOF", "text": "CFA Franc BCEAO (XOF)" },
+    { "value": "XAF", "text": "CFA Franc BEAC (XAF)" },
+    { "value": "XPF", "text": "CFP Franc (XPF)" },
+    { "value": "CLP", "text": "Chilean Peso (CLP)" },
+    { "value": "COP", "text": "Colombian Peso (COP)" },
+    { "value": "KMF", "text": "Comoro Franc (KMF)" },
+    { "value": "BAM", "text": "Convertible Marks (BAM)" },
+    { "value": "NIO", "text": "Cordoba Oro (NIO)" },
+    { "value": "CRC", "text": "Costa Rican Colon (CRC)" },
+    { "value": "HRK", "text": "Croatian Kuna (HRK)" },
+    { "value": "CUC", "text": "Cuba Convertible Peso (CUC)" },
+    { "value": "CUP", "text": "Cuban Peso (CUP)" },
+    { "value": "CZK", "text": "Czech Koruna (CZK)" },
+    { "value": "GMD", "text": "Dalasi (GMD)" },
+    { "value": "DKK", "text": "Danish Krone (DKK)" },
+    { "value": "MKD", "text": "Denar (MKD)" },
+    { "value": "DJF", "text": "Djibouti Franc (DJF)" },
+    { "value": "STD", "text": "Dobra (STD)" },
+    { "value": "DOP", "text": "Dominican Peso (DOP)" },
+    { "value": "VND", "text": "Dong (VND)" },
+    { "value": "XCD", "text": "East Caribbean Dollar (XCD)" },
+    { "value": "EGP", "text": "Egyptian Pound (EGP)" },
+    { "value": "SVC", "text": "El Salvador Colon (SVC)" },
+    { "value": "ETB", "text": "Ethiopian Birr (ETB)" },
+    { "value": "FKP", "text": "Falkland Islands Pound (FKP)" },
+    { "value": "FJD", "text": "Fiji Dollar (FJD)" },
+    { "value": "HUF", "text": "Forint (HUF)" },
+    { "value": "CDF", "text": "Franc Congolais (CDF)" },
+    { "value": "GIP", "text": "Gibraltar Pound (GIP)" },
+    { "value": "HTG", "text": "Gourde (HTG)" },
+    { "value": "PYG", "text": "Guarani (PYG)" },
+    { "value": "GNF", "text": "Guinea Franc (GNF)" },
+    { "value": "GWP", "text": "Guinea-Bissau Peso (GWP)" },
+    { "value": "GYD", "text": "Guyana Dollar (GYD)" },
+    { "value": "HKD", "text": "Hong Kong Dollar (HKD)" },
+    { "value": "UAH", "text": "Hryvnia (UAH)" },
+    { "value": "ISK", "text": "Iceland Krona (ISK)" },
+    { "value": "INR", "text": "Indian Rupee (INR)" },
+    { "value": "IRR", "text": "Iranian Rial (IRR)" },
+    { "value": "IQD", "text": "Iraqi Dinar (IQD)" },
+    { "value": "JMD", "text": "Jamaican Dollar (JMD)" },
+    { "value": "JOD", "text": "Jordanian Dinar (JOD)" },
+    { "value": "KES", "text": "Kenyan Shilling (KES)" },
+    { "value": "PGK", "text": "Kina (PGK)" },
+    { "value": "LAK", "text": "Kip (LAK)" },
+    { "value": "KWD", "text": "Kuwaiti Dinar (KWD)" },
+    { "value": "ZMW", "text": "Kwacha (ZMW)" },
+    { "value": "MWK", "text": "Kwacha (MWK)" },
+    { "value": "AOA", "text": "Kwanza (AOA)" },
+    { "value": "MMK", "text": "Kyat (MMK)" },
+    { "value": "GEL", "text": "Lari (GEL)" },
+    { "value": "LBP", "text": "Lebanese Pound (LBP)" },
+    { "value": "ALL", "text": "Lek (ALL)" },
+    { "value": "HNL", "text": "Lempira (HNL)" },
+    { "value": "SLL", "text": "Leone (SLL)" },
+    { "value": "LRD", "text": "Liberian Dollar (LRD)" },
+    { "value": "LYD", "text": "Libyan Dinar (LYD)" },
+    { "value": "SZL", "text": "Lilangeni (SZL)" },
+    { "value": "LSL", "text": "Loti (LSL)" },
+    { "value": "MGA", "text": "Malagasy Ariary (MGA)" },
+    { "value": "MYR", "text": "Malaysian Ringgit (MYR)" },
+    { "value": "TMM", "text": "Manat (TMM)" },
+    { "value": "MRU", "text": "Mauritania Ouguiya (MRU)" },
+    { "value": "MUR", "text": "Mauritius Rupee (MUR)" },
+    { "value": "MZM", "text": "Merical (MZM)" },
+    { "value": "MXN", "text": "Mexican Peso (MXN)" },
+    { "value": "MXV", "text": "Mexican Unidad de Inversion (UID) (MXV)" },
+    { "value": "MDL", "text": "Moldovan Leu (MDL)" },
+    { "value": "MAD", "text": "Moroccan Dirham (MAD)" },
+    { "value": "BOV", "text": "Mvdol (BOV)" },
+    { "value": "NGN", "text": "Naira (NGN)" },
+    { "value": "ERN", "text": "Nakfa (ERN)" },
+    { "value": "NAD", "text": "Namibian Dollar (NAD)" },
+    { "value": "NPR", "text": "Nepalese Rupee (NPR)" },
+    { "value": "ILS", "text": "New Israeli Sheqel (ILS)" },
+    { "value": "RON", "text": "New Leu (RON)" },
+    { "value": "TWD", "text": "New Taiwan Dollar (TWD)" },
+    { "value": "TRY", "text": "New Turkish Lira (TRY)" },
+    { "value": "NZD", "text": "New Zealand Dollar (NZD)" },
+    { "value": "BTN", "text": "Ngultrum (BTN)" },
+    { "value": "KPW", "text": "North Korean Won (KPW)" },
+    { "value": "NOK", "text": "Norwegian Krone (NOK)" },
+    { "value": "PEN", "text": "Nuevo Sol (PEN)" },
+    { "value": "MRO", "text": "Ouguiya (MRO)" },
+    { "value": "TOP", "text": "Pa'anga (TOP)" },
+    { "value": "PKR", "text": "Pakistan Rupee (PKR)" },
+    { "value": "MOP", "text": "Pataca (MOP)" },
+    { "value": "UYU", "text": "Peso Uruguayo (UYU)" },
+    { "value": "PHP", "text": "Philippine Peso (PHP)" },
+    { "value": "GBP", "text": "Pound Sterling (GBP)" },
+    { "value": "BWP", "text": "Pula (BWP)" },
+    { "value": "QAR", "text": "Qatari Rial (QAR)" },
+    { "value": "GTQ", "text": "Quetzal (GTQ)" },
+    { "value": "ZAR", "text": "Rand (ZAR)" },
+    { "value": "OMR", "text": "Rial Omani (OMR)" },
+    { "value": "KHR", "text": "Riel (KHR)" },
+    { "value": "MVR", "text": "Rufiyaa (MVR)" },
+    { "value": "IDR", "text": "Rupiah (IDR)" },
+    { "value": "RUB", "text": "Russian Rouble (RUB)" },
+    { "value": "RWF", "text": "Rwanda Franc (RWF)" },
+    { "value": "SHP", "text": "Saint Helena Pound (SHP)" },
+    { "value": "STN", "text": "Sao Tome and Principe Dobra (STN)" },
+    { "value": "SAR", "text": "Saudi Riyal (SAR)" },
+    { "value": "XDR", "text": "SDR (XDR)" },
+    { "value": "CSD", "text": "Serbian Dinar (CSD)" },
+    { "value": "SCR", "text": "Seychelles Rupee (SCR)" },
+    { "value": "SGD", "text": "Singapore Dollar (SGD)" },
+    { "value": "SBD", "text": "Solomon Islands Dollar (SBD)" },
+    { "value": "KGS", "text": "Som (KGS)" },
+    { "value": "SOS", "text": "Somali Shilling (SOS)" },
+    { "value": "TJS", "text": "Somoni (TJS)" },
+    { "value": "SSP", "text": "South Sudan Pound (SSP)" },
+    { "value": "LKR", "text": "Sri Lanka Rupee (LKR)" },
+    { "value": "SDD", "text": "Sudanese Dinar (SDD)" },
+    { "value": "SRD", "text": "Surinam Dollar (SRD)" },
+    { "value": "SEK", "text": "Swedish Krona (SEK)" },
+    { "value": "CHF", "text": "Swiss Franc (CHF)" },
+    { "value": "SYP", "text": "Syrian Pound (SYP)" },
+    { "value": "BDT", "text": "Taka (BDT)" },
+    { "value": "WST", "text": "Tala (WST)" },
+    { "value": "TZS", "text": "Tanzanian Shilling (TZS)" },
+    { "value": "KZT", "text": "Tenge (KZT)" },
+    { "value": "SIT", "text": "Tolar (SIT)" },
+    { "value": "TTD", "text": "Trinidad and Tobago Dollar (TTD)" },
+    { "value": "MNT", "text": "Tugrik (MNT)" },
+    { "value": "TND", "text": "Tunisian Dinar (TND)" },
+    { "value": "AED", "text": "UAE Dirham (AED)" },
+    { "value": "UGX", "text": "Uganda Shilling (UGX)" },
+    { "value": "UKH", "text": "Ukraine Hryvnia (UKH)" },
+    { "value": "COU", "text": "Unidad de Valor Real (COU)" },
+    { "value": "CLF", "text": "Unidades de Fomento (CLF)" },
+    { "value": "UZS", "text": "Uzbekistan Sum (UZS)" },
+    { "value": "VUV", "text": "Vatu (VUV)" },
+    { "value": "VES", "text": "Venezuela Bolivar (VES)" },
+    { "value": "CHE", "text": "WIR Euro (CHE)" },
+    { "value": "CHW", "text": "WIR Franc (CHW)" },
+    { "value": "KRW", "text": "Won (KRW)" },
+    { "value": "YER", "text": "Yemeni Rial (YER)" },
+    { "value": "JPY", "text": "Yen (JPY)" },
+    { "value": "CNY", "text": "Yuan Renminbi (CNY)" },
+    { "value": "ZWD", "text": "Zimbabwe Dollar (ZWD)" },
+    { "value": "PLN", "text": "Zloty (PLN)" }
+      ]
+}) }}
+
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "capitalContributionBreakdown",
+  fieldset: {
+    legend: {
+      text: "How is this contributed?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  items: [
+    {
+      value: "carcasses",
+      text: "Cash"
+    },
+    {
+      value: "Land or property",
+      text: "Land or property"
+    },
+    {
+      value: "Shares",
+      text: "Shares"
+    },
+    {
+      value: "Services or goods",
+      text: "Services or goods"
+    }
+  ]
+}) }}
+
+
+{% endcall %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     </div>

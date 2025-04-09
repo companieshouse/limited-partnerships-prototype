@@ -35,10 +35,32 @@
 
 <h1 class="govuk-heading-xl">Add a person with significant control (PSC) (person)</h1>
 
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "pscPersonStatement",
+  fieldset: {
+    legend: {
+      text: "You must agree to this statement",
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "The proposed partners confirm that the person named below as an individual PSC knows that their particulars are being supplied as part of this applications",
+      text: "The proposed partners confirm that the person named below as an individual PSC knows that their particulars are being supplied as part of this application"
+    }
+  ]
+}) }}
+
+
 {{ govukInput({
   label: {
-    text: "Title",
+    text: "Title (optional)",
     classes: "govuk-label--m"
+  },
+   hint: {
+    text: "For example, Mr, Mrs, Miss, Ms, Dr."
   },
   id: "psc1Title",
   name: "psc1Title"
@@ -65,46 +87,7 @@
   classes: "govuk-!-width-one-full"
 }) }}
 
-{% set previousHtmlPerson %}
-{{ govukInput({
-  label: {
-    text: "What is the person's previous name?"
-  },
-  hint: {
-            text: "If the person has more than one previous name, separate each name with a comma."
-          },
-  id: "psc1PreviousName",
-  name: "psc1PreviousName"
-}) }}
-{% endset -%}
 
-
-
-{{ govukRadios({
-  name: "psc1PreviousNameYesNo",
-  fieldset: {
-    legend: {
-      text: "Does the person have a previous name?",
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  hint: {
-    text: "For example, if they've changed their name as a result of marriage or divorce."
-  },
-  items: [
-    {
-      value: "yes",
-      text: "Yes",
-      conditional: {
-          html: previousHtmlPerson
-      }
-    },
-    {
-      value: "no",
-      text: "No"
-    }
-  ]
-}) }}
 
 {{ govukDateInput({
   id: "psc1DOB",

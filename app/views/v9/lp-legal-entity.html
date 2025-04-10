@@ -1154,13 +1154,13 @@
 
 {% call govukFieldset({
   legend: {
-    text: " What is its capital contribution?",
+    text: "What is their total capital contribution?",
     classes: "govuk-fieldset__legend--m"
   }
 }) %}
 
 
-
+<p class="govuk-hint">Enter the total value of all monetary and non-monetary contributions</p>
 
 
 
@@ -1169,11 +1169,8 @@
   id: "totalCapitalContribution",
   name: "totalCapitalContribution",
   label: {
-    text: "What is its total capital contribution?",
+    text: "What is their total capital contribution?",
     classes: "govuk-visually-hidden"
-  },
-  hint: {
-    text: "If it made a monetary contribution, enter the value and select the currency."
   },
   classes: "govuk-input--width-5",
   inputmode: "numeric",
@@ -1181,11 +1178,12 @@
 }) }}
       
 
+
 {{ govukSelect({
   id: "otherCurrencySelector",
   name: "otherCurrencySelector",
   label: {
-    text: "Select currency",
+    text: "Hint text",
     classes: "govuk-visually-hidden"
   },
   items: [
@@ -1194,9 +1192,9 @@
       text: "Select currency",
       selected: true
     },
-    { "value": "GBP", "text": "GB Pounds (GBP)" },
+    { "value": "GBP", "text": "Pound Sterling (GBP)" },
     { "value": "USD", "text": "US Dollar (USD)" },
-    { "value": "EUR", "text": "Euros (EUR)" },
+    { "value": "EUR", "text": "Euro (EUR)" },
     { "value": "AFN", "text": "Afghani (AFN)" },
     { "value": "DZD", "text": "Algerian Dinar (DZD)" },
     { "value": "AON", "text": "Angolan New Kwanza (AON)" },
@@ -1313,7 +1311,6 @@
     { "value": "MOP", "text": "Pataca (MOP)" },
     { "value": "UYU", "text": "Peso Uruguayo (UYU)" },
     { "value": "PHP", "text": "Philippine Peso (PHP)" },
-    { "value": "GBP", "text": "Pound Sterling (GBP)" },
     { "value": "BWP", "text": "Pula (BWP)" },
     { "value": "QAR", "text": "Qatari Rial (QAR)" },
     { "value": "GTQ", "text": "Quetzal (GTQ)" },
@@ -1370,20 +1367,41 @@
 }) }}
 
 
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
+{{ govukCheckboxes({
+  name: "capitalContributionBreakdown",
+  fieldset: {
+    legend: {
+      text: "What is this total value made up of?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  items: [
+    {
+      value: "carcasses",
+      text: "Money"
+    },
+    {
+      value: "Land or property",
+      text: "Land or property"
+    },
+    {
+      value: "Shares",
+      text: "Shares"
+    },
+    {
+      value: "Services or goods",
+      text: "Services or goods"
+    }
+  ]
+}) }}
 
-    {{ govukTextarea({
-      name: "moreDetail",
-      id: "more-detail",
-      
-      hint: {
-        text: "Enter details of any other monetary contributions, or any contributions that are not money. If you need to include a contribution that's not money, include the monetary value. For example, 'land or property worth £200,000'.  "
-      }
-    }) }}
 
 {% endcall %}
-
-   {% endif %}
 
 
  {{ govukInsetText({

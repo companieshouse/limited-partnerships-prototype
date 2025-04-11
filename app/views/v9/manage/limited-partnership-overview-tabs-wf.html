@@ -56,7 +56,7 @@ JavaScript to check the referrer and display the banner - banner should only be 
 
 
    <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">ACME LIMITED PARTNERSHIP </h1>
-      <p class="govuk-body govuk-!-margin-bottom-9">Limited partnership number <strong>LP123456</strong></p>
+      <p class="govuk-body govuk-!-margin-bottom-9">Limited partnership number <strong>SL012345</strong></p>
 
 
 
@@ -75,7 +75,12 @@ JavaScript to check the referrer and display the banner - banner should only be 
        Overview
       </a>
     </li>
-    <li class="govuk-tabs__list-item">
+      <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#general-partners">
+        Partners
+      </a>
+    </li>
+    <!--<li class="govuk-tabs__list-item">
       <a class="govuk-tabs__tab" href="#general-partners">
         General partners
       </a>
@@ -84,12 +89,17 @@ JavaScript to check the referrer and display the banner - banner should only be 
       <a class="govuk-tabs__tab" href="#limited-partners">
         Limited partners
       </a>
-    </li>
-    <!--<li class="govuk-tabs__list-item">
+    </li>-->
+   <li class="govuk-tabs__list-item">
       <a class="govuk-tabs__tab" href="#pscs">
        PSCs
       </a>
-    </li>-->
+    </li>
+        <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#confirmation-statement">
+        Confirmation statement
+      </a>
+    </li>
   </ul>
 
 
@@ -130,24 +140,6 @@ JavaScript to check the referrer and display the banner - banner should only be 
                   text: "Update",
                   classes: "govuk-link--no-visited-state",
                   visuallyHiddenText: "Limited partnership type"
-                }
-              ]
-            }
-          },
-           {
-            key: {
-              text: "Confirmation statement"
-            },
-            value: {
-              text: "First statement date 1 February 2025  due by 15 February 2025"
-            },
-            actions: {
-              items: [
-                {
-                  href: "file-confirmation-statement",
-                  text: "File",
-                  classes: "govuk-button",
-                  visuallyHiddenText: "Confirmation statement"
                 }
               ]
             }
@@ -224,35 +216,23 @@ JavaScript to check the referrer and display the banner - banner should only be 
                 }
               ]
             }
-          },         
+          },
           {
             key: {
               text: "Standard Industrial Classification (SIC) code"
             },
             value: {
-              html: '<ul class="govuk-list govuk-list--bullet">
-                <li>64205 - Activities of financial services holding companies</li>
-                <li>64910 - Financial leasing</li>
-                <li>64922 - Activities of mortgage finance companies</li>
-              </ul>'
-            },
-            actions: {
-              items: [
-                {
-                  href: "change-sic",
-                  text: "Update",
-                  classes: "govuk-link--no-visited-state",
-                  visuallyHiddenText: "Standard Industrial Classification code"
-                }
-              ]
+              html: 'Can only be updated when <a href="#confirmation-statement" class="govuk-link govuk-link--no-visited-state">filing a confirmation statement</a>'
             }
           }
         ]
       }) }}
 
+
+
 {{ govukButton({
   text: "Close this limited partnership",
-  classes: "govuk-button--warning"
+  classes: "govuk-button--secondary"
 }) }}
 
   </div>
@@ -266,7 +246,6 @@ JavaScript to check the referrer and display the banner - banner should only be 
 
 
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="general-partners">
-
 
 
 
@@ -360,28 +339,15 @@ JavaScript to check the referrer and display the banner - banner should only be 
   ]
 }) }}
 
-<p class="govuk-body govuk-!-margin-bottom-8">
+<p class="govuk-body govuk-!-margin-bottom-9">
   <a href="/v9/general-partner-choice" class="govuk-link govuk-link--no-visited-state">Add a new general partner</a>
 </p>
 
 
 
-  </div>
-
-
-
-
-
-
-
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="limited-partners">
-  
-  
-
-
 {{ govukTable({
   caption: "Limited partners (persons)",
-  captionClasses: "govuk-table__caption--m",
+  captionClasses: "govuk-table__caption--m govuk-!-margin-top-9",
   head: [
     {
       text: "Name"
@@ -566,13 +532,16 @@ JavaScript to check the referrer and display the banner - banner should only be 
   ]
 }) }}
 
-<p class="govuk-body govuk-!-margin-bottom-8">
+<p class="govuk-body">
   <a href="javascript:void(0)" class="govuk-link govuk-link--no-visited-state">Add a new limited partner</a>
 </p>
   
-  
-  
+
   </div>
+
+
+
+
 
 
 
@@ -584,6 +553,62 @@ JavaScript to check the referrer and display the banner - banner should only be 
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="pscs">
     To be added
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="govuk-tabs__panel" id="confirmation-statement">
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: "Confirmation statement"
+        },
+        value: {
+          text: "First statement date 1 February 2025 due by 15 February 2025"
+        },
+        actions: {
+          items: [
+            {
+              href: "file-confirmation-statement",
+              text: "File",
+              classes: "govuk-button",
+              visuallyHiddenText: "confirmation statement"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Standard Industrial Classification (SIC) code"
+        },
+        value: {
+          html: '<ul class="govuk-list govuk-list--bullet">
+                    <li>64205 - Activities of financial services holding companies</li>
+                    <li>64910 - Financial leasing</li>
+                    <li>64922 - Activities of mortgage finance companies</li>
+                  </ul>
+                  <p class="govuk-body">Explain that they need to start the CS filing?</p>'
+        }
+      }
+    ]
+  }) }}
+</div>
+
 
 
 </div>
@@ -598,13 +623,33 @@ JavaScript to check the referrer and display the banner - banner should only be 
 
 
 
+    <div class="ur-shortcuts">
+      <!-- Not part of ACTUAL screen: only for UR purposes -->
+      <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
 
-
+        {{ govukCheckboxes({
+          name: "overdue",
+          classes: "overdue",
+          fieldset: {
+            legend: {
+              text: "overdue",
+              classes: "govuk-visually-hidden"
+            }
+          },
+          items: [
+            {
+              value: "overdue",
+              text: "Toggle overdue CS"
+            }
+          ]
+        }) }}
+</div>
 
 
     </div>
   </div>
 
+  <script src="/public/javascripts/toggle-overdue.js"></script>
 
 
 

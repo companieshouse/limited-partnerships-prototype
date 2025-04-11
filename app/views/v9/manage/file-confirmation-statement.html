@@ -23,7 +23,7 @@
 
       <form action="../confirmation-statement/confirmation-statement-date" method="post" class="form">
 
-          <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})</span>
+          <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "SL012345" }})</span>
         <h1 class="govuk-heading-xl">
           Before you file a confirmation statement  <!-- if changing this, update pageName above-->
         </h1>
@@ -68,7 +68,7 @@
   
 
 {{ govukButton({
-  text: "File a limited partnership confirmation statement"
+  text: "Continue"
 }) }}
 
       </form>

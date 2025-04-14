@@ -244,10 +244,13 @@ value: { text: data['lpChooseName']['nameEnding'] or "ACME LP" }
     text: "Continue"
   }) }}
 
-  {{ govukButton({
-    text: "PDF copy",
-    classes: "govuk-button--secondary"
-  }) }}
+{{ govukButton({
+  text: "Print",
+  classes: "govuk-button--secondary",
+  attributes: {
+    onclick: "window.print()"
+  }
+}) }}
 </div>
 
 </form>

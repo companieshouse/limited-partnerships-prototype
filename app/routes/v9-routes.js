@@ -640,4 +640,18 @@ router.post('/check-sic', function(request, response) {
     }
   })
 
+
+  //Before you file
+
+  router.post('/before-you-file', function(request, response) {
+
+    var csInfoCorrect = request.session.data['csInfoCorrect']
+    if (csInfoCorrect == "no"){
+        response.redirect("/v9/manage/file-confirmation-statement")
+    }
+    else {
+        response.redirect("/v9/confirmation-statement/confirmation-statement-date")
+    }
+  })
+
 module.exports=router;

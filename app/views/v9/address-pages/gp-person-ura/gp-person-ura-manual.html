@@ -20,12 +20,18 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+{% if (data['registrationOrTransition'] == "post") %}
+      <form class="form" action="/v9/address-pages/gp-person-ca/gp-person-ca-manual" method="post">
+{% else %}  
+
 <form class="form" action="../gp-person-ca/gp-person-ca-where" method="post">
-   
+   {% endif %}
+
 
   <span class="govuk-caption-l"> {{ data['gp1FirstName'] or "Georgina" }} {{ data['gp1LastName'] or "Smith" }}</span>
 
-{% if from == "change" %}
+{% if from == "change" or data['registrationOrTransition'] == "post" %}
     {% set gp1PersonUsualResidentialAddressNameNumber = "1" %}
     {% set gp1PersonUsualResidentialAddressLine1 = "Blue Road" %}
     {% set gp1PersonUsualResidentialAddressTown = "Manchester" %}

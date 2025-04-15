@@ -35,11 +35,26 @@
 
 {% set sicListHtml %}
   <ul class="govuk-list govuk-list--bullet">
-    <li>{{ data['sic1'] or "64205" }} - Activities of financial services holding companies</li>
-    <li>{{ data['sic2'] or "64910" }} - Financial leasing</li>
-    <li>{{ data['sic3'] or "64922" }} - Activities of mortgage finance companies</li>
+    {% if data['sic1'] %}
+      <li>
+        {% if data['sic1'] != "64205" %}
+          {{ data['sic1'] }} - Something else
+        {% else %}
+          {{ data['sic1'] or "64205" }} - Activities of financial services holding companies
+        {% endif %}
+      </li>
+    {% endif %}
+    
+    {% if data['sic2'] %}
+      <li>{{ data['sic2'] or "64910" }} - Financial leasing</li>
+    {% endif %}
+    
+    {% if data['sic3'] %}
+      <li>{{ data['sic3'] or "64922" }} - Activities of mortgage finance companies</li>
+    {% endif %}
   </ul>
 {% endset %}
+
 
 
      {{ govukSummaryList({

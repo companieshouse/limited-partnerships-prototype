@@ -27,6 +27,13 @@
     }) }}
 
 
+{% if data['newCSDate-day'] and data['newCSDate-month'] and data['newCSDate-year'] %}
+  {% set csDateText = data['newCSDate-day'] + ' ' + (data['newCSDate-month'] | monthName) + ' ' + data['newCSDate-year'] %}
+{% else %}
+  {% set csDateText = "31 May 2025" %}
+{% endif %}
+
+
 
 
      {{ govukSummaryList({
@@ -34,8 +41,7 @@
         rows: [
           {
             key: {text: "Confirmation statement date"},
-            value: {
-          text: (data['newCSDate-day'] + ' ' + (data['newCSDate-month'] | monthName) + ' ' + data['newCSDate-year']) or "31 May 2025"},
+                 value: { text: csDateText },
             actions: {
               items: [
                 {

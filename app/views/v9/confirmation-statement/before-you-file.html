@@ -27,16 +27,15 @@
     }) }}
 
 
+
+
      {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
         rows: [
           {
-            key: {
-              text: "Confirmation statement date"
-            },
+            key: {text: "Confirmation statement date"},
             value: {
-              text: "31 May 2025"
-            },
+          text: (data['newCSDate-day'] + ' ' + (data['newCSDate-month'] | monthName) + ' ' + data['newCSDate-year']) or "31 May 2025"},
             actions: {
               items: [
                 {
@@ -62,7 +61,7 @@
         rows: [
   {
     key: { text: "Name" },
-value: { text: data['lpChooseName']['nameEnding'] or "ACME LP" }
+    value: { text: data['lpChooseName']['nameEnding'] or "ACME LP" }
   },
   {
     key: { text: "Type of partnership" },

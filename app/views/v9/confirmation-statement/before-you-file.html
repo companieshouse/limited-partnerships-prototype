@@ -33,7 +33,13 @@
   {% set csDateText = "31 May 2025" %}
 {% endif %}
 
-
+{% set sicListHtml %}
+  <ul class="govuk-list govuk-list--bullet">
+    <li>{{ data['sic1'] or "64205" }} - Activities of financial services holding companies</li>
+    <li>{{ data['sic2'] or "64910" }} - Financial leasing</li>
+    <li>{{ data['sic3'] or "64922" }} - Activities of mortgage finance companies</li>
+  </ul>
+{% endset %}
 
 
      {{ govukSummaryList({
@@ -93,17 +99,11 @@
     },          
     {
       key: { text: "Standard Industrial Classification (SIC) code" },
-      value: { html: 
-      '<ul class="govuk-list govuk-list--bullet">
-                    <li>64205 - Activities of financial services holding companies</li>
-                    <li>64910 - Financial leasing</li>
-                    <li>64922 - Activities of mortgage finance companies</li>
-                  </ul>'
-      },
+       value: { html: sicListHtml },
             actions: {
               items: [
                 {
-                  href: "sic-check",
+                  href: "check-sic",
                   text: "Change",
                   visuallyHiddenText: "Standard Industrial Classification (SIC) code"
                 }

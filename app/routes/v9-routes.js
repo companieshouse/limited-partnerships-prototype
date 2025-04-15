@@ -385,7 +385,7 @@ router.post('/limited-partnership-sic', function(request, response) {
     var checkSIC = request.session.data['checkSIC']
 
     if (checkSIC === "no") {
-        response.redirect('/v9/confirmation-statement/submit-confirmation-statement')
+        response.redirect('/v9/confirmation-statement/before-you-file')
     } else {
         response.redirect('/v9/general-partner-section')
     }
@@ -636,7 +636,7 @@ router.post('/check-sic', function(request, response) {
         response.redirect("/v9/limited-partnership-sic")
     }
     else {
-        response.redirect("/v9/confirmation-statement/submit-confirmation-statement")
+        response.redirect("/v9/confirmation-statement/before-you-file")
     }
   })
 

@@ -1,0 +1,126 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Check and confirm what the limited partnership will be doing" %}
+
+{% set serviceName %}
+  {% include "/includes/confirmation-statement-service-name.html" %}
+{% endset%}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<form class="form" method="post">
+
+ <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})</span>
+ <h1 class="govuk-heading-xl">Check and confirm what the limited partnership will be doing
+</h1><!-- If changing the H1 be sure to also change the page title, see set PageName above-->
+
+
+
+
+
+<p class="govuk-body">Our records show these SIC codes for the limited partnership:</p>
+
+
+
+
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-3",
+        rows: [
+          {
+            key: {
+              text: "64205"
+            },
+            value: {
+              text: "Activities of financial services holding companies"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "64205 Activities of financial services holding companies"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "64910"
+            },
+            value: {
+              text: "Financial leasing"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "64910 Financial leasing"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "64922"
+            },
+            value: {
+              text: "Activities of mortgage finance companies"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "64922 Activities of mortgage finance companies"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+
+  <p>
+    {{ govukButton({
+      text: "Add another SIC code",
+      classes: "govuk-button--secondary",
+      href: "sic-add"
+    }) }}
+  </p>
+
+
+{{ govukDetails({
+  summaryText: "What is a SIC code?",
+  text: "The SIC (Standard Industrial Classification) code indicates the nature of the partnership's business. A partnership can have up to 4 SIC codes."
+}) }}
+
+  {{ govukButton({
+    text: "Save and continue",
+    href: "submit-confirmation-statement"
+  }) }}
+
+
+</form>
+    </div>
+  </div>
+
+
+
+      <script src="/public/javascripts/remove-sic.js"></script>
+
+{% endblock %}

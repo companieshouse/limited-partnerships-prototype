@@ -650,7 +650,7 @@ router.post('/check-sic', function(request, response) {
         response.redirect("/v9/manage/file-confirmation-statement")
     }
     else {
-        response.redirect("/v9/confirmation-statement/confirmation-statement-date")
+        response.redirect("/v9/confirmation-statement/submit-confirmation-statement")
     }
   })
 

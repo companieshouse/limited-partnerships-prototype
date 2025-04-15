@@ -27,6 +27,31 @@
     }) }}
 
 
+     {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Confirmation statement date"
+            },
+            value: {
+              text: "31 May 2025"
+            },
+            actions: {
+              items: [
+                {
+                  href: "confirmation-statement-date",
+                  text: "Change",
+                  visuallyHiddenText: "Confirmation statement date"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+
       <h2 class="govuk-heading-m">Limited partnership information</h2>
 
 
@@ -69,9 +94,18 @@ value: { text: data['lpChooseName']['nameEnding'] or "ACME LP" }
                     <li>64910 - Financial leasing</li>
                     <li>64922 - Activities of mortgage finance companies</li>
                   </ul>'
-       }
-    }
-    ]
+      },
+            actions: {
+              items: [
+                {
+                  href: "sic-check",
+                  text: "Change",
+                  visuallyHiddenText: "Standard Industrial Classification (SIC) code"
+                }
+              ]
+            }
+          }
+        ]
       }) }}
 
 

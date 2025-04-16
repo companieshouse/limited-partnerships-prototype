@@ -44,7 +44,19 @@
   
 
             
-        
+        {{ govukButton({
+  text: "View limited partnership information snapshot",
+  classes: "govuk-button--secondary govuk-!-margin-bottom-8",
+  attributes: {
+    id: "download-snapshot-btn",
+    type: "button"
+  }
+}) }}
+
+<div id="spinner-container" style="display: none;">
+  <img src="/public/images/spinner.gif" alt="Loading..." width="50" height="50">
+  <p class="govuk-body">Preparing your snapshot...</p>
+</div>
   
       
 
@@ -83,5 +95,9 @@
 </main>
 </div>
 <!---govuk-width-container-->
+
+
+
+  <script src="/public/javascripts/download-simulation.js"></script>
 
 {% endblock %}

@@ -391,6 +391,18 @@ router.post('/limited-partnership-sic', function(request, response) {
     }
 })
 
+/// CS Date
+
+router.post('/confirmation-statement-date', function(request, response) {
+    var changeDateOfCS = request.session.data['changeDateOfCS']
+
+    if (changeDateOfCS === "yes") {
+        response.redirect('/v9/confirmation-statement/check-your-answers-change-cs-date')
+    } else {
+        response.redirect('/v9/confirmation-statement/check-sic')
+    }
+})
+
 //PSC - Scottish entities only
 
 

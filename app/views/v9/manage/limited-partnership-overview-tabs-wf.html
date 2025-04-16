@@ -593,6 +593,22 @@ JavaScript to check the referrer and display the banner - banner should only be 
       }
     ]
   }) }}
+
+
+{{ govukButton({
+  text: "View limited partnership information snapshot",
+  classes: "govuk-button--secondary govuk-!-margin-bottom-2",
+  attributes: {
+    id: "download-snapshot-btn",
+    type: "button"
+  }
+}) }}
+
+<div id="spinner-container" style="display: none;">
+  <img src="/public/images/spinner.gif" alt="Loading..." width="50" height="50">
+  <p class="govuk-body">Preparing your snapshot...</p>
+</div>
+
 </div>
 
 
@@ -636,6 +652,7 @@ JavaScript to check the referrer and display the banner - banner should only be 
   </div>
 
   <script src="/public/javascripts/toggle-overdue.js"></script>
+  <script src="/public/javascripts/download-simulation.js"></script>
 
 
 

@@ -385,7 +385,7 @@ router.post('/limited-partnership-sic', function(request, response) {
     var checkSIC = request.session.data['checkSIC']
 
     if (checkSIC === "no") {
-        response.redirect('/v9/confirmation-statement/before-you-file')
+        response.redirect('/v9/confirmation-statement/check-sic')
     } else {
         response.redirect('/v9/general-partner-section')
     }
@@ -644,11 +644,11 @@ router.post('/lp-person-ura-postcode-look-up', function(request, response) {
 router.post('/check-sic', function(request, response) {
 
     var checkSIC = request.session.data['checkSIC']
-    if (checkSIC == "no"){
-        response.redirect("/v9/limited-partnership-sic")
+    if (checkSIC == "yes"){
+        response.redirect("/v9/confirmation-statement/submit-confirmation-statement")
     }
     else {
-        response.redirect("/v9/confirmation-statement/before-you-file")
+        response.redirect("/v9/limited-partnership-sic")
     }
   })
 

@@ -56,11 +56,23 @@ JavaScript to check the referrer and display the banner - banner should only be 
 
 
    <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">ACME LIMITED PARTNERSHIP </h1>
-      <p class="govuk-body govuk-!-margin-bottom-9">Limited partnership number <strong>SL012345</strong></p>
+      <p class="govuk-body govuk-!-margin-bottom-5">Limited partnership number <strong>SL012345</strong></p>
 
 
 
+{{ govukButton({
+  text: "View limited partnership information snapshot",
+  classes: "govuk-button--secondary govuk-!-margin-bottom-9",
+  attributes: {
+    id: "download-snapshot-btn",
+    type: "button"
+  }
+}) }}
 
+<div id="spinner-container" style="display: none; margin-top:-50px; margin-bottom:50px;">
+  <img src="/public/images/spinner.gif" alt="Loading..." width="50" height="50">
+  <p class="govuk-body">Preparing your snapshot...</p>
+</div>
 
 
 
@@ -595,19 +607,7 @@ JavaScript to check the referrer and display the banner - banner should only be 
   }) }}
 
 
-{{ govukButton({
-  text: "View limited partnership information snapshot",
-  classes: "govuk-button--secondary govuk-!-margin-bottom-2",
-  attributes: {
-    id: "download-snapshot-btn",
-    type: "button"
-  }
-}) }}
 
-<div id="spinner-container" style="display: none;">
-  <img src="/public/images/spinner.gif" alt="Loading..." width="50" height="50">
-  <p class="govuk-body">Preparing your snapshot...</p>
-</div>
 
 </div>
 

@@ -32,14 +32,43 @@
 
 
 <p class="govuk-body">Our records show these SIC codes for the limited partnership:</p>
-<ul class="govuk-list govuk-!-margin-bottom-9">
-  <li><span class="govuk-!-font-weight-bold">64205</span> - Activities of financial services holding companies
-</li>
-  <li><span class="govuk-!-font-weight-bold">64910</span> - Financial leasing
-</li>
-  <li><span class="govuk-!-font-weight-bold">64922</span> - Activities of mortgage finance companies
-</li>
+
+<ul class="govuk-list govuk-list--bullet">
+  {% set sics = [] %}
+  {% if data['sic1'] %}{% set sics = sics.concat([data['sic1']]) %}{% endif %}
+  {% if data['sic2'] %}{% set sics = sics.concat([data['sic2']]) %}{% endif %}
+  {% if data['sic3'] %}{% set sics = sics.concat([data['sic3']]) %}{% endif %}
+
+  {% if sics | length > 0 %}
+    {% for sic in sics %}
+      <li>
+        {{ sic }} -
+        {% if sic == "64205" %}
+          Activities of financial services holding companies
+        {% elseif sic == "64910" %}
+          Financial leasing
+        {% elseif sic == "64922" %}
+          Activities of mortgage finance companies
+        {% else %}
+          Something else
+        {% endif %}
+      </li>
+    {% endfor %}
+  {% else %}
+    <li>64205 - Activities of financial services holding companies</li>
+    <li>64910 - Financial leasing</li>
+    <li>64922 - Activities of mortgage finance companies</li>
+  {% endif %}
 </ul>
+
+
+
+
+
+
+
+
+
 
 
 {{ govukRadios({

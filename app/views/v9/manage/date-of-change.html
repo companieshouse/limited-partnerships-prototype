@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="When did this change occur?" %}
+{% set pageName="When did the details change?" %}
 
 
 
@@ -22,13 +22,13 @@
       <form action="/v9/manage/check-your-answers-change-gp-person" method="post" class="form">
           <span class="govuk-caption-l"> {{ data['gp1FirstName'] or "Georgina" }} {{ data['gp1LastName'] or "Smith" }}</span>
 
-<!-- if changing "When did this change occur?" below, also chanhge the pageName above -->
+<!-- if changing "When did the details change?" below, also chanhge the pageName above -->
 {{ govukDateInput({
   id: "dateChange",
   namePrefix: "dateChange",
   fieldset: {
     legend: {
-      text: "When did this change occur?",
+      text: "When did the details change?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--xl"
     }

@@ -231,21 +231,22 @@ JavaScript to check the referrer and display the banner - banner should only be 
           },
           {
             key: {
-              text: "Standard Industrial Classification (SIC) code"
+              html: 'Standard Industrial Classification (SIC) code <span class="govuk-!-font-weight-regular">can only be updated when <a href="#confirmation-statement" class="govuk-link govuk-link--no-visited-state">filing a confirmation statement</a></span>'
             },
-            value: {
-              html: 'Can only be updated when <a href="#confirmation-statement" class="govuk-link govuk-link--no-visited-state">filing a confirmation statement</a>'
-            }
+                    value: {
+          html: '<ul class="govuk-list govuk-list--bullet">
+                    <li>64205 - Activities of financial services holding companies</li>
+                    <li>64910 - Financial leasing</li>
+                    <li>64922 - Activities of mortgage finance companies</li>
+                  </ul>'
+        }
           }
         ]
       }) }}
 
 
 
-{{ govukButton({
-  text: "Close this limited partnership",
-  classes: "govuk-button--secondary"
-}) }}
+
 
   </div>
 
@@ -589,19 +590,6 @@ JavaScript to check the referrer and display the banner - banner should only be 
             }
           ]
         }
-      },
-      {
-        key: {
-          text: "Standard Industrial Classification (SIC) code"
-        },
-        value: {
-          html: '<ul class="govuk-list govuk-list--bullet">
-                    <li>64205 - Activities of financial services holding companies</li>
-                    <li>64910 - Financial leasing</li>
-                    <li>64922 - Activities of mortgage finance companies</li>
-                  </ul>
-                  <p class="govuk-body">Explain that they need to start the CS filing?</p>'
-        }
       }
     ]
   }) }}
@@ -615,7 +603,10 @@ JavaScript to check the referrer and display the banner - banner should only be 
 
 </div>
 
-
+{{ govukButton({
+  text: "Close this limited partnership",
+  classes: "govuk-button--secondary"
+}) }}
 
 
 

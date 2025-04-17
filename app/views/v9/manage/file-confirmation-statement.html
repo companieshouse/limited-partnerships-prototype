@@ -28,13 +28,27 @@
           Before you file a confirmation statement  <!-- if changing this, update pageName above-->
         </h1>
 
-        <p>You must check that all the information Companies House holds for this limited partnership is correct, and <a href="limited-partnership-overview-tabs-wf" class="govuk-link govuk-link--no-visited-state">update any information that has changed</a>. 
+        <p>Check that all the limited partnership information we hold is correct.</p> 
 
-        <div class="govuk-inset-text">
-          If you submit updates to limited partnership information, these may not show in the service immediately. As long as the updates have been submitted, you can still file a confirmation statement.
-        </div>
+        {{ govukButton({
+          text: "View limited partnership information snapshot",
+          classes: "govuk-button--secondary govuk-!-margin-bottom-8",
+          attributes: {
+            id: "download-snapshot-btn",
+            type: "button"
+          }
+        }) }}
+
+        <p>If anything has changed, you must <a href="limited-partnership-overview-tabs-wf" class="govuk-link govuk-link--no-visited-state">file updates to limited partnership information</a> before filing the confirmation statement.</p> 
 
         <p>The only information you can update within the confirmation statement is the SIC codes.</p> 
+
+        <div class="govuk-inset-text">
+          <p>Any updates you file may not show immediately in this service or the snapshot.</p>
+          <p>You do not need to wait for update filings to be accepted. As long as they've been submitted, you can file the confirmation statement.</p>
+        </div>
+
+
 
 
           <!-- {{ govukWarningText({
@@ -44,14 +58,7 @@
   
 
             
-        {{ govukButton({
-  text: "View limited partnership information snapshot",
-  classes: "govuk-button--secondary govuk-!-margin-bottom-8",
-  attributes: {
-    id: "download-snapshot-btn",
-    type: "button"
-  }
-}) }}
+
 
 <div id="spinner-container" style="display: none;">
   <img src="/public/images/spinner.gif" alt="Loading..." width="50" height="50">

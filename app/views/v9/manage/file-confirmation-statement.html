@@ -39,6 +39,12 @@
           }
         }) }}
 
+        <div id="spinner-container" style="display: none; margin-top:-25px;">
+          <img src="/public/images/spinner.gif" alt="Loading..." width="50" height="50">
+          <p class="govuk-body">Preparing your snapshot...</p>
+        </div>
+  
+
         <p>If anything has changed, you must <a href="limited-partnership-overview-tabs-wf" class="govuk-link govuk-link--no-visited-state">file updates to limited partnership information</a> before filing the confirmation statement.</p> 
 
         <p>The only information you can update within the confirmation statement is the SIC codes.</p> 
@@ -60,11 +66,7 @@
             
 
 
-<div id="spinner-container" style="display: none;">
-  <img src="/public/images/spinner.gif" alt="Loading..." width="50" height="50">
-  <p class="govuk-body">Preparing your snapshot...</p>
-</div>
-  
+
       
 
 {{ govukCheckboxes({

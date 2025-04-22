@@ -36,11 +36,14 @@ wf{% extends "layouts/main.html" %}
 </div>
 
 <!-- NOT SUITABLE FOR PRODUCTION SITES
-JavaScript to check the referrer and display the banner - banner should only be shown when the user returns to the page after making a change - at present all change journey end pages are within /manage -->
+JavaScript to check the referrer and display the banner - banner should only be shown when the user returns to the page after making a change, or after adding partners and possibly PSCs - at present all change journey end pages are within /manage -->
 <script>
-  // Check if the referer (previous URL) contains "/manage/"
-  if (document.referrer.includes('/manage/')) {
-    // Show the banner if the referer is from /manage/
+  // Check if the referer (previous URL) contains "/manage/" or "/lp-add-another"
+  if (
+    document.referrer.includes('/manage/') || 
+    document.referrer.includes('/lp-add-another')
+  ) {
+    // Show the banner if the referer matches either condition
     document.getElementById('notification-banner-container').style.display = 'block';
   }
 </script>
@@ -532,7 +535,7 @@ JavaScript to check the referrer and display the banner - banner should only be 
 }) }}
 
 <p class="govuk-body">
-  <a href="javascript:void(0)" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0">Add a new limited partner</a>
+  <a href="/v9/limited-partner-choice" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0">Add a new limited partner</a>
 </p>
   
 

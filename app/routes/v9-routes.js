@@ -210,29 +210,33 @@ router.post('/limited-partner-choice', function(request, response) {
 //lp add another
 router.post('/lp-add-another', function(request, response) {
     var addAnotherLP = request.session.data['addAnotherLP'];
-    var lpNumber = request.session.data['lpNumber'];
-    var registrationOrTransition = request.session.data['registrationOrTransition']; // ✅ Get value from session
-    var registerType = request.session.data['registerType']; // ✅ Get value from session
+    var lpNumber = request.session.data['lpNumber'] || "";
+    var registrationOrTransition = request.session.data['registrationOrTransition'];
+    var registerType = request.session.data['registerType'];
 
-    if (addAnotherLP == "addPersonLP") {
+    if (addAnotherLP === "addPersonLP") {
         response.redirect("/v9/lp-person");
     } 
-    else if (addAnotherLP == "addEntityLP") {
+    else if (addAnotherLP === "addEntityLP") {
         response.redirect("/v9/lp-legal-entity");
-    } 
+    }
     else if (
-        lpNumber.startsWith("SL") || 
-        lpNumber.startsWith("SG") || 
-        (registrationOrTransition === "registration" && 
-        (registerType === "registerSlp" || registerType === "RegisterPflpSco"))
+        registrationOrTransition === "registration" && 
+        (registerType === "registerSlp" || registerType === "RegisterPflpSco" || 
+         lpNumber.startsWith("SL") || lpNumber.startsWith("SG"))
     ) {
-        // response.redirect("/v9/psc-section");
         response.redirect("/v9/pscs/psc-section");
-    } 
+    }
+    else if (
+        registrationOrTransition === "post")
+     {
+        response.redirect("/v9/manage/limited-partnership-overview-tabs-wf#general-partners");
+    }
     else {
         response.redirect("/v9/check-your-answers");
     }
 });
+
 
 
 

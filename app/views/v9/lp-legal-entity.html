@@ -1149,7 +1149,8 @@
 
 
 
-{% if (data['registrationOrTransition'] in ["registration", "post"] and data['registerType'] in ["registerLp", "registerSlp"]) %}
+{% if (data['registrationOrTransition'] in ["registration", "post"] and data['registerType'] in ["registerLp", "registerSlp"]) 
+   or (data['registrationOrTransition'] in ["registration", "post"]) %}
 
 
 

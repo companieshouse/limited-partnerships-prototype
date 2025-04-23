@@ -2,13 +2,14 @@
   "scripts": {
     "dev": "govuk-prototype-kit dev",
     "serve": "govuk-prototype-kit serve",
-    "start": "govuk-prototype-kit start"
+    "start": "govuk-prototype-kit start",
+    "heroku-postbuild": "npm install --legacy-peer-deps && npm run build"
   },
   "dependencies": {
     "@govuk-prototype-kit/common-templates": "2.0.1",
     "@x-govuk/govuk-prototype-components": "^3.0.9",
     "@x-govuk/govuk-prototype-filters": "2.0.0",
-    "govuk-frontend": "^5.10.0-internal.1",
+    "govuk-frontend": "5.9.0",
     "govuk-prototype-kit": "13.16.2"
   }
 }

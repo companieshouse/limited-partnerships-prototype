@@ -230,7 +230,7 @@ router.post('/lp-add-another', function(request, response) {
     else if (
         registrationOrTransition === "post")
      {
-        response.redirect("/v9/manage/limited-partnership-overview-tabs-wf#general-partners");
+        response.redirect("/v9/manage/confirmation-add-lp");
     }
     else {
         response.redirect("/v9/check-your-answers");

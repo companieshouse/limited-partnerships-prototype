@@ -6,7 +6,8 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
 
-
+{# 
+<!-- New GOV branding-->
 {% set govukRebrand = true %}
 
 {% block header %}
@@ -18,9 +19,9 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
   serviceUrl: "/"
 }) }}
 {% endblock %}
+#}
 
-
-{# 
+<!-- Old GOV branding-->
 {% block header %}
 {{ govukHeader({
   homepageUrl: "/",
@@ -31,7 +32,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
   serviceUrl: "/"
 }) }}
 {% endblock %}
-#}
+
 
 
 

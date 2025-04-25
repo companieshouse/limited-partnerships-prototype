@@ -21,7 +21,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-         <span class="govuk-caption-l">GLOBALTECH</span>
+         
      <h1 class="govuk-heading-l">Check your answers before submitting your filing</h1>
 
   {{ govukSummaryList({
@@ -29,7 +29,7 @@
         rows: [
           {
             key: {
-              text: "Date general partner's appointment was terminated"
+              text: "Date they ceased to be a general partner"
             },
             value: {
               text: "1 March 2025"
@@ -39,7 +39,7 @@
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "date general partner's appointment was terminated"
+                  visuallyHiddenText: "Date they ceased to be a general partner"
                 }
               ]
             }

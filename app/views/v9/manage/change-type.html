@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Change type of partnership" %}
+{% set pageName="Apply to become a private fund limited partnership (PFLP)" %}
 
 
 
@@ -23,15 +23,25 @@
           <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "SL012345" }})</span>
 
         <h1 class="govuk-heading-xl">
-          Change type of partnership  <!-- if changing this, update pageName above-->
+          Apply to become a private fund limited partnership (PFLP)  <!-- if changing this, update pageName above-->
         </h1>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elit sem, posuere quis maximus at, ullamcorper ac nulla. Fusce et enim sit amet purus fermentum blandit. In arcu justo, ornare sed mi quis, venenatis pellentesque eros. Sed vehicula risus non sapien vestibulum hendrerit. </p>
+        <p class="govuk-body">A limited partnership can become a PFLP if it is constituted by an agreement in writing and is a collective investment scheme.
+          <p>Becoming a PFLP means that:
+          </p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>Limited partners will no longer be required to contribute capital</li>
+  <li>Limited partners can appoint a person to wind up the partnership if there is no general partner available to do so</li>
+  <li>Partners can make an agreement about winding up the partnership</li>
+  <li>Limited partners may take more actions without risking losing their limited liability status</li>
+  <li>Some administrative requirements will be removed</li>
+  <li>The partnership will no longer qualify as a ‘partnership scheme’, and therefore cannot be an authorised contractual scheme under section 235A(6)(aa) of the Financial Services and Markets Act 2000</li>
+</ul>
+<p class="govuk-body ">Find more information in the <a href="https://www.legislation.gov.uk/uksi/2017/514/article/2/made" class="govuk-link">Legislative Reform (Private Fund Limited Partnerships) Order 2017</a>.</p>
+          <p>It costs £10 to apply.</p>
+   
 
-            {{ govukWarningText({
-              text: "Nunc viverra sagittis posuere. In lacinia, tortor quis sodales ultrices, nibh ex ullamcorper mi, quis feugiat massa mauris nec sem. Nulla eleifend neque at viverra venenatis.",
-              iconFallbackText: "Warning"
-            }) }}
+            
 
               {{ govukCheckboxes({
                 name: "confirmChange",
@@ -45,7 +55,25 @@
                 items: [
                   {
                     value: "confirmChangeType",
-                    text: "Change this limited partnership to a private fund limited partnership"
+                    text: "I confirm that the partnership is constituted by an agreement in writing and is a collective investment scheme within the meaning of
+                    section 8D(4) of the Limited Partnerships Act 1907"
+                  }
+                ]
+              }) }}
+
+              {{ govukCheckboxes({
+                name: "confirmChange",
+                fieldset: {
+                  legend: {
+                    text: "Confirm you want to change the type of partnership",
+                    isPageHeading: true,
+                    classes: "govuk-visually-hidden"
+                  }
+                },
+                items: [
+                  {
+                    value: "confirmChangeType",
+                    text: "I confirm that all general partners have agreed for this application to be made"
                   }
                 ]
               }) }}
@@ -53,8 +81,11 @@
 
   
    {{ govukButton({
-          text: "Submit"
+          text: "Continue to payment"
         }) }}      
+
+    
+
 
       </form>
 

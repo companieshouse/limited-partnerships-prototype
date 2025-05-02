@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="What is the general partner's correspondence address?" %}
+{% set pageName="What is the PSC's correspondence address?" %}
 
 
 {% block header %}
@@ -24,13 +24,13 @@
    
 
   <span class="govuk-caption-l"> {{ data['gp1FirstName'] or "Georgina" }} {{ data['gp1LastName'] or "Smith" }}</span>
-<h1 class="govuk-heading-xl">What is the general partner's correspondence address?</h1>
+<h1 class="govuk-heading-xl">What is the PSC's correspondence address?</h1>
 
 
 
 <fieldset class="govuk-fieldset">
   <legend class="govuk-visually-hidden">
-     What is the general partner's correspondence address?
+     What is the PSC's correspondence address?
   </legend>
   <p class="govuk-hint">This is also known as the service address.</p>
 
@@ -61,7 +61,7 @@
 
 {{ govukInsetText({
   html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
-        <p>We'll show the general partner's correspondence address on the public register.</p>"
+        <p>We'll show the PSC's correspondence address on the public register.</p>"
 }) }}
       <!--
 {{ govukButton({

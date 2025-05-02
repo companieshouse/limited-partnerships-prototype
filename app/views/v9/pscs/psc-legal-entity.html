@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
  
-{% set pageName="Add a person with significant control (PSC) (legal entity)" %}
+{% set pageName="Add a relevant legal entity PSC" %}
 
 
 {% block header %}
@@ -32,11 +32,11 @@
   <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
 {% endif %}
 
-<h1 class="govuk-heading-xl">Add a person with significant control (PSC) (legal entity)</h1>
+<h1 class="govuk-heading-xl">Add a relevant legal entity PSC</h1>
 
 {{ govukInput({
   label: {
-    text: "What is the legal entity's name?",
+    text: "What is the relevant legal entity (RLE)'s name?",
     classes: "govuk-label--m",
     isPageHeading: true
   },
@@ -1141,23 +1141,23 @@
 
 {% call govukFieldset({
   legend: {
-    html: 'What is their nature of control?<br><p class="govuk-hint govuk-!-padding-top-1">Select all that apply.</p>',
+    html: 'What is its nature of control?<br>',
     classes: "govuk-fieldset__legend--l"
   }
 }) %}
 
-<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-4">Nature of control for a legal entity</h2>
+<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-4">Nature of control for this relevant legal entity (RLE)<p class="govuk-hint govuk-!-padding-top-1">Indicate the RLE's nature of control over the limited partnership</p></h2>
 
      {{ govukRadios({
         name: "psc1ShareOfAssets",
         fieldset: {
           legend: {
-            text: "Share of assets",
+            text: "a. Share of assets",
             classes: "govuk-fieldset__legend--s"
           }
         },
         hint: {
-          text: "The legal entity holds, directly or indirectly, the right to the following percentage of the surplus assets of the limited partnership on a winding up"
+          text: "The RLE holds, directly or indirectly, the right to the following percentage of any surplus assets on a winding up of the limited partnership:"
         },
         items: [
           {
@@ -1166,15 +1166,15 @@
           },
           {
             value: "more than 50% but less than 75%",
-            text: "more than 50% but less than 75%s"
+            text: "more than 50% but less than 75%"
           },
           {
             value: "75% or more",
             text: "75% or more"
           },
           {
-            value: "none of the above",
-            text: "none of the above"
+            value: "does not apply",
+            text: "does not apply"
           }
         ]
       }) }}
@@ -1184,12 +1184,13 @@
               name: "psc1OwnershipOfVotingRights",
               fieldset: {
                 legend: {
-                  text: "Ownership of voting rights",
+                  text: "b. Ownership of voting rights",
                   classes: "govuk-fieldset__legend--s"
                 }
               },
               hint: {
-                text: "The legal entity holds, directly or indirectly, the right to the following percentage of the surplus assets of the limited partnership on a winding up"
+                text: "The RLE holds, directly or indirectly, the following percentage of any voting
+                rights in the limited partnership:"
               },
               items: [
                 {
@@ -1205,8 +1206,8 @@
                   text: "75% or more"
                 },
           {
-            value: "none of the above",
-            text: "none of the above"
+            value: "does not apply",
+            text: "does not apply"
           }
               ]
             }) }}
@@ -1217,14 +1218,17 @@
                       name: "psc1OwnershipOfRightToAppointRemoveManagement",
                       fieldset: {
                         legend: {
-                          text: "Ownership of right to appoint/remove management",
+                          text: "c. Ownership of right to appoint/remove management",
                           classes: "govuk-fieldset__legend--s"
                         }
                       },
+                      hint: {
+                        text: "Select if this statement applies"
+                      },
                       items: [
                         {
-                          value: "The legal entity holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership.",
-                          text: "The legal entity holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership."
+                          value: "The RLE holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership.",
+                          text: "The RLE holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership"
                         }
                       ]
                     }) }}
@@ -1234,16 +1238,19 @@
                       name: "psc1SignificantInfluenceOrControl",
                       fieldset: {
                         legend: {
-                          text: "Significant influence or control",
+                          text: "d. Significant influence or control",
                           classes: "govuk-fieldset__legend--s"
                         }
                       },
+                      hint: {
+                        text: "Only select this statement if a, b and c do not apply"
+                      },
                       items: [
                         {
-                          value: "The legal entity has the right to exercise, or actually exercises, significant
+                          value: "The RLE has the right to exercise, or actually exercises, significant
 influence or control over the limited partnership.",
-                          text: "The legal entity has the right to exercise, or actually exercises, significant
-influence or control over the limited partnership."
+                          text: "The RLE has the right to exercise, or actually exercises, significant
+influence or control over the limited partnership"
                         }
                       ]
                     }) }}
@@ -1252,7 +1259,9 @@ influence or control over the limited partnership."
 
 
 
-<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-4">Nature of control by a firm over which the legal entity has significant control</h2>
+<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-4">Nature of control by a firm over which the RLE has significant control<p class="govuk-hint govuk-!-padding-top-1">The RLE has the right to exercise, or actually exercises, significant
+  influence or control over the activities of a firm that is not a legal person under
+  its governing law, and:</p></h2>
 
 
 
@@ -1261,12 +1270,12 @@ influence or control over the limited partnership."
               name: "psc1ControlByFirm1",
               fieldset: {
                 legend: {
-            text: "Share of assets",
+            text: "a. Share of assets",
                   classes: "govuk-fieldset__legend--s"
                 }
               },
               hint: {
-                text: "The legal entity has the right to exercise or actually exercises significant influence or control over the activities of a firm that is not a legal person under its governing law, and the members of that firm (in their capacity as such) hold, directly or indirectly, the right to the following percentage of any surplus assets on a winding up of the limited partnership"
+                text: "The members of that firm (in their capacity as such) hold, directly or indirectly, the right to the following percentage of any surplus assets on a winding up of the limited partnership:"
               },
               items: [
                 {
@@ -1282,8 +1291,8 @@ influence or control over the limited partnership."
                   text: "75% or more"
                 },
           {
-            value: "none of the above",
-            text: "none of the above"
+            value: "does not apply",
+            text: "does not apply"
           }
               ]
             }) }}
@@ -1292,12 +1301,12 @@ influence or control over the limited partnership."
               name: "psc1ControlByFirm2",
               fieldset: {
                 legend: {
-                  text: "Ownership of voting rights",
+                  text: "b. Ownership of voting rights",
                   classes: "govuk-fieldset__legend--s"
                 }
               },
               hint: {
-                text: "The members of that firm (in their capacity as such) hold, directly or indirectly, the following percentage of any voting rights in the limited partnership"
+                text: "The members of that firm (in their capacity as such) hold, directly or indirectly, the following percentage of any voting rights in the limited partnership:"
               },
               items: [
                 {
@@ -1313,8 +1322,8 @@ influence or control over the limited partnership."
                   text: "75% or more"
                 },
           {
-            value: "none of the above",
-            text: "none of the above"
+            value: "does not apply",
+            text: "does not apply"
           }
               ]
             }) }}
@@ -1324,9 +1333,12 @@ influence or control over the limited partnership."
               name: "psc1ControlByFirm3",
                       fieldset: {
                         legend: {
-                          text: "Ownership of right to appoint/remove management",
+                          text: "c. Ownership of right to appoint/remove management",
                           classes: "govuk-fieldset__legend--s"
                         }
+                      },
+                      hint: {
+                        text: "Select if this statement applies"
                       },
                       items: [
                         {
@@ -1341,9 +1353,12 @@ influence or control over the limited partnership."
               name: "psc1ControlByFirm4",
                       fieldset: {
                         legend: {
-                          text: "Significant influence or control",
+                          text: "d. Significant influence or control",
                           classes: "govuk-fieldset__legend--s"
                         }
+                      },
+                      hint: {
+                        text: "Select if this statement applies"
                       },
                       items: [
                         {
@@ -1359,7 +1374,8 @@ influence or control over the limited partnership."
 
 
 
-<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-4">Nature of control by a trust over which the legal entity has significant control</h2>
+<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-4">Nature of control by a trust over which the RLE has significant control<p class="govuk-hint govuk-!-padding-top-1">The RLE has the right to exercise, or actually exercises, significant influence or
+  control over the activities of a trust, and:</p></h2>
 
 
 
@@ -1368,12 +1384,12 @@ influence or control over the limited partnership."
               name: "psc1ControlByTrust1",
               fieldset: {
                 legend: {
-            text: "Share of assets",
+            text: "a. Share of assets",
                   classes: "govuk-fieldset__legend--s"
                 }
               },
               hint: {
-                text: "The legal entity has the right to exercise or actually exercises significant influence or control over the activities of a trust and the trustees of that trust (in their capacity as such) hold, directly or indirectly,the right to the following percentage of any surplus assets on a winding up of the limited partnership"
+                text: "The trustees of that trust (in their capacity as such) hold, directly or indirectly, the right to the following percentage of any surplus assets on a winding up of the limited partnership:"
               },
               items: [
                 {
@@ -1389,8 +1405,8 @@ influence or control over the limited partnership."
                   text: "75% or more"
                 },
           {
-            value: "none of the above",
-            text: "none of the above"
+            value: "does not apply",
+            text: "does not apply"
           }
               ]
             }) }}
@@ -1399,12 +1415,12 @@ influence or control over the limited partnership."
               name: "psc1ControlByTrust2",
               fieldset: {
                 legend: {
-                  text: "Ownership of voting rights",
+                  text: "b. Ownership of voting rights",
                   classes: "govuk-fieldset__legend--s"
                 }
               },
               hint: {
-                text: "The trustees of that trust (in their capacity as such) hold, directly or indirectly, the following percentage of any voting rights in the limited partnership"
+                text: "The trustees of that trust (in their capacity as such) hold, directly or indirectly, the following percentage of any voting rights in the limited partnership:"
               },
               items: [
                 {
@@ -1420,8 +1436,8 @@ influence or control over the limited partnership."
                   text: "75% or more"
                 },
           {
-            value: "none of the above",
-            text: "none of the above"
+            value: "does not apply",
+            text: "does not apply"
           }
               ]
             }) }}
@@ -1431,9 +1447,12 @@ influence or control over the limited partnership."
               name: "psc1ControlByTrust3",
                       fieldset: {
                         legend: {
-                          text: "Ownership of right to appoint/remove management",
+                          text: "c. Ownership of right to appoint/remove management",
                           classes: "govuk-fieldset__legend--s"
                         }
+                      },
+                      hint: {
+                        text: "Select if this statement applies"
                       },
                       items: [
                         {
@@ -1448,14 +1467,17 @@ influence or control over the limited partnership."
               name: "psc1ControlByTrust4",
                       fieldset: {
                         legend: {
-                          text: "Significant influence or control",
+                          text: "d. Significant influence or control",
                           classes: "govuk-fieldset__legend--s"
                         }
+                      },
+                      hint: {
+                        text: "Select if this statement applies"
                       },
                       items: [
                         {
                           value: "The trustees of that trust (in their capacity as such) have the right to exercise, or actually exercise, significant influence or control over the limited partnership.",
-                          text: "The trustees of that trust (in their capacity as such) have the right to exercise, or actually exercise, significant influence or control over the limited partnership."
+                          text: "The trustees of that trust (in their capacity as such) have the right to exercise, or actually exercise, significant influence or control over the limited partnership"
                         }
                       ]
                     }) }}

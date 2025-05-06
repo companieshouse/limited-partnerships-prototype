@@ -6,11 +6,20 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
 
+{% set govukRebrand = false %}
+
+{% block header %}
+  {{ govukHeader ({
+      rebrand: false
+  }) }}
+{% endblock %}
 
 
 
   {% block footer %}
+
     {{ govukFooter({
+    rebrand: false,
       meta: {
         items: [
           {

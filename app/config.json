@@ -1,3 +1,8 @@
 {
-  "serviceName": "File for a limited partnership"
+  "serviceName": "File for a limited partnership",
+  "plugins": {
+    "govuk-frontend": {
+      "rebrand": true
+    }
+  }
 }

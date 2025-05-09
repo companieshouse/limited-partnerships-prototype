@@ -30,7 +30,30 @@
   <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
 {% endif %}
 
+{% if data['registrationOrTransition'] == "post" %}
 
+{{ govukRadios({
+  name: "limitedPartner",
+  value: data['limitedPartner'],
+  fieldset: {
+    legend: {
+      text: "Is the limited partner a person or a legal entity?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "person",
+      text: "A person"
+    },
+    {
+      value: "entity",
+      text: "A legal entity"
+    }
+  ]
+}) }}
+{% else %}
 {{ govukRadios({
   name: "limitedPartner",
   value: data['limitedPartner'],
@@ -55,6 +78,8 @@
     }
   ]
 }) }}
+
+{% endif %}
       
 {{ govukButton({
   text: "Save and continue"

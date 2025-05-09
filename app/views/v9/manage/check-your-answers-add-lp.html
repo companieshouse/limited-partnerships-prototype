@@ -21,7 +21,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-  <span class="govuk-caption-l"> {{ data['lp1FirstName'] or "Lisa" }} {{ data['lp1LastName'] or "Taylor" }}</span>
+
        <h1 class="govuk-heading-l">Check your answers before submitting this update</h1>
 
  
@@ -81,13 +81,12 @@
           },
            {
             key: {
-              text: "Total capital contribution?"
+              text: "Total capital contribution"
             },
             value: {
               html: '
               <ul class="govuk-list govuk-list--bullet">
-                <li>1000</li>
-                <li>British Pound (GBP)</li>
+                <li>1000 British Pound (GBP)</li>
                 <li>Money / Shares</li>
               </ul>
               '

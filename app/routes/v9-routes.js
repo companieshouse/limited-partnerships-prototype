@@ -657,6 +657,13 @@ router.post('/check-sic', function(request, response) {
   })
 
 
+  // Check SIC - TYPEAHEAD VERSION
+
+  router.post('/sic-add', function(request, response) {
+    response.redirect('/v9/confirmation-statement/sic-check')
+})
+
+
   //Before you file
 
   router.post('/before-you-file', function(request, response) {

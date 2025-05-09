@@ -1,0 +1,153 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+  <span class="govuk-caption-l"> {{ data['lp1FirstName'] or "Lisa" }} {{ data['lp1LastName'] or "Taylor" }}</span>
+       <h1 class="govuk-heading-l">Check your answers before submitting this update</h1>
+
+ 
+  {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+            text: (data['lp1FirstName'] or "Lisa") + " " + (data['lp1LastName'] or "Taylor")
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Lisa Taylor name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "21 August 1989"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Lisa Taylor date of birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Nationality"
+            },
+            value: {
+              text: data['lp1Nationality1'] or "British"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Lisa Taylor nationality"
+                }
+              ]
+            }
+          },
+           {
+            key: {
+              text: "Total capital contribution?"
+            },
+            value: {
+              html: '
+              <ul class="govuk-list govuk-list--bullet">
+                <li>1000</li>
+                <li>British Pound (GBP)</li>
+                <li>Money / Shares</li>
+              </ul>
+              '
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Total capital contribution"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date they became a partner"
+            },
+            value: {
+              text: "30 April 2025"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Date of change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Usual residential address"
+            },
+            value: {
+              text: "1 Red Crest Lane, Birmingham, B12 3AB"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Lisa Taylor usual residential address"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+
+        {{ govukButton({
+          text: "Submit",
+          href: "confirmation-add-lp"
+        }) }}
+
+
+
+    </div>
+  </div>
+{% endblock %}

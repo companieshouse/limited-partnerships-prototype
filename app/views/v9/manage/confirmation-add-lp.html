@@ -40,7 +40,7 @@ html: "Your reference number " + references
 
 
 
-<p class="govuk-body">We've received your filing to add one or more limited partners to ACME LIMITED PARTNERSHIP (SL012345).
+<p class="govuk-body">We've received your filing to add {{ data['lp1FirstName'] or "Lisa" }} {{ data['lp1LastName'] or "Taylor" }} as a limited partner to ACME LIMITED PARTNERSHIP (SL012345).
   
   <p>We've sent a confirmation email to <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong>.</p>
 

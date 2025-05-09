@@ -860,16 +860,27 @@
 </div> <!--End of inset text-->
 
 
+{% set sicDetailsHtml %}
+  <p class="govuk-body">
+    The SIC (Standard Industrial Classification) code indicates the nature of the partnership's business. A partnership can have up to 4 SIC codes.
+  </p>
+
+  <p class="govuk-body">
+    You can't create your own trade description for your company. You need to search for a business activity using keywords that best describe what your company does.
+  </p>
+
+  <p class="govuk-body">
+    If you can't find an exact match then you should search for other keywords that relate to your business activities.
+  </p>
+
+  <p class="govuk-body">
+    You can check the <a href="http://resources.companieshouse.gov.uk/sic/" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">list of trade descriptions (opens in a new tab)</a> on the Companies House website to help you find a suitable business activity.
+  </p>
+{% endset %}
+
 {{ govukDetails({
   summaryText: "What is a SIC code?",
-  html: '
-  <p class="govuk-body">The SIC (Standard Industrial Classification) code indicates the nature of the partnership\'s business. A partnership can have up to 4 SIC codes.</p>
-
-  <p class="govuk-body">You can\'t create your own trade description for your company. You need to search for a business activity using keywords that best describe what your company does.</p>
-
-  <p class="govuk-body">If you can\'t find an exact match then you should search for other keywords that relate to your business activities.</p>
-
-  <p class="govuk-body">You can check the <a href="http://resources.companieshouse.gov.uk/sic/" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">list of trade descriptions (opens in a new tab)</a>, also known as Standard Industrial Classification codes, on the Companies House website to help you find a suitable business activity.</p>'
+  html: sicDetailsHtml
 }) }}
 
   <p>{{ govukButton({
@@ -877,6 +888,14 @@
     href: "submit-confirmation-statement"
   }) }}<p>
 
+
+  <div class="ur-shortcuts">
+  <!-- Not part of ACTUAL screen: only for UR purposes -->
+  <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
+  <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+    <li><a class="govuk-link" href="check-sic">SIC original</a></li>
+  </ul>
+</div>
 
 </form>
     </div>

@@ -639,6 +639,17 @@ router.post('/lp-person-ura-postcode-look-up', function(request, response) {
     response.redirect('/v9/address-pages/lp-person-ura/lp-person-ura-confirm-address')
 })
 
+router.post('/lp-person-ura-confirm-address', function(request, response) {
+
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "post"){
+        response.redirect("/v9/manage/check-your-answers-add-lp")
+    }
+    else {
+        response.redirect("/v9/lp-add-another")
+    }
+  })
+
 ////////////////////////////////
 // Confirmation statement //
 

@@ -64,6 +64,21 @@ router.post('/gov-onelogin-enter-code', function(request, response) {
 
 
 
+// Secure register
+
+
+router.post('/secure-register-filter', function(request, response) {
+
+    var secureRegister = request.session.data['secureRegister']
+    if (secureRegister == "yes"){
+        response.redirect("/v9/use-paper")
+    }
+    else {
+        response.redirect("/v9/registration/which-type")
+    }
+  })
+
+
 
   // name ending
 

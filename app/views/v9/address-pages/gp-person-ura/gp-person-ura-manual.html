@@ -32,10 +32,10 @@
   <span class="govuk-caption-l"> {{ data['gp1FirstName'] or "Georgina" }} {{ data['gp1LastName'] or "Smith" }}</span>
 
 {% if from == "change" or data['registrationOrTransition'] == "post" %}
-    {% set gp1PersonUsualResidentialAddressNameNumber = "1" %}
-    {% set gp1PersonUsualResidentialAddressLine1 = "Blue Road" %}
-    {% set gp1PersonUsualResidentialAddressTown = "Manchester" %}
-    {% set gp1PersonUsualResidentialAddressPostcode = "M12 3AB" %}
+    {% set gp1PersonUsualResidentialAddressNameNumber = "" %}
+    {% set gp1PersonUsualResidentialAddressLine1 = "" %}
+    {% set gp1PersonUsualResidentialAddressTown = "" %}
+    {% set gp1PersonUsualResidentialAddressPostcode = "" %}
 {% else %}
     {% set gp1PersonUsualResidentialAddressNameNumber = "" %}
     {% set gp1PersonUsualResidentialAddressLine1 = "" %}

@@ -164,14 +164,15 @@
 {% endif %}
 
 {{ govukSummaryList({
-  classes: "govuk-!-margin-bottom-9",
+  classes: "govuk-!-margin-bottom-6",
   rows: rows
 }) }}
 
 
     <h2 class="govuk-heading-m">General partners</h2>
+          <p class="govuk-!-margin-bottom-6"><a href="general-partner-choice" class="govuk-link govuk-link--no-visited-state">Change, remove or add general partners</a></p>
      {{ govukSummaryList({
-        classes: "govuk-!-margin-bottom-9",
+        classes: "govuk-!-margin-bottom-6",
         rows: [
           {
             key: {
@@ -179,15 +180,6 @@
             },
             value: {
             text: (data['gp1FirstName'] or "Georgina") + " " + (data['gp1LastName'] or "Smith")
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Georgina Smith name"
-                }
-              ]
             }
           },
           {
@@ -196,15 +188,6 @@
             },
             value: {
               text: "Georgina Silver"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Georgina Silver previous name"
-                }
-              ]
             }
           },
           {
@@ -213,15 +196,6 @@
             },
             value: {
               text: "21 August 1989"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Georgina Smith date of birth"
-                }
-              ]
             }
           },
           {
@@ -230,15 +204,6 @@
             },
             value: {
               text: "British"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Georgina Smith nationality"
-                }
-              ]
             }
           },
           {
@@ -247,15 +212,6 @@
             },
             value: {
               text: "13 Luck Lane, Bristol, BS1 8LY, United Kingdom"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Georgina Smith usual residential address"
-                }
-              ]
             }
           },
           {
@@ -264,15 +220,6 @@
             },
             value: {
               text: "2 Peartree Avenue, Bristol, BS1 2EF, United Kingdom"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Georgina Smith correspondence address"
-                }
-              ]
             }
           }
         ]
@@ -280,7 +227,7 @@
 
       
       {{ govukSummaryList({
-        classes: "govuk-!-margin-bottom-4",
+        classes: "govuk-!-margin-bottom-6",
         rows: [
           {
             key: {
@@ -288,15 +235,6 @@
             },
             value: {
               text: data['gp1EntityName'] or "ABC Company Limited"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-legal-entity",
-                  text: "Change",
-                  visuallyHiddenText: "ABC Company Limited legal entity name"
-                }
-              ]
             }
           },
                   {
@@ -305,15 +243,6 @@
             },
             value: {
               text: data['gp1LegalForm'] or "Private limited company"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-legal-entity",
-                  text: "Change",
-                  visuallyHiddenText: "ABC Company Limited legal form or corporate identity"
-                }
-              ]
             }
           },
           {
@@ -322,15 +251,6 @@
             },
             value: {
               text: data['gp1GoverningLaw'] or "Companies Act 2006"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-legal-entity",
-                  text: "Change",
-                  visuallyHiddenText: "ABC Company Limited governing law"
-                }
-              ]
             }
           },
               {
@@ -339,15 +259,6 @@
             },
             value: {
               text: data['gp1Register'] or "Companies House public register"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-legal-entity",
-                  text: "Change",
-                  visuallyHiddenText: "ABC Company Limited register"
-                }
-              ]
             }
           },
               {
@@ -356,15 +267,6 @@
             },
             value: {
               text: data['gp1CountryRegistered'] or "United Kingdom"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-legal-entity",
-                  text: "Change",
-                  visuallyHiddenText: "ABC Company Limited country registered in"
-                }
-              ]
             }
           },
           {
@@ -373,15 +275,6 @@
             },
             value: {
               text: data['gp1RegistrationNumber'] or "00876543"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-legal-entity",
-                  text: "Change",
-                  visuallyHiddenText: "ABC Company Limited registration number"
-                }
-              ]
             }
           },
           {
@@ -390,25 +283,17 @@
             },
             value: {
               text: "24 Candy Lane, London, W1 3EE, United Kingdom"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-legal-entity",
-                  text: "Change",
-                  visuallyHiddenText: "Principal office address"
-                }
-              ]
             }
           }
         ]
       }) }}
 
-      <p class="govuk-!-margin-bottom-9"><a href="general-partner-choice" class="govuk-link govuk-link--no-visited-state">Add a general partner</a></p>
+
 
 
 
     <h3 class="govuk-heading-m">Limited partners</h3>
+    <p class="govuk-!-margin-bottom-6"><a href="limited-partner-choice" class="govuk-link govuk-link--no-visited-state">Change, remove or add limited partners</a></p>
 
 {% set rows = [
   {
@@ -417,15 +302,6 @@
     },
     value: {
       text: (data['lp1FirstName'] or "Adrienne") + " " + (data['gp1LastName'] or "Leandres")
-    },
-    actions: {
-      items: [
-        {
-          href: "lp-person",
-          text: "Change",
-          visuallyHiddenText: "Adrienne Leandres name"
-        }
-      ]
     }
   },
           {
@@ -434,15 +310,6 @@
             },
             value: {
               text: "13 March 1975"
-            },
-            actions: {
-              items: [
-                {
-                  href: "lp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Adrienne Leandres date of birth"
-                }
-              ]
             }
           },
           {
@@ -451,15 +318,6 @@
             },
             value: {
               text: "French"
-            },
-            actions: {
-              items: [
-                {
-                  href: "lp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Adrienne Leandres nationality"
-                }
-              ]
             }
           },
           {
@@ -468,15 +326,6 @@
             },
             value: {
               text: "1 Champs Elysee, Paris, 705001, France"
-            },
-            actions: {
-              items: [
-                {
-                  href: "lp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Adrienne Leandres usual residential address"
-                }
-              ]
             }
           }
 ] %}
@@ -489,22 +338,13 @@
       },
       value: {
         text: "£1,000"
-      },
-      actions: {
-        items: [
-          {
-            href: "lp-person",
-            text: "Change",
-            visuallyHiddenText: "Adrienne Leandres amount contributed"
-          }
-        ]
       }
     }
   ]) %}
 {% endif %}
 
 {{ govukSummaryList({
-  classes: "govuk-!-margin-bottom-4",
+        classes: "govuk-!-margin-bottom-6",
   rows: rows
 }) }}
 
@@ -517,15 +357,6 @@
             },
             value: {
               text: data['lp1EntityName'] or "ACME Legal Entity Inc"
-            },
-            actions: {
-              items: [
-                {
-                  href: "lp-legal-entity",
-                  text: "Change",
-                  visuallyHiddenText: "ACME Legal Entity Inc name"
-                }
-              ]
             }
           },
                             {
@@ -534,15 +365,6 @@
             },
             value: {
               text: data['lp1LegalForm'] or "Private limited company"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-legal-entity",
-                  text: "Change",
-                  visuallyHiddenText: "ACME Legal Entity Inc legal form or corporate identity"
-                }
-              ]
             }
           },
           {
@@ -551,15 +373,6 @@
             },
             value: {
               text: data['lp1GoverningLaw'] or "Companies Act 2006"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-legal-entity",
-                  text: "Change",
-                  visuallyHiddenText: "ACME Legal Entity Inc governing law"
-                }
-              ]
             }
           },
               {
@@ -568,15 +381,6 @@
             },
             value: {
               text: data['lp1Register'] or "Companies House public register"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-legal-entity",
-                  text: "Change",
-                  visuallyHiddenText: "ACME Legal Entity Incregister"
-                }
-              ]
             }
           },
               {
@@ -585,15 +389,6 @@
             },
             value: {
               text: data['lp1CountryRegistered'] or "United Kingdom"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-legal-entity",
-                  text: "Change",
-                  visuallyHiddenText: "ACME Legal Entity Inc country registered in"
-                }
-              ]
             }
           },
           {
@@ -602,15 +397,6 @@
             },
             value: {
               text: data['lp1RegistrationNumber'] or "00001234"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-legal-entity",
-                  text: "Change",
-                  visuallyHiddenText: "ACME Legal Entity Inc registration number"
-                }
-              ]
             }
           },
           {
@@ -619,15 +405,6 @@
             },
             value: {
               text: "1 Hyde Road, London, SW1 1LE, United Kingdom"
-            },
-            actions: {
-              items: [
-                {
-                  href: "lp-legal-entity",
-                  text: "Change",
-                  visuallyHiddenText: "ACME Legal Entity Inc Principal office address"
-                }
-              ]
             }
           }
 ] %}
@@ -640,27 +417,18 @@
       },
       value: {
         text: "£1,000"
-      },
-      actions: {
-        items: [
-          {
-            href: "lp-legal-entity",
-            text: "Change",
-            visuallyHiddenText: "AACME Legal Entity Inc amount contributed"
-          }
-        ]
       }
     }
   ]) %}
 {% endif %}
 
 {{ govukSummaryList({
-  classes: "govuk-!-margin-bottom-4",
+        classes: "govuk-!-margin-bottom-6",
   rows: rows
 }) }}
 
 
-       <p class="govuk-!-margin-bottom-9"><a href="limited-partner-choice" class="govuk-link govuk-link--no-visited-state">Add a limited partner</a></p> 
+   
 
      <!-- <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p
 -->

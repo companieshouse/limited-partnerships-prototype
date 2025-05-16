@@ -1064,7 +1064,10 @@
 }) %}
 
 
-<p class="govuk-hint">Enter the total value of all monetary and non-monetary contributions</p>
+<p class="govuk-hint">Select the currency and enter the total value of all monetary and non-monetary contributions. For example, 0.01 or 10000.00
+</p>
+
+      
 
 {{ govukSelect({
   id: "otherCurrencySelector",
@@ -1242,6 +1245,8 @@
 }) }}
 
 
+
+
 {{ govukInput({
   id: "totalCapitalContribution",
   name: "totalCapitalContribution",
@@ -1253,8 +1258,6 @@
   inputmode: "numeric",
   spellcheck: false
 }) }}
-      
-
 
 
 

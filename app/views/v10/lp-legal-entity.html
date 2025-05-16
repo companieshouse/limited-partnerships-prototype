@@ -1162,24 +1162,7 @@
 }) %}
 
 
-<p class="govuk-hint">Enter the total value of all monetary and non-monetary contributions</p>
-
-
-
-
-{{ govukInput({
-  id: "totalCapitalContribution",
-  name: "totalCapitalContribution",
-  label: {
-    text: "What is its total capital contribution?",
-    classes: "govuk-visually-hidden"
-  },
-  classes: "govuk-input--width-5",
-  inputmode: "numeric",
-  spellcheck: false
-}) }}
-      
-
+<p class="govuk-hint">Select the currency and enter the total value of all monetary and non-monetary contributions. For example, 0.01 or 10000.00</p>
 
 {{ govukSelect({
   id: "otherCurrencySelector",
@@ -1357,6 +1340,18 @@
 }) }}
 
 
+
+{{ govukInput({
+  id: "totalCapitalContribution",
+  name: "totalCapitalContribution",
+  label: {
+    text: "What is its total capital contribution?",
+    classes: "govuk-visually-hidden"
+  },
+  classes: "govuk-input--width-5",
+  inputmode: "numeric",
+  spellcheck: false
+}) }}
 
 {{ govukCheckboxes({
   name: "capitalContributionBreakdown",

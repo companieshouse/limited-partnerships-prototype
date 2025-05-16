@@ -404,7 +404,7 @@ router.post('/limited-partnership-sic', function(request, response) {
     var checkSIC = request.session.data['checkSIC']
 
     if (checkSIC === "no") {
-        response.redirect('/v10/confirmation-statement/check-sic')
+        response.redirect('/v10/confirmation-statement/sic-check')
     } else {
         response.redirect('/v10/general-partner-section')
     }
@@ -418,7 +418,7 @@ router.post('/confirmation-statement-date', function(request, response) {
     if (changeDateOfCS === "yes") {
         response.redirect('/v10/confirmation-statement/check-your-answers-change-cs-date')
     } else {
-        response.redirect('/v10/confirmation-statement/check-sic')
+        response.redirect('/v10/confirmation-statement/sic-check')
     }
 })
 

@@ -141,18 +141,38 @@ JavaScript to check the referrer and display the banner - banner should only be 
               ]
             }
           },
-                   {
+              {
             key: {
-              text: "Type"
+              text: "Status"
             },
             value: {
-              html: 'Limited partnership <p class="govuk-!-font-weight-regular"><a href="change-type" class="govuk-link govuk-link--no-visited-state">Apply for designation as a private fund limited partnership</a></p>'
+              html: '<strong class="govuk-tag">Live</strong>'
             },
             actions: {
               items: [
                 {
-                  
+                  href: "javascript:void(0)",
+                  text: "Close",
+                  classes: "govuk-link--no-visited-state",
+                  visuallyHiddenText: "this partnership"
                 }
+              ]
+            }
+          },
+                   {
+            key: {
+              html: "Type"
+            },
+            value: {
+              text: 'Limited partnership'
+            },
+            actions: {
+              items: [
+                {
+              href: "change-type",
+                  text: "Redesignate",
+                  classes: "govuk-link--no-visited-state",
+                  visuallyHiddenText: "Limited partnership name"                }
               ]
             }
           },
@@ -603,10 +623,7 @@ JavaScript to check the referrer and display the banner - banner should only be 
 
 </div>
 
-{{ govukButton({
-  text: "Close this limited partnership",
-  classes: "govuk-button--secondary"
-}) }}
+
 
 
 

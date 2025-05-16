@@ -1165,10 +1165,15 @@
         <p>We will not show this address on the public register, unless it's also used as the general partner’s correspondence address.</p>"
 }) }}
  
-{{ govukButton({
-  text: "Save and continue"
-}) }}
+{% if data['registrationOrTransition'] == "post" %}
+  {% set buttonText = "Continue" %}
+{% else %}
+  {% set buttonText = "Save and continue" %}
+{% endif %}
 
+{{ govukButton({
+  text: buttonText
+}) }}
 
 </form>
     </div>

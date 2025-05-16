@@ -1167,8 +1167,14 @@
         <p>We'll show the general partner's correspondence address on the public register.</p>"
 }) }}
  
+{% if data['registrationOrTransition'] == "post" %}
+  {% set buttonText = "Continue" %}
+{% else %}
+  {% set buttonText = "Save and continue" %}
+{% endif %}
+
 {{ govukButton({
-  text: "Save and continue"
+  text: buttonText
 }) }}
 
 

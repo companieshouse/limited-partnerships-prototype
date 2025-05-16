@@ -1066,23 +1066,6 @@
 
 <p class="govuk-hint">Enter the total value of all monetary and non-monetary contributions</p>
 
-
-
-
-{{ govukInput({
-  id: "totalCapitalContribution",
-  name: "totalCapitalContribution",
-  label: {
-    text: "What is their total capital contribution?",
-    classes: "govuk-visually-hidden"
-  },
-  classes: "govuk-input--width-5",
-  inputmode: "numeric",
-  spellcheck: false
-}) }}
-      
-
-
 {{ govukSelect({
   id: "otherCurrencySelector",
   name: "otherCurrencySelector",
@@ -1259,6 +1242,23 @@
 }) }}
 
 
+{{ govukInput({
+  id: "totalCapitalContribution",
+  name: "totalCapitalContribution",
+  label: {
+    text: "What is their total capital contribution?",
+    classes: "govuk-visually-hidden"
+  },
+  classes: "govuk-input--width-5",
+  inputmode: "numeric",
+  spellcheck: false
+}) }}
+      
+
+
+
+
+
 
 {{ govukCheckboxes({
   name: "capitalContributionBreakdown",
@@ -1320,8 +1320,14 @@
         }) }}
 
 
+{% if data['registrationOrTransition'] == "post" %}
+  {% set buttonText = "Continue" %}
+{% else %}
+  {% set buttonText = "Save and continue" %}
+{% endif %}
+
 {{ govukButton({
-  text: "Save and continue"
+  text: buttonText
 }) }}
 
        

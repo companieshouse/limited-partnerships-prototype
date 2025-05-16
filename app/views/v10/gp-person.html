@@ -2069,9 +2069,16 @@ In the post-transition journey, we need to show the users 'existing' data if the
         }) }}
 
 
+{% if data['registrationOrTransition'] == "post" %}
+  {% set buttonText = "Continue" %}
+{% else %}
+  {% set buttonText = "Save and continue" %}
+{% endif %}
+
 {{ govukButton({
-  text: "Save and continue"
+  text: buttonText
 }) }}
+
 
 </form>
     </div>

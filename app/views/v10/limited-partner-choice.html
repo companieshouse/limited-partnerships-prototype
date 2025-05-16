@@ -81,8 +81,14 @@
 
 {% endif %}
       
+{% if data['registrationOrTransition'] == "post" %}
+  {% set buttonText = "Continue" %}
+{% else %}
+  {% set buttonText = "Save and continue" %}
+{% endif %}
+
 {{ govukButton({
-  text: "Save and continue"
+  text: buttonText
 }) }}
 
 </form>

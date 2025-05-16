@@ -44,9 +44,16 @@
 
 
       
+{% if data['registrationOrTransition'] == "post" %}
+  {% set buttonText = "Continue" %}
+{% else %}
+  {% set buttonText = "Save and continue" %}
+{% endif %}
+
 {{ govukButton({
-  text: "Save and continue"
+  text: buttonText
 }) }}
+
 {{ govukInsetText({
   html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
         <p>We will not show the limited partner's usual residential address on the public register.</p>"

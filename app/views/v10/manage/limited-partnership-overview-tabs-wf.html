@@ -1,0 +1,650 @@
+wf{% extends "layouts/main.html" %}
+
+{% set pageName="File an update to your limited partnership" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "/includes/phase-banner.html" %}
+{% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+
+
+
+
+<!-- Banner HTML (initially hidden) -->
+<div id="notification-banner-container" style="display: none;">
+  {{ govukNotificationBanner({
+    text: "The updates you’ve submitted will not show here until we’ve accepted them.",
+    id: "pending-changes"
+  }) }}
+</div>
+
+<!-- NOT SUITABLE FOR PRODUCTION SITES
+JavaScript to check the referrer and display the banner - banner should only be shown when the user returns to the page after making a change, or after adding partners and possibly PSCs - at present all change journey end pages are within /manage -->
+<script>
+  // Check if the referer (previous URL) contains "/manage/" or "/lp-add-another"
+  if (
+    document.referrer.includes('/manage/') || 
+    document.referrer.includes('/lp-add-another')
+  ) {
+    // Show the banner if the referer matches either condition
+    document.getElementById('notification-banner-container').style.display = 'block';
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+   <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">ACME LIMITED PARTNERSHIP </h1>
+      <p class="govuk-body govuk-!-margin-bottom-5">Limited partnership number <strong>SL123456</strong></p>
+
+
+<!--
+{{ govukButton({
+  text: "View limited partnership information snapshot",
+  classes: "govuk-button--secondary govuk-!-margin-bottom-9",
+  attributes: {
+    id: "download-snapshot-btn",
+    type: "button"
+  }
+}) }}
+
+<div id="spinner-container" style="display: none; margin-top:-50px; margin-bottom:50px;">
+  <img src="/public/images/spinner.gif" alt="Loading..." width="50" height="50">
+  <p class="govuk-body">Preparing your snapshot...</p>
+</div>-->
+
+
+
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#overview">
+       Overview
+      </a>
+    </li>
+      <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#general-partners">
+        Partners
+      </a>
+    </li>
+    <!--<li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#general-partners">
+        General partners
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#limited-partners">
+        Limited partners
+      </a>
+    </li>-->
+   <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#pscs">
+       PSCs
+      </a>
+    </li>
+        <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#confirmation-statement">
+        Confirmation statement
+      </a>
+    </li>
+  </ul>
+
+
+
+  
+  <div class="govuk-tabs__panel" id="overview">
+     {{ govukSummaryList({
+      rows: [
+             {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "ACME LIMITED PARTNERSHIP"
+            },
+            actions: {
+              items: [
+                {
+                  href: "../registration/lp-name",
+                  text: "Update",
+                  classes: "govuk-link--no-visited-state",
+                  visuallyHiddenText: "Limited partnership name"
+                }
+              ]
+            }
+          },
+                   {
+            key: {
+              text: "Type"
+            },
+            value: {
+              html: 'Limited partnership <p class="govuk-!-font-weight-regular"><a href="change-type" class="govuk-link govuk-link--no-visited-state">Apply for designation as a private fund limited partnership</a></p>'
+            },
+            actions: {
+              items: [
+                {
+                  
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Registered email address"
+            },
+            value: {
+              text: "c*****@a**********.co.uk"
+            },
+            actions: {
+              items: [
+                {
+                  href: "change-rea",
+                  text: "Update",
+                  classes: "govuk-link--no-visited-state",
+                  visuallyHiddenText: "registered email address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Registered office address"
+            },
+            value: {
+              text: "64 Zoo Lane, 
+              London, W5 5AB"
+            },
+            actions: {
+              items: [
+                {
+                href: "javascript:void(0)",
+                  text: "Update",
+                  classes: "govuk-link--no-visited-state",
+                  visuallyHiddenText: "registered office address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Principal place of business"
+            },
+            value: {
+              text: "1 Apple Street, Cardiff, CF12 3AB"
+            },
+            actions: {
+              items: [
+                {
+                href: "javascript:void(0)",
+                  text: "Update",
+                  classes: "govuk-link--no-visited-state",
+                  visuallyHiddenText: "principal place of business"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Term of partnership"
+            },
+            value: {
+              text: "No set term"
+            },
+            actions: {
+              items: [
+                {
+                href: "../limited-partnership-terms",
+                  text: "Update",
+                  classes: "govuk-link--no-visited-state",
+                  visuallyHiddenText: "term of partnership"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: 'Standard Industrial Classification (SIC) code <p class="govuk-!-font-weight-regular">You can only update this by filing a <a href="#confirmation-statement" class="govuk-link govuk-link--no-visited-state">confirmation statement</a></p>'
+            },
+                    value: {
+          html: '<ul class="govuk-list govuk-list--bullet">
+                    <li>64205 - Activities of financial services holding companies</li>
+                    <li>64910 - Financial leasing</li>
+                    <li>64922 - Activities of mortgage finance companies</li>
+                  </ul>'
+        }
+          }
+        ]
+      }) }}
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="general-partners">
+
+
+
+
+{{ govukTable({
+  caption: "General partners (persons)",
+  captionClasses: "govuk-table__caption--m",
+  head: [
+    {
+      text: "Name"
+    },
+    {
+      text: "Date of birth"
+    },
+    {
+      html: ' <span class="govuk-visually-hidden">Update</span>'
+    },
+    {
+      html: ' <span class="govuk-visually-hidden">Remove</span>'
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Georgina Smith"
+      },
+      {
+        text: "August 1989"
+      },
+      {
+        html: '<a href="../gp-person?from=general-partners-change" class="govuk-link--no-visited-state">Update <span class="govuk-visually-hidden">Georgina Smith</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Georgina Smith</span></a>'
+      }
+    ]
+  ]
+}) }}
+
+
+
+
+
+
+{{ govukTable({
+  caption: "General partners (legal entities)",
+  captionClasses: "govuk-table__caption--m",
+  head: [
+    {
+      text: "Name"
+    },
+    {
+      text: "Country of registration"
+    },
+    {
+      html: ' <span class="govuk-visually-hidden">Update</span>'
+    },
+    {
+      html: ' <span class="govuk-visually-hidden">Remove</span>'
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "	ABC Company Ltd"
+      },
+      {
+        text: "United Kingdom"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Update <span class="govuk-visually-hidden">	ABC Company Ltd</span></a>'
+      },
+      {
+        html: '<a href="/v10/remove/remove-general-partner" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">	ABC Company Ltd</span></a>'
+      }
+    ]
+  ]
+}) }}
+
+<p class="govuk-body govuk-!-margin-bottom-4">
+  <a href="javascript:void(0)" class="govuk-button govuk-button--secondary">Add a new general partner</a>
+</p>
+
+
+
+{{ govukTable({
+  caption: "Limited partners (persons)",
+  captionClasses: "govuk-table__caption--m govuk-!-margin-top-4",
+  head: [
+    {
+      text: "Name"
+    },
+    {
+      text: "Date of birth"
+    },
+    {
+      html: ' <span class="govuk-visually-hidden">Update</span>'
+    },
+    {
+      html: ' <span class="govuk-visually-hidden">Remove</span>'
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Simon Richardson"
+      },
+      {
+        text: "January 1980"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Update <span class="govuk-visually-hidden">Simon Richardson</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Simon Richardson</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Emily Johnson"
+      },
+      {
+        text: "July 1992"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Update <span class="govuk-visually-hidden">Emily Johnson</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Emily Johnson</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Ahmed Khan"
+      },
+      {
+        text: "October 1978"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Update <span class="govuk-visually-hidden">Ahmed Khan</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Ahmed Khan</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Olivia Marie Davis"
+      },
+      {
+        text: "May 2005"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Update <span class="govuk-visually-hidden">Olivia Marie Davis</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Olivia Marie Davis</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Arjun Patel"
+      },
+      {
+        text: "December 1969"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Update <span class="govuk-visually-hidden">Arjun Patel</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Arjun Patel</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Sophia Wilson"
+      },
+      {
+        text: "September 1990"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Update <span class="govuk-visually-hidden">Sophia Wilson</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Sophia Wilson</span></a>'
+      }
+    ]
+  ]
+}) }}
+
+
+
+
+
+
+{{ govukTable({
+  caption: "Limited partners (legal entities)",
+  captionClasses: "govuk-table__caption--m",
+  head: [
+    {
+      text: "Name"
+    },
+    {
+      text: "Country of registration"
+    },
+    {
+      html: ' <span class="govuk-visually-hidden">Update</span>'
+    },
+    {
+      html: ' <span class="govuk-visually-hidden">Remove</span>'
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "ACME Legal Entity Inc"
+      },
+      {
+        text: "United Kingdom"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Update <span class="govuk-visually-hidden">ACME Legal Entity Inc</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">ACME Legal Entity Inc</span></a>'
+      }
+    ],
+    [
+      {
+        text: "GlobalTech"
+      },
+      {
+        text: "United States"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Update <span class="govuk-visually-hidden">GlobalTech</span></a>'
+      },
+      {
+        html: '<a href="../remove/remove-limited-partner" class="govuk-link--no-visited-state" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">GlobalTech</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Sunrise Solutions Limited"
+      },
+      {
+        text: "Ireland"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Update <span class="govuk-visually-hidden">Sunrise Solutions Limited</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Sunrise Solutions Limited</span></a>'
+      }
+    ],
+    [
+      {
+        text: "Vertex Innovations PLC"
+      },
+      {
+        text: "United Kingdom"
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Update <span class="govuk-visually-hidden">Vertex Innovations PLC</span></a>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">Vertex Innovations PLC</span></a>'
+      }
+    ]
+  ]
+}) }}
+
+<p class="govuk-body">
+  <a href="/v10/limited-partner-choice" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0">Add a new limited partner</a>
+</p>
+  
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="pscs">
+    To be added
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="govuk-tabs__panel" id="confirmation-statement">
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: "Confirmation statement"
+        },
+        value: {
+          text: "First statement date 1 February 2025 due by 15 February 2025"
+        },
+        actions: {
+          items: [
+            {
+              href: "file-confirmation-statement",
+              text: "File",
+              classes: "govuk-button",
+              visuallyHiddenText: "confirmation statement"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+
+
+
+</div>
+
+
+
+</div>
+
+{{ govukButton({
+  text: "Close this limited partnership",
+  classes: "govuk-button--secondary"
+}) }}
+
+
+
+
+
+
+
+
+
+    <div class="ur-shortcuts">
+      <!-- Not part of ACTUAL screen: only for UR purposes -->
+      <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
+
+        {{ govukCheckboxes({
+          name: "overdue",
+          classes: "overdue",
+          fieldset: {
+            legend: {
+              text: "overdue",
+              classes: "govuk-visually-hidden"
+            }
+          },
+          items: [
+            {
+              value: "overdue",
+              text: "Toggle overdue CS"
+            }
+          ]
+        }) }}
+</div>
+
+
+    </div>
+  </div>
+
+  <script src="/public/javascripts/toggle-overdue.js"></script>
+  <script src="/public/javascripts/download-simulation.js"></script>
+
+
+
+{% endblock %}

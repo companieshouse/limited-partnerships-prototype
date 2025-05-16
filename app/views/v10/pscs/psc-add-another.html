@@ -1,0 +1,175 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Do you need to add another person with significant control?" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "/includes/phase-banner.html" %}
+{% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/psc-add-another" method="post">
+
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}
+
+
+<h1 class="govuk-heading-xl">People with significant control (PSCs)</h1>
+
+    </div>
+    </div>
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+       <h2 class="govuk-heading-m">PSCs you have added so far:</h2>
+
+
+{% if data['psc1EntityName'] %} <!-- only show the Legal Entity entry if a name has been types into the legal entity page -->
+
+
+
+
+
+            {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Individual person"
+            },
+            value: {
+            text: (data['psc1FirstName'] or "Chloe") + " " + (data['psc1LastName'] or "Davies")
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Chloe Davies - person"
+                },
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "Chloe Davies - person"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Legal entity"
+            },
+            value: {
+              text: data['psc1EntityName'] or "ENCOM LIMITED"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "ENCOM LIMITED - Legal entity"
+                },
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "ENCOM LIMITED - Legal entity"
+                }
+              ]
+            }
+          }
+        ]
+      }) }} 
+
+{% else %} 
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Individual person"
+            },
+            value: {
+            text: (data['psc1FirstName'] or "Chloe") + " " + (data['psc1LastName'] or "Davies")
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Chloe Davies - person"
+                },
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "Chloe Davies - person"
+                }
+              ]
+            }
+          }
+        ]
+      }) }} 
+
+{% endif %}
+
+</div>
+</div>
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+{{ govukRadios({
+  name: "addAnotherPSC",
+  fieldset: {
+    legend: {
+      text: "Do you need to add another PSC?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+
+  items: [
+    {
+      value: "person",
+      text: "Yes, an individual person"
+    },
+    {
+      value: "entity",
+      text: "Yes, a relevant legal entity (RLE)"
+    },   
+    {
+      value: "orp",
+      text: "Yes, an other registrable person (ORP)"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+      
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

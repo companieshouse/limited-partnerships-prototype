@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Check your answer" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+       <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})</span>
+     <h1 class="govuk-heading-l">Check your answer</h1>
+
+
+{% if data['newCSDate-day'] and data['newCSDate-month'] and data['newCSDate-year'] %}
+  {% set csDateText = data['newCSDate-day'] + ' ' + (data['newCSDate-month'] | monthName) + ' ' + data['newCSDate-year'] %}
+{% else %}
+  {% set csDateText = "31 May 2025" %}
+{% endif %}
+
+
+
+  {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {text: "Confirmation statement date"},
+                 value: { text: csDateText },
+            actions: {
+              items: [
+                {
+                  href: "confirmation-statement-date",
+                  text: "Change",
+                  visuallyHiddenText: "confirmation statement date"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+
+        {{ govukButton({
+          text: "Continue",
+          href: "check-sic"
+        }) }}
+
+
+
+    </div>
+  </div>
+{% endblock %}

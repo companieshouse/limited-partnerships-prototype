@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+           <span class="govuk-caption-l">ABC Company Ltd</span>
+     <h1 class="govuk-heading-l">Check your answers before submitting this update</h1>
+
+  {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Date they ceased to be a general partner"
+            },
+            value: {
+              text: "1 March 2025"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Date they ceased to be a general partner"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+
+        {{ govukButton({
+          text: "Submit",
+          href: "confirmation-remove-gp"
+        }) }}
+
+
+
+    </div>
+  </div>
+{% endblock %}

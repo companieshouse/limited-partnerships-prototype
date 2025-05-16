@@ -1,0 +1,329 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Review your information before submitting this confirmation statement" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Review your information before submitting this confirmation statement</h1><!-- if changing this, be sure to change the pageName in line 3-->
+
+    {{ govukInsetText({
+      text: "The information here might not reflect any updates you've filed recently. As long as you've submitted all updates to limited partnership information, you can still file this confirmation statement."
+    }) }}
+
+
+{% if data['newCSDate-day'] and data['newCSDate-month'] and data['newCSDate-year'] %}
+  {% set csDateText = data['newCSDate-day'] + ' ' + (data['newCSDate-month'] | monthName) + ' ' + data['newCSDate-year'] %}
+{% else %}
+  {% set csDateText = "31 May 2025" %}
+{% endif %}
+
+{% set sicListHtml %}
+  <ul class="govuk-list govuk-list--bullet">
+    {% if data['sic1'] or data['sic2'] or data['sic3'] %}
+      {% if data['sic1'] %}
+        <li>
+          {% if data['sic1'] != "64205" %}
+            {{ data['sic1'] }} - Something else
+          {% else %}
+            {{ data['sic1'] or "64205" }} - Activities of financial services holding companies
+          {% endif %}
+        </li>
+      {% endif %}
+      
+      {% if data['sic2'] %}
+        <li>{{ data['sic2'] or "64910" }} - Financial leasing</li>
+      {% endif %}
+      
+      {% if data['sic3'] %}
+        <li>{{ data['sic3'] or "64922" }} - Activities of mortgage finance companies</li>
+      {% endif %}
+    {% else %}
+      <li>64205 - Activities of financial services holding companies</li>
+      <li>64910 - Financial leasing</li>
+      <li>64922 - Activities of mortgage finance companies</li>
+    {% endif %}
+  </ul>
+{% endset %}
+
+
+
+
+
+     {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {text: "Confirmation statement date"},
+                 value: { text: csDateText },
+            actions: {
+              items: [
+                {
+                  href: "confirmation-statement-date",
+                  text: "Change",
+                  visuallyHiddenText: "Confirmation statement date"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+
+      <h2 class="govuk-heading-m">Limited partnership information</h2>
+
+
+
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+  {
+    key: { text: "Name" },
+    value: { text: data['lpChooseName']['nameEnding'] or "ACME LP" }
+  },
+  {
+    key: { text: "Type of partnership" },
+    value: { text: "Scottish limited partnership" }
+  },
+  {
+    key: { text: "Registered email address" },
+    value: { text: data['registeredEmail'] or "example@limitedpartnership.com" }
+  },
+  {
+    key: { text: "Registered office address" },
+    value: { text: "1 Rose Street, Edinburgh, EH1 2EB"}
+  },
+  {
+      key: { text: "Principal place of business" },
+      value: { 
+        text: "1 Rose Street, Edinburgh, EH1 2EB"
+      }
+    },
+    {
+      key: { text: "Term of partnership" },
+      value: { text: data['term-of-partners'] or "No set term" }
+    },          
+    {
+      key: { text: "Standard Industrial Classification (SIC) code" },
+       value: { html: sicListHtml },
+            actions: {
+              items: [
+                {
+                  href: "check-sic",
+                  text: "Change",
+                  visuallyHiddenText: "Standard Industrial Classification (SIC) code"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+
+{{ govukSummaryList({
+  classes: "govuk-!-margin-bottom-9",
+  rows: rows
+}) }}
+
+<h2 class="govuk-heading-m">General partners</h2>
+{{ govukSummaryList({
+  classes: "govuk-!-margin-bottom-9",
+  rows: [
+    {
+      key: { text: "Name" },
+      value: { text: "Georgina Smith" }
+    },
+    {
+      key: { text: "Previous name" },
+      value: { text: "Georgina Silver" }
+    },
+    {
+      key: { text: "Date of birth" },
+      value: { text: "August 1989" }
+    },
+    {
+      key: { text: "Nationality" },
+      value: { text: "British" }
+    },
+    {
+      key: { text: "Usual residential address" },
+      value: { text: "Bristol, BS1 United Kingdom" }
+    },
+    {
+      key: { text: "Correspondence address" },
+      value: { text: "2 Peartree Avenue, Bristol, BS1 2EF, United Kingdom" }
+    }
+    ]
+      }) }}
+{{ govukSummaryList({
+  classes: "govuk-!-margin-bottom-9",
+  rows: [
+    {
+      key: { text: "Name" },
+      value: { text: data['gp1EntityName'] or "ABC Company Limited" }
+    },
+    {
+      key: { text: "Legal form or corporate identity" },
+      value: { text: data['gp1LegalForm'] or "Private limited company" }
+    },
+    {
+      key: { text: "Governing law" },
+      value: { text: data['gp1GoverningLaw'] or "Companies Act 2006" }
+    },
+    {
+      key: { text: "Register" },
+      value: { text: data['gp1Register'] or "Companies House public register" }
+    },
+    {
+      key: { text: "Country registered in" },
+      value: { text: data['gp1CountryRegistered'] or "United Kingdom" }
+    },
+    {
+      key: { text: "Registration number" },
+      value: { text: data['gp1RegistrationNumber'] or "00876543" }
+    },
+    {
+      key: { text: "Principal office address" },
+      value: { text: "24 Candy Lane, London, W1 3EE, United Kingdom" }
+    }
+    ]
+      }) }}
+<h3 class="govuk-heading-m">Limited partners</h3>
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+  {
+    key: { text: "Name" },
+    value: { text: "Adrienne Leandres" }
+  },
+  {
+    key: { text: "Date of birth" },
+    value: { text: "March 1975" }
+  },
+  {
+    key: { text: "Nationality" },
+    value: { text: "French" }
+  },
+  {
+    key: { text: "Usual residential address" },
+    value: { text: "Paris, France" }
+  },
+    {
+      key: { text: "Amount contributed" },
+      value: { text: "£1,000" }
+    }
+    ]
+      }) }}
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+    key: { text: "Name" },
+    value: { text: data['lp1EntityName'] or "ACME Legal Entity Inc" }
+  },
+  {
+    key: { text: "Legal form or corporate identity" },
+    value: { text: data['lp1LegalForm'] or "Private limited company" }
+  },
+  {
+    key: { text: "Governing law" },
+    value: { text: data['lp1GoverningLaw'] or "Companies Act 2006" }
+  },
+  {
+    key: { text: "Register" },
+    value: { text: data['lp1Register'] or "Companies House public register" }
+  },
+  {
+    key: { text: "Country registered in" },
+    value: { text: data['lp1CountryRegistered'] or "United Kingdom" }
+  },
+  {
+    key: { text: "Registration number" },
+    value: { text: data['lp1RegistrationNumber'] or "00001234" }
+  },
+  {
+    key: { text: "Principal office address" },
+    value: { text: "1 Hyde Road, London, SW1 1LE, United Kingdom" }
+  },
+    {
+      key: { text: "Amount contributed" },
+      value: { text: "£1,000" }
+    }
+    ]
+      }) }}
+
+
+
+
+   <form class="form" action="/before-you-file" method="post">
+
+{{ govukRadios({
+  name: "csInfoCorrect",
+  fieldset: {
+    legend: {
+      text: "Is this limited partnership information correct?",
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    },
+    {
+      value: "updated",
+      text: "No, but I've submitted updates"
+    }
+  ]
+}) }}
+
+
+ <div class="govuk-button-group">
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+{{ govukButton({
+  text: "Print",
+  classes: "govuk-button--secondary",
+  href: "javascript:void(0)",
+  attributes: {
+    onclick: "window.print()"
+  }
+}) }}
+</div>
+
+</form>
+
+
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

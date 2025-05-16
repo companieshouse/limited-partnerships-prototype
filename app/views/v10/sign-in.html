@@ -1,0 +1,63 @@
+{% extends "layouts/main-old-header.html" %}
+
+{% set pageName="Create your GOV.UK One Login or sign in" %}
+
+
+
+
+{% block beforeContent %}
+  {% include "/includes/phase-banner.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+      <form class="form" action="gov-onelogin-email" method="post">
+
+      <h1 class="govuk-heading-xl">Sign in to GOV.UK One Login</h1>
+      
+<p>You can only use this service if you, or the business you work for, is registered as an Authorised Corporate Service Provider (ACSP). This is also known as a Companies House authorised agent.</p>
+
+
+<!--
+<p>You can use your GOV.UK One Login to access some government services.</p>
+
+<p>In the future, you’ll be able to use it to access all services on GOV.UK.</p>
+
+<p>You’ll need:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>an email address</li>
+  <li>a way to get security codes - this can be a mobile phone number or an authenticator app</li>
+</ul>
+<div class="govuk-inset-text">
+You can also <a href="javascript:void(0)">use GOV.UK One Login in Welsh (Cymraeg)</a>.</div>-->
+
+  {{ govukButton({
+    text: "Sign in"
+  }) }}
+<p>Read the <a href="javascript:void(0)">guidance on how to register as a Companies House authorised agent</a>.</p>
+
+<!--
+{{ govukDetails({
+  summaryText: "About GOV.UK One Login",
+  html: '  <p class="govuk-body">GOV.UK One Login is new. At the moment you can only use it to access some government services.</p>
+
+            <p class="govuk-body">It does not work with all government accounts or services yet (for example Government Gateway or Universal Credit).</p>
+              
+            <p class="govuk-body">In the future, you’ll be able to use GOV.UK One Login to access all services on GOV.UK.</p>'
+}) }}-->
+
+<!--
+<p><a href="javascript:void(0)">Services you can use with GOV.UK One Login (opens in new tab)</a></p>-->
+</form>
+    </div>
+  </div>
+
+{% endblock %}

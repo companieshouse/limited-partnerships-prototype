@@ -1,0 +1,113 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Before you file a confirmation statement" %}
+
+
+
+{% set serviceName %}
+  {% include "/includes/confirmation-statement-service-name.html" %}
+{% endset%}
+
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="../confirmation-statement/confirmation-statement-date" method="post" class="form">
+
+          <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "SL012345" }})</span>
+        <h1 class="govuk-heading-xl">
+          Before you file a confirmation statement  <!-- if changing this, update pageName above-->
+        </h1>
+
+        <p>Check that all the limited partnership information we hold is correct.</p> 
+
+
+        <!-- If moving this code, you have to keep the button and the spinner container bits tigether-->
+        {{ govukButton({
+          text: "View limited partnership information snapshot",
+          classes: "govuk-button--secondary govuk-!-margin-bottom-8",
+          attributes: {
+            id: "download-snapshot-btn",
+            type: "button"
+          }
+        }) }}
+        <div id="spinner-container" style="display: none; margin-top:-25px;">
+          <img src="/public/images/spinner.gif" alt="Loading..." width="50" height="50">
+          <p class="govuk-body">Preparing your snapshot...</p>
+        </div>
+        <!-- -->
+
+        <p>If anything has changed, you must <a href="limited-partnership-overview-tabs-wf" class="govuk-link govuk-link--no-visited-state">update the limited partnership's information</a> before filing the confirmation statement.</p> 
+
+        <p>The only information you can update within the confirmation statement are the Standard Industrial Classification (SIC) codes.</p> 
+
+        <div class="govuk-inset-text">
+          <p>Any updates you file may not show immediately in this service.</p>
+          <p>You do not need to wait for update filings to be accepted. As long as they've been submitted, you can file the confirmation statement.</p>
+        </div>
+
+
+
+
+          <!-- {{ govukWarningText({
+              text: "The only change you can make in the confirmation statement is to Standard Industrial Classification (SIC) codes",
+              iconFallbackText: "Warning"
+            }) }}-->
+  
+
+            
+
+
+
+      
+
+{{ govukCheckboxes({
+  name: "checked",
+  fieldset: {
+    legend: {
+      text: "Confirm you have checked the information and submitted any changes needed",
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "checked",
+      text: "I have checked the limited partnership information and submitted any updates"
+    }
+  ]
+}) }}
+       
+
+
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+      </form>
+
+    </div>
+    <!--govuk-grid-row-->
+
+    <!--govuk-grid-column-two-thirds-->
+  </div>
+  <!--govuk-grid-column-two-thirds-->
+
+</main>
+</div>
+<!---govuk-width-container-->
+
+
+
+  <script src="/public/javascripts/download-simulation.js"></script>
+
+{% endblock %}

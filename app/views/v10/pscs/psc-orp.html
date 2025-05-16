@@ -1,0 +1,462 @@
+{% extends "layouts/main.html" %}
+ 
+{% set pageName="Add an other registrable person PSC" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+    {% include "/includes/phase-banner.html" %}
+{% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="pscs-addresses/psc-orp-poa/psc-orp-poa-where" method="post">
+
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}
+
+<h1 class="govuk-heading-xl">Add an other registrable person PSC </h1>
+
+{{ govukInput({
+  label: {
+    text: "What is the other registrable person (ORP)'s name?",
+    classes: "govuk-label--m",
+    isPageHeading: true
+  },
+  id: "pscORP1EntityName",
+  name: "pscORP1EntityName"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "What is its legal form or corporate identity?",
+    classes: "govuk-label--m"
+  },
+  hint: {
+    text: "This is the corporate body type. For example, private limited company."
+  },
+  id: "pscORP1LegalForm",
+  name: "pscORP1LegalForm"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "What governing law does it operate under?",
+    classes: "govuk-label--m"
+  },
+  hint: {
+    text: "For example, the Companies Act 2006."
+  },
+  id: "pscORP1GoverningLaw",
+  name: "pscORP1GoverningLaw"
+}) }}
+
+
+
+
+
+
+
+
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+
+
+<!--Nature of control-->
+
+{% call govukFieldset({
+  legend: {
+    html: 'What is its nature of control?<br><p class="govuk-hint govuk-!-padding-top-1">Select all that apply.</p>',
+    classes: "govuk-fieldset__legend--l"
+  }
+}) %}
+
+<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-4">Nature of control for this other registrable person (ORP)<p class="govuk-hint govuk-!-padding-top-1">Indicate the ORP's nature of control over the limited partnership</p></h2>
+
+     {{ govukRadios({
+        name: "psc1ShareOfAssets",
+        fieldset: {
+          legend: {
+            text: "a. Share of assets",
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: "The ORP holds, directly or indirectly, the right to the following percentage of any surplus assets on a winding up of the limited partnership:"
+        },
+        items: [
+          {
+            value: "more than 25% but not more than 50%",
+            text: "more than 25% but not more than 50%"
+          },
+          {
+            value: "more than 50% but less than 75%",
+            text: "more than 50% but less than 75%s"
+          },
+          {
+            value: "75% or more",
+            text: "75% or more"
+          },
+          {
+            value: "does not apply",
+            text: "does not apply"
+          }
+        ]
+      }) }}
+
+
+          {{ govukRadios({
+              name: "psc1OwnershipOfVotingRights",
+              fieldset: {
+                legend: {
+                  text: "b. Ownership of voting rights",
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              hint: {
+                text: "The ORP holds, directly or indirectly, the following percentage of any voting
+                rights in the limited partnership:"
+              },
+              items: [
+                {
+                  value: "more than 25% but not more than 50%",
+                  text: "more than 25% but not more than 50%"
+                },
+                {
+                  value: "more than 50% but less than 75%",
+                  text: "more than 50% but less than 75%"
+                },
+                {
+                  value: "75% or more",
+                  text: "75% or more"
+                },
+          {
+            value: "does not apply",
+            text: "does not apply"
+          }
+              ]
+            }) }}
+
+
+
+                {{ govukCheckboxes({
+                      name: "psc1OwnershipOfRightToAppointRemoveManagement",
+                      fieldset: {
+                        legend: {
+                          text: "c. Ownership of right to appoint/remove management",
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                      hint: {
+                        text: "Select if this statement applies"
+                      },
+                      items: [
+                        {
+                          value: "The ORP holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership",
+                          text: "The ORP holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership"
+                        }
+                      ]
+                    }) }}
+
+
+                         {{ govukCheckboxes({
+                      name: "psc1SignificantInfluenceOrControl",
+                      fieldset: {
+                        legend: {
+                          text: "d. Significant influence or control",
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                      hint: {
+                        text: "Only select this statement if a, b and c do not apply"
+                      },
+                      items: [
+                        {
+                          value: "The ORP has the right to exercise, or actually exercises, significant
+influence or control over the limited partnership",
+                          text: "The ORP has the right to exercise, or actually exercises, significant
+influence or control over the limited partnership"
+                        }
+                      ]
+                    }) }}
+
+
+
+
+
+<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-4">Nature of control by a firm over which the ORP has significant control<p class="govuk-hint govuk-!-padding-top-1">The ORP has the right to exercise, or actually exercises, significant influence
+  or control over the activities of a firm that is not a legal person under its
+  governing law, and:</p></h2>
+
+
+
+
+          {{ govukRadios({
+              name: "psc1ControlByFirm1",
+              fieldset: {
+                legend: {
+            text: "a. Share of assets",
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              hint: {
+                text: "The members of that firm (in their capacity as such) hold, directly or indirectly, the right to the following percentage of any surplus assets on a winding up of the limited partnership:"
+              },
+              items: [
+                {
+                  value: "more than 25% but not more than 50%",
+                  text: "more than 25% but not more than 50%"
+                },
+                {
+                  value: "more than 50% but less than 75%",
+                  text: "more than 50% but less than 75%"
+                },
+                {
+                  value: "75% or more",
+                  text: "75% or more"
+                },
+          {
+            value: "does not apply",
+            text: "does not apply"
+          }
+              ]
+            }) }}
+
+                 {{ govukRadios({
+              name: "psc1ControlByFirm2",
+              fieldset: {
+                legend: {
+                  text: "b. Ownership of voting rights",
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              hint: {
+                text: "The members of that firm (in their capacity as such) hold, directly or indirectly, the following percentage of any voting rights in the limited partnership:"
+              },
+              items: [
+                {
+                  value: "more than 25% but not more than 50%",
+                  text: "more than 25% but not more than 50%"
+                },
+                {
+                  value: "more than 50% but less than 75%",
+                  text: "more than 50% but less than 75%"
+                },
+                {
+                  value: "75% or more",
+                  text: "75% or more"
+                },
+          {
+            value: "does not apply",
+            text: "does not apply"
+          }
+              ]
+            }) }}
+
+
+               {{ govukCheckboxes({
+              name: "psc1ControlByFirm3",
+                      fieldset: {
+                        legend: {
+                          text: "c. Ownership of right to appoint/remove management",
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                      hint: {
+                        text: "Select if this statement applies"
+                      },
+                      items: [
+                        {
+                          value: "The members of that firm (in their capacity as such) hold the right, directly or indirectly, to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership",
+                          text: "The members of that firm (in their capacity as such) hold the right, directly or indirectly, to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership"
+                        }
+                      ]
+                    }) }}
+
+
+                         {{ govukCheckboxes({
+              name: "psc1ControlByFirm4",
+                      fieldset: {
+                        legend: {
+                          text: "d. Significant influence or control",
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                      hint: {
+                        text: "Select if this statement applies"
+                      },
+                      items: [
+                        {
+                          value: "The members of that firm (in their capacity as such) have the right to exercise, or actually exercise, significant influence or control over the limited partnership.",
+                          text: "The members of that firm (in their capacity as such) have the right to exercise, or actually exercise, significant influence or control over the limited partnership."
+                        }
+                      ]
+                    }) }}
+
+
+
+
+
+
+
+<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-4">Nature of control by a trust over which the ORP has significant control<p class="govuk-hint govuk-!-padding-top-1">The ORP has the right to exercise, or actually exercises, significant influence or
+  control over the activities of a trust, and: </p></h2>
+
+
+
+
+          {{ govukRadios({
+              name: "psc1ControlByTrust1",
+              fieldset: {
+                legend: {
+            text: "a. Share of assets",
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              hint: {
+                text: "The trustees of that trust (in their capacity as such) hold, directly or indirectly, the right to the following percentage of any surplus assets on a winding up of the limited partnership:"
+              },
+              items: [
+                {
+                  value: "more than 25% but not more than 50%",
+                  text: "more than 25% but not more than 50%"
+                },
+                {
+                  value: "more than 50% but less than 75%",
+                  text: "more than 50% but less than 75%"
+                },
+                {
+                  value: "75% or more",
+                  text: "75% or more"
+                },
+          {
+            value: "does not apply",
+            text: "does not apply"
+          }
+              ]
+            }) }}
+
+                 {{ govukRadios({
+              name: "psc1ControlByTrust2",
+              fieldset: {
+                legend: {
+                  text: "b. Ownership of voting rights",
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              hint: {
+                text: "The trustees of that trust (in their capacity as such) hold, directly or indirectly, the following percentage of any voting rights in the limited partnership"
+              },
+              items: [
+                {
+                  value: "more than 25% but not more than 50%",
+                  text: "more than 25% but not more than 50%"
+                },
+                {
+                  value: "more than 50% but less than 75%",
+                  text: "more than 50% but less than 75%"
+                },
+                {
+                  value: "75% or more",
+                  text: "75% or more"
+                },
+          {
+            value: "does not apply",
+            text: "does not apply"
+          }
+              ]
+            }) }}
+
+
+               {{ govukCheckboxes({
+              name: "psc1ControlByTrust3",
+                      fieldset: {
+                        legend: {
+                          text: "c. Ownership of right to appoint/remove management",
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                      hint: {
+                        text: "Select if this statement applies"
+                      },
+                      items: [
+                        {
+                          value: "The trustees of that trust (in their capacity as such) hold the right, directly or indirectly, to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership",
+                          text: "The trustees of that trust (in their capacity as such) hold the right, directly or indirectly, to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership"
+                        }
+                      ]
+                    }) }}
+
+
+                         {{ govukCheckboxes({
+              name: "psc1ControlByTrust4",
+                      fieldset: {
+                        legend: {
+                          text: "d. Significant influence or control",
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                      hint: {
+                        text: "Select if this statement applies"
+                      },
+                      items: [
+                        {
+                          value: "The trustees of that trust (in their capacity as such) have the right to exercise, or actually exercise, significant influence or control over the limited partnership",
+                          text: "The trustees of that trust (in their capacity as such) have the right to exercise, or actually exercise, significant influence or control over the limited partnership"
+                        }
+                      ]
+                    }) }}
+
+
+
+
+{% endcall %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+                <p>We'll show all of this information on the public register.</p>"
+        }) }}
+
+
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+  <script src="/public/javascripts/accessible-autocomplete.js"></script>
+{% endblock %}

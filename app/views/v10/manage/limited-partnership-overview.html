@@ -1,0 +1,425 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="ACME LIMITED PARTNERSHIP (SL012345)" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+
+{{ govukNotificationBanner({
+  text: "It may take a while for changes to show CONTENT TBD"
+}) }}
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">ACME LIMITED PARTNERSHIP <a href="javascript:void(0)" class="govuk-body govuk-!-font-weight-regular">Change</a></h1>
+      <p class="govuk-body govuk-!-margin-bottom-9">Limited partnership number <strong>SL012345</strong></p>
+
+   
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#overview">
+       Overview
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#general-partners">
+        General partners
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#limited-partners">
+        Limited partners
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#pscs">
+       PSCs
+      </a>
+    </li>
+  </ul>
+
+
+
+  
+  <div class="govuk-tabs__panel" id="overview">
+
+    <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+        <h2 class="govuk-heading-s ">Confirmation statement</h2>
+    <p>First statement date <span class="govuk-body govuk-!-font-weight-bold"> 1 February 2025 </span> due by <span class="govuk-body govuk-!-font-weight-bold">15 February 2025</span></p>
+    <!--<p class="govuk-!-margin-0">Last statement dated <p class="govuk-body govuk-!-font-weight-bold">1 February 2024</p></p> -->
+
+      {{ govukButton({
+  text: "File confirmation statement"
+      }) }}
+
+<h2 class="govuk-heading-s govuk-!-margin-0">Registered email address</h2>
+    <p>example@limitedpartnerships.com <a href="javascript:void(0)" class="govuk-link">Change</a></p>
+
+    <h2 class="govuk-heading-s govuk-!-margin-0">Registered office address</h2>
+    <p>10 Bressenden Place, London, England, SW1E 5DH <a href="javascript:void(0)" class="govuk-link">Change</a></p>
+
+    <!--<h2 class="govuk-heading-s govuk-!-margin-0">Jurisdiction</h2>
+    <p>England <!--<a href="javascript:void(0)" class="govuk-link">Change</a></p> -->
+
+    <h2 class="govuk-heading-s govuk-!-margin-0">Principal place of business</h2>
+    <p>10 Crofts Place, Douglas, Isle of Man, IM1 1AD <a href="javascript:void(0)" class="govuk-link">Change</a></p>
+
+    <h2 class="govuk-heading-s govuk-!-margin-0">Term of partnership</h2>
+    <p>A set term - 20 years <a href="javascript:void(0)" class="govuk-link">Change</a></p>
+
+    <h2 class="govuk-heading-s govuk-!-margin-0">Nature of business (SIC) </h2>
+    
+<ul class="govuk-list govuk-list--bullet">
+  <li>64205 - Activities of financial services holding companies</li>
+  <li>64910 - Financial leasing</li>
+  <li>64922 - Activities of mortgage finance companies</li>
+</ul>
+
+{{ govukButton({
+  text: "Close this limited partnership",
+  classes: "govuk-button--warning govuk-!-margin-top-4"
+}) }}
+    
+  </div>
+  
+</div>
+    
+    
+    
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="general-partners">
+
+<p class="govuk-body govuk-!-margin-bottom-6">
+  <a href="javascript:void(0)" class="govuk-link govuk-link--no-visited-state">Add a new general partner</a>
+</p>
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "ABC Company Ltd"
+    },
+    actions: {
+      items: [
+        {
+          href: "javascript:void(0)",
+          text: "Remove",
+          visuallyHiddenText: "ABC Company Ltd"
+        },
+        {
+          href: "javascript:void(0)",
+          text: "Change",
+          visuallyHiddenText: "ABC Company Ltd"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Governing law"
+      },
+      value: {
+        html: "England and Wales"
+      }
+    },
+    {
+      key: {
+        text: "Legal form"
+      },
+      value: {
+        html: "Limited company"
+      }
+    },
+    {
+      key: {
+        text: "Principal office address"
+      },
+      value: {
+        html: "24 Candy Lane, London, W1 3EE, United Kingdom"
+      }
+    },
+    {
+      key: {
+        text: "Correspondence address"
+      },
+      value: {
+        html: "The same as the principal office address"
+      }
+    },
+    {
+      key: {
+        text: "Registered officer name"
+      },
+      value: {
+        html: "Ryan Jones"
+      }
+    },
+    {
+      key: {
+        text: "Previous name"
+      },
+      value: {
+        html: "No"
+      }
+    },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        html: "28 February 1968"
+      }
+    },
+    {
+      key: {
+        text: "Nationality"
+      },
+      value: {
+        html: "American"
+      }
+    },
+    {
+      key: {
+        text: "Usual residential address"
+      },
+      value: {
+        html: "94 Drury Lane, London, W2 7DY, United Kingdom"
+      }
+    }
+  ]
+}) }}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Georgina Smith"
+    },
+    actions: {
+      items: [
+        {
+          href: "javascript:void(0)",
+          text: "Remove",
+          visuallyHiddenText: "Georgina Smith"
+        },
+        {
+          href: "javascript:void(0)",
+          text: "Change",
+          visuallyHiddenText: "Georgina Smith"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Previous name"
+      },
+      value: {
+        html: "No"
+      }
+    },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        html: "21 August 1989"
+      }
+    },
+    {
+      key: {
+        text: "Nationality"
+      },
+      value: {
+        html: "British"
+      }
+    },
+    {
+      key: {
+        text: "Usual residential address"
+      },
+      value: {
+        html: "13 Luck Lane, Bristol, BS1 8LY, United Kingdom"
+      }
+    }
+  ]
+}) }}
+
+
+
+
+   
+  </div>
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="limited-partners">
+    
+<p class="govuk-body govuk-!-margin-bottom-6">
+  <a href="javascript:void(0)" class="govuk-link govuk-link--no-visited-state">Add a new limited partner</a>
+</p>
+
+
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Lisa Taylor"
+    },
+    actions: {
+      items: [
+        {
+          href: "javascript:void(0)",
+          text: "Remove",
+          visuallyHiddenText: "Lisa Taylor"
+        },
+        {
+          href: "javascript:void(0)",
+          text: "Change",
+          visuallyHiddenText: "Lisa Taylor"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Previous name"
+      },
+      value: {
+        html: "Smith"
+      }
+    },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        html: "13 March 1975"
+      }
+    },
+    {
+      key: {
+        text: "Nationality"
+      },
+      value: {
+        html: "French"
+      }
+    },
+    {
+      key: {
+        text: "Usual residential address"
+      },
+      value: {
+        html: "1 Champs Elysee, Paris, 705001, France"
+      }
+    },
+    {
+      key: {
+        text: "Amount contributed"
+      },
+      value: {
+        html: "£20,000"
+      }
+    }
+  ]
+}) }}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "ACME Legal Entity Inc"
+    },
+    actions: {
+      items: [
+        {
+          href: "javascript:void(0)",
+          text: "Remove",
+          visuallyHiddenText: "ACME Legal Entity Inc"
+        },
+        {
+          href: "javascript:void(0)",
+          text: "Change",
+          visuallyHiddenText: "ACME Legal Entity Inc"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Governing law"
+      },
+      value: {
+        html: "England and Wales"
+      }
+    },
+    {
+      key: {
+        text: "Legal form"
+      },
+      value: {
+        html: "Incorporated business"
+      }
+    },
+    {
+      key: {
+        text: "Principal office address"
+      },
+      value: {
+        html: "1 Hyde Road, London, SW1 1LE, United Kingdom"
+      }
+    },
+    {
+      key: {
+        text: "Correspondence address"
+      },
+      value: {
+        html: "The same as the principal office address"
+      }
+    },
+    {
+      key: {
+        text: "Amount contributed"
+      },
+      value: {
+        html: "£20,000"
+      }
+    }
+  ]
+}) }}
+
+
+
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="pscs">
+    To be added
+
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+{% endblock %}

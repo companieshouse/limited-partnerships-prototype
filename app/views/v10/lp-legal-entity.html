@@ -1162,7 +1162,7 @@
 }) %}
 
 
-<p class="govuk-hint">Select the currency and enter the total value of all monetary and non-monetary contributions. For example, 0.01 or 10000.00</p>
+<p class="govuk-hint">This is the total value of all monetary and non-monetary contributions</p>
 
 {{ govukSelect({
   id: "otherCurrencySelector",
@@ -1339,7 +1339,11 @@
       ]
 }) }}
 
-
+<p class="govuk-body">Enter the value, for example:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>if it contributed £0.01 enter 0.01</li>
+    <li>if it contributed $25,000 enter 25000.00</li>
+  </ul>
 
 {{ govukInput({
   id: "totalCapitalContribution",

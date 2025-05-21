@@ -25,7 +25,7 @@
 {% if data['newCSDate-day'] and data['newCSDate-month'] and data['newCSDate-year'] %}
   {% set csDateText = data['newCSDate-day'] + ' ' + (data['newCSDate-month'] | monthName) + ' ' + data['newCSDate-year'] %}
 {% else %}
-  {% set csDateText = "31 May 2025" %}
+  {% set csDateText = "28 May 2025" %}
 {% endif %}
 
 
@@ -34,7 +34,7 @@
 
 <p class="govuk-body-l">The date of your confirmation statement is: <span class="govuk-!-font-weight-bold">{{ csDateText }}</span></p>
 
-<p class="govuk-body-l">The filing deadline is: <span class="govuk-!-font-weight-bold">???</span></p>
+<p class="govuk-body-l">The filing deadline is: <span class="govuk-!-font-weight-bold">11 June 2025</span></p>
 
 <details class="govuk-details">
   <summary class="govuk-details__summary">

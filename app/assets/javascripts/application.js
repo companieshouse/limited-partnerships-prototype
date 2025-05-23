@@ -23,4 +23,8 @@ $(document).ready(function () {
   });       
 })
 
+import GOVUKFrontend from 'govuk-frontend'
+
+GOVUKFrontend.initAll()
+
 

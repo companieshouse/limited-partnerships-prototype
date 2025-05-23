@@ -466,12 +466,24 @@
 {% if (data['registrationOrTransition'] == "registration" or data['registrationOrTransition'] == "post") %}
 
 
+<div class="govuk-js-hidden">
+  <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary">
+    Print
+  </button>
+</div>
+
         {{ govukButton({
           text: "Continue to payment",
           href: "payment-review"
         }) }}
 
+
 {% else  %}
+
+<div class="govuk-js-hidden">
+  <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary">    Print
+  </button>
+</div>
 
     {{ govukButton({
       text: "Continue",
@@ -487,5 +499,6 @@
 
 
     <script src="/public/javascripts/cya.js"></script>
+    <script src="/public/javascripts/print-button.js"></script>
 
 {% endblock %}

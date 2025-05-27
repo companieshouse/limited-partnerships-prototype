@@ -32,23 +32,13 @@
  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})</span>
  <h1 class="govuk-heading-xl">Confirmation statement date</h1><!-- If changing the H1 be sure to also change the page title, see set PageName above-->
 
-<p class="govuk-body">You are not due to file a confirmation statement. Your expected date is <span class="govuk-!-font-weight-bold">21 May 2025</span>, which is calculated based on your previous submissions or registration date.</p>
+<p class="govuk-body">You are not due to file a confirmation statement yet.</p>
+<p class="govuk-body">The date of your next expected confirmation statement is <span class="govuk-!-font-weight-bold">21 September 2025</span>.</p>
 
+<p class="govuk-body">This date is 12 months after the last confirmation statement, or 12 months after the limited partnership's registration date.</p>
 
-<p class="govuk-body">If you file a confirmation statement today it will show the date as <span class="govuk-!-font-weight-bold">{{ "now" | govukDate }}</span>, or the date supplied below and this will change your future review periods.</p>
+<p class="govuk-body">If you file a confirmation statement today, you'll need to choose a new confirmation statement date. This will start a new 12 month review period and change the date of future confirmation statements.</p>
 
-<details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      What is the confirmation statement date?
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <p class="govuk-body">It's the date the limited partnership information is made up to. It's 12 months after the last confirmation statement, or 12 months after the limited partnership's registration date.</p>
-
-    <p class="govuk-body">You can change the date of the confirmation statement if you want to file early. This will start a new 12 month review period, and change the date of future confirmation statements.</p>
-  </div>
-</details>
 
 
 
@@ -74,21 +64,21 @@
   name: "changeDateOfCS",
   fieldset: {
     legend: {
-      text: "Do you want to change the date of this confirmation statement?",
+      text: "What is the new confirmation statement date?",
       classes: "govuk-fieldset__legend--m"
     }
   },
   items: [
     {
-      value: "yes",
-      text: "Yes",
+      value: "today",
+      text: "Today – 11 June 2025"
+    },
+    {
+      value: "different date",
+      text: "A different date",
       conditional: {
         html: changeDateHtml
       }
-    },
-    {
-      value: "no",
-      text: "No"
     }
   ]
 }) }}

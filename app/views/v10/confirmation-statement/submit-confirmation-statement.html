@@ -22,14 +22,47 @@
       <form class="form" action="payment-review" method="post">
 
 
+{% if data['newCSDate-day'] and data['newCSDate-month'] and data['newCSDate-year'] %}
+  {% set csDateText = data['newCSDate-day'] + ' ' + (data['newCSDate-month'] | monthName) + ' ' + data['newCSDate-year'] %}
+{% else %}
+  {% set csDateText = "31 May 2025" %}
+{% endif %}
+
  <h1 class="govuk-heading-xl">Submit the confirmation statement</h1><!-- If changing the H1 be sure to also change the page title, see set PageName above-->
 
 
-<p class="govuk-body govuk-!-margin-bottom-6">
-Limited partnership name: <span class="govuk-!-font-weight-bold">ACME LIMITED PARTNERSHIP</span><br>
-Limited partnership number: <span class="govuk-!-font-weight-bold">{{ data['lpNumber'] or "LP123456" }}</span><br>
-Confirmation statement date: <span class="govuk-!-font-weight-bold">31 May 2025</span>
-</p>
+{% set confirmationDate = csDateText or "31 May 2025" %}
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Limited partnership name"
+      },
+      value: {
+        text: "ACME LIMITED PARTNERSHIP"
+      }
+    },
+    {
+      key: {
+        text: "Limited partnership number"
+      },
+      value: {
+        text: "LP123456"
+      }
+    },
+    {
+      key: {
+        text: "Confirmation statement date"
+      },
+      value: {
+        text: confirmationDate
+      }
+    }
+  ]
+}) }}
+
+
 
 
 

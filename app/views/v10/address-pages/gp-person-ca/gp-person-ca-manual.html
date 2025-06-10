@@ -38,11 +38,17 @@
     {% set gp1DifferentPrincipalOfficeAddressLine1 = "Squirrel Avenue" %}
     {% set gp1DifferentPrincipalOfficeAddressTown = "Leeds" %}
     {% set gp1DifferentPrincipalOfficeAddressPostcode = "LS1 2AB" %}
+    {% set gp1DifferentCorrespondencAddressCountry = "England" %}
+
+
+
 {% else %}
     {% set gp1DifferentPrincipalOfficeAddressNameNumber = "" %}
     {% set gp1DifferentPrincipalOfficeAddressLine1 = "" %}
     {% set gp1DifferentPrincipalOfficeAddressTown = "" %}
     {% set gp1DifferentPrincipalOfficeAddressPostcode = "" %}
+        {% set gp1DifferentCorrespondencAddressCountry = "" %}
+
 {% endif %}
 
 
@@ -134,6 +140,10 @@
     autocomplete: "postal-code"
   }) }}
   {% endif %}
+
+
+
+
   <div class="govuk-form-group govuk-!-margin-top-6">
   <label class="govuk-label govuk-body" for="gp1DifferentAddressCountry">
     Country
@@ -142,10 +152,10 @@
   <select class="govuk-select" id="gp1DifferentCorrespondencAddressCountry" name="gp1DifferentCorrespondencAddressCountry">
   
     
-      <option value="">Select a country</option>
-    {% if from == "change" or from == "chooseORentermanual" %}
+<option value="England" {% if from == "change" or from == "chooseORentermanual" %}selected{% endif %}>United Kingdom</option>
 
-  
+  <option value="">Select a country</option>
+
            
 
       <option value="Afghanistan">Afghanistan</option>
@@ -1154,7 +1164,6 @@
     
       <option value="Zimbabwe">Zimbabwe</option>
     
-      {% endif %}
 
   </select>
   </div>

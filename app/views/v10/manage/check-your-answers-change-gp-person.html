@@ -23,6 +23,12 @@
     <div class="govuk-grid-column-two-thirds">
      <h1 class="govuk-heading-l">Check your answers before submitting this update</h1>
 
+
+{% set todayDate = "now" | govukDate %}
+{% set fallbackDate = "5 June 2025" %}
+{% set todayHtml =  (todayDate or fallbackDate) %}
+
+
   {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
         rows: [
@@ -133,7 +139,7 @@
               text: "Date of change"
             },
             value: {
-              text: "30 April 2025"
+              html: todayHtml
             },
             actions: {
               items: [

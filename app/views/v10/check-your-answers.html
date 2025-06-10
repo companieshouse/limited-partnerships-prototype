@@ -221,6 +221,14 @@
             value: {
               text: "2 Peartree Avenue, Bristol, BS1 2EF, United Kingdom"
             }
+          },
+          {
+            key: {
+              text: "Date they became a general partner"
+            },
+            value: {
+              text: "10 June 2025"
+            }
           }
         ]
       }) }}
@@ -284,6 +292,14 @@
             value: {
               text: "24 Candy Lane, London, W1 3EE, United Kingdom"
             }
+          },
+          {
+            key: {
+              text: "Date they became a general partner"
+            },
+            value: {
+              text: "10 June 2025"
+            }
           }
         ]
       }) }}
@@ -334,12 +350,29 @@
   {% set rows = rows.concat([
     {
       key: {
-        text: "Amount contributed"
+        text: "Total capital contribution"
       },
       value: {
-        text: "£1,000"
+        html: '
+        <ul class="govuk-list">
+            <li>
+              500.50 British Pound (GBP)
+            </li>
+            <li>
+              Money / Shares / Services or goods
+            </li>
+          </ul>
+        '
       }
-    }
+    },
+          {
+            key: {
+              text: "Date they became a limited partner"
+            },
+            value: {
+              text: "10 June 2025"
+            }
+          }
   ]) %}
 {% endif %}
 
@@ -418,7 +451,15 @@
       value: {
         text: "£1,000"
       }
-    }
+    },
+          {
+            key: {
+              text: "Date they became a limited partner"
+            },
+            value: {
+              text: "10 June 2025"
+            }
+          }
   ]) %}
 {% endif %}
 

@@ -2062,6 +2062,25 @@ In the post-transition journey, we need to show the users 'existing' data if the
   ]
 }) }}
 
+
+{% if data['registrationOrTransition'] == "post" or data['registrationOrTransition'] == "transition" %}
+{{ govukDateInput({
+  id: "dateBecamePartner",
+  namePrefix: "dateBecamePartner",
+  fieldset: {
+    legend: {
+      text: "When did they become a general partner for this partnership?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "For example, 31 3 2025"
+  }
+}) }}
+{% endif %}
+
+
+
  {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
                 <p>We’ll show the month and year of the partner’s date of birth, but not the exact date. </p>

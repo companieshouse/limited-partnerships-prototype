@@ -1308,7 +1308,7 @@
 
 {% endif %}
 
-{% if (data['registrationOrTransition'] == "post") %}
+{% if data['registrationOrTransition'] == "post" or data['registrationOrTransition'] == "transition" %}
 {{ govukDateInput({
   id: "dateBecamePartner",
   namePrefix: "dateBecamePartner",

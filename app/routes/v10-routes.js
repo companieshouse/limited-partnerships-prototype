@@ -703,4 +703,18 @@ router.post('/check-sic', function(request, response) {
     }
   })
 
+
+  //Update a partner
+
+    router.post('/change-ura', function(request, response) {
+
+    var changeURA = request.session.data['changeURA']
+    if (changeURA == "yes"){
+        response.redirect("/v10/address-pages/gp-person-ura/gp-person-ura-manual")
+    }
+    else {
+        response.redirect("/v10/address-pages/gp-person-ca/gp-person-ca-manual")
+    }
+  })
+
 module.exports=router;

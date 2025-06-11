@@ -2065,8 +2065,9 @@ In the post-transition journey, we need to show the users 'existing' data if the
   ]
 }) }}
 
-
-{% if data['registrationOrTransition'] == "post" or data['registrationOrTransition'] == "transition" %}
+{% if data['from'] == "general-partners-change" %}
+<!-- Hide When did they become a general partner in a change journey-->
+{% elif data['registrationOrTransition'] == "post" or data['registrationOrTransition'] == "transition" %}
 {{ govukDateInput({
   id: "dateBecamePartner",
   namePrefix: "dateBecamePartner",

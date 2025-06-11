@@ -22,6 +22,23 @@
 
       <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
 
+
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{{ govukWarningText({
+  text: "This is the last time you will be able to view sensitive information about the partnership and its partners. To keep a record of this information, print or save the details on this page before you submit.",
+  iconFallbackText: "Warning"
+}) }}
+
+<p class="govuk-body">Sensitive information includes the:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>partnership's registered email address</li>
+  <li>full dates of birth of any partners who are people</li>
+  <li>usual residential addresses of any partners who are people</li>
+</ul>
+
+
+
       <h2 class="govuk-heading-m">Limited partnership information</h2>
 
 

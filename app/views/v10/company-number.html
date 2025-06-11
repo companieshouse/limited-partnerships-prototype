@@ -36,7 +36,11 @@
       }) }}
 
 
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
+{{ govukInsetText({
+  text: "If you have a limited partnership number that's less than 8 characters, enter zeros after the letters (SL, LP or NL) to make 8 characters in total. For example, if it's SL123, enter SL000123."
+}) }}
 
 <!--
 {{ govukDetails({

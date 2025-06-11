@@ -34,6 +34,13 @@
 
 <h1 class="govuk-heading-xl">Add a general partner (legal entity)</h1>
 
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{{ govukWarningText({
+  text: "By providing this information, you are confirming that this entity has legal personality.",
+  iconFallbackText: "Warning"
+}) }}
+
 {{ govukInput({
   label: {
     text: "What is the legal entity's name?",
@@ -1123,23 +1130,6 @@
 }) }}
 
 
-
-{{ govukCheckboxes({
-  name: "gp1LegalFormStatement",
-  fieldset: {
-    legend: {
-      text: "The entity has confirmed it has legal personality. ",
-      isPageHeading: true,
-      classes: "govuk-visually-hidden"
-    }
-  },
-  items: [
-    {
-      value: "gp1LegalFormStatement",
-      text: "The entity has confirmed it has legal personality. "
-    }
-  ]
-}) }}
 
 
 

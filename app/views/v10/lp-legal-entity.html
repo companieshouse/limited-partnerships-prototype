@@ -33,6 +33,12 @@
 
 <h1 class="govuk-heading-xl">Add a limited partner (legal entity)</h1>
 
+{{ govukWarningText({
+  text: "By providing this information, you are confirming that this entity has legal personality.",
+  iconFallbackText: "Warning"
+}) }}
+
+
 {{ govukInput({
   label: {
     text: "What is the legal entity's name?",
@@ -1123,28 +1129,6 @@
   spellcheck: false
 }) }}
 
-
-
-
-
-
-
-{{ govukCheckboxes({
-  name: "legalFormStatementLP",
-  fieldset: {
-    legend: {
-      text: "The entity has confirmed it has legal personality. ",
-      isPageHeading: true,
-      classes: "govuk-visually-hidden"
-    }
-  },
-  items: [
-    {
-      value: "agreeLP",
-      text: "The entity has confirmed it has legal personality. "
-    }
-  ]
-}) }}
 
 
 

@@ -710,7 +710,7 @@ router.post('/check-sic', function(request, response) {
 
     var changeURA = request.session.data['changeURA']
     if (changeURA == "yes"){
-        response.redirect("/v10/address-pages/gp-person-ura/gp-person-ura-manual")
+        response.redirect("/v10/address-pages/gp-person-ura/gp-person-ura-where")
     }
     else {
         response.redirect("/v10/address-pages/gp-person-ca/gp-person-ca-manual")

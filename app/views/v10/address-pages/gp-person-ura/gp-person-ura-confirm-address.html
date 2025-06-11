@@ -22,12 +22,12 @@
     <div class="govuk-grid-column-two-thirds">
 
 
-{% if (data['registrationOrTransition'] == "post") %}
-<form class="form" action="../gp-person-ca/gp-person-ca-confirm-address" method="post">
-
-{% else %}  
-<form class="form" action="../gp-person-ca/gp-person-ca-where" method="post">
-
+{% if data['registrationOrTransition'] == "post" and data['changeURA'] == "yes" %}
+  <form class="form" action="../gp-person-ca/gp-person-ca-manual" method="post">
+{% elif data['registrationOrTransition'] == "post" %}
+  <form class="form" action="../gp-person-ca/gp-person-ca-confirm-address" method="post">
+{% else %}
+  <form class="form" action="../gp-person-ca/gp-person-ca-where" method="post">
 {% endif %}
 
 

@@ -27,17 +27,16 @@
           isPageHeading: true
         },
         hint: {
-          html: "<p class='govuk-hint'>Enter the 8 character company number. You can find this by searching for the company on the <a href='https://find-and-update.company-information.service.gov.uk/' class='govuk-link' rel='noreferrer noopener' target='_blank'>Companies House register (opens in new tab)</a>.
+          html: "<p class='govuk-body'>Enter the 8 character company number. You can find this by searching for the company on the <a href='https://find-and-update.company-information.service.gov.uk/' class='govuk-link' rel='noreferrer noopener' target='_blank'>Companies House register (opens in new tab)</a>.
 </p>"
         },
-          classes: "govuk-!-width-one-half",
+          classes: "govuk-!-width-one-half govuk-input--extra-letter-spacing govuk-!-margin-bottom-4",
         id: "lpNumber",
         name: "lpNumber",
         value: data['lpNumber']
       }) }}
 
 
-{% from "govuk/components/details/macro.njk" import govukDetails %}
 
 <details class="govuk-details">
   <summary class="govuk-details__summary">
@@ -46,13 +45,13 @@
     </span>
   </summary>
   <div class="govuk-details__text">
-    If you have a shorter company number, you'll need to enter zeros to make it the right length.
-<br><br>
+    <p class='govuk-body'>If you have a shorter company number, you'll need to enter zeros to make it the right length.
+
 <h2 class="govuk-heading-s">For most company numbers</h2>
-Enter zeros at the start so that it's 8 characters in total. For example, if it's 12345, enter 00012345.
-<br><br>
+    <p class='govuk-body'>Enter zeros at the start so that it's 8 characters in total. For example, if it's 12345, enter 00012345.</p>
+
 <h2 class="govuk-heading-s">For limited partnership numbers</h2>
-Enter zeros after the letters (SL, LP or NL) to make 8 characters in total. For example, if it's SL123, enter SL000123.
+<p class='govuk-body'>Enter zeros after the letters (SL, LP or NL) to make 8 characters in total. For example, if it's SL123, enter SL000123.</p>
   </div>
 </details>
 

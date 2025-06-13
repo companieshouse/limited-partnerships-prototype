@@ -17,6 +17,10 @@
 
 {% set mainClasses = "govuk-main-wrapper--l" %}
 
+{% set todayDate = "now" | govukDate %}
+{% set fallbackDate = "5 June 2025" %}
+{% set todayHtml =  (todayDate or fallbackDate) %}
+
 
 {% block content %}
   <div class="govuk-grid-row">
@@ -39,6 +43,23 @@
                   href: "../limited-partnership-terms",
                   text: "Change",
                   visuallyHiddenText: "Term of partnership"
+                }
+              ]
+            }
+          },
+           {
+            key: {
+              text: "Date of change"
+            },
+            value: {
+              html: todayHtml
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Date of change"
                 }
               ]
             }

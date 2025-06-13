@@ -388,7 +388,7 @@ router.post('/limited-partnership-terms', function(request, response) {
 
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
-        response.redirect("/v10/manage/check-your-answers-change-term")
+        response.redirect("/v10/manage/date-of-change-term-update")
     }
     else if (registrationOrTransition == "transition"){
         response.redirect("/v10/general-partner-section")

@@ -111,7 +111,7 @@ router.post(['/lp-name', '/pflp-name', '/slp-name', '/sqp-name'], (request, resp
     } else if (lpChooseName && lpChooseName.toLowerCase().includes("bank")) {
         response.redirect("/v10/registration/sensitive-name");
     } else if (request.path === '/lp-name' && registrationOrTransition === "post") {
-        response.redirect("/v10/manage/check-your-answers-change-name");
+        response.redirect("/v10/manage/date-of-change-lpname-update");
     } else {
         response.redirect("/v10/limited-partnership-rea");
     }

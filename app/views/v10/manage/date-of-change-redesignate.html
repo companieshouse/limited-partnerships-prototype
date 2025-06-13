@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="When did the name change?" %}
+{% set pageName="When did the firm designate as a private fund limited partnership?" %}
 
 
 
@@ -19,16 +19,16 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="/v10/manage/check-your-answers-change-name" method="post" class="form">
-          <span class="govuk-caption-l"> {{ data['lpname'] or "ACME" }} {{ data['nameEnding'] or "LIMITED PARTNERSHIP" }} (LP123456)</span>
+      <form action="/v10/manage/check-your-answers-redesignate" method="post" class="form">
+        <span class="govuk-caption-l"> {{ data['lpname'] or "ACME" }} {{ data['nameEnding'] or "LIMITED PARTNERSHIP" }} (LP123456)</span>
 
-<!-- if changing "When did the name change?" below, also chanhge the pageName above -->
+<!-- if changing "When did the firm designate as a private fund limited partnership?" below, also change the pageName above -->
 {{ govukDateInput({
   id: "dateChange",
   namePrefix: "dateChange",
   fieldset: {
     legend: {
-      text: "When did the name change?",
+      text: "When did the firm designate as a private fund limited partnership?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--xl"
     }

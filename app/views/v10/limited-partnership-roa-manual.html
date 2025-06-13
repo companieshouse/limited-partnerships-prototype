@@ -279,6 +279,22 @@
     {% endif %}
 {% else %}
 
+
+{% if data['from'] == "roa-update" %}
+    {% set roaNameNumberValue = "64" %}
+    {% set roaaddressLine1Value = "Zoo Lane" %}
+    {% set roaaddressTownValue = "London" %}
+    {% set roaaddressPostcodeValue = "W5 5AB" %}
+    {% set roaCountryValue = "england" %}
+{% else %}
+    {% set roaNameNumberValue = "" %}
+    {% set roaaddressLine1Value = "" %}
+    {% set roaaddressTownValue = "" %}
+    {% set roaaddressPostcodeValue = "" %}
+    {% set roaCountryValue = "" %}
+{% endif %}
+
+
  {% call govukFieldset({
   legend: {
     text: "What is the registered office address of the partnership?",
@@ -294,7 +310,8 @@
     text: "For example, 'The Mill', '116' or 'Flat 37a'"
   },
     id: "roaNameNumber",
-    name: "roabNameNumber"
+    name: "roabNameNumber",
+    value: roaNameNumberValue
   }) }}
 
   {{ govukInput({
@@ -303,7 +320,8 @@
     },
     id: "roaaddress-line-1",
     name: "roaaddressLine1",
-    autocomplete: "address-line1"
+    autocomplete: "address-line1",
+    value: roaaddressLine1Value
   }) }}
 
   {{ govukInput({
@@ -322,7 +340,8 @@
     classes: "govuk-!-width-two-thirds",
     id: "roaaddress-town",
     name: "roaaddressTown",
-    autocomplete: "address-level2"
+    autocomplete: "address-level2",
+    value: roaaddressTownValue
   }) }}
 
   {{ govukInput({
@@ -341,7 +360,8 @@
     classes: "govuk-input--width-10",
     id: "roaaddress-postcode",
     name: "roaaddressPostcode",
-    autocomplete: "postal-code"
+    autocomplete: "postal-code",
+    value: roaaddressPostcodeValue
   }) }}
 
   {{ govukSelect({
@@ -350,6 +370,7 @@
   label: {
     text: "Country"
   },
+     value: roaCountryValue,
   fieldset: {
     legend: {
       text: "Country",
@@ -357,6 +378,7 @@
       classes: "govuk-!-font-weight-regular"
     }
   },
+ 
   items: [
       {
       value: "Select country",

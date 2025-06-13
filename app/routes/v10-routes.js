@@ -327,8 +327,14 @@ router.post('/limited-partnership-roa-confirm-address', function(request, respon
 
 //Registered office address (manual)
 router.post('/limited-partnership-roa-manual', function(request, response) {
-    response.redirect('/v10/limited-partnership-roa-confirm-address')
-})
+  const from = request.session.data['from'];
+
+  if (from === 'roa-update') {
+    response.redirect('/v10/manage/date-of-change-roa-update'); // replace with your actual route
+  } else {
+    response.redirect('/v10/limited-partnership-roa-confirm-address');
+  }
+});
 
 
 //PPOB

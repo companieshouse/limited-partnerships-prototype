@@ -54,14 +54,14 @@
       }
     },
     hint: {
-      text: "For example, 30 9 2025"
+      text: "For example, 30 9 2025. You cannot enter a date in the future."
     }
   }) }}
 {% endset -%}
 
 {% set todayDate = "now" | govukDate %}
 {% set fallbackDate = "5 June 2025" %}
-{% set todayHtml = "Today – " + (todayDate or fallbackDate) %}
+{% set todayHtml = (todayDate or fallbackDate) %}
 
 
 

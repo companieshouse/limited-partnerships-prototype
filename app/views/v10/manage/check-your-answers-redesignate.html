@@ -25,14 +25,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
     <span class="govuk-caption-l"> {{ data['lpname'] or "ACME" }} {{ data['nameEnding'] or "LIMITED PARTNERSHIP" }} (LP123456)</span>
-         <h1 class="govuk-heading-l">Check your answers before submitting this update</h1>
+         <h1 class="govuk-heading-l">Check your answers before submitting this application</h1>
 
   {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
         rows: [
           {
             key: {
-              text: "Date of change"
+              text: "Date of designation as a private fund limited partnership"
             },
             value: {
               html: todayHtml
@@ -53,7 +53,7 @@
 
 
         {{ govukButton({
-          text: "Submit",
+          text: "Continue to payment",
           href: "javascript:void(0)"
         }) }}
 

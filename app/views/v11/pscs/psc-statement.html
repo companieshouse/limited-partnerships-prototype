@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Will the partnership have any people with significant control (PSCs) on registration?" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/psc-statement" method="post">
+
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}
+
+
+<!-- CONTENT - when updating the Title here, be sure to also update pageName on line 3-->
+{{ govukRadios({
+  name: "pscStatement",
+  fieldset: {
+    legend: {
+      text: "Will the partnership have any people with significant control (PSCs) on registration?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+
+  },
+  items: [
+    {
+      value: "Yes, at least one person will count as a PSC in relation to the partnership. This may be an individual, a relevant legal entity (RLE) or an other registrable person (ORP)",
+      text: "Yes, at least one person will count as a PSC in relation to the partnership. This may be an individual, a relevant legal entity (RLE) or an other registrable person (ORP)"
+    },
+    {
+      value: "No, there is no person identified as a PSC in relation to the limited partnership",
+      text: "No, there is no person identified as a PSC in relation to the limited partnership"
+    }
+  ]
+}) }}
+
+ {{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+                <p>**TO BE CONFIRMED**</p>"
+        }) }}
+      
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Confirmation" %}
+
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/language-toggle.html" %}
+{% endblock %}
+
+{% set references = [
+'<strong>HDJ2123F</strong>',
+'<strong>LOPF123F</strong>',
+'<strong>HLJ21789</strong>',
+'<strong>HLJ2DOP</strong>',
+'<strong>OPSF2DOP</strong>',
+'<strong>TYPF2DOP</strong>',
+'<strong>WERCVF</strong>',
+'<strong>SWERCVF</strong>',
+'<strong>TYU8764</strong>'
+] | random %}
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Content TBC",
+html: "Your reference number " + references
+}) }}
+
+  
+
+
+
+
+
+
+<p class="govuk-body">We have sent a confirmation email to <strong>{{ data['govOneLoginEmail'] or "agent@example.com" }}</strong>.</p>
+
+
+<h2 class="govuk-heading-m">What happens next</h2>
+
+<p>We'll process the application as soon as possible. This will usually take no more than 3 to 5 working days.</p>
+<p class="govuk-body">
+We'll email <strong>{{ data['govOneLoginEmail'] }}</strong> to let you know if your application has been accepted or rejected.  
+</p>
+
+
+<h2 class="govuk-heading-m">If the application is accepted</h2>
+<p>We'll... and add the details to the Companies House public register.</p>
+
+{{ govukInsetText({
+  text: "It may take a while for this change to show on the limited partnership overview and CHS and the Confirmation Statement CONTENT TBD"
+}) }}
+
+<h2 class="govuk-heading-m">If the application is rejected </h2>
+<p>We'll explain why your application has been rejected and what you can do next.</p>
+
+
+<h2 class="govuk-heading-m">What do you want to do now?</h2>
+  <ul class="govuk-list">
+  <li>
+        <a href="/v11/manage/limited-partnership-overview-tabs-wf" class="govuk-link govuk-link--no-visited-state">Return to the partnership overview</a>
+  </li>
+  <br>
+    <li>
+      <a href="/v11/manage/limited-partnership-overview-tabs-wf#confirmation-statement" class="govuk-link govuk-link--no-visited-state">File a confirmation statement</a>
+  </li>
+  <br>
+    <li>
+      <a href="/v11/company-number" class="govuk-link govuk-link--no-visited-state">File for a different limited partnership</a>
+  </li>
+  </ul>
+  <br>
+
+
+
+<p class="govuk-body">
+<a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+</p>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

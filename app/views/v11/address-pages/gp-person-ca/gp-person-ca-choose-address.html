@@ -1,0 +1,99 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Choose the general partner's correspondence address" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/gp-person-ca-choose-address" method="post">
+   
+
+  <span class="govuk-caption-l"> {{ data['gp1FirstName'] or "Georgina" }} {{ data['gp1LastName'] or "Smith" }}</span>
+{{ govukRadios({
+  name: "chooseCA",
+  fieldset: {
+    legend: {
+      text: "Choose the general partner's correspondence address",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+    hint: {
+    text: "This is also known as the service address."
+  },
+  items: [
+    {
+      value: "1",
+      text: "1 Squirrel Avenue, Leeds, LS1 2AB"
+    },
+    {
+      value: "2",
+      text: "2 Squirrel Avenue, Leeds, LS1 2AB"
+    },    {
+      value: "3",
+      text: "3 Squirrel Avenue, Leeds, LS1 2AB"
+    },    {
+      value: "4",
+      text: "4 Squirrel Avenue, Leeds, LS1 2AB"
+    },    {
+      value: "5",
+      text: "5 Squirrel Avenue, Leeds, LS1 2AB"
+    },    {
+      value: "6",
+      text: "6 Squirrel Avenue, Leeds, LS1 2AB"
+    },    {
+      value: "7",
+      text: "7 Squirrel Avenue, Leeds, LS1 2AB"
+    },    {
+      value: "8",
+      text: "8 Squirrel Avenue, Leeds, LS1 2AB"
+    },    {
+      value: "9",
+      text: "9 Squirrel Avenue, Leeds, LS1 2AB"
+    },    {
+      value: "10",
+      text: "10 Squirrel Avenue, Leeds, LS1 2AB"
+    }
+  ]
+}) }}
+
+  <p><a href="gp-person-ca-manual?from=chooseORentermanual">The address is not on the list</a><p>
+
+
+
+
+{{ govukInsetText({
+  html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+        <p>We'll show the general partner's correspondence address on the public register.
+           <p>The address should not be a home address, unless the partner has given permission for their home address to be made public.</p>
+        "
+}) }}
+
+
+   
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

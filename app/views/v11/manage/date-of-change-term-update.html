@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="When did the term change?" %}
+
+
+
+
+
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/v11/manage/check-your-answers-change-term" method="post" class="form">
+        <span class="govuk-caption-l"> {{ data['lpname'] or "ACME" }} {{ data['nameEnding'] or "LIMITED PARTNERSHIP" }} (LP123456)</span>
+
+<!-- if changing "When did the term change?" below, also change the pageName above -->
+{{ govukDateInput({
+  id: "dateChange",
+  namePrefix: "dateChange",
+  fieldset: {
+    legend: {
+      text: "When did the term change?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  hint: {
+    text: "For example, 27 3 2025"
+  }
+}) }}
+  
+   {{ govukButton({
+          text: "Continue"
+        }) }}      
+
+      </form>
+
+
+      {{ govukInsetText({
+  html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+        <p>TBC.</p>"
+}) }}
+ 
+
+    </div>
+    <!--govuk-grid-row-->
+
+    <!--govuk-grid-column-two-thirds-->
+  </div>
+  <!--govuk-grid-column-two-thirds-->
+
+</main>
+</div>
+<!---govuk-width-container-->
+
+{% endblock %}

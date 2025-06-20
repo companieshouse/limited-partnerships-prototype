@@ -1,0 +1,546 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="v11" %}
+
+{% block beforeContent %}
+    {% include "/includes/phase-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full width">
+
+    <!--{% include "govuk-prototype-kit/includes/homepage-top.njk" %}-->
+
+ 
+    {{ govukNotificationBanner({
+  html: 'This version of the prototype is being actively worked on - some things might not work correctly and/or change very quickly. <a href="test-scenario">Read the testing instructions</a> before you start.'
+}) }}
+
+
+    <span class="govuk-caption-xl">Version 11</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-1">
+      {{ serviceName }}
+    </h1>
+   <span class="govuk-caption-l  govuk-!-margin-bottom-8">Last updated <strong>{{ lastUpdated }}</strong></span>
+
+
+
+
+  <h2 class="govuk-heading-m" id="testing">Useful links</h2>
+
+      <ul class="govuk-list govuk-!-margin-bottom-9">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="test-scenario">Testing instructions</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1730123413781/b8221a4f44aa2e7b0268597ac647a3de57ed7d0f" target="_blank">Screen flow in Mural (opens in new tab)</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="../design-history">Interaction design history </a></li>
+        </ul>
+
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+
+  <ul class="govuk-tabs__list">
+         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#register">
+       Register
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#transition">
+        Transition
+      </a>
+    </li>
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#post-transition">
+       Manage LP/File Confirmation Statement
+      </a>
+    </li>
+        </li>
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#chs">
+       Search (CHS)
+      </a>
+    </li>
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden " id="register">
+
+    {% set html %}
+  <p class="govuk-body">
+The prototype re-uses the same templates across multiple journeys and scenarios - the content and functionality on many pages <strong>will be different</strong> depending on the journey and the scenario.<p>
+  <p class="govuk-body">If you jump to pages using the links below without first <a class="govuk-notification-banner__link" href="registration-or-transition">choosing the appropriate test scenario</a> you may see the 'wrong' things.<p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
+
+
+
+
+
+<h2 class="govuk-heading-m" id="initial">Initial screens</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="registration-or-transition">Choose registration or transition or post-transition</a>  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}}</li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="start">Guidance</a></s>  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}}</li>
+         <li><a class="govuk-link govuk-link--no-visited-state" href="registration/registration-start-page">Start</a>  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}}</li>
+
+        <li><a class="govuk-link govuk-link--no-visited-state" href="sign-in">GOV One Login sign in</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}} |<s><a class="govuk-link govuk-link--no-visited-state" href="sign-out">Sign out</a></s> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="gov-onelogin-email">GOV One Login email</a> {{govukTag({ text: "Existing service", classes: "govuk-tag--blue"})}}</li>
+               <li><a class="govuk-link govuk-link--no-visited-state" href="not-eligible">Not eligible (non-ACSP)</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="gov-onelogin-password">GOV One Login password</a> {{govukTag({ text: "Existing service", classes: "govuk-tag--blue"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="gov-onelogin-enter-code">GOV One Login code</a> {{govukTag({ text: "Existing service", classes: "govuk-tag--blue"})}}</li>
+               <li><a class="govuk-link govuk-link--no-visited-state" href="starting-new">Do you want to continue with a saved filing?</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+
+                 <li><a class="govuk-link govuk-link--no-visited-state" href="secure-register-filter">Secure register filter</a></li>
+                     <li><a class="govuk-link govuk-link--no-visited-state" href="use-paper">Secure register - file on paper</a></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="registration/in-scotland">Will the partnership be registered in Scotland?</a></s></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="registration/which-type">Which type of partnership do you want to register?</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li>Name: <a class="govuk-link govuk-link--no-visited-state" href="registration/lp-name">LP</a> | <a class="govuk-link govuk-link--no-visited-state" href="registration/pflp-name">PFLP</a> | <a class="govuk-link govuk-link--no-visited-state" href="registration/scottish-pflp-name">PFSLP</a> | <a class="govuk-link govuk-link--no-visited-state" href="registration/slp-name">SLP</a> | <s><a class="govuk-link govuk-link--no-visited-state" href="registration/sqp-name">SQP</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="registration/same-as-name">'Same as' name</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="registration/sensitive-name">Sensitive name</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="registration/lp-statement">Limited partnership statement</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="idv-filter">Do you have the personal codes? (IDV)</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="idv-no">You need to verify (IDV)</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</s></li>
+      </ul>
+
+          <h2 class="govuk-heading-m" id="limited-partnership">Limited partnership</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="limited-partnership-rea">Registered email address</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+      <li><a class="govuk-link govuk-link--no-visited-state" href="limited-partnership-jurisdiction">Jurisdiction</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="limited-partnership-roa">Registered office address (postcode look-up)</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+       
+        <li><a class="govuk-link govuk-link--no-visited-state" href="limited-partnership-roa-choose-address">Registered office address - choose address</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="limited-partnership-roa-confirm-address">Registered office address - confirm address</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="limited-partnership-roa-manual">Registered office address (manual entry)</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="limited-partnership-ppob">Principal place of business</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="limited-partnership-terms">Terms of the limited partnership</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="limited-partnership-sic">SIC code(s)</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+  </ul>
+      
+      <h2 class="govuk-heading-m" id="general-partners">General partner screens</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="general-partner-section">General partner section start page</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="general-partner-choice">General partner - person or legal entity?</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="gp-legal-entity">General partner - legal entity info</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="gp-person">General partner - person info</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="gp-add-another">Do you need to add another general partner?</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="gp-remove">Are you sure you want to remove [Name]?</a> </li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="general-partner-idv-statements">General partner IDV statements</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="general-partner-idv">General partner IDV</a></s></li>
+      </ul>
+
+      <h2 class="govuk-heading-m" id="limited-partners">Limited partner screens</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="limited-partner-section">Limited partner section start page</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="limited-partner-choice">Limited partner - person or legal entity?</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="lp-legal-entity">Limited partner - legal entity</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="lp-person">Limited partner - person</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="lp-add-another">Do you need to add another limited partner?</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+      </ul>
+
+
+
+  <h2 class="govuk-heading-m" id="pscs">PSC screens</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="pscs/psc-section">PSC section start page</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="pscs/psc-statement">PSC statement</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="pscs/psc-choice">Which type of person with significant control (PSC) do you need to add?</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="pscs/psc-person">PSC - person</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="pscs/psc-legal-entity">PSC - legal entity</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="pscs/psc-orp">PSC - other registrable person (ORP)</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="pscs/psc-add-another">Do you need to add another PSC?</a></li>
+      </ul>
+
+
+
+
+
+   
+
+      <h2 class="govuk-heading-m" id="final">Final screens</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="check-your-answers">Check your answers</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="payment-review">Payment review</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="payment">Payment</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="payment-confirm">Payment confirmation</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-page">Confirmation</a></li>
+      </ul>
+
+
+ 
+
+
+
+
+    <h2 class="govuk-heading-m" id="emails">Emails</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="emails/application-received">Application received</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="emails/application-accepted">Application accepted</a></li>
+            <li><a class="govuk-link govuk-link--no-visited-state" href="emails/application-received-slp">Application received (SLP)</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="emails/application-accepted-slp">Application accepted (SLP)</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="emails/application-rejected">Application rejected</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="javascript:void(0)">'Upload a document to Companies House' service - Upload successful</a></li>
+
+      </ul>
+
+
+           <h2 class="govuk-heading-m" id="upload">'Upload a document to Companies House' service</h2>
+
+   <ul class="govuk-list">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1735639789292/4829178125667e7cfcbdb2292dca332d2eeaf627?wid=0-1735640538892">Link to Mural showing screens</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="https://app.mural.co/t/companieshouse8589/m/companieshouseuserresearch4414/1673452397169/b58b2849114431213f975a9ff691bdc6e012ab07?wid=14-1733841477048">Link to Mural showing service design</a></li>
+      </ul>
+
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="upload-a-doc/upload-start-page">Start</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="upload-a-doc/upload-guidance">Guidance</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="upload-a-doc/upload-login-create">GOV.UK One Login: Create login or sign in  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="upload-a-doc/upload-login-email">GOV.UK One Login: Enter email  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="upload-a-doc/upload-login-password">GOV.UK One Login: Enter password  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}} </li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="upload-a-doc/upload-company-number">What is the company number?</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="upload-a-doc/upload-company-confirm">Confirm company</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="upload-a-doc/upload-stop-screen">'Stop' screen</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="upload-a-doc/upload-select-document">Select document</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="upload-a-doc/upload-document">Upload document</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="upload-a-doc/upload-confirm-document">Confirm uploaded document</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="upload-a-doc/upload-check-answers">Check your answers</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="upload-a-doc/upload-confirmation">Document uploaded successfully</a></li>
+      </ul>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="transition">
+
+    {% set html %}
+  <p class="govuk-body">
+The prototype re-uses the same templates across multiple journeys and scenarios - the content and functionality on many pages <strong>will be different</strong> depending on the journey and the scenario.<p>
+  <p class="govuk-body">If you jump to pages using the links below without first <a class="govuk-notification-banner__link" href="registration-or-transition">choosing the appropriate test scenario</a> you may see the 'wrong' things.<p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
+
+
+
+<h2 class="govuk-heading-m" id="initial">Initial screens</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="registration-or-transition">Choose registration or transition or post-transition</a>  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="transition-start-page">Start</a>  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="sign-in">GOV One Login sign in</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}} | <s><a class="govuk-link govuk-link--no-visited-state" href="sign-out">Sign out</a></s> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+       <li><a class="govuk-link govuk-link--no-visited-state" href="gov-onelogin-email">GOV One Login email</a>  {{govukTag({ text: "Existing service", classes: "govuk-tag--blue"})}}</li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="not-eligible">Not eligible (non-ACSP)</a></li>
+
+        <li><a class="govuk-link govuk-link--no-visited-state" href="gov-onelogin-password">GOV One Login password</a>  {{govukTag({ text: "Existing service", classes: "govuk-tag--blue"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="gov-onelogin-enter-code">GOV One Login code</a>  {{govukTag({ text: "Existing service", classes: "govuk-tag--blue"})}}</li>
+           <li><a class="govuk-link govuk-link--no-visited-state" href="starting-new">Do you want to continue with a saved filing?</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="company-number">What is the limited partnership number?</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="correct-company">Confirm this is the correct limited partnership</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+            <li><a class="govuk-link govuk-link--no-visited-state" href="transition-already-filed">A transition filing has already been submitted</a></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="idv-filter">Do you have the personal codes? (IDV)</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="idv-no">You need to verify (IDV)</a></s></li>
+      </ul>
+
+          <h2 class="govuk-heading-m" id="limited-partnership">Limited partnership</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="limited-partnership-rea">Registered email address</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="limited-partnership-roa">Registered office address</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="limited-partnership-roa-choose-address">Registered office address - choose address</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="limited-partnership-roa-confirm-address">Registered office address - confirm address</a></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="limited-partnership-jurisdiction">Jurisdiction</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="limited-partnership-ppob">Principal place of business</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="limited-partnership-terms">Terms of the limited partnership</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="limited-partnership-sic">SIC code(s)</a></s></li>
+  </ul>
+      
+      <h2 class="govuk-heading-m" id="general-partners">General partner screens</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="general-partner-section">General partner section start page</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="general-partner-choice">General partner - person or legal entity?</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="gp-legal-entity">General partner - legal entity info</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="gp-person">General partner - person info</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="gp-add-another">Do you need to add another general partner?</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="general-partner-idv-statements">General partner IDV statements</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="general-partner-idv">General partner IDV</a></s></li>
+      </ul>
+
+      <h2 class="govuk-heading-m" id="limited-partners">Limited partner screens</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="limited-partner-section">Limited partner section start page</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="limited-partner-choice">Limited partner - person or legal entity?</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="lp-legal-entity">Limited partner - legal entity</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="lp-person">Limited partner - person</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="lp-add-another">Do you need to add another limited partner?</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+      </ul>
+
+      <h2 class="govuk-heading-m" id="scottish">Scottish PSC IDV screen</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="psc-section">PSC IDV section start page</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="psc-idv">Provide IDV for PSCs</a></s></li>   
+      </ul>
+   
+
+      <h2 class="govuk-heading-m" id="final">Final screens</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="check-your-answers">Check your answers</a></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="payment-review">Payment review</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="payment">Payment</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="payment-confirm">Payment confirmation</a></s></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-page">Confirmation</a></li>
+      </ul>
+
+
+
+
+    <h2 class="govuk-heading-m" id="emails">Emails</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="emails/application-received">Application received</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="emails/application-accepted">Application accepted</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="emails/application-rejected">Application rejected</a></li>
+      </ul>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="govuk-tabs__panel" id="post-transition">
+
+
+    {% set html %}
+  <p class="govuk-body">
+The prototype re-uses the same templates across multiple journeys and scenarios - the content and functionality on many pages <strong>will be different</strong> depending on the journey and the scenario.<p>
+  <p class="govuk-body">If you jump to pages using the links below without first <a class="govuk-notification-banner__link" href="registration-or-transition">choosing the appropriate test scenario</a> you may see the 'wrong' things.<p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
+
+<h2 class="govuk-heading-m" id="initial">Initial screens</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+       <li><a class="govuk-link govuk-link--no-visited-state" href="registration-or-transition">Choose registration or transition or post-transition</a>  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}}</li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="start">Guidance</a></s>  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="post-transition-start-page">Start</a>  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="sign-in">GOV One Login sign in</a> | <a class="govuk-link govuk-link--no-visited-state" href="sign-out">Sign out</a></li>
+              <li><a class="govuk-link govuk-link--no-visited-state" href="gov-onelogin-email">GOV One Login email</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="gov-onelogin-password">GOV One Login password</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="gov-onelogin-enter-code">GOV One Login code</a></li>
+         <li><a class="govuk-link govuk-link--no-visited-state" href="not-eligible">Not eligible (non-ACSP)</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="company-number">What is the limited partnership number?</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="correct-company">Confirm this is the correct limited partnership</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="auth-code">Auth code</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</s></li>
+      </ul>
+
+      <h2 class="govuk-heading-m" id="initial">Limited partnership overview</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+      <li><a class="govuk-link govuk-link--no-visited-state" href="manage/limited-partnership-overview-tabs-wf">Overview (tabbed WebFiling style screen)</a></li>
+            <li><s><a class="govuk-link govuk-link--no-visited-state" href="manage/limited-partnership-overview-tabs-wf-cs-overdue">Overview with overdue Confirmation statement (tabbed WebFiling style screen)</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="manage/limited-partnership-overview">Overview (CHS style screen)</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="manage/limited-partnership-overview-cya">Overview (Check your answers style screen)</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="manage/limited-partnership-overview-wf-style">Overview (WebFiling style screen)</a></s></li>
+      </ul>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-7">
+
+   <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1742989175652/852f13699272906e2c4296b087e8d4458e520677" target="-blank">Confirmation statement screen flow in Mural (opens in new tab)</a></p>
+
+      <h2 class="govuk-heading-m" id="conf">Confirmation statement</h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a class="govuk-link govuk-link--no-visited-state" href="manage/file-confirmation-statement">Check before you file</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/confirmation-statement-date">Confirmation statement date</a></li>
+             <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/confirmation-statement-date-early">Confirmation statement date (early)</a></li>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/sic-check">Check the SIC codes (autocomplete)</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/check-sic">Check the SIC codes</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/submit-confirmation-statement">Submit the confirmation statement</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/payment-review">Payment review</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/payment-placeholder">Placeholder for GOV.UK Pay screens</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/confirmation-page">Confirmation of submission</a></li>
+      </ul>
+      
+      <h3 class="govuk-heading-s" id="conf">Confirmation statement emails</h3>
+    <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="emails/confirmation-statement/application-received">Application received</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="emails/confirmation-statement/application-accepted">Application accepted</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="emails/confirmation-statement/application-rejected">Application rejected</a></li>
+       
+      </ul>
+
+
+  </div>
+
+
+
+
+    <div class="govuk-tabs__panel" id="chs">
+
+
+      <ul class="govuk-list govuk-list--bullet">
+       <li><a class="govuk-link govuk-link--no-visited-state" href="chs/company-info">Company (LP) profile</li>
+      </ul>
+
+
+    
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <h2 class="govuk-heading-m" id="other">Other screens</h2>
+
+
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="../accessibility-statement">Accessibility statement</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+   
+      </ul>
+
+            <h2 class="govuk-heading-m" id="ideas">Ideas</h2>
+
+              <ul class="govuk-list govuk-list--bullet">
+
+        <li><a class="govuk-link govuk-link--no-visited-state" href="capital-contribution-ideas">Capital contribution ideas</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="registration/check-your-name">Check your chosen name idea</a></li>
+       <li><a class="govuk-link govuk-link--no-visited-state" href="registration/name-idea-1">Alternate name screen design 1</a></li>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="registration/name-idea-2">Alternate name screen design 2</a></li>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="registration/name-idea-3">Alternate name screen design 3</a></li>
+             <li><a class="govuk-link govuk-link--no-visited-state" href="registration/important-information-about-pscs">'Interrupt card' PSC information</a></li>
+      </ul>
+
+
+
+   <!--{% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}-->
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Where is the general partner's correspondence address?" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/gp-person-ca-where" method="post">
+   
+
+  <span class="govuk-caption-l"> {{ data['gp1FirstName'] or "Georgina" }} {{ data['gp1LastName'] or "Smith" }}</span>
+
+{{ govukRadios({
+  name: "gpPersonCAWhere",
+  fieldset: {
+    legend: {
+      text: "Where is the general partner's correspondence address?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  hint: {
+    text: "This is also known as the service address.
+ "
+  },
+  items: [
+    {
+      value: "gpPersonCAUK",
+      text: "In the United Kingdom"
+    },
+    {
+      value: "gpPersonCAOverseas",
+      text: "Overseas"
+    }
+  ]
+}) }}
+
+{{ govukInsetText({
+  html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+        <p>We'll show the general partner's correspondence address on the public register.
+           <p>The address should not be a home address, unless the partner has given permission for their home address to be made public.</p>
+        "
+}) }}
+
+     
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

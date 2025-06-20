@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Choose the PSC's correspondence address" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="psc-person-ca-confirm-address" method="post">
+   
+
+  <span class="govuk-caption-l"> {{ data['psc1FirstName'] or "Georgina" }} {{ data['psc1LastName'] or "Smith" }}</span>
+{{ govukRadios({
+  name: "chooseCA",
+  fieldset: {
+    legend: {
+      text: "Choose the PSC's correspondence address",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+    hint: {
+    text: "This is also known as the service address."
+  },
+  items: [
+    {
+      value: "1",
+      text: "1 Magpie Avenue, Liverpool, L12 3GB"
+    },
+    {
+      value: "2",
+      text: "2 Magpie Avenue, Liverpool, L12 3GB"
+    },    {
+      value: "3",
+      text: "3 Magpie Avenue, Liverpool, L12 3GB"
+    },    {
+      value: "4",
+      text: "4 Magpie Avenue, Liverpool, L12 3GB"
+    },    {
+      value: "5",
+      text: "5 Magpie Avenue, Liverpool, L12 3GB"
+    },    {
+      value: "6",
+      text: "6 Magpie Avenue, Liverpool, L12 3GB"
+    },    {
+      value: "7",
+      text: "7 Magpie Avenue, Liverpool, L12 3GB"
+    }
+  ]
+}) }}
+
+  <p><a href="javascript:void(0">The address is not on the list</a><p>
+
+
+
+
+{{ govukInsetText({
+  html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+        <p>We'll show the PSC's correspondence address on the public register.</p>"
+}) }}
+
+   
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

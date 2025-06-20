@@ -1,0 +1,1367 @@
+{% extends "layouts/main.html" %}
+ 
+{% set pageName="Add a limited partner (person)" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="address-pages/lp-person-ura/lp-person-ura-where" method="post">
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}
+
+<h1 class="govuk-heading-xl">Add a limited partner (person)</h1>
+
+<!--<div class="govuk-form-group govuk-input--width-30">
+          <label for="autocomplete-default" class="govuk-label">Professional or honorary title (if relevant)</label>
+          <p class="govuk-hint">Start typing a title, such as Dr or Professor, then choose from the list.</p>
+          <div id="title" name="title" class="autocomplete-wrapper govuk-input--width-20"></div>
+        </div>
+ -->
+
+
+
+{{ govukInput({
+  label: {
+    text: "First name",
+    classes: "govuk-label--m"
+  },
+
+  id: "lp1FirstName",
+  name: "lp1FirstName",
+  classes: "govuk-!-width-full"
+}) }}
+<!--
+{{ govukInput({
+  label: {
+    text: "Middle names",
+    classes: "govuk-label--m"
+  },
+
+  id: "lp-name",
+  name: "lpName",
+  classes: "govuk-!-width-full"
+}) }}
+-->
+{{ govukInput({
+  label: {
+    text: "Last name",
+    classes: "govuk-label--m"
+  },
+  
+  id: "lp1LastName",
+  name: "lp1LastName",
+  classes: "govuk-!-width-full"
+}) }}
+
+{% set previousHtmlPerson %}
+{{ govukInput({
+  label: {
+    text: "What is the limited partner's previous name?"
+  },
+  hint: {
+            text: "If the partner has more than one previous name, separate each name with a comma."
+          },
+  id: "previous-name-person",
+  name: "previousNamePerson"
+}) }}
+{% endset -%}
+
+
+
+{{ govukRadios({
+  name: "previousNameOfficer",
+  fieldset: {
+    legend: {
+      text: "Does the limited partner have a previous name?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "For example, if they've changed their name as a result of marriage or divorce."
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      conditional: {
+          html: previousHtmlPerson
+      }
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+{{ govukDateInput({
+  id: "date-of-birth",
+  namePrefix: "date-of-birth",
+  fieldset: {
+    legend: {
+      text: "Date of birth",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "For example, 27 3 2000"
+  }
+}) }}
+
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--m" for="nationality">
+    What is their nationality?
+  </label>
+
+ 
+
+  <select class="govuk-select" id="nationality" name="nationality" aria-describedby="nationality-hint">
+  
+    
+      <option value="">Select a nationality</option>
+    
+        <option value="British">British</option>
+
+    
+      <option value="Afghan">Afghan</option>
+    
+  
+    
+      <option value="Albanian">Albanian</option>
+    
+  
+    
+      <option value="Algerian">Algerian</option>
+    
+  
+    
+      <option value="American">American</option>
+    
+  
+    
+      <option value="Andorran">Andorran</option>
+    
+  
+    
+      <option value="Angolan">Angolan</option>
+    
+  
+    
+      <option value="Anguillan">Anguillan</option>
+    
+  
+    
+      <option value="Argentine">Argentine</option>
+    
+  
+    
+      <option value="Armenian">Armenian</option>
+    
+  
+    
+      <option value="Australian">Australian</option>
+    
+  
+    
+      <option value="Austrian">Austrian</option>
+    
+  
+    
+      <option value="Azerbaijani">Azerbaijani</option>
+    
+  
+    
+      <option value="Bahamian">Bahamian</option>
+    
+  
+    
+      <option value="Bahraini">Bahraini</option>
+    
+  
+    
+      <option value="Bangladeshi">Bangladeshi</option>
+    
+  
+    
+      <option value="Barbadian">Barbadian</option>
+    
+  
+    
+      <option value="Belarusian">Belarusian</option>
+    
+  
+    
+      <option value="Belgian">Belgian</option>
+    
+  
+    
+      <option value="Belizean">Belizean</option>
+    
+  
+    
+      <option value="Beninese">Beninese</option>
+    
+  
+    
+      <option value="Bermudian">Bermudian</option>
+    
+  
+    
+      <option value="Bhutanese">Bhutanese</option>
+    
+  
+    
+      <option value="Bolivian">Bolivian</option>
+    
+  
+    
+      <option value="Botswanan">Botswanan</option>
+    
+  
+    
+      <option value="Brazilian">Brazilian</option>
+    
+  
+    
+      <option value="British">British</option>
+    
+  
+    
+      <option value="British Virgin Islander">British Virgin Islander</option>
+    
+  
+    
+      <option value="Bruneian">Bruneian</option>
+    
+  
+    
+      <option value="Bulgarian">Bulgarian</option>
+    
+  
+    
+      <option value="Burkinan">Burkinan</option>
+    
+  
+    
+      <option value="Burmese">Burmese</option>
+    
+  
+    
+      <option value="Burundian">Burundian</option>
+    
+  
+    
+      <option value="Cambodian">Cambodian</option>
+    
+  
+    
+      <option value="Cameroonian">Cameroonian</option>
+    
+  
+    
+      <option value="Canadian">Canadian</option>
+    
+  
+    
+      <option value="Cape Verdean">Cape Verdean</option>
+    
+  
+    
+      <option value="Cayman Islander">Cayman Islander</option>
+    
+  
+    
+      <option value="Central African">Central African</option>
+    
+  
+    
+      <option value="Chadian">Chadian</option>
+    
+  
+    
+      <option value="Chilean">Chilean</option>
+    
+  
+    
+      <option value="Chinese">Chinese</option>
+    
+  
+    
+      <option value="Citizen of Antigua and Barbuda">Citizen of Antigua and Barbuda</option>
+    
+  
+    
+      <option value="Citizen of Bosnia and Herzegovina">Citizen of Bosnia and Herzegovina</option>
+    
+  
+    
+      <option value="Citizen of Guinea-Bissau">Citizen of Guinea-Bissau</option>
+    
+  
+    
+      <option value="Citizen of Kiribati">Citizen of Kiribati</option>
+    
+  
+    
+      <option value="Citizen of Seychelles">Citizen of Seychelles</option>
+    
+  
+    
+      <option value="Citizen of the Dominican Republic">Citizen of the Dominican Republic</option>
+    
+  
+    
+      <option value="Citizen of Vanuatu">Citizen of Vanuatu</option>
+    
+  
+    
+      <option value="Colombian">Colombian</option>
+    
+  
+    
+      <option value="Comoran">Comoran</option>
+    
+  
+    
+      <option value="Congolese (Congo)">Congolese (Congo)</option>
+    
+  
+    
+      <option value="Congolese (DRC)">Congolese (DRC)</option>
+    
+  
+    
+      <option value="Cook Islander">Cook Islander</option>
+    
+  
+    
+      <option value="Costa Rican">Costa Rican</option>
+    
+  
+    
+      <option value="Croatian">Croatian</option>
+    
+  
+    
+      <option value="Cuban">Cuban</option>
+    
+  
+    
+      <option value="Cymraes">Cymraes</option>
+    
+  
+    
+      <option value="Cymro">Cymro</option>
+    
+  
+    
+      <option value="Cypriot">Cypriot</option>
+    
+  
+    
+      <option value="Czech">Czech</option>
+    
+  
+    
+      <option value="Danish">Danish</option>
+    
+  
+    
+      <option value="Djiboutian">Djiboutian</option>
+    
+  
+    
+      <option value="Dominican">Dominican</option>
+    
+  
+    
+      <option value="Dutch">Dutch</option>
+    
+  
+    
+      <option value="East Timorese">East Timorese</option>
+    
+  
+    
+      <option value="Ecuadorean">Ecuadorean</option>
+    
+  
+    
+      <option value="Egyptian">Egyptian</option>
+    
+  
+    
+      <option value="Emirati">Emirati</option>
+    
+  
+    
+      <option value="English">English</option>
+    
+  
+    
+      <option value="Equatorial Guinean">Equatorial Guinean</option>
+    
+  
+    
+      <option value="Eritrean">Eritrean</option>
+    
+  
+    
+      <option value="Estonian">Estonian</option>
+    
+  
+    
+      <option value="Ethiopian">Ethiopian</option>
+    
+  
+    
+      <option value="Faroese">Faroese</option>
+    
+  
+    
+      <option value="Fijian">Fijian</option>
+    
+  
+    
+      <option value="Filipino">Filipino</option>
+    
+  
+    
+      <option value="Finnish">Finnish</option>
+    
+  
+    
+      <option value="French">French</option>
+    
+  
+    
+      <option value="Gabonese">Gabonese</option>
+    
+  
+    
+      <option value="Gambian">Gambian</option>
+    
+  
+    
+      <option value="Georgian">Georgian</option>
+    
+  
+    
+      <option value="German">German</option>
+    
+  
+    
+      <option value="Ghanaian">Ghanaian</option>
+    
+  
+    
+      <option value="Gibraltarian">Gibraltarian</option>
+    
+  
+    
+      <option value="Greek">Greek</option>
+    
+  
+    
+      <option value="Greenlandic">Greenlandic</option>
+    
+  
+    
+      <option value="Grenadian">Grenadian</option>
+    
+  
+    
+      <option value="Guamanian">Guamanian</option>
+    
+  
+    
+      <option value="Guatemalan">Guatemalan</option>
+    
+  
+    
+      <option value="Guinean">Guinean</option>
+    
+  
+    
+      <option value="Guyanese">Guyanese</option>
+    
+  
+    
+      <option value="Haitian">Haitian</option>
+    
+  
+    
+      <option value="Honduran">Honduran</option>
+    
+  
+    
+      <option value="Hong Konger">Hong Konger</option>
+    
+  
+    
+      <option value="Hungarian">Hungarian</option>
+    
+  
+    
+      <option value="Icelandic">Icelandic</option>
+    
+  
+    
+      <option value="Indian">Indian</option>
+    
+  
+    
+      <option value="Indonesian">Indonesian</option>
+    
+  
+    
+      <option value="Iranian">Iranian</option>
+    
+  
+    
+      <option value="Iraqi">Iraqi</option>
+    
+  
+    
+      <option value="Irish">Irish</option>
+    
+  
+    
+      <option value="Israeli">Israeli</option>
+    
+  
+    
+      <option value="Italian">Italian</option>
+    
+  
+    
+      <option value="Ivorian">Ivorian</option>
+    
+  
+    
+      <option value="Jamaican">Jamaican</option>
+    
+  
+    
+      <option value="Japanese">Japanese</option>
+    
+  
+    
+      <option value="Jordanian">Jordanian</option>
+    
+  
+    
+      <option value="Kazakh">Kazakh</option>
+    
+  
+    
+      <option value="Kenyan">Kenyan</option>
+    
+  
+    
+      <option value="Kittitian">Kittitian</option>
+    
+  
+    
+      <option value="Kosovan">Kosovan</option>
+    
+  
+    
+      <option value="Kuwaiti">Kuwaiti</option>
+    
+  
+    
+      <option value="Kyrgyz">Kyrgyz</option>
+    
+  
+    
+      <option value="Lao">Lao</option>
+    
+  
+    
+      <option value="Latvian">Latvian</option>
+    
+  
+    
+      <option value="Lebanese">Lebanese</option>
+    
+  
+    
+      <option value="Liberian">Liberian</option>
+    
+  
+    
+      <option value="Libyan">Libyan</option>
+    
+  
+    
+      <option value="Liechtenstein citizen">Liechtenstein citizen</option>
+    
+  
+    
+      <option value="Lithuanian">Lithuanian</option>
+    
+  
+    
+      <option value="Luxembourger">Luxembourger</option>
+    
+  
+    
+      <option value="Macanese">Macanese</option>
+    
+  
+    
+      <option value="Macedonian">Macedonian</option>
+    
+  
+    
+      <option value="Malagasy">Malagasy</option>
+    
+  
+    
+      <option value="Malawian">Malawian</option>
+    
+  
+    
+      <option value="Malaysian">Malaysian</option>
+    
+  
+    
+      <option value="Maldivian">Maldivian</option>
+    
+  
+    
+      <option value="Malian">Malian</option>
+    
+  
+    
+      <option value="Maltese">Maltese</option>
+    
+  
+    
+      <option value="Marshallese">Marshallese</option>
+    
+  
+    
+      <option value="Martiniquais">Martiniquais</option>
+    
+  
+    
+      <option value="Mauritanian">Mauritanian</option>
+    
+  
+    
+      <option value="Mauritian">Mauritian</option>
+    
+  
+    
+      <option value="Mexican">Mexican</option>
+    
+  
+    
+      <option value="Micronesian">Micronesian</option>
+    
+  
+    
+      <option value="Moldovan">Moldovan</option>
+    
+  
+    
+      <option value="Monegasque">Monegasque</option>
+    
+  
+    
+      <option value="Mongolian">Mongolian</option>
+    
+  
+    
+      <option value="Montenegrin">Montenegrin</option>
+    
+  
+    
+      <option value="Montserratian">Montserratian</option>
+    
+  
+    
+      <option value="Moroccan">Moroccan</option>
+    
+  
+    
+      <option value="Mosotho">Mosotho</option>
+    
+  
+    
+      <option value="Mozambican">Mozambican</option>
+    
+  
+    
+      <option value="Namibian">Namibian</option>
+    
+  
+    
+      <option value="Nauruan">Nauruan</option>
+    
+  
+    
+      <option value="Nepalese">Nepalese</option>
+    
+  
+    
+      <option value="New Zealander">New Zealander</option>
+    
+  
+    
+      <option value="Nicaraguan">Nicaraguan</option>
+    
+  
+    
+      <option value="Nigerian">Nigerian</option>
+    
+  
+    
+      <option value="Nigerien">Nigerien</option>
+    
+  
+    
+      <option value="Niuean">Niuean</option>
+    
+  
+    
+      <option value="North Korean">North Korean</option>
+    
+  
+    
+      <option value="Northern Irish">Northern Irish</option>
+    
+  
+    
+      <option value="Norwegian">Norwegian</option>
+    
+  
+    
+      <option value="Omani">Omani</option>
+    
+  
+    
+      <option value="Pakistani">Pakistani</option>
+    
+  
+    
+      <option value="Palauan">Palauan</option>
+    
+  
+    
+      <option value="Palestinian">Palestinian</option>
+    
+  
+    
+      <option value="Panamanian">Panamanian</option>
+    
+  
+    
+      <option value="Papua New Guinean">Papua New Guinean</option>
+    
+  
+    
+      <option value="Paraguayan">Paraguayan</option>
+    
+  
+    
+      <option value="Peruvian">Peruvian</option>
+    
+  
+    
+      <option value="Pitcairn Islander">Pitcairn Islander</option>
+    
+  
+    
+      <option value="Polish">Polish</option>
+    
+  
+    
+      <option value="Portuguese">Portuguese</option>
+    
+  
+    
+      <option value="Prydeinig">Prydeinig</option>
+    
+  
+    
+      <option value="Puerto Rican">Puerto Rican</option>
+    
+  
+    
+      <option value="Qatari">Qatari</option>
+    
+  
+    
+      <option value="Romanian">Romanian</option>
+    
+  
+    
+      <option value="Russian">Russian</option>
+    
+  
+    
+      <option value="Rwandan">Rwandan</option>
+    
+  
+    
+      <option value="Salvadorean">Salvadorean</option>
+    
+  
+    
+      <option value="Sammarinese">Sammarinese</option>
+    
+  
+    
+      <option value="Samoan">Samoan</option>
+    
+  
+    
+      <option value="Sao Tomean">Sao Tomean</option>
+    
+  
+    
+      <option value="Saudi Arabian">Saudi Arabian</option>
+    
+  
+    
+      <option value="Scottish">Scottish</option>
+    
+  
+    
+      <option value="Senegalese">Senegalese</option>
+    
+  
+    
+      <option value="Serbian">Serbian</option>
+    
+  
+    
+      <option value="Sierra Leonean">Sierra Leonean</option>
+    
+  
+    
+      <option value="Singaporean">Singaporean</option>
+    
+  
+    
+      <option value="Slovak">Slovak</option>
+    
+  
+    
+      <option value="Slovenian">Slovenian</option>
+    
+  
+    
+      <option value="Solomon Islander">Solomon Islander</option>
+    
+  
+    
+      <option value="Somali">Somali</option>
+    
+  
+    
+      <option value="South African">South African</option>
+    
+  
+    
+      <option value="South Korean">South Korean</option>
+    
+  
+    
+      <option value="South Sudanese">South Sudanese</option>
+    
+  
+    
+      <option value="Spanish">Spanish</option>
+    
+  
+    
+      <option value="Sri Lankan">Sri Lankan</option>
+    
+  
+    
+      <option value="St Helenian">St Helenian</option>
+    
+  
+    
+      <option value="St Lucian">St Lucian</option>
+    
+  
+    
+      <option value="Stateless">Stateless</option>
+    
+  
+    
+      <option value="Sudanese">Sudanese</option>
+    
+  
+    
+      <option value="Surinamese">Surinamese</option>
+    
+  
+    
+      <option value="Swazi">Swazi</option>
+    
+  
+    
+      <option value="Swedish">Swedish</option>
+    
+  
+    
+      <option value="Swiss">Swiss</option>
+    
+  
+    
+      <option value="Syrian">Syrian</option>
+    
+  
+    
+      <option value="Taiwanese">Taiwanese</option>
+    
+  
+    
+      <option value="Tajik">Tajik</option>
+    
+  
+    
+      <option value="Tanzanian">Tanzanian</option>
+    
+  
+    
+      <option value="Thai">Thai</option>
+    
+  
+    
+      <option value="Togolese">Togolese</option>
+    
+  
+    
+      <option value="Tongan">Tongan</option>
+    
+  
+    
+      <option value="Trinidadian">Trinidadian</option>
+    
+  
+    
+      <option value="Tristanian">Tristanian</option>
+    
+  
+    
+      <option value="Tunisian">Tunisian</option>
+    
+  
+    
+      <option value="Turkish">Turkish</option>
+    
+  
+    
+      <option value="Turkmen">Turkmen</option>
+    
+  
+    
+      <option value="Turks and Caicos Islander">Turks and Caicos Islander</option>
+    
+  
+    
+      <option value="Tuvaluan">Tuvaluan</option>
+    
+  
+    
+      <option value="Ugandan">Ugandan</option>
+    
+  
+    
+      <option value="Ukrainian">Ukrainian</option>
+    
+  
+    
+      <option value="Uruguayan">Uruguayan</option>
+    
+  
+    
+      <option value="Uzbek">Uzbek</option>
+    
+  
+    
+      <option value="Vatican citizen">Vatican citizen</option>
+    
+  
+    
+      <option value="Venezuelan">Venezuelan</option>
+    
+  
+    
+      <option value="Vietnamese">Vietnamese</option>
+    
+  
+    
+      <option value="Vincentian">Vincentian</option>
+    
+  
+    
+      <option value="Wallisian">Wallisian</option>
+    
+  
+    
+      <option value="Welsh">Welsh</option>
+    
+  
+    
+      <option value="Yemeni">Yemeni</option>
+    
+  
+    
+      <option value="Zambian">Zambian</option>
+    
+  
+    
+      <option value="Zimbabwean">Zimbabwean</option>
+    
+  
+  </select>
+</div>
+
+<p class="govuk-!-margin-bottom-8"><a href="#" id="ity-link" class="govuk-link govuk-link--no-visited-state hidden">
+  Add a second nationality
+</a></p>
+
+
+{% if (data['registrationOrTransition'] in ["registration", "post"] and data['registerType'] in ["registerLp", "registerSlp"]) 
+   or (data['registrationOrTransition'] in ["registration", "post"]) %}
+
+
+
+{% call govukFieldset({
+  legend: {
+    text: "What is their total capital contribution?",
+    classes: "govuk-fieldset__legend--m"
+  }
+}) %}
+
+
+<p class="govuk-hint">This is the total value of all monetary and non-monetary contributions
+  
+
+  <p class="govuk-hint">  
+  
+</p>
+
+      
+
+{{ govukSelect({
+  id: "otherCurrencySelector",
+  name: "otherCurrencySelector",
+  label: {
+    text: "Hint text",
+    classes: "govuk-visually-hidden"
+  },
+  items: [
+    {
+      value: "",
+      text: "Select currency",
+      selected: true
+    },
+     { "text": "British Pound (GBP)", "value": "GBP" },
+  { "text": "US Dollar (USD)", "value": "USD" },
+  { "text": "Euro (EUR)", "value": "EUR" },
+  { "text": "Afghan Afghani (AFN)", "value": "AFN" },
+  { "text": "Albanian Lek (ALL)", "value": "ALL" },
+  { "text": "Algerian Dinar (DZD)", "value": "DZD" },
+  { "text": "Angolan Kwanza (AOA)", "value": "AOA" },
+  { "text": "Argentine Peso (ARS)", "value": "ARS" },
+  { "text": "Armenian Dram (AMD)", "value": "AMD" },
+  { "text": "Aruban Florin (AWG)", "value": "AWG" },
+  { "text": "Australian Dollar (AUD)", "value": "AUD" },
+  { "text": "Azerbaijani Manat (AZN)", "value": "AZN" },
+  { "text": "Bahamian Dollar (BSD)", "value": "BSD" },
+  { "text": "Bahraini Dinar (BHD)", "value": "BHD" },
+  { "text": "Bangladeshi Taka (BDT)", "value": "BDT" },
+  { "text": "Barbadian Dollar (BBD)", "value": "BBD" },
+  { "text": "Belarusian Rouble (BYN)", "value": "BYN" },
+  { "text": "Belize Dollar (BZD)", "value": "BZD" },
+  { "text": "Bermudian Dollar (BMD)", "value": "BMD" },
+  { "text": "Bhutanese Ngultrum (BTN)", "value": "BTN" },
+  { "text": "Bolivian Boliviano (BOB)", "value": "BOB" },
+  { "text": "Bosnia and Herzegovina Convertible Mark (BAM)", "value": "BAM" },
+  { "text": "Botswana Pula (BWP)", "value": "BWP" },
+  { "text": "Brazilian Real (BRL)", "value": "BRL" },
+  { "text": "Brunei Dollar (BND)", "value": "BND" },
+  { "text": "Bulgarian Lev (BGN)", "value": "BGN" },
+  { "text": "Burundian Franc (BIF)", "value": "BIF" },
+  { "text": "Cambodian Riel (KHR)", "value": "KHR" },
+  { "text": "Canadian Dollar (CAD)", "value": "CAD" },
+  { "text": "Cape Verdean Escudo (CVE)", "value": "CVE" },
+  { "text": "Cayman Islands Dollar (KYD)", "value": "KYD" },
+  { "text": "Central African CFA Franc (XAF)", "value": "XAF" },
+  { "text": "Chilean Peso (CLP)", "value": "CLP" },
+  { "text": "Chinese Yuan (CNY)", "value": "CNY" },
+  { "text": "Colombian Peso (COP)", "value": "COP" },
+  { "text": "Comorian Franc (KMF)", "value": "KMF" },
+  { "text": "Congolese Franc (CDF)", "value": "CDF" },
+  { "text": "Costa Rican Colón (CRC)", "value": "CRC" },
+  { "text": "Croatian Kuna (HRK)", "value": "HRK" },
+  { "text": "Cuban Peso (CUP)", "value": "CUP" },
+  { "text": "Czech Koruna (CZK)", "value": "CZK" },
+  { "text": "Danish Krone (DKK)", "value": "DKK" },
+  { "text": "Djiboutian Franc (DJF)", "value": "DJF" },
+  { "text": "Dominican Peso (DOP)", "value": "DOP" },
+  { "text": "East Caribbean Dollar (XCD)", "value": "XCD" },
+  { "text": "Egyptian Pound (EGP)", "value": "EGP" },
+  { "text": "Eritrean Nakfa (ERN)", "value": "ERN" },
+  { "text": "Estonian Kroon (EEK)", "value": "EEK" },
+  { "text": "Ethiopian Birr (ETB)", "value": "ETB" },
+  { "text": "Falkland Islands Pound (FKP)", "value": "FKP" },
+  { "text": "Fijian Dollar (FJD)", "value": "FJD" },
+  { "text": "Gambian Dalasi (GMD)", "value": "GMD" },
+  { "text": "Georgian Lari (GEL)", "value": "GEL" },
+  { "text": "Ghanaian Cedi (GHS)", "value": "GHS" },
+  { "text": "Gibraltar Pound (GIP)", "value": "GIP" },
+  { "text": "Guatemalan Quetzal (GTQ)", "value": "GTQ" },
+  { "text": "Guernsey Pound (GGP)", "value": "GGP" },
+  { "text": "Guinean Franc (GNF)", "value": "GNF" },
+  { "text": "Guyanese Dollar (GYD)", "value": "GYD" },
+  { "text": "Haitian Gourde (HTG)", "value": "HTG" },
+  { "text": "Honduran Lempira (HNL)", "value": "HNL" },
+  { "text": "Hong Kong Dollar (HKD)", "value": "HKD" },
+  { "text": "Hungarian Forint (HUF)", "value": "HUF" },
+  { "text": "Icelandic Krona (ISK)", "value": "ISK" },
+  { "text": "Indian Rupee (INR)", "value": "INR" },
+  { "text": "Indonesian Rupiah (IDR)", "value": "IDR" },
+  { "text": "Iranian Rial (IRR)", "value": "IRR" },
+  { "text": "Iraqi Dinar (IQD)", "value": "IQD" },
+  { "text": "Israeli Shekel (ILS)", "value": "ILS" },
+  { "text": "Jamaican Dollar (JMD)", "value": "JMD" },
+  { "text": "Japanese Yen (JPY)", "value": "JPY" },
+  { "text": "Jersey Pound (JEP)", "value": "JEP" },
+  { "text": "Jordanian Dinar (JOD)", "value": "JOD" },
+  { "text": "Kazakhstani Tenge (KZT)", "value": "KZT" },
+  { "text": "Kenyan Shilling (KES)", "value": "KES" },
+  { "text": "Kuwaiti Dinar (KWD)", "value": "KWD" },
+  { "text": "Kyrgyzstani Som (KGS)", "value": "KGS" },
+  { "text": "Lao Kip (LAK)", "value": "LAK" },
+  { "text": "Latvian Lats (LVL)", "value": "LVL" },
+  { "text": "Lebanese Pound (LBP)", "value": "LBP" },
+  { "text": "Lesotho Loti (LSL)", "value": "LSL" },
+  { "text": "Liberian Dollar (LRD)", "value": "LRD" },
+  { "text": "Libyan Dinar (LYD)", "value": "LYD" },
+  { "text": "Lithuanian Litas (LTL)", "value": "LTL" },
+  { "text": "Macanese Pataca (MOP)", "value": "MOP" },
+  { "text": "Macedonian Denar (MKD)", "value": "MKD" },
+  { "text": "Malagasy Ariary (MGA)", "value": "MGA" },
+  { "text": "Malawian Kwacha (MWK)", "value": "MWK" },
+  { "text": "Malaysian Ringgit (MYR)", "value": "MYR" },
+  { "text": "Maldivian Rufiyaa (MVR)", "value": "MVR" },
+  { "text": "Mauritanian Ouguiya (MRO)", "value": "MRO" },
+  { "text": "Mauritian Rupee (MUR)", "value": "MUR" },
+  { "text": "Mexican Peso (MXN)", "value": "MXN" },
+  { "text": "Moldovan Leu (MDL)", "value": "MDL" },
+  { "text": "Mongolian Tögrög (MNT)", "value": "MNT" },
+  { "text": "Moroccan Dirham (MAD)", "value": "MAD" },
+  { "text": "Mozambican Metical (MZN)", "value": "MZN" },
+  { "text": "Myanmar Kyat (MMK)", "value": "MMK" },
+  { "text": "Namibian Dollar (NAD)", "value": "NAD" },
+  { "text": "Nepalese Rupee (NPR)", "value": "NPR" },
+  { "text": "Netherlands Antillean Guilder (ANG)", "value": "ANG" },
+  { "text": "New Taiwan Dollar (TWD)", "value": "TWD" },
+  { "text": "New Zealand Dollar (NZD)", "value": "NZD" },
+  { "text": "Nicaraguan Córdoba (NIO)", "value": "NIO" },
+  { "text": "Nigerian Naira (NGN)", "value": "NGN" },
+  { "text": "North Korean Won (KPW)", "value": "KPW" },
+  { "text": "Norwegian Krone (NOK)", "value": "NOK" },
+  { "text": "Omani Rial (OMR)", "value": "OMR" },
+  { "text": "Pakistani Rupee (PKR)", "value": "PKR" },
+  { "text": "Panamanian Balboa (PAB)", "value": "PAB" },
+  { "text": "Papua New Guinean Kina (PGK)", "value": "PGK" },
+  { "text": "Paraguayan Guarani (PYG)", "value": "PYG" },
+  { "text": "Peruvian Sol (PEN)", "value": "PEN" },
+  { "text": "Philippine Peso (PHP)", "value": "PHP" },
+  { "text": "Polish Zloty (PLN)", "value": "PLN" },
+  { "text": "Qatari Riyal (QAR)", "value": "QAR" },
+  { "text": "Romanian Leu (RON)", "value": "RON" },
+  { "text": "Russian Rouble (RUB)", "value": "RUB" },
+  { "text": "Rwandan Franc (RWF)", "value": "RWF" },
+  { "text": "Saint Helena Pound (SHP)", "value": "SHP" },
+  { "text": "Salvadoran Colón (SVC)", "value": "SVC" },
+  { "text": "Samoan Tala (WST)", "value": "WST" },
+  { "text": "São Tomé and Príncipe Dobra (STD)", "value": "STD" },
+  { "text": "Saudi Riyal (SAR)", "value": "SAR" },
+  { "text": "Serbian Dinar (RSD)", "value": "RSD" },
+  { "text": "Seychellois Rupee (SCR)", "value": "SCR" },
+  { "text": "Sierra Leonean Leone (SLL)", "value": "SLL" },
+  { "text": "Singapore Dollar (SGD)", "value": "SGD" },
+  { "text": "Solomon Islands Dollar (SBD)", "value": "SBD" },
+  { "text": "Somali Shilling (SOS)", "value": "SOS" },
+  { "text": "South African Rand (ZAR)", "value": "ZAR" },
+  { "text": "South Korean Won (KRW)", "value": "KRW" },
+  { "text": "South Sudanese Pound (SSP)", "value": "SSP" },
+  { "text": "Sri Lankan Rupee (LKR)", "value": "LKR" },
+  { "text": "Sudanese Pound (SDG)", "value": "SDG" },
+  { "text": "Surinamese Dollar (SRD)", "value": "SRD" },
+  { "text": "Swazi Lilangeni (SZL)", "value": "SZL" },
+  { "text": "Swedish Krona (SEK)", "value": "SEK" },
+  { "text": "Swiss Franc (CHF)", "value": "CHF" },
+  { "text": "Syrian Pound (SYP)", "value": "SYP" },
+  { "text": "Tajikistani Somoni (TJS)", "value": "TJS" },
+  { "text": "Tanzanian Shilling (TZS)", "value": "TZS" },
+  { "text": "Thai Baht (THB)", "value": "THB" },
+  { "text": "Tongan Paʻanga (TOP)", "value": "TOP" },
+  { "text": "Trinidad and Tobago Dollar (TTD)", "value": "TTD" },
+  { "text": "Tunisian Dinar (TND)", "value": "TND" },
+  { "text": "Turkish Lira (TRY)", "value": "TRY" },
+  { "text": "Turkmenistani Manat (TMT)", "value": "TMT" },
+  { "text": "Ugandan Shilling (UGX)", "value": "UGX" },
+  { "text": "Ukrainian Hryvnia (UAH)", "value": "UAH" },
+  { "text": "United Arab Emirates Dirham (AED)", "value": "AED" },
+  { "text": "Uruguayan Peso (UYU)", "value": "UYU" },
+  { "text": "Uzbekistani Som (UZS)", "value": "UZS" },
+  { "text": "Vanuatu Vatu (VUV)", "value": "VUV" },
+  { "text": "Venezuelan Bolívar (VEF)", "value": "VEF" },
+  { "text": "Vietnamese Dong (VND)", "value": "VND" },
+  { "text": "Yemeni Rial (YER)", "value": "YER" },
+  { "text": "Zambian Kwacha (ZMW)", "value": "ZMW" },
+  { "text": "Zimbabwean Dollar (ZWD)", "value": "ZWD" }
+      ]
+}) }}
+
+
+<p class="govuk-body">Enter the value, for example:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>if they contributed £0.01 enter 0.01</li>
+    <li>if they contributed $25,000 enter 25000.00</li>
+  </ul>
+
+{{ govukInput({
+  id: "totalCapitalContribution",
+  name: "totalCapitalContribution",
+  label: {
+    text: "What is their total capital contribution?",
+    classes: "govuk-visually-hidden"
+  },
+  classes: "govuk-input--width-5",
+  inputmode: "numeric",
+  spellcheck: false
+}) }}
+
+
+
+
+
+{{ govukCheckboxes({
+  name: "capitalContributionBreakdown",
+  fieldset: {
+    legend: {
+      text: "What is this total value made up of?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  items: [
+    {
+      value: "Money",
+      text: "Money"
+    },
+    {
+      value: "Land or property",
+      text: "Land or property"
+    },
+    {
+      value: "Shares or interests in other partnerships",
+      text: "Shares or interests in other partnerships"
+    },
+    {
+      value: "Services or goods",
+      text: "Services or goods"
+    },
+    {
+      value: "Any other asset",
+      text: "Any other asset"
+    }
+  ]
+}) }}
+
+
+{% endcall %}
+
+
+{% endif %}
+
+{% if data['registrationOrTransition'] == "post" or data['registrationOrTransition'] == "transition" %}
+{{ govukDateInput({
+  id: "dateBecamePartner",
+  namePrefix: "dateBecamePartner",
+  fieldset: {
+    legend: {
+      text: "When did they become a limited partner for this partnership?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "For example, 31 3 2025"
+  }
+}) }}
+{% endif %}
+
+ {{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+                <p>We’ll show the month and year of the partner’s date of birth, but not the exact date. </p>
+                <p>We’ll show all the other information you provide on this screen on the public register.</p>"
+        }) }}
+
+
+{% if data['registrationOrTransition'] == "post" %}
+  {% set buttonText = "Continue" %}
+{% else %}
+  {% set buttonText = "Save and continue" %}
+{% endif %}
+
+{{ govukButton({
+  text: buttonText
+}) }}
+
+       
+{% if data['registrationOrTransition'] == "transition" %}
+<!-- don't show thse UR shortcuts-->
+{% else %}
+  <div class="ur-shortcuts">
+  <!-- Not part of ACTUAL screen: only for UR purposes -->
+  <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
+  <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+    <li><a class="govuk-link" href="capital-contribution-ideas">Alternate capital contribution designs</a></li>
+  </ul>
+</div>
+{% endif %}
+
+</form>
+    </div>
+  </div>
+
+   <!-- <script src="/public/javascripts/accessible-autocomplete.js"></script>
+  <script src="/public/javascripts/titles-appoint.js"></script>-->
+{% endblock %}

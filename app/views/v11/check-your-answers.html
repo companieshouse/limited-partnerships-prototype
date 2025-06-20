@@ -1,0 +1,575 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+
+
+
+
+      <h2 class="govuk-heading-m">Limited partnership information</h2>
+
+
+
+
+      {% set rows = [
+            {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: data['lpChooseName']['nameEnding'] or "ACME LP"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Name"
+                }
+              ]
+            }
+          },
+               {
+            key: {
+              text: "Type of partnership"
+            },
+            value: {
+              text:  "Scottish limited partnership"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Type of partnership"
+                }
+              ]
+            }
+          },
+
+          {
+            key: {
+              text: "Registered email address"
+            },
+            value: {
+              text: data['registeredEmail'] or "example@limitedpartnership.com"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "registered email address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Registered office address"
+            },
+      value: { 
+          text: "1 Orchard Street, Whitchurch, Cardiff CF14 3UZ" 
+          if data.registerType in ['registerLp', 'RegisterPflp'] 
+          else "1 Rose Street, Edinburgh, EH1 2EB"
+        },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "registered office address"
+                }
+              ]
+            }
+          }
+              
+] %}
+
+{% if data['registrationOrTransition'] == "registration" %}
+  {% set rows = rows.concat([
+     {
+            key: {
+              text: "Principal place of business"
+            },
+            value: {
+              text: "1 Rose Street, Edinburgh, EH1 2EB"
+            },
+       value: { 
+            text: "1 Orchard Street, Whitchurch, Cardiff CF14 3UZ" 
+            if data.registerType in ['registerLp', 'RegisterPflp'] 
+            else "1 Rose Street, Edinburgh, EH1 2EB"
+          },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "principal place of business"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Term of the partnership"
+            },
+            value: {
+              text: data['term-of-partners'] or "No set term"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "registered office address"
+                }
+              ]
+            }
+          },          
+          {
+            key: {
+              text: "Standard Industrial Classification (SIC) code"
+            },
+            value: {
+              text: "62012 - Business and domestic software development"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Standard Industrial Classification code"
+          }
+        ]
+      }
+    }
+  ]) %}
+{% endif %}
+
+{{ govukSummaryList({
+  classes: "govuk-!-margin-bottom-6",
+  rows: rows
+}) }}
+
+
+    <h2 class="govuk-heading-m">General partners</h2>
+          <p class="govuk-!-margin-bottom-6"><a href="gp-add-another" class="govuk-link govuk-link--no-visited-state">Change, remove or add general partners</a></p>
+     {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-6",
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+            text: (data['gp1FirstName'] or "Georgina") + " " + (data['gp1LastName'] or "Smith")
+            }
+          },
+          {
+            key: {
+              text: "Previous name"
+            },
+            value: {
+              text: "Georgina Silver"
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "21 August 1989"
+            }
+          },
+          {
+            key: {
+              text: "Nationality"
+            },
+            value: {
+              text: "British"
+            }
+          },
+          {
+            key: {
+              text: "Usual residential address"
+            },
+            value: {
+              text: "13 Luck Lane, Bristol, BS1 8LY, United Kingdom"
+            }
+          },
+          {
+            key: {
+              text: "Correspondence address"
+            },
+            value: {
+              text: "2 Peartree Avenue, Bristol, BS1 2EF, United Kingdom"
+            }
+          },
+          {
+            key: {
+              text: "Date they became a general partner"
+            },
+            value: {
+              text: "10 June 2025"
+            }
+          }
+        ]
+      }) }}
+
+      
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-6",
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: data['gp1EntityName'] or "ABC Company Limited"
+            }
+          },
+                  {
+            key: {
+              text: "Legal form or corporate identity"
+            },
+            value: {
+              text: data['gp1LegalForm'] or "Private limited company"
+            }
+          },
+          {
+            key: {
+              text: "Governing law"
+            },
+            value: {
+              text: data['gp1GoverningLaw'] or "Companies Act 2006"
+            }
+          },
+              {
+            key: {
+              text: "Register"
+            },
+            value: {
+              text: data['gp1Register'] or "Companies House public register"
+            }
+          },
+              {
+            key: {
+              text: "Country registered in"
+            },
+            value: {
+              text: data['gp1CountryRegistered'] or "United Kingdom"
+            }
+          },
+          {
+            key: {
+              text: "Registration number"
+            },
+            value: {
+              text: data['gp1RegistrationNumber'] or "00876543"
+            }
+          },
+          {
+            key: {
+              text: "Principal office address"
+            },
+            value: {
+              text: "24 Candy Lane, London, W1 3EE, United Kingdom"
+            }
+          },
+          {
+            key: {
+              text: "Date they became a general partner"
+            },
+            value: {
+              text: "10 June 2025"
+            }
+          }
+        ]
+      }) }}
+
+
+
+
+
+    <h3 class="govuk-heading-m">Limited partners</h3>
+    <p class="govuk-!-margin-bottom-6"><a href="lp-add-another" class="govuk-link govuk-link--no-visited-state">Change, remove or add limited partners</a></p>
+
+{% set rows = [
+  {
+    key: {
+      text: "Name"
+    },
+    value: {
+      text: (data['lp1FirstName'] or "Adrienne") + " " + (data['gp1LastName'] or "Leandres")
+    }
+  },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "13 March 1975"
+            }
+          },
+          {
+            key: {
+              text: "Nationality"
+            },
+            value: {
+              text: "French"
+            }
+          },
+          {
+            key: {
+              text: "Usual residential address"
+            },
+            value: {
+              text: "1 Champs Elysee, Paris, 705001, France"
+            }
+          }
+] %}
+
+{% if data['registrationOrTransition'] == "registration" %}
+  {% set rows = rows.concat([
+    {
+      key: {
+        text: "Total capital contribution"
+      },
+      value: {
+        html: '
+        <ul class="govuk-list">
+            <li>
+              500.50 British Pound (GBP)
+            </li>
+            <li>
+              Money / Shares / Services or goods
+            </li>
+          </ul>
+        '
+      }
+    },
+          {
+            key: {
+              text: "Date they became a limited partner"
+            },
+            value: {
+              text: "10 June 2025"
+            }
+          }
+  ]) %}
+{% endif %}
+
+{{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-6",
+  rows: rows
+}) }}
+
+
+
+    {% set rows = [
+      {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: data['lp1EntityName'] or "ACME Legal Entity Inc"
+            }
+          },
+                            {
+            key: {
+              text: "Legal form or corporate identity"
+            },
+            value: {
+              text: data['lp1LegalForm'] or "Private limited company"
+            }
+          },
+          {
+            key: {
+              text: "Governing law"
+            },
+            value: {
+              text: data['lp1GoverningLaw'] or "Companies Act 2006"
+            }
+          },
+              {
+            key: {
+              text: "Register"
+            },
+            value: {
+              text: data['lp1Register'] or "Companies House public register"
+            }
+          },
+              {
+            key: {
+              text: "Country registered in"
+            },
+            value: {
+              text: data['lp1CountryRegistered'] or "United Kingdom"
+            }
+          },
+          {
+            key: {
+              text: "Registration number"
+            },
+            value: {
+              text: data['lp1RegistrationNumber'] or "00001234"
+            }
+          },
+          {
+            key: {
+              text: "Principal office address"
+            },
+            value: {
+              text: "1 Hyde Road, London, SW1 1LE, United Kingdom"
+            }
+          }
+] %}
+
+{% if data['registrationOrTransition'] == "registration" %}
+  {% set rows = rows.concat([
+    {
+      key: {
+        text: "Total capital contribution"
+      },
+      value: {
+        html: '
+        <ul class="govuk-list">
+            <li>
+              10,000 Euro (EUR)
+            </li>
+            <li>
+              Money
+            </li>
+          </ul>
+        '
+      }
+    },
+          {
+            key: {
+              text: "Date they became a limited partner"
+            },
+            value: {
+              text: "10 June 2025"
+            }
+          }
+  ]) %}
+{% endif %}
+
+{{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-6",
+  rows: rows
+}) }}
+
+
+   
+
+     <!-- <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p
+-->
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+
+
+{{ govukCheckboxes({
+  name: "lpStatement",
+  fieldset: {
+    legend: {
+      text: "Confirm this statement", 
+      isPageHeading: false,
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "lp-statement",
+      text: "I confirm that the intended future activities of the limited partnership are lawful."
+    }
+  ]
+}) }}
+
+{% else  %}
+{% endif %}
+
+
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{{ govukWarningText({
+  text: "This is the last time you'll be able to view sensitive information about the partnership and its partners. To keep a record of this information, print or save the details on this page before you submit.",
+  iconFallbackText: "Warning"
+}) }}
+
+<p class="govuk-body">Sensitive information includes the:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>partnership's registered email address</li>
+  <li>full dates of birth of any partners who are people</li>
+  <li>usual residential addresses of any partners who are people</li>
+</ul>
+
+
+      <form action="/form-handler" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+
+{% if (data['registrationOrTransition'] == "registration" or data['registrationOrTransition'] == "post") %}
+
+
+<div class="govuk-js-hidden">
+  <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary">
+    Print
+  </button>
+</div>
+
+
+
+        {{ govukButton({
+          text: "Continue to payment",
+          href: "payment-review"
+        }) }}
+
+
+{% else  %}
+
+<div class="govuk-js-hidden">
+  <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary">    Print
+  </button>
+</div>
+
+
+    {{ govukButton({
+      text: "Continue",
+      href: "confirmation-page"
+    }) }}
+
+{% endif %}
+
+
+    </div>
+  </div>
+
+
+
+    <script src="/public/javascripts/cya.js"></script>
+    <script src="/public/javascripts/print-button.js"></script>
+
+{% endblock %}

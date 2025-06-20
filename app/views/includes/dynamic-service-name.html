@@ -7,27 +7,27 @@
 
   {{ govukServiceNavigation({
   serviceName: "Register a limited partnership",
-  serviceUrl: "/v10/registration/registration-start-page"
+  serviceUrl: "/v11/registration/registration-start-page"
   }) }}
 
 {% elif (data['registrationOrTransition'] == "transition") %}
 
   {{ govukServiceNavigation({
   serviceName: "Provide information about a limited partnership to meet new requirements",
-  serviceUrl: "/v10/transition-start-page"
+  serviceUrl: "/v11/transition-start-page"
   }) }}
 
 {% elif (data['registrationOrTransition'] == "post") %}
   {{ govukServiceNavigation({
   serviceName: "File for a limited partnership",
-  serviceUrl: "/v10/post-transition-start-page"
+  serviceUrl: "/v11/post-transition-start-page"
   }) }}
 
 <!-- the Check SIC page in the Confirmation Statement journey-->
   {% elif (data['checkSIC'] == "no") %}
   {{ govukServiceNavigation({
   serviceName: "File for a limited partnership",
-  serviceUrl: "/v10/post-transition-start-page"
+  serviceUrl: "/v11/post-transition-start-page"
   }) }}
 
 {% else %}  

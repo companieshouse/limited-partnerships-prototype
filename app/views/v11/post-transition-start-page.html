@@ -1,0 +1,130 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Start" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="sign-in" method="post">
+
+      <h1 class="govuk-heading-xl">
+        File for a limited partnership
+      </h1>
+
+      <p>Use this service to view or update information about a limited partnership, or to file a confirmation statement for a limited partnership.</p>
+<!--
+      <p>Use this service to apply to register a: </p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>limited partnership in England, Wales or Northern Ireland</li>
+            <li>limited partnership in Scotland</li>
+            <li>private fund limited partnership in England, Wales or Northern Ireland</li>
+            <li>private fund limited partnership in Scotland</li>
+            <li>Scottish qualifying partnership</li>
+            </ul>-->
+
+<p>This service has replaced paper forms LP6, LP8 and SLP CS01. </p>
+
+<h2 class="govuk-heading-m">Who can use this service </h2>
+<p>Only Authorised Corporate Service Providers (ACSPs) can use this service. ACSPs are also known as Companies House authorised agents.</p>
+<p>Authorised agents are businesses that are registered with a UK Anti-Money Laundering (AML) supervisory body. For example, accountants, solicitors or company formation agents. They must <a href="JAVASCRIPT:VOID(0)">register as an authorised agent with Companies House</a> to be able to file on behalf of clients.</p>
+
+<!--[hidden for now unless needed]<p>To find an authorised agent, you should contact agents to check:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>if they are registered as an authorised agent with Companies House, also known as an Authorised Corporate Service Provider (ACSP)</li>
+                  <li>if they can offer the services you need</li>
+                  <li>how much they charge for their services</li>
+                </ul>-->
+
+
+      <h2 class="govuk-heading-m">What you'll need</h2>
+
+    
+<p>You’ll need: </p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>to sign in to your Companies House account <!--(it must be linked to an authorised agent account) [This is hidden for now, but could be included if there is  user need]--></li>
+            <li>the limited partnership number </li>
+           </ul>
+
+<p>We charge a fee for:</p>
+           <ul class="govuk-list govuk-list--bullet">
+             <li>changing the name of the limited partnership</li>
+             <li>filing a confirmation statement (unless you've already paid a fee during this payment period)</li>
+             
+            </ul>
+
+<p>If you need to pay a fee, you'll need a credit or debit card.</p>
+  
+
+
+<!--      <h2 class="govuk-heading-m">Before you start </h2>
+
+<p>You should check you have all the information you'll need to provide. There are different requirements depending on the type of partnership you need to register.</p> 
+
+
+
+<p>You’ll need to give a Companies House personal code for any people who are required to verify their identity for the limited partnership. </p>
+
+<p>This is a requirement for: </p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>general partners who are people</li>
+            <li>people with significant control (PSC)s – if you’re registering a Scottish limited partnership</li>
+          </ul>
+
+  <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      How to get a Companies House personal code
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>A personal code is an 11 character code we give when someone verifies their identity for Companies House. </p>
+    <p>If a person has already verified their identity, they can either find their personal code in the:
+</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Manage account section of their Companies House account</li>
+            <li>email we sent when they were verified
+</li></ul>
+
+  </div>
+
+  <p>Otherwise, they’ll need to <a href="#/">verify their identity for Companies House</a></p>. 
+</details>
+-->
+
+
+
+   <!--   <p>Registering takes around 5 minutes.</p> -->
+
+   <!--<p>It takes around XX minutes to use this service.</p>-->
+
+      {{ govukButton({
+        text: "Start now",
+        isStartButton: true
+      }) }}
+
+      <h2 class="govuk-heading-m">Adapt your device to meet your needs</h2>
+
+
+      <p class="govuk-body "><a href="https://mcmw.abilitynet.org.uk/" class="govuk-link">Read advice from AbilityNet on how to adapt your device to meet your needs</a>. For example, changing the background colour or text size.</p>
+
+
+
+
+
+    </div>
+
+   
+  </div>
+
+{% endblock %}

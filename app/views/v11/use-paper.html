@@ -1,0 +1,30 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="You'll need to apply using the paper form" %}
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+<h1 class="govuk-heading-xl">You'll need to apply using the paper form</h1>
+
+<p class="govuk-body">You've told us at least one beneficial owner or managing officer has their personal information protected from being shown on the Companies House public register.</p>
+
+<p class="govuk-body">You must register the overseas entity on paper to keep this information protected.</p>
+
+<p class="govuk-body">Contact us at <a href="mailto:enquiries@companieshouse.gov.uk" class="govuk-link govuk-link--no-visited-state">enquiries@companieshouse.gov.uk</a> if you need us to send you a paper form.</p>
+    </div>
+  </div>
+{% endblock %}

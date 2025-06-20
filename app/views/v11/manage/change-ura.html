@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Do you need to update this partner's usual residential address?" %}
+
+
+
+
+
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/change-ura" method="post" class="form">
+        <span class="govuk-caption-l"> {{ data['gp1FirstName'] or "Georgina" }} {{ data['gp1LastName'] or "Smith" }}</span>
+
+      {{ govukRadios({
+  classes: "govuk-radios--inline",
+  name: "changeURA",
+  fieldset: {
+    legend: {
+      text: "Do you need to update this partner's usual residential address?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  hint: {
+    text: "We cannot show you the usual residential address we currently hold"
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+  
+   {{ govukButton({
+          text: "Continue"
+        }) }}      
+
+    
+
+
+      </form>
+
+    </div>
+    <!--govuk-grid-row-->
+
+    <!--govuk-grid-column-two-thirds-->
+  </div>
+  <!--govuk-grid-column-two-thirds-->
+
+</main>
+</div>
+<!---govuk-width-container-->
+
+{% endblock %}

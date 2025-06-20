@@ -138,7 +138,24 @@
         ]
       }) }}
 
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
+{{ govukWarningText({
+  text: "This is the last time you'll be able to view sensitive information about the partnership and its partners. To keep a record of this information, print or save the details on this page before you submit.",
+  iconFallbackText: "Warning"
+}) }}
+
+<p class="govuk-body">Sensitive information includes the:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>partnership's registered email address</li>
+  <li>full dates of birth of any partners who are people</li>
+  <li>usual residential addresses of any partners who are people</li>
+</ul>
+
+<div class="govuk-js-hidden">
+  <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary">    Print
+  </button>
+</div>
 
         {{ govukButton({
           text: "Submit",
@@ -149,4 +166,6 @@
 
     </div>
   </div>
+
+      <script src="/public/javascripts/print-button.js"></script>
 {% endblock %}

@@ -35,9 +35,9 @@
 <p class="govuk-body">You are not due to file a confirmation statement yet.</p>
 <p class="govuk-body">The date of your next expected confirmation statement is <span class="govuk-!-font-weight-bold">21 September 2025</span>.</p>
 
-<p class="govuk-body">This date is 12 months after the last confirmation statement, or 12 months after the limited partnership's registration date.</p>
+<p class="govuk-body">If you file a confirmation statement today, the confirmation statement date will change to <strong>[today's date]</strong>, or you can change it to another date.</p>
 
-<p class="govuk-body">If you file a confirmation statement today, you'll need to choose a new confirmation statement date. This will start a new 12 month review period and change the date of future confirmation statements.</p>
+<p class="govuk-body">This will start a new 12 month review period and change the date of future confirmation statements.</p>
 
 
 
@@ -70,18 +70,18 @@
   name: "changeDateOfCS",
   fieldset: {
     legend: {
-      text: "What is the new confirmation statement date?",
+      text: "Do you want to change the date of this confirmation statement?",
       classes: "govuk-fieldset__legend--m"
     }
   },
   items: [
     {
       value: "today",
-      html: todayHtml
+      text: "No, I want to use today's date – [today's date]"
     },
     {
       value: "different date",
-      text: "A different date",
+      text: "Yes",
       conditional: {
         html: changeDateHtml
       }

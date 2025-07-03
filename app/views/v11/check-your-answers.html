@@ -20,7 +20,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+      <h1 class="govuk-heading-l">Check your answers before submitting this filing</h1>
 
 
 
@@ -548,16 +548,16 @@
         }) }}
 
 
-{% else  %}
+{% else  %} 
 
 <div class="govuk-js-hidden">
   <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary">    Print this page
   </button>
 </div>
 
-
+<!--transition does not require payment so goes straight to confirmation page; button content should reflect this-->
     {{ govukButton({
-      text: "Continue to payment",
+      text: "Submit filing",
       href: "confirmation-page"
     }) }}
 

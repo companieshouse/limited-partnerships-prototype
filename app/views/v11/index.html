@@ -428,15 +428,17 @@ The prototype re-uses the same templates across multiple journeys and scenarios 
         <li><a class="govuk-link govuk-link--no-visited-state" href="gov-onelogin-password">GOV One Login password</a></li>
         <li><a class="govuk-link govuk-link--no-visited-state" href="gov-onelogin-enter-code">GOV One Login code</a></li>
          <li><a class="govuk-link govuk-link--no-visited-state" href="not-eligible">Not eligible (non-ACSP)</a></li>
-        <li><s><a class="govuk-link govuk-link--no-visited-state" href="company-number">What is the limited partnership number?</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</s></li>
-        <li><s><a class="govuk-link govuk-link--no-visited-state" href="correct-company">Confirm this is the correct limited partnership</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</s></li>
-        <li><s><a class="govuk-link govuk-link--no-visited-state" href="auth-code">Auth code</a> {{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="company-number">What is the limited partnership number?</a></s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="correct-company">Confirm this is the correct limited partnership</a> </s></li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="auth-code">Auth code</a>  </s></li>
       </ul>
 
       <h2 class="govuk-heading-m" id="initial">Limited partnership overview</h2>
 
       <ul class="govuk-list govuk-list--bullet">
-            <li><a class="govuk-link govuk-link--no-visited-state" href="chs/company-info">CHS LP overview</a></li>
+       <li><a class="govuk-link govuk-link--no-visited-state" href="chs/company-info">Company (LP) profile <strong>not signed in</strong></li>
+           <li><a class="govuk-link govuk-link--no-visited-state" href="chs/company-info-signed-in">Company (LP) profile <strong>signed in</strong></li>
+ 
       <li><s><a class="govuk-link govuk-link--no-visited-state" href="manage/limited-partnership-overview-tabs-wf">Overview (tabbed WebFiling style screen)</a></s></li>
             <li><s><a class="govuk-link govuk-link--no-visited-state" href="manage/limited-partnership-overview-tabs-wf-cs-overdue">Overview with overdue Confirmation statement (tabbed WebFiling style screen)</a></s></li>
     
@@ -475,17 +477,7 @@ The prototype re-uses the same templates across multiple journeys and scenarios 
 
 
 
-    <div class="govuk-tabs__panel" id="chs">
-
-
-      <ul class="govuk-list govuk-list--bullet">
-       <li><a class="govuk-link govuk-link--no-visited-state" href="chs/company-info">Company (LP) profile</li>
-      </ul>
-
-
-    
-
-  </div>
+ 
 
 
 

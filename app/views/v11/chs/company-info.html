@@ -1,13 +1,17 @@
-{% extends "layouts/main-old-header.html" %}
+{% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  ENCOM LP (SC123456)  – Find and update company information – GOV.UK Prototype Kit
+  ACME LIMITED PARTNERSHIP (SL123456)  – Find and update company information – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-banner.html" %}
-{% endblock %}
 
+
+<a class="govuk-link govuk-link--no-visited-state" href="https://resources.companieshouse.gov.uk/serviceInformation.shtml#compInfo">Companies House does not verify the accuracy of the information filed</a> 
+<div class="govuk-!-margin-top-4 account-banner">
+  <a href="#">Sign in/Register</a>
+</div>
+{% endblock %}
 {% set serviceName %}
 Find and update company information
 {% endset%}
@@ -40,8 +44,8 @@ Find and update company information
       <p class="govuk-body"><a href="javascript:void(0)" class="govuk-link govuk-!-font-size-16">Advanced company search</a></p>
 
       <ul class="govuk-list">
-        <li class="govuk-heading-xl govuk-!-margin-top-4">ENCOM LP</li>
-        <li class="govuk-!-margin-top-4">Company number <strong>SC123456</strong></li>
+        <li class="govuk-heading-xl govuk-!-margin-top-4">ACME LIMITED PARTNERSHIP</li>
+        <li class="govuk-!-margin-top-4">Company number <strong>SL123456</strong></li>
       </ul>
 
       <button type="submit" class="govuk-button" data-module="govuk-button">

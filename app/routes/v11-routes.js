@@ -52,7 +52,7 @@ router.post('/gov-onelogin-enter-code', function(request, response) {
 
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
-        response.redirect("/v11/company-number")
+        response.redirect("/v11/chs/company-info-signed-in")
     }     
     else if (registrationOrTransition == "transition"){
          response.redirect("/v11/starting-new")

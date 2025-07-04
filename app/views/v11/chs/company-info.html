@@ -52,7 +52,7 @@ Find and update company information
         Follow this company
       </button>
 
-      <a href="chs-sign-in" class="govuk-button">File for this company</a>
+    <a href="chs-sign-in" class="govuk-button hide-when-authorised">File for this company</a>
 
 
 
@@ -100,7 +100,7 @@ Find and update company information
             <div class="govuk-grid-column-one-half">
               <ul class='govuk-list'>
                <li>Registered office address</li>
-                <li class="govuk-!-margin-bottom-4"><strong>64 Zoo Lane, London, W5 5AB</strong></li>
+                <li class="govuk-!-margin-bottom-4"><strong>64 Zoo Lane, London, W5 5AB</strong> <div class="authorised">  <a href="#" class="govuk-link govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Registered office address 64 Zoo Lane, London, W5 5AB</span></a></div></li>
                 <li>Company status</li>
                 <li class="govuk-!-margin-bottom-4"><strong>Active</strong></li>
                    <li>Company type</li>
@@ -132,7 +132,9 @@ Find and update company information
                 <li class="govuk-!-margin-bottom-5">Next statement date <strong>30 August 2025</strong> due by <strong>13 September 2025</strong></li>
                 <li>Last statement dated <strong>30 August 2024</strong></li>
               </ul>
-                    <a href="javascript:void(0)" class="govuk-button">File confirmation statement</a>
+
+              <div class="authorised"><a href="javascript:void(0)" class="govuk-button">File confirmation statement</a></div>
+                  
 
             </div>
 
@@ -1288,4 +1290,6 @@ Find and update company information
 
 {% block pageScripts %}
   <script src="/public/javascripts/application.js"></script>
+    <script src="/public/javascripts/only-show-things-when-authorised.js"></script>
+
 {% endblock %}

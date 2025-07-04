@@ -131,17 +131,42 @@
 
 
 
-      <p class="govuk-body">We’ve received your filing for ACME LIMITED PARTNERSHIP (LP123456). We've sent an email to <strong>{{ data['govOneLoginEmail'] }}</strong> to confirm.</p>
+      <p class="govuk-body">We’ve received your filing with new required information for ACME LIMITED PARTNERSHIP (LP123456).
+        
+        <p>We've sent a confirmation email to <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong>.</p>
+
+<h2 class="govuk-heading-m">What happens next</h2>
+
+      <p>We'll process this filing within 5 working days, and email <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong> to let you know if it's been accepted or rejected.</p>
 
 
-      <h2 class="govuk-heading-m">What happens next</h2>
+<!--Don't think we need this for transition
+{{ govukInsetText({
+  text: "This update will not show in this service, or on the public register, until we accept the filing."
+}) }}-->
+
+
+<p>If the filing is accepted, we'll publish the new information on the public register (except protected or sensitive information). If it's rejected, we'll explain why and tell you what to do next.</p>
+
+<h2 class="govuk-heading-m">Confirmation statement</h2> 
+<p>All limited partnerships are now required to file an annual confirmation statement.
+
+<!--Scottish partnerships would need to say 'next' instead of 'first'-->
+<p>The first confirmation statement date for ACME LIMITED PARTNERSHIP (LP123456) is <strong>15 May 2027</strong>. 
 
 
 
- <p class="govuk-body">
-  We’ll process the update as soon as possible. This will usually take no more than 5 working days.  </p>
-  <p>
-We’ll send an email to <strong>{{ data['govOneLoginEmail'] }}</strong> to confirm when we’ve updated the information on the public register. </p>
+  <h2 class="govuk-heading-m">What do you want to do now?</h2>
+  <ul class="govuk-list">
+
+    <li>
+      <a href="#" class="govuk-link govuk-link--no-visited-state">Find out how to file a confirmation statement</a>
+  </li>
+
+    <li>
+      <a href="/v11/company-number" class="govuk-link govuk-link--no-visited-state">Provide new required information for a different limited partnership</a>
+  </li>
+  </ul>
 
 
 

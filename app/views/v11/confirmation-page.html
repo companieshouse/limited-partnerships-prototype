@@ -28,7 +28,7 @@
      <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-    {% set panelTitle = "Filing submitted" if data.registrationOrTransition in ['transition'] else "Application submitted" %}
+    {% set panelTitle = "Filing submitted" if data.registrationOrTransition in ['transition'] else "Filing submitted" %}
 
       {{ govukPanel({
           titleText: panelTitle,
@@ -39,26 +39,21 @@
 
 {% if data['registerType'] in ["registerLp", "RegisterPflp"] and data['registrationOrTransition'] == "registration" %}
 
-    
-          <p class="govuk-body">We have sent a confirmation email to <strong>{{ data['govOneLoginEmail'] }}</strong>.</p>
-    
-    
-          <h2 class="govuk-heading-m">What happens next</h2>
+          <p class="govuk-body">We've received your filing to register ACME LIMITED PARTNERSHIP (LP123456).</p>
+
+          <p class="govuk-body">We've sent a confirmation email to <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong>.</p>
     
     
-    
-          <p>We'll process the application as soon as possible. This will usually take no more than 3 to 5 working days.</p>
-     <p class="govuk-body">
-            We'll email <strong>{{ data['govOneLoginEmail'] or "agent@example.com" }}</strong> to let you know if your application has been accepted or rejected.  
-          </p>
+      <h2 class="govuk-heading-m">What happens next</h2>
     
 
-          
-          <h2 class="govuk-heading-m">If the application is accepted    </h2>
-<p>We'll register the limited partnership and add the details to the Companies House public register.</p>
-      
-<h2 class="govuk-heading-m">If the application is rejected </h2>
-<p>We'll explain why your application has been rejected and what you can do next. We'll also refund the £X registration fee.</p>
+    
+          <p>We'll process this filing within 5 working days, and email <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong> to let you know if it's been accepted or rejected.</p>
+ 
+          <p>If it's accepted, we'll register the limited partnership and add the details to the Companies House public register.</p>
+
+          <p>If it's rejected, we'll explain why and tell you what you can do next. We'll also refund the £XX registration fee.</p>
+
       
           <div class="ur-shortcuts">
             <!-- Not part of ACTUAL screen: only for UR purposes -->
@@ -76,35 +71,30 @@
 
 {% elif (not data['registerType'] or data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"]) and (not data['registrationOrTransition'] or data['registrationOrTransition'] == "registration") %}
     
+              
+          <p class="govuk-body">We've received your filing to register ACME LIMITED PARTNERSHIP (LP123456).</p>
+
+          <p class="govuk-body">We've sent a confirmation email to <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong>.</p>
     
     
-<p class="govuk-body">We have sent a confirmation email to <strong>{{ data['govOneLoginEmail'] }}</strong>.</p>
-    
-    
-    
-          <h2 class="govuk-heading-m">What happens next</h2>
+      <h2 class="govuk-heading-m">What happens next</h2>
     
 
-          <p>We'll process the application as soon as possible. This will usually take no more than 3 to 5 working days.</p>
-    <p>
     
-          We'll email <strong>{{ data['govOneLoginEmail'] }}</strong> to let you know if your application has been accepted or rejected.  
-        </p>
-  
+          <p>We'll process this filing within 5 working days, and email <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong> to let you know if it's been accepted or rejected.</p>
+ 
+          <p>If it's accepted, we'll register the limited partnership and add the details to the Companies House public register.</p>
+
+          <p>If it's rejected, we'll explain why and tell you what you can do next. We'll also refund the £XX registration fee.</p>
+
+    
+    
+          
 
 
           
 
-       <h2 class="govuk-heading-m">You'll need to provide more information</h2>
-
-       <p class="govuk-body">
-        If we accept your application, you'll need to tell us about any people with significant control (PSCs) within 14 days. </p>
-        
-        <p>To check what information you'll need to provide, download the relevant <a href="https://www.gov.uk/government/collections/companies-house-forms-for-scottish-limited-partnerships#people-with-significant-control-(psc)" target="_blank">forms for Scottish limited partnerships (opens in a new tab)</a>.
-          </p>
       
-          <h2 class="govuk-heading-m">If the application is rejected </h2>
-          <p>We'll explain why your application has been rejected and what you can do next. We'll also refund the £X registration fee.</p>
           <div class="ur-shortcuts">
             <!-- Not part of ACTUAL screen: only for UR purposes -->
             <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>

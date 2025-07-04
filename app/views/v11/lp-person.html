@@ -1312,7 +1312,9 @@
 
 {% endif %}
 
-{% if data['registrationOrTransition'] == "post" or data['registrationOrTransition'] == "transition" %}
+<!-- Only show When did they become a general partner in a post transition journey-->
+
+{% if data['registrationOrTransition'] == "post" %}
 {{ govukDateInput({
   id: "dateBecamePartner",
   namePrefix: "dateBecamePartner",

@@ -1,14 +1,33 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Start" %}
-
-
 {% block header %}
-   {% include "/includes/dynamic-service-name.html" %}
+{{ govukHeader({
+  homepageUrl: "/",
+    classes: "govuk-header--full-width-border"
+}) }}
+
+{{ govukServiceNavigation({
+}) }}
 {% endblock %}
 
-
-
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Business and self-employed",
+      href: "#"
+    },
+    {
+      text: "Running a limited company",
+      href: "#"
+    }
+  ]
+}) }}
+{% endblock %}
 
 {% block content %}
 
@@ -22,16 +41,7 @@
       </h1>
 
       <p>Use this service to view or update information about a limited partnership, or to file a confirmation statement for a limited partnership.</p>
-<!--
-      <p>Use this service to apply to register a: </p>
 
-          <ul class="govuk-list govuk-list--bullet">
-            <li>limited partnership in England, Wales or Northern Ireland</li>
-            <li>limited partnership in Scotland</li>
-            <li>private fund limited partnership in England, Wales or Northern Ireland</li>
-            <li>private fund limited partnership in Scotland</li>
-            <li>Scottish qualifying partnership</li>
-            </ul>-->
 
 <p>This service has replaced paper forms LP6, LP8 and SLP CS01. </p>
 
@@ -67,46 +77,6 @@
   
 
 
-<!--      <h2 class="govuk-heading-m">Before you start </h2>
-
-<p>You should check you have all the information you'll need to provide. There are different requirements depending on the type of partnership you need to register.</p> 
-
-
-
-<p>You’ll need to give a Companies House personal code for any people who are required to verify their identity for the limited partnership. </p>
-
-<p>This is a requirement for: </p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>general partners who are people</li>
-            <li>people with significant control (PSC)s – if you’re registering a Scottish limited partnership</li>
-          </ul>
-
-  <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      How to get a Companies House personal code
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <p>A personal code is an 11 character code we give when someone verifies their identity for Companies House. </p>
-    <p>If a person has already verified their identity, they can either find their personal code in the:
-</p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>Manage account section of their Companies House account</li>
-            <li>email we sent when they were verified
-</li></ul>
-
-  </div>
-
-  <p>Otherwise, they’ll need to <a href="#/">verify their identity for Companies House</a></p>. 
-</details>
--->
-
-
-
-   <!--   <p>Registering takes around 5 minutes.</p> -->
-
-   <!--<p>It takes around XX minutes to use this service.</p>-->
 
       {{ govukButton({
         text: "Start now",
@@ -119,12 +89,37 @@
       <p class="govuk-body "><a href="https://mcmw.abilitynet.org.uk/" class="govuk-link">Read advice from AbilityNet on how to adapt your device to meet your needs</a>. For example, changing the background colour or text size.</p>
 
 
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-
+<h3 class="govuk-heading-s">Explore the topic</h3>
+<ul class="govuk-list">
+  <li>
+    <a class="govuk-link govuk-!-font-size-16" href="javascript:void(0)">Running a limited company
+</a>
+  </li>
+</ul>
 
     </div>
 
-   
+        <div class="govuk-grid-column-one-third-from-desktop">
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<h3 class="govuk-heading-s">Related content</h3>
+<ul class="govuk-list">
+  <li>
+    <a class="govuk-link govuk-!-font-size-16" href="javascript:void(0)">Accounts and tax returns for private limited companies
+</a>
+  </li>
+  <li>
+    <a class="govuk-link govuk-!-font-size-16" href="javascript:void(0)">Running a limited company: your responsibilities
+</a>
+  </li>
+</ul>
+
+</div>
   </div>
+
+
+
 
 {% endblock %}

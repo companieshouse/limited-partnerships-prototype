@@ -43,24 +43,27 @@ html: "Your reference number " + references
 <p class="govuk-body">We've received your filing to remove GlobalTech as a limited partner of ACME LIMITED PARTNERSHIP (SL012345).
   <p>We've sent a confirmation email to <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong>.</p>
 
+{{ govukInsetText({
+  text: "This update will not show on the public register until we accept the filing."
+}) }}
+
 
 <h2 class="govuk-heading-m">What happens next</h2>
 
 <p>We'll process this filing within 5 working days, and email <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong> to let you know if it's been accepted or rejected.  
 </p>
 
-{{ govukInsetText({
-  text: "This update will not show in this service, or on the public register, until we accept the filing."
-}) }}
 
 
-<p>If it's accepted, the filing will appear in the limited partnership's filing history on the public register.
+
+<p>If it's accepted, we'll update the information on the public register.
+
 
 <p> If it's rejected, we'll explain why and tell you what you can do next.</p>
 
-<h3 class="govuk-heading-s">If you need to file a confirmation statement</h3>
+<h2 class="govuk-heading-m">If you need to file a confirmation statement</h2>
 
-<p>As long as all updates to limited partnership information have been submitted, you can file a confirmation statement. You do not need to wait for them to be accepted.
+<p>As long as all required updates have been submitted, you can file a confirmation statement. You do not need to wait for the updates to be accepted.
 
   <h2 class="govuk-heading-m">What do you want to do now?</h2>
   <ul class="govuk-list">

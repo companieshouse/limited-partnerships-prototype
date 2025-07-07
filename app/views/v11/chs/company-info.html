@@ -379,13 +379,861 @@ Find and update company information
 
 
 
-
-
-
-
+        
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="people">
-        People
-    </div>
+          <div class="moj-primary-navigation tabs">
+            <div class="moj-primary-navigation__container" style="border-bottom: 1px solid #0b0c0c;">
+              <div class="moj-primary-navigation__nav">
+                <nav class="moj-primary-navigation" aria-label="people_navigation">
+                  <ul class="moj-primary-navigation__list tabs">
+                    <li class="moj-primary-navigation__item">
+                      <a class="moj-primary-navigation__link active_tab" id="officers_link" href="javascript:people_tab_click('officers')">Officers</a>
+                    </li>
+          
+                    <li class="moj-primary-navigation__item">
+                      <a class="moj-primary-navigation__link" id="psc_link" href="javascript:people_tab_click('psc')">Persons with significant control</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          
+          <div id="officers_tab">
+              <div class="govuk-grid-row govuk-!-margin-top-7">
+                <div class="govuk-grid-column-full">
+
+<div class="govuk-button-group">
+
+  <a href="javascript:void(0)" class="govuk-button govuk-button--secondary">Add a new general partner</a>
+
+  <a href="/v11/limited-partner-choice" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0">Add a new limited partner</a>
+</div>
+
+
+                  <h2 class="govuk-heading-m">Filter officers</h2>
+
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="show-filing">
+                      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="current_officers" name="current_officers" type="checkbox">
+                          <label class="govuk-label govuk-checkboxes__label" for="current_officers">
+                            Current officers
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+
+                  <h2 class="govuk-heading-m govuk-!-margin-top-7">5 officers / 1 resignations</h2>
+
+                  <h2 class="govuk-heading-m govuk-!-margin-top-7">
+                    <a href="secretary" class="govuk-link">SMITH, Paul</a>
+                  </h2>
+
+                  <ul class='govuk-list'>
+                    <li>Correspondence address</li>
+                    <li class="govuk-!-font-weight-bold">Higher Hill Farm, Cardinham, Bodmin, United Kingdom, PL30 4EG</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Role 
+                      <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: #006435">
+                        Active
+                      </strong>
+                    </li>
+                    <li class="govuk-!-font-weight-bold">Secretary</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Appointed on</li>
+                    <li class="govuk-!-font-weight-bold">17 December 1999</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- ******* 1. Director - IDV due ********************* -->
+
+              <div class="govuk-grid-row govuk-!-margin-top-7">
+                <div class="govuk-grid-column-full">
+
+                  <hr class="govuk-!-margin-top-7">
+
+                  <h2 class="govuk-heading-m govuk-!-margin-top-6">
+                    <a href="director-one" class="govuk-link">ROBINSON, Susan </a>
+                  </h2>
+
+                  <ul class='govuk-list'>
+                    <li>Correspondence address</li>
+                    <li class="govuk-!-font-weight-bold">1 Long road, Plymouth, United Kingdom, PL1 2BG</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Role
+                      <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: #006435">
+                        Active
+                      </strong>
+                    </li>
+                    <li class="govuk-!-font-weight-bold">Director</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Date of birth</li>
+                    <li class="govuk-!-font-weight-bold">May 1980</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Appointed on</li>
+                    <li class="govuk-!-font-weight-bold">17 December 1999</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Nationality</li>
+                    <li class="govuk-!-font-weight-bold">British</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Country of residence</li>
+                    <li class="govuk-!-font-weight-bold">England</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Occupation</li>
+                    <li class="govuk-!-font-weight-bold">Company Director</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Identity verification due</li>
+                    <li class="govuk-!-font-weight-bold">30 August 2025</li>
+                  </ul>
+                </div>
+
+              </div>
+
+              <!-- ******* 2. Director - Verified by individual ********************* -->
+
+              <div class="govuk-grid-row govuk-!-margin-top-7">
+                <div class="govuk-grid-column-full">
+
+                  <hr class="govuk-!-margin-top-7">
+
+                  <h2 class="govuk-heading-m govuk-!-margin-top-6">
+                    <a href="director-two" class="govuk-link">ROBINSON, Mark  </a>
+                  </h2>
+
+                  <ul class='govuk-list'>
+                    <li>Correspondence address</li>
+                    <li class="govuk-!-font-weight-bold">1 Long road, Plymouth, United Kingdom, PL1 2BG</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Role
+                      <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: #006435">
+                        Active
+                      </strong>
+                    </li>
+                    <li class="govuk-!-font-weight-bold">Director</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Date of birth</li>
+                    <li class="govuk-!-font-weight-bold">January 1981</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Appointed on</li>
+                    <li class="govuk-!-font-weight-bold">17 December 1999</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Nationality</li>
+                    <li class="govuk-!-font-weight-bold">British</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Country of residence</li>
+                    <li class="govuk-!-font-weight-bold">England</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Occupation</li>
+                    <li class="govuk-!-font-weight-bold">Company Director</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Identity verification status</li>
+                    <li class="govuk-!-font-weight-bold">Verified</li>
+                  </ul>
+                </div>
+
+              </div>
+
+              <!-- ******* 3. Director - Verified by ACSP ********************* -->
+
+              <div class="govuk-grid-row govuk-!-margin-top-7">
+                <div class="govuk-grid-column-full">
+
+                  <hr class="govuk-!-margin-top-7">
+
+                  <h2 class="govuk-heading-m govuk-!-margin-top-6">
+                    <a href="director-three" class="govuk-link">FRANKLIN, Lisa </a>
+                  </h2>
+
+                  <ul class='govuk-list'>
+                    <li>Correspondence address</li>
+                    <li class="govuk-!-font-weight-bold">1 Short road, Townville, United Kingdom, AB1 CD2</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Role
+                      <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: #006435">
+                        Active
+                      </strong>
+                    </li>
+                    <li class="govuk-!-font-weight-bold">Director</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Date of birth</li>
+                    <li class="govuk-!-font-weight-bold">February 1985</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Appointed on</li>
+                    <li class="govuk-!-font-weight-bold">25 March 2010</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Nationality</li>
+                    <li class="govuk-!-font-weight-bold">British</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Country of residence</li>
+                    <li class="govuk-!-font-weight-bold">England</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Occupation</li>
+                    <li class="govuk-!-font-weight-bold">Accountant</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Identity verification status</li>
+                    <li class="govuk-!-font-weight-bold">Verified</li>
+                  </ul>
+                </div>
+
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-full">
+  
+                  <div class="govuk-grid-row govuk-!-margin-top-5">
+                    <div class="govuk-grid-column-full">
+
+                      <ul class='govuk-list'>
+                        <li><strong>Identity verification statement</strong></li>
+                        <li class="govuk-body">JAMES ACCOUNTING LTD has confirmed that they have verified the identity of Lisa Franklin to the standard set by Companies House and is satisfied that the required personal information is true. 
+                        <br><br>
+                        The verification checks were completed on 28 March 2025.</li>
+                        <br>
+                        <li class="govuk-body">JAMES ACCOUNTING LTD is supervised by Association of Chartered Certified Accountants.</li>
+                      </ul>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- ******* 4. Director - Overdue ********************* -->
+
+              <div class="govuk-grid-row govuk-!-margin-top-7">
+                <div class="govuk-grid-column-full">
+
+                  <hr class="govuk-!-margin-top-7">
+
+                  <h2 class="govuk-heading-m govuk-!-margin-top-6">
+                    <a href="director-four" class="govuk-link">JACKSON, Carl</a>
+                  </h2>
+
+                  <ul class='govuk-list'>
+                    <li>Correspondence address</li>
+                    <li class="govuk-!-font-weight-bold">2 Long road, Townville, United Kingdom, AB2 CD4</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Role
+                      <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: #006435">
+                        Active
+                      </strong>
+                    </li>
+                    <li class="govuk-!-font-weight-bold">Director</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Date of birth</li>
+                    <li class="govuk-!-font-weight-bold">April 1990</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Appointed on</li>
+                    <li class="govuk-!-font-weight-bold">1 December 2015</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Nationality</li>
+                    <li class="govuk-!-font-weight-bold">British</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Country of residence</li>
+                    <li class="govuk-!-font-weight-bold">England</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Occupation</li>
+                    <li class="govuk-!-font-weight-bold">Project mananger</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <!-- <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Identity verification status</li>
+                    <li class="govuk-!-font-weight-bold">Overdue</li>
+                  </ul>
+                </div> -->
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Identity verification due</li>
+                    <li class="govuk-!-font-weight-bold">14 May 2025</li>
+                  </ul>
+                </div>
+              </div>
+
+
+              <!-- ******* 5. Director - Resigned ********************* -->
+
+              <div class="govuk-grid-row govuk-!-margin-top-7">
+                <div class="govuk-grid-column-full">
+
+                  <hr class="govuk-!-margin-top-7">
+
+                  <h2 class="govuk-heading-m govuk-!-margin-top-6">
+                    <a href="director-five" class="govuk-link">JACKSON, Steven</a>
+                  </h2>
+
+                  <ul class='govuk-list'>
+                    <li>Correspondence address</li>
+                    <li class="govuk-!-font-weight-bold">3 Long road, Townville, United Kingdom, AB2 CD4</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Role
+                      <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: #424849">
+                        Resigned
+                      </strong>
+                    </li>
+                    <li class="govuk-!-font-weight-bold">Director</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Date of birth</li>
+                    <li class="govuk-!-font-weight-bold">May 1995</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Appointed on</li>
+                    <li class="govuk-!-font-weight-bold">30 July 2020</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Resigned on</li>
+                    <li class="govuk-!-font-weight-bold">10 June 2024</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Nationality</li>
+                    <li class="govuk-!-font-weight-bold">British</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Country of residence</li>
+                    <li class="govuk-!-font-weight-bold">England</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Occupation</li>
+                    <li class="govuk-!-font-weight-bold">Project mananger</li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+
+          <div id="psc_tab" class="govuk-visually-hidden">
+            <div class="govuk-grid-row govuk-!-margin-top-7">
+              <div class="govuk-grid-column-full">
+
+
+                <div class="govuk-button-group">
+
+  <a href="javascript:void(0)" class="govuk-button govuk-button--secondary">Add a new PSC</a>
+</div>
+
+                <h2 class="govuk-heading-m">5 active person with significant control / 0 active statements</h2>
+
+
+                <!-- ******* 1. PCS - Due ********************* -->
+                <h2 class="govuk-heading-m govuk-!-margin-top-7">Dennis Hoop
+                  <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: #006435">
+                    Active
+                  </strong>
+                </h2>
+
+                <ul class='govuk-list'>
+                  <li>Correspondence address</li>
+                  <li class="govuk-!-font-weight-bold">1 Higher Hill Farm, Townville, United Kingdom, CD1 FG4</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="govuk-grid-row govuk-!-margin-top-5">
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Notified on</li>
+                  <li class="govuk-!-font-weight-bold">1 January 2000
+                  </li>
+                </ul>
+              </div>
+
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Date of birth</li>
+                  <li class="govuk-!-font-weight-bold">March 1990</li>
+                </ul>
+              </div>
+
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Nationality</li>
+                  <li class="govuk-!-font-weight-bold">British</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="govuk-grid-row govuk-!-margin-top-5">
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Country of residence</li>
+                  <li class="govuk-!-font-weight-bold">United Kingdom</li>
+                </ul>
+              </div>
+
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Identity verification due from</li>
+                  <li class="govuk-!-font-weight-bold">1 June 2025</li>
+                </ul>
+              </div>
+
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Identity verification due by</li>
+                  <li class="govuk-!-font-weight-bold">14 June 2025</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="govuk-grid-row govuk-!-margin-top-5">
+              <div class="govuk-grid-column-full">
+
+                <ul class='govuk-list'>
+                  <li>Nature of control</li>
+                  <li class="govuk-!-font-weight-bold">Ownership of shares – 75% or more</li>
+                </ul>
+
+                <p class="govuk-body govuk-!-font-weight-bold">Ownership of voting rights - 75% or more</p>
+                <p class="govuk-body govuk-!-font-weight-bold">Right to appoint or remove directors</p>
+              </div>
+            </div>
+
+             <!-- ******* 2. PCS - Verified by individual ********************* -->
+
+            <hr class="govuk-!-margin-top-7">
+
+            <div class="govuk-grid-row govuk-!-margin-top-7">
+              <div class="govuk-grid-column-full">
+
+                <h2 class="govuk-heading-m">Isla Robinson
+                  <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: #006435">
+                    Active
+                  </strong>
+                </h2>
+
+                <ul class='govuk-list'>
+                  <li>Correspondence address</li>
+                  <li class="govuk-!-font-weight-bold">5 Wide street road, Townville, United Kingdom, NM2 FG5</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="govuk-grid-row govuk-!-margin-top-5">
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Notified on</li>
+                  <li class="govuk-!-font-weight-bold">2 March 2005
+                  </li>
+                </ul>
+              </div>
+
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Date of birth</li>
+                  <li class="govuk-!-font-weight-bold">April 1985</li>
+                </ul>
+              </div>
+
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Nationality</li>
+                  <li class="govuk-!-font-weight-bold">British</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="govuk-grid-row govuk-!-margin-top-5">
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Country of residence</li>
+                  <li class="govuk-!-font-weight-bold">United Kingdom</li>
+                </ul>
+              </div>
+
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Identity verification status</li>
+                  <li class="govuk-!-font-weight-bold">Verified</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- ******* 3. PCS - Verified by ACSP ********************* -->
+
+            <hr class="govuk-!-margin-top-7">
+
+            <div class="govuk-grid-row govuk-!-margin-top-7">
+              <div class="govuk-grid-column-full">
+
+                <h2 class="govuk-heading-m">Heather Ferning
+                  <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: #006435">
+                    Active
+                  </strong>
+                </h2>
+
+                <ul class='govuk-list'>
+                  <li>Correspondence address</li>
+                  <li class="govuk-!-font-weight-bold">10 Wide street road, Townville, United Kingdom, NM2 FG5</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="govuk-grid-row govuk-!-margin-top-5">
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Notified on</li>
+                  <li class="govuk-!-font-weight-bold">15 May 2005
+                  </li>
+                </ul>
+              </div>
+
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Date of birth</li>
+                  <li class="govuk-!-font-weight-bold">June 1990</li>
+                </ul>
+              </div>
+
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Nationality</li>
+                  <li class="govuk-!-font-weight-bold">British</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="govuk-grid-row govuk-!-margin-top-5">
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Country of residence</li>
+                  <li class="govuk-!-font-weight-bold">United Kingdom</li>
+                </ul>
+              </div>
+
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Identity verification status</li>
+                  <li class="govuk-!-font-weight-bold">Verified</li>
+                </ul>
+              </div>
+            </div>
+  
+            <div class="govuk-grid-row govuk-!-margin-top-5">
+              <div class="govuk-grid-column-full">
+
+                <ul class='govuk-list'>
+                  <li><strong>Identity verification statement</strong></li>
+                  <li class="govuk-body">JAMES ACCOUNTING LTD has confirmed that they have verified the identity of Heather Ferning to the standard set by Companies House and is satisfied that the required personal information is true. 
+                  <br><br>
+                  The verification checks were completed on 28 November 2025.</li>
+                  <br>
+                  <li class="govuk-body">JAMES ACCOUNTING LTD is supervised by Association of Chartered Certified Accountants.</li>
+                </ul>
+
+              </div>
+            </div>
+
+            <!-- ******* 4. PCS - Overdue ********************* -->
+
+            <hr class="govuk-!-margin-top-7">
+
+            <div class="govuk-grid-row govuk-!-margin-top-7">
+              <div class="govuk-grid-column-full">
+
+                <h2 class="govuk-heading-m">Jack Carlson
+                  <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: #006435">
+                    Active
+                  </strong>
+                </h2>
+
+                <ul class='govuk-list'>
+                  <li>Correspondence address</li>
+                  <li class="govuk-!-font-weight-bold">20 Wide street road, Townville, United Kingdom, NM2 FG5</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="govuk-grid-row govuk-!-margin-top-5">
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Notified on</li>
+                  <li class="govuk-!-font-weight-bold">17 June 2010
+                  </li>
+                </ul>
+              </div>
+
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Date of birth</li>
+                  <li class="govuk-!-font-weight-bold">July 2008</li>
+                </ul>
+              </div>
+
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Nationality</li>
+                  <li class="govuk-!-font-weight-bold">British</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="govuk-grid-row govuk-!-margin-top-5">
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Country of residence</li>
+                  <li class="govuk-!-font-weight-bold">United Kingdom</li>
+                </ul>
+              </div>
+
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Identity verification due from</li>
+                  <li class="govuk-!-font-weight-bold">1 May 2025</li>
+                </ul>
+              </div>
+              
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Identity verification due by</li>
+                  <li class="govuk-!-font-weight-bold">14 May 2025</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- ******* 5. PCS - Resigned ********************* -->
+
+            <hr class="govuk-!-margin-top-7">
+
+            <div class="govuk-grid-row govuk-!-margin-top-7">
+              <div class="govuk-grid-column-full">
+
+                <h2 class="govuk-heading-m">Kate Mathews
+                  <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: #424849">
+                    Ceased
+                  </strong>
+                </h2>
+
+                <ul class='govuk-list'>
+                  <li>Correspondence address</li>
+                  <li class="govuk-!-font-weight-bold">25 Wide street road, Townville, United Kingdom, NM2 FG5</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="govuk-grid-row govuk-!-margin-top-5">
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Notified on</li>
+                  <li class="govuk-!-font-weight-bold">23 August 2011
+                  </li>
+                </ul>
+              </div>
+
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Date of birth</li>
+                  <li class="govuk-!-font-weight-bold">September 2001</li>
+                </ul>
+              </div>
+
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Nationality</li>
+                  <li class="govuk-!-font-weight-bold">British</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="govuk-grid-row govuk-!-margin-top-5">
+              <div class="govuk-grid-column-one-quarter">
+                <ul class='govuk-list'>
+                  <li>Country of residence</li>
+                  <li class="govuk-!-font-weight-bold">United Kingdom</li>
+                </ul>
+              </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -522,8 +1370,8 @@ Find and update company information
   
 
 {% block pageScripts %}
-  <script src="/public/javascripts/application.js"></script>
-    <script src="/public/javascripts/only-show-things-when-authorised.js"></script>
-  <script src="/public/javascripts/toggle-overdue.js"></script>
-
+<script src="/public/javascripts/application.js"></script>
+<script src="/public/javascripts/only-show-things-when-authorised.js"></script>
+<script src="/public/javascripts/toggle-overdue.js"></script>
+<script src="/public/javascripts/sub-tabs.js"></script>
 {% endblock %}

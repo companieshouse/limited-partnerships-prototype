@@ -518,3 +518,17 @@ ul#navigation {
   text-decoration: underline solid #275CA0 50%;
   text-underline-offset: 13px;
 }
+
+.cs-overdue h2 {
+  color:	#d4351c;
+}
+
+.cs-overdue .govuk-warning-text__icon {
+  background-color:	#d4351c;
+  border-color: 	#d4351c;
+  top:17px;
+}
+
+.govuk-warning-text.cs-overdue  {
+  margin-bottom: 0 !important;
+}

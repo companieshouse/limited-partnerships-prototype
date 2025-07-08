@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Before you start" %}
+
+{% set serviceName %}
+  {% include "/includes/confirmation-statement-service-name.html" %}
+{% endset%}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="interrupt-card">
+        <h1 class="govuk-heading-l">Before you start</h3>
+
+          <h2 class="govuk-heading-m">Agent assurance codes for verification checks</h2>
+
+      <!--  <h3 class="govuk-heading-s">If you are the <a href="">UK-regulated professional</a> that carried out verification checks for the overseas entity</h2>
+
+          <p class="govuk-body">Ensure you have an <a href="">assurance code</a>. You’ll be asked to provide this code as part of this service.</p>
+
+
+        <h3 class="govuk-heading-s">  If you are someone else who works at, or works on behalf of, the overseas entity</h3>
+
+        <p class="govuk-body">Ensure your <a href="">UK-regulated professional</a> has an <a href="">assurance code</a>. You will need to send the application reference at the end of this service.</p>-->
+
+
+
+
+
+
+
+
+
+
+
+              <p class="govuk-body">A UK-regulated agent must carry out <a href="/register/start-merged-with-guidance#what-identity-checks-are-needed" class="govuk-link">verification checks</a> on all beneficial owners and managing officers no more than 3 months before the overseas entity is registered. They'll need to provide an <a href="/register/guidance-code" class="govuk-link">agent assurance code</a> to confirm they have authorisation to carry out verification checks.</p>
+
+
+
+
+
+
+
+  {{ govukButton({
+    text: "Continue",
+    href: "../manage/file-confirmation-statement"
+  }) }}
+
+        </div>
+
+
+
+
+
+
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

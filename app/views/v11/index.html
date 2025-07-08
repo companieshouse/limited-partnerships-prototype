@@ -53,15 +53,15 @@
     </li>
       <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
       <a class="govuk-tabs__tab" href="#post-transition">
-       Manage LP/File Confirmation Statement
+       Make changes (via CHS)
       </a>
     </li>
-       <!-- </li>
+      </li>
       <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-      <a class="govuk-tabs__tab" href="#chs">
-       Search (CHS)
+      <a class="govuk-tabs__tab" href="#confirmation-statement">
+      File Confirmation Statement
       </a>
-    </li>-->
+    </li>
   </ul>
 
 
@@ -414,6 +414,8 @@ The prototype re-uses the same templates across multiple journeys and scenarios 
   html: html
 }) }}
 
+   <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1740494433382/6f5407d9fd2d0eca802e10bf5e35ded9172024d9" target="-blank">Make changes journeys in Mural (opens in new tab)</a></p>
+
 <h2 class="govuk-heading-m" id="initial">Initial screens</h2>
 
       <ul class="govuk-list govuk-list--bullet">
@@ -447,7 +449,28 @@ The prototype re-uses the same templates across multiple journeys and scenarios 
         <li><s><a class="govuk-link govuk-link--no-visited-state" href="manage/limited-partnership-overview-wf-style">Overview (WebFiling style screen)</a></s></li>
       </ul>
 
-<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-7">
+
+
+  </div>
+
+
+
+
+ 
+ <div class="govuk-tabs__panel" id="confirmation-statement">
+
+
+    {% set html %}
+  <p class="govuk-body">
+The prototype re-uses the same templates across multiple journeys and scenarios - the content and functionality on many pages <strong>will be different</strong> depending on the journey and the scenario.<p>
+  <p class="govuk-body">If you jump to pages using the links below without first <a class="govuk-notification-banner__link" href="registration-or-transition">choosing the appropriate test scenario</a> you may see the 'wrong' things.<p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
+
+
 
    <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1742989175652/852f13699272906e2c4296b087e8d4458e520677" target="-blank">Confirmation statement screen flow in Mural (opens in new tab)</a></p>
 
@@ -475,12 +498,6 @@ The prototype re-uses the same templates across multiple journeys and scenarios 
 
 
   </div>
-
-
-
-
- 
-
 
 
 

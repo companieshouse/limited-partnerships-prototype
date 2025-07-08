@@ -54,11 +54,21 @@
   This page is also available <a href="javascript:void(0)">in Welsh (Cymraeg)</a>.
 </div>
 
+{% set registrationOrTransition = data['registrationOrTransition'] %}
+
+{% if registrationOrTransition == "post" %}
+<!-- in the Manage service (CHS) we need to bypass sign in, company look-up etc-->
+  {% set startLink = "../manage/file-confirmation-statement" %}
+{% else %}
+  {% set startLink = "../sign-in" %}
+{% endif %}
+
 {{ govukButton({
   text: "Start now",
-  href: "../sign-in",
+  href: startLink,
   isStartButton: true
 }) }}
+
 <br>
 <span class="govuk-body govuk-!-font-size-16" style="position: relative; top: -20px;">on the Companies House service</span>
 

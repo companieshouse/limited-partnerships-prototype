@@ -152,13 +152,18 @@ router.post('/idv-filter', function(request, response) {
 
 router.post('/correct-company', function(request, response) {
     var registrationOrTransition = request.session.data['registrationOrTransition']
-    if (registrationOrTransition == "post"){
+
+    if (registrationOrTransition == "post") {
         response.redirect("/v11/manage/limited-partnership-overview-tabs-wf")
     } 
+    else if (registrationOrTransition == "cs") {
+        response.redirect("/v11/manage/file-confirmation-statement")
+    }
     else {
         response.redirect("/v11/limited-partnership-rea")
     }
-  })
+})
+
 
 
 

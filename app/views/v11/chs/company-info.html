@@ -1325,6 +1325,11 @@ Find and update company information
                 value: "overdue",
                 text: "Toggle overdue CS",
                 id: "toggle-overdue"
+              },
+               {
+                value: "authorised",
+                text: "Toggle authorised",
+                id: "toggle-authorised"
               }
             ]
           }) }}
@@ -1346,7 +1351,7 @@ Find and update company information
 
 {% block pageScripts %}
 <script src="/public/javascripts/application.js"></script>
-<script src="/public/javascripts/only-show-things-when-authorised.js"></script>
+<script src="/public/javascripts/toggle-authorised.js"></script>
 <script src="/public/javascripts/toggle-overdue.js"></script>
 <script src="/public/javascripts/sub-tabs.js"></script>
 {% endblock %}

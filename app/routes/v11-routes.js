@@ -279,6 +279,9 @@ router.post('/registration-or-transition', function(request, response) {
     else if (registrationOrTransition == "transition"){
         response.redirect("/v11/transition-start-page")
     }
+       else if (registrationOrTransition == "cs"){
+        response.redirect("/v11/confirmation-statement/start")
+    }
     else {
         response.redirect("/v11/post-transition-start-page")
     }

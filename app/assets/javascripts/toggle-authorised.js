@@ -6,7 +6,7 @@
       authorisedCheckbox.addEventListener('change', function () {
         const authorisedElements = document.querySelectorAll('.authorised');
         authorisedElements.forEach(function (el) {
-          el.style.display = authorisedCheckbox.checked ? 'block' : 'none';
+          el.style.display = authorisedCheckbox.checked ? 'inline-block' : 'none';
         });
       });
 

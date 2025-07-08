@@ -7,12 +7,12 @@
 {% block beforeContent %}
 
 
-<a class="govuk-link govuk-link--no-visited-state" href="https://resources.companieshouse.gov.uk/serviceInformation.shtml#compInfo">Companies House does not verify the accuracy of the information filed</a> 
-<div class="govuk-!-margin-top-4 account-banner hide-when-authorised">
+<a class="govuk-link govuk-link--no-visited-state" href="https://resources.companieshouse.gov.uk/serviceInformation.shtml#compInfo">Companies House does not verify the accuracy of the information filed</a>
+<div class="account-banner hide-when-authorised" style="float:right; margin-top:30px;">
   <a href="#">Sign in/Register</a>
 </div>
 
-    <div class="govuk-!-margin-top-4 account-banner authorised">
+    <div class="govuk-!-margin-top-4 account-banner authorised" style="float:right; margin-bottom:10px">
       <span style="padding-right: 20px;">{{ data['emailAddress'] }}</span>
       <span style="padding-right: 20px;"><a href="" id="your-details">Your details</a></span>
       <span style="padding-right: 20px;"><a href="" id="your-filings">Your filings</a></span>

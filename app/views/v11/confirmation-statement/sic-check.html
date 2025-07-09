@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Check and confirm what the limited partnership will be doing" %}
+{% set pageName="Check the SIC codes for this limited partnership" %}
 
 {% set serviceName %}
   {% include "/includes/confirmation-statement-service-name.html" %}
@@ -23,15 +23,10 @@
 <form class="form" action="sic-check" method="post">
 
  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})</span>
- <h1 class="govuk-heading-xl">Check the SIC codes for this limited partnership
-</h1><!-- If changing the H1 be sure to also change the page title, see set PageName above-->
+ <h1 class="govuk-heading-xl">Check the SIC codes for this limited partnership</h1><!-- If changing the H1 be sure to also change the page title, see set PageName above-->
 
 
-
-<p class="govuk-body">Update any SIC codes that have changed.</p>
-
-
-<p class="govuk-body">There are the SIC codes we hold for the limited partnership:</p>
+<p class="govuk-body">Check the SIC codes and update any that have changed.</p>
 
 
 
@@ -863,7 +858,7 @@
 
 {% set sicDetailsHtml %}
   <p class="govuk-body">
-    The SIC (Standard Industrial Classification) codes indicate the partnership's nature of business. A partnership can have up to 4 SIC codes.
+    The SIC (Standard Industrial Classification) codes indicate the partnership's nature of business. A partnership can have up to 4 codes.
   </p>
 
   <p class="govuk-body">
@@ -875,7 +870,7 @@
   </p>
 
   <p class="govuk-body">
-   Check the <a href="http://resources.companieshouse.gov.uk/sic/" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">list of trade descriptions (opens in a new tab)</a> to help you find a suitable business activity.
+   The <a href="http://resources.companieshouse.gov.uk/sic/" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">SIC codes list (opens in a new tab)</a> may help you find a suitable business activity.
   </p>
 {% endset %}
 

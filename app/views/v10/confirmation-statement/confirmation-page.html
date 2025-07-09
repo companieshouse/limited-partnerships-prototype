@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Confirmation" %}
+{% set pageName="Confirmation statement submitted" %}
 
 
 {% block header %}
@@ -48,40 +48,32 @@
 
  <p class="govuk-body">If it's accepted, the filing will appear in the limited partnership's filing history on the public register.</p>
 
- <p class="govuk-body">If it's rejected, we'll explain why and tell you what to do next.</p>
+ <p class="govuk-body">If it's rejected, we'll explain why and what to do next. We'll refund the fee.</p>
 
-
+<!--
 <h2 class="govuk-heading-m">What do you want to do next?</h2>
 <ul class="govuk-list">
   <li>
-    <a href="/v10/company-number" class="govuk-link govuk-link--no-visited-state">File for a different limited partnership</a>
-</li>
-<li>
-      <a href="/v10/manage/limited-partnership-overview-tabs-wf" class="govuk-link govuk-link--no-visited-state">Return to the overview screen for this limited partnership</a>
+    <a href="/v11/company-number" class="govuk-link govuk-link--no-visited-state">File a confirmation statement for another limited partnership</a>
 </li>
 </ul>
-
-
-<div class="ur-shortcuts">
-  <!-- Not part of ACTUAL screen: only for UR purposes -->
-  <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>
-    <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
-      <li><a class="govuk-link" href="/v10/emails/confirmation-statement/application-received">Email - application received</a></li>
-      <li><a class="govuk-link" href="/v10/emails/confirmation-statement/application-accepted"> Email - application accepted</a></li>
-      <li><a class="govuk-link" href="/v10/emails/confirmation-statement/application-rejected"> Email - application accepted</a></li>
-    </ul>
-  </div>
-
-
-
-
-
+-->
 
 
 <!-- Shown in all scenarios-->
   <p class="govuk-body">
     <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
   </p>
+
+<div class="ur-shortcuts">
+  <!-- Not part of ACTUAL screen: only for UR purposes -->
+  <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>
+    <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+      <li><a class="govuk-link" href="/v11/emails/confirmation-statement/application-received">Email - application received</a></li>
+      <li><a class="govuk-link" href="/v11/emails/confirmation-statement/application-accepted"> Email - application accepted</a></li>
+      <li><a class="govuk-link" href="/v11/emails/confirmation-statement/application-rejected"> Email - application accepted</a></li>
+    </ul>
+  </div>
 
 
     </div>

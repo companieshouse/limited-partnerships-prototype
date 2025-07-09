@@ -445,15 +445,15 @@ The prototype re-uses the same templates across multiple journeys and scenarios 
 
       <h2 class="govuk-heading-m" id="conf">Confirmation statement</h2>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a class="govuk-link govuk-link--no-visited-state" href="manage/file-confirmation-statement">Check before you file</a></li>
-        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/confirmation-statement-date">Confirmation statement date</a></li>
-             <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/confirmation-statement-date-early">Confirmation statement date (early)</a></li>
-          <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/sic-check">Check the SIC codes (autocomplete)</a></li>
-        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/check-sic">Check the SIC codes</a></li>
-        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/submit-confirmation-statement">Submit the confirmation statement</a></li>
-        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/payment-review">Payment review</a></li>
-        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/payment-placeholder">Placeholder for GOV.UK Pay screens</a></li>
-        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/confirmation-page">Confirmation of submission</a></li>
+      <li><a class="govuk-link govuk-link--no-visited-state" href="manage/file-confirmation-statement">Check before you file</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/confirmation-statement-date">Confirmation statement date</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}{{govukTag({ text: "Content final", classes: "govuk-tag--yellow"})}}</li>
+             <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/confirmation-statement-date-early">Confirmation statement date (early)</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}{{govukTag({ text: "Content final", classes: "govuk-tag--yellow"})}}</li>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/sic-check">Check the SIC codes (autocomplete)</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}{{govukTag({ text: "Content final", classes: "govuk-tag--yellow"})}}</li>
+        <li><s><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/check-sic">Check the SIC codes</a></s></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/submit-confirmation-statement">Submit the confirmation statement</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/payment-review">Payment review</a>{{govukTag({ text: "Existing service", classes: "govuk-tag--blue"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/payment-placeholder">Placeholder for GOV.UK Pay screens</a>{{govukTag({ text: "Existing service", classes: "govuk-tag--blue"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/confirmation-page">Confirmation of submission</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}{{govukTag({ text: "Content final", classes: "govuk-tag--yellow"})}}</li>
       </ul>
       
       <h3 class="govuk-heading-s" id="conf">Confirmation statement emails</h3>

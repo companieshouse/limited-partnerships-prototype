@@ -481,15 +481,15 @@ The prototype re-uses the same templates across multiple journeys and scenarios 
          <li><a class="govuk-link govuk-link--no-visited-state" href="not-eligible">Not eligible (non-ACSP)</a></li>
         <li><a class="govuk-link govuk-link--no-visited-state" href="company-number">What is the limited partnership number?</a></li>
         <li><a class="govuk-link govuk-link--no-visited-state" href="correct-company">Confirm this is the correct limited partnership</a></li>
-      <li><a class="govuk-link govuk-link--no-visited-state" href="manage/file-confirmation-statement">Check before you file</a></li>
-        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/confirmation-statement-date">Confirmation statement date</a></li>
-             <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/confirmation-statement-date-early">Confirmation statement date (early)</a></li>
-          <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/sic-check">Check the SIC codes (autocomplete)</a></li>
+      <li><a class="govuk-link govuk-link--no-visited-state" href="manage/file-confirmation-statement">Check before you file</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/confirmation-statement-date">Confirmation statement date</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}{{govukTag({ text: "Content final", classes: "govuk-tag--yellow"})}}</li>
+             <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/confirmation-statement-date-early">Confirmation statement date (early)</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}{{govukTag({ text: "Content final", classes: "govuk-tag--yellow"})}}</li>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/sic-check">Check the SIC codes (autocomplete)</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}{{govukTag({ text: "Content final", classes: "govuk-tag--yellow"})}}</li>
         <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/check-sic">Check the SIC codes</a></li>
-        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/submit-confirmation-statement">Submit the confirmation statement</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/submit-confirmation-statement">Submit the confirmation statement</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}</li>
         <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/payment-review">Payment review</a> {{govukTag({ text: "Existing service", classes: "govuk-tag--blue"})}}</li>
         <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/payment-placeholder">Placeholder for GOV.UK Pay screens</a> {{govukTag({ text: "Existing service", classes: "govuk-tag--blue"})}}</li>
-        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/confirmation-page">Confirmation of submission</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="confirmation-statement/confirmation-page">Confirmation of submission</a>{{govukTag({ text: "Dev ready", classes: "govuk-tag--green"})}}{{govukTag({ text: "Content final", classes: "govuk-tag--yellow"})}}</li>
       </ul>
       
       <h3 class="govuk-heading-m" id="conf">Emails</h3>

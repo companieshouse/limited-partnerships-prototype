@@ -54,6 +54,18 @@ Find and update company information
 
       <p class="govuk-body"><a href="javascript:void(0)" class="govuk-link govuk-!-font-size-16">Advanced company search</a></p>
 
+
+      {% set html %}
+          <p class="govuk-notification-banner__heading">
+           As a Companies House authorised agent, you can file updates for this limited partnership from this page. Any updates you've submitted will not show until we've accepted them.
+          </p>
+        {% endset %}
+
+        {{ govukNotificationBanner({
+          html: html,
+          classes: "authorised"
+        }) }}
+
       <ul class="govuk-list">
         <li class="govuk-heading-xl govuk-!-margin-top-4">ACME LIMITED PARTNERSHIP <a href="../registration/lp-name" class="authorised govuk-link govuk-link--no-visited-state govuk-!-font-weight-regular govuk-!-font-size-19 update-partnership-name">Update name</a></li>
         <li class="govuk-!-margin-top-4">Company number <strong>SL123456</strong></li>
@@ -137,7 +149,7 @@ Find and update company information
         </div>
    <div class="govuk-grid-column-full govuk-!-margin-top-3 authorised">
           <dt>Registered email address</dt>
-          <dd class="govuk-summary-list__value govuk-!-font-weight-bold govuk-!-padding-top-0">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679; <a href="../manage/change-rea" class="govuk-link govuk-link--no-visited-state  govuk-!-font-weight-regular">Update <span class="govuk-visually-hidden">Registered email address</span></a></dd>
+          <dd class="govuk-summary-list__value govuk-!-font-weight-bold govuk-!-padding-top-0"><a href="../manage/change-rea" class="govuk-link govuk-link--no-visited-state  govuk-!-font-weight-regular">Update <span class="govuk-visually-hidden">Registered email address</span></a></dd>
         </div>
 
 
@@ -403,7 +415,7 @@ Find and update company information
                 <nav class="moj-primary-navigation" aria-label="people_navigation">
                   <ul class="moj-primary-navigation__list tabs">
                     <li class="moj-primary-navigation__item">
-                      <a class="moj-primary-navigation__link active_tab" id="officers_link" href="javascript:people_tab_click('officers')">Partners</a>
+                      <a class="moj-primary-navigation__link active_tab" id="officers_link" href="javascript:people_tab_click('officers')">Officers</a>
                     </li>
           
                     <li class="moj-primary-navigation__item">
@@ -427,7 +439,7 @@ Find and update company information
 </div>
 
 
-                  <h2 class="govuk-heading-m">Filter partners</h2>
+                  <h2 class="govuk-heading-m">Filter officers</h2>
 
                   <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset" aria-describedby="show-filing">
@@ -435,73 +447,17 @@ Find and update company information
                         <div class="govuk-checkboxes__item">
                           <input class="govuk-checkboxes__input" id="current_officers" name="current_officers" type="checkbox">
                           <label class="govuk-label govuk-checkboxes__label" for="current_officers">
-                            Current partners
+                            Current officers
                           </label>
                         </div>
                       </div>
                     </fieldset>
                   </div>
 
-                  <h2 class="govuk-heading-m govuk-!-margin-top-7">5 partners / 1 resignations</h2>
-
-                  <h2 class="govuk-heading-m govuk-!-margin-top-7">
-                    <a href="javascript:void(0)" class="govuk-link">SMITH, Georgina</a> 
-                    <span class="govuk-!-font-size-19 govuk-!-font-weight-regular govuk-!-margin-left-4"> 
-                      <a href="javascript:void(0)" class="authorised govuk-link govuk-link--no-visited-state">Update <strong class="govuk-visually-hidden">SMITH, Georgina</strong></a>
-                      <a href="/v11/limited-partner-choice" class="authorised govuk-link govuk-link--no-visited-state govuk-!-margin-left-2">Remove <strong class="govuk-visually-hidden">SMITH, Georgina</strong></a>       
-                    </span>
-                  </h2>
-
-                  <ul class='govuk-list'>
-                    <li>Correspondence address</li>
-                    <li class="govuk-!-font-weight-bold">1 Squirrel Avenue, Leeds, LS1 2AB</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="govuk-grid-row govuk-!-margin-top-5">
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Role 
-                      <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: #006435">
-                        Active
-                      </strong>
-                    </li>
-                    <li class="govuk-!-font-weight-bold">General partner</li>
-                  </ul>
-                </div>
-
-                   <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Date of birth</li>
-                    <li class="govuk-!-font-weight-bold">August 1989</li>
-                  </ul>
-                </div>
-     
-
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Appointed on</li>
-                    <li class="govuk-!-font-weight-bold">21 October 2024</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="govuk-grid-row govuk-!-margin-top-5">
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Nationality
-                    </li>
-                    <li class="govuk-!-font-weight-bold">British</li>
-                  </ul>
-                </div>
-
-              
-              </div>
+                  <h2 class="govuk-heading-m govuk-!-margin-top-7">4 officers / 0 resignations</h2>
 
 
-
-              <!-- **************************** -->
+       <!-- **************************** -->
 
               <div class="govuk-grid-row govuk-!-margin-top-7">
                 <div class="govuk-grid-column-full">
@@ -591,26 +547,24 @@ Find and update company information
 
            
               </div>
-            
 
-              <!-- **************************** -->
-
-              <div class="govuk-grid-row govuk-!-margin-top-7">
+                                <!-- **************************** -->
+   <div class="govuk-grid-row govuk-!-margin-top-7">
                 <div class="govuk-grid-column-full">
 
                   <hr class="govuk-!-margin-top-7">
 
-                  <h2 class="govuk-heading-m govuk-!-margin-top-6">
-                        <a href="javascript:void(0)" class="govuk-link">RICHARDSON, Simon</a>
-                        <span class="govuk-!-font-size-19 govuk-!-font-weight-regular govuk-!-margin-left-4"> 
-                      <a href="javascript:void(0)" class="authorised govuk-link govuk-link--no-visited-state">Update <strong class="govuk-visually-hidden">Simon Richardson</strong></a>
-                      <a href="/v11/limited-partner-choice" class="authorised govuk-link govuk-link--no-visited-state govuk-!-margin-left-2">Remove <strong class="govuk-visually-hidden">Simon Richardson</strong></a>       
+                  <h2 class="govuk-heading-m govuk-!-margin-top-7">
+                    <a href="javascript:void(0)" class="govuk-link">SMITH, Georgina</a> 
+                    <span class="govuk-!-font-size-19 govuk-!-font-weight-regular govuk-!-margin-left-4"> 
+                      <a href="javascript:void(0)" class="authorised govuk-link govuk-link--no-visited-state">Update <strong class="govuk-visually-hidden">SMITH, Georgina</strong></a>
+                      <a href="/v11/limited-partner-choice" class="authorised govuk-link govuk-link--no-visited-state govuk-!-margin-left-2">Remove <strong class="govuk-visually-hidden">SMITH, Georgina</strong></a>       
                     </span>
                   </h2>
 
                   <ul class='govuk-list'>
                     <li>Correspondence address</li>
-                    <li class="govuk-!-font-weight-bold">1 Long road, Plymouth, United Kingdom, PL1 2BG</li>
+                    <li class="govuk-!-font-weight-bold">1 Squirrel Avenue, Leeds, LS1 2AB</li>
                   </ul>
                 </div>
               </div>
@@ -618,26 +572,27 @@ Find and update company information
               <div class="govuk-grid-row govuk-!-margin-top-5">
                 <div class="govuk-grid-column-one-quarter">
                   <ul class='govuk-list'>
-                    <li>Role
+                    <li>Role 
                       <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: #006435">
                         Active
                       </strong>
                     </li>
-                    <li class="govuk-!-font-weight-bold">Limited partner</li>
+                    <li class="govuk-!-font-weight-bold">General partner</li>
                   </ul>
                 </div>
 
-                <div class="govuk-grid-column-one-quarter">
+                   <div class="govuk-grid-column-one-quarter">
                   <ul class='govuk-list'>
                     <li>Date of birth</li>
-                    <li class="govuk-!-font-weight-bold">January 1981</li>
+                    <li class="govuk-!-font-weight-bold">August 1989</li>
                   </ul>
                 </div>
+     
 
                 <div class="govuk-grid-column-one-quarter">
                   <ul class='govuk-list'>
                     <li>Appointed on</li>
-                    <li class="govuk-!-font-weight-bold">17 December 2024</li>
+                    <li class="govuk-!-font-weight-bold">21 October 2024</li>
                   </ul>
                 </div>
               </div>
@@ -645,23 +600,21 @@ Find and update company information
               <div class="govuk-grid-row govuk-!-margin-top-5">
                 <div class="govuk-grid-column-one-quarter">
                   <ul class='govuk-list'>
-                    <li>Nationality</li>
+                    <li>Nationality
+                    </li>
                     <li class="govuk-!-font-weight-bold">British</li>
                   </ul>
                 </div>
 
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Capital contribution</li>
-                    <li class="govuk-!-font-weight-bold">10,000 Euro (EUR) Money</li>
-                  </ul>
-                </div>
-
-             
+              
               </div>
 
-          
 
+
+       
+            
+
+             
               <!-- **************************** -->
 
               <div class="govuk-grid-row govuk-!-margin-top-7">
@@ -760,7 +713,85 @@ Find and update company information
            
               </div>
 
+
+
+
+ <!-- **************************** -->
+
+              <div class="govuk-grid-row govuk-!-margin-top-7">
+                <div class="govuk-grid-column-full">
+
+                  <hr class="govuk-!-margin-top-7">
+
+                  <h2 class="govuk-heading-m govuk-!-margin-top-6">
+                        <a href="javascript:void(0)" class="govuk-link">RICHARDSON, Simon</a>
+                        <span class="govuk-!-font-size-19 govuk-!-font-weight-regular govuk-!-margin-left-4"> 
+                      <a href="javascript:void(0)" class="authorised govuk-link govuk-link--no-visited-state">Update <strong class="govuk-visually-hidden">Simon Richardson</strong></a>
+                      <a href="/v11/limited-partner-choice" class="authorised govuk-link govuk-link--no-visited-state govuk-!-margin-left-2">Remove <strong class="govuk-visually-hidden">Simon Richardson</strong></a>       
+                    </span>
+                  </h2>
+
+                  <ul class='govuk-list'>
+                    <li>Correspondence address</li>
+                    <li class="govuk-!-font-weight-bold">1 Long road, Plymouth, United Kingdom, PL1 2BG</li>
+                  </ul>
+                </div>
               </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Role
+                      <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: #006435">
+                        Active
+                      </strong>
+                    </li>
+                    <li class="govuk-!-font-weight-bold">Limited partner</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Date of birth</li>
+                    <li class="govuk-!-font-weight-bold">January 1981</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Appointed on</li>
+                    <li class="govuk-!-font-weight-bold">17 December 2024</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Nationality</li>
+                    <li class="govuk-!-font-weight-bold">British</li>
+                  </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  <ul class='govuk-list'>
+                    <li>Capital contribution</li>
+                    <li class="govuk-!-font-weight-bold">10,000 Euro (EUR) Money</li>
+                  </ul>
+                </div>
+
+             
+              </div>
+
+          
+
+
+
+
+
+
+
+              </div><!-- end of officers container-->
           
 
              

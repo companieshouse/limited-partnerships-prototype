@@ -551,17 +551,19 @@
 
 
 {% else  %} 
-<div class="govuk-button-group">
-
 <div class="govuk-js-hidden" style="display:inline-block; !important">
-  <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary" style="margin-left:10px;">Print this page</button>
-</div>
+
+
 
 <!--transition does not require payment so goes straight to confirmation page; button content should reflect this-->
     {{ govukButton({
       text: "Submit filing",
       href: "confirmation-page"
     }) }}
+
+    <div class="govuk-js-hidden" style="display:inline-block; !important">
+  <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary" style="margin-left:10px;">Print this page</button>
+</div>
 </div>
 {% endif %}
 

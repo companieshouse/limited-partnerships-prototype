@@ -149,15 +149,15 @@
 <p class="govuk-body">This may be especially useful if you need to add more than one partner, to help you keep track. New partners will not show in this service, or on the public register, until we accept the filing.
 </p>
 
-<div class="govuk-js-hidden">
-  <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary">    Print
-  </button>
-</div>
-
-        {{ govukButton({
+   {{ govukButton({
           text: "Submit update",
           href: "confirmation-add-lp"
-        }) }}
+        }) }} 
+    <div class="govuk-js-hidden" style="display:inline-block; !important">
+  <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary" style="margin-left:10px;">Print this page</button>
+</div>
+
+     
 
 
 

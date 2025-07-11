@@ -490,16 +490,21 @@ router.post('/psc-choice', function(request, response) {
   //Payment Placeholder
 
 
-  router.post('/payment-placeholder', function(request, response) {
+router.post('/payment-placeholder', function(request, response) {
+  var registrationOrTransition = request.session.data['registrationOrTransition']
+  var referrer = request.headers.referer || ''
 
-    var registrationOrTransition = request.session.data['registrationOrTransition']
-    if (registrationOrTransition == "post"){
-        response.redirect("/v11/manage/confirmation-change-name")
-    }
-    else {
-        response.redirect("/v11/confirmation-page")
-    }
-  })
+  if (referrer.includes('?change-type')) {
+    response.redirect('/v11/manage/confirmation-change-type')
+  } 
+  else if (registrationOrTransition == "post") {
+    response.redirect("/v11/manage/confirmation-change-name")
+  } 
+  else {
+    response.redirect("/v11/confirmation-page")
+  }
+})
+
 
 
 // Addresses //

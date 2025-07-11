@@ -497,9 +497,9 @@ router.post('/payment-placeholder', function(request, response) {
   if (referrer.includes('?change-type')) {
     response.redirect('/v11/manage/confirmation-change-type')
   } 
-  else if (registrationOrTransition == "post") {
-    response.redirect("/v11/manage/confirmation-change-name")
-  } 
+  else if (referrer.includes('?change-name')) {
+    response.redirect('/v11/manage/confirmation-change-name')
+  }
   else {
     response.redirect("/v11/confirmation-page")
   }

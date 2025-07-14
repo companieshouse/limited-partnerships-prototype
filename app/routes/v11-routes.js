@@ -460,7 +460,7 @@ router.post('/psc-choice', function(request, response) {
         response.redirect("/v11/pscs/psc-orp")
     }
     else {
-        response.redirect("/v11/pscs/psc-person")
+        response.redirect("/v11/pscs/psc-person-alt-1")
     }
   })
 

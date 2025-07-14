@@ -83,16 +83,51 @@
 
 <!--Nature of control-->
 
-{% call govukFieldset({
-  legend: {
-    html: 'What is their nature of control?<br>',
-    classes: "govuk-fieldset__legend--l"
-  }
-}) %}
 
-<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-4">Nature of control for this other registrable person (ORP)<p class="govuk-hint govuk-!-padding-top-1">Indicate the ORP's nature of control over the limited partnership</p></h2>
 
-<div class="govuk-!-margin-bottom-9">
+<div class="js-enabled-checkboxes" hidden>
+  {{ govukCheckboxes({
+    name: "typeNOC",
+    fieldset: {
+      legend: {
+        text: "Which type of nature of control does the person have?",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: "Select all that apply"
+    },
+    classes: "govuk-!-margin-bottom-0",
+    items: [
+      {
+        value: "nocIndividual",
+        text: "Nature of control for this other registrable person (ORP)"
+      },
+      {
+        value: "nocFirm",
+        text: "Nature of control by a firm over which the ORP has significant control"
+      },
+      {
+        value: "nocTrust",
+        text: "Nature of control by a trust over which the ORP has significant control"
+      }
+    ]
+  }) }}
+</div>
+
+
+
+
+
+
+
+<div class="noc-content" id="nocIndividual">
+
+
+<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-2">Nature of control for this other registrable person (ORP)</h2>
+<p class="govuk-body">Indicate the ORP's nature of control over the limited partnership</p>
+
 
 
      {{ govukRadios({
@@ -202,15 +237,22 @@ influence or control over the limited partnership"
                       ]
                     }) }}
 
-</div>
+
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 
 
-<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-4">Nature of control by a firm over which the ORP has significant control<p class="govuk-hint govuk-!-padding-top-1">The ORP has the right to exercise, or actually exercises, significant influence  or control over the activities of a firm that is not a legal person under its governing law, and:</p></h2>
+</div>
 
 
-<div class="govuk-!-margin-bottom-9">
+
+
+
+<div class="noc-content" id="nocFirm">
+
+<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-2">Nature of control by a firm over which the ORP has significant control</h2>
+<p class="govuk-body">The ORP has the right to exercise, or actually exercises, significant influence  or control over the activities of a firm that is not a legal person under its governing law, and:</p>
+
 
 
           {{ govukRadios({
@@ -316,13 +358,33 @@ influence or control over the limited partnership"
                     }) }}
 
 
-</div>
+
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+</div>
 
 
 
 
-<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-4">Nature of control by a trust over which the ORP has significant control<p class="govuk-hint govuk-!-padding-top-1">The ORP has the right to exercise, or actually exercises, significant influence or control over the activities of a trust, and: </p></h2>
+
+
+
+
+
+<div class="noc-content" id="nocTrust">
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-1">Nature of control by a trust over which the ORP has significant control</h2>
+<p class="govuk-body">The ORP has the right to exercise, or actually exercises, significant influence or control over the activities of a trust, and: </p>
 
 
 
@@ -430,9 +492,9 @@ influence or control over the limited partnership"
                     }) }}
 
 
+</div>
 
 
-{% endcall %}
 
 
 

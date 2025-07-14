@@ -443,8 +443,8 @@ router.post('/confirmation-statement-date', function(request, response) {
 router.post('/psc-statement', function(request, response) {
     var pscStatement = request.session.data['pscStatement']
 
-    if (pscStatement && pscStatement.includes("There is no person identified as a person with significant control")) {
-        response.redirect('/v11/check-your-answers')
+if (pscStatement === "No, there is no person identified as a PSC in relation to the limited partnership") {
+  response.redirect('/v11/check-your-answers')
     } else {
         response.redirect('/v11/pscs/psc-choice')
     }

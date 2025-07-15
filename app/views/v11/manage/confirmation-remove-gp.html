@@ -89,9 +89,14 @@ html: "Your reference number " + references
 <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
 </p>
 
-
+    <div class="govuk-js-hidden">
+  <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary">Print this page</button>
+</div>
 
 
     </div>
   </div>
+
+        <script src="/public/javascripts/print-button.js"></script>
+
 {% endblock %}

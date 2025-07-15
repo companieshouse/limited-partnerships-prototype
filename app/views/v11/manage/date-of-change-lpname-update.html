@@ -22,7 +22,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form action="/v11/manage/check-your-answers-change-name" method="post" class="form">
-          <span class="govuk-caption-l"> {{ data['lpname'] or "ACME" }} {{ data['nameEnding'] or "LIMITED PARTNERSHIP" }} (LP123456)</span>
+          <span class="govuk-caption-l"> {{ data['lpChooseName'] or "ACME" }} {{ data['nameEnding'] or "LIMITED PARTNERSHIP" }} (LP123456)</span>
 
 <!-- if changing "When did the name change?" below, also change the pageName above -->
 {{ govukDateInput({

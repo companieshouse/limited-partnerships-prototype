@@ -536,39 +536,35 @@
 
 <div class="govuk-js-hidden" style="display:inline-block; !important">
 
-</div>
-
-
-
         {{ govukButton({
           text: "Continue to payment",
           href: "payment-review"
         }) }}
 
-          <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary" style="margin-left:10px;">
-    Print this page
-  </button>
-
+          <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary" style="margin-left:10px;">Print this page</button>
+</div>
 
 {% else  %} 
 <div class="govuk-js-hidden" style="display:inline-block; !important">
 
+  <!--transition does not require payment so goes straight to confirmation page; button content should reflect this-->
+  {{ govukButton({
+  text: "Submit filing",
+  href: "confirmation-page"
+  }) }}
 
-
-<!--transition does not require payment so goes straight to confirmation page; button content should reflect this-->
-    {{ govukButton({
-      text: "Submit filing",
-      href: "confirmation-page"
-    }) }}
-
-    <div class="govuk-js-hidden" style="display:inline-block; !important">
-  <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary" style="margin-left:10px;">Print this page</button>
+  <div class="govuk-js-hidden" style="display:inline-block; !important">
+    <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary" style="margin-left:10px;">Print this page</button>
+   <a href="/registration/registration-start-pagee" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-govuk-button-init="" style="margin-left:10px;">
+  Save and exit
+</a>
+  </div>
 </div>
-</div>
+
 {% endif %}
-    <div class="govuk-js-hidden">
-  <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary">Print this page</button>
-</div>
+  <!--<div class="govuk-js-hidden">
+    <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary">Print this page</button>
+  </div>-->
 
     </div>
   </div>

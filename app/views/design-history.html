@@ -22,8 +22,19 @@
 
  
     {{ govukNotificationBanner({
-    html: '<a href="/v9/test-scenario">Read the testing instructions</a> before clicking any links.'
+    html: '<a href="/v11/test-scenario">Read the testing instructions</a> before clicking any links.'
     }) }}
+
+       <h2 class="govuk-heading-m">Week ending Fri 18 July 2025 {{ govukTag({
+  text: "V11"
+}) }}</h2>
+
+
+<ul class="govuk-list govuk-list--bullet">
+    <li>Added a banner to <a href="v11/chs/company-info?authorised#people" class="govuk-link govuk-link--no-visited-state">the PSC section of the People tab on CHS (when user is signed in)</a> - at present users will not be able to make updates in CHS, they will need to use the File upload service.</li>
+      <li>Added print buttons to all the confirmation pages in Change journeys (<a href="v11/manage/confirmation-change-term" class="govuk-link govuk-link--no-visited-state">Example</a>) - this is to meet a recognised need that ACSPs need to send a record to their clients.</li>
+        <li>Redesigned <a href="v11/chs/company-info#people" class="govuk-link govuk-link--no-visited-state">the PSC and Officers section of the people tab on CHS</a>, making use of the 'GDS Summary card with actions' pattern - this will prevent the need for development of new/custom layout and styles that would be needed if we just added change links to the existing (non-GDS) patterns used to display people records.</li>
+</ul>
 
      <h2 class="govuk-heading-m">Week ending Fri 11 July 2025 {{ govukTag({
   text: "V11"

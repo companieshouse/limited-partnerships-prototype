@@ -35,7 +35,7 @@
 <p class="govuk-body">You are not due to file a confirmation statement yet.</p>
 <p class="govuk-body">The date of your next expected confirmation statement is <span class="govuk-!-font-weight-bold">21 September 2025</span>.</p>
 
-<p class="govuk-body">If you file a confirmation statement today, the confirmation statement date will change to <strong>[today's date]</strong>, or you can choose another date.</p>
+<p class="govuk-body">If you file a confirmation statement today, the confirmation statement date will change to <strong>{{ "today" | govukDate }}</strong>, or you can choose another date.</p>
 
 <p class="govuk-body">This will start a new 12 month review period and change the date of future confirmation statements.</p>
 
@@ -76,11 +76,11 @@
   },
   items: [
     {
-      value: "today",
-      text: "No, I want to use today's date – [today's date]"
+      value: "no",
+      html: "No, I want to use today’s date – " + ( "today" | govukDate )
     },
     {
-      value: "different date",
+      value: "yes",
       text: "Yes",
       conditional: {
         html: changeDateHtml

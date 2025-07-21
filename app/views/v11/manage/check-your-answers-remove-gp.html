@@ -17,6 +17,9 @@
 
 {% set mainClasses = "govuk-main-wrapper--l" %}
 
+{% set todayDate = "now" | govukDate %}
+{% set fallbackDate = "5 June 2025" %}
+{% set todayHtml =  (todayDate or fallbackDate) %}
 
 {% block content %}
   <div class="govuk-grid-row">
@@ -32,7 +35,7 @@
               text: "Date they ceased to be a general partner"
             },
             value: {
-              text: "1 March 2025"
+              html: todayHtml
             },
             actions: {
               items: [

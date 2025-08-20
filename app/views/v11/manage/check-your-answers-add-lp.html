@@ -144,14 +144,21 @@
 
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
+
 {{ govukWarningText({
-  text: "Print or save this information now to keep a record of adding this partner.
+  text: "Print or save this information before you submit, to keep a record of adding this partner.
 ",
   iconFallbackText: "Warning"
 }) }}
 
-<p class="govuk-body">This may be especially useful if you need to add more than one partner, to help you keep track. New partners will not show in this service, or on the public register, until we accept the filing.
+<p class="govuk-body">You will not see this partner's details on the public register until we accept the filing. 
 </p>
+
+
+<div class="govuk-inset-text">
+  If you leave this page, your answers will be saved. We'll give you the option to continue with this filing when you next sign in to this service.
+</div>
+
 
    {{ govukButton({
           text: "Submit update",

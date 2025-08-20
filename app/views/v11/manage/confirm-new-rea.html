@@ -88,6 +88,15 @@ Update a registered email address
   </div>
 </details>
 
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{{ govukWarningText({
+  text: "This is the only time we will show you the new registered email address. It's sensitive information, so we will not show it anywhere in our services. Print or save this page before you submit the filing, for your own records.",
+  iconFallbackText: "Warning"
+}) }}
+
+
+
       {# <h2 class="govuk-heading-m">Now send your application</h2>
 
       <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p> #}

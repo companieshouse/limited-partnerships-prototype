@@ -76,15 +76,15 @@
   },
   items: [
     {
-      value: "no",
-      html: "No, I want to use today’s date – " + ( "today" | govukDate )
-    },
-    {
       value: "yes",
       text: "Yes",
       conditional: {
         html: changeDateHtml
       }
+    },
+    {
+      value: "no",
+      text: "No, use today's date (" ~ todayHtml ~ ")"
     }
   ]
 }) }}

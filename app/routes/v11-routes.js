@@ -242,8 +242,7 @@ router.post('/lp-add-another', function(request, response) {
     }
     else if (
         registrationOrTransition === "registration" && 
-        (registerType === "registerSlp" || registerType === "RegisterPflpSco" || 
-         lpNumber.startsWith("SL") || lpNumber.startsWith("SG"))
+        (registerType === "registerSlp" || registerType === "RegisterPflpSco")
     ) {
         response.redirect("/v11/pscs/psc-section");
     }

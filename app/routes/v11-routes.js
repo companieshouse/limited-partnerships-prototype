@@ -355,9 +355,9 @@ router.post('/limited-partnership-ppob', function(request, response) {
     } else if (registerType === "RegisterPflp" || registerType === "RegisterPflpSco") {
         response.redirect("/v11/general-partner-section");
     } else if (registerType === "registerSlp" || registerType === "RegisterSqp") {
-        response.redirect("/v11/limited-partnership-terms");
+        response.redirect("/v11/limited-partnership-ppob-choose-address");
     } else {
-        response.redirect("/v11/limited-partnership-terms");
+        response.redirect("/v11/limited-partnership-ppob-choose-address");
     }
 });
 

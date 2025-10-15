@@ -31,26 +31,89 @@
 <h1 class="govuk-heading-xl">What is the registered office address of the partnership?</h1>
 
 {% if (data['registrationOrTransition'] == "post") %}
-<p class="govuk-hint">We'll use this address to send official communications. </p>
-
-<p class="govuk-hint">It must be a physical address in the jurisdiction where the partnership was formed. You cannot use a PO Box address.
+<p>We'll use this address to send official communications. It must be a physical address in the UK. You cannot use a PO Box address.
 </p>
+<div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                      <span class="govuk-visually-hidden">Warning</span>
+                      The address must meet the requirements of an 'appropriate' address. If it does not, the partnership could be struck off the Companies House register.
+                    </strong></p>
+
+        <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What does 'appropriate' address mean?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+                     <p>This means that:
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>it is in the jurisdiction where the limited partnership is registered (England and Wales, Northern Ireland, or Scotland)</li>
+                      <li>someone acting on behalf of the limited partnership will be made aware of any post addressed and delivered to the limited partnership</li>
+                      <li>when the limited partnership receives post at this address, it’s possible for the sender to get confirmation of delivery</li>                     
+                    </ul>
+  </div>
+        </details>
 
 {% elif (data['registrationOrTransition'] == "transition") %}
-<p class="govuk-hint">This is a new requirement. We do not hold a registered office address for the limited partnership yet. It may be different from the principal place of business address that we already hold. </p>
-<p class="govuk-hint">We'll use this address to send official communications. </p>
-
-<p class="govuk-hint">It must be a physical address in the jurisdiction where the partnership was formed. You cannot use a PO Box address.
+<p>This is a new requirement. We do not hold a registered office address for the partnership yet. It may be different from the principal place of business address that we already hold. </p>
+<p>We'll use this address to send official communications. It must be a physical address in the UK. You cannot use a PO Box address.
 </p>
+<div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                      <span class="govuk-visually-hidden">Warning</span>
+                      The address must meet the requirements of an 'appropriate' address. If it does not, the partnership could be struck off the Companies House register.
+                    </strong></p>
+
+        <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What does 'appropriate' address mean?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+                     <p>This means that:
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>it is in the jurisdiction where the limited partnership is registered (England and Wales, Northern Ireland, or Scotland)</li>
+                      <li>someone acting on behalf of the limited partnership will be made aware of any post addressed and delivered to the limited partnership</li>
+                      <li>when the limited partnership receives post at this address, it’s possible for the sender to get confirmation of delivery</li>                     
+                    </ul>
+  </div>
+        </details>
+
 {% else %}  
 
-<p class="govuk-hint">We'll use this address to send official communications. </p>
-
-<p class="govuk-hint">It must be a physical address in the jurisdiction where the partnership was formed. You cannot use a PO Box address.
+<p>We'll use this address to send official communications. It must be a physical address in the UK. You cannot use a PO Box address.
 </p>
 
-<p class="govuk-hint">You'll need to provide the principal place of business next.
-</p>
+                  <div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                      <span class="govuk-visually-hidden">Warning</span>
+                      The address must meet the requirements of an 'appropriate' address. If it does not, the partnership could be struck off the Companies House register.
+                    </strong></p>
+
+        <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What does 'appropriate' address mean?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+                     <p>This means that:
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>it is in the jurisdiction where the limited partnership is registered (England and Wales, Northern Ireland, or Scotland)</li>
+                      <li>someone acting on behalf of the limited partnership will be made aware of any post addressed and delivered to the limited partnership</li>
+                      <li>when the limited partnership receives post at this address, it’s possible for the sender to get confirmation of delivery</li>                     
+                    </ul>
+  </div>
+        </details>
+
+        <p>You'll need to provide the principal place of business next.
+        </p>
+
 {% endif %}
 
 <fieldset class="govuk-fieldset">

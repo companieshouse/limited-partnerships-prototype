@@ -407,13 +407,13 @@ router.post('/limited-partnership-terms', function(request, response) {
         response.redirect("/v11/general-partner-section")
     }
     else {
-        response.redirect("/v11/limited-partnership-sic")
+        response.redirect("/v11/limited-partnership-sic-2")
     }
 })
 
 /// SIC codes
 
-router.post('/limited-partnership-sic', function(request, response) {
+router.post('/limited-partnership-sic-2', function(request, response) {
     var checkSIC = request.session.data['checkSIC']
 
     if (checkSIC === "no") {
@@ -696,7 +696,7 @@ router.post('/check-sic', function(request, response) {
         response.redirect("/v11/confirmation-statement/submit-confirmation-statement")
     }
     else {
-        response.redirect("/v11/limited-partnership-sic")
+        response.redirect("/v11/limited-partnership-sic-2")
     }
   })
 

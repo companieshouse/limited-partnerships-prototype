@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Check the SIC codes for this limited partnership" %}
+{% set pageName="What will the partnership be doing?" %}
 
 {% set serviceName %}
   {% include "/includes/confirmation-statement-service-name.html" %}
@@ -23,13 +23,7 @@
 <form class="form" action="sic-check" method="post">
 
  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})</span>
- <h1 class="govuk-heading-xl">Check the SIC codes for this limited partnership</h1><!-- If changing the H1 be sure to also change the page title, see set PageName above-->
-
-
-<p class="govuk-body">Check the SIC codes and update any that have changed.</p>
-
-
-
+ <h1 class="govuk-heading-xl">What will the partnership be doing?</h1><!-- If changing the H1 be sure to also change the page title, see set PageName above-->
 
 
       {{ govukSummaryList({
@@ -99,10 +93,10 @@
   allowEmpty: false,
   label: {
     classes: "govuk-label--m",
-    text: "Add a new SIC code"
+    text: "Tell us about the intended nature of business"
   },
     hint: {
-    text: "Start typing a keyword to see a list of business activities. For example, 'finance'. Or, enter the SIC code if you know it."
+    text: "Start typing a keyword to see a list of business activities. For example, 'finance'. Or, enter the SIC code if you know it. You can add up to 4 SIC codes."
   },
   items: [
 { text: "01110, Growing of cereals (except rice), leguminous crops and oil seeds"},

@@ -1,0 +1,110 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Confirmation statement date" %}
+
+{% set serviceName %}
+  {% include "/includes/confirmation-statement-service-name.html" %}
+{% endset%}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/confirmation-statement-date" method="post">
+
+
+{% if data['newCSDate-day'] and data['newCSDate-month'] and data['newCSDate-year'] %}
+  {% set csDateText = data['newCSDate-day'] + ' ' + (data['newCSDate-month'] | monthName) + ' ' + data['newCSDate-year'] %}
+{% else %}
+  {% set csDateText = "28 May 2025" %}
+{% endif %}
+
+
+ <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})</span>
+ <h1 class="govuk-heading-xl">Confirmation statement date</h1><!-- If changing the H1 be sure to also change the page title, see set PageName above-->
+
+<p class="govuk-body">You are not due to file a confirmation statement yet.</p>
+<p class="govuk-body">The date of your next expected confirmation statement is <span class="govuk-!-font-weight-bold">21 September 2025</span>.</p>
+
+<p class="govuk-body">If you file a confirmation statement today, the confirmation statement date will change to <strong>{{ "today" | govukDate }}</strong>, or you can choose another date.</p>
+
+<p class="govuk-body">This will start a new 12 month review period and change the date of future confirmation statements.</p>
+
+
+
+
+
+{% set changeDateHtml %}
+  {{ govukDateInput({
+    id: "newCSDate",
+    namePrefix: "newCSDate",
+    fieldset: {
+      legend: {
+        text: "Enter the new confirmation statement date",
+        classes: "govuk-fieldset__legend--s"
+      }
+    },
+    hint: {
+      text: "For example, 30 9 2025. You cannot enter a date in the future."
+    }
+  }) }}
+{% endset -%}
+
+{% set todayDate = "now" | govukDate %}
+{% set fallbackDate = "5 June 2025" %}
+{% set todayHtml = (todayDate or fallbackDate) %}
+
+
+
+{{ govukRadios({
+  classes: "govuk-radios",
+  name: "changeDateOfCS",
+  fieldset: {
+    legend: {
+      text: "Do you want to change the date of this confirmation statement?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "no",
+      html: "No, I want to use today’s date – " + ( "today" | govukDate )
+    },
+    {
+      value: "yes",
+      text: "Yes",
+      conditional: {
+        html: changeDateHtml
+      }
+    }
+  ]
+}) }}
+
+    {{ govukButton({
+  text: "Save and continue"
+}) }}  
+
+
+
+</form>
+
+
+<div class="ur-shortcuts">
+  <!-- Not part of ACTUAL screen: only for UR purposes -->
+  <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
+  <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+    <li><a class="govuk-link" href="confirmation-statement-date">CS on time</a></li>
+  </ul>
+</div>
+    </div>
+  </div>
+{% endblock %}

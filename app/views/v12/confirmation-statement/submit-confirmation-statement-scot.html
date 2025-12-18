@@ -1,0 +1,110 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Submit the confirmation statement" %}
+
+{% set serviceName %}
+  {% include "/includes/confirmation-statement-service-name.html" %}
+{% endset%}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="payment-review" method="post">
+
+
+{% if data['newCSDate-day'] and data['newCSDate-month'] and data['newCSDate-year'] %}
+  {% set csDateText = data['newCSDate-day'] + ' ' + (data['newCSDate-month'] | monthName) + ' ' + data['newCSDate-year'] %}
+{% else %}
+  {% set csDateText = "31 May 2025" %}
+{% endif %}
+
+ <h1 class="govuk-heading-xl">Submit the confirmation statement</h1><!-- If changing the H1 be sure to also change the page title, see set PageName above-->
+
+
+{% set confirmationDate = csDateText or "31 May 2025" %}
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Limited partnership name"
+      },
+      value: {
+        text: "A SCOTTISH LIMITED PARTNERSHIP"
+      }
+    },
+    {
+      key: {
+        text: "Limited partnership number"
+      },
+      value: {
+        text: "SL123456"
+      }
+    },
+    {
+      key: {
+        text: "Confirmation statement date"
+      },
+      value: {
+        text: confirmationDate
+      }
+    }
+  ]
+}) }}
+
+
+
+
+
+{{ govukCheckboxes({
+  name: "submitConfirmationStatement",
+  fieldset: {
+    legend: {
+      text: "Submit the confirmation statement - you must agree to these statements",
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "I confirm that all information required to be delivered by the limited partnership pursuant to regulation 35(1)(a) of the Scottish Partnerships (Register of People with Significant Control) Regulations 2017 in relation to the confirmation period ending on the confirmation date above either has been delivered or is being delivered with this statement.",
+      html: 'I confirm that all information required to be delivered by the limited partnership pursuant to <a href="https://www.legislation.gov.uk/uksi/2017/694/regulation/35" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">regulation 35(1)(a) of the Scottish Partnerships (Register of People with Significant Control) Regulations 2017 (opens in new tab)</a> in relation to the confirmation period ending on the confirmation date above either has been delivered or is being delivered with this statement.'
+    },
+    {
+      value: "I confirm that the intended future activities of the limited partnership are lawful.",
+      text: "I confirm that the intended future activities of the limited partnership are lawful."
+    }
+  ]
+}) }}
+
+
+<p class="govuk-body">You will need to pay a fee of <span class="govuk-!-font-weight-bold">£X</span> to submit your confirmation statement.</p>
+
+{{ govukButton({
+  text: "Confirm and pay"
+}) }}  
+
+
+
+</form>
+
+
+ <div class="ur-shortcuts">
+      <!-- Not part of ACTUAL screen: only for UR purposes -->
+      <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
+        <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+          <li><a class="govuk-link" href="submit-confirmation-statement">Non-Scottish version</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}

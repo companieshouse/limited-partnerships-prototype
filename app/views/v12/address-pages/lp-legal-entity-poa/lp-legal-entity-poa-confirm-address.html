@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Confirm the limited partner's principal office address" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="../../lp-add-another" method="post">
+   
+
+   <span class="govuk-caption-l uppercase"> {{ data['lp1EntityName'] or "ENCOM LTD" }} </span>
+
+
+
+<h1 class="govuk-heading-xl">Confirm the limited partner's principal office address</h1>
+
+<p>1 Squirrel Avenue<br>Leeds<br>LS1 2AB</p>
+
+
+
+  <p><a href="lp-legal-entity-poa-manual?from=change">Change <span class="govuk-visually-hidden">registered office address</span></a><p>
+
+
+
+
+
+
+      
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+{{ govukInsetText({
+  html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+        <p>We'll show the limited partner's principal office address on the public register.</p>"
+}) }}
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

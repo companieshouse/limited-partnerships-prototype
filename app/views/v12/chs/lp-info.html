@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Find and update company information - GOV.UK Prototype Kit
+{% endblock %}
+
+{% set serviceName %}
+Find and update company information
+{% endset%}
+
+{% block beforeContent %}
+
+
+<a class="govuk-link govuk-link--no-visited-state" href="https://resources.companieshouse.gov.uk/serviceInformation.shtml#compInfo">Companies House does not verify the accuracy of the information filed</a> 
+<div class="govuk-!-margin-top-4 account-banner">
+  <a href="#">Sign in/Register</a>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<h1 class="govuk-heading-l">File an update for a limited partnership</h1>
+<p>Everyone can use this service to view information about limited partnerships.
+
+<p>Authorised Corporate Service Providers (ACSPs) can file updates and confirmation statements for limited partnerships here too. ACSPs are also known as Companies House authorised agents.
+
+<p>This service has replaced paper forms LP6, LP8 and SLP CS01.
+
+<h2 class="govuk-heading-m">How to use the service</h2>
+
+<p>You’ll need to: </p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>sign in </li>
+            <li>enter the limited partnership's name or number in '<a href="start" class="govuk-link">Search the register</a>'</li>
+            <li>select 'File for this company' on the company overview page (you'll only be able to see this if you are signed in and you are an ACSP)</li>
+            <li>select what you'd like to update</li>
+        
+            </ul>
+
+
+<h2 class="govuk-heading-m">Get help</h2>
+<p>If you need any help with the service, please <a href="https://www.gov.uk/contact-companies-house" class="govuk-link">contact us</a>.<p>
+
+    </div>
+  </div>
+{% endblock %}
+
+
+{% block footer %}
+<hr class="footer_blue_line">
+<footer class="govuk-footer">
+  <div class="govuk-width-container">
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        <p class="govuk-body">
+          <a href="../manage-prototype" class="govuk-link" style="padding-right:20px;">Manage your prototype</a>
+          <a href="../manage-prototype/clear-data" class="govuk-link">Clear data</a>
+        </p>
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 483.2 195.7"
+          height="17"
+          width="41">
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145" />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license">Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">
+          © Crown copyright
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endblock %}

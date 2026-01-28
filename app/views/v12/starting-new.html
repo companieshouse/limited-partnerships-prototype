@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Do you want to continue with a saved filing?" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/includes/phase-banner.html" %}
+   {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+      <form class="form" action="/starting-new" method="post">
+
+
+{{ govukRadios({
+  classes: "govuk-radios",
+  name: "savedFiling",
+  fieldset: {
+    legend: {
+      text: "Do you want to continue with a saved filing?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+    hint: {
+    text: "If you have saved filings, you can continue with one of these or start a new one"
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes, continue with a saved filing",
+      hint: {
+        text: "You’ll be able to choose which filing you want to continue with"
+      }
+    },
+    {
+      value: "no",
+      text: "No, start a new filing",
+    hint: {
+        text: "This will not delete any saved filings"
+      }
+    }
+  ]
+}) }}
+
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+
+{% endblock %}

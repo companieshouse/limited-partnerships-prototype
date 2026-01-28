@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Update the partnership's registered email address " %}
+
+{% set serviceName %}
+Update a registered email address
+{% endset%}
+
+
+
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="confirm-new-rea" method="post" class="form">
+
+     
+        <h1 class="govuk-heading-xl">
+          Update the partnership's registered email address 	  <!-- if changing this, update pageName above-->
+        </h1>
+      <div class="govuk-form-group">
+   <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "SL012345" }})</span>
+             <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--xl" for="new-email">
+          What is the new registered email address?
+          </label>
+          </h1>
+         
+         
+         
+          <input class="govuk-input" id="new-email" name="new-email" type="text" name="new-email" aria-describedby="event-name-hint">
+        </div>
+
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What is the registered email address used for?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+     <p class="govuk-body">It is an email address that Companies House can use to contact the company or someone acting on its behalf. 
+     <p class="govuk-body">In future we will start using it to send important information that relates to your company, for example new legislative requirements or warnings about missed deadlines.
+     <p class="govuk-body">It will not be shown on the public register.</p>
+  </div>
+</details>
+
+      
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+      </form>
+
+    </div>
+    <!--govuk-grid-row-->
+
+    <!--govuk-grid-column-two-thirds-->
+  </div>
+  <!--govuk-grid-column-two-thirds-->
+
+</main>
+</div>
+<!---govuk-width-container-->
+
+{% endblock %}

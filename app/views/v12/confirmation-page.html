@@ -1,0 +1,189 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Confirmation" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+    {% include "/includes/user-bar.html" %}
+
+  {% include "/includes/language-toggle.html" %}
+{% endblock %}
+
+
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+
+
+
+{% block content %}
+
+     <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+    {% set panelTitle = "Filing submitted" if data.registrationOrTransition in ['transition'] else "Filing submitted" %}
+
+      {{ govukPanel({
+          titleText: panelTitle,
+          html: "Your reference number<br><strong>HDJ2123F</strong>"
+      }) }}
+
+       <!-- START OF content which only shows for Registration of  England/Wales/NI entities -->
+
+{% if data['registerType'] in ["registerLp", "RegisterPflp"] and data['registrationOrTransition'] == "registration" %}
+
+          <p class="govuk-body">We've received your filing to register ACME LIMITED PARTNERSHIP (LP123456).</p>
+
+          <p class="govuk-body">We've sent a confirmation email to <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong>.</p>
+    
+    
+      <h2 class="govuk-heading-m">What happens next</h2>
+    
+
+    
+          <p>We'll process this filing within 2 working days, and email <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong> to let you know if it's been accepted or rejected.</p>
+ 
+          <p>If it's accepted, we'll register the limited partnership and publish its information on the Companies House public register. We'll send a certificate of registration to <strong>the partnership's registered email address</strong> and publish a copy of this on the public register.</p>
+
+          <p>If it's rejected, we'll explain why and tell you what you can do next. We'll also refund the registration fee.</p>
+
+      
+          <div class="ur-shortcuts">
+            <!-- Not part of ACTUAL screen: only for UR purposes -->
+            <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>
+              <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+              <li><a class="govuk-link" href="emails/application-received">Email - application received</a></li>
+                <li><a class="govuk-link" href="emails/application-accepted"> Email - application accepted</a></li>
+                <li><a class="govuk-link" href="emails/application-rejected"> Email - application rejected</a></li>
+              </ul>
+            </div>
+            
+       <!-- END OF content which only shows for Registration of England/Wales/NI entities -->
+ 
+       <!-- START OF content which only shows for Registration of Scottish entities OR IF NO TYPE HAS BEEN SET -->
+
+{% elif (not data['registerType'] or data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"]) and (not data['registrationOrTransition'] or data['registrationOrTransition'] == "registration") %}
+    
+              
+          <p class="govuk-body">We've received your filing to register ACME LIMITED PARTNERSHIP (LP123456).</p>
+
+          <p class="govuk-body">We've sent a confirmation email to <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong>.</p>
+    
+    
+      <h2 class="govuk-heading-m">What happens next</h2>
+    
+
+    
+           <p>We'll process this filing within 2 working days, and email <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong> to let you know if it's been accepted or rejected.</p>
+ 
+          <p>If it's accepted, we'll register the limited partnership and publish its information on the Companies House public register. We'll send a certificate of registration to <strong>the partnership's registered email address</strong> and publish a copy of this on the public register.</p>
+          
+          <p>If it's rejected, we'll explain why and tell you what you can do next. We'll also refund the registration fee.</p>
+
+    
+    
+          
+
+
+          
+
+      
+          <div class="ur-shortcuts">
+            <!-- Not part of ACTUAL screen: only for UR purposes -->
+            <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>
+              <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+                <li><a class="govuk-link" href="emails/application-received-slp">Email - application received (SLP)</a></li>
+                <li><a class="govuk-link" href="emails/application-accepted-slp"> Email - application accepted (SLP)</a><li>
+              <li><a class="govuk-link" href="emails/application-received">Email - application received</a></li>
+                <li><a class="govuk-link" href="emails/application-accepted"> Email - application accepted</a></li>
+                <li><a class="govuk-link" href="emails/application-rejected"> Email - application rejected</a></li>
+              </ul>
+            </div>
+            
+       <!-- END OF content which only shows for Registration of Scottish entities  OR IF NO TYPE HAS BEEN SET -->
+
+
+       <!-- START OF content which only shows for Transition -->
+       
+           
+  {% elseif data['registrationOrTransition'] in ["transition"] %}
+
+    
+
+
+
+
+
+      <p class="govuk-body">We’ve received your filing with new required information for ACME LIMITED PARTNERSHIP (LP123456).
+        
+        <p>We've sent a confirmation email to <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong>.</p>
+
+<h2 class="govuk-heading-m">What happens next</h2>
+
+      <p>We'll process this filing within 5 working days, and email <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong> to let you know if it's been accepted or rejected.</p>
+
+
+<!--Don't think we need this for transition
+{{ govukInsetText({
+  text: "This update will not show on the public register until we accept the filing."
+}) }}-->
+
+
+<p>If the filing is accepted, we'll publish the new information on the public register (except protected or sensitive information). If it's rejected, we'll explain why and tell you what you can do next.</p>
+
+<h2 class="govuk-heading-m">Confirmation statement</h2> 
+<p>All limited partnerships are now required to file an annual confirmation statement.
+
+<!--Scottish partnerships would need to say 'next' instead of 'first'-->
+<p>The first confirmation statement date for ACME LIMITED PARTNERSHIP (LP123456) is <strong>15 May 2027</strong>. 
+
+
+
+  <h2 class="govuk-heading-m">What do you want to do now?</h2>
+  <ul class="govuk-list">
+
+    <li>
+      <a href="#" class="govuk-link govuk-link--no-visited-state">Find out how to file a confirmation statement</a>
+  </li>
+
+    <li>
+      <a href="/v11/company-number" class="govuk-link govuk-link--no-visited-state">Provide new required information for a different limited partnership</a>
+  </li>
+  </ul>
+
+
+
+
+<div class="ur-shortcuts">
+  <!-- Not part of ACTUAL screen: only for UR purposes -->
+  <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>
+    <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+      <li><a class="govuk-link" href="emails/transition-update-received">Email - application received</a></li>
+      <li><a class="govuk-link" href="emails/transition-accepted"> Email - application accepted</a></li>
+
+    </ul>
+  </div>
+
+{% endif %}
+
+       <!-- END OF content which only shows for Transition -->
+
+
+
+
+<!-- Shown in all scenarios-->
+  <p class="govuk-body">
+    <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+  </p>
+
+
+    </div>
+  </div>
+{% endblock %}

@@ -756,4 +756,59 @@ router.post('/check-sic', function(request, response) {
 
 
 
+    //Update a partner address uca
+
+    router.post('/change-lp-ura', function(request, response) {
+
+    var changeLPURA = request.session.data['changeLPURA']
+
+    if (changeLPURA == "yes"){
+        response.redirect("/v12/address-pages/lp-person-ura/lp-person-ura-where")
+    }
+    else {
+
+        response.redirect("/v12/manage/date-of-change-partner-lp-update")
+        // nneds to be the radios page response.redirect("/v12/address-pages/gp-person-ca/gp-person-ca-manual")
+    }
+  })
+
+
+
+  
+
+      //Update a partner address uca
+
+    router.post('/change-ppb', function(request, response) {
+
+    var changePPB = request.session.data['changePPB']
+
+    if (changePPB == "yes"){
+        response.redirect("/v12/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-where")
+    }
+    else {
+
+        response.redirect("/v12/manage/date-of-change-partner-le-update")
+        // nneds to be the radios page response.redirect("/v12/address-pages/gp-person-ca/gp-person-ca-manual")
+    }
+  })
+
+      //Update a limited partner principle office address
+
+    router.post('/change-poa', function(request, response) {
+
+    var changePOA = request.session.data['changePOA']
+
+    if (changePOA == "yes"){
+        response.redirect("/v12/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-where")
+    }
+    else {
+
+        response.redirect("/v12/manage/date-of-change-partner-lp-update")
+        // nneds to be the radios page response.redirect("/v12/address-pages/gp-person-ca/gp-person-ca-manual")
+    }
+  })
+
+
+
+
 module.exports=router;

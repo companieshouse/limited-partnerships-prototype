@@ -18,21 +18,48 @@
 
 
 
+
+
+
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="address-pages/gp-legal-entity-poa/gp-legal-entity-poa-where" method="post">
+      <!-- Update journey -->
+      {% if (data['registrationOrTransition'] == "post") %}
+
+        <form class="form" action="manage/change-ppb" method="post">
+
+      {% else %}
+
+       <form class="form" action="address-pages/gp-legal-entity-poa/gp-legal-entity-poa-where" method="post">
 
 
+      {% endif %}
 
-{% if (data['registrationOrTransition'] == "registration") %}
-  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
-{% else %}  
-  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
-{% endif %}
 
-<h1 class="govuk-heading-xl">Add a general partner (legal entity)</h1>
+    {% if (data['registrationOrTransition'] == "registration") %}
+      <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+
+    {% elseif (data['registrationOrTransition'] == "post") %}
+
+ <span class="govuk-caption-l uppercase"> ABC Company Limited (01234567) </span>
+    {% else %}  
+      <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+    {% endif %}
+    
+    {% if (data['registrationOrTransition'] == "post") %}
+      <h1 class="govuk-heading-xl">Update general partner details (legal entity)</h1>
+
+      {% else %}  
+
+      <h1 class="govuk-heading-xl">Add a general partner (legal entity)</h1>
+      {% endif %}
+
+   
+
+  
+
 
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
@@ -1136,8 +1163,8 @@
 
 
 
-<!-- Only show When did they become a general partner in a post transition journey-->
-{% if data['registrationOrTransition'] == "post" %}
+<!-- Do not show on the update journey-->
+{% if data['registrationOrTransition'] !== "post" %}
 {{ govukDateInput({
   id: "dateBecamePartner",
   namePrefix: "dateBecamePartner",
@@ -1153,6 +1180,11 @@
 }) }}
 {% endif %}
 
+
+
+
+<!-- Do not show on the update journey-->
+{% if data['registrationOrTransition'] !== "post" %}
 
 {{ govukCheckboxes({
   name: "gp1LegalEntityDisqualificationStatementnt",
@@ -1170,6 +1202,9 @@
     }
   ]
 }) }}
+
+{% endif %}
+
  {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
                 <p>We'll show all of this information on the public register.</p>"

@@ -23,7 +23,15 @@
 <form class="form" action="/gp-legal-entity-poa-choose-address" method="post">
    
 
+ {% if (data['registrationOrTransition'] == "post") %}
+    
+  <span class="govuk-caption-l">ABC COMPANY LIMITED (01234567) </span> 
+
+{% else %}
+
   <span class="govuk-caption-l uppercase"> {{ data['gp1EntityName'] or "CITRUS PARTNERS LIMITED" }} </span>
+
+{% endif %}
 {{ govukRadios({
   name: "choosePPOB",
   fieldset: {

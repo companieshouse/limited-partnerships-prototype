@@ -428,8 +428,8 @@ The prototype re-uses the same templates across multiple journeys and scenarios 
        <li><a class="govuk-link govuk-link--no-visited-state" href="registration-or-transition">Choose registration or transition or post-transition or conf statement</a>  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}}</li>
      <li><a class="govuk-link govuk-link--no-visited-state" href="start">Guidance: Set up and run a limited partnership</a>  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}}</li>
         <li><a class="govuk-link govuk-link--no-visited-state" href="post-transition-start-page">GOV.UK start</a>  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}}</li>
-            <li><a class="govuk-link govuk-link--no-visited-state" href="chs/start">CHS start</a> {{govukTag({ text: "Existing service", classes: "govuk-tag--blue"})}}</li>
-               <li><a class="govuk-link govuk-link--no-visited-state" href="chs/lp-info">CHS limited partnership info page</a></li>
+            <li><a class="govuk-link govuk-link--no-visited-state" href="chs/start">CHS start</a> </li>
+               <li><a class="govuk-link govuk-link--no-visited-state" href="chs/lp-info">CHS limited partnership info page</a>{{govukTag({ text: "Understand entry point, UR and review content", classes: "govuk-tag--turquoise"})}}</li>
                <li><a class="govuk-link govuk-link--no-visited-state" href="chs/search-results">CHS search results</a> {{govukTag({ text: "Existing screen", classes: "govuk-tag--blue"})}}</li>
                      <li><a class="govuk-link govuk-link--no-visited-state" href="chs/chs-sign-in">CHS sign in</a> {{govukTag({ text: "Existing screen", classes: "govuk-tag--blue"})}}</li>
         <li><a class="govuk-link govuk-link--no-visited-state" href="sign-in">GOV One Login sign in</a> {{govukTag({ text: "Existing service", classes: "govuk-tag--blue"})}} </li>
@@ -443,6 +443,10 @@ The prototype re-uses the same templates across multiple journeys and scenarios 
 
       <ul class="govuk-list govuk-list--bullet">
        <li><a class="govuk-link govuk-link--no-visited-state" href="chs/company-info">Company (LP) profile</li>
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="chs/company-info#people">Company (LP) profile - officers tab
+        </li>
+
        
       <li><s><a class="govuk-link govuk-link--no-visited-state" href="manage/limited-partnership-overview-tabs-wf">Overview (tabbed WebFiling style screen)</a></s></li>
             <li><s><a class="govuk-link govuk-link--no-visited-state" href="manage/limited-partnership-overview-tabs-wf-cs-overdue">Overview with overdue Confirmation statement (tabbed WebFiling style screen)</a></s></li>
@@ -451,6 +455,86 @@ The prototype re-uses the same templates across multiple journeys and scenarios 
         <li><s><a class="govuk-link govuk-link--no-visited-state" href="manage/limited-partnership-overview-wf-style">Overview (WebFiling style screen)</a></s></li>
       </ul>
 
+      <!-- Update general partner person details -->
+
+     <h2 class="govuk-heading-m" id="initial">General partner (person)</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        
+
+   <li><a class="govuk-link govuk-link--no-visited-state" href="gp-person?from=general-partners-change">Update general partner details</a></li>
+        
+   <li><a class="govuk-link govuk-link--no-visited-state" href="manage/change-ura">Do you need to update their usual residential address?</a></li>   
+   
+   <li><a class="govuk-link govuk-link--no-visited-state" href="address-pages/gp-person-ura/gp-person-ura-where">Where is the general partner's usual residential address?</a></li>   
+   
+   <li><a class="govuk-link govuk-link--no-visited-state" href="address-pages/gp-person-ura/gp-person-ura-postcode-look-up">What is the general partner's usual residential address?</a></li>  
+   
+   <li><a class="govuk-link govuk-link--no-visited-state" href="address-pages/gp-person-ura/gp-person-ura-choose-address">Choose the general partner's usual residential address</a></li>  
+   
+   <li><a class="govuk-link govuk-link--no-visited-state" href="address-pages/gp-person-ura/gp-person-ura-confirm-address">Confirm the general partner's usual residential address
+</a></li> 
+
+
+
+        <li><a class="govuk-link govuk-link--no-visited-state" href="manage/change-uca">Do you need to update their correspondence address?</a></li>
+
+         <li><a class="govuk-link govuk-link--no-visited-state" href="address-pages/gp-person-ca/gp-person-ca-manual">What is the general partner's correspondence address?</a></li>
+
+          <li><a class="govuk-link govuk-link--no-visited-state" href="address-pages/gp-person-ca/gp-person-ca-confirm-address">Confirm the general partner's correspondence address
+</a></li>
+
+           <li><a class="govuk-link govuk-link--no-visited-state" href="mmanage/check-your-answers-change-gp-person">Check your answers before submitting this update</a></li>
+
+
+           <li><a class="govuk-link govuk-link--no-visited-state" href="manage/confirmation-change-gp-person">Update submitted</a></li>
+
+
+      </ul>
+
+
+      <!-- Update general partner Legal entity details -->
+
+     <h2 class="govuk-heading-m" id="initial">General partner (legal entity)</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        
+
+        <!-- name of LE -->
+         
+        <li><a class="govuk-link govuk-link--no-visited-state" href=""></a></li>
+        
+
+         <!-- name of Where is it registered -->
+         
+        <li><a class="govuk-link govuk-link--no-visited-state" href=""></a></li>
+        
+         <!-- name of Legal form -->
+         
+        <li><a class="govuk-link govuk-link--no-visited-state" href=""></a></li>
+        
+         <!-- name of Name of the register -->
+         
+        <li><a class="govuk-link govuk-link--no-visited-state" href=""></a></li>
+        
+         <!-- name of Registered company number (if relevant) -->
+         
+        <li><a class="govuk-link govuk-link--no-visited-state" href=""></a></li>
+        
+         <!-- name of Governing law -->
+         
+        <li><a class="govuk-link govuk-link--no-visited-state" href=""></a></li>
+        
+         <!-- name of Principle office address -->
+         
+        <li><a class="govuk-link govuk-link--no-visited-state" href=""></a></li>
+
+         <!-- name of Capital contribution -->
+         
+        <li><a class="govuk-link govuk-link--no-visited-state" href=""></a></li>
+
+         <!-- name of Date of change -->
+         
+        <li><a class="govuk-link govuk-link--no-visited-state" href=""></a></li>
+        
 
 
   </div>

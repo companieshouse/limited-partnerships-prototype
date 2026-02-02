@@ -21,16 +21,39 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="address-pages/lp-person-ura/lp-person-ura-where" method="post">
+       <!-- Update journey -->
+      {% if (data['registrationOrTransition'] == "post") %}
+
+        <form class="form" action="manage/change-lp-ura" method="post">
+
+      {% else %}  
+
+        <form class="form" action="address-pages/lp-person-ura/lp-person-ura-where" method="post">
+
+      {% endif %}
 
 
 {% if (data['registrationOrTransition'] == "registration") %}
   <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+
+<!-- Update journey -->
+{% elseif (data['registrationOrTransition'] == "post") %}
+
+<span class="govuk-caption-l uppercase">Simon Richardson</span>
 {% else %}  
   <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
 {% endif %}
 
+
+  <!-- Update journey -->
+  {% if (data['registrationOrTransition'] == "post") %}
+
+<h1 class="govuk-heading-xl">Update a limited partner's details (person)</h1>
+{% else %}  
+
 <h1 class="govuk-heading-xl">Add a limited partner (person)</h1>
+
+{% endif %}  
 
 <!--<div class="govuk-form-group govuk-input--width-30">
           <label for="autocomplete-default" class="govuk-label">Professional or honorary title (if relevant)</label>
@@ -88,6 +111,26 @@
 {% endset -%}
 
 
+{% if (data['registrationOrTransition'] == "post") %}
+
+{{ govukInput({
+  label: {
+    text: "Limited partner's previous name",
+    classes: "govuk-label--m"
+  },
+   hint: {
+    text: "For example, if they've changed their name as a result of marriage or divorce."
+  },
+
+  id: "lp1FirstName",
+  name: "lp1FirstName",
+  classes: "govuk-!-width-full"
+}) }}
+
+
+{% else %}  
+
+
 
 {{ govukRadios({
   name: "previousNameOfficer",
@@ -114,6 +157,9 @@
     }
   ]
 }) }}
+
+{% endif %}
+
 
 {{ govukDateInput({
   id: "date-of-birth",

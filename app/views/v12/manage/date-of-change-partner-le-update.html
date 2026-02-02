@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="When did these details change?" %}
+
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/v12/manage/check-your-answers-change-gp-le" method="post" class="form">
+          <span class="govuk-caption-l"> <span class="govuk-caption-l">ABC COMPANY LIMITED (01234567) </span>
+
+        <!-- if changing "When did these details change?" below, also chanhge the pageName above -->
+        {{ govukDateInput({
+          id: "dateChange",
+          namePrefix: "dateChange",
+          fieldset: {
+            legend: {
+              text: "When did these details change?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "For example, 27 3 2025"
+          }
+        }) }}
+          
+          {{ govukButton({
+                  text: "Continue"
+                }) }}      
+
+              </form>
+
+
+      {{ govukInsetText({
+  html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+        <p>We'll show this date on the public register.</p>"
+}) }}
+ 
+
+    </div>
+    <!--govuk-grid-row-->
+
+    <!--govuk-grid-column-two-thirds-->
+  </div>
+  <!--govuk-grid-column-two-thirds-->
+
+</main>
+</div>
+<!---govuk-width-container-->
+
+{% endblock %}

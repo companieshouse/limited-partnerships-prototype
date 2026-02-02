@@ -1,0 +1,131 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="../manage/confirmation-change-gp-le" method="post">
+        <span class="govuk-caption-l"> ABC COMPANY LIMITED (01234567)</span>
+     <h1 class="govuk-heading-l">Check your answers before submitting this update</h1>
+
+
+      {% set todayDate = "now" | govukDate %}
+      {% set fallbackDate = "5 June 2025" %}
+      {% set todayHtml =  (todayDate or fallbackDate) %}
+      {{ govukSummaryList({
+              classes: "govuk-!-margin-bottom-6",
+              rows: [
+                {
+                  key: {
+                    text: "Name"
+                  },
+                  value: {
+                    text: data['gp1EntityName'] or "ABC Company Limited"
+                  }
+                },
+                        {
+                  key: {
+                    text: "Legal form or corporate identity"
+                  },
+                  value: {
+                    text: data['gp1LegalForm'] or "Private limited company"
+                  }
+                },
+                {
+                  key: {
+                    text: "Governing law"
+                  },
+                  value: {
+                    text: data['gp1GoverningLaw'] or "Companies Act 2006"
+                  }
+                },
+                    {
+                  key: {
+                    text: "Register"
+                  },
+                  value: {
+                    text: data['gp1Register'] or "Companies House public register"
+                  }
+                },
+                    {
+                  key: {
+                    text: "Country registered in"
+                  },
+                  value: {
+                    text: data['gp1CountryRegistered'] or "United Kingdom"
+                  }
+                },
+                {
+                  key: {
+                    text: "Registration number"
+                  },
+                  value: {
+                    text: data['gp1RegistrationNumber'] or "01234567"
+                  }
+                },
+                {
+                  key: {
+                    text: "Principal office address"
+                  },
+                  value: {
+                    text: "24 Candy Lane, London, W1 3EE, United Kingdom"
+                  }
+                }
+              ]
+            }) }}
+
+            <h2 class="govuk-heading-m govuk-!-padding-top-5">Print or save this page for your records</h2>
+
+
+<p class="govuk-body">We will not send you or the partnership a copy of this information.
+</p>
+
+{{ govukWarningText({
+  text: "If you've updated the general partner's usual residential address, this is the only time we'll show it to you. It's sensitive information, so we will not show it anywhere in our services.
+",
+  iconFallbackText: "Warning"
+}) }}
+
+
+
+ <!-- Removed December 2025 as the filing is hidden within your filings
+  
+ <div class="govuk-inset-text">
+  If you leave this page, your answers will be saved. We'll give you the option to continue with this filing when you next sign in to this service.
+</div> -->
+
+  
+
+<div class="govuk-button-group">
+
+
+        {{ govukButton({
+          text: "Submit update"
+        }) }}
+
+          <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary">Print this page</button>
+
+</div>
+
+</form>
+
+    </div>
+  </div>
+{% endblock %}

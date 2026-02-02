@@ -23,7 +23,17 @@
 <form class="form" action="/lp-legal-entity-poa-postcode-look-up" method="post">
    
 
+   {% if (data['registrationOrTransition'] == "post") %}
+
+  <span class="govuk-caption-l uppercase">GlobalTech (00223344)</span>
+
+  {% else %}
+
   <span class="govuk-caption-l uppercase"> {{ data['lp1EntityName'] or "ENCOM LTD" }} </span>
+
+  {% endif %}
+
+  
 <h1 class="govuk-heading-xl">What is the limited partner's principal office address?</h1>
 
 

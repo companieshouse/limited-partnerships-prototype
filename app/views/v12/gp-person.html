@@ -3,7 +3,6 @@
 {% set pageName="Add a general partner (person)" %}
 
 
-
 {% block header %}
    {% include "/includes/dynamic-service-name.html" %}
 {% endblock %}
@@ -38,7 +37,7 @@
 {% endif %}
 
 {% if (data['registrationOrTransition'] == "post") %}
-<h1 class="govuk-heading-xl">Update general partner details</h1>
+<h1 class="govuk-heading-xl">Update general partner details (person)</h1>
 
 {% else %}  
 <h1 class="govuk-heading-xl">Add a general partner (person)</h1>
@@ -1075,7 +1074,7 @@ In the post-transition journey, we need to show the users 'existing' data if the
 
 <div class="govuk-form-group">
   <label class="govuk-label govuk-label--m" for="gp1Nationality1">
-    What is their nationality (if relevant)?
+    What is their second nationality (if relevant)?
   </label>
 
  <p class="govuk-hint">Dual citizenship (also known as dual nationality) is allowed in some countries. This means you can be a citizen of your own country and another country.</p>
@@ -2031,13 +2030,22 @@ In the post-transition journey, we need to show the users 'existing' data if the
 }) }}
 {% endif %}
 
+{% if data['registrationOrTransition'] == "post" %}
+{{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+                <!-- <p>We’ll show the month and year of the general partner's date of birth, but not the exact date. </p> -->
+                <p>We'll show all the other information you provide on this screen on the public register.</p>"
+        }) }}
 
-
+{% else %}
  {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
                 <p>We’ll show the month and year of the partner’s date of birth, but not the exact date. </p>
                 <p>We'll show all the other information you provide on this screen on the public register.</p>"
         }) }}
+
+{% endif %}
+
 
 
 {% if data['registrationOrTransition'] == "post" %}

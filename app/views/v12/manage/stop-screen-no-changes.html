@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Do you need to update this partner's usual residential address?" %}
+
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="stop-screen-no-changes" method="post" class="form">
+        
+
+
+
+      {{ govukButton({
+          text: "Continue and make update"
+        }) }}      
+
+
+
+      </form>
+
+    </div>
+
+
+
+  </div>
+
+
+</main>
+</div>
+
+
+{% endblock %}

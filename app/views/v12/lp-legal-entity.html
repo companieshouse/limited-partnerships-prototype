@@ -38,7 +38,7 @@
   <!-- Update journey -->
 {% elseif (data['registrationOrTransition'] == "post") %}
 
-  <span class="govuk-caption-l uppercase"> GlobalTech (00223344)</span>
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
 
 {% else %}  
   <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
@@ -1407,7 +1407,7 @@
 
 <!-- Only show When did they become a general partner in a post transition journey-->
 
-{% if data['registrationOrTransition'] == "post" %}
+{% if data['registrationOrTransition'] !== "post" %}
 {{ govukDateInput({
   id: "dateBecamePartner",
   namePrefix: "dateBecamePartner",

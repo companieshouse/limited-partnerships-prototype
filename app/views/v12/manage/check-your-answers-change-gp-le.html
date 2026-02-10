@@ -22,7 +22,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form class="form" action="../manage/confirmation-change-gp-le" method="post">
-        <span class="govuk-caption-l"> ABC COMPANY LIMITED (01234567)</span>
+        <span class="govuk-caption-l"> ABC COMPANY LIMITED</span>
      <h1 class="govuk-heading-l">Check your answers before submitting this update</h1>
 
 
@@ -87,6 +87,14 @@
                   value: {
                     text: "24 Candy Lane, London, W1 3EE, United Kingdom"
                   }
+                },
+                {
+                  key: {
+                    text: "Date of change"
+                  },
+                  value: {
+                    html: todayDate
+                  }
                 }
               ]
             }) }}
@@ -97,12 +105,12 @@
 <p class="govuk-body">We will not send you or the partnership a copy of this information.
 </p>
 
-{{ govukWarningText({
+<!-- {{ govukWarningText({
   text: "If you've updated the general partner's usual residential address, this is the only time we'll show it to you. It's sensitive information, so we will not show it anywhere in our services.
 ",
   iconFallbackText: "Warning"
 }) }}
-
+ -->
 
 
  <!-- Removed December 2025 as the filing is hidden within your filings
@@ -113,7 +121,7 @@
 
   
 
-<div class="govuk-button-group">
+<div class="govuk-button-group govuk-!-padding-top-5">
 
 
         {{ govukButton({

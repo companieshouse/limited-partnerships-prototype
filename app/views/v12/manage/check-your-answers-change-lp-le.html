@@ -88,7 +88,16 @@
                   value: {
                     text: "24 Candy Lane, London, W1 3EE, United Kingdom"
                   }
+                },
+                {
+                  key: {
+                    text: "Date of change"
+                  },
+                  value: {
+                    html: todayHtml
+                  }
                 }
+          
               ]
             }) }}
 
@@ -133,11 +142,11 @@
 <p class="govuk-body">We will not send you or the partnership a copy of this information.
 </p>
 
-{{ govukWarningText({
+<!-- {{ govukWarningText({
   text: "If you've updated the general partner's usual residential address, this is the only time we'll show it to you. It's sensitive information, so we will not show it anywhere in our services.
 ",
   iconFallbackText: "Warning"
-}) }}
+}) }} -->
 
 
 
@@ -149,7 +158,7 @@
 
   
 
-<div class="govuk-button-group">
+<div class="govuk-button-group govuk-!-static-padding-top-5">
 
 
         {{ govukButton({

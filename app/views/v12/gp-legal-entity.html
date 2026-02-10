@@ -43,7 +43,7 @@
 
     {% elseif (data['registrationOrTransition'] == "post") %}
 
- <span class="govuk-caption-l uppercase"> ABC Company Limited (01234567) </span>
+ <span class="govuk-caption-l uppercase"> ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})  </span>
     {% else %}  
       <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
     {% endif %}

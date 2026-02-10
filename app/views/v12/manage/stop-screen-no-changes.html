@@ -24,12 +24,18 @@
       <form action="stop-screen-no-changes" method="post" class="form">
         
 
+      <h1 class="govuk-heading-l">You need to make an update</h1>
 
 
-      {{ govukButton({
-          text: "Continue and make update"
-        }) }}      
+      <p class="govuk-body">You must make an update to the partners details before you submit the update.</p>
 
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Update partner details"
+        }) }}
+
+        <a class="govuk-link" href="#">Go back to the register</a>
+      </div>
 
 
       </form>

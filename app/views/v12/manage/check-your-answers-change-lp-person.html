@@ -1,0 +1,327 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">SIMON RICHARDSON </span>
+     <h1 class="govuk-heading-l">Check your answers before submitting this update</h1>
+
+
+
+
+{% set todayDate = "now" | govukDate %}
+{% set fallbackDate = "5 June 2025" %}
+{% set todayHtml =  (todayDate or fallbackDate) %}
+
+
+<!-- Removed previous name December 2025-->
+<!-- 
+{
+            key: {
+              text: "Previous name"
+            },
+            value: {
+              text: "Georgina Silver"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Silver previous name"
+                }
+              ]
+            }
+          },
+ -->
+
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Name
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+      <!-- Updated first name or no change to first name-->
+      {% if (data['gp1FirstName'] !== "") %}
+            
+        {{ data['gp1FirstName']}}
+
+      {% else %}
+
+        Georgina
+
+      {% endif %}
+
+      <!-- Updated last name or no change to last name -->
+      {% if (data['gp1LastName'] !== "") %}
+            
+        {{data['gp1LastName']}}
+
+      {% else %}
+
+        Smith
+
+    {% endif %}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="gp-person">Change<span class="govuk-visually-hidden"> {{ data['gp1FirstName']}}     {{data['gp1LastName']}} name</span></a>
+    </dd>
+  </div>
+
+<!-- 
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date of birth
+    </dt>
+    <dd class="govuk-summary-list__value">
+      21 August 1989
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="gp-person">Change<span class="govuk-visually-hidden"> Georgina Smith date of birth</span></a>
+    </dd>
+  </div> -->
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Nationality
+    </dt>
+    <dd class="govuk-summary-list__value">
+       {{data['gp1Nationality1']}}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="gp-person">Change<span class="govuk-visually-hidden"> Georgina Smith nationality</span></a>
+    </dd>
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Usual residential address
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">
+
+      <!-- No change to usual residential address -->
+      {% if  (data['changeURA']) === "no" %}
+            
+        Not updated
+
+      {% else %}
+
+      1 Blue Road, Manchester, M12 3AB
+       
+      {% endif %}
+    </p>
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="gp-person">Change<span class="govuk-visually-hidden"> Georgina Smith usual residential address</span></a>
+    </dd>
+  </div>
+
+ <!--  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Correspondence address
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+    
+      
+      
+      1 Squirrel Avenue, Leeds, LS1 2AB
+       
+  
+
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Georgina Smith correspondence address</span></a>
+    </dd>
+  </div>
+ -->
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date of change
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <!-- todayHtml -->
+
+      16 December 2025
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="gp-person">Change<span class="govuk-visually-hidden"> Georgina Smith usual residential address</span></a>
+    </dd>
+  </div>
+</dl>
+
+
+<p class="govuk-body">
+  <a href="./../gp-person?from=general-partners-change" class="govuk-link govuk-link--no-visited-state">Delete this update and start again</a>
+</p>
+
+ <!-- 
+  {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+            text: (data['gp1FirstName'] or "Georgina") + " " + (data['gp1LastName'] or "Smith")
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "21 August 1989"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith date of birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Nationality"
+            },
+            value: {
+              text: data['gp1Nationality1'] or "British"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith nationality"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Usual residential address"
+            },
+            value: {
+              text: "1 Blue Road, Manchester, M12 3AB"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith usual residential address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Correspondence address"
+            },
+            value: {
+              text: "1 Squirrel Avenue, Leeds, LS1 2AB"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gp-person",
+                  text: "Change",
+                  visuallyHiddenText: "Georgina Smith correspondence address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of change"
+            },
+            value: {
+              html: todayHtml
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Date of change"
+                }
+              ]
+            }
+          }
+        ]
+      }) }} -->
+
+      <h2 class="govuk-heading-m govuk-!-padding-top-5">Print or save this page for your records</h2>
+
+
+<p class="govuk-body">We will not send you or the partnership a copy of this information.
+</p>
+
+{{ govukWarningText({
+  text: "If you've updated the general partner's usual residential address, this is the only time we'll show it to you. It's sensitive information, so we will not show it anywhere in our services.
+",
+  iconFallbackText: "Warning"
+}) }}
+
+
+
+ <!-- Removed December 2025 as the filing is hidden within your filings
+  
+ <div class="govuk-inset-text">
+  If you leave this page, your answers will be saved. We'll give you the option to continue with this filing when you next sign in to this service.
+</div> -->
+
+  
+
+<div class="govuk-button-group">
+
+
+        {{ govukButton({
+          text: "Submit update",
+          href: "confirmation-change-lp-person"
+        }) }}
+
+          <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary">Print this page</button>
+
+</div>
+
+
+
+    </div>
+  </div>
+{% endblock %}

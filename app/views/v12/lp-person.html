@@ -107,7 +107,8 @@
 {% endset -%}
 
 
-{% if (data['registrationOrTransition'] == "post") %}
+<!-- Removed Feb 2025 we record the previous names that were submitted and then the new so this is no longer needed -->
+<!-- if  "post"
 
 {{ govukInput({
   label: {
@@ -124,10 +125,11 @@
 }) }}
 
 
-{% else %}  
+  -->
 
 
 
+  {% if (data['registrationOrTransition'] !== "post") %}
 {{ govukRadios({
   name: "previousNameOfficer",
   fieldset: {

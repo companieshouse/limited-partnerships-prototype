@@ -21,10 +21,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+  {% if (data['registrationOrTransition'] == "post") %}
+
+  <form class="form" action="../../manage/date-of-change-partner-lp-person" method="post">
       
+   {% else %}   
 <form class="form" action="../../lp-add-another" method="post">
    
-
+{% endif %}
 
   <span class="govuk-caption-l"> {{"Simon" }} {{ data['lp1LastName'] or "Robinson" }}</span>
 

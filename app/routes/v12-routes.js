@@ -676,7 +676,7 @@ router.post('/lp-person-ura-confirm-address', function(request, response) {
 
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
-        response.redirect("/v12/manage/date-of-change-partner-lp-update")
+        response.redirect("/v12/manage/date-of-change-partner-lp-person")
     }
     else {
         response.redirect("/v12/lp-add-another")

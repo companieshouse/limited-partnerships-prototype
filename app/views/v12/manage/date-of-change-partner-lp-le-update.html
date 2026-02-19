@@ -24,24 +24,24 @@
       <form action="/v12/manage/check-your-answers-change-lp-le" method="post" class="form">
 
 
-          <span class="govuk-caption-l"><span class="govuk-caption-l">GLOBALTECH</span>
+          <span class="govuk-caption-l"><span class="govuk-caption-l">GLOBAL TECH</span>
 
-<!-- if changing "When did these details change?" below, also chanhge the pageName above -->
-{{ govukDateInput({
-  id: "dateChange",
-  namePrefix: "dateChange",
-  fieldset: {
-    legend: {
-      text: "When did these details change?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--xl"
-    }
-  },
-  hint: {
-    text: "For example, 27 3 2025"
-  }
-}) }}
-  
+        <!-- if changing "When did these details change?" below, also chanhge the pageName above -->
+        {{ govukDateInput({
+          id: "dateChange",
+          namePrefix: "dateChange",
+          fieldset: {
+            legend: {
+              text: "When did these details change?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "For example, 27 3 2025"
+          }
+        }) }}
+          
    {{ govukButton({
           text: "Continue"
         }) }}      

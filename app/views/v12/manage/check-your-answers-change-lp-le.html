@@ -39,6 +39,15 @@
                   },
                   value: {
                     text: "GlobalTech"
+                  },
+                   actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "name"
+                      }
+                    ]
                   }
                 },
                         {
@@ -47,7 +56,17 @@
                   },
                   value: {
                     text: data['gp1LegalForm'] or "Private limited company"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "legal form or corporate identity"
+                      }
+                    ]
                   }
+                  
                 },
                 {
                   key: {
@@ -55,6 +74,15 @@
                   },
                   value: {
                     text: data['gp1GoverningLaw'] or "Companies Act 2006"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "governing law"
+                      }
+                    ]
                   }
                 },
                     {
@@ -63,6 +91,15 @@
                   },
                   value: {
                     text: data['gp1Register'] or "Companies House public register"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "register"
+                      }
+                    ]
                   }
                 },
                     {
@@ -71,6 +108,15 @@
                   },
                   value: {
                     text: data['gp1CountryRegistered'] or "United Kingdom"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "country registered in"
+                      }
+                    ]
                   }
                 },
                 {
@@ -79,6 +125,15 @@
                   },
                   value: {
                     text: data['gp1RegistrationNumber'] or "00223344"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "registration number"
+                      }
+                    ]
                   }
                 },
                 {
@@ -87,27 +142,38 @@
                   },
                   value: {
                     text: "24 Candy Lane, London, W1 3EE, United Kingdom"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "principal office address"
+                      }
+                    ]
                   }
                 },
+
                 {
                   key: {
                     text: "Date of change"
                   },
                   value: {
                     html: todayHtml
-                  }
-                }
+                  },
+                
                  actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "name"
+                  items: [
+                    {
+                      href: "#",
+                      text: "Change",
+                      visuallyHiddenText: "name"
+                    }
+                  ]
                 }
-              ]
-            }
           }
-
+        ]
+      }) }}
 
 
 

@@ -38,6 +38,15 @@
                   },
                   value: {
                     text: data['gp1EntityName'] or "ABC Company Limited"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "name"
+                      }
+                    ]
                   }
                 },
                         {
@@ -46,6 +55,15 @@
                   },
                   value: {
                     text: data['gp1LegalForm'] or "Private limited company"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "legal form or corporate identity"
+                      }
+                    ]
                   }
                 },
                 {
@@ -54,7 +72,17 @@
                   },
                   value: {
                     text: data['gp1GoverningLaw'] or "Companies Act 2006"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "governing law"
+                      }
+                    ]
                   }
+                  
                 },
                     {
                   key: {
@@ -62,7 +90,17 @@
                   },
                   value: {
                     text: data['gp1Register'] or "Companies House public register"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "register"
+                      }
+                    ]
                   }
+                  
                 },
                     {
                   key: {
@@ -70,6 +108,15 @@
                   },
                   value: {
                     text: data['gp1CountryRegistered'] or "United Kingdom"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "country registered in"
+                      }
+                    ]
                   }
                 },
                 {
@@ -78,6 +125,15 @@
                   },
                   value: {
                     text: data['gp1RegistrationNumber'] or "01234567"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "registration number"
+                      }
+                    ]
                   }
                 },
                 {
@@ -86,18 +142,39 @@
                   },
                   value: {
                     text: "24 Candy Lane, London, W1 3EE, United Kingdom"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "principal office address"
+                      }
+                    ]
                   }
                 },
-                {
-                  key: {
-                    text: "Date of change"
-                  },
-                  value: {
-                    html: todayDate
-                  }
+
+              {
+                key: {
+                  text: "Date of change"
+                },
+                value: {
+                  html: todayDate
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "#",
+                      text: "Change",
+                      visuallyHiddenText: "date of change"
+                    }
+                  ]
                 }
-              ]
-            }) }}
+              }
+        ]
+      }) }}
+
+
 
             <h2 class="govuk-heading-m govuk-!-padding-top-5">Print or save this page for your records</h2>
 

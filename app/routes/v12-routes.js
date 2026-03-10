@@ -470,7 +470,7 @@ router.post('/psc-choice', function(request, response) {
 
     var addAnotherPSC = request.session.data['addAnotherPSC']
     if (addAnotherPSC == "person"){
-        response.redirect("/v12/pscs/psc-person")
+        response.redirect("/v12/pscs/psc-person-alt-1")
     }
     else if (addAnotherPSC == "entity"){
         response.redirect("/v12/pscs/psc-legal-entity")

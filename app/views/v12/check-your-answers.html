@@ -511,6 +511,419 @@
 {% endif %}
 
 
+<!-- People with significant control (PSC)-->
+
+<h3 class="govuk-heading-m">People with significant control (PSCs)</h3>
+    <p class="govuk-!-margin-bottom-6"><a href="pscs/psc-add-another" class="govuk-link govuk-link--no-visited-state">Change, remove or add limited partners</a></p>
+
+
+    <!-- Individual -->
+
+{{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Professional or honorary title (if relevant)"
+            },
+            value: {
+              text: ""
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "professional or honorary title (if relevant)"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "First name"
+            },
+            value: {
+              text: "Chloe"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "first name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Last name"
+            },
+            value: {
+              text: "Davies"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "last name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              html: "10 April 80"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Nationality"
+            },
+            value: {
+              html: 'British'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "nationality"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Type of nature of control"
+            },
+            value: {
+              html: 'Nature of control for this individual'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "type of nature of control"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Percentage of shares"
+            },
+            value: {
+              html: 'The individual holds, directly or indirectly, more than 25% but not more than 50%.'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "percentage of shares"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Percentage of voting rights"
+            },
+            value: {
+              html: 'The individual holds, directly or indirectly, more than 25% but not more than 50%. '
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "percentage of voting rights"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Right to appoint or remove management"
+            },
+            value: {
+              html: 'The individual holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership.'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "right to appoint or remove management"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Significant influence or control"
+            },
+            value: {
+              html: 'No'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "significant influence or control"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Residential address"
+            },
+            value: {
+              html: '1 Olympus Road, Wrexham, W98 7AB'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "residential address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Correspondence address"
+            },
+            value: {
+              html: '1 Magpie Avenue, Liverpool, L12 3GB'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "significant influence or control"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+          <!-- RLE -->
+
+<!-- {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "Sarah Philips"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "5 January 1978"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "date of birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Customer reference"
+            },
+            value: {
+              text: "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "customer reference"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Address"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Contact details"
+            },
+            value: {
+              html: '<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+ -->
+
+      <!-- ORP-->
+
+
+<!-- {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "Sarah Philips"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "5 January 1978"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "date of birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Customer reference"
+            },
+            value: {
+              text: "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "customer reference"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Address"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Contact details"
+            },
+            value: {
+              html: '<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+ -->
+
+
+
+
+
+
 <p class="govuk-body">This filing includes sensitive information:</p>
 <ul class="govuk-list govuk-list--bullet">
   <li>the partnership's registered email address</li>

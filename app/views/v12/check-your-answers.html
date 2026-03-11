@@ -517,6 +517,32 @@
     <p class="govuk-!-margin-bottom-6"><a href="pscs/psc-add-another" class="govuk-link govuk-link--no-visited-state">Change, remove or add people with significant control (PSCs)</a></p>
 
 
+{% if (data['pscStatement'] == "no") %}
+
+{{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "PSC statement"
+            },
+            value: {
+              text: "There is no person identified as a person with significant control (either a registrable person or RLE) in relation to the limited partnership."
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "professional or honorary title (if relevant)"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+   
+{% else  %}
     <!-- Individual -->
 
 {{ govukSummaryList({
@@ -729,7 +755,7 @@
         ]
       }) }}
 
-
+{% endif %}
           <!-- RLE -->
 
 <!-- {{ govukSummaryList({

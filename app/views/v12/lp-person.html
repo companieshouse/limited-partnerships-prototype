@@ -173,6 +173,8 @@
   }
 }) }}
 {% endif %}
+
+
 <div class="govuk-form-group">
   <label class="govuk-label govuk-label--m" for="nationality">
     What is their nationality?
@@ -2018,33 +2020,36 @@
 </a></p> -->
 
 
+
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+<!-- Capital contributions -->
+
 {% if (data['registrationOrTransition'] in ["registration", "post"] and data['registerType'] in ["registerLp", "registerSlp"]) %}
 
 
 
 {% call govukFieldset({
   legend: {
-    text: "What is their total capital contribution?",
+    text: "What is the partner's total capital contribution?",
     classes: "govuk-fieldset__legend--m"
   }
 }) %}
 
 
 <p class="govuk-hint">This is the total value of all monetary and non-monetary contributions
-  
-
-  <p class="govuk-hint">  
-  
 </p>
 
-      
+
 
 {{ govukSelect({
   id: "otherCurrencySelector",
   name: "otherCurrencySelector",
   label: {
-    text: "Hint text",
-    classes: "govuk-visually-hidden"
+    text: "Select the currency",
+    classes:"govuk-!-font-weight-bold"
   },
   items: [
     {
@@ -2215,21 +2220,19 @@
 }) }}
 
 
-<p class="govuk-body">Enter the value, for example:</p>
-  <ul class="govuk-list govuk-list--bullet">
-    <li>if they contributed £0.01 enter 0.01</li>
-    <li>if they contributed $25,000 enter 25000.00</li>
-  </ul>
 
+
+<p class="govuk-body govuk-!-font-weight-bold">Enter the total value</p>
+  
 {{ govukInput({
   id: "totalCapitalContribution",
   name: "totalCapitalContribution",
   label: {
-    text: "What is their total capital contribution?",
-    classes: "govuk-visually-hidden"
+    text: "For example, if it was £25"
+
   },
-  classes: "govuk-input--width-5",
-  inputmode: "numeric",
+  classes: "govuk-input--width-10",
+  inputmode: "text",
   spellcheck: false
 }) }}
 
@@ -2277,6 +2280,8 @@
 
 
 {% endif %}
+
+
 
 <!-- Only show When did they become a general partner in a post transition journey-->
 

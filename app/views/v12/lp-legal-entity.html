@@ -1152,29 +1152,22 @@
 }) }}
 
 
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 
+<!-- Capital contributions -->
 
-{% if (data['registrationOrTransition'] in ["registration", "post"] and data['registerType'] in ["registerLp", "registerSlp"])  %}
+<h2 class='govuk-heading-m'>What is this partner's total capital contribution?</h2>
 
-
-
-{% call govukFieldset({
-  legend: {
-    text: "What is its total capital contribution?",
-    classes: "govuk-fieldset__legend--m"
-  }
-}) %}
-
-
-<p class="govuk-hint">This is the total value of all monetary and non-monetary contributions</p>
+<p class="govuk-hint">This is the total value of all monetary and non-monetary contributions
+</p>
 
 {{ govukSelect({
   id: "otherCurrencySelector",
   name: "otherCurrencySelector",
   label: {
-    text: "Hint text",
-    classes: "govuk-visually-hidden"
+    text: "Select the currency",
+    classes:"govuk-!-font-weight-bold"
   },
   items: [
     {
@@ -1344,30 +1337,31 @@
       ]
 }) }}
 
-<p class="govuk-body">Enter the value, for example:</p>
-  <ul class="govuk-list govuk-list--bullet">
-    <li>if it contributed £0.01 enter 0.01</li>
-    <li>if it contributed $25,000 enter 25000.00</li>
-  </ul>
+
 
 {{ govukInput({
   id: "totalCapitalContribution",
   name: "totalCapitalContribution",
   label: {
-    text: "What is its total capital contribution?",
-    classes: "govuk-visually-hidden"
+    text: "Enter the total value",
+    classes:"govuk-!-font-weight-bold"
   },
-  classes: "govuk-input--width-5",
-  inputmode: "numeric",
+    hint: {
+    text: "For example, if it was £25 enter 25.00"
+  },
+  classes: "govuk-input--width-10",
+  inputmode: "text",
   spellcheck: false
 }) }}
+
+
 
 {{ govukCheckboxes({
   name: "capitalContributionBreakdown",
   fieldset: {
     legend: {
       text: "What is this total value made up of?",
-      classes: "govuk-fieldset__legend--m"
+      classes: "govuk-fieldset__legend--s"
     }
   },
   hint: {
@@ -1399,10 +1393,8 @@
 
 
 
-{% endcall %}
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
-
-{% endif %}
 
 
 <!-- Only show When did they become a general partner in a post transition journey-->

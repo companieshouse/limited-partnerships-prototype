@@ -2027,17 +2027,7 @@
 
 <!-- Capital contributions -->
 
-{% if (data['registrationOrTransition'] in ["registration", "post"] and data['registerType'] in ["registerLp", "registerSlp"]) %}
-
-
-
-{% call govukFieldset({
-  legend: {
-    text: "What is the partner's total capital contribution?",
-    classes: "govuk-fieldset__legend--m"
-  }
-}) %}
-
+<h2 class='govuk-heading-m'>What is this partner's total capital contribution?</h2>
 
 <p class="govuk-hint">This is the total value of all monetary and non-monetary contributions
 </p>
@@ -2221,15 +2211,16 @@
 
 
 
-
-<p class="govuk-body govuk-!-font-weight-bold">Enter the total value</p>
   
 {{ govukInput({
   id: "totalCapitalContribution",
   name: "totalCapitalContribution",
   label: {
-    text: "For example, if it was £25"
-
+    text: "Enter the total value",
+    classes:"govuk-!-font-weight-bold"
+  },
+    hint: {
+    text: "For example, if it was £25 enter 25.00"
   },
   classes: "govuk-input--width-10",
   inputmode: "text",
@@ -2245,7 +2236,7 @@
   fieldset: {
     legend: {
       text: "What is this total value made up of?",
-      classes: "govuk-fieldset__legend--m"
+      classes: "govuk-fieldset__legend--s"
     }
   },
   hint: {
@@ -2276,11 +2267,8 @@
 }) }}
 
 
-{% endcall %}
 
-
-{% endif %}
-
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 
 <!-- Only show When did they become a general partner in a post transition journey-->

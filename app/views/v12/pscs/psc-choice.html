@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Which type of people with significant control (PSC) do you need to add?" %}
+{% set pageName="Which type of PSC do you need to add?" %}
 
 {% block header %}
    {% include "/includes/dynamic-service-name.html" %}
@@ -35,7 +35,7 @@
   value: data['pscType'],
   fieldset: {
     legend: {
-      text: "Which type of person with significant control (PSC) do you need to add?",
+      text: "Which type of PSC do you need to add?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--xl"
     }
@@ -67,14 +67,13 @@
     </span>
   </summary>
   <div class="govuk-details__text">
-    An other registrable person (ORP) is:</p>
+    An other registrable person (ORP) is a non-corporate entity or office that can legally act as a PSC. This can be:</p>
 <ul class="govuk-list govuk-list--bullet">
-  <li>a corporation sole</li>
-  <li>a government or government department of a country or territory or a part
-of a country or territory</li>
-  <li>an international organisation whose members include two or more countries
-or territories (or their governments)</li>
-<li>a local authority or local government body in the UK or elsewhere</li>
+    <li>a corporation sole – a single incorporated office occupied by one person, such as Lord Mayor of London</li>
+    <li>a government or government department of a country, a territory, or a part of a country or territory</li>
+    <li>an international organisation whose members include two or more countries
+        or territories (or their governments)</li>
+    <li>a local authority or local government body in the UK or elsewhere</li>
   </div>
 </details>
 

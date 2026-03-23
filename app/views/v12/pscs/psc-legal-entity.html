@@ -32,11 +32,11 @@
   <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
 {% endif %}
 
-<h1 class="govuk-heading-xl">Add a relevant legal entity PSC</h1>
+<h1 class="govuk-heading-xl">Add a PSC (relevant legal entity)</h1>
 
 {{ govukInput({
   label: {
-    text: "What is the relevant legal entity (RLE)'s name?",
+    text: "What is the name of the relevant legal entity (RLE)?",
     classes: "govuk-label--m",
     isPageHeading: false
   },
@@ -88,6 +88,10 @@
 <label class="govuk-label govuk-label--m" for="pscLegalEntity1CountryRegistered">
     Which country is it registered in? (if applicable)
   </label>
+
+  <div id="event-name-hint" class="govuk-hint">
+    You must answer this question if you've told us the partnership is entered in a register.
+  </div>
 
   <select class="govuk-select govuk-!-margin-top-3" id="pscLegalEntity1CountryRegistered" name="pscLegalEntity1CountryRegistered">
   
@@ -1113,7 +1117,7 @@
     classes: "govuk-label--m"
   },
   hint: {
-    text: "For example, the company number."
+    text: "For example, the company number. You must answer this question if you've told us the partnership is entered in a register."
   },
   id: "pscLegalEntity1RegistrationNumber",
   name: "pscLegalEntity1RegistrationNumber",
@@ -1121,7 +1125,6 @@
   inputmode: "numeric",
   spellcheck: false
 }) }}
-
 
 
 

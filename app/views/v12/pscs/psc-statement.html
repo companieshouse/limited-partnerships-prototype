@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Will the partnership have any people with significant control (PSCs) on registration?" %}
+{% set pageName="Will the partnership have any PSCs on registration?" %}
 
 
 {% block header %}
@@ -37,7 +37,7 @@
   name: "pscStatement",
   fieldset: {
     legend: {
-      text: "Will the partnership have any people with significant control (PSCs) on registration?",
+      text: "Will the partnership have any PSCs on registration?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--xl"
     }
@@ -46,7 +46,7 @@
   items: [
     {
       value: "yes",
-      text: "Yes, at least one person will count as a PSC in relation to the partnership. This may be an individual, a relevant legal entity (RLE) or an other registrable person (ORP)"
+      text: "Yes, at least one person will count as a PSC in relation to the partnership. This may be an individual person, a relevant legal entity (RLE) or an other registrable person (ORP)"
     },
     {
       value: "no",
@@ -62,14 +62,13 @@
     </span>
   </summary>
   <div class="govuk-details__text">
-    An other registrable person (ORP) is:</p>
+    An other registrable person (ORP) is a non-corporate entity or office that can legally act as a PSC. This can be:</p>
 <ul class="govuk-list govuk-list--bullet">
-  <li>a corporation sole</li>
-  <li>a government or government department of a country or territory or a part
-of a country or territory</li>
-  <li>an international organisation whose members include two or more countries
-or territories (or their governments)</li>
-<li>a local authority or local government body in the UK or elsewhere</li>
+    <li>a corporation sole – a single incorporated office occupied by one person, such as Lord Mayor of London</li>
+    <li>a government or government department of a country, a territory, or a part of a country or territory</li>
+    <li>an international organisation whose members include two or more countries
+        or territories (or their governments)</li>
+    <li>a local authority or local government body in the UK or elsewhere</li>
   </div>
 </details>
 

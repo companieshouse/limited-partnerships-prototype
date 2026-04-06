@@ -483,33 +483,6 @@
 
    
 
-     <!-- <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p
--->
-
-
-{% if (data['registrationOrTransition'] == "registration") %}
-
-
-{{ govukCheckboxes({
-  name: "lpStatement",
-  fieldset: {
-    legend: {
-      text: "Confirm this statement", 
-      isPageHeading: false,
-      classes: "govuk-visually-hidden"
-    }
-  },
-  items: [
-    {
-      value: "lp-statement",
-      text: "I confirm that the intended future activities of the limited partnership are lawful."
-    }
-  ]
-}) }}
-
-{% else  %}
-{% endif %}
-
 
 <!-- People with significant control (PSC)-->
 
@@ -543,7 +516,7 @@
       }) }}
    
 {% else  %}
-    <!-- Individual -->
+    <!-- Individual PSC -->
 
 {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
@@ -756,17 +729,21 @@
       }) }}
 
 {% endif %}
-          <!-- RLE -->
+          <!-- Legal entity show if a name has been entered -->
 
-<!-- {{ govukSummaryList({
+
+{% if data['psc1EntityName'] %} <!-- only show the Legal Entity entry if a name has been types into the legal entity page -->
+
+
+ {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
         rows: [
           {
             key: {
-              text: "Name"
+              text: "Legal entity name"
             },
             value: {
-              text: "Sarah Philips"
+              text: "ENCOM LIMITED"
             },
             actions: {
               items: [
@@ -780,88 +757,210 @@
           },
           {
             key: {
-              text: "Date of birth"
+              text: "Legal form"
             },
             value: {
-              text: "5 January 1978"
+              html: data['pscLegalEntity1LegalForm']
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "date of birth"
+                  visuallyHiddenText: "legal form"
                 }
               ]
             }
           },
           {
             key: {
-              text: "Customer reference"
+              text: "Governing law"
             },
             value: {
-              text: "Not provided"
+              html: data['pscLegalEntity1GoverningLaw']
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "customer reference"
+                  visuallyHiddenText: "governing law"
                 }
               ]
             }
           },
           {
             key: {
-              text: "Address"
+              text: "Register entered in"
             },
             value: {
-              html: "72 Guild Street<br>London<br>SE23 6FH"
+              html: data['pscLegalEntity1Register']
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "address"
+                  visuallyHiddenText: "governing law"
+                }
+              ]
+            }
+          },
+             {
+            key: {
+              text: "Country registered in"
+            },
+            value: {
+              html: data['pscLegalEntity1CountryRegistered']
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "country registered in"
+                }
+              ]
+            }
+          },
+              {
+            key: {
+              text: "Registration number"
+            },
+            value: {
+              html: data['pscLegalEntity1RegistrationNumber']
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "registration number"
                 }
               ]
             }
           },
           {
             key: {
-              text: "Contact details"
+              text: "Type of nature of control"
             },
             value: {
-              html: '<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>'
+              html: 'Nature of control for this individual'
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "contact details"
+                  visuallyHiddenText: "type of nature of control"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Percentage of shares"
+            },
+            value: {
+              html: 'The individual holds, directly or indirectly, more than 25% but not more than 50%.'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "percentage of shares"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Percentage of voting rights"
+            },
+            value: {
+              html: 'The individual holds, directly or indirectly, more than 25% but not more than 50%. '
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "percentage of voting rights"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Right to appoint or remove management"
+            },
+            value: {
+              html: 'The individual holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership.'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "right to appoint or remove management"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Significant influence or control"
+            },
+            value: {
+              html: 'No'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "significant influence or control"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Principal office address"
+            },
+            value: {
+              html: "1 Lemon Road<br>Hull<br>H12 3AB"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "principle office address"
                 }
               ]
             }
           }
         ]
       }) }}
- -->
+ 
+
+ {% endif %}
 
       <!-- ORP-->
 
+{% if data['pscORP1EntityName'] %}
 
-<!-- {{ govukSummaryList({
+ {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
         rows: [
           {
             key: {
-              text: "Name"
+              text: "Name of the other registrable person"
             },
             value: {
-              text: "Sarah Philips"
+              html: data['pscORP1EntityName']
             },
             actions: {
               items: [
@@ -875,10 +974,10 @@
           },
           {
             key: {
-              text: "Date of birth"
+              text: "Legal form"
             },
             value: {
-              text: "5 January 1978"
+              html: data['pscORP1LegalForm']
             },
             actions: {
               items: [
@@ -892,10 +991,10 @@
           },
           {
             key: {
-              text: "Customer reference"
+              text: "Governing law"
             },
             value: {
-              text: "Not provided"
+               html: data['pscORP1GoverningLaw']
             },
             actions: {
               items: [
@@ -907,46 +1006,143 @@
               ]
             }
           },
-          {
+           {
             key: {
-              text: "Address"
+              text: "Type of nature of control"
             },
             value: {
-              html: "72 Guild Street<br>London<br>SE23 6FH"
+              html: 'Nature of control for this individual'
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "address"
+                  visuallyHiddenText: "type of nature of control"
                 }
               ]
             }
           },
           {
             key: {
-              text: "Contact details"
+              text: "Percentage of shares"
             },
             value: {
-              html: '<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>'
+              html: 'The individual holds, directly or indirectly, more than 25% but not more than 50%.'
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "contact details"
+                  visuallyHiddenText: "percentage of shares"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Percentage of voting rights"
+            },
+            value: {
+              html: 'The individual holds, directly or indirectly, more than 25% but not more than 50%. '
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "percentage of voting rights"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Right to appoint or remove management"
+            },
+            value: {
+              html: 'The individual holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership.'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "right to appoint or remove management"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Significant influence or control"
+            },
+            value: {
+              html: 'No'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "significant influence or control"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Principal office address"
+            },
+            value: {
+              html: "1 Pigeon Street<br>Pontypridd<br>PO12 3RP"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "principle office address"
                 }
               ]
             }
           }
         ]
       }) }}
- -->
+ {% endif %}
 
 
 
+
+     <!-- <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p
+-->
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+
+
+{{ govukCheckboxes({
+  name: "lpStatement",
+  fieldset: {
+    legend: {
+      text: "Confirm this statement", 
+      isPageHeading: false,
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "lp-statement",
+      text: "I confirm that the intended future activities of the limited partnership are lawful."
+    }
+  ]
+}) }}
+
+{% else  %}
+{% endif %}
+
+<h2 class="govuk-heading-m">Print or save this page for your records</h2>
 
 
 

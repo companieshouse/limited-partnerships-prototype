@@ -459,9 +459,22 @@ router.post('/psc-choice', function(request, response) {
         response.redirect("/v12/pscs/psc-orp")
     }
     else {
-        response.redirect("/v12/pscs/psc-person-alt-1")
+        response.redirect("/v12/pscs/psc-protected-details")
     }
   })
+
+  // psc protected details
+
+  router.post('/psc-protected-details', function(request, response) {
+
+    response.redirect('/v12/pscs/psc-person-alt-1')
+    
+})
+
+
+
+
+  // 
 
   // add another PSC
 
@@ -470,7 +483,7 @@ router.post('/psc-choice', function(request, response) {
 
     var addAnotherPSC = request.session.data['addAnotherPSC']
     if (addAnotherPSC == "person"){
-        response.redirect("/v12/pscs/psc-person-alt-1")
+        response.redirect("/v12/pscs/psc-protected-details")
     }
     else if (addAnotherPSC == "entity"){
         response.redirect("/v12/pscs/psc-legal-entity")

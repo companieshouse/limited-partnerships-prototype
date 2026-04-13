@@ -1,0 +1,120 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Someone else has already chosen this limited partnership name" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/same-as-name" method="post">
+
+        <h1 class="govuk-heading-xl">Someone else has already chosen this limited partnership name</h1>
+       
+       {{ govukTable({
+            caption: "Someone else has already chosen this limited partnership name",
+            captionClasses: "govuk-visually-hidden",
+            firstCellIsHeader: false,
+            head: [
+              {
+                text: ""
+              },
+              {
+                text: ""
+              }
+            ],
+            rows: [
+              [
+                {
+                  text: "You wanted"
+                },
+                {
+                  text: "HARRODS LIMITED PARTNERSHIP"
+                }
+              ],
+              [
+                {
+                  text: "Someone else has registered"
+                },
+                {
+                  html: '<ul class="govuk-list govuk-list--bullet">
+                          <li>HARROD LIMITED</li>
+                          <li>HARRODS LIMITED</li>
+                            <li>HARRODS (UK) LIMITED</li>
+                            <li>HARROD UK LIMITED</li>
+                            <ul>'
+                }
+              ]
+            ]
+          }) }}
+
+{{ govukDetails({
+  summaryText: "Why are these names considered to be the same?",
+  text: "In line with the law, we remove spaces, certain punctuation, characters, words and letters from existing limited partnership names and the limited partnership name you want. Then we compare the names."
+}) }}
+
+<h2 class="govuk-heading-m">What you need to do</h2>
+<p class="govuk-body">You will have to try a different name if you are not part of the same group of companies (as either a subsidiary or parent company). Or, if the name you want is identical to the one already registered.</p>
+
+{{ govukDetails({
+  summaryText: "What is a subsidiary and parent company?",
+  text: "A subsidiary is a company that is either owned or partly owned by another company. The company that owns the subsidiary is known as a parent company."
+}) }}
+
+<p class="govuk-body">You can only use this name if:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>the company you’re setting up will be part of a group of companies that includes HARROD LIMITED, HARRODS LIMITED, HARRODS (UK) LIMITED and HARROD UK LIMITED</li>
+  <li>you can upload evidence of permission from these companies to confirm this company will be part of this group, and is allowed to use the name HARRODS LIMITED</li>
+  <li>it's not identical to any of the names shown</li>
+  </ul>
+<p class="govuk-body">If all these statements are true, you can use this name.</p>
+
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  name: "changedName",
+  fieldset: {
+    legend: {
+      text: "Will HARRODS LIMITED PARTNERSHIP be part of the group of companies that includes all the companies listed?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+    {{ govukButton({
+  text: "Save and continue"
+}) }}  
+
+
+
+</form>
+    </div>
+  </div>
+
+
+{% endblock %}

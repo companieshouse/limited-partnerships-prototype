@@ -1,0 +1,47 @@
+{% extends "layouts/main-old-header.html" %}
+
+{% set pageName="Document uploaded successfully" %}
+
+
+{% set serviceName %}
+  Upload a document to Companies House
+{% endset%}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner-alpha.html" %}
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+        titleText: "Document uploaded successfully",
+        html: "Your reference number is <br> 5isy 7d74 gyen 8qi8"
+      }) }}
+
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">We have sent you a confirmation email which contains your reference number.</p>
+      <p class="govuk-body">An examiner will process the uploaded document to check if it's acceptable for filing. Documents are registered with the date they are uploaded to Companies House as long as they are acceptable.</p>
+      <p class="govuk-body">We'll email you to tell you if the document is acceptable for filing. If the document is not acceptable, we’ll email you to let you know what you can do next.</p>
+
+      <h2 class="govuk-heading-m">What do you want to do next?</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="upload-select-document" class="govuk-link">Upload another document for ACME SCOTTISH LIMITED PARTNERSHIP ({{ data['uploadCompanyNumber'] }})</a></li>
+        <li><a href="upload-company-number" class="govuk-link">Upload another document for a different company</a></li>
+        <li><a href="javascript:void(0)" class="govuk-link">Sign out</a></li>
+      </ul>
+
+
+   <p class="govuk-body">This is a new service. Help us improve it by This is a new service. Help us improve it by <a href="javascript:void(0)" class="govuk-link">completing our quick survey</a>.</p>
+
+  </div>
+</div>
+
+
+{% endblock %}

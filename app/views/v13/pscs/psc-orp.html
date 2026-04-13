@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+ 
+{% set pageName="Add an other registrable person PSC" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+    {% include "/includes/phase-banner.html" %}
+{% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="psc-orp-nature" method="post">
+
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}
+
+<h1 class="govuk-heading-xl">Add a PSC (other registrable person)</h1>
+
+{{ govukInput({
+  label: {
+    text: "What is the name of the other registrable person (ORP)?",
+    classes: "govuk-label--m",
+    isPageHeading: true
+  },
+  id: "pscORP1EntityName",
+  name: "pscORP1EntityName"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "What is its legal form or corporate identity?",
+    classes: "govuk-label--m"
+  },
+  hint: {
+    text: "This is the corporate body type. For example, private limited company."
+  },
+  id: "pscORP1LegalForm",
+  name: "pscORP1LegalForm"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "What governing law does it operate under?",
+    classes: "govuk-label--m"
+  },
+  hint: {
+    text: "For example, the Companies Act 2006."
+  },
+  id: "pscORP1GoverningLaw",
+  name: "pscORP1GoverningLaw"
+}) }}
+
+
+
+
+ {{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+                <p>We'll show all of this information on the public register.</p>"
+        }) }}
+
+
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+      <script src="/public/javascripts/toggle-PSC-NOCs.js"></script>
+  <script src="/public/javascripts/accessible-autocomplete.js"></script>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="You are not eligible to upload Scottish limited partnership forms" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "/",
+    classes: "govuk-header--full-width-border"
+}) }}
+
+{{ govukServiceNavigation({
+}) }}
+{% endblock %}
+
+
+{% set serviceName %}
+  Upload a document to Companies House
+{% endset%}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+
+   {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-xl">You must be a Companies House authorised agent to upload these forms</h1>
+
+
+      <p>Only Authorised Corporate Service Providers (ACSPs) can upload forms for Scottish limited partnerships. ACSPs are also known as Companies House authorised agents.</p></p>
+
+      <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What is a Companies House authorised agent?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>Authorised agents are businesses like accountants, solicitors or company formation agents, that have registered with Companies House to be able to file on behalf of clients.</p>
+    <p><a href="">Read the guidance to check if you can register as an authorised agent</a>. If you cannot, you will need to find an authorised agent to file for you.</p>
+
+
+  </div>
+</details>
+
+
+
+
+         <h2 class="govuk-heading-m">What do you want to do next?</h2>
+          <ul class="govuk-list">
+        <li><a href="upload-company-number" class="govuk-link">Choose a different company</a></li>
+        <li><a href="upload-login-email" class="govuk-link">Sign in with a different account</a></li>
+        <li><a href="javascript:void(0)" class="govuk-link">Register as a Companies House authorised agent</a></li>
+      </ul>
+
+  </div>
+</div>
+
+
+{% endblock %}

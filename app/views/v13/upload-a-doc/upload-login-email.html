@@ -1,0 +1,47 @@
+{% extends "layouts/main-old-header.html" %}
+
+{% set pageName="Enter your email address to sign in to your GOV.UK One Login" %}
+
+
+{% set serviceName %}
+{% endset%}
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+    {% include "/includes/back-link-language-toggle.html" %}
+
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="upload-login-password" method="post">
+
+
+
+ {{ govukInput({
+  label: {
+    text: "Enter your email address to sign in to your GOV.UK One Login",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  id: "govOneLoginEmail",
+  name: "govOneLoginEmail"
+}) }}
+
+
+    {{ govukButton({
+    text: "Continue",
+    classes: "govuk-button"
+  }) }}
+
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

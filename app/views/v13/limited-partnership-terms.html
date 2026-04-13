@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="What is the term of the partnership?" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/limited-partnership-terms" method="post">
+   
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})   </span>
+{% endif %}
+
+<!-- In the post-transition journey, we need to show the users 'existing' data-->
+{% if data['registrationOrTransition'] == "post" %}
+    {% set checkedValue= "checked" %}
+{% else %}
+    {% set checkedValue= "" %}
+{% endif %}
+<!-- -->
+
+
+
+
+
+
+
+{{ govukRadios({
+  name: "term-of-partnership",
+  fieldset: {
+    legend: {
+      text: "What is the term of the partnership?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  hint: {
+    text: "This is the length of time for which the partnership will be entered into. "
+  },
+  items: [
+    {
+      value: "Such term as decided by the partners within the partnership agreement",
+      text: "Such term as decided by the partners within the partnership agreement"
+    },
+    {
+      value: "Until a general partner determines the partnership is dissolved",
+      text: "Until a general partner determines the partnership is dissolved"
+    },
+    {
+      value: "No set term",
+      text: "No set term",
+      checked: checkedValue
+
+    }
+  ]
+}) }}
+
+
+
+
+
+{{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+                <p>We'll show the term of the partnership on the public register.</p>"
+        }) }}
+
+      
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

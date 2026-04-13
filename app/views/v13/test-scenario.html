@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Test instructions" %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<h1 class="govuk-heading-xl">Testing instructions</h1>
+
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
+      <li>The prototype re-uses the same templates across multiple journeys and scenarios - the content on a page will change depending on the journey and the scenario. If you jump to pages using the index you may see the ‘wrong’ things.</li>
+      <li>Use the <a href="registration-or-transition">test scenario screen</a> to choose a registration, post-registration, or transition journey</li>
+      <li>Use the <a href="/manage-prototype/clear-data">Clear data</a> link in the footer to start a fresh journey.</li>
+    </ul>
+
+
+  <h2 class="govuk-heading-l">Registration</h2>
+
+<p>After selecting <a href="registration/which-type">the type of partnership you want to register</a>, on the 'choose name' screen:<p>
+
+<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
+      <li>Include the word BANK and you'll be directed to the <a href="registration/sensitive-name">'sensitive name' screen</a></li>
+      <li>Include the word HARRODS and you'll be directed to the <a href="registration/same-as-name">'same as name' screen</a></li>
+    </ul>
+
+
+  <h2 class="govuk-heading-l">Transition</h2>
+
+  <h3 class="govuk-heading-m">Sign in to GOV.UK One Login</h3>
+
+  <p>On the <a href="sign-in">Sign in to GOV.UK One Login</a>, enter the email address <span class="govuk-!-font-weight-bold">someone@test.com</span>  to see <a href="not-eligible">the screen shown to ineligible users (non-ACSPs)</a>.</p>
+
+  <p><span id="cp-email" class="govuk-visually-hidden">someone@test.com</span> <button id="cp-btn" class="govuk-button govuk-button--secondary">Copy someone@test.com</button></p>
+
+
+  <h3 class="govuk-heading-m">What is the limited partnership number?</h3>
+
+
+  <p>Entering any limited partnership number starting with <span class="govuk-!-font-weight-bold">SL</span> or <span class="govuk-!-font-weight-bold">SG</span> will show any screens (or parts of screens) specific to Scottish LPs: this is some additional content around PSCs on the 'Do you have a Companies House personal codes?' screen, and a screen towards the end of the journey where the user is asked to enter the personal codes.</p>
+
+  <p><s>Entering any limited partnership number starting with <span class="govuk-!-font-weight-bold">NL</span> will show any screens (or parts of screens) specific to Northern Irish LPs <span class="govuk-!-font-size-16">more detail to be added<span</s>></p>
+
+
+
+
+
+
+  </div>
+</div>
+
+<script type="text/javascript">
+document.getElementById("cp-btn").addEventListener("click", copy_password);
+
+function copy_password() {
+    var copyText = document.getElementById("cp-email");
+    var textArea = document.createElement("textarea");
+    textArea.value = copyText.textContent;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("Copy");
+    textArea.remove();
+}
+</script>
+
+<script type="text/javascript">
+document.getElementById("cp-btn-2").addEventListener("click", copy_password);
+
+function copy_password() {
+    var copyText = document.getElementById("cp-lp");
+    var textArea = document.createElement("textarea");
+    textArea.value = copyText.textContent;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("Copy");
+    textArea.remove();
+}
+</script>
+
+{% endblock %}

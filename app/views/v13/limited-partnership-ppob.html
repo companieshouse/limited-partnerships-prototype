@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="What is the principal place of business?" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+{% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/limited-partnership-ppob" method="post">
+   
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}
+
+
+
+<h1 class="govuk-heading-xl">What is the principal place of business?</h1>
+<p class="govuk-hint">This is the address where the day to day running of the business takes place. It could be the same as the registered office address, or a different address.</p>
+
+<p class="govuk-hint">It must be in the jurisdiction where the partnership was formed. It can be changed to an address outside of the jurisdiction after you've registered the partnership. </p>
+
+
+
+<fieldset class="govuk-fieldset">
+  <legend class="govuk-visually-hidden">
+      What is the registered office address?
+  </legend>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-margin-top-6" for="roaAddressLine1">
+      Property name or number (optional)
+    </label>
+    <input class="govuk-input" id="roaAddressLine1" name="roaAddressLine1" type="text" autocomplete="address-line1">
+  </div>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="roaPostcode">
+      Postcode
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="roaPostcode" name="roaPostcode" type="text" autocomplete="postal-code">
+  </div>
+
+
+  {{ govukButton({
+  text: "Find address"
+}) }}
+
+  <p><a href="javascript:void(0)">Enter address manually</a><p>
+
+</fieldset>
+
+
+
+{{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+                <p>We'll show this address on the public register.</p>"
+        }) }}
+
+
+
+</form>
+
+
+ <div class="ur-shortcuts">
+      <!-- Not part of ACTUAL screen: only for UR purposes -->
+      <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcuts:</p>
+        <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+          <li><a class="govuk-link" href="limited-partnership-ppob-original">Allowing users to reuse addresses</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  
+{% endblock %}

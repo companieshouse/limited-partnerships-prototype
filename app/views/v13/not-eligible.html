@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="You must be a Companies House authorised agent to use this service" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+
+
+      
+    <h1 class="govuk-heading-xl">You must be a Companies House authorised agent to use this service</h1>
+
+     <p class="govuk-body"> You cannot continue with this service, because the email you have signed in with is not linked to an Authorised Corporate Service Provider (ACSP) account.</p>
+
+      <p class="govuk-body"> Only ACSPs, also known as Companies House authorised agents, can file for limited partnerships.</p>
+    
+      <p class="govuk-body"> Authorised agents are businesses that are registered with a UK Anti-Money Laundering (AML) supervisory body. For example, accountants, solicitors or company formation agents. They have registered with Companies House to be able to file on behalf of clients.</p>
+
+     <h2 class="govuk-heading-s">If you work for a business that's already registered as an authorised agent</h2>
+     
+
+      <p class="govuk-body">You'll need to sign in with an email address that's already linked to the account, or ask a colleague whose email address is linked to add you as a user.</p>
+
+      <h2 class="govuk-heading-s">If you are an agent, but have not yet registered as a Companies House authorised agent</h2>
+
+      <p>You'll need to <a href="">apply to register as an authorised agent</a>.</p>
+
+      <h3 class="govuk-heading-s">If you are someone else involved with the limited partnership</h3>
+
+      <p class="govuk-body">You'll need to find a Companies House authorised agent to file on your behalf.  </p>
+
+
+
+<!--Hidden info about public list of authorised agents
+  <p>Check the <a href="">public list of Companies House authorised agents</a> to find out if your business is already registered. </p>-->
+
+
+
+
+      <!--
+{{ govukButton({
+  text: "Continue"
+}) }} -->
+
+</form>
+    </div>
+  </div>
+{% endblock %}

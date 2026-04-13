@@ -1,0 +1,118 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Before you file the confirmation statement" %}
+
+
+
+{% set serviceName %}
+  {% include "/includes/confirmation-statement-service-name.html" %}
+{% endset%}
+
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="../confirmation-statement/confirmation-statement-date" method="post" class="form">
+
+          <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "SL012345" }})</span>
+        <h1 class="govuk-heading-xl">
+          Before you file the confirmation statement  <!-- if changing this, update pageName above-->
+        </h1>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+             You will not be able to view or change limited partnership information (except for the SIC codes) as part of this filing. 
+          </strong>
+        </div>
+        
+        <p>Before you start, <a href="../chs/company-info?authorised" class="govuk-link govuk-link--no-visited-state">check the limited partnership information we hold</a> and update anything that's changed.</p> 
+
+
+        <!-- If moving this code, you have to keep the button and the spinner container bits together-->
+        {# {{ govukButton({
+          text: "View limited partnership information snapshot",
+          classes: "govuk-button--secondary govuk-!-margin-bottom-8",
+          attributes: {
+            id: "download-snapshot-btn",
+            type: "button"
+          }
+        }) }}
+        <div id="spinner-container" style="display: none; margin-top:-25px;">
+          <img src="/public/images/spinner.gif" alt="Loading..." width="50" height="50">
+          <p class="govuk-body">Preparing your snapshot...</p>
+        </div> #}
+        <!-- -->
+
+        <p>Once you've submitted the updates, you can file the confirmation statement. You do not need to wait for the updates to be accepted.</p>
+        
+        {{ govukCheckboxes({
+  name: "checked",
+  fieldset: {
+    legend: {
+      text: "Confirm you have checked the information and submitted any changes needed",
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "checked",
+      text: "I have checked the limited partnership information and submitted updates to information that has changed."
+    }
+  ]
+}) }}
+
+    
+        <h2 class="govuk-heading-m">Fee</h2>
+
+        <p>You will need to pay a fee of <strong>£X</strong> to submit your confirmation statement.</p>
+        <p>You can pay by debit or credit card. You cannot pay with a Companies House payment account.</p>
+
+
+
+          <!-- {{ govukWarningText({
+              text: "The only change you can make in the confirmation statement is to Standard Industrial Classification (SIC) codes",
+              iconFallbackText: "Warning"
+            }) }}-->
+  
+
+            
+
+
+
+      
+
+
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+      </form>
+
+    </div>
+    <!--govuk-grid-row-->
+
+    <!--govuk-grid-column-two-thirds-->
+  </div>
+  <!--govuk-grid-column-two-thirds-->
+
+</main>
+</div>
+<!---govuk-width-container-->
+
+
+
+  <script src="/public/javascripts/download-simulation.js"></script>
+
+{% endblock %}

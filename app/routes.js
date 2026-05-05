@@ -23,8 +23,17 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 router.use('/', require('./routes/v12-routes.js'));
 
+
+// Version 13 should be allow the user to walk through version 13 flow
+router.use('/', require('./routes/v13-routes.js'));
+
+
+
+//module.exports = router
+
+
 // Show session data and URLs in the terminal  
-router.use((req, res, next) => {  
+ router.use((req, res, next) => {  
     const log = {  
       method: req.method,  
       url: req.originalUrl,  

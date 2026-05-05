@@ -1,0 +1,445 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Your filings  – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="js-toggle-nav">
+  <nav role="navigation" class="content">
+    <p id="signed-in-user" class="user">{{ data['email'] }}</p>
+    <a class="nav-spacing" href="/chs-profile">Your details</a>
+    <a class="nav-spacing" href="/your-filings">Your filings</a>
+    <a class="nav-spacing" href="https://follow-staging.company-information.service.gov.uk">Companies you follow</a>
+    <a class="nav-spacing" target="_self" href="/">Sign out</a>
+  </nav>
+</div>
+
+{{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+<header class="text">
+  <h1 id="page-header" class="govuk-heading-xl">Your filings</h1>
+</header>
+{% endblock %}
+
+
+
+{% block content %}
+<div class="your-filings govuk-body">
+
+  {# Filing 1 #}
+  <div class="one-filing">
+    <h2 class="govuk-heading-m">
+      <a href="/task-list">
+        <span class="uppercase govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-padding-bottom-1">M W REALISATIONS LIMITED</span></a>
+      <br>
+      <p>Company number
+        <strong>00066516</strong>
+      </p>
+    </h2>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        Description<br>
+        <strong>Insolvency CVL</strong>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        Reference number<br>
+        <strong>
+          041658-302516-267610</strong>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        Received on<br>
+        <strong>
+          20 July 2021 at 7:06am</strong>
+      </div>
+    </div>
+    <br>
+    <table id="rf_table" class="govuk-table">
+      <caption class="govuk-visually-hidden">This is a list of company information filed by jsmith@testcompany.co.uk</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header description"></th>
+          <th class="govuk-table__header status govuk-!-width-one-third">Status</th>
+          <!-- <th class="govuk-table__header actions">Actions</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell text-description">
+            600 insolvency case for 00066516
+          </td>
+          <td class="govuk-table__cell ">
+            <strong class="status">Accepted</strong>
+          </td>
+          <!--<td class="govuk-table__cell ">
+            <a href="/task-list" target="_self">Continue<span class="govuk-visually-hidden">HAPPY HOUSE LTD Confirmation statement made up to 2 February 2021 (Opens link in new window)</span</a>
+            </td>-->
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell text-description">
+              LRESEX insolvency case for 00066516
+            </td>
+            <td class="govuk-table__cell ">
+              <strong class="status">Accepted</strong>
+            </td>
+            <!--<td class="govuk-table__cell ">
+              <a href="/task-list" target="_self">Continue<span class="govuk-visually-hidden">HAPPY HOUSE LTD Confirmation statement made up to 2 February 2021 (Opens link in new window)</span</a>
+              </td>-->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+{# Filing 2 #}
+    <div class="one-filing">
+      <h2 class="govuk-heading-m">
+       
+          <span class="uppercase govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-padding-bottom-1">MORRIS ACCOUNTING LTD</span>
+        <br>
+      </h2>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          Description<br>
+          <strong>Application to register as an authorised agent</strong>
+        </div>
+      </div>
+      <br>
+      <table id="rf_table" class="govuk-table">
+        <caption class="govuk-visually-hidden">This is a list of company information filed by example@gmail.com</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header description"></th>
+            <th class="govuk-table__header status">Status</th>
+            <th class="govuk-table__header actions">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell text-description">
+              Application to register as an authorised agent
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="status">Incomplete</strong>
+            </td>
+            <td class="govuk-table__cell ">
+              <a href="type-of-acsp" target="_self">Continue</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+  
+
+    
+    {# Filing 3 #}
+    <div class="one-filing">
+      <h2 class="govuk-heading-m">
+        <a href="/task-list">
+          <span class="uppercase govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-padding-bottom-1">MANY HAPPY RETURNS TRAVEL C.I.C.</span></a>
+        <br>
+        <p>Company number TEST
+          <strong>03886612</strong>
+        </p>
+      </h2>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          Description<br>
+          <strong>CIC report and full accounts</strong>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          Reference number<br>
+          <strong>
+            070875-277616-318783</strong>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          Received on<br>
+          <strong>
+            17 September 2021 at 12:37pm</strong>
+        </div>
+      </div>
+      <br>
+      <table id="rf_table" class="govuk-table">
+        <caption class="govuk-visually-hidden">This is a list of company information filed by jsmith@testcompany.co.uk</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header description"></th>
+            <th class="govuk-table__header status govuk-!-width-one-third">Status</th>
+            <!-- <th class="govuk-table__header actions">Actions</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell text-description">
+              Accounts made up to 31 March 2015
+            </td>
+            <td class="govuk-table__cell ">
+              <strong class="status">Accepted</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+   
+
+    {# Filing 4 #}
+    <div class="one-filing">
+      <h2 class="govuk-heading-m">
+        <a href="/task-list">
+          <span class="uppercase govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-padding-bottom-1">DIGITAL GLOBAL PARTNERSHIP</span></a>
+        <br>
+        <p>Company number
+          <strong>00222333</strong>
+        </p>
+      </h2>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          Description<br>
+          <strong>Annual accounts</strong>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          Reference number<br>
+          <strong>
+            776846-998567-228911</strong>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          Received on<br>
+          <strong>
+            31 March 2020 2:01 pm</strong>
+        </div>
+      </div>
+      <br>
+      <table id="rf_table" class="govuk-table">
+        <caption class="govuk-visually-hidden">This is a list of company information filed by jsmith@testcompany.co.uk</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header description"></th>
+            <th class="govuk-table__header status govuk-!-width-one-third">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell text-description">
+              <strong>Full accounts</strong>
+              made up to 31 March 2020</td>
+            <td class="govuk-table__cell ">
+              <strong class="status">Accepted</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    {# Filing 5 #}
+    <div class="one-filing">
+      <h2 class="govuk-heading-m">
+        <a href="/task-list">
+          <span class="uppercase govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-padding-bottom-1">HEAVY ALLOY LIMITED</span></a>
+        <br>
+        <p>Company number
+          <strong>00205929</strong>
+        </p>
+      </h2>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          Description<br>
+          <strong>Insolvency CVL</strong>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          Reference number<br>
+          <strong>
+            194658-677016-267625</strong>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          Received on<br>
+          <strong>
+            20 July 2021 at 7:30am</strong>
+        </div>
+      </div>
+      <br>
+      <table id="rf_table" class="govuk-table">
+        <caption class="govuk-visually-hidden">This is a list of company information filed by jsmith@testcompany.co.uk</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header description"></th>
+            <th class="govuk-table__header status govuk-!-width-one-third">Status</th>
+            <!-- <th class="govuk-table__header actions">Actions</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell text-description">
+              LRESEX insolvency case for 00205929
+            </td>
+            <td class="govuk-table__cell ">
+              <strong class="status">Accepted</strong>
+            </td>
+            <!--<td class="govuk-table__cell ">
+              <a href="/task-list" target="_self">Continue<span class="govuk-visually-hidden">HAPPY HOUSE LTD Confirmation statement made up to 2 February 2021 (Opens link in new window)</span</a>
+              </td>-->
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell text-description">
+                LIQ02 insolvency case for 00205929
+              </td>
+              <td class="govuk-table__cell ">
+                <strong class="status">Accepted</strong>
+              </td>
+              <!--<td class="govuk-table__cell ">
+                <a href="/task-list" target="_self">Continue<span class="govuk-visually-hidden">HAPPY HOUSE LTD Confirmation statement made up to 2 February 2021 (Opens link in new window)</span</a>
+              </td>-->
+            </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+{# Filing 6 #}
+    <div class="one-filing">
+      <h2 class="govuk-heading-m">
+ 
+          <span class="uppercase govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-padding-bottom-1">{{ data['overseas-name'] }}</span>
+        <br>
+      </h2>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          Description<br>
+          <strong>Registration of overseas entity</strong>
+        </div>
+      </div>
+      <br>
+      <table id="rf_table" class="govuk-table">
+        <caption class="govuk-visually-hidden">This is a list of company information filed by jsmith@testcompany.co.uk</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header description"></th>
+            <th class="govuk-table__header status">Status</th>
+            <th class="govuk-table__header actions">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell text-description">
+              Registration of overseas entity
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="status">Incomplete</strong>
+            </td>
+            <td class="govuk-table__cell ">
+              <a href="/register/secure-register-filter" target="_self">Continue</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    {# Filing 7 #}
+    <div class="one-filing">
+      <h2 class="govuk-heading-m">
+        <a href="/task-list">
+          <span class="uppercase govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-padding-bottom-1">EA TECHNOLOGY LIMITED</span></a>
+        <br>
+        <p>Company number
+          <strong>02566313</strong>
+        </p>
+      </h2>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          Description<br>
+          <strong>Abridged accounts</strong>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          Reference number<br>
+          <strong>
+            069883-474016-342146</strong>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          Received on<br>
+          <strong>
+            14 October 2021 at 1:31pm</strong>
+        </div>
+      </div>
+      <br>
+      <table id="rf_table" class="govuk-table">
+        <caption class="govuk-visually-hidden">This is a list of company information filed by jsmith@testcompany.co.uk</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header description"></th>
+            <th class="govuk-table__header status govuk-!-width-one-third">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell text-description">
+              Abridged accounts made up to 31 March 2018
+            </td>
+            <td class="govuk-table__cell ">
+              <strong class="status">Accepted</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    {# Filing 8 #}
+    <div class="one-filing">
+      <h2 class="govuk-heading-m">
+
+          <span class="uppercase govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-padding-bottom-1">ISLAND INVESTMENTS LIMITED</span>
+        <br>
+      </h2>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          Description<br>
+          <strong>Registration of overseas entity</strong>
+        </div>
+      </div>
+      <br>
+      <table id="rf_table" class="govuk-table">
+        <caption class="govuk-visually-hidden">This is a list of company information filed by jsmith@testcompany.co.uk</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header description"></th>
+            <th class="govuk-table__header status">Status</th>
+            <th class="govuk-table__header actions">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell text-description">
+              Registration of overseas entity
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="status">Incomplete</strong>
+            </td>
+            <td class="govuk-table__cell ">
+              <a href="/register/secure-register-filter" target="_self">Continue</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+<!--One Filing-->
+</div>
+<!--your filings-->
+</main>
+</div>
+<!---govuk-width-container-->
+
+
+  
+
+
+{% endblock %}

@@ -6,9 +6,6 @@
    {% include "/includes/dynamic-service-name.html" %}
 {% endblock %}
 
-{% block signOut %}
-{% endblock %}
-
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}
  {% include "/includes/user-bar.html" %}
@@ -18,7 +15,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="" method="post">
+      <form action="/sign-out" method="post">
 
         {{ govukRadios({
           classes: "govuk-radios--inline",
@@ -26,7 +23,7 @@
           name: "signOut",
           fieldset: {
             legend: {
-              text: "Are you sure you want to sign out Ieuan?",
+              text: "Are you sure you want to sign out?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -47,6 +44,17 @@
           text: "Continue"
         }) }}
 
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              How do I find my saved applications?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Sign in to your Companies House account and select Your filings to access your saved applications. 
+          </div>
+        </details>
+
 
 
 
@@ -57,6 +65,8 @@
         <p>You can return to this confirmation statement by signing in to
           <a href="/your-filings">your Companies House account</a>
           and selecting Your Filings.</p>-->
+
+          
       </form>
     </div>
   </div>

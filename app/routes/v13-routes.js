@@ -64,6 +64,21 @@ router.post('/gov-onelogin-enter-code', function(request, response) {
 
 
 
+// sign out registration
+router.post('/sign-out', function(request, response) {
+
+    var signingOut = request.session.data['signOut']
+    if (signingOut == "yes"){
+        response.redirect("v13/signed-out")
+    }     
+    else if (signingOut == "no"){
+         
+        response.redirect("v13/registration/which-type")
+    }
+})
+
+
+
 // Secure register
 
 

@@ -79,6 +79,18 @@
 
 {{ govukInput({
   label: {
+    text: "Middle names",
+    classes: "govuk-label--m"
+  },
+  id: "psc1MiddleName",
+  name: "psc1MiddleName",
+  value: psc1MiddleName,
+  classes: "govuk-!-width-full"
+}) }}
+
+
+{{ govukInput({
+  label: {
     text: "Last name",
     classes: "govuk-label--m"
   },
@@ -110,7 +122,7 @@
 
  
 
-  <select class="govuk-select" id="psc1Nationality1" name="psc1Nationality1" aria-describedby="nationality-hint">
+  <select class="govuk-select" id="psc1Nationality1" name="psc1Nationality1">
   
     
       <option value="">Select a nationality</option>
@@ -1021,18 +1033,22 @@
 </div>
 
 
-<p class="govuk-!-margin-bottom-8"><a href="#" id="second-nationality-link" class="govuk-link govuk-link--no-visited-state hidden">
-  Add a second nationality
-</a></p>
 
-<div id="second-nationality-div" class="govuk-form-group">
+
+<div class="govuk-form-group">
   <label class="govuk-label govuk-label--m" for="psc1Nationality2">
     What is their second nationality (if relevant)?
   </label>
 
- <p class="govuk-hint">Dual citizenship (also known as dual nationality) is allowed in some countries. This means you can be a citizen of your own country and another country.</p>
+  <div id="second-nationality-hint" class="govuk-hint">
+    Dual citizenship (also known as dual nationality) is allowed in some countries. This means you can be a citizen of your own country and another country.
+  </div>
 
-  <select class="govuk-select" id="psc1Nationality2" name="psc1Nationality2" aria-describedby="nationality-hint">
+
+
+
+
+  <select class="govuk-select" id="psc1Nationality2" name="psc1Nationality2" aria-describedby="second-nationality-hint">
   
     
       <option value="">Select a second nationality</option>
@@ -1951,8 +1967,6 @@
 
 
 
-
-
  {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
                 <p>We’ll show the month and year of the PSC’s date of birth, but not the exact date.</p>
@@ -1966,20 +1980,20 @@
 
 </form>
 
-
+<!-- 
 
 <div class="ur-shortcuts">
-  <!-- Not part of ACTUAL screen: only for UR purposes -->
+  
   <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
   <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
     <li><a class="govuk-link" href="psc-person">Original NOC design</a></li>
-  </ul>
+  </ul 
 </div>
-
+-->
 
     </div>
   </div>
-    <script src="/public/javascripts/second-nationality.js"></script>
+    
       <script src="/public/javascripts/toggle-PSC-NOCs.js"></script>
 
 

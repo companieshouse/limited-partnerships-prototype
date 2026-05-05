@@ -278,7 +278,7 @@ router.post('/in-scotland', function(request, response) {
 router.post('/registration-or-transition', function(request, response) {
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "registration"){
-        response.redirect("registration/registration-start-page")
+        response.redirect("v13/registration/registration-start-page")
     }
     else if (registrationOrTransition == "transition"){
         response.redirect("transition-start-page")
@@ -443,9 +443,9 @@ router.post('/psc-statement', function(request, response) {
     var pscStatement = request.session.data['pscStatement']
 
 if (pscStatement === "no") {
-  response.redirect('/check-your-answers')
+  response.redirect('v13/check-your-answers')
     } else {
-        response.redirect('/pscs/psc-choice')
+        response.redirect('v13/pscs/psc-choice')
     }
 })
 
@@ -459,7 +459,7 @@ router.post('/psc-choice', function(request, response) {
         response.redirect("/pscs/psc-orp")
     }
     else {
-        response.redirect("/pscs/psc-protected-details")
+        response.redirect("v13/pscs/psc-protected-details")
     }
   })
 
@@ -467,7 +467,7 @@ router.post('/psc-choice', function(request, response) {
 
   router.post('/psc-protected-details', function(request, response) {
 
-    response.redirect('/pscs/psc-person-alt-1')
+    response.redirect('v13/pscs/psc-person-alt-1')
     
 })
 
@@ -483,16 +483,16 @@ router.post('/psc-choice', function(request, response) {
 
     var addAnotherPSC = request.session.data['addAnotherPSC']
     if (addAnotherPSC == "person"){
-        response.redirect("/pscs/psc-protected-details")
+        response.redirect("v13/pscs/psc-protected-details")
     }
     else if (addAnotherPSC == "entity"){
-        response.redirect("/pscs/psc-legal-entity")
+        response.redirect("v13/pscs/psc-legal-entity")
     }
     else if (addAnotherPSC == "orp"){
-        response.redirect("/pscs/psc-orp")
+        response.redirect("v13/pscs/psc-orp")
     }
     else {
-        response.redirect("/check-your-answers")
+        response.redirect("v13/check-your-answers")
     }
   })
 

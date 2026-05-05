@@ -1,29 +1,18 @@
 {% extends "layouts/main.html" %}
 
+
 {% block pageTitle %}
 Your filings  – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+
 {% block beforeContent %}
 
-<div class="js-toggle-nav">
-  <nav role="navigation" class="content">
-    <p id="signed-in-user" class="user">{{ data['email'] }}</p>
-    <a class="nav-spacing" href="/chs-profile">Your details</a>
-    <a class="nav-spacing" href="/your-filings">Your filings</a>
-    <a class="nav-spacing" href="https://follow-staging.company-information.service.gov.uk">Companies you follow</a>
-    <a class="nav-spacing" target="_self" href="/">Sign out</a>
-  </nav>
-</div>
 
-{{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }}
+ {% include "/includes/account-banner.html" %}
 
-<header class="text">
-  <h1 id="page-header" class="govuk-heading-xl">Your filings</h1>
-</header>
+
+
 {% endblock %}
 
 
@@ -31,31 +20,23 @@ Your filings  – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
 <div class="your-filings govuk-body">
 
+  <header class="text">
+  <h1 id="page-header" class="govuk-heading-xl">Your filings</h1>
+</header>
+
   {# Filing 1 #}
   <div class="one-filing">
     <h2 class="govuk-heading-m">
-      <a href="/task-list">
-        <span class="uppercase govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-padding-bottom-1">M W REALISATIONS LIMITED</span></a>
-      <br>
-      <p>Company number
-        <strong>00066516</strong>
-      </p>
+      
+        <span class="uppercase govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-padding-bottom-1">ACME LP</span></a>
+      
     </h2>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-third">
         Description<br>
-        <strong>Insolvency CVL</strong>
+        <strong>Limited partnership registration</strong>
       </div>
-      <div class="govuk-grid-column-one-third">
-        Reference number<br>
-        <strong>
-          041658-302516-267610</strong>
-      </div>
-      <div class="govuk-grid-column-one-third">
-        Received on<br>
-        <strong>
-          20 July 2021 at 7:06am</strong>
-      </div>
+
     </div>
     <br>
     <table id="rf_table" class="govuk-table">
@@ -64,38 +45,69 @@ Your filings  – {{ serviceName }} – GOV.UK Prototype Kit
         <tr class="govuk-table__row">
           <th class="govuk-table__header description"></th>
           <th class="govuk-table__header status govuk-!-width-one-third">Status</th>
-          <!-- <th class="govuk-table__header actions">Actions</th> -->
+          <th class="govuk-table__header actions">Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell text-description">
-            600 insolvency case for 00066516
+            Registration for ACME LP
           </td>
           <td class="govuk-table__cell ">
-            <strong class="status">Accepted</strong>
+            <strong class="status">Incomplete</strong>
           </td>
-          <!--<td class="govuk-table__cell ">
-            <a href="/task-list" target="_self">Continue<span class="govuk-visually-hidden">HAPPY HOUSE LTD Confirmation statement made up to 2 February 2021 (Opens link in new window)</span</a>
-            </td>-->
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell text-description">
-              LRESEX insolvency case for 00066516
+          <td class="govuk-table__cell ">
+            <a href="../payment-review" target="_self">Continue to payment<span class="govuk-visually-hidden">HAPPY HOUSE LTD Confirmation statement made up to 2 February 2021 (Opens link in new window)</span</a>
             </td>
-            <td class="govuk-table__cell ">
-              <strong class="status">Accepted</strong>
-            </td>
-            <!--<td class="govuk-table__cell ">
-              <a href="/task-list" target="_self">Continue<span class="govuk-visually-hidden">HAPPY HOUSE LTD Confirmation statement made up to 2 February 2021 (Opens link in new window)</span</a>
-              </td>-->
           </tr>
+          
         </tbody>
       </table>
     </div>
 
 
-{# Filing 2 #}
+      {# Filing 2 #}
+  <div class="one-filing">
+    <h2 class="govuk-heading-m">
+      
+        <span class="uppercase govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-padding-bottom-1">ACME LP</span></a>
+      
+    </h2>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        Description<br>
+        <strong>Limited partnership registration</strong>
+      </div>
+
+    </div>
+    <br>
+    <table id="rf_table" class="govuk-table">
+      <caption class="govuk-visually-hidden"></caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header description"></th>
+          <th class="govuk-table__header status govuk-!-width-one-third">Status</th>
+          <th class="govuk-table__header actions">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell text-description">
+            Registration for Morris LP
+          </td>
+          <td class="govuk-table__cell ">
+            <strong class="status">Incomplete</strong>
+          </td>
+          <td class="govuk-table__cell ">
+            <a href="../registration/which-type" target="_self">Continue<span class="govuk-visually-hidden"> and return to the service to register Morris LP</span</a>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+
+<!-- {# Filing 2 #}
     <div class="one-filing">
       <h2 class="govuk-heading-m">
        
@@ -135,7 +147,7 @@ Your filings  – {{ serviceName }} – GOV.UK Prototype Kit
     </div>
 
 
-  
+   -->
 
     
     {# Filing 3 #}

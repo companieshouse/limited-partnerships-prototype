@@ -40,7 +40,7 @@ router.use('/', (req, res, next) => {
         response.redirect("not-eligible")
     } 
     else {
-        response.redirect("gov-onelogin-password")
+        response.redirect("v13/gov-onelogin-password")
     }
   })
 
@@ -55,10 +55,10 @@ router.post('/gov-onelogin-enter-code', function(request, response) {
         response.redirect("/chs/company-info?authorised")
     }     
     else if (registrationOrTransition == "transition"){
-         response.redirect("starting-new")
+         response.redirect("v13/starting-new")
      } 
      else {
-        response.redirect("starting-new")
+        response.redirect("v13/starting-new")
     }
 })
 
@@ -364,13 +364,31 @@ router.post('/limited-partnership-ppob', function(request, response) {
 
 
 
-// Starting new?
+// Starting new - v13 added Filing history pages into flow
 
 router.post('/starting-new', function(request, response) {
 
     var registrationOrTransition = request.session.data['registrationOrTransition']
+    var savedFiling = request.session.data['savedFiling']
     if (registrationOrTransition == "registration"){
-        response.redirect("registration/which-type")
+
+        //continue a saved filing
+        if (savedFiling == "yes"){
+
+            response.redirect("v13/saved-applications/your-filings")
+        
+        }
+
+        // no saved filing
+        else{
+
+            response.redirect("v13/registration/which-type")
+
+        }
+
+       
+
+
     }
     else if (registrationOrTransition == "transition"){
         response.redirect("company-number")

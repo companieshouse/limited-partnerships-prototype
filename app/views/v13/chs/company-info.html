@@ -87,7 +87,7 @@ Find and update company information
           </li>
           <li class="govuk-tabs__list-item">
             <a class="govuk-tabs__tab" href="#partners">
-              Partners
+              People
               <span class="govuk-visually-hidden">
                 for ENCOM LP
               </span>
@@ -426,6 +426,37 @@ Find and update company information
 
 
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="partners">
+
+                 <div class="moj-primary-navigation tabs">
+                    <div class="moj-primary-navigation__container" style="border-bottom: 1px solid #0b0c0c;">
+                      <div class="moj-primary-navigation__nav">
+                        <nav class="moj-primary-navigation" aria-label="people_navigation">
+                          <ul class="moj-primary-navigation__list tabs">
+                            <li class="moj-primary-navigation__item">
+                              <a class="moj-primary-navigation__link active_tab" id="officers_link" href="javascript:people_tab_click('officers')">Partners</a>
+                            </li>
+                  
+                            <li class="moj-primary-navigation__item">
+                              <a class="moj-primary-navigation__link" id="psc_link" href="javascript:people_tab_click('psc')">Persons with significant control</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="officers_tab">
+              <div class="govuk-grid-row govuk-!-margin-top-7">
+                <div class="govuk-grid-column-full">
+
+              <div class="govuk-button-group">
+
+                <a href="javascript:void(0)" class="authorised govuk-button govuk-button--secondary">Add a general partner</a>
+
+                <a href="/v11/limited-partner-choice" class="authorised govuk-button govuk-button--secondary govuk-!-margin-bottom-0">Add a limited partner</a>
+              </div>
+
+
           
           <div id="officers_tab">
               <div class="govuk-grid-row">

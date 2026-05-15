@@ -86,7 +86,7 @@ Find and update company information
             </a>
           </li>
           <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#partners">
+            <a class="govuk-tabs__tab" href="#people">
               People
               <span class="govuk-visually-hidden">
                 for ENCOM LP
@@ -422,30 +422,26 @@ Find and update company information
 
 
 
-
-
-
-        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="partners">
-
-                 <div class="moj-primary-navigation tabs">
-                    <div class="moj-primary-navigation__container" style="border-bottom: 1px solid #0b0c0c;">
-                      <div class="moj-primary-navigation__nav">
-                        <nav class="moj-primary-navigation" aria-label="people_navigation">
-                          <ul class="moj-primary-navigation__list tabs">
-                            <li class="moj-primary-navigation__item">
-                              <a class="moj-primary-navigation__link active_tab" id="officers_link" href="javascript:people_tab_click('officers')">Partners</a>
-                            </li>
-                  
-                            <li class="moj-primary-navigation__item">
-                              <a class="moj-primary-navigation__link" id="psc_link" href="javascript:people_tab_click('psc')">Persons with significant control</a>
-                            </li>
-                          </ul>
-                        </nav>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div id="officers_tab">
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="people">
+          <div class="moj-primary-navigation tabs">
+            <div class="moj-primary-navigation__container" style="border-bottom: 1px solid #0b0c0c;">
+              <div class="moj-primary-navigation__nav">
+                <nav class="moj-primary-navigation" aria-label="people_navigation">
+                  <ul class="moj-primary-navigation__list tabs">
+                    <li class="moj-primary-navigation__item">
+                      <a class="moj-primary-navigation__link active_tab" id="officers_link" href="javascript:people_tab_click('officers')">Officers</a>
+                    </li>
+          
+                    <li class="moj-primary-navigation__item">
+                      <a class="moj-primary-navigation__link" id="psc_link" href="javascript:people_tab_click('psc')">Persons with significant control</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          
+          <div id="officers_tab">
               <div class="govuk-grid-row govuk-!-margin-top-7">
                 <div class="govuk-grid-column-full">
 
@@ -457,10 +453,6 @@ Find and update company information
               </div>
 
 
-          
-          <div id="officers_tab">
-              <div class="govuk-grid-row">
-                <div class="govuk-grid-column-full">
                   <h2 class="govuk-heading-m">Filter partners</h2>
 
                   <div class="govuk-form-group">
@@ -475,6 +467,9 @@ Find and update company information
                       </div>
                     </fieldset>
                   </div>
+
+
+
 
                   <h2 class="govuk-heading-m govuk-!-margin-top-7">5 partners / 1 resignations</h2>
 

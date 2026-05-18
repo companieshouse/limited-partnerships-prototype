@@ -41,27 +41,27 @@
     name: "typeNOC",
     fieldset: {
       legend: {
-        text: "Which type of nature of control does this PSC have?",
+        text: "How does this individual hold control over the limited partnership?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
       }
-    },
-    hint: {
-      text: "Select all that apply"
     },
     classes: "govuk-!-margin-bottom-0",
     items: [
       {
         value: "nocIndividual",
-        text: "Nature of control for this individual"
+        text: "As an individual",
+        hint: { text: "The individual meets one or more natures of control" }
       },
       {
         value: "nocFirm",
-        text: "Nature of control by a firm over which this individual has significant control"
+        text: "Through a firm",
+        hint: { text: "The individual has control over a firm that meets one or more natures of control" }
       },
       {
         value: "nocTrust",
-        text: "Nature of control by a trust over which this individual has significant control"
+        text: "Through a trust",
+        hint: { text: "The individual has control over a trust that meets one or more natures of control" }
       }
     ]
   }) }}
@@ -89,8 +89,8 @@
 
 <div class="noc-content" id="nocIndividual">
 
-<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-1">Nature of control for this individual</h2>
-<p class="govuk-body">Indicate the individual’s nature of control over the limited partnership</p>
+<h2 class="govuk-heading-l govuk-!-font-weight-bold govuk-!-margin-bottom-1">What is the individual's nature of control?</h2>
+<div class="govuk-hint">Select all that apply</div>
 
      {{ govukRadios({
         name: "psc1ShareOfAssets",
@@ -98,10 +98,15 @@
           legend: {
             text: "a. Share of assets",
             classes: "govuk-fieldset__legend--s"
+
           }
         },
-        hint: {
-          text: "The individual holds, directly or indirectly, the right to the following percentage of the surplus assets of the limited partnership on a winding up:"
+
+  formGroup: {
+    beforeInputs: {
+      html: '<p class="govuk-body">This is the share of assets left after the partnership is wound up. The individual holds (directly or indirectly):</p>'
+    }
+
         },
         items: [
           {
@@ -132,8 +137,12 @@
                   classes: "govuk-fieldset__legend--s"
                 }
               },
-              hint: {
-                text: "The individual holds, directly or indirectly, the following percentage of any voting rights in the limited partnership:"
+
+  formGroup: {
+    beforeInputs: {
+      html: '<p class="govuk-body">The individual holds (directly or indirectly):</p>'
+    }
+
               },
               items: [
                 {
@@ -161,7 +170,7 @@
                       name: "psc1OwnershipOfRightToAppointRemoveManagement",
                       fieldset: {
                         legend: {
-                          text: "c. Ownership of right to appoint/remove management",
+                          text: "c. Ownership of right to appoint or remove management",
                           classes: "govuk-fieldset__legend--s"
                         }
                       },
@@ -170,8 +179,8 @@
                       },
                       items: [
                         {
-                          value: "The individual holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership",
-                          text: "The individual holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership"
+                          value: "The individual holds (directly or indirectly) the right to appoint or remove the majority of management of the limited partnership",
+                          text: "The individual holds (directly or indirectly) the right to appoint or remove the majority of management of the limited partnership"
                         }
                       ]
                     }) }}
@@ -204,8 +213,8 @@ influence or control over the limited partnership"
 
 
 <div class="noc-content" id="nocFirm">
-<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-1">Nature of control by a firm over which this individual has significant control</h2>
-<p class="govuk-body">The individual has the right to exercise, or actually exercises, significant influence or control over the activities of a firm that is not a legal person under its governing law, and:</p>
+<h2 class="govuk-heading-l govuk-!-font-weight-bold govuk-!-margin-bottom-1">What is the firm's nature of control?</h2>
+<div class="govuk-hint">Select all that apply</div>
 
 
 
@@ -218,8 +227,10 @@ influence or control over the limited partnership"
                   classes: "govuk-fieldset__legend--s"
                 }
               },
-              hint: {
-                text: "The members of that firm (in their capacity as such) hold, directly or indirectly, the right to the following percentage of any surplus assets on a winding up of the limited partnership:"
+  formGroup: {
+    beforeInputs: {
+      html: '<p class="govuk-body">This is the share of assets left after the partnership is wound up. The members of the firm hold (directly or indirectly):</p>'
+    }
               },
               items: [
                 {
@@ -249,8 +260,10 @@ influence or control over the limited partnership"
                   classes: "govuk-fieldset__legend--s"
                 }
               },
-              hint: {
-                text: "The members of that firm (in their capacity as such) hold, directly or indirectly, the following percentage of any voting rights in the limited partnership:"
+              formGroup: {
+                beforeInputs: {
+                  html: '<p class="govuk-body">The members of the firm hold (directly or indirectly):</p>'
+                }
               },
               items: [
                 {
@@ -277,7 +290,7 @@ influence or control over the limited partnership"
               name: "psc1ControlByFirm3",
                       fieldset: {
                         legend: {
-                          text: "c. Ownership of right to appoint/remove management",
+                          text: "c. Ownership of right to appoint or remove management",
                           classes: "govuk-fieldset__legend--s"
                         }
                       },
@@ -286,8 +299,8 @@ influence or control over the limited partnership"
                       },
                       items: [
                         {
-                          value: "The members of that firm (in their capacity as such) hold the right, directly or indirectly, to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership",
-                          text: "The members of that firm (in their capacity as such) hold the right, directly or indirectly, to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership"
+                          value: "The members of the firm hold (directly or indirectly) the right to appoint or remove a majority of management of the limited partnership",
+                          text: "The members of the firm hold (directly or indirectly) the right to appoint or remove a majority of management of the limited partnership"
                         }
                       ]
                     }) }}
@@ -306,8 +319,8 @@ influence or control over the limited partnership"
                       },
                       items: [
                         {
-                          value: "The members of that firm (in their capacity as such) have the right to exercise, or actually exercise, significant influence or control over the limited partnership",
-                          text: "The members of that firm (in their capacity as such) have the right to exercise, or actually exercise, significant influence or control over the limited partnership"
+                          value: "The members of the firm have the right to exercise, or actually exercise, significant influence or control over the limited partnership",
+                          text: "The members of the firm have the right to exercise, or actually exercise, significant influence or control over the limited partnership"
                         }
                       ]
                     }) }}
@@ -321,8 +334,8 @@ influence or control over the limited partnership"
 
 <div class="noc-content" id="nocTrust">
 
-<h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-1">Nature of control by a trust over which this individual has significant control</h2>
-<p class="govuk-body">The individual has the right to exercise, or actually exercises, significant influence or control over the activities of a trust, and:</p>
+<h2 class="govuk-heading-l govuk-!-font-weight-bold govuk-!-margin-bottom-1">What is the trust's nature of control?</h2>
+<div class="govuk-hint">Select all that apply</div>
 
 
 
@@ -334,8 +347,10 @@ influence or control over the limited partnership"
                   classes: "govuk-fieldset__legend--s"
                 }
               },
-              hint: {
-                text: "The trustees of that trust (in their capacity as such) hold, directly or indirectly, the right to the following percentage of any surplus assets on a winding up of the limited partnership:"
+              formGroup: {
+                beforeInputs: {
+                  html: '<p class="govuk-body">This is the share of assets left after the partnership is wound up. The trustees of the trust hold (directly or indirectly):</p>'
+                }
               },
               items: [
                 {
@@ -365,8 +380,10 @@ influence or control over the limited partnership"
                   classes: "govuk-fieldset__legend--s"
                 }
               },
-              hint: {
-                text: "The trustees of that trust (in their capacity as such) hold, directly or indirectly, the following percentage of any voting rights in the limited partnership:"
+              formGroup: {
+                beforeInputs: {
+                  html: '<p class="govuk-body">The trustees of the trust hold (directly or indirectly):</p>'
+                } 
               },
               items: [
                 {
@@ -393,7 +410,7 @@ influence or control over the limited partnership"
               name: "psc1ControlByTrust3",
                       fieldset: {
                         legend: {
-                          text: "c. Ownership of right to appoint/remove management",
+                          text: "c. Ownership of right to appoint or remove management",
                           classes: "govuk-fieldset__legend--s"
                         }
                       },
@@ -402,8 +419,8 @@ influence or control over the limited partnership"
                       },
                       items: [
                         {
-                          value: "The trustees of that trust (in their capacity as such) hold the right, directly or indirectly, to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership",
-                          text: "The trustees of that trust (in their capacity as such) hold the right, directly or indirectly, to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership"
+                          value: "The trustees of the trust hold (directly or indirectly) the right to appoint or remove the majority of management of the limited partnership",
+                          text: "The trustees of the trust hold (directly or indirectly) the right to appoint or remove the majority of management of the limited partnership"
                         }
                       ]
                     }) }}
@@ -422,8 +439,8 @@ influence or control over the limited partnership"
                       },
                       items: [
                         {
-                          value: "The trustees of that trust (in their capacity as such) have the right to exercise, or actually exercise, significant influence or control over the limited partnership",
-                          text: "The trustees of that trust (in their capacity as such) have the right to exercise, or actually exercise, significant influence or control over the limited partnership"
+                          value: "The trustees of the trust have the right to exercise, or actually exercise, significant influence or control over the limited partnership",
+                          text: "The trustees of the trust have the right to exercise, or actually exercise, significant influence or control over the limited partnership"
                         }
                       ]
                     }) }}

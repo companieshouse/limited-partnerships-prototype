@@ -21,11 +21,11 @@ const router = govukPrototypeKit.requests.setupRouter()
 //router.use('/', require('./routes/v10-routes.js'));
 // router.use('/', require('./routes/v11-routes.js'));
 
-router.use('/', require('./routes/v12-routes.js'));
+//router.use('/', require('./routes/v12-routes.js'));
 
 
 // Version 13 should be allow the user to walk through version 13 flow
-//router.use('/', require('./routes/v13-routes.js'));
+router.use('/', require('./routes/v13-routes.js'));
 
 
 

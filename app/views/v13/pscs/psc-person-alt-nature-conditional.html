@@ -33,7 +33,6 @@
 {% endif %}
 
 
-
 <!--Nature of control-->
 
 <div class="js-enabled-checkboxes" hidden>
@@ -45,9 +44,6 @@
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
       }
-    },
-    hint: {
-      text: "Select all that apply"
     },
     classes: "govuk-!-margin-bottom-0",
     items: [
@@ -118,10 +114,6 @@
           {
             value: "75% or more",
             text: "75% or more"
-          },
-          {
-            value: "does not apply",
-            text: "does not apply"
           }
         ]
       }) }}
@@ -152,11 +144,7 @@
                 {
                   value: "75% or more",
                   text: "75% or more"
-                },
-          {
-            value: "does not apply",
-            text: "does not apply"
-          }
+                }
               ]
             }) }}
 
@@ -167,7 +155,7 @@
   fieldset: {
     legend: {
       text: "What is the individual's nature of control?",
-      classes: "govuk-fieldset__legend--l"
+      classes: "govuk-fieldset__legend--m govuk-!-padding-top-3"
     }
   },
   hint: {
@@ -193,6 +181,9 @@
     {
       value: "psc1OwnershipOfRightToAppointRemoveManagement",
       text: "Ownership of the right to appoint or remove the majority of management of the limited partnership"
+    },
+    {
+      divider: "or"
     },
     {
       value: "psc1SignificantInfluenceOrControl",
@@ -252,13 +243,15 @@ influence or control over the limited partnership"
                         }
                       ]
                     }) }} -->
-                    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
+                  
 </div>
 
 
 
 <div class="noc-content" id="nocFirm">
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
 <h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-1">Nature of control by a firm over which this individual has significant control</h2>
 <p class="govuk-body">The individual has the right to exercise, or actually exercises, significant influence or control over the activities of a firm that is not a legal person under its governing law, and:</p>
 

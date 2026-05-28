@@ -681,12 +681,12 @@ router.post('/gp-legal-entity-poa-where', function(request, response) {
 
 
 router.post('/gp-legal-entity-poa-postcode-look-up', function(request, response) {
-    response.redirect('/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-choose-address')
+    response.redirect('v13/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-choose-address')
 })
 
 
   router.post('/gp-legal-entity-poa-choose-address', function(request, response) {
-    response.redirect('/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-confirm-address')
+    response.redirect('v13/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-confirm-address')
 })
 
 // General partner - person //

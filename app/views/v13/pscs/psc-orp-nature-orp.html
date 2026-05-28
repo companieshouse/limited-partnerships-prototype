@@ -1,16 +1,16 @@
 {% extends "layouts/main.html" %}
  
-{% set pageName="Add a PSC who is an individual person" %}
-
+{% set pageName="Add an other registrable person PSC" %}
 
 
 {% block header %}
    {% include "/includes/dynamic-service-name.html" %}
 {% endblock %}
 
+
 {% block beforeContent %}
-   {% include "/includes/phase-banner.html" %}
- {% include "/includes/user-bar.html" %}
+    {% include "/includes/phase-banner.html" %}
+{% include "/includes/user-bar.html" %}
   {% include "/includes/back-link-language-toggle.html" %}
 {% endblock %}
 
@@ -22,9 +22,9 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="pscs-addresses/psc-person-ura/psc-person-ura-where" method="post">
+      <form class="form" action="/psc-orp-nature-orp" method="post">
 
-
+<!--pscs-addresses/psc-orp-poa/psc-orp-poa-where-->
 
 {% if (data['registrationOrTransition'] == "registration") %}
   <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
@@ -33,26 +33,12 @@
 {% endif %}
 
 
+<h1 class="govuk-heading-xl govuk-!-margin-bottom-1">Nature of control for this other registrable person (ORP)</h1>
+<div class="govuk-hint govuk-!-margin-bottom-5">Select all that apply</div>
 
-<!--Nature of control-->
-
-
-
-<!-- Hidden by default, shown by JS if selected -->
+<p class="govuk-body">Indicate the ORP's nature of control over the limited partnership</p>
 
 
-
-
-
-
-
-
-
-
-
-
-<h1 class="govuk-heading-xl govuk-!-font-weight-bold govuk-!-margin-bottom-1">What is the individual's nature of control?</h1>
-<div class="govuk-hint">Select all that apply</div>
 
      {{ govukRadios({
         name: "psc1ShareOfAssets",
@@ -60,15 +46,10 @@
           legend: {
             text: "a. Share of assets",
             classes: "govuk-fieldset__legend--s"
-
           }
         },
-
-  formGroup: {
-    beforeInputs: {
-      html: '<p class="govuk-body">This is the share of assets left after the partnership is wound up. The individual holds (directly or indirectly):</p>'
-    }
-
+        hint: {
+          text: "The ORP holds, directly or indirectly, the right to the following percentage of the surplus assets of the limited partnership on a winding up:"
         },
         items: [
           {
@@ -77,7 +58,7 @@
           },
           {
             value: "more than 50% but less than 75%",
-            text: "more than 50% but less than 75%"
+            text: "more than 50% but less than 75%s"
           },
           {
             value: "75% or more",
@@ -99,12 +80,9 @@
                   classes: "govuk-fieldset__legend--s"
                 }
               },
-
-  formGroup: {
-    beforeInputs: {
-      html: '<p class="govuk-body">The individual holds (directly or indirectly):</p>'
-    }
-
+              hint: {
+                text: "The ORP holds, directly or indirectly, the following percentage of any voting
+                rights in the limited partnership:"
               },
               items: [
                 {
@@ -132,7 +110,7 @@
                       name: "psc1OwnershipOfRightToAppointRemoveManagement",
                       fieldset: {
                         legend: {
-                          text: "c. Ownership of right to appoint or remove management",
+                          text: "c. Ownership of right to appoint/remove management",
                           classes: "govuk-fieldset__legend--s"
                         }
                       },
@@ -141,8 +119,8 @@
                       },
                       items: [
                         {
-                          value: "The individual holds (directly or indirectly) the right to appoint or remove the majority of management of the limited partnership",
-                          text: "The individual holds (directly or indirectly) the right to appoint or remove the majority of management of the limited partnership"
+                          value: "The ORP holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership",
+                          text: "The ORP holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership"
                         }
                       ]
                     }) }}
@@ -161,20 +139,21 @@
                       },
                       items: [
                         {
-                          value: "The individual has the right to exercise, or actually exercises, significant
+                          value: "The ORP has the right to exercise, or actually exercises, significant
 influence or control over the limited partnership",
-                          text: "The individual has the right to exercise, or actually exercises, significant
+                          text: "The ORP has the right to exercise, or actually exercises, significant
 influence or control over the limited partnership"
                         }
                       ]
                     }) }}
-                   
+
+
 
 
 
  {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
-                <p>We’ll show all of this information on the public register.</p>"
+                <p>We'll show all of this information on the public register.</p>"
         }) }}
 
 
@@ -183,28 +162,8 @@ influence or control over the limited partnership"
 }) }}
 
 </form>
-
-
-
-<div class="ur-shortcuts">
-  <!-- Not part of ACTUAL screen: only for UR purposes -->
-  <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
-  <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
-    <li><a class="govuk-link" href="psc-person">Original NOC design</a></li>
-  </ul>
-</div>
-
-
     </div>
   </div>
-    <script src="/public/javascripts/second-nationality.js"></script>
       <script src="/public/javascripts/toggle-PSC-NOCs.js"></script>
-
-
-  <!--<script src="/public/javascripts/accessible-autocomplete.js"></script>
-  <script src="/public/javascripts/titles-appoint.js"></script>-->
-
+  <script src="/public/javascripts/accessible-autocomplete.js"></script>
 {% endblock %}
-
-
- 

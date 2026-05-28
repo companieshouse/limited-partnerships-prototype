@@ -671,10 +671,10 @@ router.post('/gp-legal-entity-poa-where', function(request, response) {
 
     var gpLegalEntityPOAWhere = request.session.data['gpLegalEntityPOAWhere']
     if (gpLegalEntityPOAWhere == "gpLegalEntityPOAUK"){
-        response.redirect("/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-postcode-look-up")
+        response.redirect("v13/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-postcode-look-up")
     }
     else {
-        response.redirect("/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-manual")
+        response.redirect("v13/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-manual")
     }
   })
 

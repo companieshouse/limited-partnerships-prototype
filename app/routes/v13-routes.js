@@ -486,10 +486,10 @@ router.post('/psc-choice', function(request, response) {
 
     var pscType = request.session.data['pscType']
     if (pscType == "entity"){
-        response.redirect("/pscs/psc-legal-entity")
+        response.redirect("v13/pscs/psc-legal-entity")
     }
     else if (pscType == "orp"){
-        response.redirect("/pscs/psc-orp")
+        response.redirect("v13/pscs/psc-orp")
     }
     else {
         response.redirect("v13/pscs/psc-protected-details")

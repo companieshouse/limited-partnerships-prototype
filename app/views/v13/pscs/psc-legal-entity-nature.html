@@ -41,9 +41,9 @@
     name: "typeNOC",
     fieldset: {
       legend: {
-        text: "Which type of nature of control does the relevant legal entity (RLE) have?",
+        text: "How does this RLE hold control over the limited partnership?",
         isPageHeading: false,
-        classes: "govuk-fieldset__legend--l"
+        classes: "govuk-fieldset__legend--xl"
       }
     },
     hint: {
@@ -53,15 +53,18 @@
     items: [
       {
         value: "nocIndividual",
-        text: "Nature of control for this relevant legal entity (RLE)"
+        text: "As a relevant legal entity (RLE)",
+        hint: { text: "The RLE meets one or more natures of control" }
       },
       {
         value: "nocFirm",
-        text: "Nature of control by a firm over which the RLE has significant control"
+        text: "Through a firm",
+        hint: { text: "The RLE has control over a firm that meets one or more natures of control" }
       },
       {
         value: "nocTrust",
-        text: "Nature of control by a trust over which the RLE has significant control"
+        text: "Through a trust",
+        hint: { text: "The RLE has control over a trust that meets one or more natures of control" }
       }
     ]
   }) }}

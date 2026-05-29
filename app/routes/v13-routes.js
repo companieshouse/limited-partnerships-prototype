@@ -760,7 +760,7 @@ router.post('/gp-person-ca-postcode-look-up', function(request, response) {
 
 //This GET code is used to preppoluate the values when the user goes from Confirm the address to Manuallu entering it
 router.get('/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-manual', function (req, res) {
-    res.render('/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-manual', {
+    res.render('v13/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-manual', {
       from: req.query.from // This makes `from` available in Nunjucks
     });
   });
@@ -770,30 +770,30 @@ router.post('/lp-legal-entity-poa-where', function(request, response) {
 
     var lpLegalEntityPOAWhere = request.session.data['lpLegalEntityPOAWhere']
     if (lpLegalEntityPOAWhere == "lpLegalEntityPOAUK"){
-        response.redirect("/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-postcode-look-up")
+        response.redirect("v13/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-postcode-look-up")
     }
     else {
-        response.redirect("/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-manual")
+        response.redirect("v13/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-manual")
     }
   })
 
 
 
 router.post('/lp-legal-entity-poa-postcode-look-up', function(request, response) {
-    response.redirect('/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-choose-address')
+    response.redirect('v13/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-choose-address')
 })
 
 
   router.post('/lp-legal-entity-poa-choose-address', function(request, response) {
-    response.redirect('/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-confirm-address')
+    response.redirect('v13/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-confirm-address')
 })
 
 
 
 // Limited partner - person //
 //This GET code is used to preppoluate the values when the user goes from Confirm the address to Manuallu entering it
-router.get('/address-pages/lp-person-ura/lp-person-ura-manual', function (req, res) {
-    res.render('/address-pages/lp-person-ura/lp-person-ura-manual', {
+router.get('v13/address-pages/lp-person-ura/lp-person-ura-manual', function (req, res) {
+    res.render('v13/address-pages/lp-person-ura/lp-person-ura-manual', {
       from: req.query.from // This makes `from` available in Nunjucks
     });
   });
@@ -805,7 +805,7 @@ router.post('/lp-person-ura-where', function(request, response) {
         response.redirect("v13/address-pages/lp-person-ura/lp-person-ura-postcode-look-up")
     }
     else {
-        response.redirect("/address-pages/lp-person-ura/lp-person-ura-manual")
+        response.redirect("v13/address-pages/lp-person-ura/lp-person-ura-manual")
     }
   })
 
@@ -841,10 +841,10 @@ router.post('/check-sic', function(request, response) {
 
     var checkSIC = request.session.data['checkSIC']
     if (checkSIC == "yes"){
-        response.redirect("/confirmation-statement/submit-confirmation-statement")
+        response.redirect("v13/confirmation-statement/submit-confirmation-statement")
     }
     else {
-        response.redirect("/limited-partnership-sic-2")
+        response.redirect("v13/limited-partnership-sic-2")
     }
   })
 
@@ -852,7 +852,7 @@ router.post('/check-sic', function(request, response) {
   // Check SIC - TYPEAHEAD VERSION
 
   router.post('/sic-add', function(request, response) {
-    response.redirect('/confirmation-statement/sic-check')
+    response.redirect('v13/confirmation-statement/sic-check')
 })
 
 
@@ -862,10 +862,10 @@ router.post('/check-sic', function(request, response) {
 
     var csInfoCorrect = request.session.data['csInfoCorrect']
     if (csInfoCorrect == "no"){
-        response.redirect("/manage/file-confirmation-statement")
+        response.redirect("v13/manage/file-confirmation-statement")
     }
     else {
-        response.redirect("/confirmation-statement/submit-confirmation-statement")
+        response.redirect("v13/confirmation-statement/submit-confirmation-statement")
     }
   })
 
@@ -877,11 +877,11 @@ router.post('/check-sic', function(request, response) {
     var changeURA = request.session.data['changeURA']
 
     if (changeURA == "yes"){
-        response.redirect("address-pages/gp-person-ura/gp-person-ura-where")
+        response.redirect("v13/address-pages/gp-person-ura/gp-person-ura-where")
     }
     else {
 
-        response.redirect("/manage/change-uca")
+        response.redirect("v13/manage/change-uca")
         // neds to be the radios page response.redirect("/v12/address-pages/gp-person-ca/gp-person-ca-manual")
     }
   })
@@ -893,7 +893,7 @@ router.post('/check-sic', function(request, response) {
     var changeUCA = request.session.data['changeUCA']
 
     if (changeUCA == "yes"){
-        response.redirect("/address-pages/gp-person-ca/gp-person-ca-manual")
+        response.redirect("v13/address-pages/gp-person-ca/gp-person-ca-manual")
     }
     else {
 

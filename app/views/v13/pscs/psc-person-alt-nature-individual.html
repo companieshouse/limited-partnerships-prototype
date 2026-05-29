@@ -58,8 +58,8 @@
         name: "psc1ShareOfAssets",
         fieldset: {
           legend: {
-            text: "a. Share of assets",
-            classes: "govuk-fieldset__legend--s"
+            text: "Share of assets",
+            classes: "govuk-fieldset__legend--m"
 
           }
         },
@@ -72,12 +72,12 @@
         },
         items: [
           {
-            value: "more than 25% but not more than 50%",
-            text: "more than 25% but not more than 50%"
+            value: "26 – 50%",
+            text: "26 – 50%"
           },
           {
-            value: "more than 50% but less than 75%",
-            text: "more than 50% but less than 75%"
+            value: "51 – 74%",
+            text: "51 – 74%"
           },
           {
             value: "75% or more",
@@ -95,25 +95,25 @@
               name: "psc1OwnershipOfVotingRights",
               fieldset: {
                 legend: {
-                  text: "b. Ownership of voting rights",
-                  classes: "govuk-fieldset__legend--s"
+                  text: "Ownership of voting rights",
+                  classes: "govuk-fieldset__legend--m"
                 }
               },
 
   formGroup: {
     beforeInputs: {
-      html: '<p class="govuk-body">The individual holds (directly or indirectly):</p>'
+      html: '<p class="govuk-body">This is the percentage of voting rights in the limited partnership. The individual holds (directly or indirectly):</p>'
     }
 
               },
               items: [
                 {
-                  value: "more than 25% but not more than 50%",
-                  text: "more than 25% but not more than 50%"
+                  value: "26 – 50%",
+                  text: "26 – 50%"
                 },
                 {
-                  value: "more than 50% but less than 75%",
-                  text: "more than 50% but less than 75%"
+                  value: "51 – 74%",
+                  text: "51 – 74%"
                 },
                 {
                   value: "75% or more",
@@ -132,8 +132,8 @@
                       name: "psc1OwnershipOfRightToAppointRemoveManagement",
                       fieldset: {
                         legend: {
-                          text: "c. Ownership of right to appoint or remove management",
-                          classes: "govuk-fieldset__legend--s"
+                          text: "Ownership of right to appoint or remove management",
+                          classes: "govuk-fieldset__legend--m"
                         }
                       },
                       hint: {
@@ -152,19 +152,17 @@
                       name: "psc1SignificantInfluenceOrControl",
                       fieldset: {
                         legend: {
-                          text: "d. Significant influence or control",
-                          classes: "govuk-fieldset__legend--s"
+                          text: "Significant influence or control",
+                          classes: "govuk-fieldset__legend--m"
                         }
                       },
                       hint: {
-                        text: "Only select this statement if a, b and c do not apply"
+                        text: "Only select this statement if the other natures of control do not apply"
                       },
                       items: [
                         {
-                          value: "The individual has the right to exercise, or actually exercises, significant
-influence or control over the limited partnership",
-                          text: "The individual has the right to exercise, or actually exercises, significant
-influence or control over the limited partnership"
+                          value: "The individual has the right to exercise, or actually exercises, significant influence or control over the limited partnership",
+                          text: "The individual has the right to exercise, or actually exercises, significant influence or control over the limited partnership"
                         }
                       ]
                     }) }}

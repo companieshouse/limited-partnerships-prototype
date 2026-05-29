@@ -41,9 +41,9 @@
     name: "typeNOC",
     fieldset: {
       legend: {
-        text: "Which type of nature of control does the other registrable person (ORP) have?",
+        text: "How does the ORP hold control over the limited partnership?",
         isPageHeading: false,
-        classes: "govuk-fieldset__legend--l"
+        classes: "govuk-fieldset__legend--xl"
       }
     },
     hint: {
@@ -53,15 +53,18 @@
     items: [
       {
         value: "nocIndividual",
-        text: "Nature of control for this other registrable person (ORP)"
+        text: "As an other registrable person (ORP)",
+        hint: { text: "The ORP meets one or more natures of control" }
       },
       {
         value: "nocFirm",
-        text: "Nature of control by a firm over which the ORP has significant control"
+        text: "Through a firm",
+        hint: { text: "The ORP has control over a firm that meets one or more natures of control" }
       },
       {
         value: "nocTrust",
-        text: "Nature of control by a trust over which the ORP has significant control"
+        text: "Through a trust",
+        hint: { text: "The ORP has control over a trust that meets one or more natures of control" }
       }
     ]
   }) }}

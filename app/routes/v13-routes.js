@@ -296,13 +296,13 @@ router.post('/registration-or-transition', function(request, response) {
         response.redirect("v13/registration/registration-start-page")
     }
     else if (registrationOrTransition == "transition"){
-        response.redirect("transition-start-page")
+        response.redirect("v13/transition-start-page")
     }
        else if (registrationOrTransition == "cs"){
-        response.redirect("confirmation-statement/start")
+        response.redirect("v13/confirmation-statement/start")
     }
     else {
-        response.redirect("post-transition-start-page")
+        response.redirect("v13/post-transition-start-page")
     }
   })
 

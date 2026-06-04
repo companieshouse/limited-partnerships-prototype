@@ -442,99 +442,129 @@ Find and update company information
           </div>
           
           <div id="officers_tab">
-              <div class="govuk-grid-row govuk-!-margin-top-7">
-                <div class="govuk-grid-column-full">
+  <div class="govuk-grid-row govuk-!-margin-top-7">
+    <div class="govuk-grid-column-full">
 
-              <div class="govuk-button-group">
+      <div class="govuk-button-group">
+        <a href="javascript:void(0)" class="authorised govuk-button govuk-button--secondary">
+          Add a general partner
+        </a>
 
-                <a href="javascript:void(0)" class="authorised govuk-button govuk-button--secondary">Add a general partner</a>
+        <a href="/v13/limited-partner-choice"
+           class="authorised govuk-button govuk-button--secondary govuk-!-margin-bottom-0">
+          Add a limited partner
+        </a>
+      </div>
 
-                <a href="/v13/limited-partner-choice" class="authorised govuk-button govuk-button--secondary govuk-!-margin-bottom-0">Add a limited partner</a>
-              </div>
+      <h2 class="govuk-heading-m">Filter partners</h2>
 
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="show-filing">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input"
+                     id="current_officers"
+                     name="current_officers"
+                     type="checkbox">
+              <label class="govuk-label govuk-checkboxes__label" for="current_officers">
+                Current partners
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
 
-                  <h2 class="govuk-heading-m">Filter partners</h2>
+      <h2 class="govuk-heading-m govuk-!-margin-top-7">
+        5 partners / 1 resignations
+      </h2>
 
-                  <div class="govuk-form-group">
-                    <fieldset class="govuk-fieldset" aria-describedby="show-filing">
-                      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-                        <div class="govuk-checkboxes__item">
-                          <input class="govuk-checkboxes__input" id="current_officers" name="current_officers" type="checkbox">
-                          <label class="govuk-label govuk-checkboxes__label" for="current_officers">
-                            Current partners
-                          </label>
-                        </div>
-                      </div>
-                    </fieldset>
-                  </div>
+      <h2 class="govuk-heading-m govuk-!-margin-top-7">
+        <a href="" class="govuk-link">ABC Company Ltd</a>
+      </h2>
 
+      <ul class="govuk-list">
+        <li>Principal office address</li>
+        <li class="govuk-!-font-weight-bold">
+          1 Long Road, Plymouth, United Kingdom, PL1 2BG
+        </li>
+      </ul>
 
+      <!-- First row -->
+      <div class="govuk-grid-row govuk-!-margin-top-5">
+        <div class="govuk-grid-column-one-third">
+          <ul class="govuk-list">
+            <li>
+              Role
+              <strong class="govuk-tag govuk-tag--green">Active</strong>
+            </li>
+            <li class="govuk-!-font-weight-bold">General partner</li>
+          </ul>
+        </div>
 
+        <div class="govuk-grid-column-one-third">
+          <ul class="govuk-list">
+            <li>Became a partner on</li>
+            <li class="govuk-!-font-weight-bold">17 December 1999</li>
+          </ul>
+        </div>
 
-                  <h2 class="govuk-heading-m govuk-!-margin-top-7">5 partners / 1 resignations</h2>
+        <div class="govuk-grid-column-one-third">
+          <ul class="govuk-list">
+            <li>Legal form</li>
+            <li class="govuk-!-font-weight-bold">Private limited company</li>
+          </ul>
+        </div>
+      </div>
 
-                  <h2 class="govuk-heading-m govuk-!-margin-top-7">
-                    <a href="" class="govuk-link">ABC Company Ltd</a>
-                  </h2>
+      <!-- Second row -->
+      <div class="govuk-grid-row govuk-!-margin-top-5">
+        <div class="govuk-grid-column-one-third">
+          <ul class="govuk-list">
+            <li>Governing law</li>
+            <li class="govuk-!-font-weight-bold">Companies Act 2006</li>
+          </ul>
+        </div>
 
-                  <ul class='govuk-list'>
-                    <li>Principal office address</li>
-                    <li class="govuk-!-font-weight-bold">	1 Long Road, Plymouth, United Kingdom, PL1 2BG</li>
-                  </ul>
-                </div>
-              </div>
+        <div class="govuk-grid-column-one-third">
+          <ul class="govuk-list">
+            <li>Parent register</li>
+            <li class="govuk-!-font-weight-bold">Register of Companies UK</li>
+          </ul>
+        </div>
 
-              <div class="govuk-grid-row govuk-!-margin-top-5">
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Role 
-                      <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: javascript:void(0)006435">
-                        Active
-                      </strong>
-                    </li>
-                    <li class="govuk-!-font-weight-bold">General partner</li>
-                  </ul>
-                </div>
+        <div class="govuk-grid-column-one-third">
+          <ul class="govuk-list">
+            <li>Registered in</li>
+            <li class="govuk-!-font-weight-bold">United Kingdom</li>
+          </ul>
+        </div>
+      </div>
 
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Became a partner on</li>
-                    <li class="govuk-!-font-weight-bold">17 December 1999</li>
-                  </ul>
-                </div>
+      <!-- Third row -->
+      <div class="govuk-grid-row govuk-!-margin-top-5">
+        <div class="govuk-grid-column-one-third">
+          <ul class="govuk-list">
+            <li>Registration number</li>
+            <li class="govuk-!-font-weight-bold">01234567</li>
+          </ul>
+        </div>
+      </div>
 
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Legal form</li>
-                    <li class="govuk-!-font-weight-bold">	Private limited company</li>
-                  </ul>
-                </div>
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Governing law</li>
-                    <li class="govuk-!-font-weight-bold">Companies Act 2006</li>
-                  </ul>
-                </div>
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Parent register</li>
-                    <li class="govuk-!-font-weight-bold">Register of Companies UK</li>
-                  </ul>
-                </div>
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Registered in</li>
-                    <li class="govuk-!-font-weight-bold">	United Kingdom</li>
-                  </ul>
-                </div>
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Registration number</li>
-                    <li class="govuk-!-font-weight-bold">		01234567</li>
-                  </ul>
-                </div>
-              </div>
+      <!-- Actions -->
+      <div class="govuk-grid-row govuk-!-margin-top-5">
+        <div class="govuk-grid-column-full">
+        <ul class="govuk-list govuk-list--spaced">
+          <li>
+            <a class="govuk-link" href="../gp-legal-entity">Update ABC Company Ltd details</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#">Remove ABC Company Ltd</a>
+          </li>
+        </ul>
+        </div>
+      </div>
 
+    
               <!-- ******* 1. Director - IDV due ********************* -->
 
               <div class="govuk-grid-row govuk-!-margin-top-7">
@@ -543,7 +573,7 @@ Find and update company information
                   <hr class="govuk-!-margin-top-7">
 
                   <h2 class="govuk-heading-m govuk-!-margin-top-6">
-                    <a href="director-one" class="govuk-link">ROBINSON, Susan </a>
+                    <a href="" class="govuk-link">Smith, Georgina</a>
                   </h2>
 
                   <ul class='govuk-list'>
@@ -554,25 +584,24 @@ Find and update company information
               </div>
 
               <div class="govuk-grid-row govuk-!-margin-top-5">
-                <div class="govuk-grid-column-one-quarter">
+                <div class="govuk-grid-column-one-third">
                   <ul class='govuk-list'>
-                    <li>Role
-                      <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: javascript:void(0)006435">
-                        Active
-                      </strong>
+                    <li>
+                      Role
+                      <strong class="govuk-tag govuk-tag--green">Active</strong>
                     </li>
-                    <li class="govuk-!-font-weight-bold">Director</li>
+                    <li class="govuk-!-font-weight-bold">General partner</li>
                   </ul>
                 </div>
 
-                <div class="govuk-grid-column-one-quarter">
+                <div class="govuk-grid-column-one-third">
                   <ul class='govuk-list'>
                     <li>Date of birth</li>
-                    <li class="govuk-!-font-weight-bold">30 May 1980</li>
+                    <li class="govuk-!-font-weight-bold">May 1980</li>
                   </ul>
                 </div>
 
-                <div class="govuk-grid-column-one-quarter">
+                <div class="govuk-grid-column-one-third">
                   <ul class='govuk-list'>
                     <li>Appointed on</li>
                     <li class="govuk-!-font-weight-bold">17 December 1999</li>
@@ -581,30 +610,25 @@ Find and update company information
               </div>
 
               <div class="govuk-grid-row govuk-!-margin-top-5">
-                <div class="govuk-grid-column-one-quarter">
+                <div class="govuk-grid-column-one-third">
                   <ul class='govuk-list'>
                     <li>Nationality</li>
                     <li class="govuk-!-font-weight-bold">English</li>
                   </ul>
                 </div>
 
-                <div class="govuk-grid-column-one-quarter">
+                <div class="govuk-grid-column-one-third">
                   <ul class='govuk-list'>
                     <li>Country of residence</li>
                     <li class="govuk-!-font-weight-bold">England</li>
                   </ul>
                 </div>
 
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Occupation</li>
-                    <li class="govuk-!-font-weight-bold">Company Director</li>
-                  </ul>
-                </div>
+              
               </div>
 
               <div class="govuk-grid-row govuk-!-margin-top-5">
-                <div class="govuk-grid-column-one-quarter">
+                <div class="govuk-grid-column-one-third">
                   <ul class='govuk-list'>
                     <li>Identity verification due</li>
                     <li class="govuk-!-font-weight-bold">30 August 2025</li>
@@ -612,164 +636,46 @@ Find and update company information
                 </div>
 
               </div>
+              <!-- Actions -->
+            <div class="govuk-grid-row govuk-!-margin-top-5">
+              <div class="govuk-grid-column-full">
+              <ul class="govuk-list govuk-list--spaced">
+                <li>
+                  <a class="govuk-link" href="../gp-person?from=general-partners-change">Update Georgina Smith details</a>
+                </li>
+                <li>
+                  <a class="govuk-link" href="#">Remove Georgina Smith</a>
+                </li>
+              </ul>
+              </div>
+            </div>
 
               <!-- ******* 2. Director - Verified by individual ********************* -->
 
-              <div class="govuk-grid-row govuk-!-margin-top-7">
-                <div class="govuk-grid-column-full">
 
-                  <hr class="govuk-!-margin-top-7">
-
-                  <h2 class="govuk-heading-m govuk-!-margin-top-6">
-                    <a href="director-two" class="govuk-link">Mark Robinson </a>
-                  </h2>
-
-                  <ul class='govuk-list'>
-                    <li>Correspondence address</li>
-                    <li class="govuk-!-font-weight-bold">1 Long road, Plymouth, United Kingdom, PL1 2BG</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="govuk-grid-row govuk-!-margin-top-5">
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Role
-                      <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: javascript:void(0)006435">
-                        Active
-                      </strong>
-                    </li>
-                    <li class="govuk-!-font-weight-bold">Director</li>
-                  </ul>
-                </div>
-
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Date of birth</li>
-                    <li class="govuk-!-font-weight-bold">28 January 1981</li>
-                  </ul>
-                </div>
-
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Appointed on</li>
-                    <li class="govuk-!-font-weight-bold">17 December 1999</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="govuk-grid-row govuk-!-margin-top-5">
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Nationality</li>
-                    <li class="govuk-!-font-weight-bold">English</li>
-                  </ul>
-                </div>
-
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Country of residence</li>
-                    <li class="govuk-!-font-weight-bold">England</li>
-                  </ul>
-                </div>
-
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Occupation</li>
-                    <li class="govuk-!-font-weight-bold">Company Director</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="govuk-grid-row govuk-!-margin-top-5">
+              <!-- <div class="govuk-grid-row govuk-!-margin-top-5">
                 <div class="govuk-grid-column-one-quarter">
                   <ul class='govuk-list'>
                     <li>Identity verification status</li>
                     <li class="govuk-!-font-weight-bold">Verified</li>
                   </ul>
                 </div>
-
-              </div>
+                </div> -->
 
               <!-- ******* 3. Director - Verified by ACSP ********************* -->
 
-              <div class="govuk-grid-row govuk-!-margin-top-7">
-                <div class="govuk-grid-column-full">
 
-                  <hr class="govuk-!-margin-top-7">
-
-                  <h2 class="govuk-heading-m govuk-!-margin-top-6">
-                    <a href="director-three" class="govuk-link">Lisa Franklin</a>
-                  </h2>
-
-                  <ul class='govuk-list'>
-                    <li>Correspondence address</li>
-                    <li class="govuk-!-font-weight-bold">1 Short road, Townville, United Kingdom, AB1 CD2</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="govuk-grid-row govuk-!-margin-top-5">
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Role
-                      <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: javascript:void(0)006435">
-                        Active
-                      </strong>
-                    </li>
-                    <li class="govuk-!-font-weight-bold">Director</li>
-                  </ul>
-                </div>
-
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Date of birth</li>
-                    <li class="govuk-!-font-weight-bold">1 February 1985</li>
-                  </ul>
-                </div>
-
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Appointed on</li>
-                    <li class="govuk-!-font-weight-bold">25 March 2010</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="govuk-grid-row govuk-!-margin-top-5">
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Nationality</li>
-                    <li class="govuk-!-font-weight-bold">English</li>
-                  </ul>
-                </div>
-
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Country of residence</li>
-                    <li class="govuk-!-font-weight-bold">England</li>
-                  </ul>
-                </div>
-
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Occupation</li>
-                    <li class="govuk-!-font-weight-bold">Accountant</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="govuk-grid-row govuk-!-margin-top-5">
+              <!-- <div class="govuk-grid-row govuk-!-margin-top-5">
                 <div class="govuk-grid-column-one-quarter">
                   <ul class='govuk-list'>
                     <li>Identity verification status</li>
                     <li class="govuk-!-font-weight-bold">Verified</li>
                   </ul>
                 </div>
+ -->
 
-              </div>
 
-              <div class="govuk-grid-row govuk-!-margin-top-5">
+              <!-- <div class="govuk-grid-row govuk-!-margin-top-5">
                 <div class="govuk-grid-column-full">
   
                   <div class="govuk-grid-row govuk-!-margin-top-5">
@@ -785,80 +691,13 @@ Find and update company information
                       </ul>
 
                     </div>
-                  </div>
-
-                </div>
-              </div>
+                  </div> -->
 
               <!-- ******* 4. Director - Overdue ********************* -->
 
-              <div class="govuk-grid-row govuk-!-margin-top-7">
-                <div class="govuk-grid-column-full">
+              
 
-                  <hr class="govuk-!-margin-top-7">
-
-                  <h2 class="govuk-heading-m govuk-!-margin-top-6">
-                    <a href="director-four" class="govuk-link">Carl Jackson</a>
-                  </h2>
-
-                  <ul class='govuk-list'>
-                    <li>Correspondence address</li>
-                    <li class="govuk-!-font-weight-bold">2 Long road, Townville, United Kingdom, AB2 CD4</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="govuk-grid-row govuk-!-margin-top-5">
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Role
-                      <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: javascript:void(0)006435">
-                        Active
-                      </strong>
-                    </li>
-                    <li class="govuk-!-font-weight-bold">Director</li>
-                  </ul>
-                </div>
-
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Date of birth</li>
-                    <li class="govuk-!-font-weight-bold">15 April 1990</li>
-                  </ul>
-                </div>
-
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Appointed on</li>
-                    <li class="govuk-!-font-weight-bold">1 December 2015</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="govuk-grid-row govuk-!-margin-top-5">
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Nationality</li>
-                    <li class="govuk-!-font-weight-bold">English</li>
-                  </ul>
-                </div>
-
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Country of residence</li>
-                    <li class="govuk-!-font-weight-bold">England</li>
-                  </ul>
-                </div>
-
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Occupation</li>
-                    <li class="govuk-!-font-weight-bold">Project mananger</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="govuk-grid-row govuk-!-margin-top-5">
+             <!--  <div class="govuk-grid-row govuk-!-margin-top-5">
                 <div class="govuk-grid-column-one-quarter">
                   <ul class='govuk-list'>
                     <li>Identity verification status</li>
@@ -872,7 +711,7 @@ Find and update company information
                     <li class="govuk-!-font-weight-bold">30 August 2025</li>
                   </ul>
                 </div>
-              </div>
+              </div> -->
 
 
               <!-- ******* 5. Director - Resigned ********************* -->
@@ -883,7 +722,7 @@ Find and update company information
                   <hr class="govuk-!-margin-top-7">
 
                   <h2 class="govuk-heading-m govuk-!-margin-top-6">
-                    <a href="director-five" class="govuk-link">Steven Jackson</a>
+                    <a href="" class="govuk-link">Steven Jackson</a>
                   </h2>
 
                   <ul class='govuk-list'>
@@ -894,61 +733,58 @@ Find and update company information
               </div>
 
               <div class="govuk-grid-row govuk-!-margin-top-5">
-                <div class="govuk-grid-column-one-quarter">
+                <div class="govuk-grid-column-one-third">
                   <ul class='govuk-list'>
-                    <li>Role
-                      <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: javascript:void(0)424849">
-                        Resigned
-                      </strong>
+                    <li>
+                      Role
+                      <strong class="govuk-tag govuk-tag--grey">Resigned</strong>
                     </li>
-                    <li class="govuk-!-font-weight-bold">Director</li>
+                    <li class="govuk-!-font-weight-bold">General partner</li>
                   </ul>
                 </div>
 
-                <div class="govuk-grid-column-one-quarter">
+                <div class="govuk-grid-column-one-third">
                   <ul class='govuk-list'>
                     <li>Date of birth</li>
                     <li class="govuk-!-font-weight-bold">20 May 1995</li>
                   </ul>
                 </div>
 
-                <div class="govuk-grid-column-one-quarter">
+                <div class="govuk-grid-column-one-third">
                   <ul class='govuk-list'>
                     <li>Appointed on</li>
                     <li class="govuk-!-font-weight-bold">30 July 2020</li>
                   </ul>
                 </div>
 
-                <div class="govuk-grid-column-one-quarter">
+                
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-5">
+                <div class="govuk-grid-column-one-third">
                   <ul class='govuk-list'>
                     <li>Resigned on</li>
                     <li class="govuk-!-font-weight-bold">10 June 2024</li>
                   </ul>
                 </div>
-              </div>
 
-              <div class="govuk-grid-row govuk-!-margin-top-5">
-                <div class="govuk-grid-column-one-quarter">
+                <div class="govuk-grid-column-one-third">
                   <ul class='govuk-list'>
                     <li>Nationality</li>
                     <li class="govuk-!-font-weight-bold">English</li>
                   </ul>
                 </div>
 
-                <div class="govuk-grid-column-one-quarter">
+                <div class="govuk-grid-column-one-third">
                   <ul class='govuk-list'>
                     <li>Country of residence</li>
                     <li class="govuk-!-font-weight-bold">England</li>
                   </ul>
                 </div>
 
-                <div class="govuk-grid-column-one-quarter">
-                  <ul class='govuk-list'>
-                    <li>Occupation</li>
-                    <li class="govuk-!-font-weight-bold">Project mananger</li>
-                  </ul>
-                </div>
               </div>
+            </div>
+          </div>
           </div>
 
           <div id="psc_tab" class="govuk-visually-hidden">

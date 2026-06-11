@@ -37,8 +37,10 @@
 {{ govukInput({
   label: {
     text: "What is the name of the other registrable person (ORP)?",
-    classes: "govuk-label--m",
-    isPageHeading: true
+    classes: "govuk-label--m"
+  },
+    hint: {
+    text: "This is the name of the office or official position, not the name of the person who holds the position."
   },
   id: "pscORP1EntityName",
   name: "pscORP1EntityName"
@@ -50,7 +52,7 @@
     classes: "govuk-label--m"
   },
   hint: {
-    text: "This is the non-corporate entity type."
+    text: "This is the non-corporate entity type. For example, local authority."
   },
   id: "pscORP1LegalForm",
   name: "pscORP1LegalForm"
@@ -62,7 +64,7 @@
     classes: "govuk-label--m"
   },
   hint: {
-    text: "For example, the Companies Act 2006."
+    text: "This is the law that governs the entity. For example, United Kingdom."
   },
   id: "pscORP1GoverningLaw",
   name: "pscORP1GoverningLaw"

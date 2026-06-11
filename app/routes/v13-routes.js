@@ -406,7 +406,7 @@ router.post('/starting-new', function(request, response) {
 
     }
     else if (registrationOrTransition == "transition"){
-        response.redirect("company-number")
+        response.redirect("v13/company-number")
     }
     else {
         response.redirect("v13/company-number")

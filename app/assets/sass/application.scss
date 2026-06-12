@@ -25,6 +25,20 @@ ul#navigation {
     }
   }
 
+
+  ///info panel///
+
+.ch-info-panel {
+  background-color: #F3F2F1;
+	text-align: left;
+  margin: 1em 0;
+  padding: 2em;
+	.govuk-panel__title {
+		font-size: 1.7em;
+	}
+}
+
+
 .language-toggle {
   span {
     margin-left: 0.5em;

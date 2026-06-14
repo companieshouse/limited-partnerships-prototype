@@ -32,16 +32,28 @@ router.use('/', (req, res, next) => {
     next();
   });
 
+
+
+
+  //CHS sign in 
+
+
+
+    router.get('/chs-sign-in-fileForThisCompany', function(request, response) {
+
+
+        var fileForThisCompany = true
+   
+        response.redirect("v13/chs/chs-sign-in")
+    
+  })
+
 // GOV One Login Sign in
 
   router.post('/gov-onelogin-email', function(request, response) {
-    var govOneLoginEmail = request.session.data['govOneLoginEmail']
-    if (govOneLoginEmail == "someone@test.com"){
-        response.redirect("not-eligible")
-    } 
-    else {
+   
         response.redirect("v13/gov-onelogin-password")
-    }
+    
   })
 
 
@@ -52,7 +64,36 @@ router.post('/gov-onelogin-enter-code', function(request, response) {
 
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
-        response.redirect("v13/chs/company-info?authorised")
+
+        // email address check for agent 
+            var govOneLoginEmail = request.session.data['govOneLoginEmail']
+            if (govOneLoginEmail == "someone@email.com"){
+                response.redirect("v13/not-eligible")
+            } 
+            else {
+
+                // User has selected File for a company button and now they are signed in 
+                if (fileForThisCompany = true){
+
+                    response.redirect("v13/chs/company-info?authorised")
+                } 
+
+                //User has selected sign in, but not selected File for a company button
+                else {
+
+                    //user has been signed into account
+                    var signedIn = request.session.data['signedIn']
+
+                    // sign in and update links are NOT shown
+                    response.redirect("v13/chs/company-info?signedIn")
+
+
+                }
+
+        
+                
+            }     
+
     }     
     else if (registrationOrTransition == "transition"){
          response.redirect("v13/starting-new")
@@ -72,8 +113,10 @@ router.post('/sign-out', function(request, response) {
         response.redirect("v13/signed-out")
     }     
     else if (signingOut == "no"){
+
+    response.redirect("v13/chs/company-info?authorised") 
          
-        response.redirect("v13/registration/which-type")
+        
     }
 })
 
@@ -302,7 +345,7 @@ router.post('/registration-or-transition', function(request, response) {
         response.redirect("v13/confirmation-statement/start")
     }
     else {
-        response.redirect("v13/post-transition-start-page")
+        response.redirect("v13/post-transition-guidance")
     }
   })
 
@@ -791,12 +834,54 @@ router.post('/lp-legal-entity-poa-postcode-look-up', function(request, response)
 
 
 // Limited partner - person //
+
+
+//update limited partner(person)
+
+router.get('v13/lp-person', function (req, res) {
+    res.render('v13/lp-person', {
+      from: req.query.from // This makes `from` available in Nunjucks
+    });
+  });
+
+
+  router.post('/lp-person', function(request, response) {
+
+
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+       // Update journey
+       if (registrationOrTransition == "post"){
+     
+        response.redirect("v13/manage/change-lp-ura")
+        
+       }
+       else {
+
+        response.redirect("address-pages/lp-person-ura/lp-person-ura-where")
+       }
+
+})
+
+
+
+
+
+
+
+
 //This GET code is used to preppoluate the values when the user goes from Confirm the address to Manuallu entering it
 router.get('v13/address-pages/lp-person-ura/lp-person-ura-manual', function (req, res) {
     res.render('v13/address-pages/lp-person-ura/lp-person-ura-manual', {
       from: req.query.from // This makes `from` available in Nunjucks
     });
   });
+
+
+
+
+
+
+
 
 router.post('/lp-person-ura-where', function(request, response) {
 
@@ -915,7 +1000,7 @@ router.post('/check-sic', function(request, response) {
     }
     else {
 
-        response.redirect("v13/manage/date-of-change-partner-lp-update")
+        response.redirect("v13/manage/date-of-change-partner-lp-person")
         // nneds to be the radios page response.redirect("/v12/address-pages/gp-person-ca/gp-person-ca-manual")
     }
   })

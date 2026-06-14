@@ -12,11 +12,8 @@ Find and update company information
 {% block beforeContent %}
 
 
-
-
-<a class="govuk-link govuk-link--no-visited-state" href="https://resources.companieshouse.gov.uk/serviceInformation.shtml#compInfo">Companies House does not verify the accuracy of the information filed</a> 
 <div class="govuk-!-margin-top-4 account-banner">
-  <a href="#">Sign in/Register</a>
+  
 </div>
 {% endblock %}
 
@@ -25,14 +22,7 @@ Find and update company information
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% set html %}
-  <p class="govuk-notification-banner__heading">We are introducing a new way to sign in to some of our services.</p>
-{% endset %}
-
-{{ govukNotificationBanner({
-  html: html
-}) }}
-
+ 
 <h1 class="govuk-heading-l">Sign in to Companies House</h1>
 <p>If you have an existing Companies House account, enter your email address.<p>
 {{ govukInput({
@@ -54,7 +44,7 @@ Find and update company information
 <h2 class="govuk-heading-m">GOV.UK One Login</h2>
 <p>This is the new way to sign in to some of our services.</p>
 
-<p><a href="../sign-in" class="govuk-link govuk-link--no-visited-state">Sign in with GOV.UK One Login</a> if you already have one.<p>
+<p><a href="../gov-onelogin-email" class="govuk-link govuk-link--no-visited-state">Sign in with GOV.UK One Login</a> if you already have one.<p>
 
 
     </div>
@@ -70,7 +60,7 @@ Find and update company information
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
         <p class="govuk-body">
-          <a href="../manage-prototype" class="govuk-link" style="padding-right:20px;">Manage your prototype</a>
+        <!--   <a href="../manage-prototype" class="govuk-link" style="padding-right:20px;">Manage your prototype</a> -->
           <a href="../manage-prototype/clear-data" class="govuk-link">Clear data</a>
         </p>
         <svg

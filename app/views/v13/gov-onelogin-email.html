@@ -26,16 +26,19 @@
 
       
 
+        <!-- Agent email address filingServices@example.com 
+         
+            Non agent general@emailExample.com -->
 
-{{ govukInput({
-  label: {
-    text: "Enter your email address to sign in to your GOV.UK One Login",
-    classes: "govuk-label--l",
-    isPageHeading: true
-  },
-  id: "govOneLoginEmail",
-  name: "govOneLoginEmail"
-}) }}
+  {{ govukInput({
+    label: {
+      text: "Enter your email address to sign in to your GOV.UK One Login",
+      classes: "govuk-label--l",
+      isPageHeading: true
+    },
+    id: "govOneLoginEmail",
+    name: "govOneLoginEmail"
+  }) }}
 
 
     {{ govukButton({

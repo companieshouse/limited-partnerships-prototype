@@ -7,16 +7,17 @@
 {% block beforeContent %}
 <a class="govuk-link govuk-link--no-visited-state" href="https://resources.companieshouse.gov.uk/serviceInformation.shtml#compInfo">Companies House does not verify the accuracy of the information filed</a>
 <div class="account-banner hide-when-authorised" style="float:right; margin-top:30px;">
-  <a href="#">Sign in/Register</a>
+  <a href="chs-sign-in">Sign in/Register</a>
 </div>
 
-    <div class="govuk-!-margin-top-4 account-banner authorised" style="float:right; margin-bottom:10px">
+    <div class="govuk-!-margin-top-4 account-banner signedIn authorised" style="float:right; margin-bottom:10px">
       <span style="padding-right: 20px;">{{ data['emailAddress'] }}</span>
       <span style="padding-right: 20px;"><a href="" id="your-details">Your details</a></span>
       <span style="padding-right: 20px;"><a href="" id="your-filings">Your filings</a></span>
       <span style="padding-right: 20px;"><a href="" id="companies-you-follow">Companies you follow</a></span>
       <span style="padding-right: 20px;"><a href="" id="your-basket">Basket(0)</a></span>
-      <a href="#">Sign out</a>
+      <a href="
+      ../sign-out">Sign out</a>
     </div>
 {% endblock %}
 
@@ -52,17 +53,16 @@ Find and update company information
       <p class="govuk-body"><a href="javascript:void(0)" class="govuk-link govuk-!-font-size-16">Advanced company search</a></p>
 
       <ul class="govuk-list">
-        <li class="govuk-heading-xl govuk-!-margin-top-4">ENCOM LP <a href="../registration/lp-name" class="authorised govuk-link govuk-link--no-visited-state govuk-!-font-weight-regular govuk-!-font-size-19 update-partnership-name">Update name</a></li>
-        <li class="govuk-!-margin-top-4">Company number <strong>SC123456</strong></li>
+        <li class="govuk-heading-xl govuk-!-margin-top-4">ACME LIMITED PARTNERSHIP <a href="../registration/lp-name" class="authorised govuk-link govuk-link--no-visited-state govuk-!-font-weight-regular govuk-!-font-size-19 update-partnership-name">Update name</a></li>
+        <li class="govuk-!-margin-top-4">Company number <strong>SL123456</strong></li>
       </ul>
 
       <button type="submit" class="govuk-button" data-module="govuk-button">
         Follow this company
       </button>
 
-      <button type="submit" class="govuk-button" data-module="govuk-button">
-        File for this company
-      </button>
+      <a href="/chs-sign-in-fileForThisCompany" class="govuk-button hide-when-authorised">File for this company</a>
+
 
 
 
@@ -137,7 +137,7 @@ Find and update company information
              <dd class="govuk-summary-list__value govuk-!-font-weight-bold govuk-!-padding-top-0">No set term <a href="../limited-partnership-terms" class="authorised govuk-link govuk-link--no-visited-state  govuk-!-font-weight-regular">Update <span class="govuk-visually-hidden">Term of partnership No set term</span></a></dd>
 
             <dt class="govuk-!-margin-top-3" id="company-birth-type">Registered on</dt>
-             <dd class="govuk-summary-list__value govuk-!-font-weight-bold govuk-!-padding-top-0">21 October 2024</dd>
+             <dd class="govuk-summary-list__value govuk-!-font-weight-bold govuk-!-padding-top-0">17 July 2025</dd>
 
             </div>
 
@@ -555,10 +555,10 @@ Find and update company information
         <div class="govuk-grid-column-full">
         <ul class="govuk-list govuk-list--spaced">
           <li>
-            <a class="govuk-link" href="../gp-legal-entity">Update ABC Company Ltd details</a>
+            <a class="govuk-link authorised" href="../gp-legal-entity">Update ABC Company Ltd details</a>
           </li>
           <li>
-            <a class="govuk-link" href="#">Remove ABC Company Ltd</a>
+            <a class="govuk-link authorised" href="#">Remove ABC Company Ltd</a>
           </li>
         </ul>
         </div>
@@ -641,10 +641,10 @@ Find and update company information
               <div class="govuk-grid-column-full">
               <ul class="govuk-list govuk-list--spaced">
                 <li>
-                  <a class="govuk-link" href="../gp-person?from=general-partners-change">Update Georgina Smith details</a>
+                  <a class="govuk-link authorised" href="../gp-person?from=general-partners-change">Update Georgina Smith details</a>
                 </li>
                 <li>
-                  <a class="govuk-link" href="#">Remove Georgina Smith</a>
+                  <a class="govuk-link authorised" href="#">Remove Georgina Smith</a>
                 </li>
               </ul>
               </div>
@@ -745,10 +745,10 @@ Find and update company information
         <div class="govuk-grid-column-full">
         <ul class="govuk-list govuk-list--spaced">
           <li>
-            <a class="govuk-link" href="../lp-legal-entity?from=registerLp">Update GlobalTech details</a>
+            <a class="govuk-link authorised" href="../lp-legal-entity?from=registerLp">Update GlobalTech details</a>
           </li>
           <li>
-            <a class="govuk-link" href="../remove/remove-limited-partner">Remove GlobalTech</a>
+            <a class="govuk-link authorised" href="../remove/remove-limited-partner">Remove GlobalTech</a>
           </li>
         </ul>
         </div>
@@ -766,12 +766,6 @@ Find and update company information
         <a href="" class="govuk-link">RICHARDSON, Simon</a>
       </h2>
 
-      <ul class="govuk-list">
-        <li>Correspondence address</li>
-        <li class="govuk-!-font-weight-bold">
-          99 Blackbird Avenue, London, E17 9ZX
-        </li>
-      </ul>
 
       <!-- First row -->
       <div class="govuk-grid-row govuk-!-margin-top-5">
@@ -810,6 +804,17 @@ Find and update company information
             <li class="govuk-!-font-weight-bold">Types of contribution: Money, Shares, Services or goods</li>
           </ul>
         </div>
+
+         <div class="govuk-grid-column-one-third">
+           <ul class="govuk-list">
+              <li>Correspondence address</li>
+              <li class="govuk-!-font-weight-bold">
+                United Kingdom
+              </li>
+            </ul>
+        </div>
+
+         
       </div>
 
        
@@ -820,10 +825,10 @@ Find and update company information
         <div class="govuk-grid-column-full">
         <ul class="govuk-list govuk-list--spaced">
           <li>
-            <a class="govuk-link" href="../lp-person">Update Simon Richardson's details</a>
+            <a class="govuk-link authorised" href="../lp-person?from=lp-person-update">Update Simon Richardson's details</a>
           </li>
           <li>
-            <a class="govuk-link" href="">Remove GlobalTech</a>
+            <a class="govuk-link authorised" href="">Remove GlobalTech</a>
           </li>
         </ul>
         </div>
@@ -976,9 +981,7 @@ Find and update company information
 
                 <!-- ******* 1. PCS - Due ********************* -->
                 <h2 class="govuk-heading-m govuk-!-margin-top-7">Dennis Hoop
-                  <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: javascript:void(0)006435">
-                    Active
-                  </strong>
+                  <strong class="govuk-tag govuk-tag--green">Active</strong>
                 </h2>
 
                 <ul class='govuk-list'>
@@ -1056,9 +1059,7 @@ Find and update company information
               <div class="govuk-grid-column-full">
 
                 <h2 class="govuk-heading-m">Isla Robinson
-                  <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: javascript:void(0)006435">
-                    Active
-                  </strong>
+                  <strong class="govuk-tag govuk-tag--green">Active</strong>
                 </h2>
 
                 <ul class='govuk-list'>
@@ -1116,9 +1117,7 @@ Find and update company information
               <div class="govuk-grid-column-full">
 
                 <h2 class="govuk-heading-m">Heather Ferning
-                  <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: javascript:void(0)006435">
-                    Active
-                  </strong>
+                  <strong class="govuk-tag govuk-tag--green">Active</strong>
                 </h2>
 
                 <ul class='govuk-list'>
@@ -1191,9 +1190,7 @@ Find and update company information
               <div class="govuk-grid-column-full">
 
                 <h2 class="govuk-heading-m">Jack Carlson
-                  <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: javascript:void(0)006435">
-                    Active
-                  </strong>
+                  <strong class="govuk-tag govuk-tag--green">Active</strong>
                 </h2>
 
                 <ul class='govuk-list'>
@@ -1265,9 +1262,7 @@ Find and update company information
               <div class="govuk-grid-column-full">
 
                 <h2 class="govuk-heading-m">Kate Mathews
-                  <strong class="govuk-tag govuk-tag--green govuk-!-font-weight-bold" style="margin-left: 10px; color: white; background-color: javascript:void(0)424849">
-                    Ceased
-                  </strong>
+                  <strong class="govuk-tag govuk-tag--green">Active</strong>
                 </h2>
 
                 <ul class='govuk-list'>

@@ -61,24 +61,16 @@
     <dd class="govuk-summary-list__value">
 
       <!-- Updated first name or no change to first name-->
-      {% if (data['gp1FirstName'] !== "") %}
-            
-        {{ data['gp1FirstName']}}
+
+      {% if (data['gp1FirstName'] == "Simon") and (data['lp1LastName'] == "Richardson") %}
+     
+      
+       Not updated
+
 
       {% else %}
 
-        Georgina
-
-      {% endif %}
-
-      <!-- Updated last name or no change to last name -->
-      {% if (data['gp1LastName'] !== "") %}
-            
-        {{data['gp1LastName']}}
-
-      {% else %}
-
-        Smith
+        {{data['lp1FirstName']}} {{data['lp1MiddleName']}} {{data['lp1LastName']}}
 
     {% endif %}
     </dd>
@@ -106,7 +98,7 @@
       Nationality
     </dt>
     <dd class="govuk-summary-list__value">
-       {{data['gp1Nationality1']}}
+      Not updated
     </dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="gp-person">Change<span class="govuk-visually-hidden"> Georgina Smith nationality</span></a>
@@ -128,7 +120,7 @@
 
       {% else %}
 
-      1 Blue Road, Manchester, M12 3AB
+      1 Red Crest Lane, Birmingham, B12 3AB
        
       {% endif %}
     </p>
@@ -164,7 +156,11 @@
     <dd class="govuk-summary-list__value">
       <!-- todayHtml -->
 
-      16 December 2025
+
+
+
+
+      16 June 2026
     </dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="gp-person">Change<span class="govuk-visually-hidden"> Georgina Smith usual residential address</span></a>

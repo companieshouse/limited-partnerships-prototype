@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – GOV.UK One Login prototype
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% set serviceName %}
+  
+
+{% endset%}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">      
+      <form action="one-login-sign-in" method="post" novalidate="">
+
+
+        {{ govukInput({
+          label: {
+            text: "Enter your email address to sign in to your GOV.UK One Login",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          id: "one-login-email",
+          name: "one-login-email"
+        }) }}
+      {{ govukButton({
+        text: "Continue",
+        href:"one-login-enter-password-sign-in"
+      }) }}
+      </form>
+     </div>
+  </div>
+{% endblock %}

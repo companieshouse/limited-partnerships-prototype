@@ -440,10 +440,18 @@ The prototype re-uses the same templates across multiple journeys and scenarios 
 
       <ul class="govuk-list govuk-list--bullet">
        <li><a class="govuk-link govuk-link--no-visited-state" href="registration-or-transition">Choose registration or transition or post-transition or conf statement</a>  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}}</li>
-     <li><a class="govuk-link govuk-link--no-visited-state" href="post-transition-guidance">Guidance: Set up and run a limited partnership</a>  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}}{{govukTag({ text: "Content TBC", classes: "govuk-tag--pink"})}}</li>
-        <li><a class="govuk-link govuk-link--no-visited-state" href="post-transition-start-page">GOV.UK start</a>  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}}</li>
+<!--      <li><a class="govuk-link govuk-link--no-visited-state" href="post-transition-guidance">Guidance: Set up and run a limited partnership</a>  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}}{{govukTag({ text: "Content TBC", classes: "govuk-tag--pink"})}}</li> -->
+        <li><a class="govuk-link govuk-link--no-visited-state" href="post-transition-guidance">Guidance: File an update for a limited partnership</a>  {{govukTag({ text: "No Dev", classes: "govuk-tag--orange"})}} {{govukTag({ text: "Content TBC", classes: "govuk-tag--pink"})}}</li>
+            
+        <li><a class="govuk-link govuk-link--no-visited-state" href="chs/lp-info">Interrupt page before a user is  taken to the CHS register</a>{{govukTag({ text: "Understand entry point, UR and review content", classes: "govuk-tag--turquoise"})}}</li>
+
+        </ul>
+
+        <h2 class="govuk-heading-m" id="initial">Companies House register</h2>
+
+        <ul class="govuk-list govuk-list--bullet">
             <li><a class="govuk-link govuk-link--no-visited-state" href="chs/start">CHS start</a> </li>
-               <li><a class="govuk-link govuk-link--no-visited-state" href="chs/lp-info">CHS limited partnership info page</a>{{govukTag({ text: "Understand entry point, UR and review content", classes: "govuk-tag--turquoise"})}}</li>
+   
                <li><a class="govuk-link govuk-link--no-visited-state" href="chs/search-results">CHS search results</a> {{govukTag({ text: "Existing screen", classes: "govuk-tag--blue"})}}</li>
                      <li><a class="govuk-link govuk-link--no-visited-state" href="chs/chs-sign-in">CHS sign in</a> {{govukTag({ text: "Existing screen", classes: "govuk-tag--blue"})}}</li>
         <li><a class="govuk-link govuk-link--no-visited-state" href="sign-in">GOV One Login sign in</a> {{govukTag({ text: "Existing service", classes: "govuk-tag--blue"})}} </li>
@@ -452,6 +460,38 @@ The prototype re-uses the same templates across multiple journeys and scenarios 
         <li><a class="govuk-link govuk-link--no-visited-state" href="gov-onelogin-enter-code">GOV One Login code</a> {{govukTag({ text: "Existing service", classes: "govuk-tag--blue"})}}</li>
        
       </ul>
+
+       <h2 class="govuk-heading-m" id="initial">Alternative starting point from WebFiling </h2>
+
+
+        {{ govukButton({
+          text: "Sign in to WebFiling",
+          classes: "govuk-button--secondary",
+          href:"webFiling-signin/start-page"
+        }) }}
+
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a class="govuk-link govuk-link--no-visited-state" href="webFiling-signin/start-page">Sign in to WebFiling</li>
+          </li>
+
+           <li><a class="govuk-link govuk-link--no-visited-state" href="webFiling-signin/create-or-sign-in">Create your GOV.UK One Login or sign in
+          </li>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="webFiling-signin/one-login-sign-in">Enter your email address to sign in to your GOV.UK One Login
+          </li>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="webFiling-signin/one-login-enter-password-sign-in">Enter your password
+          </li>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="webFiling-signin/enter-code">Check your phone
+          </li>
+
+          <li><a class="govuk-link govuk-link--no-visited-state" href="webFiling-signin/saved-companies">Saved companies
+          </li>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="webFiling-signin/company-number-chs">What is the company number?
+          </li>
+           <li><a class="govuk-link govuk-link--no-visited-state" href="you-cannot-use-webfiling">You can not use WebFiling to file for a Limited Partnership
+          </li>
+          
+        </ul>
 
       <h2 class="govuk-heading-m" id="initial">Limited partnership overview</h2>
 

@@ -857,7 +857,7 @@ router.get('v13/lp-person', function (req, res) {
        }
        else {
 
-        response.redirect("address-pages/lp-person-ura/lp-person-ura-where")
+        response.redirect("v13/address-pages/lp-person-ura/lp-person-ura-where")
        }
 
 })

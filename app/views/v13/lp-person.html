@@ -64,11 +64,10 @@
     {% set lp1LastName = "Richardson" %}
     {% set lp1CurrencySelector = "GBP" %}
     {% set lp1totalCapitalContribution = "500.50" %}
-
-{% set lp1CurrencySelector = "GBP" %}
-{% set lp1CurrencySelector = "GBP" %}
-
-    
+    <!-- {% set lp1capitalContributionBreakdown = ["Money"] %} -->
+    {% set lp1Money = true %}
+    {% set lp1Land = true %}
+    {% set lp1Services = true %}
 {% else %}
     {% set lp1FirstName = "" %}
     {% set lp1MiddleName = "" %}
@@ -2462,26 +2461,28 @@
     {
       value: "Money",
       text: "Money",
-      checked: true
+      checked: lp1Money
 
     },
     {
       value: "Land or property",
-      text: "Land or property"
+      text: "Land or property",
+      checked: lp1Land
     },
     {
       value: "Shares or interests in other partnerships",
       text: "Shares or interests in other partnerships",
-      checked: true
+      checked: lp1Shares
     },
     {
       value: "Services or goods",
       text: "Services or goods",
-      checked: true
+      checked: lp1Services
     },
     {
       value: "Any other asset",
-      text: "Any other asset"
+      text: "Any other asset",
+      checked: lp1Asset
     }
   ]
 }) }}

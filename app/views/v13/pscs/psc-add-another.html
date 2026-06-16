@@ -34,17 +34,57 @@
 
 <h1 class="govuk-heading-xl">People with significant control (PSCs)</h1>
 
-    </div>
-    </div>
-    <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
 
-       <h2 class="govuk-heading-m">PSCs you have added so far:</h2>
+
+      <!-- No PSCs -->
+
+
+  {% if data['pscStatement']  == "no" %} <!-- only show the Legal Entity entry if a name has been types into the legal entity page -->
+
+          <h2 class="govuk-heading-m">PSC statement</h2>
+
+         <p>There is no person identified as a person with significant control (either a registrable person or RLE) in relation to the limited partnership.</p> 
+
+
+
+         {{ govukRadios({
+            name: "addAnotherPSC",
+            fieldset: {
+              legend: {
+                text: "Do you want to add a PSC?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+
+            items: [
+              {
+                value: "person",
+                text: "Yes, an individual person"
+              },
+              {
+                value: "entity",
+                text: "Yes, a relevant legal entity (RLE)"
+              },   
+              {
+                value: "orp",
+                text: "Yes, an other registrable person (ORP)"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
 
 
          <!-- ORP if typed an ORP name -->
 
-          {% if data['pscORP1EntityName'] %}
+          {% elseif data['pscORP1EntityName'] %}
+
+
+       <h2 class="govuk-heading-m">PSCs you have added so far:</h2>
 
              {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
@@ -119,6 +159,36 @@
         ]
       }) }} 
 
+      {{ govukRadios({
+  name: "addAnotherPSC",
+  fieldset: {
+    legend: {
+      text: "Do you need to add another PSC?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+
+  items: [
+    {
+      value: "person",
+      text: "Yes, an individual person"
+    },
+    {
+      value: "entity",
+      text: "Yes, a relevant legal entity (RLE)"
+    },   
+    {
+      value: "orp",
+      text: "Yes, an other registrable person (ORP)"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
 
 
 
@@ -126,6 +196,7 @@
 
 
 
+       <h2 class="govuk-heading-m">PSCs you have added so far:</h2>
 
 
             {{ govukSummaryList({
@@ -179,6 +250,36 @@
         ]
       }) }} 
 
+      {{ govukRadios({
+  name: "addAnotherPSC",
+  fieldset: {
+    legend: {
+      text: "Do you need to add another PSC?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+
+  items: [
+    {
+      value: "person",
+      text: "Yes, an individual person"
+    },
+    {
+      value: "entity",
+      text: "Yes, a relevant legal entity (RLE)"
+    },   
+    {
+      value: "orp",
+      text: "Yes, an other registrable person (ORP)"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
 {% else %} 
 
       {{ govukSummaryList({
@@ -209,14 +310,7 @@
         ]
       }) }} 
 
-{% endif %}
-
-</div>
-</div>
-
-<div class="govuk-grid-row">
-<div class="govuk-grid-column-two-thirds">
-{{ govukRadios({
+      {{ govukRadios({
   name: "addAnotherPSC",
   fieldset: {
     legend: {
@@ -245,6 +339,15 @@
     }
   ]
 }) }}
+
+{% endif %}
+
+</div>
+</div>
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+
       
 {{ govukButton({
   text: "Save and continue"

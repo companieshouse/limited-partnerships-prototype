@@ -106,6 +106,29 @@
   </div>
 
 
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Capital contribution
+    </dt>
+    <dd class="govuk-summary-list__value">
+       {{data['lp1totalCapitalContribution']}} 
+
+      
+{{data['lp1CurrencySelector']}}  
+<br> <br> 
+Types of contribution: 
+{{data['lp1capitalContributionBreakdown']}} 
+
+
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="gp-person">Change<span class="govuk-visually-hidden"> Georgina Smith nationality</span></a>
+    </dd>
+  </div>
+
+
+
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
       Usual residential address
@@ -170,117 +193,10 @@
 
 
 <p class="govuk-body">
-  <a href="./../gp-person?from=general-partners-change" class="govuk-link govuk-link--no-visited-state">Delete this update and start again</a>
+  <a href="" class="govuk-link govuk-link--no-visited-state">Delete this update and start again</a>
 </p>
 
- <!-- 
-  {{ govukSummaryList({
-        classes: "govuk-!-margin-bottom-9",
-        rows: [
-          {
-            key: {
-              text: "Name"
-            },
-            value: {
-            text: (data['gp1FirstName'] or "Georgina") + " " + (data['gp1LastName'] or "Smith")
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Georgina Smith name"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Date of birth"
-            },
-            value: {
-              text: "21 August 1989"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Georgina Smith date of birth"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Nationality"
-            },
-            value: {
-              text: data['gp1Nationality1'] or "British"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Georgina Smith nationality"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Usual residential address"
-            },
-            value: {
-              text: "1 Blue Road, Manchester, M12 3AB"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Georgina Smith usual residential address"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Correspondence address"
-            },
-            value: {
-              text: "1 Squirrel Avenue, Leeds, LS1 2AB"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gp-person",
-                  text: "Change",
-                  visuallyHiddenText: "Georgina Smith correspondence address"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Date of change"
-            },
-            value: {
-              html: todayHtml
-            },
-            actions: {
-              items: [
-                {
-                  href: "javascript:void(0)",
-                  text: "Change",
-                  visuallyHiddenText: "Date of change"
-                }
-              ]
-            }
-          }
-        ]
-      }) }} -->
+
 
       <h2 class="govuk-heading-m govuk-!-padding-top-5">Print or save this page for your records</h2>
 

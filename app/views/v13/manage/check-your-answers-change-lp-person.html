@@ -114,9 +114,9 @@
     <dd class="govuk-summary-list__value">
        {{data['lp1totalCapitalContribution']}} 
 
-       British Pound (GBP)
+      
 
-<!-- {{data['lp1otherCurrencySelector']}}  -->
+{{data['lp1otherCurrencySelector']}}  
 <br> <br> 
 Types of contribution: 
 {{data['lp1capitalContributionBreakdown']}} 
@@ -138,7 +138,7 @@ Types of contribution:
       <p class="govuk-body">
 
       <!-- No change to usual residential address -->
-      {% if  (data['changeURA']) === "no" %}
+      {% if  (data['changeLPURA']) === "no" %}
             
         Not updated
 

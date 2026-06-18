@@ -65,12 +65,24 @@ router.post('/gov-onelogin-enter-code', function(request, response) {
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
 
+
+
         // email address check for agent 
             var govOneLoginEmail = request.session.data['govOneLoginEmail']
             if (govOneLoginEmail == "someone@email.com"){
                 response.redirect("v13/not-eligible")
             } 
+
+
+
             else {
+
+          
+
+                //check if they have come from search the register 
+
+
+                        //from search-the-register
 
                 // User has selected File for a company button and now they are signed in 
                 if (fileForThisCompany = true){

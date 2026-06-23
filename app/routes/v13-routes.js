@@ -423,7 +423,7 @@ router.post('/limited-partnership-ppob', function(request, response) {
     if (registrationOrTransition === "transition") {
         response.redirect("v13/general-partner-section");
     } else if (registerType === "RegisterPflp" || registerType === "RegisterPflpSco") {
-        response.redirect("general-partner-section");
+        response.redirect("v13/general-partner-section");
     } else if (registerType === "registerSlp" || registerType === "RegisterSqp") {
         response.redirect("v13/limited-partnership-ppob-choose-address");
     } else {

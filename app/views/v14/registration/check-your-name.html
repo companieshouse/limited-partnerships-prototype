@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Confirm your chosen name" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/check-your-name" method="post">
+
+{% if data['registerType'] in ["RegisterPflp", "RegisterPflpSco"] %}
+<h1 class="govuk-heading-xl">Confirm your chosen private fund limited partnership name</h1>
+{% else %}
+<h1 class="govuk-heading-xl">Confirm your chosen limited partnership name</h1>
+{% endif %}
+
+
+        <p class="govuk-body-l">ACME LIMITED PARTNERSHIP LIMITED PARTNERSHIP</p>
+       
+      {{ govukRadios({
+  name: "checkYourChosenName",
+  fieldset: {
+    legend: {
+      text: "Is this correct?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+    {{ govukButton({
+  text: "Save and continue"
+}) }}  
+
+
+
+</form>
+    </div>
+  </div>
+
+
+{% endblock %}

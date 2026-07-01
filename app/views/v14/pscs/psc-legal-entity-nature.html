@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+ 
+{% set pageName="Add a relevant legal entity PSC" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+    {% include "/includes/phase-banner.html" %}
+{% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/psc-legal-entity-nature" method="post">
+
+<!-- pscs-addresses/psc-legal-entity-poa/psc-legal-entity-poa-where -->
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}
+
+
+
+<!--Nature of control-->
+
+<div class="js-enabled-checkboxes" hidden>
+  {{ govukCheckboxes({
+    name: "typeNOC",
+    fieldset: {
+      legend: {
+        text: "How does this RLE hold control over the limited partnership?",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+      text: "Select all that apply"
+    },
+    classes: "govuk-!-margin-bottom-0",
+    items: [
+      {
+        value: "nocIndividual",
+        text: "As a relevant legal entity (RLE)",
+        hint: { text: "The RLE meets one or more natures of control" }
+      },
+      {
+        value: "nocFirm",
+        text: "Through a firm",
+        hint: { text: "The RLE has control over a firm that meets one or more natures of control" }
+      },
+      {
+        value: "nocTrust",
+        text: "Through a trust",
+        hint: { text: "The RLE has control over a trust that meets one or more natures of control" }
+      }
+    ]
+  }) }}
+</div>
+
+
+ {{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+                <p>We'll show this information on the public register.</p>"
+        }) }}
+
+
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+      <script src="/public/javascripts/toggle-PSC-NOCs.js"></script>
+  <script src="/public/javascripts/accessible-autocomplete.js"></script>
+
+{% endblock %}

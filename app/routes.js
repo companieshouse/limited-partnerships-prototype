@@ -26,7 +26,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Version 13 should be allow the user to walk through version 13 flow
 router.use('/', require('./routes/v13-routes.js'));
-
+router.use('/', require('./routes/v14-routes.js'));
 
 
 //module.exports = router

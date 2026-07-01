@@ -1,0 +1,106 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Where is the jurisdiction?" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "/includes/phase-banner.html" %}
+{% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="limited-partnership-roa" method="post">
+   
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}
+
+
+
+{% if data['registerType'] == "registerLp" or data['registerType'] == "RegisterPflp" %}
+{{ govukRadios({
+  name: "jurisdiction",
+  fieldset: {
+    legend: {
+      text: "Where is the jurisdiction?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+    hint: {
+    text: "This is where the partnership was formed. The registered office address must be in this jurisdiction. The principal place of business must be in this jurisdiction at registration."
+  }, 
+  items: [
+    {
+      value: "england-wales",
+      text: "England and Wales"
+    },
+    {
+      value: "northern-ireland",
+      text: "Northern Ireland"
+    }
+  ]
+}) }}
+{% elif data['registerType'] == "registerSlp" or data['registerType'] == "RegisterPflpSco" %}
+<h1 class="govuk-heading-xl">The partnership will be registered in Scotland </h1>
+<p class="govuk-body">The partnership's registered office address must be in Scotland. The principal place of business must be in Scotland at registration. </p>
+<p> If the partnership's addresses are in England, Wales or Northern Ireland, you'll need to go back to change the type of partnership you are registering. </p>
+  </p>
+
+{% else %} 
+{{ govukRadios({
+  name: "jurisdiction",
+  fieldset: {
+    legend: {
+      text: "Where is the jurisdiction?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+    hint: {
+    text: "This is where the partnership was formed. The registered office address and principal place of business will need to be in the same jurisdiction."
+  }, 
+  items: [
+    {
+      value: "england-wales",
+      text: "England and Wales"
+    },
+    {
+      value: "scotland",
+      text: "Scotland"
+    },
+    {
+      value: "northern-ireland",
+      text: "Northern Ireland"
+    }
+  ]
+}) }}
+{% endif %}
+
+
+
+
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

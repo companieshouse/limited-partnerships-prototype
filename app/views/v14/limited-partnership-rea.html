@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="What is the registered email address?" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/limited-partnership-rea" method="post">
+   
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}      
+      
+      
+
+
+
+{{ govukInput({
+  label: {
+    text: "What is the registered email address for the partnership?",
+    classes: "govuk-label--xl",
+    isPageHeading: true
+  },
+    hint: {
+    html: "<pclass='govuk-hint'>This is a new requirement. We do not hold a registered email address for the limited partnership yet.</p><pclass='govuk-hint'>We'll use this email address to send important information that relates to the partnership. For example, new legislative requirements or warnings about missed deadlines.</pclass>"  
+            if data.registrationOrTransition in ['transition'] 
+            else "<pclass='govuk-hint'>We'll use this email address to send important information that relates to the partnership. For example, new legislative requirements or warnings about missed deadlines.</pclass>"
+  },
+  id: "registeredEmaill",
+  name: "registeredEmail"
+}) }}
+
+
+<!--<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What is the registered email address used for?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+     <p class="govuk-body">In future we'll use this to send important information that relates to the limited partnership. For example, new legislative requirements or warnings about missed deadlines.</p>
+     <p class="govuk-body">It will not be shown on the public register.</p>
+  </div>
+</details>-->
+<!--
+{{ govukDetails({
+  summaryText: "If the email address is for someone acting on behalf of the partnership",
+  html: "<p>You must have agreement from the members of the limited partnership.</p>
+  <p>If you provide an email address for someone who is not a member of the partnership without agreement, we could suspend or stop your business from acting as an authorised agent. </p>"
+}) }} 
+
+{{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>
+                <p>We'll show the registered email address on the public register.</p>"
+        }) }} 
+-->
+      
+
+
+        {{ govukButton({
+              text: "Save and continue"
+            }) }}
+
+            {{ govukInsetText({
+              html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+                    <p>We will not show the registered email address on the public register.</p>"
+            }) }}
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

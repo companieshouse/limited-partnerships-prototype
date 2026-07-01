@@ -1,0 +1,160 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="PSC identity verification" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="check-your-answers" method="post">
+
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}
+
+<h1 class="govuk-heading-xl">Provide identity verification details for people with significant control (PSCs)</h1>
+<div class="govuk-!-padding-bottom-0"></div>
+<!-- can't work out this weird spacing -->
+<p class="govuk-body">  Each PSC should have already <a href="javascript:void(0)">verified their identity for Companies House (opens in new tab)</a>. 
+  
+  <br><br>
+
+  We'll have given them an 11 character code, known as a Companies House personal code.
+
+  <br><br>
+
+  You must enter the Companies House personal code for every PSC, and confirm that they have verified their identity.
+  <br><br>
+  </p>
+
+ <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Where they can find their Companies House personal code
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    If they have a Companies House account, they can find their code in the ‘Manage account’ section. They’ll need to sign in using the email address they provided when they verified.
+    
+    <br><br>Otherwise, we’ll have sent them the code in an email.
+  </div>
+</details>
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m">Name</h2>
+        <p class="govuk-body">Jane Doe</p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-m">Date of birth</h2>
+        <p class="govuk-body">February 1980</p>
+      </div>
+    </div>
+
+
+{{ govukInput({
+  label: {
+    text: "What is their Companies House personal code?"
+  },
+  classes: "govuk-!-width-one-half",
+  id: "one-half",
+  name: "oneHalf"
+}) }}
+{{ govukCheckboxes({
+  name: "confirm",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "confirm",
+      text: "I confirm that Jane Doe has verified their identity."
+    }
+  ]
+}) }}
+{{ govukButton({
+  text: "Submit",
+  classes: "govuk-button--secondary"
+}) }}
+
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m">Name</h2>
+        <p class="govuk-body">John Smith</p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-m">Date of birth</h2>
+        <p class="govuk-body">December 1970</p>
+      </div>
+    </div>
+
+
+{{ govukInput({
+  label: {
+    text: "What is their Companies House personal code?"
+  },
+  classes: "govuk-!-width-one-half",
+  id: "one-half",
+  name: "oneHalf"
+}) }}
+{{ govukCheckboxes({
+  name: "confirm",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "confirm",
+      text: "I confirm that John Smith has verified their identity."
+    }
+  ]
+}) }}
+{{ govukButton({
+  text: "Submit",
+  classes: "govuk-button--secondary"
+}) }}
+<br>
+
+{{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public online register</h2>
+                <p>To be confirmed.</p>"
+        }) }}
+
+
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

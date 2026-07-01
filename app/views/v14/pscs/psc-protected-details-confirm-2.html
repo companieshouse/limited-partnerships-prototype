@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Do any beneficial owners or managing officers have their personal information protected at Companies House?" %}
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/psc-protected-details" method="post">
+
+
+      {{ govukRadios({
+        classes: "govuk-radios",
+        name: "psc-submit-on-paper",
+        fieldset: {
+          legend: {
+            text: "To register a Limited Partnership with a protected PSC their details must be sent to Companies House separately",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "The PSC's protected information has already been sent to Companies House"
+          },
+          {
+            value: "no",
+            text: "The protected information forms have been requested and will be returned to Companies House within 14 days of this application",
+            hint: {
+              text: "You’ll need to call Companies House and request the PSC form XX. You will need to be subit this form within 14 days of your application, or the application will be rejected. "
+            }
+          },
+          {
+            value: "no",
+            text: "This individual is not protected PSC, and I want to continue adding this PSCs details."
+          }
+        ]
+      }) }}
+
+    
+
+
+       <!-- {% set secureRegisterDetailsHtml %}
+        <p class="govuk-body">Some people can <a href="https://www.gov.uk/guidance/applying-to-protect-your-personal-information-on-the-companies-house-register" class="govuk-link" data-event-id="apply-to-protect-personal-information-link">apply to protect personal information from being shown on the Companies House public register</a> if they meet certain criteria. This process includes:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>providing evidence that they are eligible to have their details protected </li>
+                  <li>paying a £100 fee</li>
+                </ul>
+                <p class="govuk-body">You should only select 'yes' if the PSC has already done this.</p>
+        
+      {% endset %}
+
+      {{ govukDetails({
+        summaryText: "What having personal information protected means",
+        html: secureRegisterDetailsHtml
+      }) }}   -->
+
+
+     {{ govukButton({
+        text: "Continue"
+      }) }}
+
+        <p class="govuk-body">
+         <a href="#" class="govuk-link">This individual PSC is not secure</a>
+      </p>
+
+</form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Confirmation" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/language-toggle.html" %}
+{% endblock %}
+
+{% set references = [
+'<strong>HDJ2123F</strong>',
+'<strong>LOPF123F</strong>',
+'<strong>HLJ21789</strong>',
+'<strong>HLJ2DOP</strong>',
+'<strong>OPSF2DOP</strong>',
+'<strong>TYPF2DOP</strong>',
+'<strong>WERCVF</strong>',
+'<strong>SWERCVF</strong>',
+'<strong>TYU8764</strong>'
+] | random %}
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Update submitted",
+html: "Your reference number " + references
+}) }}
+
+  
+
+
+
+
+<p class="govuk-body">We've received your filing to remove GlobalTech as a limited partner of ACME LIMITED PARTNERSHIP (SL012345).
+  <p>We've sent a confirmation email to <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong>.</p>
+
+{{ govukInsetText({
+  text: "This update will not show on the public register until we accept the filing."
+}) }}
+
+
+<h2 class="govuk-heading-m">What happens next</h2>
+
+<p>We'll process this filing within 5 working days, and email <strong>{{ data['govOneLoginEmail'] or "agent@authorised-agent.com" }}</strong> to let you know if it's been accepted or rejected.  
+</p>
+
+
+
+
+<p>If it's accepted, we'll update the information on the public register.
+
+
+<p> If it's rejected, we'll explain why and tell you what you can do next.</p>
+
+<h2 class="govuk-heading-m">If you need to file a confirmation statement</h2>
+
+<p>As long as all required updates have been submitted, you can file a confirmation statement. You do not need to wait for the updates to be accepted.
+
+  <h2 class="govuk-heading-m">What do you want to do now?</h2>
+  <ul class="govuk-list">
+  <li>
+        <a href="../chs/company-info?authorised" class="govuk-link govuk-link--no-visited-state">Return to the partnership overview</a>
+  </li>
+
+    <li>
+      <a href="../confirmation-statement/start" class="govuk-link govuk-link--no-visited-state">File a confirmation statement</a>
+  </li>
+
+    <li>
+      <a href="../chs/start" class="govuk-link govuk-link--no-visited-state">File for a different limited partnership</a>
+  </li>
+  </ul>
+
+
+<p class="govuk-body">
+<a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+</p>
+
+    <div class="govuk-js-hidden">
+  <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary">Print this page</button>
+</div>
+
+
+    </div>
+  </div>
+
+        <script src="/public/javascripts/print-button.js"></script>
+
+{% endblock %}

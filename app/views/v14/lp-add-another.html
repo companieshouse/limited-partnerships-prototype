@@ -1,0 +1,171 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Do you need to add another limited partner?" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+{% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/lp-add-another" method="post">
+
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}
+
+
+
+       <h1 class="govuk-heading-xl">Limited partners</h1>
+
+</div>
+</div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h2 class="govuk-heading-m">Limited partners you have added so far:</h2>
+
+
+
+{% if data['lp1EntityName'] %} <!-- only show the Legal Entity entry if a name has been types into the legal entity page -->
+
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Person"
+            },
+            value: {
+            text: (data['lp1FirstName'] or "Lisa") + " " + (data['lp1LastName'] or "Taylor")
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Lisa Taylor Limited Partner"
+                },
+                  {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "Lisa Taylor Limited Partner"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Legal entity"
+            },
+            value: {
+              text: data['lp1EntityName'] or "ACME Legal Entity Inc"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "ACME Legal Entity Inc"
+                },
+                 {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "ACME Legal Entity Inc"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+{% else %} 
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Person"
+            },
+            value: {
+            text: (data['lp1FirstName'] or "Lisa") + " " + (data['lp1LastName'] or "Taylor")
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Lisa Taylor Limited Partner"
+                },
+                  {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "Lisa Taylor Limited Partner"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+{% endif %}
+
+
+
+</div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+{{ govukRadios({
+  name: "addAnotherLP",
+  fieldset: {
+    legend: {
+      text: "Do you need to add another limited partner?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+
+  items: [
+    {
+      value: "addPersonLP",
+      text: "Yes, a person"
+    },
+    {
+      value: "addEntityLP",
+      text: "Yes, a legal entity"
+    },
+   
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+      
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

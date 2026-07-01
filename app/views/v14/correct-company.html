@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Confirm this is the correct limited partnership" %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/correct-company" method="post">
+
+
+      <h1 class="govuk-heading-xl">Confirm this is the correct limited partnership</h1>
+
+             {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Company name"
+            },
+            value: {
+              text: "ACME LIMITED PARTNERSHIP"
+            }
+          },
+          {
+            key: {
+              text: "Company number"
+            },
+               value: {
+                  text: data['lpNumber'] or "SL012345"
+               }
+            }
+        ]
+      }) }}
+
+ 
+
+
+
+
+   {{ govukButton({
+  text: "Continue"
+  
+}) }}  
+
+{% if (data['registrationOrTransition'] == "transition") %}
+
+ <div class="ur-shortcuts">
+  <!-- Not part of ACTUAL screen: only for UR purposes -->
+  <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
+    <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+    <li><a class="govuk-link" href="transition-already-filed">Transition - already filed</a></li>
+
+    </ul>
+  </div>
+{% else  %}
+{% endif %}
+
+    </div>
+  </div>
+{% endblock %}

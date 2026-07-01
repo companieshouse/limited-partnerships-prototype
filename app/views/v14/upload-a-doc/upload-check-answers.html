@@ -1,0 +1,104 @@
+{% extends "layouts/main-old-header.html" %}
+
+{% set pageName="Check your details before submitting your uploaded document" %}
+
+
+{% set serviceName %}
+  Upload a document to Companies House
+{% endset%}
+{% block beforeContent %}
+   {% include "/includes/phase-banner-alpha.html" %}
+   {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="upload-confirmation" method="post">
+
+      <h1 class="govuk-heading-xl">Check your details before submitting your uploaded document</h1>
+
+     <h2 class="govuk-heading-m">Company details</h2>
+
+
+        {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Company name"
+            },
+            value: {
+              text: "ACME SCOTTISH LIMITED PARTNERSHIP"
+            }
+          },
+          {
+            key: {
+              text: "Company number"
+            },
+            value: {
+                  text: data['uploadCompanyNumber'] or "LP123456"
+               }
+          }
+        ]
+      }) }}
+
+
+    <h2 class="govuk-heading-m">Document details</h2>
+
+
+ {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Document type"
+            },
+              value: {
+                  text: data['slpSelectDocument'] or "SLP PSC09 - Give notice of update to PSC statements for a Scottish limited partnership"
+               },
+            actions: {
+              items: [
+                {
+                  href: "upload-select-document",
+                  text: "Change",
+                  visuallyHiddenText: "document type"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Document uploaded"
+            },
+            value: {
+              text: "AnExampleLP-Document.pdf"
+            },
+            actions: {
+              items: [
+                {
+                  href: "upload-select-document",
+                  text: "Change",
+                  visuallyHiddenText: "document uploaded"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+
+      {{ govukButton({
+        text: "Submit document"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

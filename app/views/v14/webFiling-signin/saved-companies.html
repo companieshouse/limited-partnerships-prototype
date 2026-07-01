@@ -1,0 +1,254 @@
+
+{% extends "layouts/webfiling.html" %}
+
+{% block pageTitle %}
+Saved companies – WebFiling – GOV.UK Prototype Kit
+{% endblock %}
+
+<!-- 
+##################################################################################################################
+
+DEVS 
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+
+##################################################################################################################
+-->
+
+
+
+
+
+
+{% block content %}
+<form class="form" action="" method="post">
+
+<div class="govuk-grid-row">
+
+
+<div class="govuk-grid-column-one-quarter webfiling-menu">
+{% include "/includes/webfiling-left-menu.html" %}
+
+</div>
+
+
+
+
+<div class="govuk-grid-column-two-thirds wfOverview">
+
+<!--   <button type="submit" class="govuk-button allForms" data-module="govuk-button">
+  All forms
+  </button> -->
+  </div>
+
+
+  <div class="govuk-grid-column-two-thirds wfOverview">
+ <!-- <div class="information message">
+    <p class="header">Restore your digital authorisation</p>
+    <p>To file online, you'll need to select 'restore authorisation' for each company that has a 'not authorised' status. This will restore your digital authorisation, so that you do not need to enter the company authentication code for most online filings.</p>
+  </div>
+   -->
+  
+  
+  <h1 class="govuk-heading-l govuk-!-padding-0">Saved companies</h1>
+
+  <h2 class="govuk-!-font-size-16 govuk-!-font-weight-bold govuk-!-padding-bottom-0">Digitally authorised people and invitations</h2>
+  <p class="govuk-!-padding-top-0">View and manage people who are digitally authorised for a company, or accept or decline invitations to be digitally authorised.</p>
+ <!--  <a href="https://find-update-company-info.herokuapp.com/v9-your-companies/your-companies-card" class="govuk-link" rel="noreferrer noopener" target="_blank">Manage digitally authorised people and invitations</a> -->
+
+  <a href="../interrupt-page-wf" class="govuk-link">Manage digitally authorised people and invitations</a>
+
+  <br><br>
+
+
+<!-- <h2 class="govuk-!-font-size-16 govuk-!-font-weight-bold govuk-!-padding-bottom-0">Manage initiations</h2>
+<p>To accept or decline invitations to be digitally authorised, you need to go to your <a href="https://find-update-company-info.herokuapp.com/v8-your-companies/your-companies-no-longer-authorised-summary-card-alt-2" class="govuk-link" rel="noreferrer noopener" target="_blank"> ‘Your companies’ section of your Companies House account (opens in new tab)</a>.
+    </p>
+ -->
+
+<h2 class="govuk-!-font-size-16 govuk-!-font-weight-bold govuk-!-padding-bottom-0">Remove a company from your account</h2>
+
+<p class="govuk-!-padding-top-0">If you do not want to be digitally authorised for a company, you can remove it from the list of companies in your account.</p>
+
+<a href="../interrupt-page-wf" class="govuk-link">Remove a company</a>
+
+<!-- <a href="https://find-update-company-info.herokuapp.com/v9-your-companies/your-companies-card" class="govuk-link" rel="noreferrer noopener" target="_blank">Remove a company</a> -->
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+  
+<!--  {{ govukButton({
+  text: "Add a company",
+  href:"company-number"
+}) }} -->
+
+
+<!--  <span class="fullwidth govuk-!-margin-left-0" style="background-color:#f3f2f1;" ><span class="govuk-visually-hidden">Warning: </span>You'll  need to enter the authentication code in order to file. 
+ 
+ If you do not have the authentication code you'll need to ask someone who is digitally authorised to add you or <a href="https://find-update-company-info.herokuapp.com/v8-your-companies/company-added" class="govuk-link" rel="noreferrer noopener" target="_blank"> <span class="govuk-visually-hidden"></span> request the authentication code</a>. </span>
+  <br> -->
+
+
+
+ <!--  <h2 class="govuk-heading-m">Your companies</h2>
+
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="event-name">
+      <p class="govuk-body">Enter the company number, or part of a company number. </strong></p>
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="event-name" name="eventName" type="text">
+    <button type="submit" class="govuk-button govuk-!-margin-left-2" data-module="govuk-button">
+      Search
+     </button>
+     <a href="" class="govuk-link govuk-link--no-visited-state govuk-!-margin-left-2"> Cancel search  <span class="govuk-visually-hidden"></span> </a>
+
+     
+     <p class="govuk-body"><a href="company-overview" class="govuk-link--no-visited-state">File for a different company </a>
+  </div>
+
+ -->
+
+
+
+
+<!-- Authorised for FLOWERS LIMITED  -->
+
+{% if (data['added-flowers'] == true)%}
+ 
+ <div class="govuk-summary-card wf-version-of-govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      <a class="govuk-link" href="../company-overview-flowers">FLOWERS LIMITED</a>
+    </h2>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Company number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          18882777
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Digital authorisation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <strong class='govuk-tag govuk-tag--green'>
+               Authorised
+               </strong>
+
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+{% endif %}
+
+
+
+ <!-- Not authorised for BETA TECHNOLOGY LIMITED  
+{% if (data['restored-beta-tech'] == undefined )%}
+ <div class="govuk-summary-card wf-version-of-govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      BETA TECHNOLOGY LIMITED
+    </h2>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Company number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          10866549
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Digital authorisation
+        </dt>
+        <dd class="govuk-summary-list__value">
+               <p class="govuk-body govuk-!-padding-top-3">
+                <a href="restore-beta-tech" class="govuk-link">Restore authorisation and view company information</a>
+              </p>
+
+         
+
+             
+
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+{% endif %}-->
+
+<!-- Authorised for BETA TECHNOLOGY LIMITED -->
+
+
+ 
+ <div class="govuk-summary-card wf-version-of-govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      <a class="govuk-link" href="">BETA TECHNOLOGY LIMITED</a>
+    </h2>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Company number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          10866549
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Digital authorisation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <strong class='govuk-tag govuk-tag--green'>
+               Authorised
+               </strong>
+
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+
+
+
+
+
+
+  {{ govukButton({
+  text: "File for a different company",
+  href:"company-number-chs"
+}) }}
+
+
+
+
+
+
+  
+  </div>
+     </form>
+{% endblock %}
+
+
+
+

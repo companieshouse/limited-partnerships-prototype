@@ -1,0 +1,147 @@
+{% extends "layouts/main-old-header.html" %}
+
+{% set pageName="Upload a document to Companies House" %}
+
+
+
+{% set serviceName %}
+ Upload a document to Companies House
+{% endset%}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner-alpha.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="upload-login-create" method="post">
+
+      <h1 class="govuk-heading-xl">
+        Upload a document to Companies House
+      </h1>
+
+      <p class="govuk-body-l">Use this service to file certain documents online that would usually be sent to us in a paper format.</p>
+
+
+<p class="govuk-body">You can use this service to upload certain documents for: </p>
+
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>share capital</li>
+  <li>registrar's powers</li>
+  <li>change of constitution</li>
+  <li>Scottish qualifying partnerships</li>
+</ul>
+
+
+<!-- Version 1 content
+<p>To upload documents for:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>insolvency – you must be a registered insolvency practitioner</li>
+  <li>Scottish limited partnerships – you must be registered as a Companies House authorised agent (also known as Authorised Corporate Service Provider, ACSPs)</li>
+  </ul>
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What is a Companies House authorised agent?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>Authorised agents are businesses like accountants, solicitors or company formation agents, that have registered with Companies House to be able to file on behalf of clients.
+</p>
+<p>Read the <a href="#/">guidance to check if you can register as an authorised agent</a>.</p>
+
+  </div>
+</details> -->
+
+
+<!-- Version 2 content -->
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If you need to upload documents for a Scottish limited partnership, or insolvency documents
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+
+        <h2 class="govuk-heading-s">Insolvency documents</h2>
+
+    <p>You must be a registered insolvency practitioner to upload insolvency documents.  
+</p>
+<p class="govuk-body">Read the <a href="https://find-and-update.company-information.service.gov.uk/efs-submission/insolvency-guidance" class="govuk-link">guidance for uploading insolvency documents</a>.</p>
+
+        <h2 class="govuk-heading-s">Documents for Scottish limited partnerships</h2>
+
+<p>Only Companies House authorised agents (also known as Authorised Corporate Service Provider, ACSPs) can upload documents for Scottish limited partnerships. </p>
+
+<p>Read the <a href="#/">guidance to check if you can register as an authorised agent</a>.</p>
+
+  </div>
+</details>
+
+
+{{ govukInsetText({
+  text: "You cannot use this service to upload documents for an overseas entity."
+}) }}
+
+<p class="govuk-body"><a href="upload-guidance" class="govuk-link">Read the guidance to find out how to upload a document</a>, including which documents you can file.</p>
+
+
+
+
+    <h2 class="govuk-heading-m">What you'll need</h2>
+
+
+<p class="govuk-body">You'll need:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>to sign in to or create a Companies House account</li>
+  <li>the completed document or <a href="https://www.gov.uk/government/collections/forms-for-company-registration-and-filing" class="govuk-link">Companies House form</a></li>
+  <li>to save the completed document to the device you are using</li>
+</ul>
+<p class="govuk-body">For some document types, you'll need:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>the company authentication code</li>
+  <li>to pay for the document</li>
+  <li>to include supporting evidence</li>
+</ul>
+
+
+
+      {{ govukButton({
+        text: "Start now",
+        isStartButton: true
+      }) }}
+
+
+
+    <h2 class="govuk-heading-m">Check if you need to use a different service</h2>
+<p class="govuk-body">There are different services available if you need to:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li><a href="https://www.gov.uk/set-up-limited-company" class="govuk-link">register a company</a></li>
+  <li><a href="https://www.gov.uk/file-your-company-annual-accounts" class="govuk-link">file company accounts</a></li>
+  <li><a href="https://www.gov.uk/file-your-confirmation-statement-with-companies-house" class="govuk-link">file a confirmation statement for a company</a></li>
+  <li><a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" class="govuk-link">make changes to a company</a></li>
+  <li><a href="https://www.gov.uk/closing-a-limited-company" class="govuk-link">close a company</a></li>
+</ul>
+
+     <h2 class="govuk-heading-m">Adapt your device to meet your needs</h2>
+
+
+      <p class="govuk-body "><a href="https://mcmw.abilitynet.org.uk/" class="govuk-link">Read advice from AbilityNet on how to adapt your device to meet your needs</a>. For example, changing the background colour or text size.</p>
+
+
+
+    </div>
+
+   
+  </div>
+
+{% endblock %}

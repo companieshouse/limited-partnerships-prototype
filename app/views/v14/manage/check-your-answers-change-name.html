@@ -1,0 +1,117 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+               <span class="govuk-caption-l"> {{ data['lpChooseName'] or "ACME" }} {{ data['nameEnding'] or "LIMITED PARTNERSHIP" }} (LP123456)</span>
+     <h1 class="govuk-heading-l">Check your answers before submitting this update</h1>
+
+{% set todayDate = "now" | govukDate %}
+{% set fallbackDate = "5 June 2025" %}
+{% set todayHtml =  (todayDate or fallbackDate) %}
+
+
+  {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: data['lpChooseName']
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Name ending"
+            },
+            value: {
+              text: data['nameEnding']
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "name ending"
+                }
+              ]
+            }
+          },
+           {
+            key: {
+              text: "Date of change"
+            },
+            value: {
+              html: todayHtml
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Date of change"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+{{ govukWarningText({
+  text: "Print or save this page before you submit the filing, for your own records.
+",
+  iconFallbackText: "Warning"
+}) }}
+
+<p class="govuk-body">We will not send you or the partnership a copy of this information.
+</p>
+
+<div class="govuk-inset-text">
+  If you leave this page, your answers will be saved. We'll give you the option to continue with this filing when you next sign in to this service.
+
+</div>
+
+<div class="govuk-button-group">
+
+        {{ govukButton({
+          text: "Continue to payment",
+          href: "../payment-placeholder?change-name"
+        }) }}
+          <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary">Print this page</button>
+
+</div>
+
+
+
+    </div>
+  </div>
+{% endblock %}

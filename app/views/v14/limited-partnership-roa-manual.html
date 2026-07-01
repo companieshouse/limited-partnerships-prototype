@@ -1,0 +1,496 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="What is the registered office address?" %}
+
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/limited-partnership-roa-manual" method="post">
+   
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+{% endif %}
+
+
+<h1 class="govuk-heading-xl">What is the registered office address of the partnership?</h1>
+
+{% if (data['registrationOrTransition'] == "post") %}
+<p>We'll use this address to send official communications. It must be a physical address in the UK. You cannot use a PO Box address.
+</p>
+<div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                      <span class="govuk-visually-hidden">Warning</span>
+                      The address must meet the requirements of an 'appropriate' address. If it does not, the partnership could be struck off the Companies House register.
+                    </strong></p>
+
+        <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What does 'appropriate' address mean?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+                     <p>This means that:
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>it is in the jurisdiction where the limited partnership is registered (England and Wales, Northern Ireland, or Scotland)</li>
+                      <li>someone acting on behalf of the limited partnership will be made aware of any post addressed and delivered to the limited partnership</li>
+                      <li>when the limited partnership receives post at this address, it’s possible for the sender to get confirmation of delivery</li>                     
+                    </ul>
+  </div>
+        </details>
+
+{% elif (data['registrationOrTransition'] == "transition") %}
+<p>This is a new requirement. We do not hold a registered office address for the partnership yet. It may be different from the principal place of business address that we already hold. </p>
+<p>We'll use this address to send official communications. It must be a physical address in the UK. You cannot use a PO Box address.
+</p>
+<div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                      <span class="govuk-visually-hidden">Warning</span>
+                      The address must meet the requirements of an 'appropriate' address. If it does not, the partnership could be struck off the Companies House register.
+                    </strong></p>
+
+        <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What does 'appropriate' address mean?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+                     <p>This means that:
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>it is in the jurisdiction where the limited partnership is registered (England and Wales, Northern Ireland, or Scotland)</li>
+                      <li>someone acting on behalf of the limited partnership will be made aware of any post addressed and delivered to the limited partnership</li>
+                      <li>when the limited partnership receives post at this address, it’s possible for the sender to get confirmation of delivery</li>                     
+                    </ul>
+  </div>
+        </details>
+{% else %}  
+
+<p>We'll use this address to send official communications. It must be a physical address in the UK. You cannot use a PO Box address.
+</p>
+
+                  <div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                      <span class="govuk-visually-hidden">Warning</span>
+                      The address must meet the requirements of an 'appropriate' address. If it does not, the partnership could be struck off the Companies House register.
+                    </strong></p>
+
+        <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What does 'appropriate' address mean?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+                     <p>This means that:
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>it is in the jurisdiction where the limited partnership is registered (England and Wales, Northern Ireland, or Scotland)</li>
+                      <li>someone acting on behalf of the limited partnership will be made aware of any post addressed and delivered to the limited partnership</li>
+                      <li>when the limited partnership receives post at this address, it’s possible for the sender to get confirmation of delivery</li>                     
+                    </ul>
+  </div>
+        </details>
+
+        <p>You'll need to provide the principal place of business next.
+        </p>
+{% endif %}
+
+
+
+{% if prevURL and prevURL.indexOf('limited-partnership-roa-confirm-address') != -1 %}
+    {% if data['registerType'] in ["registerSlp", "RegisterPflpSco", "registerSqp"] %}
+   {% call govukFieldset({
+  legend: {
+    text: "What is the registered office address of the partnership?",
+    classes: "govuk-visually-hidden"
+  }
+}) %}
+  {{ govukInput({
+    label: {
+      text: "Property name or number",
+      classes: "govuk-!-margin-top-5"
+    },
+        hint: {
+    text: "For example, 'The Mill', '116' or 'Flat 37a'"
+  },
+    id: "roaNameNumber",
+    name: "roabNameNumber",
+    value: "1"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Address line 1"
+    },
+    id: "roaaddress-line-1",
+    name: "roaaddressLine1",
+    autocomplete: "address-line1",
+    value: "Rose Street"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Address line 2 (optional)"
+    },
+    id: "roaaddress-line-2",
+    name: "roaaddressLine2",
+    autocomplete: "address-line2"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Town or city"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "roaaddress-town",
+    name: "roaaddressTown",
+    autocomplete: "address-level2",
+    value: "Edinburgh"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "County (optional)"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "roaaddress-county",
+    name: "roaaddressCounty"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Postcode"
+    },
+    classes: "govuk-input--width-10",
+    id: "roaaddress-postcode",
+    name: "roaaddressPostcode",
+    autocomplete: "postal-code",
+    value: "EH1 2EB"
+  }) }}
+
+  {{ govukSelect({
+  id: "roaCountry",
+  name: "roaCountry",
+  label: {
+    text: "Country"
+  },
+  fieldset: {
+    legend: {
+      text: "Country",
+      isPageHeading: false,
+      classes: "govuk-!-font-weight-regular"
+    }
+  },
+  items: [
+      {
+      value: "Select country",
+      text: "Select country"
+    },
+    {
+      value: "england",
+      text: "England"
+    },
+    {
+      value: "scotland",
+      text: "Scotland"
+    },
+    {
+      value: "wales",
+      text: "Wales"
+    },
+    {
+      value: "northern-ireland",
+      text: "Northern Ireland"
+    }
+  ]
+}) }}
+
+{% endcall %}
+
+
+    {% else %}
+
+
+
+        {% if data['registerType'] in ["registerLp", "RegisterPflp"] %}
+    {% call govukFieldset({
+  legend: {
+    text: "What is the registered office address of the partnership?",
+    classes: "govuk-visually-hidden"
+  }
+}) %}
+  {{ govukInput({
+    label: {
+      text: "Property name or number",
+      classes: "govuk-!-margin-top-5"
+    },
+        hint: {
+    text: "For example, 'The Mill', '116' or 'Flat 37a'"
+  },
+    id: "roaNameNumber",
+    name: "roabNameNumber",
+    value: "1"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Address line 1"
+    },
+    id: "roaaddress-line-1",
+    name: "roaaddressLine1",
+    autocomplete: "address-line1",
+    value: "Orchard Street"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Address line 2 (optional)"
+    },
+    id: "roaaddress-line-2",
+    name: "roaaddressLine2",
+    autocomplete: "address-line2",
+    value: "Whitchurch"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Town or city"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "roaaddress-town",
+    name: "roaaddressTown",
+    autocomplete: "address-level2",
+    value: "Cardiff"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "County (optional)"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "roaaddress-county",
+    name: "roaaddressCounty"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Postcode"
+    },
+    classes: "govuk-input--width-10",
+    id: "roaaddress-postcode",
+    name: "roaaddressPostcode",
+    autocomplete: "postal-code",
+    value: "CF14 3UZ"
+  }) }}
+
+  {{ govukSelect({
+  id: "roaCountry",
+  name: "roaCountry",
+  label: {
+    text: "Country"
+  },
+  fieldset: {
+    legend: {
+      text: "Country",
+      isPageHeading: false,
+      classes: "govuk-!-font-weight-regular"
+    }
+  },
+  items: [
+      {
+      value: "Select country",
+      text: "Select country"
+    },
+    {
+      value: "england",
+      text: "England"
+    },
+    {
+      value: "scotland",
+      text: "Scotland"
+    },
+    {
+      value: "wales",
+      text: "Wales"
+    },
+    {
+      value: "northern-ireland",
+      text: "Northern Ireland"
+    }
+  ]
+}) }}
+
+{% endcall %}
+
+
+
+        {% endif %}
+    {% endif %}
+{% else %}
+
+
+{% if data['from'] == "roa-update" %}
+    {% set roaNameNumberValue = "64" %}
+    {% set roaaddressLine1Value = "Zoo Lane" %}
+    {% set roaaddressTownValue = "London" %}
+    {% set roaaddressPostcodeValue = "W5 5AB" %}
+    {% set roaCountryValue = "england" %}
+{% else %}
+    {% set roaNameNumberValue = "" %}
+    {% set roaaddressLine1Value = "" %}
+    {% set roaaddressTownValue = "" %}
+    {% set roaaddressPostcodeValue = "" %}
+    {% set roaCountryValue = "" %}
+{% endif %}
+
+
+ {% call govukFieldset({
+  legend: {
+    text: "What is the registered office address of the partnership?",
+    classes: "govuk-visually-hidden"
+  }
+}) %}
+  {{ govukInput({
+    label: {
+      text: "Property name or number",
+      classes: "govuk-!-margin-top-5"
+    },
+        hint: {
+    text: "For example, 'The Mill', '116' or 'Flat 37a'"
+  },
+    id: "roaNameNumber",
+    name: "roabNameNumber",
+    value: roaNameNumberValue
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Address line 1"
+    },
+    id: "roaaddress-line-1",
+    name: "roaaddressLine1",
+    autocomplete: "address-line1",
+    value: roaaddressLine1Value
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Address line 2 (optional)"
+    },
+    id: "roaaddress-line-2",
+    name: "roaaddressLine2",
+    autocomplete: "address-line2"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Town or city"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "roaaddress-town",
+    name: "roaaddressTown",
+    autocomplete: "address-level2",
+    value: roaaddressTownValue
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "County (optional)"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "roaaddress-county",
+    name: "roaaddressCounty"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Postcode"
+    },
+    classes: "govuk-input--width-10",
+    id: "roaaddress-postcode",
+    name: "roaaddressPostcode",
+    autocomplete: "postal-code",
+    value: roaaddressPostcodeValue
+  }) }}
+
+  {{ govukSelect({
+  id: "roaCountry",
+  name: "roaCountry",
+  label: {
+    text: "Country"
+  },
+     value: roaCountryValue,
+  fieldset: {
+    legend: {
+      text: "Country",
+      isPageHeading: false,
+      classes: "govuk-!-font-weight-regular"
+    }
+  },
+ 
+  items: [
+      {
+      value: "Select country",
+      text: "Select country"
+    },
+    {
+      value: "england",
+      text: "England"
+    },
+    {
+      value: "scotland",
+      text: "Scotland"
+    },
+    {
+      value: "wales",
+      text: "Wales"
+    },
+    {
+      value: "northern-ireland",
+      text: "Northern Ireland"
+    }
+  ]
+}) }}
+
+{% endcall %}
+
+
+        {% endif %}
+
+
+
+
+{{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+                <p>We'll show the registered office address on the public register.</p>"
+        }) }}
+
+      
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

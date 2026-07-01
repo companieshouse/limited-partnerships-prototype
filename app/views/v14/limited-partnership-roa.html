@@ -1,0 +1,209 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="What is the registered office address?" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<form class="form" action="/limited-partnership-roa" method="post">
+   
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}
+<h1 class="govuk-heading-xl">What is the registered office address of the partnership?</h1>
+
+{% if (data['registrationOrTransition'] == "post") %}
+<p>We'll use this address to send official communications. It must be a physical address in the UK. You cannot use a PO Box address.
+</p>
+<div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                      <span class="govuk-visually-hidden">Warning</span>
+                      The address must meet the requirements of an 'appropriate' address. If it does not, the partnership could be struck off the Companies House register.
+                    </strong></p>
+
+        <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What does 'appropriate' address mean?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+                     <p>This means that:
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>it is in the jurisdiction where the limited partnership is registered (England and Wales, Northern Ireland, or Scotland)</li>
+                      <li>someone acting on behalf of the limited partnership will be made aware of any post addressed and delivered to the limited partnership</li>
+                      <li>when the limited partnership receives post at this address, it’s possible for the sender to get confirmation of delivery</li>                     
+                    </ul>
+  </div>
+        </details>
+
+{% elif (data['registrationOrTransition'] == "transition") %}
+<p>This is a new requirement. We do not hold a registered office address for the partnership yet. It may be different from the principal place of business address that we already hold. </p>
+<p>We'll use this address to send official communications. It must be a physical address in the UK. You cannot use a PO Box address.
+</p>
+<div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                      <span class="govuk-visually-hidden">Warning</span>
+                      The address must meet the requirements of an 'appropriate' address. If it does not, the partnership could be struck off the Companies House register.
+                    </strong></p>
+
+        <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What does 'appropriate' address mean?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+                     <p>This means that:
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>it is in the jurisdiction where the limited partnership is registered (England and Wales, Northern Ireland, or Scotland)</li>
+                      <li>someone acting on behalf of the limited partnership will be made aware of any post addressed and delivered to the limited partnership</li>
+                      <li>when the limited partnership receives post at this address, it’s possible for the sender to get confirmation of delivery</li>                     
+                    </ul>
+  </div>
+        </details>
+
+{% else %}  
+
+<p>We'll use this address to send official communications. It must be a physical address in the UK. You cannot use a PO Box address.
+</p>
+
+                  <div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                      <span class="govuk-visually-hidden">Warning</span>
+                      The address must meet the requirements of an 'appropriate' address. If it does not, the partnership could be struck off the Companies House register.
+                    </strong></p>
+
+        <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What does 'appropriate' address mean?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+                     <p>This means that:
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>it is in the jurisdiction where the limited partnership is registered (England and Wales, Northern Ireland, or Scotland)</li>
+                      <li>someone acting on behalf of the limited partnership will be made aware of any post addressed and delivered to the limited partnership</li>
+                      <li>when the limited partnership receives post at this address, it’s possible for the sender to get confirmation of delivery</li>                     
+                    </ul>
+  </div>
+        </details>
+
+        <p>You'll need to provide the principal place of business next.
+        </p>
+
+{% endif %}
+
+<fieldset class="govuk-fieldset">
+  <legend class="govuk-visually-hidden">
+      What is the registered office address?
+  </legend>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-margin-top-6" for="roaAddressLine1">
+      Property name or number (optional)
+    </label>
+    <input class="govuk-input" id="roaAddressLine1" name="roaAddressLine1" type="text" autocomplete="address-line1">
+  </div>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="roaPostcode">
+      Postcode
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="roaPostcode" name="roaPostcode" type="text" autocomplete="postal-code">
+  </div>
+
+
+  {{ govukButton({
+  text: "Find address"
+}) }}
+
+  <p><a href="limited-partnership-roa-manual">Enter address manually</a><p>
+
+</fieldset>
+
+
+<!--<div class="govuk-form-group">
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="addressOne">
+    Address line 1
+  </label>
+
+<input class="govuk-input" id="addressOne" name="addressOne" type="text">
+
+</div>
+        
+<div class="govuk-form-group">
+  <label class="govuk-label" for="addressTwo">
+    Address line 2 (optional)
+  </label>
+
+<input class="govuk-input" id="addressTwo" name="addressTwo" type="text">
+
+</div>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="town">
+    Town or city
+  </label>
+
+<input class="govuk-input" id="town" name="town" type="text">
+
+</div>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="county">
+    County (optional)
+  </label>
+
+<input class="govuk-input" id="county" name="county" type="text">
+
+</div>
+<div class="govuk-form-group">
+  <label class="govuk-label" for="postcode">
+    Postcode 
+  </label>
+
+<input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
+
+-->
+
+{{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+                <p>We'll show the registered office address on the public register.</p>"
+        }) }}
+
+      <!--
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+-->
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

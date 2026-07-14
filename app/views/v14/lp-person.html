@@ -2073,7 +2073,7 @@
           <div id="lp1otherCurrencySelector" class="autocomplete-wrapper" value="British Pound (GBP)"></div>
 </div>
 
-
+<!-- Replacing the select to a typeahead v13 
 {{ govukSelect({
   id: "lp1otherCurrencySelector",
   name: "lp1otherCurrencySelector",
@@ -2244,7 +2244,7 @@
 
       ]
 }) }}
-
+ -->
 
 
 {% else %}
@@ -2253,8 +2253,14 @@
 
 
 
+ <div class="govuk-form-group ">
+          <h2 class="govuk-label-wrapper"> <label for="autocomplete-default" class="govuk-label govuk-label--s">Currency</label></h2> 
 
+          <p class="govuk-hint">Start typing a currency, then choose from the list.</p>
+          <div id="lp1otherCurrencySelector" class="autocomplete-wrapper"></div>
+</div>
 
+<!--  Replacing the select to a typeahead v13 
 {{ govukSelect({
   id: "lp1otherCurrencySelector",
   name: "lp1otherCurrencySelector",
@@ -2429,7 +2435,7 @@
 { "text": "Zimbabwean Dollar (ZWD)", "value": "Zimbabwean Dollar (ZWD)" }
 
       ]
-}) }}
+}) }} -->
 
 {% endif %}
 

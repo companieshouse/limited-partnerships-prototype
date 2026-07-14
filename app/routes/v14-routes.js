@@ -110,6 +110,9 @@ router.post('/gov-onelogin-enter-code', function(request, response) {
     else if (registrationOrTransition == "transition"){
          response.redirect("v14/starting-new")
      } 
+     else if (registrationOrTransition == "cs"){
+         response.redirect("v14/company-number")
+     }  
      else {
         response.redirect("v14/starting-new")
     }

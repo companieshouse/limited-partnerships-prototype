@@ -44,7 +44,7 @@ router.use('/', (req, res, next) => {
 
         var fileForThisCompany = true
    
-        response.redirect("14/chs/chs-sign-in")
+        response.redirect("v14/chs/chs-sign-in")
     
   })
 

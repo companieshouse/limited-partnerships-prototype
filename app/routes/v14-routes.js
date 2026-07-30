@@ -426,7 +426,7 @@ router.post('/limited-partnership-ppob', function(request, response) {
     if (registrationOrTransition === "transition") {
 //response.redirect("v14/general-partner-section");
 
-  response.redirect("v14/limited-partnership-ppob-choose-address");
+
     } else if (registerType === "RegisterPflp" || registerType === "RegisterPflpSco") {
       //  response.redirect("v14/general-partner-section");
               response.redirect("v14/limited-partnership-ppob-choose-address");

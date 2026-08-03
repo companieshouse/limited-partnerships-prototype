@@ -43,35 +43,80 @@
     </ul>
 
   
-
+<!-- v14 Error messages explored and discussed on cross governement -->
 
 
     <h2 class="govuk-heading-m">June 2026 {{ govukTag({
       text: "V13"
     }) }}</h2>
 
-    <h3 class="govuk-heading-s">People with significant control (PSCs) </h3>
+    <h3 class="govuk-heading-s">People with significant control (PSCs)</h3>
 
     <ul class="govuk-list govuk-list--bullet">
 
-      <!-- v13/pscs/psc-person-alt-nature -->
-
-
-      <li>Iterated the PSC Nature of Control journey through a series of workshops involving the scrum team, UCD, policy, legal and accessibility leads. The design evolved from a <a href="v13/pscs/psc-person-alt-nature-individual">single dynamic page that displayed options for individuals</a>, RLEs and ORPs, to separate, dedicated pages for each user type. Content was co-designed with policy and legal colleagues through collaborative workshops to ensure it was clear and accurate.</a>
-              
+      <li>
+        Iterated the PSC Nature of Control journey through a series of workshops involving the scrum team, UCD, policy, legal and accessibility colleagues. The design evolved from a
+        <a href="v13/pscs/psc-person-alt-nature-all-radios">single dynamic page displaying all options for individuals, RLEs and ORPs</a> to <a href="v13/pscs/psc-person-alt-nature-individual"> separate, dedicated pages</a> for each user type.
       </li>
 
+      <li>
+        Co-designed content with policy and legal colleagues through a series of collaborative content design sessions.
+      </li>
+
+      <li>
+        Explored alternative approaches to capturing Nature of Control information, including a
+        <a href="https://limited-partnerships-prototype-f101c5a5a6c2.herokuapp.com/v14/pscs/psc-person-alt-nature-conditional">
+          design using conditional reveals for each nature of control</a>.
+      </li>
+
+     <li>
+        Shared the design approach and key decisions with the wider UCD community through a co-design session, including an
+        <a href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1740494433382/6f5407d9fd2d0eca802e10bf5e35ded9172024d9?wid=0-1784549821668">
+          overview of the design process, design iterations, and stakeholder engagement approach used throughout the iterattion to the nature of control journey.
+        </a>
+</li>
+
+
+</ul>
+
+    <h3 class="govuk-heading-s">Sign out, continue with application and payment failure journeys</h3>
+
+    <ul class="govuk-list govuk-list--bullet">
+
+      <li>
+      Added the Companies House common pattern for <a href="v13/saved-applications/your-filings">continuing with an application, through Your filings</a>,  <a href="v13/sign-out">Sign out</a>, and <a href="v13/continue-to-payment">payment failure</a> journeys. Created an interupt page for <a href="v13/you-cannot-use-webfiling">WebFiling</a> if users try to use WebFiling for Limited partnership services.
+      </li>
     </ul>
 
-    <h3 class="govuk-heading-s">Update general and limited partners details</h3>
+
+
+
+    <h3 class="govuk-heading-s">Update general and limited partners journeys and the 'people tab'</h3>
 
 
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="">update general partner details page</a> and has been removed from the <a href="v12/manage/check-your-answers-change-gp-person">check your answers. Date of birth has also been removed from check your answers.</a>
+
+
+      <li>
+         <a href="v13/lp-person">Middle name has been added</a> to the limited partnership (person) and the update limited partnerships details page.
+      </li>
           
-      </li>
+
+       <li>  
+        <a href="v13/chs/company-info#people">Design review of the information shown on the register and the 'people tab'</a>. Reviewing the design of how users can update, add and remove details on the register. Series of sessions across scrums to review designs and review content with policy. </li>
+
+
+        <li>Journey to <a href="https://limited-partnerships-prototype-f101c5a5a6c2.herokuapp.com/v14/chs/company-info#people">update a limited partner (person)</a> has been reviewed and updated for user testing.</li>
+
+
+       <li> Emails added and reviewed for all update journeys.</li>
 
     </ul>
+
+
+        
+
+
 
 
 
@@ -87,16 +132,15 @@
 
 
 <ul class="govuk-list govuk-list--bullet">
-  <li>Previous name is not required for the <a href="v12/gp-person?from=general-partners-change">update general partner details page</a> and has been removed from the <a href="v12/manage/check-your-answers-change-gp-person">check your answers. Date of birth has also been removed from check your answers.</a>
+  <li>Previous name is not required for the <a href="v12/gp-person?from=general-partners-change">update general partner details page</a>. The previous name and date of birth have been removed from the <a href="v12/manage/check-your-answers-change-gp-person">check your answers</a>.</a>
       
     </li>
 
-    <li>Update <a href="v12/gp-person?from=general-partners-change">general partners disqualification statement</a> removed from details page, policy have aggreed it's not required 
+    <li>Update <a href="v12/gp-person?from=general-partners-change">general partners disqualification statement</a> removed from details page, policy have agreed it's not required.
 </li>
 
-       <li>Update general partners <a href="v12/gp-person?from=general-partners-change">nationality and second nationality</a> no longer hidden behind a link, they are visable on the page 
-  
-      
+       <li>Update general partners <a href="v12/gp-person?from=general-partners-change">nationality and second nationality</a> no longer hidden behind a link, they are visible on the page.
+
     </li>
 
 

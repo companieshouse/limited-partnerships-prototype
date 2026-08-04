@@ -557,9 +557,26 @@ router.post('/psc-choice', function(request, response) {
     }
   })
 
-  // psc protected details
+  // psc protected details - confirm form accepted by Companies House
 
   router.post('/psc-protected-details', function(request, response) {
+
+     var pscProtection = request.session.data['psc-protection']
+    if (pscProtection == "yes"){
+        
+        response.redirect('v14/pscs/psc-protected-details-confirm')
+
+    }
+    else if (pscProtection == "no"){
+        response.redirect('v14/pscs/psc-person-alt-1')
+    }
+
+    
+})
+
+// psc protected details
+
+router.post('/psc-protected-details-confirm', function(request, response) {
 
     response.redirect('v14/pscs/psc-person-alt-1')
     

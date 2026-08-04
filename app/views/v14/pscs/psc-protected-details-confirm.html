@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Do any beneficial owners or managing officers have their personal information protected at Companies House?" %}
+{% set pageName="A protected PSC needs to send a form to Companies House" %}
 
 
 {% block beforeContent %}
@@ -19,60 +19,62 @@
 
       <form class="form" action="/psc-protected-details" method="post">
 
+      <h1 class="govuk-heading-xl">
+        A protected PSC needs to send a form to Companies House
+      </h1>
 
-      {{ govukRadios({
-        classes: "govuk-radios",
-        name: "psc-submit-on-paper",
-        fieldset: {
-          legend: {
-            text: "Has the PSC Form XX been sent to Companies House for this indivual? ",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--xl"
-          }
-        },
-        items: [
-          {
-            value: "yes",
-            text: "Yes"
-          },
-          {
-            value: "no",
-            text: "No",
-            hint: {
-              text: "You’ll need to call Companies House and request the PSC form XX. You will need to be subit this form within 14 days of your application, or the application will be rejected. "
-            }
-          }
-        ]
-      }) }}
+      <h2 class="govuk-heading-m">
+        What you need to do next
+      </h2>
 
-    
+      <ol class="govuk-list govuk-list--number">
+        <li>Ask the PSC to contact Companies House and request PSC form XX.</li>
+        <li>The PSC must complete and send the form to Companies House. The limited partnership name on the form must exactly match the name in this application. If the names do not match, the PSC will need to submit a new form.</li>
 
-
-       <!-- {% set secureRegisterDetailsHtml %}
-        <p class="govuk-body">Some people can <a href="https://www.gov.uk/guidance/applying-to-protect-your-personal-information-on-the-companies-house-register" class="govuk-link" data-event-id="apply-to-protect-personal-information-link">apply to protect personal information from being shown on the Companies House public register</a> if they meet certain criteria. This process includes:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                  <li>providing evidence that they are eligible to have their details protected </li>
-                  <li>paying a £100 fee</li>
-                </ul>
-                <p class="govuk-body">You should only select 'yes' if the PSC has already done this.</p>
         
-      {% endset %}
-
-      {{ govukDetails({
-        summaryText: "What having personal information protected means",
-        html: secureRegisterDetailsHtml
-      }) }}   -->
+        <li>The PSC must tell you when Companies House has confirmed receipt of the form.</li>
+      </ol>
 
 
-     {{ govukButton({
-        text: "Continue"
+      {{ govukWarningText({
+        text: "You cannot submit this registration until the PSC has completed this process and and Companies House has accepted the form.",
+        iconFallbackText: "Warning"
       }) }}
 
-        <p class="govuk-body">
-         <a href="#" class="govuk-link">This individual PSC is not protected</a>
+
+
+  
+        {{ govukRadios({
+          name: "psc-submit-on-paper",
+          fieldset: {
+            legend: {
+              text: "Has the PSC told you that Companies House has accepted the form?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, the PSC has told me that Companies House has accepted the form"
+            },
+            {
+              value: "no",
+              text: "No, or I'm waiting for confirmation from the PSC"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+           <p class="govuk-body">
+         <a href="#" class="govuk-link">This individual PSC is not protected, continue and add this PSC</a>
       </p>
 
-</form>
+      </form>
     </div>
   </div>
+
 {% endblock %}

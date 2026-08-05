@@ -125,13 +125,16 @@ router.post('/sign-out', function(request, response) {
 
     var signingOut = request.session.data['signOut']
     if (signingOut == "yes"){
+
+        userHasSignedOut = true
+
         response.redirect("v14/signed-out")
     }     
+    // No option to return to previous page has not been implemented
+
     else if (signingOut == "no"){
 
-    response.redirect("v14/chs/company-info?authorised") 
-         
-        
+
     }
 })
 
@@ -288,6 +291,18 @@ router.post('/gp-add-another', function(request, response) {
 })
 
 
+// save and continue functionality for limited partner section
+
+router.post('/limited-partner-section', function(request, response) {
+var signingOut = request.session.data['signOut']
+    if (signingOut == "yes") {
+        response.redirect('v14/lp-add-another')
+    } else {
+        response.redirect('v14/limited-partner-choice')
+    }
+})
+
+
 //limited partner choice - entity or person
 
 router.post('/limited-partner-choice', function(request, response) {
@@ -423,6 +438,9 @@ router.post('/limited-partnership-ppob', function(request, response) {
     var registrationOrTransition = request.session.data['registrationOrTransition'];
     var registerType = request.session.data['registerType'];
 
+
+
+
     if (registrationOrTransition === "transition") {
 //response.redirect("v14/general-partner-section");
 
@@ -517,6 +535,18 @@ router.post('/limited-partnership-sic-2', function(request, response) {
     }
 })
 
+
+// Adding save and continue functionality to the general partner section
+
+router.post('/general-partner-section', function(request, response) {
+var signingOut = request.session.data['signOut']
+    if (signingOut == "yes") {
+        response.redirect('v14/gp-add-another')
+    } else {
+        response.redirect('v14/general-partner-choice')
+    }
+})
+
 /// CS Date
 
 router.post('/confirmation-statement-date', function(request, response) {
@@ -530,6 +560,19 @@ router.post('/confirmation-statement-date', function(request, response) {
 })
 
 //PSC - Scottish entities only
+
+//save and continue functionality for PSC statement
+// goes to /pscs/psc-section
+router.post('/psc-section', function(request, response) {
+
+    var signingOut = request.session.data['signOut']
+    if (signingOut == "yes"){
+        response.redirect('v14/pscs/psc-add-another')
+    } else {
+        response.redirect('v14/pscs/psc-statement')
+    }
+})
+
 
 
 
@@ -578,8 +621,8 @@ router.post('/psc-choice', function(request, response) {
 
 router.post('/psc-protected-details-confirm', function(request, response) {
 
-    response.redirect('v14/pscs/psc-person-alt-1')
-    
+    response.redirect('v14/pscs/psc-add-another')
+
 })
 
 

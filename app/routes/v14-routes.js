@@ -469,6 +469,9 @@ router.post('/starting-new', function(request, response) {
         //continue a saved filing
         if (savedFiling == "yes"){
 
+            var signingOut = request.session.data['signOut']
+            signingOut = true
+            
             response.redirect("v14/saved-applications/your-filings")
         
         }

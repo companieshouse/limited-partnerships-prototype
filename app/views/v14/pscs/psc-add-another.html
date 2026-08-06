@@ -92,11 +92,15 @@
               Individual person
             </dt>
             <dd class="govuk-summary-list__value">
-              Protected person
-              <br><br>
+             
 
               <!-- Yes, the PSC has told me that Companies House has accepted the form --> 
               {% if data['psc-submit-on-paper']  == "yes" %} 
+
+               Protected person <strong class="govuk-tag govuk-tag--green">
+                Completed
+              </strong>
+              <br><br>
 
               The PSC has told you that Companies House has accepted the form. You can submit this registration.
               {% endif %}
@@ -104,6 +108,9 @@
               <!-- No, or I'm waiting for confirmation from the PSC -->
 
               {% if data['psc-submit-on-paper']  == "no" %} 
+              Protected person <strong class="govuk-tag govuk-tag--yellow">
+                Waiting on
+              </strong> <br><br>
               Waiting for confirmation from the PSC. The secure form needs to be accepted before you can submit this registration.
               {% endif %}
 
@@ -111,7 +118,7 @@
             <dd class="govuk-summary-list__actions">
               <ul class="govuk-summary-list__actions-list">
                 <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> Change protected person status</span></a>
+                  <a class="govuk-link" href="psc-protected-details">Change<span class="govuk-visually-hidden"> Change protected person status</span></a>
                 </li>
                 <li class="govuk-summary-list__actions-list-item">
                   <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden">protected person</span></a>

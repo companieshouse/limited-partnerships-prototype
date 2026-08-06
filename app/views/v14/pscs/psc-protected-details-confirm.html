@@ -43,34 +43,12 @@
 
 
 
-  
-        {{ govukRadios({
-          name: "psc-submit-on-paper",
-          fieldset: {
-            legend: {
-              text: "Has the PSC told you that Companies House has accepted the form?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "yes",
-              text: "Yes, the PSC has told me that Companies House has accepted the form"
-            },
-            {
-              value: "no",
-              text: "No, or I'm waiting for confirmation from the PSC"
-            }
-          ]
-        }) }}
-
         {{ govukButton({
-          text: "Continue"
+          text: "Save and continue"
         }) }}
 
            <p class="govuk-body">
-         <a href="#" class="govuk-link">This individual PSC is not protected, continue and add this PSC</a>
+         <a href="pscs/psc-protected-details-confirm" class="govuk-link">This PSC does not have protected status</a>
       </p>
 
       </form>

@@ -18,10 +18,10 @@
 
 
 {% block content %}
-<div class="govuk-grid-row">
-<div class="govuk-grid-column-full">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-  <form class="form" action="/psc-add-another" method="post">
+      <form class="form" action="/psc-add-another" method="post">
 
 
 
@@ -34,14 +34,22 @@
 
 <h1 class="govuk-heading-xl">People with significant control (PSCs)</h1>
 
+</div>
+</div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
 
       <!-- No PSCs -->
 
 
   {% if data['pscStatement']  == "no" %} 
-    <h2 class="govuk-heading-m">PSC statement</h2>
 
-    <p>There is no person identified as a person with significant control (either a registrable person or RLE) in relation to the limited partnership.</p> 
+          <h2 class="govuk-heading-m">PSC statement</h2>
+
+         <p>There is no person identified as a person with significant control (either a registrable person or RLE) in relation to the limited partnership.</p> 
+
+
 
          {{ govukRadios({
             name: "addAnotherPSC",
@@ -73,16 +81,10 @@
             ]
           }) }}
 
-    
+  {% endif %}
 
-
-
-    {% elseif data['pscStatement']  == "yes" %} 
 
        <h2 class="govuk-heading-m">PSCs you have added so far:</h2>
-
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
 
           <!-- Protected person -->
           {% if data['psc-protection']  == "yes" %} 
@@ -92,11 +94,15 @@
               Individual person
             </dt>
             <dd class="govuk-summary-list__value">
-              Protected person
-              <br><br>
+             
 
               <!-- Yes, the PSC has told me that Companies House has accepted the form --> 
               {% if data['psc-submit-on-paper']  == "yes" %} 
+
+               Protected person <strong class="govuk-tag govuk-tag--green">
+                Completed
+              </strong>
+              <br><br>
 
               The PSC has told you that Companies House has accepted the form. You can submit this registration.
               {% endif %}
@@ -104,6 +110,9 @@
               <!-- No, or I'm waiting for confirmation from the PSC -->
 
               {% if data['psc-submit-on-paper']  == "no" %} 
+              Protected person <strong class="govuk-tag govuk-tag--yellow">
+                Waiting on
+              </strong> <br><br>
               Waiting for confirmation from the PSC. The secure form needs to be accepted before you can submit this registration.
               {% endif %}
 
@@ -111,7 +120,7 @@
             <dd class="govuk-summary-list__actions">
               <ul class="govuk-summary-list__actions-list">
                 <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> Change protected person status</span></a>
+                  <a class="govuk-link" href="psc-protected-details">Change<span class="govuk-visually-hidden"> Change protected person status</span></a>
                 </li>
                 <li class="govuk-summary-list__actions-list-item">
                   <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden">protected person</span></a>
@@ -150,105 +159,168 @@
            {% if data['psc1EntityName'] %} 
 
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Legal entity
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['psc1EntityName'] or "ENCOM LIMITED" }}
-            </dd>
+{% elseif data['psc1EntityName'] %} <!-- only show the Legal Entity entry if a name has been types into the legal entity page -->
 
-            <dd class="govuk-summary-list__actions">
-              <ul class="govuk-summary-list__actions-list">
-                <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> ENCOM LIMITED - Legal entity</span></a>
-                </li>
-                <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> ENCOM LIMITED - Legal entity</span></a>
-                </li>
-              </ul>
-            </dd>
-          </div>
-     
 
-        {% endif %}
-      
 
-         <!-- ORP if typed an ORP name -->
-         {% if data['pscORP1EntityName'] %}
+       <h2 class="govuk-heading-m">PSCs you have added so far:</h2>
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Other registrable person
-            </dt>
 
-            <dd class="govuk-summary-list__value">
-              {{ data['pscORP1EntityName'] or "VITA CORP LTD" }}
-            </dd>
+            {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Individual person"
+            },
+            value: {
+            text: (data['psc1FirstName'] or "Chloe") + " " + (data['psc1LastName'] or "Davies")
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Chloe Davies - person"
+                },
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "Chloe Davies - person"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Legal entity"
+            },
+            value: {
+              text: data['psc1EntityName'] or "ENCOM LIMITED"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "ENCOM LIMITED - Legal entity"
+                },
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "ENCOM LIMITED - Legal entity"
+                }
+              ]
+            }
+          }
+          
+        ]
+      }) }} 
 
-            <dd class="govuk-summary-list__actions">
-              <ul class="govuk-summary-list__actions-list">
-                <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> VITA CORP LTD - Other registrable person</span></a>
-                </li>
-                <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> VITA CORP LTD - Other registrable person</span></a>
-                </li>
-              </ul>
-            </dd>
-          </div>
+      {{ govukRadios({
+  name: "addAnotherPSC",
+  fieldset: {
+    legend: {
+      text: "Do you need to add another PSC?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
 
-        </dl>
+  items: [
+    {
+      value: "person",
+      text: "Yes, an individual person"
+    },
+    {
+      value: "entity",
+      text: "Yes, a relevant legal entity (RLE)"
+    },   
+    {
+      value: "orp",
+      text: "Yes, an other registrable person (ORP)"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
 
-      {% endif %}
+{% else %} 
 
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Individual person"
+            },
+            value: {
+            text: (data['psc1FirstName'] or "Chloe") + " " + (data['psc1LastName'] or "Davies")
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Chloe Davies - person"
+                },
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "Chloe Davies - person"
+                }
+              ]
+            }
+          }
+        ]
+      }) }} 
+
+      {{ govukRadios({
+  name: "addAnotherPSC",
+  fieldset: {
+    legend: {
+      text: "Do you need to add another PSC?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+
+  items: [
+    {
+      value: "person",
+      text: "Yes, an individual person"
+    },
+    {
+      value: "entity",
+      text: "Yes, a relevant legal entity (RLE)"
+    },   
+    {
+      value: "orp",
+      text: "Yes, an other registrable person (ORP)"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
 
 {% endif %}
+
 </div>
 </div>
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-      {{ govukRadios({
-        name: "addAnotherPSC",
-        fieldset: {
-          legend: {
-            text: "Do you need to add another PSC?",
-            isPageHeading: false,
-            classes: "govuk-fieldset__legend--m govuk-!-margin-top-5"
-          }
-        },
-
-        items: [
-          {
-            value: "person",
-            text: "Yes, an individual person"
-          },
-          {
-            value: "entity",
-            text: "Yes, a relevant legal entity (RLE)"
-          },   
-          {
-            value: "orp",
-            text: "Yes, an other registrable person (ORP)"
-          },
-          {
-            value: "no",
-            text: "No"
-          }
-        ]
-      }) }}
-
-</div>
-</div>
+<div class="govuk-grid-column-two-thirds">
 
       
 {{ govukButton({
   text: "Save and continue"
 }) }}
 
-      </form>
+</form>
     </div>
   </div>
 {% endblock %}

@@ -549,16 +549,39 @@ request.session.data['pscLegalEntity1LegalForm'] = ""
 // Terms of partnership
 
 
+//resume a filing 
 
-router.get('/v14/saved-applications/your-filings-resume', function(request, response) {
+
+router.get('/v14/saved-applications/your-filings-set-journey', function(request, response) {
 
 
-    var userHasSignedOut = request.session.data['userHasSignedOut']
-     // Adding saved filing  
-    userHasSignedOut == true
-    response.redirect("../registration/which-type")
-   
-}) 
+    request.session.data['savedFiling'] = "yes"
+
+request.session.data['userHasSignedOut'] = true
+
+
+//continue a saved filing
+
+        
+request.session.data['userHasSignedOut'] = true
+  
+request.session.data['pscStatement'] = "yes"
+
+
+request.session.data['psc1FirstNames'] = "Chloe"
+
+request.session.data['psc1LastName'] = "Davies"
+
+request.session.data['psc1EntityName'] = "ENCOM LIMITED"
+request.session.data['pscLegalEntity1LegalForm'] = ""
+
+// Redirect to the next page
+    response.redirect("/v14/registration/which-type")
+
+})
+
+
+
 
 
 

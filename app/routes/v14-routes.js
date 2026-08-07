@@ -161,6 +161,7 @@ router.post('/secure-register-filter', function(request, response) {
   router.post('/which-type', function(request, response) {
 
     var registerType = request.session.data['registerType']
+    
     if (registerType == "RegisterPflp"){
         response.redirect("v14/registration/pflp-name")
     }  

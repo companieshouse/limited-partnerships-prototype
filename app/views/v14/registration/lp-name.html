@@ -35,7 +35,11 @@
 }) }}
 
 
+{% if data['savedFiling'] == "yes" %}
+    {% set lpChooseNameValue = "ACME" %}
+    {% set nameEndingCheckedValue = "true" %}
 
+{% endif %}
 
 {% if data['registrationOrTransition'] == "post" %}
     {% set lpChooseNameValue = "ACME" %}

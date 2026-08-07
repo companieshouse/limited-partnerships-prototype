@@ -29,7 +29,10 @@
   <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
 {% endif %}      
       
-      
+ {% if data['savedFiling'] == "yes" %}
+    {% set registeredEmail = "acme-accounting@example.com" %}
+
+{% endif %}     
 
 
 
@@ -45,7 +48,8 @@
             else "<pclass='govuk-hint'>We'll use this email address to send important information that relates to the partnership. For example, new legislative requirements or warnings about missed deadlines.</pclass>"
   },
   id: "registeredEmaill",
-  name: "registeredEmail"
+  name: "registeredEmail",
+  value: registeredEmail
 }) }}
 
 

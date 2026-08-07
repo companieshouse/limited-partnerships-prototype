@@ -23,7 +23,12 @@
       <form class="form" action="/which-type" method="post">
 
 
+<!-- Save and continue data-->
+ {% if data['savedFiling'] == "yes" %}
 
+    {% set typePartnershipCheckedValue = "true" %}
+
+{% endif %}
 
 {{ govukRadios({
   classes: "govuk-radios",
@@ -47,11 +52,13 @@
     },
         {
       value: "registerSlp",
-      text: "Scottish limited partnership"
+      text: "Scottish limited partnership",
+      checked: typePartnershipCheckedValue
     },
         {
       value: "RegisterPflpSco",
       text: "Scottish private fund limited partnership"
+
     }
    
   ]

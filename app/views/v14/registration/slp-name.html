@@ -22,6 +22,14 @@
 
       <form class="form" action="/slp-name" method="post">
 
+
+
+{% if data['savedFiling'] == "yes" %}
+    {% set lpChooseNameValue = "ACME" %}
+    {% set nameEndingCheckedValue = "true" %}
+
+{% endif %}
+
         <h1 class="govuk-heading-xl">Scottish limited partnership name</h1>
         
   <p>The partnership name needs to meet set rules. For example, it cannot be the same as another registered partnership or company, or include certain words or phrases. </p>
@@ -44,6 +52,7 @@
   },
   id: "lpChooseName",
   name: "lpChooseName",
+  value: lpChooseNameValue,
   suffix: {
     text: "Limited Partnership"
   }
@@ -70,13 +79,15 @@
   items: [
     {
       value: "Limited Partnership",
-      text: "Limited Partnership"
+      text: "Limited Partnership",
+      checked: nameEndingCheckedValue
     },
     {
       value: "LP",
       text: "LP"
     },   
     {
+
       value: "L.P.",
       text: "L.P."
     }

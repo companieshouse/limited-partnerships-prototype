@@ -549,6 +549,21 @@ request.session.data['pscLegalEntity1LegalForm'] = ""
 // Terms of partnership
 
 
+
+router.get('/v14/saved-applications/your-filings-resume', function(request, response) {
+
+
+    var userHasSignedOut = request.session.data['userHasSignedOut']
+     // Adding saved filing  
+    userHasSignedOut == true
+    response.redirect("../registration/which-type")
+   
+}) 
+
+
+
+
+
 router.post('/start', function(request, response) {
 
     var registrationOrTransition = request.session.data['registrationOrTransition']

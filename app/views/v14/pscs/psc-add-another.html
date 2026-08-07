@@ -15,11 +15,12 @@
 
 
 
-
-
 {% block content %}
 <div class="govuk-grid-row">
 <div class="govuk-grid-column-two-thirds">
+
+
+
 
   <form class="form" action="/psc-add-another" method="post">
 
@@ -58,10 +59,22 @@
 </div>
 </div>
 
+
+
+
+
 <div class="govuk-grid-row">
 <div class="govuk-grid-column-full">
 
       <!-- No PSCs -->
+
+         <!-- Scenario data set for PSC ***
+            individual to be protected
+            individual (not protected)
+            legal entity - partially completed -->
+
+
+
 
 
   {% if data['pscStatement']  == "no" %} 
@@ -161,7 +174,7 @@
                       <dd class="govuk-summary-list__actions">
                         <ul class="govuk-summary-list__actions-list">
                           <li class="govuk-summary-list__actions-list-item">
-                            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> ENCOM LIMITED - Legal entity</span></a>
+                            <a class="govuk-link" href="psc-legal-entity">Change<span class="govuk-visually-hidden"> ENCOM LIMITED - Legal entity</span></a>
                           </li>
                           <li class="govuk-summary-list__actions-list-item">
                             <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> ENCOM LIMITED - Legal entity</span></a>
@@ -169,8 +182,8 @@
                         </ul>
                       </dd>
                     </div>
-                
-                {% else %}
+
+                {% elseif data['pscLegalEntity1LegalForm'] %}
 
                 <!--Legal entity complete-->
 
@@ -185,7 +198,7 @@
                     <dd class="govuk-summary-list__actions">
                       <ul class="govuk-summary-list__actions-list">
                         <li class="govuk-summary-list__actions-list-item">
-                          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> ENCOM LIMITED - Legal entity</span></a>
+                          <a class="govuk-link" href="psc-legal-entity">Change<span class="govuk-visually-hidden"> ENCOM LIMITED - Legal entity</span></a>
                         </li>
                         <li class="govuk-summary-list__actions-list-item">
                           <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> ENCOM LIMITED - Legal entity</span></a>

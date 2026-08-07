@@ -294,8 +294,8 @@ router.post('/gp-add-another', function(request, response) {
 // save and continue functionality for limited partner section
 
 router.post('/limited-partner-section', function(request, response) {
-var signingOut = request.session.data['signOut']
-    if (signingOut == "yes") {
+
+   if (userHasSignedOut = "true") {
         response.redirect('v14/lp-add-another')
     } else {
         response.redirect('v14/limited-partner-choice')
@@ -464,14 +464,27 @@ router.post('/starting-new', function(request, response) {
 
     var registrationOrTransition = request.session.data['registrationOrTransition']
     var savedFiling = request.session.data['savedFiling']
+
+
     if (registrationOrTransition == "registration"){
 
         //continue a saved filing
         if (savedFiling == "yes"){
-
-            var signingOut = request.session.data['signOut']
-            signingOut = true
             
+        userHasSignedOut = true
+
+    
+      request.session.data['pscStatement'] = "yes"
+
+      request.session.data['psc-protection'] = "yes"
+
+request.session.data['psc1FirstNames'] = "Chloe"
+
+request.session.data['psc1LastName'] = "Davies"
+
+request.session.data['psc1EntityName'] = "ENCOM LIMITED"
+request.session.data['pscLegalEntity1LegalForm'] = ""
+
             response.redirect("v14/saved-applications/your-filings")
         
         }
@@ -542,8 +555,8 @@ router.post('/limited-partnership-sic-2', function(request, response) {
 // Adding save and continue functionality to the general partner section
 
 router.post('/general-partner-section', function(request, response) {
-var signingOut = request.session.data['signOut']
-    if (signingOut == "yes") {
+
+    if (userHasSignedOut = "true") {
         response.redirect('v14/gp-add-another')
     } else {
         response.redirect('v14/general-partner-choice')
@@ -568,8 +581,7 @@ router.post('/confirmation-statement-date', function(request, response) {
 // goes to /pscs/psc-section
 router.post('/psc-section', function(request, response) {
 
-    var signingOut = request.session.data['signOut']
-    if (signingOut == "yes"){
+    if (userHasSignedOut = "true") {
         response.redirect('v14/pscs/psc-add-another')
     } else {
         response.redirect('v14/pscs/psc-statement')

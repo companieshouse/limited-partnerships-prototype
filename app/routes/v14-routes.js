@@ -295,7 +295,9 @@ router.post('/gp-add-another', function(request, response) {
 
 router.post('/limited-partner-section', function(request, response) {
 
-   if (userHasSignedOut = "true") {
+     var userHasSignedOut = request.session.data['userHasSignedOut']
+     // Adding saved filing  
+    if (userHasSignedOut == true) {
         response.redirect('v14/lp-add-another')
     } else {
         response.redirect('v14/limited-partner-choice')
@@ -395,6 +397,26 @@ router.post('/start', function(request, response) {
     }
   })
 
+
+
+//What is the registered office address of the partnership?
+router.post('/limited-partnership-jurisdiction', function(request, response) {
+  var userHasSignedOut = request.session.data['userHasSignedOut']
+     // Adding saved filing  
+    if (userHasSignedOut == true) {
+
+    response.redirect('v14/limited-partnership-roa-confirm-address')
+
+ }
+ else {
+
+    response.redirect('v14/limited-partnership-roa')
+ }
+
+    
+});
+
+
 //Registered office address (postcode look-up)
 router.post('/limited-partnership-roa', function(request, response) {
     response.redirect('v14/limited-partnership-roa-choose-address')
@@ -412,11 +434,26 @@ router.post('/limited-partnership-roa-confirm-address', function(request, respon
    if (registrationOrTransition == "post"){
       response.redirect("v14/filing-confirmation")
    }
-      else if (registrationOrTransition == "transition"){
+    else if (registrationOrTransition == "transition"){
+
         response.redirect("v14/general-partner-section")
    } 
    else {
-      response.redirect("v14/limited-partnership-ppob")
+
+     var userHasSignedOut = request.session.data['userHasSignedOut']
+     // Adding saved filing  
+    if (userHasSignedOut == true) {
+
+            response.redirect("v14/limited-partnership-ppob-confirm-address")
+
+        }
+        else{
+
+            response.redirect("v14/limited-partnership-ppob")
+
+        }
+
+
   }
 })
 
@@ -470,8 +507,8 @@ router.post('/starting-new', function(request, response) {
 
         //continue a saved filing
         if (savedFiling == "yes"){
-            
-        userHasSignedOut = true
+
+            request.session.data['userHasSignedOut'] = true
 
     
       request.session.data['pscStatement'] = "yes"
@@ -492,6 +529,7 @@ request.session.data['pscLegalEntity1LegalForm'] = ""
         // no saved filing
         else{
 
+             request.session.data['userHasSignedOut'] = false
             response.redirect("v14/registration/which-type")
 
         }
@@ -556,7 +594,9 @@ router.post('/limited-partnership-sic-2', function(request, response) {
 
 router.post('/general-partner-section', function(request, response) {
 
-    if (userHasSignedOut = "true") {
+    var userHasSignedOut = request.session.data['userHasSignedOut']
+     // Adding saved filing  
+    if (userHasSignedOut == true) {
         response.redirect('v14/gp-add-another')
     } else {
         response.redirect('v14/general-partner-choice')
@@ -581,7 +621,9 @@ router.post('/confirmation-statement-date', function(request, response) {
 // goes to /pscs/psc-section
 router.post('/psc-section', function(request, response) {
 
-    if (userHasSignedOut = "true") {
+    var userHasSignedOut = request.session.data['userHasSignedOut']
+     // Adding saved filing  
+    if (userHasSignedOut == true) {
         response.redirect('v14/pscs/psc-add-another')
     } else {
         response.redirect('v14/pscs/psc-statement')

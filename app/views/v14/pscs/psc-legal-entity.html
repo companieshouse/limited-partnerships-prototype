@@ -32,6 +32,17 @@
   <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
 {% endif %}
 
+
+<!-- Save and continue data-->
+{% if data['savedFiling'] == "yes" %}
+  {% set psc1EntityName = "ACME LIMITED" %}
+  {% set pscLegalEntity1GoverningLaw = "Companies Act 2006" %}
+  {% set pscLegalEntity1CountryRegistered = "United Kingdom" %}
+
+
+
+{% endif %}
+
 <h1 class="govuk-heading-xl">Add a PSC (relevant legal entity)</h1>
 
 {{ govukInput({
@@ -41,7 +52,8 @@
     isPageHeading: false
   },
   id: "psc1EntityName",
-  name: "psc1EntityName"
+  name: "psc1EntityName",
+  value: psc1EntityName
 }) }}
 
 {{ govukInput({
@@ -53,7 +65,8 @@
     text: "This is the corporate body type. For example, private limited company."
   },
   id: "pscLegalEntity1LegalForm",
-  name: "pscLegalEntity1LegalForm"
+  name: "pscLegalEntity1LegalForm",
+  value: pscLegalEntity1LegalForm
 }) }}
 
 {{ govukInput({
@@ -65,7 +78,8 @@
     text: "For example, the Companies Act 2006."
   },
   id: "pscLegalEntity1GoverningLaw",
-  name: "pscLegalEntity1GoverningLaw"
+  name: "pscLegalEntity1GoverningLaw",
+  value: pscLegalEntity1GoverningLaw
 }) }}
 
 
@@ -1152,6 +1166,7 @@
           {
             value: "yes",
             text: "Yes",
+            checked: entityOnRegisterCheckedValue,
             conditional: {
               html: entityOnRegisterHtml
             }

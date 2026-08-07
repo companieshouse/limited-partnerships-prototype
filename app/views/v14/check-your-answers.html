@@ -522,7 +522,7 @@
           }
         ]
       }) }}
-
+<!-- Statement YES I have PSCs -->
 
 {% elseif (data['pscStatement'] == "yes") %}
 
@@ -572,107 +572,198 @@
 
 {% if (data['psc1FirstNames']) %}
 
-{{ govukSummaryList({
-        classes: "govuk-!-margin-bottom-9",
-        rows: [
-          {
-            key: {
-              text: "Professional or honorary title (if relevant)"
-            },
-            value: {
-              text: ""
-            }
-          },
-          {
-            key: {
-              text: "First name"
-            },
-            value: {
-              text: "Chloe"
-            }
-          },
-          {
-            key: {
-              text: "Last name"
-            },
-            value: {
-              text: "Davies"
-            }
-          },
-          {
-            key: {
-              text: "Date of birth"
-            },
-            value: {
-              html: "10 April 80"
-            }
-          },
-          {
-            key: {
-              text: "Nationality"
-            },
-            value: {
-              html: 'British'
-            }
-          },
-          {
-            key: {
-              text: "Type of nature of control"
-            },
-            value: {
-              html: 'Nature of control for this individual'
-            }
-          },
-          {
-            key: {
-              text: "Percentage of shares"
-            },
-            value: {
-              html: 'The individual holds, directly or indirectly, more than 25% but not more than 50%.'
-            }
-          },
-          {
-            key: {
-              text: "Percentage of voting rights"
-            },
-            value: {
-              html: 'The individual holds, directly or indirectly, more than 25% but not more than 50%. '
-            }
-          },
-          {
-            key: {
-              text: "Right to appoint or remove management"
-            },
-            value: {
-              html: 'The individual holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership.'
-            }
-          },
-          {
-            key: {
-              text: "Significant influence or control"
-            },
-            value: {
-              html: 'No'
-            }
-          },
-          {
-            key: {
-              text: "Residential address"
-            },
-            value: {
-              html: '1 Olympus Road, Wrexham, W98 7AB'
-            }
-          },
-          {
-            key: {
-              text: "Correspondence address"
-            },
-            value: {
-              html: '1 Magpie Avenue, Liverpool, L12 3GB'
-            }
-          }
-        ]
-      }) }}
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Professional or honorary title (if relevant)
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+      {% if data['psc1Title'] %}
+      
+        {{ data['psc1Title'] }}
+
+      {% else %}
+
+        Not provided
+
+      {% endif %}
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      First name
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+      {% if data['psc1FirstNames'] %}
+
+        {{ data['psc1FirstNames'] }}
+
+      {% else %}
+
+        Chloe
+
+      {% endif %}
+      
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Middle name
+    </dt>
+    <dd class="govuk-summary-list__value">
+      
+      {% if data['psc1MiddleName'] %}
+
+        {{ data['psc1MiddleName'] }}
+
+      {% else %}
+
+        
+
+      {% endif %}
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Last name
+    </dt>
+    <dd class="govuk-summary-list__value">
+      
+      {% if data['psc1LastName'] %}
+
+        {{ data['psc1LastName'] }}
+
+      {% else %}
+
+        Davies
+
+      {% endif %}
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date of birth
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">5 January 1978</p>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Nationality
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+      <!-- First nationality -->
+
+       {% if data['psc1Nationality1'] %}
+
+        {{ data['psc1Nationality1'] }}
+
+      {% else %}
+
+        British
+
+      {% endif %}
+
+      <!-- Second nationality -->
+
+       {% if data['psc1Nationality2'] %}
+
+       <br> {{ data['psc1Nationality2'] }}
+
+
+      {% endif %}
+
+
+      
+
+
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Type of nature of control
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+
+      {% if data['typeNOC'] == "nocIndividual" %}
+
+      As an individual
+
+      {% elseif  data['typeNOC'] == "nocFirm" %}
+
+      Through a firm
+
+      {% elseif  data['typeNOC'] == "nocTrust" %}
+
+      Through a trust
+
+      {% endif %}
+
+
+
+
+      
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Percentage of shares
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+More than 25% but not more than 50%
+
+      
+      <p class="govuk-body">The individual holds, directly or indirectly, more than 25% but not more than 50%.</p>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Percentage of voting rights
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">The individual holds, directly or indirectly, more than 25% but not more than 50%.</p>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Right to appoint or remove management
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">The individual holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership.</p>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Significant influence or control
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">No</p>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Residential address
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">1 Olympus Road, Wrexham, W98 7AB</p>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Correspondence address
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">1 Magpie Avenue, Liverpool, L12 3GB</p>
+    </dd>
+  </div>
+</dl>
+
 
 {% endif %}
           <!-- Legal entity show if a name has been entered -->

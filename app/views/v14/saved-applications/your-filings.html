@@ -28,14 +28,14 @@ Your filings  – {{ serviceName }} – GOV.UK Prototype Kit
   <div class="one-filing">
     <h2 class="govuk-heading-m">
       
-        <span class="uppercase govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-padding-bottom-1">ACME LP</span></a>
+    <!--    <span class="uppercase govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-padding-bottom-1"> Limited Partnership</span></a>-->
       
     </h2>
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-third">
+     <div class="govuk-grid-column-one-third">
         Description<br>
         <strong>Limited partnership registration</strong>
-      </div>
+      </div> 
 
     </div>
     <br>
@@ -51,7 +51,7 @@ Your filings  – {{ serviceName }} – GOV.UK Prototype Kit
       <tbody>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell text-description">
-            Registration for ACME LP
+            Registration for Trading International Example Limited Partnership 
           </td>
           <td class="govuk-table__cell ">
             <strong class="status">Incomplete</strong>
@@ -70,7 +70,7 @@ Your filings  – {{ serviceName }} – GOV.UK Prototype Kit
   <div class="one-filing">
     <h2 class="govuk-heading-m">
       
-        <span class="uppercase govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-padding-bottom-1">ACME LP</span></a>
+      <!--   <span class="uppercase govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-padding-bottom-1">{{ data['lpChooseName'] }} Limited Partnership</span></a> -->
       
     </h2>
     <div class="govuk-grid-row">
@@ -93,7 +93,7 @@ Your filings  – {{ serviceName }} – GOV.UK Prototype Kit
       <tbody>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell text-description">
-            Registration for Morris LP
+            Registration for {{ data['lpChooseName'] }} Limited Partnership
           </td>
           <td class="govuk-table__cell ">
             <strong class="status">Incomplete</strong>

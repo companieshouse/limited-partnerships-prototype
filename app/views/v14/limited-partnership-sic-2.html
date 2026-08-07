@@ -21,9 +21,15 @@
     <div class="govuk-grid-column-two-thirds">
 
 <form class="form" action="sic-check" method="post">
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
 
- <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] or "LP123456" }})</span>
- <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">What will the partnership be doing?</h1><!-- If changing the H1 be sure to also change the page title, see set PageName above-->
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %} 
+
+
+<h1 class="govuk-heading-xl govuk-!-margin-bottom-5">What will the partnership be doing?</h1><!-- If changing the H1 be sure to also change the page title, see set PageName above-->
 
  <p class="govuk-body">Tell us the partnership's intended nature of business. You can add up to 4.</p>
 

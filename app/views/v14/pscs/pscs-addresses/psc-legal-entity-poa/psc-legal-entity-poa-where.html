@@ -22,8 +22,12 @@
     <div class="govuk-grid-column-two-thirds">
 <form class="form" action="psc-legal-entity-poa-postcode-look-up" method="post">
    
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}
 
-  <span class="govuk-caption-l uppercase"> {{ data['psc1EntityName'] or "GLOBALTECH" }} </span>
 
 {{ govukRadios({
   name: "pscLegalEntityPOAWhere",

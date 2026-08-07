@@ -22,12 +22,10 @@
       <form class="form" action="/psc-legal-entity-nature-trust" method="post">
 
 
-
 {% if (data['registrationOrTransition'] == "registration") %}
-  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
-{% else %}  
-  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+  <span class="govuk-caption-l uppercase"> {{ data['psc1EntityName'] }} </span>
 {% endif %}
+
 
 
 <h1 class="govuk-heading-xl govuk-!-margin-bottom-1">What is the trust's nature of control?</h1>

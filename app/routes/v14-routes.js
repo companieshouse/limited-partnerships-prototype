@@ -794,7 +794,24 @@ router.post('/psc-protected-details-confirm', function(request, response) {
 
   router.post('/psc-legal-entity-nature', function(request, response) {
 
-    response.redirect('v14/pscs/psc-legal-entity-nature-rle')
+
+    var typeRLENOC = request.session.data['typeRLENOC']
+
+
+    if (typeRLENOC.includes("nocRLERLE")){
+        response.redirect('v14/pscs/psc-legal-entity-nature-rle')
+    } 
+    else if (typeRLENOC.includes("nocRLEFirm")){
+        response.redirect('v14/pscs/psc-legal-entity-nature-firm')
+    } 
+    else if (typeRLENOC.includes("nocRLETrust")) {
+        response.redirect('v14/pscs/psc-legal-entity-nature-trust')
+    }
+    else {
+        response.redirect('v14/pscs/pscs-addresses/psc-legal-entity-poa/psc-legal-entity-poa-where')
+    }
+    
+
     
 })
 
@@ -803,7 +820,19 @@ router.post('/psc-protected-details-confirm', function(request, response) {
 
   router.post('/psc-legal-entity-nature-rle', function(request, response) {
 
-    response.redirect('v14/pscs/psc-legal-entity-nature-firm')
+    var typeRLENOC = request.session.data['typeRLENOC']
+
+
+     if (typeRLENOC.includes("nocRLEFirm")){
+        response.redirect('v14/pscs/psc-legal-entity-nature-firm')
+    } 
+    else if (typeRLENOC.includes("nocRLETrust")) {
+        response.redirect('v14/pscs/psc-legal-entity-nature-trust')
+    }
+    else {
+        response.redirect('v14/pscs/pscs-addresses/psc-legal-entity-poa/psc-legal-entity-poa-where')
+    }
+    
     
 })
 
@@ -811,7 +840,15 @@ router.post('/psc-protected-details-confirm', function(request, response) {
 
   router.post('/psc-legal-entity-nature-firm', function(request, response) {
 
-    response.redirect('v14/pscs/psc-legal-entity-nature-trust')
+    var typeRLENOC = request.session.data['typeRLENOC']
+
+
+    if (typeRLENOC.includes("nocRLETrust")) {
+        response.redirect('v14/pscs/psc-legal-entity-nature-trust')
+    }
+    else {
+        response.redirect('v14/pscs/pscs-addresses/psc-legal-entity-poa/psc-legal-entity-poa-where')
+    }
     
 })
 
@@ -830,7 +867,28 @@ router.post('/psc-protected-details-confirm', function(request, response) {
 
   router.post('/psc-orp-nature', function(request, response) {
 
-    response.redirect('v14/pscs/psc-orp-nature-orp')
+
+    var typeORPNOC = request.session.data['typeORPNOC']
+
+
+    if (typeORPNOC.includes("nocORP")){
+        response.redirect('v14/pscs/psc-orp-nature-orp')
+
+    }
+    else if (typeORPNOC.includes("nocORPFirm")){
+        response.redirect('v14/pscs/psc-orp-nature-firm')
+    } 
+    else if (typeORPNOC.includes("nocORPTrust")) {
+        response.redirect('v14/pscs/psc-orp-nature-trust')
+    }
+    else {
+         response.redirect('v14/pscs/pscs-addresses/psc-orp-poa/psc-orp-poa-where')
+
+    }
+
+
+
+   
     
 })
 
@@ -839,7 +897,18 @@ router.post('/psc-protected-details-confirm', function(request, response) {
 
   router.post('/psc-orp-nature-orp', function(request, response) {
 
-    response.redirect('v14/pscs/psc-orp-nature-firm')
+     var typeORPNOC = request.session.data['typeORPNOC']
+
+    if (typeORPNOC.includes("nocORPFirm")){
+        response.redirect('v14/pscs/psc-orp-nature-firm')
+    } 
+    else if (typeORPNOC.includes("nocORPTrust")) {
+        response.redirect('v14/pscs/psc-orp-nature-trust')
+    }
+    else {
+         response.redirect('v14/pscs/pscs-addresses/psc-orp-poa/psc-orp-poa-where')
+
+    }
     
 })
 
@@ -847,7 +916,15 @@ router.post('/psc-protected-details-confirm', function(request, response) {
 
   router.post('/psc-orp-nature-firm', function(request, response) {
 
-    response.redirect('v14/pscs/psc-orp-nature-trust')
+      var typeORPNOC = request.session.data['typeORPNOC']
+
+    if (typeORPNOC.includes("nocORPTrust")) {
+        response.redirect('v14/pscs/psc-orp-nature-trust')
+    }
+    else {
+         response.redirect('v14/pscs/pscs-addresses/psc-orp-poa/psc-orp-poa-where')
+
+    }
     
 })
 

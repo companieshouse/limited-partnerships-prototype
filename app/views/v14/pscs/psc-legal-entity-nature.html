@@ -38,7 +38,7 @@
 
 <div class="js-enabled-checkboxes" hidden>
   {{ govukCheckboxes({
-    name: "typeNOC",
+    name: "typeRLENOC",
     fieldset: {
       legend: {
         text: "How does this RLE hold control over the limited partnership?",
@@ -52,17 +52,17 @@
     classes: "govuk-!-margin-bottom-0",
     items: [
       {
-        value: "nocIndividual",
+        value: "nocRLERLE",
         text: "As a relevant legal entity (RLE)",
         hint: { text: "The RLE meets one or more natures of control" }
       },
       {
-        value: "nocFirm",
+        value: "nocRLEFirm",
         text: "Through a firm",
         hint: { text: "The RLE has control over a firm that meets one or more natures of control" }
       },
       {
-        value: "nocTrust",
+        value: "nocRLETrust",
         text: "Through a trust",
         hint: { text: "The RLE has control over a trust that meets one or more natures of control" }
       }

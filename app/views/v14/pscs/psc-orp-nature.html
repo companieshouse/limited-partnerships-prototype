@@ -38,7 +38,7 @@
 
 
   {{ govukCheckboxes({
-    name: "typeNOC",
+    name: "typeORPNOC",
     fieldset: {
       legend: {
         text: "How does the ORP hold control over the limited partnership?",
@@ -52,17 +52,17 @@
     classes: "govuk-!-margin-bottom-0",
     items: [
       {
-        value: "nocIndividual",
+        value: "nocORP",
         text: "As an other registrable person (ORP)",
         hint: { text: "The ORP meets one or more natures of control" }
       },
       {
-        value: "nocFirm",
+        value: "nocORPFirm",
         text: "Through a firm",
         hint: { text: "The ORP has control over a firm that meets one or more natures of control" }
       },
       {
-        value: "nocTrust",
+        value: "nocORPTrust",
         text: "Through a trust",
         hint: { text: "The ORP has control over a trust that meets one or more natures of control" }
       }

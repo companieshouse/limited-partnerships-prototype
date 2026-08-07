@@ -555,11 +555,11 @@ request.session.data['pscLegalEntity1LegalForm'] = ""
 router.get('/v14/saved-applications/your-filings-set-journey', function(request, response) {
 
 
-    request.session.data['savedFiling'] = "yes"
+request.session.data['savedFiling'] = "yes"
 
 request.session.data['userHasSignedOut'] = true
 
-
+request.session.data['registrationOrTransition']= "registration"
 //continue a saved filing
 
         

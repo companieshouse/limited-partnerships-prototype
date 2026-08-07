@@ -514,7 +514,6 @@ router.post('/starting-new', function(request, response) {
     
       request.session.data['pscStatement'] = "yes"
 
-      request.session.data['psc-protection'] = "yes"
 
 request.session.data['psc1FirstNames'] = "Chloe"
 

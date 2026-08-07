@@ -726,8 +726,24 @@ router.post('/psc-protected-details-confirm', function(request, response) {
 
   router.post('/psc-person-alt-nature', function(request, response) {
 
-    response.redirect('v14/pscs/psc-person-alt-nature-individual')
+
+    var typeNOC = request.session.data['typeNOC']
+
+
+    if (typeNOC.includes("nocIndividual")){
+        response.redirect('v14/pscs/psc-person-alt-nature-individual')
+    } 
+    else if (typeNOC.includes("nocFirm")){
+        response.redirect('v14/pscs/psc-person-alt-nature-firm')
+    } 
+    else if (typeNOC.includes("nocTrust")) {
+        response.redirect('v14/pscs/psc-person-alt-nature-trust')
+    }
+    else {
+        response.redirect('v14/pscs/pscs-addresses/psc-person-ura/psc-person-ura-where')
+    }
     
+
 })
 
 
@@ -735,7 +751,18 @@ router.post('/psc-protected-details-confirm', function(request, response) {
 
   router.post('/psc-person-alt-nature-individual', function(request, response) {
 
-    response.redirect('v14/pscs/psc-person-alt-nature-firm')
+    var typeNOC = request.session.data['typeNOC']
+
+    if (typeNOC.includes("nocFirm")){
+        response.redirect('v14/pscs/psc-person-alt-nature-firm')
+    } 
+    else if (typeNOC.includes("nocTrust")) {
+        response.redirect('v14/pscs/psc-person-alt-nature-trust')
+    }
+    else {
+        response.redirect('v14/pscs/pscs-addresses/psc-person-ura/psc-person-ura-where')
+    }
+    
     
 })
 
@@ -743,7 +770,14 @@ router.post('/psc-protected-details-confirm', function(request, response) {
 
   router.post('/psc-person-alt-nature-firm', function(request, response) {
 
-    response.redirect('v14/pscs/psc-person-alt-nature-trust')
+    var typeNOC = request.session.data['typeNOC']
+
+    if (typeNOC.includes("nocTrust")) {
+        response.redirect('v14/pscs/psc-person-alt-nature-trust')
+    }
+    else {
+        response.redirect('v14/pscs/pscs-addresses/psc-person-ura/psc-person-ura-where')
+    }
     
 })
 

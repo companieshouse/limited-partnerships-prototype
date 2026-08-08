@@ -92,7 +92,7 @@
 
 
           {{ govukRadios({
-              name: "psc1OwnershipOfVotingRights",
+              name: "individualOwnershipOfVotingRights",
               fieldset: {
                 legend: {
                   text: "Ownership of voting rights",
@@ -129,7 +129,7 @@
 
 
                 {{ govukCheckboxes({
-                      name: "psc1OwnershipOfRightToAppointRemoveManagement",
+                      name: "individualManagement",
                       fieldset: {
                         legend: {
                           text: "Ownership of right to appoint or remove management",
@@ -141,7 +141,7 @@
                       },
                       items: [
                         {
-                          value: "The individual holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership.",
+                          value: "yes",
                           text: "The individual holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership."
                         }
                       ]
@@ -149,7 +149,7 @@
 
 
                          {{ govukCheckboxes({
-                      name: "psc1SignificantInfluenceOrControl",
+                      name: "individualSC",
                       fieldset: {
                         legend: {
                           text: "Significant influence or control",
@@ -161,7 +161,7 @@
                       },
                       items: [
                         {
-                          value: "The individual has the right to exercise, or actually exercises, significant influence or control over the limited partnership.",
+                          value: "yes",
                           text: "The individual has the right to exercise, or actually exercises, significant influence or control over the limited partnership."
                         }
                       ]

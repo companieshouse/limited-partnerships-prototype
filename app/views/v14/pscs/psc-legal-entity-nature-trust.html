@@ -32,7 +32,7 @@
 <div class="govuk-hint govuk-!-margin-bottom-5">You've told us that the RLE has control over a trust that meets one or more natures of control.</div>
 
   {{ govukRadios({
-    name: "psc1ControlByTrust1",
+    name: "rleControlByTrust1",
     fieldset: {
       legend: {
         text: "Share of assets",
@@ -46,26 +46,26 @@
     },
     items: [
       {
-        value: "more than 25% but not more than 50%",
+        value: "The trustees of the trust hold directly or indirectly, more than 25% but not more than 50%",
         text: "more than 25% but not more than 50%"
       },
       {
-        value: "more than 50% but less than 75%",
+        value: "The trustees of the trust hold directly or indirectly, more than 50% but less than 75%",
         text: "more than 50% but less than 75%"
       },
       {
-        value: "75% or more",
+        value: "The trustees of the trust hold directly or indirectly, 75% or more",
         text: "75% or more"
       },
       {
         value: "does not apply",
-        text: "does not apply"
+        text: "Does not apply"
       }
     ]
   }) }}
 
   {{ govukRadios({
-    name: "psc1ControlByTrust2",
+    name: "rle1ControlByTrust2",
     fieldset: {
       legend: {
         text: "Ownership of voting rights",
@@ -79,26 +79,26 @@
     },
     items: [
       {
-        value: "more than 25% but not more than 50%",
+        value: "The trustees of the trust hold directly or indirectly, more than 25% but not more than 50%",
         text: "more than 25% but not more than 50%"
       },
       {
-        value: "more than 50% but less than 75%",
+        value: "The trustees of the trust hold directly or indirectly, more than 50% but less than 75%",
         text: "more than 50% but less than 75%"
       },
       {
-        value: "75% or more",
+        value: "The trustees of the trust hold directly or indirectly, 75% or more",
         text: "75% or more"
       },
       {
         value: "does not apply",
-        text: "does not apply"
+        text: "Does not apply"
       }
     ]
   }) }}
 
   {{ govukCheckboxes({
-    name: "psc1ControlByTrust3",
+    name: "rle1ControlByTrust3",
     fieldset: {
       legend: {
         text: "Ownership of right to appoint or remove management",
@@ -117,7 +117,7 @@
   }) }}
 
   {{ govukCheckboxes({
-    name: "psc1ControlByTrust4",
+    name: "rle1ControlByTrust4",
     fieldset: {
       legend: {
         text: "Significant influence or control",

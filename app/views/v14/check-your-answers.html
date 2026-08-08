@@ -568,7 +568,7 @@
 
 {% endif %}
 
-    <!-- Individual PSC -->
+<!-- Individual PSC -->
 
 {% if (data['psc1FirstNames']) %}
 
@@ -683,69 +683,235 @@
 
     </dd>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Type of nature of control
-    </dt>
-    <dd class="govuk-summary-list__value">
 
 
-      {% if data['typeNOC'] == "nocIndividual" %}
+  <!-- Only display if individual nature of controls is selected -->
 
-      As an individual
-
-      {% elseif  data['typeNOC'] == "nocFirm" %}
-
-      Through a firm
-
-      {% elseif  data['typeNOC'] == "nocTrust" %}
-
-      Through a trust
-
-      {% endif %}
+      {% if data['typeIndividualPSCNOC'].includes("nocIndividual") %}
 
 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of nature of control
+            </dt>
+            <dd class="govuk-summary-list__value">
+              As an individual
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of shares
+            </dt>
+            <dd class="govuk-summary-list__value">
 
+
+              {{ data['psc1ShareOfAssets'] }}
+
+             <!--  <p class="govuk-body">The individual holds, directly or indirectly, more than 25% but not more than 50%.</p> -->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of voting rights
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['individualOwnershipOfVotingRights'] }} 
+              <!-- <p class="govuk-body">The individual holds, directly or indirectly, more than 25% but not more than 50%.</p> -->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Right to appoint or remove management
+            </dt>
+            <dd class="govuk-summary-list__value">
+ 
+            {% if data['individualManagement'] == "yes" %}
+
+              <p class="govuk-body">The individual holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership.</p>
+
+            {% else %}
+              <p class="govuk-body">Does not apply</p>
+            {% endif %}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Significant influence or control
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+               {% if data['individualSC'] == "yes" %}
+               
+                <p class="govuk-body">The individual has the right to exercise, or actually exercises, significant influence or control over the limited partnership.</p>
+        
+                {% else %}
+
+                  <p class="govuk-body">Does not apply</p>
+
+                {% endif %}
+
+            </dd>
+          </div>
+
+    {% endif %} <!-- End of individual nature of controls -->
+
+
+<!-- Only display if firm nature of controls is selected -->
+     {% if data['typeIndividualPSCNOC'].includes("nocFirm") %}
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of nature of control
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Through a firm
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of shares
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['psc1ControlByFirm1'] }}
+
+
+              <!-- <p class="govuk-body">The firm holds, directly or indirectly, more than 25% but not more than 50%.</p> -->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of voting rights
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['psc1ControlByFirm2'] }}
+
+
+            <!--   <p class="govuk-body">The firm holds, directly or indirectly, more than 25% but not more than 50%.</p> -->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Right to appoint or remove management
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+               {% if data['psc1ControlByFirm3'] == "" %}
+
+                <p class="govuk-body">Does not apply</p>
+
+               {% else %}
+
+              <p class="govuk-body">The members of the firm hold, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership.</p>
+
+              {% endif %}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Significant influence or control
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+
+              {% if data['psc1ControlByFirm4'] == "" %}
+
+                <p class="govuk-body">Does not apply</p>
+
+               {% else %}
+
+                <p class="govuk-body">The members of the firm have the right to exercise, or actually exercise, significant influence or control over the limited partnership.</p>
 
       
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Percentage of shares
-    </dt>
-    <dd class="govuk-summary-list__value">
+            {% endif %}
+   
+            </dd>
+          </div>
 
-More than 25% but not more than 50%
+    {% endif %} <!-- End of firm nature of controls -->
 
-      
-      <p class="govuk-body">The individual holds, directly or indirectly, more than 25% but not more than 50%.</p>
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Percentage of voting rights
-    </dt>
-    <dd class="govuk-summary-list__value">
-      <p class="govuk-body">The individual holds, directly or indirectly, more than 25% but not more than 50%.</p>
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Right to appoint or remove management
-    </dt>
-    <dd class="govuk-summary-list__value">
-      <p class="govuk-body">The individual holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership.</p>
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Significant influence or control
-    </dt>
-    <dd class="govuk-summary-list__value">
-      <p class="govuk-body">No</p>
-    </dd>
-  </div>
+
+<!-- Only display if trust nature of controls is selected -->
+     {% if data['typeIndividualPSCNOC'].includes("nocTrust") %}
+
+
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of nature of control
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Through a trust
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of shares
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['psc1ControlByTrust1'] }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of voting rights
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">
+
+                {{ data['psc1ControlByTrust2'] }}
+
+              </p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Right to appoint or remove management
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+               {% if data['psc1ControlByTrust3'] == "" %}
+
+                <p class="govuk-body">Does not apply</p>
+        
+               
+
+              {% else %}
+
+              {{data['psc1ControlByTrust3']}}
+
+              {% endif %}
+
+              
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Significant influence or control
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+               {% if data['psc1ControlByTrust4'] == "" %}
+
+                <p class="govuk-body">Does not apply</p>
+        
+            
+              {% else %}
+
+               {{data['psc1ControlByTrust4']}}
+
+              {% endif %}
+
+            </dd>
+          </div>
+
+    {% endif %} <!-- End of trust nature of controls -->
+
+
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
       Residential address
@@ -765,119 +931,417 @@ More than 25% but not more than 50%
 </dl>
 
 
-{% endif %}
-          <!-- Legal entity show if a name has been entered -->
+{% endif %} 
+<!-- End of individual PSC -->
+
+
+
+
+<!-- Legal entity show if a name has been entered -->
 
 
 {% if data['psc1EntityName'] %} <!-- only show the Legal Entity entry if a name has been types into the legal entity page -->
 
 
- {{ govukSummaryList({
-        classes: "govuk-!-margin-bottom-9",
-        rows: [
-          {
-            key: {
-              text: "Legal entity name"
-            },
-            value: {
-              html: "ENCOM LIMITED"
-            }
-          },
-          {
-            key: {
-              text: "Legal form"
-            },
-            value: {
-              html: data['pscLegalEntity1LegalForm']
-            }
-          },
-          {
-            key: {
-              text: "Governing law"
-            },
-            value: {
-              html: data['pscLegalEntity1GoverningLaw']
-            }
-          },
-          {
-            key: {
-              text: "Register entered in"
-            },
-            value: {
-              html: data['pscLegalEntity1Register']
-            }
-          },
-             {
-            key: {
-              text: "Country registered in"
-            },
-            value: {
-              html: data['pscLegalEntity1CountryRegistered']
-            }
-          },
-              {
-            key: {
-              text: "Registration number"
-            },
-            value: {
-              html: data['pscLegalEntity1RegistrationNumber']
-            }
-          },
-          {
-            key: {
-              text: "Type of nature of control"
-            },
-            value: {
-              html: 'Nature of control for this individual'
-            }
-          },
-          {
-            key: {
-              text: "Percentage of shares"
-            },
-            value: {
-              html: 'The individual holds, directly or indirectly, more than 25% but not more than 50%.'
-            }
-          },
-          {
-            key: {
-              text: "Percentage of voting rights"
-            },
-            value: {
-              html: 'The individual holds, directly or indirectly, more than 25% but not more than 50%. '
-            }
-          },
-          {
-            key: {
-              text: "Right to appoint or remove management"
-            },
-            value: {
-              html: 'The individual holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership.'
-            }
-          },
-          {
-            key: {
-              text: "Significant influence or control"
-            },
-            value: {
-              html: 'No'
-            }
-          },
-          {
-            key: {
-              text: "Principal office address"
-            },
-            value: {
-              html: "1 Lemon Road<br>Hull<br>H12 3AB"
-            }
-          }
-        ]
-      }) }}
- 
+
+
+
+{% if (data['psc1FirstNames']) %}
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Legal entity name
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+      {% if data['psc1EntityName'] %}
+      
+        {{ data['psc1EntityName'] }}
+
+      {% else %}
+
+        ENCOM LIMITED
+
+      {% endif %}
+    </dd>
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Legal form
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+      {% if data['pscLegalEntity1LegalForm'] %}
+      
+        {{ data['pscLegalEntity1LegalForm']}}
+
+      {% else %}
+
+        Private limited company
+
+      {% endif %}
+    </dd>
+  </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Governing law
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+      {% if data['pscLegalEntity1GoverningLaw'] %}
+
+        {{ data['pscLegalEntity1GoverningLaw']}}
+
+      {% else %}
+
+        Companies Act 2006
+
+      {% endif %}
+    </dd>
+  </div>
+
+  <!-- only display if entered into a register -->
+
+  {% if data['entity-on-register'] == "yes" %}
+
+        <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Country registered in
+        </dt>
+        <dd class="govuk-summary-list__value">
+
+          {% if data['pscLegalEntity1CountryRegistered'] %}
+
+            {{ data['pscLegalEntity1CountryRegistered']}}
+
+          {% else %}
+
+            England and Wales
+
+          {% endif %}
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Register entered in
+        </dt>
+        <dd class="govuk-summary-list__value">
+
+          {% if data['pscLegalEntity1Register'] %}
+
+            {{ data['pscLegalEntity1Register']}}
+
+          {% else %}
+
+            Companies Act 2006
+
+          {% endif %}
+        </dd>
+      </div>
+
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Registration number
+        </dt>
+        <dd class="govuk-summary-list__value">
+
+          {% if data['pscLegalEntity1RegistrationNumber'] %}
+
+            {{ data['pscLegalEntity1RegistrationNumber']}}
+
+          {% else %}
+
+            12345678
+
+          {% endif %}
+        </dd>
+      </div>
+
+      {% else %}
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Register
+        </dt>
+        <dd class="govuk-summary-list__value">
+
+         Not entered on a register
+
+          
+        </dd>
+      </div>
+    {% endif %}
+
+      <!-- only display if as a RLE has been entered -->
+
+      {% if data['typeRLENOC'].includes("nocRLERLE") %}
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of nature of control
+            </dt>
+            <dd class="govuk-summary-list__value">
+              As a relevant legal entity (RLE)
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of shares
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['rlerleShareOfAssets'] }}
+
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of voting rights
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['rlerleOwnershipOfVotingRights'] }}
+
+
+            <!--   <p class="govuk-body">The firm holds, directly or indirectly, more than 25% but not more than 50%.</p> -->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Right to appoint or remove management
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+               {% if data['rlerleOwnershipOfRightToAppointRemoveManagement'] == "" %}
+
+                <p class="govuk-body">Does not apply</p>
+
+               {% else %}
+
+              <p class="govuk-body">
+                {{ data['rlerleOwnershipOfRightToAppointRemoveManagement'] }}
+              </p>
+
+              {% endif %}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Significant influence or control
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+
+              {% if data['rlerleSignificantInfluenceOrControl'] == "" %}
+
+                <p class="govuk-body">Does not apply</p>
+
+               {% else %}
+
+                {{ data['rlerleSignificantInfluenceOrControl'] }}</p>
+
+            {% endif %}
+   
+            </dd>
+          </div>
+
+    {% endif %} 
+
+
+      <!-- End of RLE -->
+
+
+       <!-- only display if as a through a firm has been entered -->
+
+        {% if data['typeRLENOC'].includes("nocRLEFirm") %}
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of nature of control
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Through a firm
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of shares
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['rleControlByFirm1'] }}
+
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of voting rights
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['rleControlByFirm2'] }}
+
+
+            <!--   <p class="govuk-body">The firm holds, directly or indirectly, more than 25% but not more than 50%.</p> -->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Right to appoint or remove management
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+               {% if data['rleControlByFirm3'] == "" %}
+
+                <p class="govuk-body">Does not apply</p>
+
+               {% else %}
+
+              <p class="govuk-body">
+                {{ data['rleControlByFirm3'] }}
+              </p>
+
+              {% endif %}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Significant influence or control
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+
+              {% if data['rleControlByFirm4'] == "" %}
+
+                <p class="govuk-body">Does not apply</p>
+
+               {% else %}
+
+                {{ data['rleControlByFirm4'] }}</p>
+
+            {% endif %}
+   
+            </dd>
+          </div>
+
+    {% endif %} 
+
+      <!-- End of through a firm -->
+
+      <!-- only display if as a through a trust has been entered -->
+      {% if data['typeRLENOC'].includes("nocRLETrust") %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of nature of control
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Through a trust
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of shares
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['rleControlByTrust1'] }}
+
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of voting rights
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['rle1ControlByTrust2'] }}
+
+
+            <!--   <p class="govuk-body">The firm holds, directly or indirectly, more than 25% but not more than 50%.</p> -->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Right to appoint or remove management
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+               {% if data['rle1ControlByTrust3'] == "" %}
+
+                <p class="govuk-body">Does not apply</p>
+
+               {% else %}
+
+              <p class="govuk-body">
+                {{ data['rle1ControlByTrust3'] }}
+              </p>
+
+              {% endif %}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Significant influence or control
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+
+              {% if data['rle1ControlByTrust4'] == "" %}
+
+                <p class="govuk-body">Does not apply</p>
+
+               {% else %}
+
+                {{ data['rle1ControlByTrust4'] }}</p>
+
+            {% endif %}
+   
+            </dd>
+          </div>
+
+      <!-- End of through a trust -->
+
+
+      {% endif %}
+
+
+       <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Principal office address 
+        </dt>
+        <dd class="govuk-summary-list__value">
+
+        <p> 1 Lemon Road<br>Hull<br>H12 3AB</p>
+        </dd>
+      </div>
+
+
+       {% endif %}
 
  {% endif %}
 
+
+<!-- ***  END OF RLE ***-->
+
+
+
+
+
+
       <!-- ORP-->
+
+
+      <!--- ORP have NOT been made dyanmic 8 August 2026 -->
 
 {% if data['pscORP1EntityName'] %}
 
@@ -961,7 +1425,7 @@ More than 25% but not more than 50%
  {% endif %}
 
 
-
+</dl>
 
      <!-- <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p
 -->

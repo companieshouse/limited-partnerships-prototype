@@ -525,7 +525,7 @@ router.post('/starting-new', function(request, response) {
 
       request.session.data['psc1ControlByFirm3'] = "The members of the firm hold, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership"
 
-      request.session.data['psc1ControlByFirm4'] = "Does not apply"
+      request.session.data['psc1ControlByFirm4'] = ""
 
 
       request.session.data['psc1EntityName'] = "ENCOM LIMITED"

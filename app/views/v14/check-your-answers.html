@@ -1086,7 +1086,7 @@
 
       <!-- only display if as a RLE has been entered -->
 
-      {% elseif data['typeRLENOC'].includes("nocRLERLE") %}
+      {% if data['typeRLENOC'].includes("nocRLERLE") %}
 
 
           <div class="govuk-summary-list__row">
@@ -1158,7 +1158,7 @@
             </dd>
           </div>
 
-    
+    {% endif %} 
 
 
       <!-- End of RLE -->
@@ -1166,7 +1166,7 @@
 
        <!-- only display if as a through a firm has been entered -->
 
-        {% elseif data['typeRLENOC'].includes("nocRLEFirm") %}
+        {% if data['typeRLENOC'].includes("nocRLEFirm") %}
 
 
           <div class="govuk-summary-list__row">
@@ -1238,12 +1238,12 @@
             </dd>
           </div>
 
-   
+    {% endif %} 
 
       <!-- End of through a firm -->
 
       <!-- only display if as a through a trust has been entered -->
-      {% elseif data['typeRLENOC'].includes("nocRLETrust") %}
+      {% if data['typeRLENOC'].includes("nocRLETrust") %}
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -1331,7 +1331,7 @@
       </div>
 
 
-       
+       {% endif %}
 
  {% endif %}
 

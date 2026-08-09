@@ -513,14 +513,23 @@ router.post('/starting-new', function(request, response) {
 
     
       request.session.data['pscStatement'] = "yes"
+      request.session.data['psc1FirstNames'] = "Chloe"
+      request.session.data['psc1LastName'] = "Davies"
+
+      request.session.data['psc1DOB'] = "01 January 1990"
+      request.session.data['psc1Nationality1'] = "British"
+
+      request.session.data['typeIndividualPSCNOC'] = [ "nocFirm"]
+      request.session.data['psc1ControlByFirm1'] = "The firm holds, directly or indirectly, 75% or more"
+      request.session.data['psc1ControlByFirm2'] = "The firm holds, directly or indirectly, 75% or more"
+
+      request.session.data['psc1ControlByFirm3'] = "The members of the firm hold, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership"
+
+      request.session.data['psc1ControlByFirm4'] = "Does not apply"
 
 
-request.session.data['psc1FirstNames'] = "Chloe"
-
-request.session.data['psc1LastName'] = "Davies"
-
-request.session.data['psc1EntityName'] = "ENCOM LIMITED"
-request.session.data['pscLegalEntity1LegalForm'] = ""
+      request.session.data['psc1EntityName'] = "ENCOM LIMITED"
+      request.session.data['pscLegalEntity1LegalForm'] = ""
 
             response.redirect("v14/saved-applications/your-filings")
         

@@ -685,9 +685,11 @@
   </div>
 
 
-  <!-- Only display if individual nature of controls is selected -->
+ <!-- Only display if individual nature of controls is selected -->
 
-      {% if data['typeIndividualPSCNOC'].includes("nocIndividual") %}
+
+
+{% if data['typeIndividualPSCNOC'].includes("nocIndividual") %}
 
 
           <div class="govuk-summary-list__row">
@@ -758,7 +760,8 @@
 
 
 <!-- Only display if firm nature of controls is selected -->
-     {% if data['typeIndividualPSCNOC'].includes("nocFirm") %}
+
+{% if data['typeIndividualPSCNOC'].includes("nocFirm") %}
 
 
           <div class="govuk-summary-list__row">
@@ -835,8 +838,8 @@
 
 
 <!-- Only display if trust nature of controls is selected -->
-     {% if data['typeIndividualPSCNOC'].includes("nocTrust") %}
 
+{% if data['typeIndividualPSCNOC'].includes("nocTrust") %}
 
 
 
@@ -874,7 +877,7 @@
             </dt>
             <dd class="govuk-summary-list__value">
 
-               {% if data['psc1ControlByTrust3'] == "" %}
+               {% if data['psc1ControlByTrust3'] == undefined %}
 
                 <p class="govuk-body">Does not apply</p>
         
@@ -895,14 +898,16 @@
             </dt>
             <dd class="govuk-summary-list__value">
 
-               {% if data['psc1ControlByTrust4'] == "" %}
+       
+
+               {% if data['psc1ControlByTrust4'] == undefined %}
 
                 <p class="govuk-body">Does not apply</p>
         
             
               {% else %}
 
-               {{data['psc1ControlByTrust4']}}
+                      {{data['psc1ControlByTrust4']}}
 
               {% endif %}
 
@@ -1081,7 +1086,7 @@
 
       <!-- only display if as a RLE has been entered -->
 
-      {% if data['typeRLENOC'].includes("nocRLERLE") %}
+      {% elseif data['typeRLENOC'].includes("nocRLERLE") %}
 
 
           <div class="govuk-summary-list__row">
@@ -1127,7 +1132,7 @@
                {% else %}
 
               <p class="govuk-body">
-                {{ data['rlerleOwnershipOfRightToAppointRemoveManagement'] }}
+                {{ data['rleControlByFirm3'] }}
               </p>
 
               {% endif %}
@@ -1146,14 +1151,14 @@
 
                {% else %}
 
-                {{ data['rlerleSignificantInfluenceOrControl'] }}</p>
+                {{ data['rleControlByFirm4'] }}</p>
 
             {% endif %}
    
             </dd>
           </div>
 
-    {% endif %} 
+    
 
 
       <!-- End of RLE -->
@@ -1161,7 +1166,7 @@
 
        <!-- only display if as a through a firm has been entered -->
 
-        {% if data['typeRLENOC'].includes("nocRLEFirm") %}
+        {% elseif data['typeRLENOC'].includes("nocRLEFirm") %}
 
 
           <div class="govuk-summary-list__row">
@@ -1219,26 +1224,26 @@
             </dt>
             <dd class="govuk-summary-list__value">
 
+              {% if  data['rleControlByFirm4'] == "" %}
 
-              {% if data['rleControlByFirm4'] == "" %}
-
-                <p class="govuk-body">Does not apply</p>
+               <p class="govuk-body">Does not apply</p>
 
                {% else %}
-
-                {{ data['rleControlByFirm4'] }}</p>
+              <p class="govuk-body">
+                {{ data['rleControlByFirm4'] }}
+              </p>
 
             {% endif %}
    
             </dd>
           </div>
 
-    {% endif %} 
+   
 
       <!-- End of through a firm -->
 
       <!-- only display if as a through a trust has been entered -->
-      {% if data['typeRLENOC'].includes("nocRLETrust") %}
+      {% elseif data['typeRLENOC'].includes("nocRLETrust") %}
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -1326,7 +1331,7 @@
       </div>
 
 
-       {% endif %}
+       
 
  {% endif %}
 
@@ -1335,6 +1340,7 @@
 
 
 
+</dl>
 
 
 
@@ -1409,7 +1415,7 @@
               text: "Significant influence or control"
             },
             value: {
-              html: 'No'
+              html: 'Does not apply'
             }
           },
           {

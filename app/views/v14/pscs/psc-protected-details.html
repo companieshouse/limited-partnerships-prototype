@@ -25,13 +25,13 @@
         name: "psc-protection",
         fieldset: {
           legend: {
-            text: "Does this PSC need their personal information to be protected from appearing on the Companies House public register?",
+            text: "Does this PSC need their details protected on the Companies House register?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--xl"
           }
         },
         hint: {
-          text: "This includes if they are waiting for the results of an application to protect their personal information."
+          text: "This is for PSCs who are serious risk, and need their personal information to be protected from appearing on the public register."
         },
         items: [
           {
@@ -47,13 +47,16 @@
 
 
        {% set secureRegisterDetailsHtml %}
-        <p class="govuk-body">Some people can <a href="https://www.gov.uk/guidance/applying-to-protect-your-personal-information-on-the-companies-house-register" class="govuk-link" data-event-id="apply-to-protect-personal-information-link">apply to protect personal information from being shown on the Companies House public register</a> if they meet certain criteria. This process includes:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                  <li>providing evidence that they are eligible to have their details protected </li>
-                  <li>paying a £100 fee</li>
-                </ul>
-                <p class="govuk-body">You should only select 'yes' if the PSC has already done this.</p>
+        <p class="govuk-body">PSCs can apply to protect their details if they are at serious risk of violence or intimidation because of the limited partnership's activities.</p>
         
+        <p class="govuk-body">To apply for protection, they need to</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>submit a protection application and their PSC details by post</li>
+                  <li>include evidence that they are eligible to have their details protected </li>
+                  <li>pay a £100 fee</li>
+                </ul>
+        
+        <p class="govuk-body">For more information, <a href="https://www.gov.uk/guidance/applying-to-protect-your-personal-information-on-the-companies-house-register" class="govuk-link" data-event-id="read-guidance-link">read the guidance on applying to protect your details.</a></p>
       {% endset %}
 
       {{ govukDetails({

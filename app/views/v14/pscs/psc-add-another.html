@@ -285,12 +285,18 @@
 </div>
 </div>
 
-
+     <!-- Legal entity - name entered, but no more details  -->
+    {% if data['psc1EntityName'] and data['pscLegalEntity1LegalForm'] != "" %} 
       
 {{ govukButton({
   text: "Save and continue"
 }) }}
 
+{% else %}
+<a href="#" type="submit" class="govuk-button" data-module="govuk-button">
+  Save and continue
+</a>
+    {% endif %}
       </form>
     </div>
   </div>

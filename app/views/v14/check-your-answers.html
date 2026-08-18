@@ -687,7 +687,7 @@
 
  <!-- Only display if individual nature of controls is selected -->
 
-
+{% if data['typeIndividualPSCNOC'] %}
 
 {% if data['typeIndividualPSCNOC'].includes("nocIndividual") %}
 
@@ -756,10 +756,12 @@
             </dd>
           </div>
 
-    {% endif %} <!-- End of individual nature of controls -->
+    {% endif %}     {% endif %} <!-- End of individual nature of controls -->
 
 
 <!-- Only display if firm nature of controls is selected -->
+
+{% if data['typeIndividualPSCNOC'] %}
 
 {% if data['typeIndividualPSCNOC'].includes("nocFirm") %}
 
@@ -834,10 +836,12 @@
             </dd>
           </div>
 
-    {% endif %} <!-- End of firm nature of controls -->
+    {% endif %} {% endif %} <!-- End of firm nature of controls -->
 
 
 <!-- Only display if trust nature of controls is selected -->
+
+{% if data['typeIndividualPSCNOC'] %}
 
 {% if data['typeIndividualPSCNOC'].includes("nocTrust") %}
 
@@ -914,7 +918,7 @@
             </dd>
           </div>
 
-    {% endif %} <!-- End of trust nature of controls -->
+    {% endif %} {% endif %} <!-- End of trust nature of controls -->
 
 
   <div class="govuk-summary-list__row">
@@ -1086,6 +1090,8 @@
 
       <!-- only display if as a RLE has been entered -->
 
+      {% if data['typeRLENOC'] %}
+
       {% if data['typeRLENOC'].includes("nocRLERLE") %}
 
 
@@ -1165,6 +1171,7 @@
 
 
        <!-- only display if as a through a firm has been entered -->
+
 
         {% if data['typeRLENOC'].includes("nocRLEFirm") %}
 
@@ -1316,6 +1323,8 @@
 
       <!-- End of through a trust -->
 
+
+      {% endif %}
 
       {% endif %}
 

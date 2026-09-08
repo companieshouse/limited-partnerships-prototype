@@ -1,0 +1,1540 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">Check your answers before submitting this filing</h1>
+
+
+
+
+      <h2 class="govuk-heading-m">Limited partnership information</h2>
+
+
+
+
+      {% set rows = [
+            {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: data['lpChooseName']['nameEnding'] or "ACME LP"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Name"
+                }
+              ]
+            }
+          },
+               {
+            key: {
+              text: "Type"
+            },
+            value: {
+              text:  "Scottish limited partnership"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Type of partnership"
+                }
+              ]
+            }
+          },
+
+          {
+            key: {
+              text: "Registered email address"
+            },
+            value: {
+              text: data['registeredEmail'] or "example@limitedpartnership.com"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "registered email address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Registered office address"
+            },
+      value: { 
+          text: "1 Orchard Street, Whitchurch, Cardiff CF14 3UZ" 
+          if data.registerType in ['registerLp', 'RegisterPflp'] 
+          else "1 Rose Street, Edinburgh, EH1 2EB"
+        },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "registered office address"
+                }
+              ]
+            }
+          }
+              
+] %}
+
+{% if data['registrationOrTransition'] == "registration" %}
+  {% set rows = rows.concat([
+     {
+            key: {
+              text: "Principal place of business"
+            },
+            value: {
+              text: "1 Rose Street, Edinburgh, EH1 2EB"
+            },
+       value: { 
+            text: "1 Orchard Street, Whitchurch, Cardiff CF14 3UZ" 
+            if data.registerType in ['registerLp', 'RegisterPflp'] 
+            else "1 Rose Street, Edinburgh, EH1 2EB"
+          },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "principal place of business"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Term of the partnership"
+            },
+            value: {
+              text: data['term-of-partners'] or "No set term"
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "registered office address"
+                }
+              ]
+            }
+          },          
+          {
+            key: {
+              text: "Nature of business"
+            },
+            value: {
+              html: '<ul class="govuk-list">
+            <li>
+              62012 - Business and domestic software development
+            </li>
+            <li>
+              01120 - 	Growing of rice
+            </li>
+          </ul>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "javascript:void(0)",
+                  text: "Change",
+                  visuallyHiddenText: "Standard Industrial Classification code"
+          }
+        ]
+      }
+    }
+  ]) %}
+{% endif %}
+
+{{ govukSummaryList({
+  classes: "govuk-!-margin-bottom-6",
+  rows: rows
+}) }}
+
+
+    <h2 class="govuk-heading-m">General partners</h2>
+          <p class="govuk-!-margin-bottom-6"><a href="gp-add-another" class="govuk-link govuk-link--no-visited-state">Change, remove or add general partners</a></p>
+     {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-6",
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+            text: (data['gp1FirstName'] or "Georgina") + " " + (data['gp1LastName'] or "Smith")
+            }
+          },
+          {
+            key: {
+              text: "Previous name"
+            },
+            value: {
+              text: "Georgina Silver"
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "21 August 1989"
+            }
+          },
+          {
+            key: {
+              text: "Nationality"
+            },
+            value: {
+              text: "British"
+            }
+          },
+          {
+            key: {
+              text: "Usual residential address"
+            },
+            value: {
+              text: "13 Luck Lane, Bristol, BS1 8LY, United Kingdom"
+            }
+          },
+          {
+            key: {
+              text: "Correspondence address"
+            },
+            value: {
+              text: "2 Peartree Avenue, Bristol, BS1 2EF, United Kingdom"
+            }
+          },
+          {
+            key: {
+              text: "Date they became a general partner"
+            },
+            value: {
+              text: "10 June 2025"
+            }
+          }
+        ]
+      }) }}
+
+      
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-6",
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: data['gp1EntityName'] or "ABC Company Limited"
+            }
+          },
+                  {
+            key: {
+              text: "Legal form or corporate identity"
+            },
+            value: {
+              text: data['gp1LegalForm'] or "Private limited company"
+            }
+          },
+          {
+            key: {
+              text: "Governing law"
+            },
+            value: {
+              text: data['gp1GoverningLaw'] or "Companies Act 2006"
+            }
+          },
+              {
+            key: {
+              text: "Register"
+            },
+            value: {
+              text: data['gp1Register'] or "Companies House public register"
+            }
+          },
+              {
+            key: {
+              text: "Country registered in"
+            },
+            value: {
+              text: data['gp1CountryRegistered'] or "United Kingdom"
+            }
+          },
+          {
+            key: {
+              text: "Registration number"
+            },
+            value: {
+              text: data['gp1RegistrationNumber'] or "00876543"
+            }
+          },
+          {
+            key: {
+              text: "Principal office address"
+            },
+            value: {
+              text: "24 Candy Lane, London, W1 3EE, United Kingdom"
+            }
+          },
+          {
+            key: {
+              text: "Date they became a general partner"
+            },
+            value: {
+              text: "10 June 2025"
+            }
+          }
+        ]
+      }) }}
+
+
+
+
+
+    <h3 class="govuk-heading-m">Limited partners</h3>
+    <p class="govuk-!-margin-bottom-6"><a href="lp-add-another" class="govuk-link govuk-link--no-visited-state">Change, remove or add limited partners</a></p>
+
+{% set rows = [
+  {
+    key: {
+      text: "Name"
+    },
+    value: {
+      text: (data['lp1FirstName'] or "Adrienne") + " " + (data['gp1LastName'] or "Leandres")
+    }
+  },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "13 March 1975"
+            }
+          },
+          {
+            key: {
+              text: "Nationality"
+            },
+            value: {
+              text: "French"
+            }
+          },
+          {
+            key: {
+              text: "Usual residential address"
+            },
+            value: {
+              text: "1 Champs Elysee, Paris, 705001, France"
+            }
+          }
+] %}
+
+{% if data['registrationOrTransition'] == "registration" %}
+  {% set rows = rows.concat([
+    {
+      key: {
+        text: "Total capital contribution"
+      },
+      value: {
+        html: '
+        <ul class="govuk-list">
+            <li>
+              500.50 British Pound (GBP)
+            </li>
+            <li>
+              Money / Shares / Services or goods
+            </li>
+          </ul>
+        '
+      }
+    },
+          {
+            key: {
+              text: "Date they became a limited partner"
+            },
+            value: {
+              text: "10 June 2025"
+            }
+          }
+  ]) %}
+{% endif %}
+
+{{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-6",
+  rows: rows
+}) }}
+
+
+
+    {% set rows = [
+      {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: data['lp1EntityName'] or "ACME Legal Entity Inc"
+            }
+          },
+                            {
+            key: {
+              text: "Legal form or corporate identity"
+            },
+            value: {
+              text: data['lp1LegalForm'] or "Private limited company"
+            }
+          },
+          {
+            key: {
+              text: "Governing law"
+            },
+            value: {
+              text: data['lp1GoverningLaw'] or "Companies Act 2006"
+            }
+          },
+              {
+            key: {
+              text: "Register"
+            },
+            value: {
+              text: data['lp1Register'] or "Companies House public register"
+            }
+          },
+              {
+            key: {
+              text: "Country registered in"
+            },
+            value: {
+              text: data['lp1CountryRegistered'] or "United Kingdom"
+            }
+          },
+          {
+            key: {
+              text: "Registration number"
+            },
+            value: {
+              text: data['lp1RegistrationNumber'] or "00001234"
+            }
+          },
+          {
+            key: {
+              text: "Principal office address"
+            },
+            value: {
+              text: "1 Hyde Road, London, SW1 1LE, United Kingdom"
+            }
+          }
+] %}
+
+{% if data['registrationOrTransition'] == "registration" %}
+  {% set rows = rows.concat([
+    {
+      key: {
+        text: "Total capital contribution"
+      },
+      value: {
+        html: '
+        <ul class="govuk-list">
+            <li>
+              10,000 Euro (EUR)
+            </li>
+            <li>
+              Money
+            </li>
+          </ul>
+        '
+      }
+    },
+          {
+            key: {
+              text: "Date they became a limited partner"
+            },
+            value: {
+              text: "10 June 2025"
+            }
+          }
+  ]) %}
+{% endif %}
+
+{{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-6",
+  rows: rows
+}) }}
+
+
+   
+
+
+<!-- People with significant control (PSC)-->
+
+<h3 class="govuk-heading-m">People with significant control (PSCs)</h3>
+    <p class="govuk-!-margin-bottom-6"><a href="pscs/psc-add-another" class="govuk-link govuk-link--no-visited-state">Change, remove or add people with significant control (PSCs)</a></p>
+
+<!-- Statement no for PSCs -->
+
+{% if (data['pscStatement'] == "no") %}
+
+{{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "PSC statement"
+            },
+            value: {
+              text: "There is no person identified as a person with significant control (either a registrable person or RLE) in relation to the limited partnership."
+            },
+            actions: {
+              items: [
+                {
+                  href: "pscs/psc-statement",
+                  text: "Change",
+                  visuallyHiddenText: "PSC statement"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+<!-- Statement YES I have PSCs -->
+
+{% elseif (data['pscStatement'] == "yes") %}
+
+{{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "PSC statement"
+            },
+            value: {
+              text: "Yes, at least one person will count as a PSC in relation to the partnership. This may be an individual person, a relevant legal entity (RLE) or an other registrable person (ORP)."
+            }
+            
+          }
+          
+        ]
+      }) }}
+   
+{% endif  %}
+
+
+<!-- Protected person -->
+
+
+{% if (data['psc-protection'] == "yes") %}
+
+{{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Protected person"
+            },
+            value: {
+              html: " Protected person <br> <br>
+              The secure form needs to be accepted before you can submit this registration."
+            }
+          }
+        ]
+      }) }}
+
+
+{% endif %}
+
+<!-- Individual PSC -->
+
+{% if (data['psc1FirstNames']) %}
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Professional or honorary title (if relevant)
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+      {% if data['psc1Title'] %}
+      
+        {{ data['psc1Title'] }}
+
+      {% else %}
+
+        Not provided
+
+      {% endif %}
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      First name
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+      {% if data['psc1FirstNames'] %}
+
+        {{ data['psc1FirstNames'] }}
+
+      {% else %}
+
+        Chloe
+
+      {% endif %}
+      
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Middle name
+    </dt>
+    <dd class="govuk-summary-list__value">
+      
+      {% if data['psc1MiddleName'] %}
+
+        {{ data['psc1MiddleName'] }}
+
+      {% else %}
+
+        
+
+      {% endif %}
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Last name
+    </dt>
+    <dd class="govuk-summary-list__value">
+      
+      {% if data['psc1LastName'] %}
+
+        {{ data['psc1LastName'] }}
+
+      {% else %}
+
+        Davies
+
+      {% endif %}
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date of birth
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">5 January 1978</p>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Nationality
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+      <!-- First nationality -->
+
+       {% if data['psc1Nationality1'] %}
+
+        {{ data['psc1Nationality1'] }}
+
+      {% else %}
+
+        British
+
+      {% endif %}
+
+      <!-- Second nationality -->
+
+       {% if data['psc1Nationality2'] %}
+
+       <br> {{ data['psc1Nationality2'] }}
+
+
+      {% endif %}
+
+
+      
+
+
+    </dd>
+  </div>
+
+
+ <!-- Only display if individual nature of controls is selected -->
+
+{% if data['typeIndividualPSCNOC'] %}
+
+{% if data['typeIndividualPSCNOC'].includes("nocIndividual") %}
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of nature of control
+            </dt>
+            <dd class="govuk-summary-list__value">
+              As an individual
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of shares
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+
+              {{ data['psc1ShareOfAssets'] }}
+
+             <!--  <p class="govuk-body">The individual holds, directly or indirectly, more than 25% but not more than 50%.</p> -->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of voting rights
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['individualOwnershipOfVotingRights'] }} 
+              <!-- <p class="govuk-body">The individual holds, directly or indirectly, more than 25% but not more than 50%.</p> -->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Right to appoint or remove management
+            </dt>
+            <dd class="govuk-summary-list__value">
+ 
+            {% if data['individualManagement'] == "yes" %}
+
+              <p class="govuk-body">The individual holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership.</p>
+
+            {% else %}
+              <p class="govuk-body">Does not apply</p>
+            {% endif %}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Significant influence or control
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+               {% if data['individualSC'] == "yes" %}
+               
+                <p class="govuk-body">The individual has the right to exercise, or actually exercises, significant influence or control over the limited partnership.</p>
+        
+                {% else %}
+
+                  <p class="govuk-body">Does not apply</p>
+
+                {% endif %}
+
+            </dd>
+          </div>
+
+    {% endif %}     {% endif %} <!-- End of individual nature of controls -->
+
+
+<!-- Only display if firm nature of controls is selected -->
+
+{% if data['typeIndividualPSCNOC'] %}
+
+{% if data['typeIndividualPSCNOC'].includes("nocFirm") %}
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of nature of control
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Through a firm
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of shares
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['psc1ControlByFirm1'] }}
+
+
+              <!-- <p class="govuk-body">The firm holds, directly or indirectly, more than 25% but not more than 50%.</p> -->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of voting rights
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['psc1ControlByFirm2'] }}
+
+
+            <!--   <p class="govuk-body">The firm holds, directly or indirectly, more than 25% but not more than 50%.</p> -->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Right to appoint or remove management
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+               {% if data['psc1ControlByFirm3'] == "" %}
+
+                <p class="govuk-body">Does not apply</p>
+
+               {% else %}
+
+              <p class="govuk-body">The members of the firm hold, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership.</p>
+
+              {% endif %}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Significant influence or control
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+
+              {% if data['psc1ControlByFirm4'] == "" %}
+
+                <p class="govuk-body">Does not apply</p>
+
+               {% else %}
+
+                <p class="govuk-body">The members of the firm have the right to exercise, or actually exercise, significant influence or control over the limited partnership.</p>
+
+      
+            {% endif %}
+   
+            </dd>
+          </div>
+
+    {% endif %} {% endif %} <!-- End of firm nature of controls -->
+
+
+<!-- Only display if trust nature of controls is selected -->
+
+{% if data['typeIndividualPSCNOC'] %}
+
+{% if data['typeIndividualPSCNOC'].includes("nocTrust") %}
+
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of nature of control
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Through a trust
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of shares
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['psc1ControlByTrust1'] }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of voting rights
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">
+
+                {{ data['psc1ControlByTrust2'] }}
+
+              </p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Right to appoint or remove management
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+               {% if data['psc1ControlByTrust3'] == undefined %}
+
+                <p class="govuk-body">Does not apply</p>
+        
+               
+
+              {% else %}
+
+              {{data['psc1ControlByTrust3']}}
+
+              {% endif %}
+
+              
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Significant influence or control
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+       
+
+               {% if data['psc1ControlByTrust4'] == undefined %}
+
+                <p class="govuk-body">Does not apply</p>
+        
+            
+              {% else %}
+
+                      {{data['psc1ControlByTrust4']}}
+
+              {% endif %}
+
+            </dd>
+          </div>
+
+    {% endif %} {% endif %} <!-- End of trust nature of controls -->
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Residential address
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">1 Olympus Road, Wrexham, W98 7AB</p>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Correspondence address
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">1 Magpie Avenue, Liverpool, L12 3GB</p>
+    </dd>
+  </div>
+</dl>
+
+
+{% endif %} 
+<!-- End of individual PSC -->
+
+
+
+
+<!-- Legal entity show if a name has been entered -->
+
+
+{% if data['psc1EntityName'] %} <!-- only show the Legal Entity entry if a name has been types into the legal entity page -->
+
+
+
+
+
+{% if (data['psc1FirstNames']) %}
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Legal entity name
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+      {% if data['psc1EntityName'] %}
+      
+        {{ data['psc1EntityName'] }}
+
+      {% else %}
+
+        ENCOM LIMITED
+
+      {% endif %}
+    </dd>
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Legal form
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+      {% if data['pscLegalEntity1LegalForm'] %}
+      
+        {{ data['pscLegalEntity1LegalForm']}}
+
+      {% else %}
+
+        Private limited company
+
+      {% endif %}
+    </dd>
+  </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Governing law
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+      {% if data['pscLegalEntity1GoverningLaw'] %}
+
+        {{ data['pscLegalEntity1GoverningLaw']}}
+
+      {% else %}
+
+        Companies Act 2006
+
+      {% endif %}
+    </dd>
+  </div>
+
+  <!-- only display if entered into a register -->
+
+  {% if data['entity-on-register'] == "yes" %}
+
+        <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Country registered in
+        </dt>
+        <dd class="govuk-summary-list__value">
+
+          {% if data['pscLegalEntity1CountryRegistered'] %}
+
+            {{ data['pscLegalEntity1CountryRegistered']}}
+
+          {% else %}
+
+            England and Wales
+
+          {% endif %}
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Register entered in
+        </dt>
+        <dd class="govuk-summary-list__value">
+
+          {% if data['pscLegalEntity1Register'] %}
+
+            {{ data['pscLegalEntity1Register']}}
+
+          {% else %}
+
+            Companies Act 2006
+
+          {% endif %}
+        </dd>
+      </div>
+
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Registration number
+        </dt>
+        <dd class="govuk-summary-list__value">
+
+          {% if data['pscLegalEntity1RegistrationNumber'] %}
+
+            {{ data['pscLegalEntity1RegistrationNumber']}}
+
+          {% else %}
+
+            12345678
+
+          {% endif %}
+        </dd>
+      </div>
+
+      {% else %}
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Register
+        </dt>
+        <dd class="govuk-summary-list__value">
+
+         Not entered on a register
+
+          
+        </dd>
+      </div>
+    {% endif %}
+
+      <!-- only display if as a RLE has been entered -->
+
+      {% if data['typeRLENOC'] %}
+
+      {% if data['typeRLENOC'].includes("nocRLERLE") %}
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of nature of control
+            </dt>
+            <dd class="govuk-summary-list__value">
+              As a relevant legal entity (RLE)
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of shares
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['rlerleShareOfAssets'] }}
+
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of voting rights
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['rlerleOwnershipOfVotingRights'] }}
+
+
+            <!--   <p class="govuk-body">The firm holds, directly or indirectly, more than 25% but not more than 50%.</p> -->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Right to appoint or remove management
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+               {% if data['rlerleOwnershipOfRightToAppointRemoveManagement'] == "" %}
+
+                <p class="govuk-body">Does not apply</p>
+
+               {% else %}
+
+              <p class="govuk-body">
+                {{ data['rleControlByFirm3'] }}
+              </p>
+
+              {% endif %}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Significant influence or control
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+
+              {% if data['rlerleSignificantInfluenceOrControl'] == "" %}
+
+                <p class="govuk-body">Does not apply</p>
+
+               {% else %}
+
+                {{ data['rleControlByFirm4'] }}</p>
+
+            {% endif %}
+   
+            </dd>
+          </div>
+
+    {% endif %} 
+
+
+      <!-- End of RLE -->
+
+
+       <!-- only display if as a through a firm has been entered -->
+
+
+        {% if data['typeRLENOC'].includes("nocRLEFirm") %}
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of nature of control
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Through a firm
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of shares
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['rleControlByFirm1'] }}
+
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of voting rights
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['rleControlByFirm2'] }}
+
+
+            <!--   <p class="govuk-body">The firm holds, directly or indirectly, more than 25% but not more than 50%.</p> -->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Right to appoint or remove management
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+               {% if data['rleControlByFirm3'] == "" %}
+
+                <p class="govuk-body">Does not apply</p>
+
+               {% else %}
+
+              <p class="govuk-body">
+                {{ data['rleControlByFirm3'] }}
+              </p>
+
+              {% endif %}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Significant influence or control
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {% if  data['rleControlByFirm4'] == "" %}
+
+               <p class="govuk-body">Does not apply</p>
+
+               {% else %}
+              <p class="govuk-body">
+                {{ data['rleControlByFirm4'] }}
+              </p>
+
+            {% endif %}
+   
+            </dd>
+          </div>
+
+    {% endif %} 
+
+      <!-- End of through a firm -->
+
+      <!-- only display if as a through a trust has been entered -->
+      {% if data['typeRLENOC'].includes("nocRLETrust") %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of nature of control
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Through a trust
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of shares
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['rleControlByTrust1'] }}
+
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Percentage of voting rights
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {{ data['rle1ControlByTrust2'] }}
+
+
+            <!--   <p class="govuk-body">The firm holds, directly or indirectly, more than 25% but not more than 50%.</p> -->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Right to appoint or remove management
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+               {% if data['rle1ControlByTrust3'] == "" %}
+
+                <p class="govuk-body">Does not apply</p>
+
+               {% else %}
+
+              <p class="govuk-body">
+                {{ data['rle1ControlByTrust3'] }}
+              </p>
+
+              {% endif %}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Significant influence or control
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+
+              {% if data['rle1ControlByTrust4'] == "" %}
+
+                <p class="govuk-body">Does not apply</p>
+
+               {% else %}
+
+                {{ data['rle1ControlByTrust4'] }}</p>
+
+            {% endif %}
+   
+            </dd>
+          </div>
+
+      <!-- End of through a trust -->
+
+
+      {% endif %}
+
+      {% endif %}
+
+
+       <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Principal office address 
+        </dt>
+        <dd class="govuk-summary-list__value">
+
+        <p> 1 Lemon Road<br>Hull<br>H12 3AB</p>
+        </dd>
+      </div>
+
+
+       {% endif %}
+
+ {% endif %}
+
+
+<!-- ***  END OF RLE ***-->
+
+
+
+</dl>
+
+
+
+      <!-- ORP-->
+
+
+      <!--- ORP have NOT been made dyanmic 8 August 2026 -->
+
+{% if data['pscORP1EntityName'] %}
+
+ {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Name of the other registrable person"
+            },
+            value: {
+              html: data['pscORP1EntityName']
+            }
+          },
+          {
+            key: {
+              text: "Legal form"
+            },
+            value: {
+              html: data['pscORP1LegalForm']
+            }
+          },
+          {
+            key: {
+              text: "Governing law"
+            },
+            value: {
+               html: data['pscORP1GoverningLaw']
+            }
+          },
+           {
+            key: {
+              text: "Type of nature of control"
+            },
+            value: {
+              html: 'Nature of control for this individual'
+            }
+          },
+          {
+            key: {
+              text: "Percentage of shares"
+            },
+            value: {
+              html: 'The individual holds, directly or indirectly, more than 25% but not more than 50%.'
+            }
+          },
+          {
+            key: {
+              text: "Percentage of voting rights"
+            },
+            value: {
+              html: 'The individual holds, directly or indirectly, more than 25% but not more than 50%. '
+            }
+          },
+          {
+            key: {
+              text: "Right to appoint or remove management"
+            },
+            value: {
+              html: 'The individual holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership.'
+            }
+          },
+          {
+            key: {
+              text: "Significant influence or control"
+            },
+            value: {
+              html: 'Does not apply'
+            }
+          },
+          {
+            key: {
+              text: "Principal office address"
+            },
+            value: {
+              html: "1 Pigeon Street<br>Pontypridd<br>PO12 3RP"
+            }
+          }
+        ]
+      }) }}
+ {% endif %}
+
+
+</dl>
+
+     <!-- <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p
+-->
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+
+
+{{ govukCheckboxes({
+  name: "lpStatement",
+  fieldset: {
+    legend: {
+      text: "Confirm this statement", 
+      isPageHeading: false,
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "lp-statement",
+      text: "I confirm that the intended future activities of the limited partnership are lawful."
+    }
+  ]
+}) }}
+
+{% else  %}
+{% endif %}
+
+<h2 class="govuk-heading-m">Print or save this page for your records</h2>
+
+{{ govukWarningText({
+  text: "This is the last time you'll be able to view sensitive information about the partnership and its people. We won't show it again in any of our services.",
+  iconFallbackText: "Warning"
+}) }}
+
+<p class="govuk-body">Sensitive information in this filing includes:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>the partnership's registered email address</li>
+  <li>full dates of birth for partners and PSCs that are people</li>
+  <li>residential addresses for partners and PSCs that are people</li>
+</ul>
+
+
+
+<p class="govuk-body govuk-!-padding-top-4">
+ If you leave this service now, you can continue with your saved filing when you return.</p>
+
+ 
+
+      <form action="/form-handler" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+
+{% if (data['registrationOrTransition'] == "registration" or data['registrationOrTransition'] == "post") %}
+
+
+<div class="govuk-js-hidden" style="display:inline-block; !important">
+
+        {{ govukButton({
+          text: "Continue to payment",
+          href: "payment-review"
+        }) }}
+
+          <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary" style="margin-left:10px;">Print this page</button>
+          
+</div>
+
+{% else  %} 
+<div class="govuk-js-hidden" style="display:inline-block; !important">
+
+  <!--transition does not require payment so goes straight to confirmation page; button content should reflect this-->
+  {{ govukButton({
+  text: "Submit filing",
+  href: "confirmation-page"
+  }) }}
+
+  <div class="govuk-js-hidden" style="display:inline-block; !important">
+    <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary" style="margin-left:10px;">Print this page</button>
+
+  </div>
+</div>
+
+{% endif %}
+  <!--<div class="govuk-js-hidden">
+    <button type="button" onclick="window.print()" class="govuk-button govuk-button--secondary">Print this page</button>
+  </div>-->
+
+    </div>
+  </div>
+
+
+
+    <script src="/public/javascripts/cya.js"></script>
+    <script src="/public/javascripts/print-button.js"></script>
+
+{% endblock %}

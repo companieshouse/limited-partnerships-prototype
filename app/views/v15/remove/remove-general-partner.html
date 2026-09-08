@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Termination of a general partner" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "/includes/phase-banner.html" %}
+{% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="../manage/check-your-answers-remove-gp" method="post">
+
+
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP (LP123456)</span>
+
+      <h1 class="govuk-heading-xl">Remove a general partner</h1>
+
+
+
+  <span class="govuk-caption-l">ABC Company Ltd</span>
+
+{{ govukDateInput({
+  id: "gp-terminated-date",
+  namePrefix: "gp-terminated-date",
+  fieldset: {
+    legend: {
+      text: "When did this entity cease to be a general partner?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "For example, 27 3 2025"
+  }
+}) }}
+
+
+{{ govukCheckboxes({
+  name: "terminate-gp-1",
+  fieldset: {
+    legend: {
+      text: "I confirm that ABC Company Ltd is no longer a general partner",
+      isPageHeading: true,
+      classes: "govuk-visually-hidden"
+    }
+  },
+
+  items: [
+    {
+      value: "terminate-ABC-Company-Ltd",
+      text: "I confirm that ABC Company Ltd is no longer a general partner"
+    }
+  ]
+}) }}
+
+    {{ govukButton({
+  text: "Save and continue"
+}) }}  
+
+
+</form>
+    </div>
+  </div>
+{% endblock %}

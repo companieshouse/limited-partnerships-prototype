@@ -1,0 +1,231 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Start" %}
+
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "JAVASCRIPT:VOID(0)"
+      },
+      {
+        text: "Business and industry",
+        href: "JAVASCRIPT:VOID(0)"
+      },
+      {
+        text: "Limited companies and partnerships"
+      },
+      {
+        text: "Partnerships"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="chs/start" method="post">
+      <span class="govuk-caption-xl">Guidance</span>
+
+      <h1 class="govuk-heading-l">
+        File for a limited partnership
+      </h1>
+
+      <p class="govuk-body-l">Use this service to view or update information about a limited partnership, or to file a confirmation statement for a limited partnership.
+        
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+     
+     
+      <ul class="govuk-list  govuk-!-font-size-16">
+      <li>From: <a class="govuk-link" href="javascript:void(0)">Companies House</a></li>
+            <li>Published 8 February 2026</li>
+            <li>Last updated 15 February 2026 — <a class="govuk-link" href="javascript:void(0)">See all updates</a></li>
+     </ul>
+     
+   <button class="govuk-body-s gem-c-single-page-notification-button__submit govuk-!-margin-bottom-9" type="submit" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;subscribe&quot;,&quot;index_link&quot;:1,&quot;index_total&quot;:2,&quot;section&quot;:&quot;Top&quot;,&quot;url&quot;:&quot;/email/subscriptions/single-page/new&quot;}">  <svg class="gem-c-single-page-notification-button__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="30" width="18" viewBox="0 0 459.334 459.334"><path fill="currentColor" d="M177.216 404.514c-.001.12-.009.239-.009.359 0 30.078 24.383 54.461 54.461 54.461s54.461-24.383 54.461-54.461c0-.12-.008-.239-.009-.359H175.216zM403.549 336.438l-49.015-72.002v-89.83c0-60.581-43.144-111.079-100.381-122.459V24.485C254.152 10.963 243.19 0 229.667 0s-24.485 10.963-24.485 24.485v27.663c-57.237 11.381-100.381 61.879-100.381 122.459v119.83l-49.015 72.002a24.76 24.76 0 0 0 20.468 38.693H383.08a24.761 24.761 0 0 0 20.469-38.694z"></path></svg><span class="gem-c-single-page-notication-button__text">Get emails about this page</span>
+</button>
+
+    <p class="govuk-body-s govuk-!-margin-bottom-2">Contents</p>
+     <ul class="govuk-list govuk-list govuk-!-margin-bottom-8">
+       <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+         <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#content-1">– Who can use this service</a>
+       </li>
+       <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+         <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#content-2">– Before you file</a>
+       </li>
+       <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+         <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#content-3">– Types of filings you can make</a>
+       </li>
+       <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+         <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#content-4">– What you'll need</a>
+       </li>
+      </ul>
+
+      <button class="govuk-body-s gem-c-single-page-notification-button__submit govuk-!-margin-bottom-9" type="submit" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;subscribe&quot;,&quot;index_link&quot;:1,&quot;index_total&quot;:2,&quot;section&quot;:&quot;Top&quot;,&quot;url&quot;:&quot;/email/subscriptions/single-page/new&quot;}">  <svg class="gem-c-single-page-notification-button__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="30" width="18" viewBox="0 0 459.334 459.334"><path fill="currentColor" d="M177.216 404.514c-.001.12-.009.239-.009.359 0 30.078 24.383 54.461 54.461 54.461s54.461-24.383 54.461-54.461c0-.12-.008-.239-.009-.359H175.216zM403.549 336.438l-49.015-72.002v-89.83c0-60.581-43.144-111.079-100.381-122.459V24.485C254.152 10.963 243.19 0 229.667 0s-24.485 10.963-24.485 24.485v27.663c-57.237 11.381-100.381 61.879-100.381 122.459v119.83l-49.015 72.002a24.76 24.76 0 0 0 20.468 38.693H383.08a24.761 24.761 0 0 0 20.469-38.694z"></path></svg><span class="gem-c-single-page-notication-button__text">Print this page</span>
+      </button>
+
+
+<h2 id="content-1" class="govuk-heading-m">Who can use this service</h2>
+
+      <p>To file for a limited partnership, you must be an Authorised Corporate Service Provider (ACSP). ACSPs are also known as Companies House authorised agents.
+      
+      <p>Authorised agents are businesses like accountants, solicitors or company formation agents, that have registered with Companies House to be able to file on behalf of clients. <a href="#/">Find out more about registering as an authorised agent</a>.
+
+      <p>If you are someone else involved with the limited partnership, you'll need to find a Companies House authorised agent to file on your behalf.</p> 
+
+      <p>Anyone can use this service to view information about limited partnerships on the public register.</p>
+
+      <!--[hidden for now unless needed]<p>To find an authorised agent, you should contact agents to check:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>if they are registered as an authorised agent with Companies House, also known as an Authorised Corporate Service Provider (ACSP)</li>
+                  <li>if they can offer the services you need</li>
+                  <li>how much they charge for their services</li>
+                </ul>-->
+
+
+
+<h2 id="content-2" class="govuk-heading-m">Before you file</h2>
+      
+      <p>If you're filing for a limited partnership that was registered before XX DATE, you must <a href="#/">provide new required information</a> first.</p></p>
+
+       
+       
+      <h2 id="content-3" class="govuk-heading-m">Types of filings you can make</h2>
+
+      <p>This service has replaced paper forms LP6, LP8 and SLP CS01. </p>
+
+      <p>You can make the following filings for a limited partnership within this service:</p>
+           <ul class="govuk-list govuk-list--bullet">
+             <li>update the partnership’s name</li>
+             <li>update the registered office address or principal place of business</li>
+              <li>update the registered email address</li>
+              <li>designate a limited partnership as a private fund limited partnership (PFLP)</li>
+              <li>add or remove partners</li>
+              <li>update information about partners</li>
+              <li>file a confirmation statement</li>
+              <li>update SIC codes (this must be done within the confirmation statement)</li>
+              <li>close the partnership</li>
+              
+            </ul>
+
+      <p>If you need to update information about people with significant control (PSCs), you’ll need to <a href="https://www.gov.uk/government/collections/companies-house-forms-for-scottish-limited-partnerships#people-with-significant-control-(psc)" class="govuk-link">find and complete the relevant form</a>. File it online using our <a href="https://find-and-update.company-information.service.gov.uk/efs-submission/start" class="govuk-link">Upload a document to Companies House service</a>.</p>
+
+    
+
+
+<h2 id="content-3" class="govuk-heading-m">What you'll need</h2>
+
+    
+      <p>You’ll need: </p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>to sign in to your Companies House account <!--(it must be linked to an authorised agent account) [This is hidden for now, but could be included if there is  user need]--></li>
+            <li>the limited partnership number </li>
+          </ul>
+
+      <p>We charge a fee for:</p>
+           <ul class="govuk-list govuk-list--bullet">
+             <li>updating the partnership’s name</li>
+              <li>designation as a private fund limited partnership (PFLP)</li>
+             <li>filing a confirmation statement (unless you've already paid a confirmation statement fee during this payment period)</li>
+            </ul>
+
+      <p>If there is a fee, you'll need a credit or debit card.</p>
+  
+
+
+      {{ govukButton({
+        text: "Start now",
+        isStartButton: true
+      }) }}
+
+      <h2 class="govuk-heading-m">Adapt your device to meet your needs</h2>
+
+      <p class="govuk-body "><a href="https://mcmw.abilitynet.org.uk/" class="govuk-link">Read advice from AbilityNet on how to make your device easier to use</a>. For example, learn how to change the background colour or text size.</p>
+
+
+    
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+   
+      <ul class="govuk-list  govuk-!-font-size-16">
+
+            <li>Published 8 February 2026</li>
+            <li>Last updated 15 February 2026 — <a class="govuk-link" href="javascript:void(0)">See all updates</a></li>
+     </ul>
+
+         <button class="govuk-body-s gem-c-single-page-notification-button__submit" type="submit" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;subscribe&quot;,&quot;index_link&quot;:1,&quot;index_total&quot;:2,&quot;section&quot;:&quot;Top&quot;,&quot;url&quot;:&quot;/email/subscriptions/single-page/new&quot;}">  <svg class="gem-c-single-page-notification-button__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="30" width="18" viewBox="0 0 459.334 459.334"><path fill="currentColor" d="M177.216 404.514c-.001.12-.009.239-.009.359 0 30.078 24.383 54.461 54.461 54.461s54.461-24.383 54.461-54.461c0-.12-.008-.239-.009-.359H175.216zM403.549 336.438l-49.015-72.002v-89.83c0-60.581-43.144-111.079-100.381-122.459V24.485C254.152 10.963 243.19 0 229.667 0s-24.485 10.963-24.485 24.485v27.663c-57.237 11.381-100.381 61.879-100.381 122.459v119.83l-49.015 72.002a24.76 24.76 0 0 0 20.468 38.693H383.08a24.761 24.761 0 0 0 20.469-38.694z"></path></svg><span class="gem-c-single-page-notication-button__text">Get emails about this page</span>
+</button>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<h3 class="govuk-heading-s">Explore the topic</h3>
+<ul class="govuk-list">
+  <li>
+    <a class="govuk-link govuk-!-font-size-16" href="javascript:void(0)">**Link tbc**
+</a>
+  </li>
+</ul>
+    </div>
+
+        <div class="govuk-grid-column-one-third-from-desktop">   <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+               **Links to related content tbc**
+              </a>
+            </li>
+            <!--<li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Register a limited liability partnership (LL IN01)
+              </a>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Use a formation agent to register your company
+              </a>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Memorandum of association templates for limited companies
+              </a>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Model articles for private companies limited by guarantee
+              </a>
+            </li>
+            <li>
+              <p class="govuk-body-s">Detailed guidance</p>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Set up and run a limited liability partnership (LLP)
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+</div>
+  </div>
+
+
+
+
+{% endblock %}

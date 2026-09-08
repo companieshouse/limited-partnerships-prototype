@@ -1,0 +1,71 @@
+{% extends "layouts/main-no-service-name.html" %}
+
+{% set pageName="Payment review" %}
+
+
+
+
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="payment-placeholder" method="post" class="form">
+        <h1 class="govuk-heading-l">
+          Payment review
+        </h1>
+
+        {{ govukTable({
+                caption: "Payment review",
+                captionClasses: "govuk-visually-hidden",
+                firstCellIsHeader: true,
+                head: [
+                  {
+                    text: "Item"
+                  },
+                  {
+                    text: "Amount to pay",
+                    format: "numeric"
+
+                  }
+                ],
+                rows: [
+                  [
+                    {
+                        text: "File a limited partnership confirmation statement"
+                    },
+                    {
+                      text: "X",
+                      format: "numeric"
+
+                    }
+                  ]
+                ]
+              }) }}
+
+        <h3 class="govuk-heading-m">The total amount to pay is £X</h3>
+
+        {{ govukButton({
+              text: "Continue to payment"
+            }) }}
+
+      </form>
+
+    </div>
+    <!--govuk-grid-row-->
+  </div>
+  <!--govuk-grid-column-two-thirds-->
+
+</main>
+</div>
+<!---govuk-width-container-->
+
+{% endblock %}

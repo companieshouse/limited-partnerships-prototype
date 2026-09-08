@@ -1,0 +1,509 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Start" %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "JAVASCRIPT:VOID(0)"
+      },
+      {
+        text: "Business and industry",
+        href: "JAVASCRIPT:VOID(0)"
+      },
+      {
+        text: "Limited companies and partnerships"
+      },
+      {
+        text: "Partnerships"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="../sign-in" method="post">
+      <span class="govuk-caption-xl">Guidance</span>
+
+      <h1 class="govuk-heading-xl">
+        Register a limited partnership
+      </h1>
+
+      <p class="govuk-body-l">Use this service to register a limited partnership, or a private fund limited partnership.</p>
+      
+      
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+     
+     
+      <ul class="govuk-list  govuk-!-font-size-16">
+      <li>From: <a class="govuk-link" href="javascript:void(0)">Companies House</a></li>
+            <li>Published 8 February 2026</li>
+            <li>Last updated 15 February 2026 — <a class="govuk-link" href="javascript:void(0)">See all updates</a></li>
+     </ul>
+     
+     
+      <button class="govuk-body-s gem-c-single-page-notification-button__submit govuk-!-margin-bottom-9" type="submit" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;subscribe&quot;,&quot;index_link&quot;:1,&quot;index_total&quot;:2,&quot;section&quot;:&quot;Top&quot;,&quot;url&quot;:&quot;/email/subscriptions/single-page/new&quot;}">  <svg class="gem-c-single-page-notification-button__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="30" width="18" viewBox="0 0 459.334 459.334"><path fill="currentColor" d="M177.216 404.514c-.001.12-.009.239-.009.359 0 30.078 24.383 54.461 54.461 54.461s54.461-24.383 54.461-54.461c0-.12-.008-.239-.009-.359H175.216zM403.549 336.438l-49.015-72.002v-89.83c0-60.581-43.144-111.079-100.381-122.459V24.485C254.152 10.963 243.19 0 229.667 0s-24.485 10.963-24.485 24.485v27.663c-57.237 11.381-100.381 61.879-100.381 122.459v119.83l-49.015 72.002a24.76 24.76 0 0 0 20.468 38.693H383.08a24.761 24.761 0 0 0 20.469-38.694z"></path></svg><span class="gem-c-single-page-notication-button__text">Get emails about this page</span>
+</button>
+
+
+    <p class="govuk-body-s govuk-!-margin-bottom-2">Contents</p>
+     <ul class="govuk-list govuk-list govuk-!-margin-bottom-8">
+       <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+         <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#content-1">– Who can use this service</a>
+       </li>
+       <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+         <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#content-2">– Types of partnership you can register</a>
+       </li>
+       <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+         <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#content-3">– What information we'll ask for</a>
+       </li>
+       <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+         <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#content-4">– What information we'll show on the public register</a>
+       </li>
+      <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+         <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#content-5">– What you'll need</a>
+       </li>
+      </ul>
+
+      <button class="govuk-body-s gem-c-single-page-notification-button__submit govuk-!-margin-bottom-9" type="submit" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;subscribe&quot;,&quot;index_link&quot;:1,&quot;index_total&quot;:2,&quot;section&quot;:&quot;Top&quot;,&quot;url&quot;:&quot;/email/subscriptions/single-page/new&quot;}">  <svg class="gem-c-single-page-notification-button__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="30" width="18" viewBox="0 0 459.334 459.334"><path fill="currentColor" d="M177.216 404.514c-.001.12-.009.239-.009.359 0 30.078 24.383 54.461 54.461 54.461s54.461-24.383 54.461-54.461c0-.12-.008-.239-.009-.359H175.216zM403.549 336.438l-49.015-72.002v-89.83c0-60.581-43.144-111.079-100.381-122.459V24.485C254.152 10.963 243.19 0 229.667 0s-24.485 10.963-24.485 24.485v27.663c-57.237 11.381-100.381 61.879-100.381 122.459v119.83l-49.015 72.002a24.76 24.76 0 0 0 20.468 38.693H383.08a24.761 24.761 0 0 0 20.469-38.694z"></path></svg><span class="gem-c-single-page-notication-button__text">Print this page</span>
+      </button>
+
+    <p>This service has replaced the paper forms LP5, LP5(s), LP7 and LP7(s).</p>
+
+      
+      
+      
+    <h2 id="content-1" class="govuk-heading-l">Who can use this service</h2>
+
+          <p>To register a limited partnership, you must be an Authorised Corporate Service Provider (ACSP). ACSPs are also known as Companies House authorised agents.</p>
+    
+          <p>Authorised agents are businesses like accountants, solicitors or company formation agents, that have registered with Companies House to be able to file on behalf of clients. <a href="#/">Find out more about registering as an authorised agent</a>.</p>
+
+          <p>If you are someone else involved with the limited partnership, you'll need to find an authorised agent to file on your behalf.</p>
+ 
+
+    <h2 id="content-2" class="govuk-heading-l">Types of partnership you can register</h2>
+      
+          <p>You can register a limited partnership (LP) or private fund limited partnership (PFLP) in England and Wales, Northern Ireland, or Scotland.</p>
+
+            <h3 class="govuk-heading-m">Limited partnerships in England, Wales and Northern Ireland</h3>
+                <p>You can register a limited partnership in the jurisdiction of England and Wales, or Northern Ireland. 
+
+            <h3 class="govuk-heading-m">Scottish limited partnerships</h3>
+
+                <p>Limited partnerships registered in Scotland also have to provide information about their people with significant control (PSCs).
+
+            <h3 class="govuk-heading-m">Private fund limited partnerships (PFLPs)</h3>
+
+                <p>You can choose to register a Private Fund Limited Partnership (PFLP) under <a href="https://www.legislation.gov.uk/uksi/2017/514/contents/made" class="govuk-link govuk-link--no-visited-state">the Legislative Reform (Private Fund Limited Partnerships) Order 2017</a>. A PFLP’s structure differs from the ordinary limited partnership structure.
+                
+                <p>To register as a private fund limited partnership, the partnership must meet the private fund conditions. This means that the partnership is formed by an agreement in writing and is a collective investment scheme.
+  
+
+    
+    <h2 id="content-3" class="govuk-heading-l">What information we'll ask for</h2>
+
+            <h3 class="govuk-heading-m">Information about the partnership</h3>
+
+                <h4 class="govuk-heading-s">1. Name of the partnership</h4>
+                  
+                  <p>The partnership name needs to meet set rules. For example, it cannot be the same as another registered partnership or company, or include certain words or phrases.</p>
+
+                  <p> To find out more about the rules the limited partnership’s name needs to meet, <a href="https://www.gov.uk/guidance/set-up-and-run-a-limited-partnership#choose-a-name">read the guidance on choosing a name</a>.</p>
+
+                  <p> You must check that the name meets the rules before you register the partnership. If it does not, we may reject your application, or you may need to change it later. </p>
+
+                  <p>You’ll also need to select a name ending to go on the public record. There is no difference between the name endings except how they look. You can choose Limited Partnership, L.P. or LP. If the partnership is in Wales, you also have the option of a Welsh name ending: Partneriaeth Cyfyngedig, P.C. or PC.</p>
+
+              <h4 class="govuk-heading-s">2.	Registered email address</h4>
+
+                  <p>We’ll use this email address to send important information that relates to the partnership. For example, new legislative requirements or warnings about missed deadlines.</p>
+
+              <h4 class="govuk-heading-s">3.	Jurisdiction</h4>
+
+                  <p>This is where the partnership was formed: England and Wales, Northern Ireland, or Scotland.</p>
+
+                  <p>The registered office address must be in this jurisdiction. The principal place of business must be in the jurisdiction at registration.</p>
+
+              <h4 class="govuk-heading-s"> 4.	Registered office address </h4>
+
+                  <p>We’ll use this address to send official communications. It must be a physical address in the UK. You cannot use a PO Box address.
+
+                  <p>The address must be ‘appropriate’. This means that:
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>it is in the jurisdiction where the limited partnership is registered (England and Wales, Northern Ireland, or Scotland)</li>
+                      <li>someone acting on behalf of the limited partnership will be made aware of any post addressed and delivered to the limited partnership</li>
+                      <li>when the limited partnership receives post at this address, it’s possible for the sender to get confirmation of delivery</li>                     
+                    </ul>
+
+                                      <div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                      <span class="govuk-visually-hidden">Warning</span>
+                      The partnership could be struck off the Companies House register if you do not provide a registered office address that meets all of these requirements.
+                    </strong>
+                  </div>
+
+              <h4 class="govuk-heading-s">5.	Principal place of business </h4>
+
+                  <p>This is the address where the day to day running of the business takes place. It could be the same as the registered office address, or a different address.
+                  
+                  <p>It must be in the jurisdiction where the partnership was formed. It can be changed to an address outside of the jurisdiction after you’ve registered the partnership.
+
+              <h4 class="govuk-heading-s">6.	Term of the partnership </h4>
+
+                  <p>You’ll need to select the term of the partnership from these options:
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>such term as decided by the partners within the partnership agreement</li>
+                      <li>until the general partner determines the partnership is dissolved</li>
+                      <li>no set term</li>
+                    </ul>
+
+                  <p>Private fund limited partnerships do not need to provide information about the term of the partnership.
+
+              <h4 class="govuk-heading-s">7. Nature of business</h4>
+
+                  <p>You'll need to tell us about the intended nature of the partnership's business activities.
+                    
+                    <p><a href="https://resources.companieshouse.gov.uk/sic/">Use our look up tool to find the most relevant category or categories of business activities</a>. Each category has a Standard Industrial Classification (SIC) code.
+
+                  <p>Private fund limited partnerships do not need to provide information about the nature of business.
+
+                  <p>For any other partnership, you must enter at least one SIC code. You can enter a maximum of 4.
+
+            <h3 class="govuk-heading-m">Information about general partners</h3>  
+
+              <p> The partnership must have at least one general partner at registration.</p>
+
+              <h4 class="govuk-heading-s">General partners who are people</h4>
+              
+                  <p>For each general partner who is an individual person, you’ll need to provide their:
+
+                  <ul class="govuk-list govuk-list--bullet">
+                      <li>first and last name, and any previous names - for example, if they’ve changed their name as a result of marriage or divorce</li>
+                      <li>full date of birth</li>
+                      <li>nationality, or nationalities</li>
+                      <li>usual residential address</li>
+                      <li>correspondence address – this should not be a home address, unless the partner has given permission for their home address to be made public</li>
+                    </ul>
+
+                  <p>You’ll need to confirm that they are not disqualified under the directors disqualification legislation, as defined in the Limited Partnership Act 1907.</p>
+
+
+              <h4 class="govuk-heading-s">General partners that are legal entities</h4>
+
+                  <p>For each general partner that is a legal entity, you’ll need to provide:
+
+                  <ul class="govuk-list govuk-list--bullet">
+                      <li>its name</li>
+                      <li>its legal form or corporate identity – this is the corporate body type, for example, private limited company</li>
+                      <li>the governing law it operates under – for example, the Companies Act 2006</li>
+                      <li>the register it is entered in – for example, the Register of Companies UK</li>
+                      <li>the country it is registered in</li>
+                      <li>its registration number – for example, the company number</li>
+                      <li>its principal office address – this is the address for the entity’s main office</li>
+                    </ul>
+
+                  <p>You’ll need to confirm that it is not disqualified under the directors disqualification legislation, as defined in the Limited Partnership Act 1907.
+
+                  <p>By providing the entity’s information, you will be confirming that the entity has legal personality.
+            
+            <h3 class="govuk-heading-m">Information about limited partners</h3>
+
+                  <p>The partnership must have at least one limited partner at registration.
+
+                  <p>You must tell us about each limited partner’s capital contribution, unless you are registering a private fund limited partnership (where this information is not required).
+
+                  <p>We'll ask for:
+                  
+                  <ul class="govuk-list govuk-list--bullet">
+                      <li>the total value of all monetary and non-monetary contributions – this should be provided as a single amount</li>
+                      <li>what this value is made up of – you can select one or more out of: money, land or property, shares or interests in other partnerships, services or goods, or any other asset</li>
+                    </ul>
+
+              <h4 class="govuk-heading-s">Limited partners who are people</h4>
+              
+                  <p>For each limited partner who is an individual person, you’ll need to provide their:
+
+                  <ul class="govuk-list govuk-list--bullet">
+                      <li>first and last name, and any previous names - for example, if they’ve changed their name as a result of marriage or divorce</li>
+                      <li>full date of birth</li>
+                      <li>nationality, or nationalities</li>
+                      <li>capital contribution, unless you are registering a private fund limited partnership </li>
+                      <li>usual residential address</li>
+                    </ul>
+
+              <h4 class="govuk-heading-s">Limited partners that are legal entities</h4>
+
+                  <p>For each limited partner that is a legal entity, you’ll need to provide:
+
+                  <ul class="govuk-list govuk-list--bullet">
+                      <li>its name</li>
+                      <li>its legal form or corporate identity – this is the corporate body type, for example, private limited company</li>
+                      <li>the governing law it operates under – for example, the Companies Act 2006</li>
+                      <li>the register it is entered in – for example, the Register of Companies UK</li>
+                      <li>the country it is registered in</li>
+                      <li>its registration number – for example, the company number</li>
+                      <li>its capital contribution, unless you are registering a private fund limited partnership </li>
+                      <li>its principal office address – this is the address for the entity’s main office</li>
+                    </ul>
+
+            <h3 class="govuk-heading-m">Information about people with significant control (PSCs)</h3>
+
+              <p>This only applies to Scottish partnerships.
+              
+              <p>For Scottish limited partnerships, and Scottish private fund limited partnerships, you must tell us about any people with significant control (PSCs). These could be:
+
+              <ul class="govuk-list govuk-list--bullet">
+                      <li>individual people</li>
+                      <li>relevant legal entities (RLEs)</li>
+                      <li>other registrable persons (ORPs)</li>
+                    </ul>
+
+              <p>If the partnership has no PSCs, you’ll need to state this.
+              
+              <p>You’ll need to provide information about each PSC, even if it is a person or entity you have provided information about elsewhere.
+
+              <p>You’ll also need to give information about each PSC’s nature of control. We’ll ask you to select all that apply, from these options:
+
+              <ul class="govuk-list govuk-list--bullet">
+                      <li>nature of control for the PSC</li>
+                      <li>nature of control by a firm over which the PSC has significant control</li>
+                      <li>nature of control by a trust over which the PSC has significant control</li>
+                    </ul>
+              
+              <p>You’ll then need to give us further information about whether the nature of control relates to share of assets, ownership of voting rights, ownership of right to appoint/remove management, or other significant influence or control.
+
+              <h4 class="govuk-heading-s">PSCs who are people</h4>
+
+                <p>For each PSC who is a person, you’ll need to provide their:
+
+                <ul class="govuk-list govuk-list--bullet">
+                      <li>professional or honorary title (if relevant), first name and last name</li>
+                      <li>full date of birth</li>
+                      <li>nationality, or nationalities</li>
+                      <li>usual residential address</li>
+                      <li>correspondence address</li>
+                    </ul>
+
+                <p>You’ll need to state that the partners confirm that this person knows that their details are being supplied as part of this application.
+              
+              <h4 class="govuk-heading-s">PSCs that are legal entities</h4>
+
+                <p>For each PSC that is a legal entity, you’ll need to provide:
+
+                <ul class="govuk-list govuk-list--bullet">
+                      <li>its name</li>
+                      <li>its legal form or corporate identity – this is the corporate body type, for example, private limited company</li>
+                      <li>the governing law it operates under – for example, the Companies Act 2006</li>
+                      <li>the register it is entered in (if applicable) – for example, the Register of Companies UK</li>
+                      <li>the country it is registered in (if applicable)</li>
+                      <li>its registration number (if applicable) – for example, the company number</li>
+                      <li>its principal office address</li>
+        
+                    </ul>
+
+              <h4 class="govuk-heading-s">PSCs that are other registrable persons (ORPs)</h4>
+
+                <p>An ORP is any PSC that is:
+
+                  <ul class="govuk-list govuk-list--bullet">
+                      <li>a corporation sole</li>
+                      <li>a government or government department of a country or territory or a part of a country or territory</li>
+                      <li>an international organisation whose members include two or more countries or territories (or their governments)</li>
+                      <li>a local authority or local government body in the UK or elsewhere</li>
+                    </ul>
+
+                <p>For each PSC that is an ORP, you’ll need to provide:
+
+                  <ul class="govuk-list govuk-list--bullet">
+                      <li>its name</li>
+                      <li>its legal form or corporate identity – this is the corporate body type, for example, private limited company</li>
+                      <li>the governing law it operates under – for example, the Companies Act 2006</li>
+                      <li>its principal office address</li>
+                    </ul>
+                    
+    <h2 id="content-4" class="govuk-heading-l">What information we'll show on the public register</h2>
+
+         <p> Most of the information given to Companies House about the partnership, its partners and its PSCs will be publicly available on the Companies House public register.
+
+         <p> We will not show:
+          <ul class="govuk-list govuk-list--bullet">
+                      <li>the partnership's registered email address</li>
+                      <li>the full dates of birth of any partners or PSCs who are people - we'll only show the month and year</li>
+                      <li>the usual residential addresses of any partners or PSCs who are people</li>
+                    </ul>
+
+
+  
+
+
+ <!-- IDV content removed from this version-->      
+<!--<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If a general partner is a person
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+                <p>They will need to verify their identity before you can register the limited partnership. You'll need to give their Companies House personal code as part of the registration.</p>
+  </div>
+</details>-->
+
+<!--<div class="govuk-inset-text"><a href="#/">Read the guidance on registering a limited partnership</a> to check you have all the information you'll need. </div>-->
+
+ 
+
+
+
+
+
+
+
+
+<!--      <h2 class="govuk-heading-m">Before you start </h2>
+
+<p>You should check you have all the information you'll need to provide. There are different requirements depending on the type of partnership you need to register.</p> 
+
+
+
+<p>You’ll need to give a Companies House personal code for any people who are required to verify their identity for the limited partnership. </p>
+
+<p>This is a requirement for: </p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>general partners who are people</li>
+            <li>people with significant control (PSC)s – if you’re registering a Scottish limited partnership</li>
+          </ul>
+
+  <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      How to get a Companies House personal code
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>A personal code is an 11 character code we give when someone verifies their identity for Companies House. </p>
+    <p>If a person has already verified their identity, they can either find their personal code in the:
+</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Manage account section of their Companies House account</li>
+            <li>email we sent when they were verified
+</li></ul>
+
+  </div>
+
+  <p>Otherwise, they’ll need to <a href="#/">verify their identity for Companies House</a></p>. 
+</details>
+-->
+
+
+
+      <h2 id="content-5" class="govuk-heading-l">What you'll need</h2>
+
+        <p>You'll need a credit or debit card to pay the £XX registration fee. </p>
+    <p>You'll need to sign in to use this service. You can save your answers and resume your application later if you need to.</p>
+
+      {{ govukButton({
+        text: "Start now",
+        isStartButton: true
+      }) }}
+
+
+      <h2 class="govuk-heading-l">Accessibility support</h2>
+
+      <p>We can provide extra support if you need it to use our services. You can also find out how to make adjustments to your device to make it easier to use.
+
+      <p class="govuk-body "><a href="" class="govuk-link">Find out what accessibility support is available</a>.</p>
+
+
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+   
+      <ul class="govuk-list  govuk-!-font-size-16">
+
+            <li>Published 8 February 2026</li>
+            <li>Last updated 15 February 2026 — <a class="govuk-link" href="javascript:void(0)">See all updates</a></li>
+     </ul>
+
+         <button class="govuk-body-s gem-c-single-page-notification-button__submit" type="submit" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;subscribe&quot;,&quot;index_link&quot;:1,&quot;index_total&quot;:2,&quot;section&quot;:&quot;Top&quot;,&quot;url&quot;:&quot;/email/subscriptions/single-page/new&quot;}">  <svg class="gem-c-single-page-notification-button__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="30" width="18" viewBox="0 0 459.334 459.334"><path fill="currentColor" d="M177.216 404.514c-.001.12-.009.239-.009.359 0 30.078 24.383 54.461 54.461 54.461s54.461-24.383 54.461-54.461c0-.12-.008-.239-.009-.359H175.216zM403.549 336.438l-49.015-72.002v-89.83c0-60.581-43.144-111.079-100.381-122.459V24.485C254.152 10.963 243.19 0 229.667 0s-24.485 10.963-24.485 24.485v27.663c-57.237 11.381-100.381 61.879-100.381 122.459v119.83l-49.015 72.002a24.76 24.76 0 0 0 20.468 38.693H383.08a24.761 24.761 0 0 0 20.469-38.694z"></path></svg><span class="gem-c-single-page-notication-button__text">Get emails about this page</span>
+</button>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<h3 class="govuk-heading-s">Explore the topic</h3>
+<ul class="govuk-list">
+  <li>
+    <a class="govuk-link govuk-!-font-size-16" href="javascript:void(0)">Running a limited company
+</a>
+  </li>
+</ul>
+
+    </div>
+
+        <div class="govuk-grid-column-one-third-from-desktop">
+   <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Register a limited partnership
+              </a>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Register a limited liability partnership (LL IN01)
+              </a>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Use a formation agent to register your company
+              </a>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Memorandum of association templates for limited companies
+              </a>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Model articles for private companies limited by guarantee
+              </a>
+            </li>
+            <li>
+              <p class="govuk-body-s">Detailed guidance</p>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Set up and run a limited liability partnership (LLP)
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+
+</div>
+  </div>
+
+
+
+
+{% endblock %}

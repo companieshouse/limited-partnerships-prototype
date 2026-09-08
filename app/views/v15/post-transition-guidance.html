@@ -1,0 +1,253 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="File an update for a limited partnership" %}
+
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "JAVASCRIPT:VOID(0)"
+      },
+      {
+        text: "Business and industry",
+        href: "JAVASCRIPT:VOID(0)"
+      },
+      {
+        text: "Limited companies and partnerships"
+      },
+      {
+        text: "Partnerships"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="chs/start" method="post">
+      <span class="govuk-caption-xl">Guidance</span>
+
+      <h1 class="govuk-heading-l">
+        Updating limited partnership information
+      </h1>
+
+      <p class="govuk-body-l">How to update information for a limited partnership.
+        
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+     
+     
+      <ul class="govuk-list  govuk-!-font-size-16">
+      <li>From: <a class="govuk-link" href="javascript:void(0)">Companies House</a></li>
+            <li>Published 8 February 2026</li>
+            <li>Last updated 15 February 2026 — <a class="govuk-link" href="javascript:void(0)">See all updates</a></li>
+     </ul>
+     
+   <button class="govuk-body-s gem-c-single-page-notification-button__submit govuk-!-margin-bottom-9" type="submit" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;subscribe&quot;,&quot;index_link&quot;:1,&quot;index_total&quot;:2,&quot;section&quot;:&quot;Top&quot;,&quot;url&quot;:&quot;/email/subscriptions/single-page/new&quot;}">  <svg class="gem-c-single-page-notification-button__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="30" width="18" viewBox="0 0 459.334 459.334"><path fill="currentColor" d="M177.216 404.514c-.001.12-.009.239-.009.359 0 30.078 24.383 54.461 54.461 54.461s54.461-24.383 54.461-54.461c0-.12-.008-.239-.009-.359H175.216zM403.549 336.438l-49.015-72.002v-89.83c0-60.581-43.144-111.079-100.381-122.459V24.485C254.152 10.963 243.19 0 229.667 0s-24.485 10.963-24.485 24.485v27.663c-57.237 11.381-100.381 61.879-100.381 122.459v119.83l-49.015 72.002a24.76 24.76 0 0 0 20.468 38.693H383.08a24.761 24.761 0 0 0 20.469-38.694z"></path></svg><span class="gem-c-single-page-notication-button__text">Get emails about this page</span>
+</button>
+
+    <p class="govuk-body-s govuk-!-margin-bottom-2">Contents</p>
+     <ul class="govuk-list govuk-list govuk-!-margin-bottom-8">
+       <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+         <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#content-1">– Who can update limited partnership information</a>
+       </li>
+       <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+         <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#content-2">– What information you can update online</a>
+       </li>
+       <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+         <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#content-3">– How to file update limited partnership information</a>
+       </li>
+      </ul>
+
+      <button class="govuk-body-s gem-c-single-page-notification-button__submit govuk-!-margin-bottom-9" type="submit" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;subscribe&quot;,&quot;index_link&quot;:1,&quot;index_total&quot;:2,&quot;section&quot;:&quot;Top&quot;,&quot;url&quot;:&quot;/email/subscriptions/single-page/new&quot;}">  <svg class="gem-c-single-page-notification-button__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="30" width="18" viewBox="0 0 459.334 459.334"><path fill="currentColor" d="M177.216 404.514c-.001.12-.009.239-.009.359 0 30.078 24.383 54.461 54.461 54.461s54.461-24.383 54.461-54.461c0-.12-.008-.239-.009-.359H175.216zM403.549 336.438l-49.015-72.002v-89.83c0-60.581-43.144-111.079-100.381-122.459V24.485C254.152 10.963 243.19 0 229.667 0s-24.485 10.963-24.485 24.485v27.663c-57.237 11.381-100.381 61.879-100.381 122.459v119.83l-49.015 72.002a24.76 24.76 0 0 0 20.468 38.693H383.08a24.761 24.761 0 0 0 20.469-38.694z"></path></svg><span class="gem-c-single-page-notication-button__text">Print this page</span>
+      </button>
+
+
+      <p>You must tell Companies House about changes to your limited partnership.</p>
+
+      <p>If you're filing an update to a limited partnership that was registered before XX DATE, you must <a href="#">provide new required information first.</a></p>
+
+<h2 id="content-1" class="govuk-heading-m">Who can update limited partnership information</h2>
+
+      <p>You can only file for a limited partnership if you are an Authorised Corporate Service Provider (ACSP). 
+      
+      <p>ACSPs are agents, such as accountants or solicitors, that have registered with Companies House to be able to file on behalf of clients. To register as an ACSP, they must be supervised for Anti-Money Laundering (AML) purposes. <a href="#/">Find out more about registering as an ACSP</a>.
+
+      <p>If you are someone else involved with the limited partnership, you'll need to <a href="#/">find an ACSP</a> to file on your behalf.</p> 
+
+
+<h2 id="content-2" class="govuk-heading-m">What information you can update online</h2>
+      
+      <p>You can now file most updates online. This replaces our LP6 and LP8 paper forms. </p>
+
+      <p>You can use our online services to: </p>
+
+           <ul class="govuk-list govuk-list--bullet">
+             <li>update a partnership’s name</li>
+             <li>update a registered office address or principal place of business</li>
+              <li>update a registered email address</li>
+              <li>designate a limited partnership as a private fund limited partnership (PFLP)</li>
+              <li>add or remove partners</li>
+              <li>update information about partners</li>            
+            </ul>
+
+      <p>To update the partnership’s nature of business, also known as its SIC codes, you'll need to <a href="#">file a limited partnership confirmation statement</a>.</p>
+
+
+      <h3 id="content-3" class="govuk-heading-s">Updating information about people with significant control (PSCs)</h3>
+
+      <p>To update information about PSCs, you need to <a href="https://www.gov.uk/government/collections/companies-house-forms-for-scottish-limited-partnerships#people-with-significant-control-(psc)" class="govuk-link">find and complete the relevant form</a>. You can file it online using our <a href="https://find-and-update.company-information.service.gov.uk/efs-submission/start" class="govuk-link">Upload a document to Companies House service</a>.</p>
+
+    
+
+<h2 id="content-3" class="govuk-heading-m">How to file updates online</h2>
+
+
+      <p>To file an update online: </p>
+          <ol class="govuk-list govuk-list--number">
+            <li>Search for the partnership on the Companies House register</li>
+            <li>Select ‘File for this company’ to sign in to your Companies House account</li>
+            <li>Select the ‘Update’ link next to the information you need to update</li>
+          </ol>
+
+      <p>You need to sign in using an email address that is linked to an ASCP account.</p>
+
+  <h3 id="content-3" class="govuk-heading-s">Fees</h3>
+
+      <p>We charge a fee for some filings:</p>
+           <ul class="govuk-list govuk-list--bullet">
+             <li>updating the partnership’s name – £X</li>
+              <li>designation as a private fund limited partnership (PFLP) – £X</li>
+
+            </ul>
+
+      <p class ="govuk-!-padding-bottom-3">If there is a fee, you'll need a credit or debit card.</p>
+  
+
+
+
+
+    
+
+
+
+
+<!--
+ <div class="ch-info-panel">
+
+
+    <div class="govuk-panel__body">
+           <h2 class="govuk-heading-m">How to use the service</h2>
+
+<p>You’ll need to: </p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>sign in </li>
+            <li>enter the limited partnership's name or number in 'Search the register'</li>
+            <li>select 'File for this company' on the company overview page (you'll only be able to see this if you are signed in and you are an ACSP)</li>
+            <li>select what you'd like to update</li>
+        
+            </ul>
+
+
+
+        </div>
+</div>
+
+-->
+
+
+      {{ govukButton({
+        text: "Search for a limited partnership",
+        classes: "govuk-!-margin-top-3"
+      }) }}
+
+      <h2 class="govuk-heading-m">Adapt your device to meet your needs</h2>
+
+      <p class="govuk-body "><a href="https://mcmw.abilitynet.org.uk/" class="govuk-link">Read advice from AbilityNet on how to make your device easier to use</a>. For example, learn how to change the background colour or text size.</p>
+
+
+    
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+   
+      <ul class="govuk-list  govuk-!-font-size-16">
+
+            <li>Published 8 February 2026</li>
+            <li>Last updated 15 February 2026 — <a class="govuk-link" href="javascript:void(0)">See all updates</a></li>
+     </ul>
+
+         <button class="govuk-body-s gem-c-single-page-notification-button__submit" type="submit" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;subscribe&quot;,&quot;index_link&quot;:1,&quot;index_total&quot;:2,&quot;section&quot;:&quot;Top&quot;,&quot;url&quot;:&quot;/email/subscriptions/single-page/new&quot;}">  <svg class="gem-c-single-page-notification-button__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="30" width="18" viewBox="0 0 459.334 459.334"><path fill="currentColor" d="M177.216 404.514c-.001.12-.009.239-.009.359 0 30.078 24.383 54.461 54.461 54.461s54.461-24.383 54.461-54.461c0-.12-.008-.239-.009-.359H175.216zM403.549 336.438l-49.015-72.002v-89.83c0-60.581-43.144-111.079-100.381-122.459V24.485C254.152 10.963 243.19 0 229.667 0s-24.485 10.963-24.485 24.485v27.663c-57.237 11.381-100.381 61.879-100.381 122.459v119.83l-49.015 72.002a24.76 24.76 0 0 0 20.468 38.693H383.08a24.761 24.761 0 0 0 20.469-38.694z"></path></svg><span class="gem-c-single-page-notication-button__text">Get emails about this page</span>
+</button>
+
+ <!-- <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<h3 class="govuk-heading-s">Explore the topic</h3>
+<ul class="govuk-list">
+  <li>
+    <a class="govuk-link govuk-!-font-size-16" href="javascript:void(0)">**Link tbc**
+</a>
+  </li>
+</ul>
+    </div>
+
+        <div class="govuk-grid-column-one-third-from-desktop">   <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+               **Links to related content tbc**
+              </a>
+            </li> -->
+            <!--<li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Register a limited liability partnership (LL IN01)
+              </a>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Use a formation agent to register your company
+              </a>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Memorandum of association templates for limited companies
+              </a>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Model articles for private companies limited by guarantee
+              </a>
+            </li>
+            <li>
+              <p class="govuk-body-s">Detailed guidance</p>
+            </li>
+            <li>
+              <a href="JAVASCRIPT:VOID(0)">
+                Set up and run a limited liability partnership (LLP)
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+</div>
+  </div>
+
+
+
+
+{% endblock %}

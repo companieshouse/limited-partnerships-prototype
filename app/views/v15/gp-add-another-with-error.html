@@ -1,0 +1,123 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Error: Do you need to add another general partner?" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "/includes/phase-banner.html" %}
+{% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/gp-add-another" method="post">
+
+{{ govukErrorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    {
+      text: "You must provide all information for 'ABC Company Limited' before continuing. Select Change to provide more information",
+      href: "#missing-info-error"
+    }
+  ]
+}) }}
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}
+
+
+<h1 class="govuk-heading-xl">General partners</h1>
+
+    </div>
+    </div>
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+       <h2 class="govuk-heading-m">General partners you have added so far:</h2>
+
+<div class="govuk-form-group--error">
+      <p id="missing-info-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> You must provide all information for 'ABC Company Limited' before continuing. Select Change to provide more information
+    </p>
+<dl class="govuk-summary-list ">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Person
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Georgina Smith
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> Georgina Smith</span></a> |   <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> Georgina Smith</span></a>
+    </dd>
+  </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Legal entity
+    </dt>
+    <dd class="govuk-summary-list__value">
+      ABC Company Limited
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> ABC Company Limited</span></a> |   <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> ABC Company Limited</span></a>
+    </dd>
+  </div>
+
+
+</dl>
+</div>
+
+
+
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+{{ govukRadios({
+  name: "addAnotherGP",
+  fieldset: {
+    legend: {
+      text: "Do you need to add another general partner?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+
+  items: [
+    {
+      value: "addPersonGP",
+      text: "Yes, a person"
+    },
+    {
+      value: "addEntityGP",
+      text: "Yes, a legal entity"
+    },
+   
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+      
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+</form>
+    </div>
+  </div>
+{% endblock %}

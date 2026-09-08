@@ -938,9 +938,9 @@
 
 
 
-<!-- Only show When did they become a general partner in a post transition journey-->
+<!-- do not show for registration or transition removed from v14 -->
 
-{% if data['registrationOrTransition'] !== "post" %}
+<!-- {% if data['registrationOrTransition'] !== "post" %}
 {{ govukDateInput({
   id: "dateBecamePartner",
   namePrefix: "dateBecamePartner",
@@ -954,7 +954,7 @@
     text: "For example, 31 3 2025"
   }
 }) }}
-{% endif %}
+{% endif %} -->
 
 
  {{ govukInsetText({

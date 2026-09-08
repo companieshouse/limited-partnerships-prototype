@@ -1211,8 +1211,9 @@
 
 
 
-<!-- Do not show on the update journey-->
-{% if data['registrationOrTransition'] !== "post" %}
+<!-- Do not show on registration or transition (removing question from v14) -->
+
+<!-- {% if data['registrationOrTransition'] !== "post" %}
 {{ govukDateInput({
   id: "dateBecamePartner",
   namePrefix: "dateBecamePartner",
@@ -1228,7 +1229,7 @@
 }) }}
 {% endif %}
 
-
+ -->
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 

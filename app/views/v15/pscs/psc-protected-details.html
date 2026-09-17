@@ -31,12 +31,12 @@
           }
         },
         hint: {
-          text: "This is for PSCs who are serious risk, and need their personal information to be protected from appearing on the public register."
+          text: "This is for PSCs who are at serious risk, and need their personal information to be protected from appearing on the public register."
         },
         items: [
           {
             value: "yes",
-            text: "Yes"
+            text: "Yes, this PSC is at serious risk and needs their details protected"
           },
           {
             value: "no",
@@ -47,16 +47,19 @@
 
 
        {% set secureRegisterDetailsHtml %}
-        <p class="govuk-body">PSCs can apply to protect their details if they are at serious risk of violence or intimidation because of the limited partnership's activities.</p>
+        <p class="govuk-body">PSCs can apply to protect their details if they are at serious risk of violence or intimidation because of the limited partnership's activities. 
+          
+        <p>They do not need to apply if they only want to protect their address from credit reference agencies, as we do not share this information.</p>
         
-        <p class="govuk-body">To apply for protection, they need to</p>
+        <p class="govuk-body">To apply for protection, the PSC needs to:</p>
                 <ul class="govuk-list govuk-list--bullet">
                   <li>submit a protection application and their PSC details by post</li>
                   <li>include evidence that they are eligible to have their details protected </li>
                   <li>pay a £100 fee</li>
                 </ul>
         
-        <p class="govuk-body">For more information, <a href="https://www.gov.uk/guidance/applying-to-protect-your-personal-information-on-the-companies-house-register" class="govuk-link" data-event-id="read-guidance-link">read the guidance on applying to protect your details.</a></p>
+        <p class="govuk-body">For more information, <a href="https://www.gov.uk/guidance/applying-to-protect-your-personal-information-on-the-companies-house-register" class="govuk-link" data-event-id="read-guidance-link">read the guidance on applying to protect your details (opens in new tab)</a>.</p>
+
       {% endset %}
 
       {{ govukDetails({

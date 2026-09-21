@@ -20,7 +20,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-<form class="form" action="sic-check" method="post">
+<form class="form" action="/limited-partnership-sic-2" method="post">
 {% if (data['registrationOrTransition'] == "registration") %}
   <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
 
@@ -797,10 +797,6 @@
 
 
 
-
-
-
-
     {{ govukButton({
   text: "Add SIC code",
     classes: "govuk-button--secondary"
@@ -834,8 +830,7 @@
 }) }}
 
   <p>{{ govukButton({
-    text: "Save and continue",
-    href: "general-partner-section"
+    text: "Save and continue"
   }) }}<p>
 
 

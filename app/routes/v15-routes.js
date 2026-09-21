@@ -212,16 +212,69 @@ router.post('/idv-filter', function(request, response) {
 // LP number confirm - transition or post-transition
 
 
+router.get('/company-number', function(request, response) {
 
+   res.render('v15/company-number', {
+    currentUrl: request.originalUrl
+  })
+
+})
 
   router.post('/company-number', function(request, response) {
-    var lpNumber = request.session.data['lpNumber']
-    if (lpNumber == "LP999999"){
-        response.redirect("v15/transition-already-filed")
-    } 
-    else {
-        response.redirect("v15/correct-company")
-    }
+
+
+    // Create empty array and set error variables to false
+    var errors = []
+
+    var enteredLPNumber = request.session.data['lpNumber']
+
+    // Check if user has filled out a company or lp number
+    if (!enteredLPNumber || enteredLPNumber.trim() === '') {
+        // No value so add error to array
+        errors.push({
+        text: 'Enter your company number',
+        href: '#lpNumber'
+        })
+
+        return response.render('v15/company-number', {
+
+        errorNum: true,
+
+        errorList: errors
+
+        })
+
+        }
+
+        //if the user enters a number that is less than 8 characters and contains LP show an error message to enter 8 characters with leading zeros
+        else if (!enteredLPNumber || (enteredLPNumber.trim().includes('LP') && enteredLPNumber.trim().length < 8)) {
+        // No value so add error to array
+        errors.push({
+        text: "Company number must have 8 characters. If it\'s 7 characters or less, enter zeros at the start so that it\'s 8 characters in total.",
+        href: '#lpLessThanEightChars'
+        })
+
+        return response.render('v15/company-number', {
+
+        errorEightChar: true,
+
+        errorList: errors
+
+        })
+
+        }
+    
+        // Transition has already been filed
+
+        else if (enteredLPNumber.toUpperCase() === 'LP999999') {
+
+        return response.redirect('/v15/transition-already-filed')
+
+        }
+    
+        else {
+            response.redirect("v15/correct-company")
+        }
   })
 
 
@@ -278,7 +331,7 @@ router.post('/gp-add-another', function(request, response) {
 
     var addAnotherGP = request.session.data['addAnotherGP']
     var registrationOrTransition = request.session.data['registrationOrTransition']
-
+    var userHasSignedOut = request.session.data['userHasSignedOut']
     if (registrationOrTransition == "post") {
         response.redirect("v15/manage/confirmation-additional-gp")
     } else if (addAnotherGP == "addPersonGP") {
@@ -286,7 +339,12 @@ router.post('/gp-add-another', function(request, response) {
     } else if (addAnotherGP == "addEntityGP") {
         response.redirect("v15/gp-legal-entity")
     } else {
-        response.redirect("v15/limited-partner-section")
+
+        if (userHasSignedOut == true) {
+            response.redirect('v15/lp-add-another')
+        } else {
+            response.redirect("v15/limited-partner-section")
+        }
     }
 
 })
@@ -296,13 +354,8 @@ router.post('/gp-add-another', function(request, response) {
 
 router.post('/limited-partner-section', function(request, response) {
 
-     var userHasSignedOut = request.session.data['userHasSignedOut']
-     // Adding saved filing  
-    if (userHasSignedOut == true) {
-        response.redirect('v15/lp-add-another')
-    } else {
-        response.redirect('v15/limited-partner-choice')
-    }
+    response.redirect('v15/limited-partner-choice')
+    
 })
 
 
@@ -325,6 +378,8 @@ router.post('/lp-add-another', function(request, response) {
     var registrationOrTransition = request.session.data['registrationOrTransition'];
     var registerType = request.session.data['registerType'];
 
+    var userHasSignedOut = request.session.data['userHasSignedOut']
+
     if (addAnotherLP === "addPersonLP") {
         response.redirect("v15/lp-person");
     } 
@@ -335,7 +390,14 @@ router.post('/lp-add-another', function(request, response) {
         registrationOrTransition === "registration" && 
         (registerType === "registerSlp" || registerType === "RegisterPflpSco")
     ) {
-        response.redirect("v15/pscs/psc-section");
+
+        if (userHasSignedOut == true) {
+            response.redirect('v15/pscs/psc-add-another')
+        }
+        else {
+            response.redirect("v15/pscs/psc-section");
+        }
+
     }
     else if (
         registrationOrTransition === "post")
@@ -629,9 +691,16 @@ router.post('/limited-partnership-terms', function(request, response) {
 router.post('/limited-partnership-sic-2', function(request, response) {
     var checkSIC = request.session.data['checkSIC']
 
+    var userHasSignedOut = request.session.data['userHasSignedOut']
+
     if (checkSIC === "no") {
         response.redirect('v15/confirmation-statement/sic-check')
-    } else {
+    } 
+
+    else if (userHasSignedOut == true) {
+        response.redirect('v15/gp-add-another')
+    }
+    else {
         response.redirect('v15/general-partner-section')
     }
 })
@@ -641,14 +710,10 @@ router.post('/limited-partnership-sic-2', function(request, response) {
 
 router.post('/general-partner-section', function(request, response) {
 
-    var userHasSignedOut = request.session.data['userHasSignedOut']
-     // Adding saved filing  
-    if (userHasSignedOut == true) {
-        response.redirect('v15/gp-add-another')
-    } else {
+  
         response.redirect('v15/general-partner-choice')
-    }
-})
+    
+    })
 
 /// CS Date
 
@@ -668,13 +733,9 @@ router.post('/confirmation-statement-date', function(request, response) {
 // goes to /pscs/psc-section
 router.post('/psc-section', function(request, response) {
 
-    var userHasSignedOut = request.session.data['userHasSignedOut']
-     // Adding saved filing  
-    if (userHasSignedOut == true) {
-        response.redirect('v15/pscs/psc-add-another')
-    } else {
-        response.redirect('v15/pscs/psc-statement')
-    }
+ 
+    response.redirect('v15/pscs/psc-statement')
+    
 })
 
 

@@ -745,10 +745,58 @@ router.post('/psc-statement', function(request, response) {
     var pscStatement = request.session.data['pscStatement']
 
 if (pscStatement === "no") {
-  response.redirect('v15/check-your-answers')
-    } else {
+
+//if the user has entered PSC information, but then changes their mind and selects no, the PSC data is cleared from the session
+   pscName = request.session.data['psc1FirstNames']
+   pscLastName = request.session.data['psc1LastName']
+   pscEntityName = request.session.data['psc1EntityName']
+   pscLegalForm = request.session.data['pscLegalEntity1LegalForm']
+
+  // if pscname or pscLastName or pscEntityName or pscLegalForm is not empty we need to check if they are sure they want to delete the PSC data 
+
+        if (pscName || pscLastName || pscEntityName || pscLegalForm) {
+            // Show confirmation page
+            response.redirect('v15/are-you-sure-you-want-to-delete-pscs')
+
+        }
+        else {
+
+        response.redirect('v15/check-your-answers')
+
+        }
+} 
+else {
+
+   // if PSC information exists take the user to the PSC summmary page
+    if (pscName || pscLastName || pscEntityName || pscLegalForm) {
+
+        response.redirect('v15/pscs/psc-add-another')
+
+    }else {
         response.redirect('v15/pscs/psc-choice')
     }
+}
+
+})
+
+
+router.post('/are-you-sure-you-want-to-delete-pscs', function(request, response) {
+
+    if (request.session.data['removePSC'] === 'yes') {
+
+        // Clear the PSC data from the session
+        request.session.data['psc1FirstNames'] = ""
+        request.session.data['psc1LastName'] = ""
+        request.session.data['psc1EntityName'] = ""
+        request.session.data['pscLegalEntity1LegalForm'] = ""
+
+        response.redirect('v15/check-your-answers')
+    } 
+    else {
+        response.redirect('v15/pscs/psc-statement')
+
+    }
+
 })
 
 router.post('/psc-choice', function(request, response) {

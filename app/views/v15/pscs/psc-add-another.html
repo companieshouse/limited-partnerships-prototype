@@ -245,7 +245,7 @@
 </div>
 
 <!--if there is partial data for a PSC, then do not show the add another PSC question until the data is complete. -->
-{% if data['psc1EntityName'] and data['pscLegalEntity1LegalForm'] != "" %} 
+ {% if not (data['psc1EntityName'] and data['pscLegalEntity1LegalForm'] == "" )%} 
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
@@ -287,19 +287,19 @@
 </div>
 </div>
 
-{% endif %}
-
-     <!-- Legal entity - name entered, but no more details  -->
-    {% if data['psc1EntityName'] and data['pscLegalEntity1LegalForm'] != "" %} 
-      
 {{ govukButton({
   text: "Save and continue"
 }) }}
 
+{% endif %}
+
+     <!-- Legal entity - name entered, but no more details  -->
+<!--     {% if data['psc1EntityName'] and data['pscLegalEntity1LegalForm'] != "" %} 
+    
 {% else %}
 <a href="#" type="submit" class="govuk-button" data-module="govuk-button">
   Save and continue
-</a>
+</a> -->
     {% endif %}
       </form>
     </div>

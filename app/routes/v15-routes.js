@@ -754,7 +754,7 @@ if (pscStatement === "no") {
 
   // if pscname or pscLastName or pscEntityName or pscLegalForm is not empty we need to check if they are sure they want to delete the PSC data 
 
-        if (pscName || pscLastName || pscEntityName || pscLegalForm) {
+        if ('pscName' || 'pscLastName' || 'pscEntityName' || 'pscLegalForm') {
             // Show confirmation page
             response.redirect('v15/are-you-sure-you-want-to-delete-pscs')
 
@@ -768,8 +768,7 @@ if (pscStatement === "no") {
 else {
 
    // if PSC information exists take the user to the PSC summmary page
-    if (pscName || pscLastName || pscEntityName || pscLegalForm) {
-
+   if ('pscName' || 'pscLastName' || 'pscEntityName' || 'pscLegalForm') {
         response.redirect('v15/pscs/psc-add-another')
 
     }else {

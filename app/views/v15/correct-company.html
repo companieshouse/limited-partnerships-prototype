@@ -22,6 +22,32 @@
 
       <h1 class="govuk-heading-xl">Confirm this is the correct limited partnership</h1>
 
+{% if (data['lpNumber'] == "0000LP1444") %}
+
+
+             {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Company name"
+            },
+            value: {
+              text: "HARBOUR LIMITED PARTNERSHIP"
+            }
+          },
+          {
+            key: {
+              text: "Company number"
+            },
+               value: {
+                  text: "LP1444"
+               }
+            }
+        ]
+      }) }}
+
+      {% else %}
              {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
         rows: [
@@ -43,11 +69,7 @@
             }
         ]
       }) }}
-
- 
-
-
-
+{% endif %}
 
    {{ govukButton({
   text: "Continue"

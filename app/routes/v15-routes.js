@@ -232,7 +232,7 @@ router.get('/company-number', function(request, response) {
     if (!enteredLPNumber || enteredLPNumber.trim() === '') {
         // No value so add error to array
         errors.push({
-        text: 'Enter your company number',
+        text: 'Enter a company number',
         href: '#lpNumber'
         })
 

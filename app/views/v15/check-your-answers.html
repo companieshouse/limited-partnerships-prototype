@@ -490,6 +490,7 @@
 
    
 
+{% if (data['pscStatement'] == "no") %}
 
 <!-- People with significant control (PSC)-->
 
@@ -498,7 +499,6 @@
 
 <!-- Statement no for PSCs -->
 
-{% if (data['pscStatement'] == "no") %}
 
 {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
@@ -509,15 +509,6 @@
             },
             value: {
               text: "There is no person identified as a person with significant control (either a registrable person or RLE) in relation to the limited partnership."
-            },
-            actions: {
-              items: [
-                {
-                  href: "pscs/psc-statement",
-                  text: "Change",
-                  visuallyHiddenText: "PSC statement"
-                }
-              ]
             }
           }
         ]
@@ -525,6 +516,14 @@
 <!-- Statement YES I have PSCs -->
 
 {% elseif (data['pscStatement'] == "yes") %}
+
+<!-- People with significant control (PSC)-->
+
+<h3 class="govuk-heading-m">People with significant control (PSCs)</h3>
+    <p class="govuk-!-margin-bottom-6"><a href="pscs/psc-add-another" class="govuk-link govuk-link--no-visited-state">Change, remove or add people with significant control (PSCs)</a></p>
+
+<!-- Statement no for PSCs -->
+
 
 {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",

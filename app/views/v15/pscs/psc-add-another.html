@@ -79,23 +79,23 @@
 
   {% if data['pscStatement']  == "no" %} 
     <h2 class="govuk-heading-m">PSC statement</h2>
-
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--no-border">
            <div class="govuk-summary-list__row">
         
-            <dd class="govuk-summary-list__value">
+          
              <p>There is no person identified as a person with significant control (either a registrable person or RLE) in relation to the limited partnership.</p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <ul class="govuk-summary-list__actions-list">
                 <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> psc statement</span></a>
+                  <a class="govuk-link" href="psc-statement">Change<span class="govuk-visually-hidden"> psc statement</span></a>
                 </li>
              <!--    <li class="govuk-summary-list__actions-list-item">
                   <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden">protected person</span></a>
                 </li> -->
               </ul>
           </div>
-
+</dl>
 
     {% elseif data['pscStatement']  == "yes" %} 
 
@@ -247,8 +247,9 @@
 <!--if there is partial data for a PSC, then do not show the add another PSC question until the data is complete. -->
  {% if not (data['psc1EntityName'] and data['pscLegalEntity1LegalForm'] == "" )%} 
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
+
+   {% if data['pscStatement']  == "yes" %} 
+
 
             {{ govukRadios({
         name: "addAnotherPSC",
@@ -280,18 +281,28 @@
         ]
       }) }}
 
-
-
-
-
-</div>
-</div>
-
-{{ govukButton({
-  text: "Save and continue"
-}) }}
-
 {% endif %}
+
+    {% if data['pscStatement']  == "no" %} 
+
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "../check-your-answers"
+        }) }}
+
+    
+
+
+ {% else %} 
+
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+
+    {% endif %}
+
+  {% endif %}
 
      <!-- Legal entity - name entered, but no more details  -->
 <!--     {% if data['psc1EntityName'] and data['pscLegalEntity1LegalForm'] != "" %} 

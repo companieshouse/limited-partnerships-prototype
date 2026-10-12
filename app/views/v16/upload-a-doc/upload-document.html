@@ -1,0 +1,82 @@
+{% extends "layouts/main-old-header.html" %}
+
+{% set pageName="Upload the completed document" %}
+
+
+{% set serviceName %}
+  Upload a document to Companies House
+{% endset%}
+
+{% block beforeContent %}
+  {% include "/includes/phase-banner-alpha.html" %}
+  {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="upload-confirm-document" method="post">
+
+      <span class="govuk-caption-l">ACME SCOTTISH LIMITED PARTNERSHIP ({{ data['uploadCompanyNumber'] }})</span>
+
+      <h1 class="govuk-heading-xl">Upload the completed document</h1>
+
+
+<p class="govuk-paragraph">You must:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>complete the document before uploading it</li>
+  <li>upload one document that is less than 4MB</li>
+  <li>use a PDF format</li>
+</ul>
+
+
+<!-- Spinner container -->
+<div id="spinner-container" style="display: none; text-align: center; margin-top: 20px;">
+  <img src="/public/images/spinner.gif" alt="Loading..." style="width: 50px; height: 50px;">
+</div>
+
+{{ govukFileUpload({
+  id: "file-upload-1",
+  name: "fileUpload1",
+  label: {
+    text: "Upload a file"
+  }
+}) }}
+
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+
+
+<script>
+  // Get the file input element
+  const fileInput = document.getElementById('file-upload-1');
+  const spinnerContainer = document.getElementById('spinner-container');
+
+  // Add an event listener for the 'change' event
+  fileInput.addEventListener('change', function () {
+    if (fileInput.files.length > 0) {
+      // Show the spinner
+      spinnerContainer.style.display = 'block';
+
+      // Delay for 2 seconds before navigating
+      setTimeout(function () {
+        window.location.href = 'upload-confirm-document';
+      }, 2000);
+    }
+  });
+</script>
+
+{% endblock %}

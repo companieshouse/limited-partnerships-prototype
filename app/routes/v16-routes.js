@@ -1,0 +1,1514 @@
+//
+// For guidance on how to create routes see:
+// https://prototype-kit.service.gov.uk/docs/create-routes
+//
+
+const govukPrototypeKit = require('govuk-prototype-kit')
+const router = govukPrototypeKit.requests.setupRouter()
+
+const lastUpdated = require('../middleware/last-updated')
+
+// Add the middleware to the router
+router.use(lastUpdated)
+
+// Add your routes here
+// Logging session data 
+ 
+router.use((req, res, next) => { 
+    const log = { 
+    method: req.method, 
+    url: req.originalUrl, 
+    data: req.session.data 
+    } 
+    console.log(JSON.stringify(log, null, 2)) 
+   
+    next() 
+    })
+// GET SPRINT NAME - useful for relative templates
+router.use('/', (req, res, next) => {
+    res.locals.currentURL = req.originalUrl; //current screen
+    res.locals.prevURL = req.get('Referrer'); // previous screen
+  console.log('previous page is: ' + res.locals.prevURL + " and current page is " + req.url + " " + res.locals.currentURL );
+    next();
+  });
+
+
+
+
+  //CHS sign in 
+
+
+
+    router.get('/chs-sign-in-fileForThisCompany', function(request, response) {
+
+
+        var fileForThisCompany = true
+   
+        response.redirect("v16/chs/chs-sign-in")
+    
+  })
+
+// GOV One Login Sign in
+
+  router.post('/gov-onelogin-email', function(request, response) {
+   
+        response.redirect("v16/gov-onelogin-password")
+    
+  })
+
+
+// GOV One Login Check your phone
+
+
+router.post('/gov-onelogin-enter-code', function(request, response) {
+
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "post"){
+
+
+
+        // email address check for agent 
+            var govOneLoginEmail = request.session.data['govOneLoginEmail']
+            if (govOneLoginEmail == "someone@email.com"){
+                response.redirect("v16/not-eligible")
+            } 
+
+
+
+            else {
+
+          
+
+                //check if they have come from search the register 
+
+
+                        //from search-the-register
+
+                // User has selected File for a company button and now they are signed in 
+                if (fileForThisCompany = true){
+
+                    response.redirect("v16/chs/company-info?authorised")
+                } 
+
+                //User has selected sign in, but not selected File for a company button
+                else {
+
+                    //user has been signed into account
+                    var signedIn = request.session.data['signedIn']
+
+                    // sign in and update links are NOT shown
+                    response.redirect("v16/chs/company-info?signedIn")
+
+
+                }
+
+        
+                
+            }     
+
+    }     
+    else if (registrationOrTransition == "transition"){
+         response.redirect("v16/starting-new")
+     } 
+     else if (registrationOrTransition == "cs"){
+         response.redirect("v16/company-number")
+     }  
+     else {
+        response.redirect("v16/starting-new")
+    }
+})
+
+
+
+// sign out registration
+router.post('/sign-out', function(request, response) {
+
+    var signingOut = request.session.data['signOut']
+    if (signingOut == "yes"){
+
+        userHasSignedOut = true
+
+        response.redirect("v16/signed-out")
+    }     
+    // No option to return to previous page has not been implemented
+
+    else if (signingOut == "no"){
+
+
+    }
+})
+
+
+
+// Secure register
+
+
+router.post('/secure-register-filter', function(request, response) {
+
+    var secureRegister = request.session.data['secureRegister']
+    if (secureRegister == "yes"){
+        response.redirect("v16/use-paper")
+    }
+    else {
+        response.redirect("v16/registration/which-type")
+    }
+  })
+
+
+
+  // name ending
+
+  router.post('/which-type', function(request, response) {
+
+    var registerType = request.session.data['registerType']
+    
+    if (registerType == "RegisterPflp"){
+        response.redirect("v16/registration/pflp-name")
+    }  
+    else if (registerType == "RegisterPflpSco"){
+        response.redirect("v16/registration/scottish-pflp-name")
+     }    
+    else if (registerType == "registerSlp"){
+        response.redirect("v16/registration/slp-name")
+     } 
+     else if (registerType == "RegisterSqp"){
+        response.redirect("v16/registration/sqp-name")
+     } 
+     else {
+        response.redirect("v16/registration/lp-name")
+    }
+})
+
+router.post(['/lp-name', '/pflp-name', '/slp-name', '/sqp-name'], (request, response) => {
+    var lpChooseName = request.session.data['lpChooseName'];
+    var registrationOrTransition = request.session.data['registrationOrTransition'];
+    
+    if (lpChooseName && lpChooseName.toLowerCase().includes("harrods")) {
+        response.redirect("v16/registration/same-as-name");
+    } else if (lpChooseName && lpChooseName.toLowerCase().includes("bank")) {
+        response.redirect("v16/registration/sensitive-name");
+    } else if (request.path === '/lp-name' && registrationOrTransition === "post") {
+        response.redirect("manage/date-of-change-lpname-update");
+    } else {
+        response.redirect("v16/limited-partnership-rea");
+    }
+});
+
+  
+
+//Has the LP done IDV
+
+router.post('/idv-filter', function(request, response) {
+
+  var idvCodes = request.session.data['idvCodes']
+  if (idvCodes == "no"){
+      response.redirect("v16/idv-no")
+  } 
+  else {
+      response.redirect("v16/limited-partnership-rea")
+  }
+})
+
+// LP number confirm - transition or post-transition
+
+
+router.get('/company-number', function(request, response) {
+
+   res.render('v16/company-number', {
+    currentUrl: request.originalUrl
+  })
+
+})
+
+  router.post('/company-number', function(request, response) {
+
+
+    // Create empty array and set error variables to false
+    var errors = []
+
+    var enteredLPNumber = request.session.data['lpNumber']
+
+    // Check if user has filled out a company or lp number
+    if (!enteredLPNumber || enteredLPNumber.trim() === '') {
+        // No value so add error to array
+        errors.push({
+        text: 'Enter a company number',
+        href: '#lpNumber'
+        })
+
+        return response.render('v16/company-number', {
+
+        errorNum: true,
+
+        errorList: errors
+
+        })
+
+        }
+
+        //if the user enters a number that is less than 8 characters and contains LP show an error message to enter 8 characters with leading zeros
+        else if (!enteredLPNumber || (enteredLPNumber.trim().includes('LP') && enteredLPNumber.trim().length < 8)) {
+        // No value so add error to array
+        errors.push({
+        text: "Company number must have 8 characters. If it\'s 7 characters or less, enter zeros at the start so that it\'s 8 characters in total.",
+        href: '#lpLessThanEightChars'
+        })
+
+        return response.render('v16/company-number', {
+
+        errorEightChar: true,
+
+        errorList: errors
+
+        })
+
+        }
+    
+        // Transition has already been filed
+
+        else if (enteredLPNumber.toUpperCase() === 'LP999999') {
+
+        return response.redirect('/v16/transition-already-filed')
+
+        }
+    
+        else {
+            response.redirect("v16/correct-company")
+        }
+  })
+
+
+
+
+router.post('/correct-company', function(request, response) {
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+
+    if (registrationOrTransition == "post") {
+        response.redirect("v16/manage/limited-partnership-overview-tabs-wf")
+    } 
+    else if (registrationOrTransition == "cs") {
+        response.redirect("v16/manage/file-confirmation-statement")
+    }
+    else {
+        response.redirect("v16/limited-partnership-rea")
+    }
+})
+
+
+
+
+  router.post('/limited-partnership-rea', function(request, response) {
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "registration"){
+        response.redirect("v16/limited-partnership-jurisdiction")
+    } 
+    else {
+        response.redirect("v16/limited-partnership-roa")
+    }
+  })
+
+  router.post('/company-number', function (req, res) {
+    res.redirect('v16/correct-company')
+  })
+
+
+
+
+//general partner choice page - branches to gp legal entity or gp person
+router.post('/general-partner-choice', function(request, response) {
+
+    var generalPartner = request.session.data['generalPartner']
+    if (generalPartner == "person"){
+        response.redirect("v16/gp-person")
+    } else {
+        response.redirect("v16/gp-legal-entity")
+    }
+})
+
+// add another general partner
+
+router.post('/gp-add-another', function(request, response) {
+
+    var addAnotherGP = request.session.data['addAnotherGP']
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    var userHasSignedOut = request.session.data['userHasSignedOut']
+    if (registrationOrTransition == "post") {
+        response.redirect("v16/manage/confirmation-additional-gp")
+    } else if (addAnotherGP == "addPersonGP") {
+        response.redirect("v16/gp-person")
+    } else if (addAnotherGP == "addEntityGP") {
+        response.redirect("v16/gp-legal-entity")
+    } else {
+
+        if (userHasSignedOut == true) {
+            response.redirect('v16/lp-add-another')
+        } else {
+            response.redirect("v16/limited-partner-section")
+        }
+    }
+
+})
+
+
+// save and continue functionality for limited partner section
+
+router.post('/limited-partner-section', function(request, response) {
+
+    response.redirect('v16/limited-partner-choice')
+    
+})
+
+
+//limited partner choice - entity or person
+
+router.post('/limited-partner-choice', function(request, response) {
+
+    var limitedPartner = request.session.data['limitedPartner']
+    if (limitedPartner == "person"){
+        response.redirect("v16/lp-person")
+    } else {
+        response.redirect("v16/lp-legal-entity")
+    }
+})
+
+//lp add another
+router.post('/lp-add-another', function(request, response) {
+    var addAnotherLP = request.session.data['addAnotherLP'];
+    var lpNumber = request.session.data['lpNumber'] || "";
+    var registrationOrTransition = request.session.data['registrationOrTransition'];
+    var registerType = request.session.data['registerType'];
+
+    var userHasSignedOut = request.session.data['userHasSignedOut']
+
+    if (addAnotherLP === "addPersonLP") {
+        response.redirect("v16/lp-person");
+    } 
+    else if (addAnotherLP === "addEntityLP") {
+        response.redirect("v16/lp-legal-entity");
+    }
+    else if (
+        registrationOrTransition === "registration" && 
+        (registerType === "registerSlp" || registerType === "RegisterPflpSco")
+    ) {
+
+        if (userHasSignedOut == true) {
+            response.redirect('v16/pscs/psc-add-another')
+        }
+        else {
+            response.redirect("v16/pscs/psc-section");
+        }
+
+    }
+    else if (
+        registrationOrTransition === "post")
+     {
+        response.redirect("v16/manage/confirmation-add-lp");
+    }
+    else {
+        response.redirect("v16/check-your-answers");
+    }
+});
+
+
+
+
+
+// Registration - in Scotland or not
+router.post('/in-scotland', function(request, response) {
+    response.redirect('v16/registration/which-type')
+})
+
+
+
+
+// Registration - LP statement
+//router.post('/lp-statement', function(request, response) {
+//   response.redirect('/v11/idv-filter')
+//})
+
+
+// Choose test scenario - registration or transition
+router.post('/registration-or-transition', function(request, response) {
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "registration"){
+        response.redirect("v16/registration/registration-start-page")
+    }
+    else if (registrationOrTransition == "transition"){
+        response.redirect("v16/transition-start-page")
+    }
+       else if (registrationOrTransition == "cs"){
+        response.redirect("v16/confirmation-statement/start")
+    }
+    else {
+        response.redirect("v16/post-transition-guidance")
+    }
+  })
+
+// Start
+
+router.post('/start', function(request, response) {
+
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "registration"){
+        response.redirect("v16/registration/registration-start-page")
+    }
+    else if (registrationOrTransition == "transition"){
+        response.redirect("v16/transition-start-page")
+    }
+    else {
+        response.redirect("v16/post-transition-start-page")
+    }
+  })
+
+
+
+//What is the registered office address of the partnership?
+router.post('/limited-partnership-jurisdiction', function(request, response) {
+  var userHasSignedOut = request.session.data['userHasSignedOut']
+     // Adding saved filing  
+    if (userHasSignedOut == true) {
+
+    response.redirect('v16/limited-partnership-roa-confirm-address')
+
+ }
+ else {
+
+    response.redirect('v16/limited-partnership-roa')
+ }
+
+    
+});
+
+
+//Registered office address (postcode look-up)
+router.post('/limited-partnership-roa', function(request, response) {
+    response.redirect('v16/limited-partnership-roa-choose-address')
+});
+
+//Registered office address (choose address)
+router.post('/limited-partnership-roa-choose-address', function(request, response) {
+    response.redirect('v16/limited-partnership-roa-confirm-address')
+})
+
+//Registered office address (confirm address)
+router.post('/limited-partnership-roa-confirm-address', function(request, response) {
+
+   var registrationOrTransition = request.session.data['registrationOrTransition']
+   if (registrationOrTransition == "post"){
+      response.redirect("v16/filing-confirmation")
+   }
+    else if (registrationOrTransition == "transition"){
+
+        response.redirect("v16/general-partner-section")
+   } 
+   else {
+
+     var userHasSignedOut = request.session.data['userHasSignedOut']
+     // Adding saved filing  
+    if (userHasSignedOut == true) {
+
+            response.redirect("v16/limited-partnership-ppob-confirm-address")
+
+        }
+        else{
+
+            response.redirect("v16/limited-partnership-ppob")
+
+        }
+
+
+  }
+})
+
+//Registered office address (manual)
+router.post('/limited-partnership-roa-manual', function(request, response) {
+  const from = request.session.data['from'];
+
+  if (from === 'roa-update') {
+    response.redirect('v16/manage/date-of-change-roa-update'); // replace with your actual route
+  } else {
+    response.redirect('v16/limited-partnership-roa-confirm-address');
+  }
+});
+
+
+//PPOB
+
+router.post('/limited-partnership-ppob', function(request, response) {
+    var registrationOrTransition = request.session.data['registrationOrTransition'];
+    var registerType = request.session.data['registerType'];
+
+
+
+
+    if (registrationOrTransition === "transition") {
+//response.redirect("v16/general-partner-section");
+
+
+    } else if (registerType === "RegisterPflp" || registerType === "RegisterPflpSco") {
+      //  response.redirect("v16/general-partner-section");
+              response.redirect("v16/limited-partnership-ppob-choose-address");
+    } else if (registerType === "registerSlp" || registerType === "RegisterSqp") {
+        response.redirect("v16/limited-partnership-ppob-choose-address");
+    } else {
+        response.redirect("v16/limited-partnership-ppob-choose-address");
+    }
+});
+
+
+
+
+// Starting new - v16 added Filing history pages into flow
+
+router.post('/starting-new', function(request, response) {
+
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    var savedFiling = request.session.data['savedFiling']
+
+
+    if (registrationOrTransition == "registration" ){
+
+        //continue a saved filing
+        if (savedFiling == "yes"){
+
+            request.session.data['userHasSignedOut'] = true
+
+    
+            request.session.data['pscStatement'] = "yes"
+            request.session.data['psc1FirstNames'] = "Chloe"
+            request.session.data['psc1LastName'] = "Davies"
+
+            request.session.data['psc1DOB'] = "01 January 1990"
+            request.session.data['psc1Nationality1'] = "British"
+
+            request.session.data['typeIndividualPSCNOC'] = [ "nocFirm"]
+            request.session.data['psc1ControlByFirm1'] = "The firm holds, directly or indirectly, 75% or more"
+            request.session.data['psc1ControlByFirm2'] = "The firm holds, directly or indirectly, 75% or more"
+
+            request.session.data['psc1ControlByFirm3'] = "The members of the firm hold, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership"
+
+            request.session.data['psc1ControlByFirm4'] = ""
+
+
+            request.session.data['psc1EntityName'] = "ENCOM LIMITED"
+            request.session.data['pscLegalEntity1LegalForm'] = ""
+
+            response.redirect("v16/saved-applications/your-filings")
+        
+        }
+
+        // no saved filing
+        else{
+
+             request.session.data['userHasSignedOut'] = false
+            response.redirect("v16/registration/which-type")
+
+        }
+
+    }
+     else if (registrationOrTransition == "transition" ){
+
+        //continue a saved filing
+        if (savedFiling == "yes"){
+
+            request.session.data['userHasSignedOut'] = true
+
+    
+            request.session.data['pscStatement'] = "yes"
+            request.session.data['psc1FirstNames'] = "Chloe"
+            request.session.data['psc1LastName'] = "Davies"
+
+            request.session.data['psc1DOB'] = "01 January 1990"
+            request.session.data['psc1Nationality1'] = "British"
+
+            request.session.data['typeIndividualPSCNOC'] = [ "nocFirm"]
+            request.session.data['psc1ControlByFirm1'] = "The firm holds, directly or indirectly, 75% or more"
+            request.session.data['psc1ControlByFirm2'] = "The firm holds, directly or indirectly, 75% or more"
+
+            request.session.data['psc1ControlByFirm3'] = "The members of the firm hold, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership"
+
+            request.session.data['psc1ControlByFirm4'] = ""
+
+
+            request.session.data['psc1EntityName'] = "ENCOM LIMITED"
+            request.session.data['pscLegalEntity1LegalForm'] = ""
+
+            response.redirect("v16/saved-applications/your-filings")
+        
+        }
+        // no saved filing
+        else{
+
+             request.session.data['userHasSignedOut'] = false
+            response.redirect("v16/company-number")
+
+        }
+    }
+
+
+    else {
+        response.redirect("v16/company-number")
+    }
+  })
+
+// Terms of partnership
+
+
+//resume a filing for registration 
+
+
+
+router.get('/v16/saved-applications/your-filings-set-journey-register', function(request, response) {
+
+
+request.session.data['savedFiling'] = "yes"
+
+request.session.data['userHasSignedOut'] = true
+
+/// removed v16 request.session.data['registrationOrTransition']= "registration"
+//continue a saved filing
+
+        
+request.session.data['userHasSignedOut'] = true
+  
+request.session.data['pscStatement'] = "yes"
+
+
+request.session.data['psc1FirstNames'] = "Chloe"
+
+request.session.data['psc1LastName'] = "Davies"
+
+request.session.data['psc1EntityName'] = "ENCOM LIMITED"
+request.session.data['pscLegalEntity1LegalForm'] = ""
+
+// Redirect to the next page
+    response.redirect("/v16/registration/which-type")
+
+})
+
+//resume a transition filing
+
+router.get('/v16/saved-applications/your-filings-set-journey-transition', function(request, response) {
+
+
+request.session.data['savedFiling'] = "yes"
+
+request.session.data['userHasSignedOut'] = true
+
+/// removed v16 request.session.data['registrationOrTransition']= "registration"
+//continue a saved filing
+
+        
+request.session.data['userHasSignedOut'] = true
+  
+request.session.data['pscStatement'] = "yes"
+
+
+request.session.data['psc1FirstNames'] = "Chloe"
+
+request.session.data['psc1LastName'] = "Davies"
+
+request.session.data['psc1EntityName'] = "ENCOM LIMITED"
+request.session.data['pscLegalEntity1LegalForm'] = ""
+
+// Redirect to the next page
+    response.redirect("/v16/company-number")
+
+})
+
+
+
+
+
+
+router.post('/start', function(request, response) {
+
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "registration"){
+        response.redirect("v16/registration/registration-start-page")
+    }
+    else if (registrationOrTransition == "transition"){
+        response.redirect("v16/transition-start-page")
+    }
+    else {
+        response.redirect("v16/post-transition-start-page")
+    }
+  })
+
+router.post('/limited-partnership-terms', function(request, response) {
+
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "post"){
+        response.redirect("v16/manage/date-of-change-term-update")
+    }
+    else if (registrationOrTransition == "transition"){
+        response.redirect("v16/general-partner-section")
+    }
+    else {
+        response.redirect("v16/limited-partnership-sic-2")
+    }
+})
+
+/// SIC codes
+
+router.post('/limited-partnership-sic-2', function(request, response) {
+    var checkSIC = request.session.data['checkSIC']
+
+    var userHasSignedOut = request.session.data['userHasSignedOut']
+
+    if (checkSIC === "no") {
+        response.redirect('v16/confirmation-statement/sic-check')
+    } 
+
+    else if (userHasSignedOut == true) {
+        response.redirect('v16/gp-add-another')
+    }
+    else {
+        response.redirect('v16/general-partner-section')
+    }
+})
+
+
+// Adding save and continue functionality to the general partner section
+
+router.post('/general-partner-section', function(request, response) {
+
+  
+        response.redirect('v16/general-partner-choice')
+    
+    })
+
+/// CS Date
+
+router.post('/confirmation-statement-date', function(request, response) {
+    var changeDateOfCS = request.session.data['changeDateOfCS']
+
+    if (changeDateOfCS === "yes") {
+        response.redirect('v16/confirmation-statement/check-your-answers-change-cs-date')
+    } else {
+        response.redirect('v16/confirmation-statement/sic-check')
+    }
+})
+
+//PSC - Scottish entities only
+
+//save and continue functionality for PSC statement
+// goes to /pscs/psc-section
+router.post('/psc-section', function(request, response) {
+
+ 
+    response.redirect('v16/pscs/psc-statement')
+    
+})
+
+
+
+
+router.post('/psc-statement', function(request, response) {
+    var pscStatement = request.session.data['pscStatement']
+
+if (pscStatement === "no") {
+
+//if the user has entered PSC information, but then changes their mind and selects no, the PSC data is cleared from the session
+   pscName = request.session.data['psc1FirstNames']
+   pscLastName = request.session.data['psc1LastName']
+   pscEntityName = request.session.data['psc1EntityName']
+   pscLegalForm = request.session.data['pscLegalEntity1LegalForm']
+
+  // if pscname or pscLastName or pscEntityName or pscLegalForm is not empty we need to check if they are sure they want to delete the PSC data 
+
+        if ('pscName' || 'pscLastName' || 'pscEntityName' || 'pscLegalForm') {
+            // Show confirmation page
+            response.redirect('v16/are-you-sure-you-want-to-delete-pscs')
+
+        }
+        else {
+
+        response.redirect('v16/check-your-answers')
+
+        }
+} 
+else {
+
+   // if PSC information exists take the user to the PSC summmary page
+   if ('pscName' || 'pscLastName' || 'pscEntityName' || 'pscLegalForm') {
+        response.redirect('v16/pscs/psc-add-another')
+
+    }else {
+        response.redirect('v16/pscs/psc-choice')
+    }
+}
+
+})
+
+
+router.post('/are-you-sure-you-want-to-delete-pscs', function(request, response) {
+
+    if (request.session.data['removePSC'] === 'yes') {
+
+        // Clear the PSC data from the session
+        request.session.data['psc1FirstNames'] = ""
+        request.session.data['psc1LastName'] = ""
+        request.session.data['psc1EntityName'] = ""
+        request.session.data['pscLegalEntity1LegalForm'] = ""
+        request.session.data['psc-protection'] = "no"
+
+        response.redirect('v16/check-your-answers')
+    } 
+    else {
+        response.redirect('v16/pscs/psc-statement')
+
+    }
+
+})
+
+router.post('/psc-choice', function(request, response) {
+
+    var pscType = request.session.data['pscType']
+    if (pscType == "entity"){
+        response.redirect("v16/pscs/psc-legal-entity")
+    }
+    else if (pscType == "orp"){
+        response.redirect("v16/pscs/psc-orp")
+    }
+    else {
+        response.redirect("v16/pscs/psc-protected-details")
+    }
+  })
+
+  // psc protected details - confirm form accepted by Companies House
+
+  router.post('/psc-protected-details', function(request, response) {
+
+     var pscProtection = request.session.data['psc-protection']
+    if (pscProtection == "yes"){
+        
+        response.redirect('v16/pscs/psc-protected-details-confirm')
+
+    }
+    else if (pscProtection == "no"){
+        response.redirect('v16/pscs/psc-person-alt-1')
+    }
+
+    
+})
+
+// psc protected details
+
+router.post('/psc-protected-details-confirm', function(request, response) {
+
+    response.redirect('v16/pscs/psc-add-another')
+
+})
+
+
+
+/* Nature of controls - *** Indivual *** control page */
+
+  router.post('/psc-person-alt-nature', function(request, response) {
+
+
+    var typeIndividualPSCNOC = request.session.data['typeIndividualPSCNOC']
+
+
+    if (typeIndividualPSCNOC.includes("nocIndividual")){
+        response.redirect('v16/pscs/psc-person-alt-nature-individual')
+    } 
+    else if (typeIndividualPSCNOC.includes("nocFirm")){
+        response.redirect('v16/pscs/psc-person-alt-nature-firm')
+    } 
+    else if (typeIndividualPSCNOC.includes("nocTrust")) {
+        response.redirect('v16/pscs/psc-person-alt-nature-trust')
+    }
+    else {
+        response.redirect('v16/pscs/pscs-addresses/psc-person-ura/psc-person-ura-where')
+    }
+    
+
+})
+
+
+/* individual */
+
+  router.post('/psc-person-alt-nature-individual', function(request, response) {
+
+    var typeIndividualPSCNOC = request.session.data['typeIndividualPSCNOC']
+
+    if (typeIndividualPSCNOC.includes("nocFirm")){
+        response.redirect('v16/pscs/psc-person-alt-nature-firm')
+    } 
+    else if (typeIndividualPSCNOC.includes("nocTrust")) {
+        response.redirect('v16/pscs/psc-person-alt-nature-trust')
+    }
+    else {
+        response.redirect('v16/pscs/pscs-addresses/psc-person-ura/psc-person-ura-where')
+    }
+    
+    
+})
+
+/* firm */
+
+  router.post('/psc-person-alt-nature-firm', function(request, response) {
+
+    var typeIndividualPSCNOC = request.session.data['typeIndividualPSCNOC']
+
+    if (typeIndividualPSCNOC.includes("nocTrust")) {
+        response.redirect('v16/pscs/psc-person-alt-nature-trust')
+    }
+    else {
+        response.redirect('v16/pscs/pscs-addresses/psc-person-ura/psc-person-ura-where')
+    }
+    
+})
+
+
+/*  trust */
+
+  router.post('/psc-person-alt-nature-trust', function(request, response) {
+
+    response.redirect('v16/pscs/pscs-addresses/psc-person-ura/psc-person-ura-where')
+    
+})
+
+/* RLE Nature of controls */
+
+  router.post('/psc-legal-entity-nature', function(request, response) {
+
+
+    var typeRLENOC = request.session.data['typeRLENOC']
+
+
+    if (typeRLENOC.includes("nocRLERLE")){
+        response.redirect('v16/pscs/psc-legal-entity-nature-rle')
+    } 
+    else if (typeRLENOC.includes("nocRLEFirm")){
+        response.redirect('v16/pscs/psc-legal-entity-nature-firm')
+    } 
+    else if (typeRLENOC.includes("nocRLETrust")) {
+        response.redirect('v16/pscs/psc-legal-entity-nature-trust')
+    }
+    else {
+        response.redirect('v16/pscs/pscs-addresses/psc-legal-entity-poa/psc-legal-entity-poa-where')
+    }
+    
+
+    
+})
+
+
+/* entity and individual */
+
+  router.post('/psc-legal-entity-nature-rle', function(request, response) {
+
+    var typeRLENOC = request.session.data['typeRLENOC']
+
+
+     if (typeRLENOC.includes("nocRLEFirm")){
+        response.redirect('v16/pscs/psc-legal-entity-nature-firm')
+    } 
+    else if (typeRLENOC.includes("nocRLETrust")) {
+        response.redirect('v16/pscs/psc-legal-entity-nature-trust')
+    }
+    else {
+        response.redirect('v16/pscs/pscs-addresses/psc-legal-entity-poa/psc-legal-entity-poa-where')
+    }
+    
+    
+})
+
+/* entity and firm */
+
+  router.post('/psc-legal-entity-nature-firm', function(request, response) {
+
+    var typeRLENOC = request.session.data['typeRLENOC']
+
+
+    if (typeRLENOC.includes("nocRLETrust")) {
+        response.redirect('v16/pscs/psc-legal-entity-nature-trust')
+    }
+    else {
+        response.redirect('v16/pscs/pscs-addresses/psc-legal-entity-poa/psc-legal-entity-poa-where')
+    }
+    
+})
+
+
+/* entity and trust */
+
+  router.post('/psc-legal-entity-nature-trust', function(request, response) {
+
+    response.redirect('v16/pscs/pscs-addresses/psc-legal-entity-poa/psc-legal-entity-poa-where')
+    
+})
+
+
+
+/* ORP Nature of controls */
+
+  router.post('/psc-orp-nature', function(request, response) {
+
+
+    var typeORPNOC = request.session.data['typeORPNOC']
+
+
+    if (typeORPNOC.includes("nocORP")){
+        response.redirect('v16/pscs/psc-orp-nature-orp')
+
+    }
+    else if (typeORPNOC.includes("nocORPFirm")){
+        response.redirect('v16/pscs/psc-orp-nature-firm')
+    } 
+    else if (typeORPNOC.includes("nocORPTrust")) {
+        response.redirect('v16/pscs/psc-orp-nature-trust')
+    }
+    else {
+         response.redirect('v16/pscs/pscs-addresses/psc-orp-poa/psc-orp-poa-where')
+
+    }
+
+
+
+   
+    
+})
+
+
+/* ORP */
+
+  router.post('/psc-orp-nature-orp', function(request, response) {
+
+     var typeORPNOC = request.session.data['typeORPNOC']
+
+    if (typeORPNOC.includes("nocORPFirm")){
+        response.redirect('v16/pscs/psc-orp-nature-firm')
+    } 
+    else if (typeORPNOC.includes("nocORPTrust")) {
+        response.redirect('v16/pscs/psc-orp-nature-trust')
+    }
+    else {
+         response.redirect('v16/pscs/pscs-addresses/psc-orp-poa/psc-orp-poa-where')
+
+    }
+    
+})
+
+/* ORP and firm */
+
+  router.post('/psc-orp-nature-firm', function(request, response) {
+
+      var typeORPNOC = request.session.data['typeORPNOC']
+
+    if (typeORPNOC.includes("nocORPTrust")) {
+        response.redirect('v16/pscs/psc-orp-nature-trust')
+    }
+    else {
+         response.redirect('v16/pscs/pscs-addresses/psc-orp-poa/psc-orp-poa-where')
+
+    }
+    
+})
+
+
+/* ORP and trust */
+
+  router.post('/psc-orp-nature-trust', function(request, response) {
+
+    response.redirect('v16/pscs/pscs-addresses/psc-orp-poa/psc-orp-poa-where')
+    
+})
+
+
+  // add another PSC
+
+
+  router.post('/psc-add-another', function(request, response) {
+
+    
+
+    var addAnotherPSC = request.session.data['addAnotherPSC']
+    if (addAnotherPSC == "person"){
+        response.redirect("v16/pscs/psc-protected-details")
+    }
+    else if (addAnotherPSC == "entity"){
+        response.redirect("v16/pscs/psc-legal-entity")
+    }
+    else if (addAnotherPSC == "orp"){
+        response.redirect("v16/pscs/psc-orp")
+    }
+    else {
+        response.redirect("v16/check-your-answers")
+    }
+  })
+
+
+
+
+  //Payment Placeholder
+
+
+router.post('/payment-placeholder', function(request, response) {
+  var registrationOrTransition = request.session.data['registrationOrTransition']
+  var referrer = request.headers.referer || ''
+
+  if (referrer.includes('?change-type')) {
+    response.redirect('v16/manage/confirmation-change-type')
+  } 
+  else if (referrer.includes('?change-name')) {
+    response.redirect('v16/manage/confirmation-change-name')
+  }
+  else {
+    response.redirect("v16/confirmation-page")
+  }
+})
+
+
+
+// Addresses //
+
+// General partner - legal entity //
+
+//This GET code is used to preppoluate the values when the user goes from Confirm the address to Manually entering it
+router.get('/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-manual', function (req, res) {
+    res.render('v16/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-manual', {
+      from: req.query.from // This makes `from` available in Nunjucks
+    });
+  });
+
+
+
+router.post('/gp-legal-entity-poa-where', function(request, response) {
+
+    var gpLegalEntityPOAWhere = request.session.data['gpLegalEntityPOAWhere']
+    if (gpLegalEntityPOAWhere == "gpLegalEntityPOAUK"){
+        response.redirect("v16/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-postcode-look-up")
+    }
+    else {
+        response.redirect("v16/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-manual")
+    }
+  })
+
+
+
+router.post('/gp-legal-entity-poa-postcode-look-up', function(request, response) {
+    response.redirect('v16/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-choose-address')
+})
+
+
+  router.post('/gp-legal-entity-poa-choose-address', function(request, response) {
+    response.redirect('v16/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-confirm-address')
+})
+
+// General partner - person //
+// URA //
+//This GET code is used to preppoluate the values when the user goes from Confirm the address to Manuallu entering it
+router.get('/address-pages/gp-person-ura/gp-person-ura-manual', function (req, res) {
+    res.render('v16/address-pages/gp-person-ura/gp-person-ura-manual', {
+      from: req.query.from // This makes `from` available in Nunjucks
+    });
+  });
+
+router.post('/gp-person-ura-where', function(request, response) {
+
+    var gpPersonURAWhere = request.session.data['gpPersonURAWhere']
+    if (gpPersonURAWhere == "gpPersonURAUK"){
+        response.redirect("v16/address-pages/gp-person-ura/gp-person-ura-postcode-look-up")
+    }
+    else {
+        response.redirect("v16/address-pages/gp-person-ura/gp-person-ura-manual")
+    }
+  })
+
+
+
+router.post('/gp-person-ura-postcode-look-up', function(request, response) {
+    response.redirect('v16/address-pages/gp-person-ura/gp-person-ura-choose-address')
+})
+
+
+  router.post('/gp-person-ura-choose-address', function(request, response) {
+    response.redirect('v16/address-pages/gp-person-ura/gp-person-ura-confirm-address')
+})
+
+// General partner - person //
+// Correspondence Address //
+
+//This GET code is used to preppoluate the values when the user goes from Confirm the address to Manuallu entering it
+router.get('/address-pages/gp-person-ca/gp-person-ca-manual', function (req, res) {
+    res.render('v16/address-pages/gp-person-ca/gp-person-ca-manual', {
+      from: req.query.from // This makes `from` available in Nunjucks
+    });
+  });
+
+
+
+router.post('/gp-person-ca-where', function(request, response) {
+
+    var gpPersonCAWhere = request.session.data['gpPersonCAWhere']
+    if (gpPersonCAWhere == "gpPersonCAUK"){
+        response.redirect("v16/address-pages/gp-person-ca/gp-person-ca-postcode-look-up")
+    }
+    else {
+        response.redirect("v16/address-pages/gp-person-ca/gp-person-ca-manual")
+    }
+  })
+
+
+
+router.post('/gp-person-ca-postcode-look-up', function(request, response) {
+    response.redirect('v16/address-pages/gp-person-ca/gp-person-ca-choose-address')
+})
+
+
+  router.post('/gp-person-ca-choose-address', function(request, response) {
+    response.redirect('v16/address-pages/gp-person-ca/gp-person-ca-confirm-address')
+})
+
+
+
+// Limited partner - legal entity //
+
+//This GET code is used to preppoluate the values when the user goes from Confirm the address to Manuallu entering it
+router.get('/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-manual', function (req, res) {
+    res.render('v16/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-manual', {
+      from: req.query.from // This makes `from` available in Nunjucks
+    });
+  });
+
+
+router.post('/lp-legal-entity-poa-where', function(request, response) {
+
+    var lpLegalEntityPOAWhere = request.session.data['lpLegalEntityPOAWhere']
+    if (lpLegalEntityPOAWhere == "lpLegalEntityPOAUK"){
+        response.redirect("v16/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-postcode-look-up")
+    }
+    else {
+        response.redirect("v16/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-manual")
+    }
+  })
+
+
+
+router.post('/lp-legal-entity-poa-postcode-look-up', function(request, response) {
+    response.redirect('v16/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-choose-address')
+})
+
+
+  router.post('/lp-legal-entity-poa-choose-address', function(request, response) {
+    response.redirect('v16/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-confirm-address')
+})
+
+
+
+// Limited partner - person //
+
+
+//update limited partner(person)
+
+router.get('v16/lp-person', function (req, res) {
+    res.render('v16/lp-person', {
+      from: req.query.from // This makes `from` available in Nunjucks
+    });
+  });
+
+
+  router.post('/lp-person', function(request, response) {
+
+
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+       // Update journey
+       if (registrationOrTransition == "post"){
+     
+        response.redirect("v16/manage/change-lp-ura")
+        
+       }
+       else {
+
+        response.redirect("v16/address-pages/lp-person-ura/lp-person-ura-where")
+       }
+
+})
+
+
+
+
+
+
+
+
+//This GET code is used to preppoluate the values when the user goes from Confirm the address to Manuallu entering it
+router.get('v16/address-pages/lp-person-ura/lp-person-ura-manual', function (req, res) {
+    res.render('v16/address-pages/lp-person-ura/lp-person-ura-manual', {
+      from: req.query.from // This makes `from` available in Nunjucks
+    });
+  });
+
+
+
+
+
+
+
+
+router.post('/lp-person-ura-where', function(request, response) {
+
+    var lpPersonURAWhere = request.session.data['lpPersonURAWhere']
+    if (lpPersonURAWhere == "lpPersonURAUK"){
+        response.redirect("v16/address-pages/lp-person-ura/lp-person-ura-postcode-look-up")
+    }
+    else {
+        response.redirect("v16/address-pages/lp-person-ura/lp-person-ura-manual")
+    }
+  })
+
+
+
+router.post('/lp-person-ura-postcode-look-up', function(request, response) {
+    response.redirect('v16/address-pages/lp-person-ura/lp-person-ura-choose-address')
+})
+
+
+  router.post('/lp-person-ura-choose-address', function(request, response) {
+    response.redirect('v16/address-pages/lp-person-ura/lp-person-ura-confirm-address')
+})
+
+router.post('/lp-person-ura-confirm-address', function(request, response) {
+
+    var registrationOrTransition = request.session.data['registrationOrTransition']
+    if (registrationOrTransition == "post"){
+        response.redirect("v16/manage/date-of-change-partner-lp-person")
+    }
+    else {
+        response.redirect("v16/lp-add-another")
+    }
+  })
+
+////////////////////////////////
+// Confirmation statement //
+
+
+// Check SIC
+
+router.post('/check-sic', function(request, response) {
+
+    var checkSIC = request.session.data['checkSIC']
+    if (checkSIC == "yes"){
+        response.redirect("v16/confirmation-statement/submit-confirmation-statement")
+    }
+    else {
+        response.redirect("v16/limited-partnership-sic-2")
+    }
+  })
+
+
+  // Check SIC - TYPEAHEAD VERSION
+
+  router.post('/sic-add', function(request, response) {
+    response.redirect('v16/confirmation-statement/sic-check')
+})
+
+
+  //Before you file
+
+  router.post('/before-you-file', function(request, response) {
+
+    var csInfoCorrect = request.session.data['csInfoCorrect']
+    if (csInfoCorrect == "no"){
+        response.redirect("v16/manage/file-confirmation-statement")
+    }
+    else {
+        response.redirect("v16/confirmation-statement/submit-confirmation-statement")
+    }
+  })
+
+
+  //Update a partner address ura
+
+    router.post('/change-ura', function(request, response) {
+
+    var changeURA = request.session.data['changeURA']
+
+    if (changeURA == "yes"){
+        response.redirect("v16/address-pages/gp-person-ura/gp-person-ura-where")
+    }
+    else {
+
+        response.redirect("v16/manage/change-uca")
+        // neds to be the radios page response.redirect("/v12/address-pages/gp-person-ca/gp-person-ca-manual")
+    }
+  })
+
+    //Update a partner address uca
+
+    router.post('/change-uca', function(request, response) {
+
+    var changeUCA = request.session.data['changeUCA']
+
+    if (changeUCA == "yes"){
+        response.redirect("v16/address-pages/gp-person-ca/gp-person-ca-manual")
+    }
+    else {
+
+        response.redirect("v16/manage/date-of-change-partner-update")
+        // nneds to be the radios page response.redirect("/v12/address-pages/gp-person-ca/gp-person-ca-manual")
+    }
+  })
+
+
+
+    //Update a partner address uca
+
+    router.post('/change-lp-ura', function(request, response) {
+
+    var changeLPURA = request.session.data['changeLPURA']
+
+    if (changeLPURA == "yes"){
+        response.redirect("v16/address-pages/lp-person-ura/lp-person-ura-where")
+    }
+    else {
+
+        response.redirect("v16/manage/date-of-change-partner-lp-person")
+        // nneds to be the radios page response.redirect("/v12/address-pages/gp-person-ca/gp-person-ca-manual")
+    }
+  })
+
+
+
+  
+
+      //Update a partner address uca
+
+    router.post('/change-ppb', function(request, response) {
+
+    var changePPB = request.session.data['changePPB']
+
+    if (changePPB == "yes"){
+        response.redirect("v16/address-pages/gp-legal-entity-poa/gp-legal-entity-poa-where")
+    }
+    else {
+
+        response.redirect("v16/manage/date-of-change-partner-le-update")
+        // nneds to be the radios page response.redirect("/v12/address-pages/gp-person-ca/gp-person-ca-manual")
+    }
+  })
+
+      //Update a limited partner principle office address
+
+    router.post('/change-poa', function(request, response) {
+
+    var changePOA = request.session.data['changePOA']
+
+    if (changePOA == "yes"){
+        response.redirect("v16/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-where")
+    }
+    else {
+
+        response.redirect("v16/manage/date-of-change-partner-lp-update")
+        // nneds to be the radios page response.redirect("/v12/address-pages/gp-person-ca/gp-person-ca-manual")
+    }
+  })
+
+
+
+
+module.exports=router;

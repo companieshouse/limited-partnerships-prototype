@@ -1,0 +1,645 @@
+{% extends "layouts/main.html" %}
+ 
+{% set pageName="Add a PSC who is an individual person" %}
+
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="pscs-addresses/psc-person-ura/psc-person-ura-where" method="post">
+
+
+
+{% if (data['registrationOrTransition'] == "registration") %}
+  <span class="govuk-caption-l uppercase"> {{ data['lpChooseName'] }} {{ data['nameEnding'] }}</span>
+{% else %}  
+  <span class="govuk-caption-l">ACME LIMITED PARTNERSHIP ({{ data['lpNumber'] }})   </span>
+{% endif %}
+
+
+<!--Nature of control-->
+
+<div class="js-enabled-checkboxes" hidden>
+  {{ govukCheckboxes({
+    name: "typeNOC",
+    fieldset: {
+      legend: {
+        text: "How does this individual hold control over the limited partnership?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    classes: "govuk-!-margin-bottom-0",
+    items: [
+      {
+        value: "nocIndividual",
+        text: "As an individual",
+        hint: { text: "The individual meets one or more natures of control" }
+      },
+      {
+        value: "nocFirm",
+        text: "Through a firm",
+        hint: { text: "The individual has control over a firm that meets one or more natures of control" }
+      },
+      {
+        value: "nocTrust",
+        text: "Through a trust",
+        hint: { text: "The individual has control over a trust that meets one or more natures of control" }
+      }
+    ]
+  }) }}
+</div>
+
+
+
+<!-- Hidden by default, shown by JS if selected -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="noc-content" id="nocIndividual">
+
+<!-- <h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-1">Nature of control for this individual</h2>
+<p class="govuk-body">Indicate the individual’s nature of control over the limited partnership</p>
+ -->
+
+{% set psc1ShareOfAssetsHtml %}
+
+     {{ govukRadios({
+        name: "psc1ShareOfAssets",
+        fieldset: {
+          legend: {
+            text: "This is the share of assets left after the partnership is wound up. The individual holds (directly or indirectly):",
+            classes: "govuk-fieldset__label--s"
+          }
+        },
+        items: [
+          {
+            value: "more than 25% but not more than 50%",
+            text: "more than 25% but not more than 50%"
+          },
+          {
+            value: "more than 50% but less than 75%",
+            text: "more than 50% but less than 75%"
+          },
+          {
+            value: "75% or more",
+            text: "75% or more"
+          }
+        ]
+      }) }}
+{% endset -%}
+
+{% set psc1VotingRightsHtml %}
+
+          {{ govukRadios({
+              name: "psc1OwnershipOfVotingRights",
+              fieldset: {
+                legend: {
+                  text: "The individual holds (directly or indirectly):",
+                  classes: "govuk-fieldset__label--s"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "more than 25% but not more than 50%",
+                  text: "more than 25% but not more than 50%"
+                },
+                {
+                  value: "more than 50% but less than 75%",
+                  text: "more than 50% but less than 75%"
+                },
+                {
+                  value: "75% or more",
+                  text: "75% or more"
+                }
+              ]
+            }) }}
+
+{% endset -%}
+
+{{ govukCheckboxes({
+  name: "psc1IndividualNatureOfContol",
+  fieldset: {
+    legend: {
+      text: "What is the individual's nature of control?",
+      classes: "govuk-fieldset__legend--m govuk-!-padding-top-3"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  items: [
+    {
+      value: "assets",
+      text: "Share of assets",
+      conditional: {
+        html: psc1ShareOfAssetsHtml
+      }
+    },
+    {
+      value: "voting",
+      text: "Ownership of voting rights",
+      conditional: {
+        html: psc1VotingRightsHtml
+      }
+    },
+    
+
+    {
+      value: "psc1OwnershipOfRightToAppointRemoveManagement",
+      text: "Ownership of the right to appoint or remove the majority of management of the limited partnership"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "psc1SignificantInfluenceOrControl",
+      text: "Significant influence or control over the limited partnership",
+      hint: {
+        text: "Only select this if the other natures of control do not apply"
+      }
+    }
+  ]
+}) }}
+
+
+
+
+
+
+
+<!-- 
+
+                {{ govukCheckboxes({
+                      name: "psc1OwnershipOfRightToAppointRemoveManagement",
+                      fieldset: {
+                        legend: {
+                          text: "c. Ownership of right to appoint/remove management",
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                      hint: {
+                        text: "Select if this statement applies"
+                      },
+                      items: [
+                        {
+                          value: "The individual holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership",
+                          text: "The individual holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership"
+                        }
+                      ]
+                    }) }} -->
+
+
+<!--                          {{ govukCheckboxes({
+                      name: "psc1SignificantInfluenceOrControl",
+                      fieldset: {
+                        legend: {
+                          text: "d. Significant influence or control",
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                      hint: {
+                        text: "Only select this statement if a, b and c do not apply"
+                      },
+                      items: [
+                        {
+                          value: "The individual has the right to exercise, or actually exercises, significant
+influence or control over the limited partnership",
+                          text: "The individual has the right to exercise, or actually exercises, significant
+influence or control over the limited partnership"
+                        }
+                      ]
+                    }) }} -->
+                  
+</div>
+
+
+
+<div class="noc-content" id="nocFirm">
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+<!-- <h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-1">What is the firm's nature of control?</h2>
+<p class="govuk-body">The individual has the right to exercise, or actually exercises, significant influence or control over the activities of a firm that is not a legal person under its governing law, and:</p>
+ -->
+
+
+{% set psc1ControlByFirm1Html %}
+
+          {{ govukRadios({
+              name: "psc1ControlByFirm1",
+              fieldset: {
+                legend: {
+            text: "The members of that firm (in their capacity as such) hold, directly or indirectly, the right to the following percentage of any surplus assets on a winding up of the limited partnership:",
+                  classes: "govuk-fieldset__label--m"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "more than 25% but not more than 50%",
+                  text: "more than 25% but not more than 50%"
+                },
+                {
+                  value: "more than 50% but less than 75%",
+                  text: "more than 50% but less than 75%"
+                },
+                {
+                  value: "75% or more",
+                  text: "75% or more"
+                }
+              ]
+            }) }}
+
+{% endset %}
+
+
+{% set psc1ControlByFirm2Html %}
+
+
+                 {{ govukRadios({
+              name: "psc1ControlByFirm2",
+              fieldset: {
+                legend: {
+                  text: "The members of that firm (in their capacity as such) hold, directly or indirectly, the following percentage of any voting rights in the limited partnership:",
+                  classes: "govuk-fieldset__label--s"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "more than 25% but not more than 50%",
+                  text: "more than 25% but not more than 50%"
+                },
+                {
+                  value: "more than 50% but less than 75%",
+                  text: "more than 50% but less than 75%"
+                },
+                {
+                  value: "75% or more",
+                  text: "75% or more"
+                },
+          {
+            value: "does not apply",
+            text: "does not apply"
+          }
+              ]
+            }) }}
+{% endset %}
+
+
+
+
+<!-- Firm options -->
+
+
+{{ govukCheckboxes({
+  name: "FirmNoC",
+  fieldset: {
+    legend: {
+      text: "What is the firm's nature of control?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  items: [
+    {
+      value: "sharesFirm",
+      text: "Share of assets",
+      conditional: {
+        html: psc1ControlByFirm1Html
+      }
+    },
+    {
+      value: "votingFirm",
+      text: "Ownership of voting rights",
+      conditional: {
+        html: psc1ControlByFirm2Html
+      }     
+    },
+    {
+      value: "psc1ControlByFirm3",
+      text: "Ownership of the right to appoint or remove the majority of management of the limited partnership"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "psc1ControlByFirm4",
+      text: "Significant influence or control over the limited partnership",
+      hint: {
+        text: "Only select this if the other natures of control do not apply"
+      }
+    }
+  ]
+}) }}
+
+
+
+<!-- 
+               {{ govukCheckboxes({
+              name: "psc1ControlByFirm3",
+                      fieldset: {
+                        legend: {
+                          text: "c. Ownership of right to appoint/remove management",
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                      hint: {
+                        text: "Select if this statement applies"
+                      },
+                      items: [
+                        {
+                          value: "The members of that firm (in their capacity as such) hold the right, directly or indirectly, to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership",
+                          text: "The members of that firm (in their capacity as such) hold the right, directly or indirectly, to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership"
+                        }
+                      ]
+                    }) }} -->
+
+<!-- 
+                         {{ govukCheckboxes({
+              name: "psc1ControlByFirm4",
+                      fieldset: {
+                        legend: {
+                          text: "d. Significant influence or control",
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                      hint: {
+                        text: "Select if this statement applies"
+                      },
+                      items: [
+                        {
+                          value: "The members of that firm (in their capacity as such) have the right to exercise, or actually exercise, significant influence or control over the limited partnership",
+                          text: "The members of that firm (in their capacity as such) have the right to exercise, or actually exercise, significant influence or control over the limited partnership"
+                        }
+                      ]
+                    }) }} -->
+
+
+</div>
+
+
+
+
+
+<div class="noc-content" id="nocTrust">
+
+<!-- <h2 class="govuk-caption-l govuk-!-font-weight-bold govuk-!-margin-bottom-1">Nature of control by a trust over which this individual has significant control</h2>
+<p class="govuk-body">The individual has the right to exercise, or actually exercises, significant influence or control over the activities of a trust, and:</p>
+ -->
+
+{% set psc1ControlByTrust1Html %}
+          {{ govukRadios({
+              name: "psc1ControlByTrust1",
+              fieldset: {
+                legend: {
+            text: "The trustees of that trust (in their capacity as such) hold, directly or indirectly, the right to the following percentage of any surplus assets on a winding up of the limited partnership:",
+                  classes: "govuk-fieldset__label--s"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "more than 25% but not more than 50%",
+                  text: "more than 25% but not more than 50%"
+                },
+                {
+                  value: "more than 50% but less than 75%",
+                  text: "more than 50% but less than 75%"
+                },
+                {
+                  value: "75% or more",
+                  text: "75% or more"
+                },
+          {
+            value: "does not apply",
+            text: "does not apply"
+          }
+              ]
+            }) }}
+
+            {% endset %}
+
+
+            {% set psc1ControlByTrust2Html %}
+                 {{ govukRadios({
+              name: "psc1ControlByTrust2",
+              fieldset: {
+                legend: {
+                  text: "The trustees of that trust (in their capacity as such) hold, directly or indirectly, the following percentage of any voting rights in the limited partnership:",
+                  classes: "govuk-fieldset__label--s"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "more than 25% but not more than 50%",
+                  text: "more than 25% but not more than 50%"
+                },
+                {
+                  value: "more than 50% but less than 75%",
+                  text: "more than 50% but less than 75%"
+                },
+                {
+                  value: "75% or more",
+                  text: "75% or more"
+                },
+          {
+            value: "does not apply",
+            text: "does not apply"
+          }
+              ]
+            }) }}
+
+{% endset %}
+
+            <!-- Trusts -->
+
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+{{ govukCheckboxes({
+  name: "trustNoC",
+  fieldset: {
+    legend: {
+      text: "What is the trusts nature of control?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  items: [
+    {
+      value: "sharesTrust",
+      text: "Share of assets",
+      conditional: {
+        html: psc1ControlByTrust1Html
+      }
+    },
+    {
+      value: "votingTrust",
+      text: "Ownership of voting rights",
+      conditional: {
+        html: psc1ControlByTrust2Html
+      }     
+    },
+    {
+      value: "psc1ControlByTrust1",
+      text: "Ownership of the right to appoint or remove the majority of management of the limited partnership"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "psc1ControlByTrust2",
+      text: "Significant influence or control over the limited partnership",
+      hint: {
+        text: "Only select this if the other natures of control do not apply"
+      }
+    }
+  ]
+}) }}
+
+
+<!-- 
+               {{ govukCheckboxes({
+              name: "psc1ControlByTrust3",
+                      fieldset: {
+                        legend: {
+                          text: "c. Ownership of right to appoint/remove management",
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                      hint: {
+                        text: "Select if this statement applies"
+                      },
+                      items: [
+                        {
+                          value: "The trustees of that trust (in their capacity as such) hold the right, directly or indirectly, to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership",
+                          text: "The trustees of that trust (in their capacity as such) hold the right, directly or indirectly, to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership"
+                        }
+                      ]
+                    }) }}
+
+
+                         {{ govukCheckboxes({
+              name: "psc1ControlByTrust4",
+                      fieldset: {
+                        legend: {
+                          text: "d. Significant influence or control",
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                      hint: {
+                        text: "Select if this statement applies"
+                      },
+                      items: [
+                        {
+                          value: "The trustees of that trust (in their capacity as such) have the right to exercise, or actually exercise, significant influence or control over the limited partnership",
+                          text: "The trustees of that trust (in their capacity as such) have the right to exercise, or actually exercise, significant influence or control over the limited partnership"
+                        }
+                      ]
+                    }) }} -->
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {{ govukInsetText({
+          html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+                <p>We’ll show all of this information on the public register.</p>"
+        }) }}
+
+
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+</form>
+
+
+
+<div class="ur-shortcuts">
+  <!-- Not part of ACTUAL screen: only for UR purposes -->
+  <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
+  <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+    <li><a class="govuk-link" href="psc-person">Original NOC design</a></li>
+  </ul>
+</div>
+
+
+    </div>
+  </div>
+    <script src="/public/javascripts/second-nationality.js"></script>
+      <script src="/public/javascripts/toggle-PSC-NOCs.js"></script>
+
+
+  <!--<script src="/public/javascripts/accessible-autocomplete.js"></script>
+  <script src="/public/javascripts/titles-appoint.js"></script>-->
+
+{% endblock %}
+
+
+ 

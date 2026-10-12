@@ -1,0 +1,75 @@
+{% extends "layouts/layout.html" %}
+
+<!-- Overwrite suerfice name -->
+{% set serviceName %}
+  
+{% endset%}
+
+{% block pageTitle %}
+  GOV.UK One Login – Prototype
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="create-set-up-auth-app" method="post" novalidate>
+        <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="email">
+         Set up an authenticator app
+        </label>
+        </h1>
+        
+        <p class="govuk-body">1. Open your authenticator app on your smartphone, tablet or computer.</p>
+        {{ govukDetails({
+          summaryText: "I don't have an authenticator app",
+          html: "You can download an authenticator app for your smartphone or tablet from your app store. <br><br>  If you don't have a smartphone or tablet, search online for an authenticator app for your computer. <br> <br> You can use any authenticator app. "
+        }) }}
+
+        <p class="govuk-body">2. Use your authenticator app to scan the QR code. </p>
+
+          <span class="govuk-!-padding-left-9" href="">
+          <img src="/public/images/qr-code.png" alt="">
+          </span>
+  
+
+        {{ govukDetails({
+          summaryText: "I cannot scan the QR code",
+          html: "You can enter the secret key into your authenticator app instead.<br> <br> Secret key: <br><span class='govuk-!-font-weight-bold'> QWMA HC7F SZQW YIJJ RRIT X64U KCSS OHSK</span> <br> <br>Some authenticator apps call the secret key a 'code'. "
+        }) }}
+
+        <p class="govuk-body">3. The authenticator app will show a security code. </p>
+        <p class="govuk-body">4. Enter the security code. </p>
+
+
+        {{ govukInput({
+          label: {
+            text: "Security code"
+          },
+          hint: {
+            text: "This is the 6-digit number shown in your authenticator app"
+          },
+          classes: "govuk-input--width-10",
+          id: "width-3",
+          name: "width-3"
+        }) }}
+
+        
+
+       
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        <p class="govuk-body"><a href="#" class="govuk-link">Get the code another way</a></p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

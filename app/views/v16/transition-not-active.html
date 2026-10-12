@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Information has already been provided for this limited partnership" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+
+      
+    <h1 class="govuk-heading-xl">You cannot use this service as the limited partnership is not active</h1> 
+
+     <p class="govuk-body">ACME LIMITED PARTNERSHIP's status on the Companies House register is [status].</p>
+
+     <p class="govuk-body">This means it does not need to submit a filing to provide new required information. </p>
+
+     <p class="govuk-body">If this is the wrong partnership, <a href="#" class="govuk-link">go back and enter a different limited partnership number</a>.</p>
+  
+     <p class="govuk-body"><a href="#" class="govuk-link">Contact us</a> if you have any questions.</p>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "layouts/main-old-header.html" %}
+
+{% set pageName="Upload the completed document" %}
+
+
+{% set serviceName %}
+  Upload a document to Companies House
+{% endset%}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner-alpha.html" %}
+   {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="upload-check-answers" method="post">
+
+      <span class="govuk-caption-l">ACME SCOTTISH LIMITED PARTNERSHIP ({{ data['uploadCompanyNumber'] }})</span>
+
+      <h1 class="govuk-heading-xl">Upload the completed document</h1>
+
+
+<p class="govuk-paragraph">You must:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>complete the document before uploading it</li>
+  <li>upload one document that is less than 4MB</li>
+  <li>use a PDF format</li>
+</ul>
+
+
+{{ govukTable({
+  caption: "1 attached file",
+  captionClasses: "govuk-table__caption--s",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "File name"
+    },
+    {
+      text: "Size"
+    },
+    {
+      text: "Action"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "AnExampleLP-Document.pdf"
+      },
+      {
+        text: "875.7Kb"
+      },
+      {
+        html: '<a href="javascript:void(0)">Remove'
+      }
+    ]
+  ]
+}) }}
+
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

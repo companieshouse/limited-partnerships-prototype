@@ -1,0 +1,88 @@
+{% extends "layouts/main-old-header.html" %}
+
+{% set pageName="Select a document" %}
+
+
+
+{% set serviceName %}
+  Upload a document to Companies House
+{% endset%}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner-alpha.html" %}
+   {% include "/includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="upload-document" method="post">
+
+      <span class="govuk-caption-l">ACME SCOTTISH LIMITED PARTNERSHIP ({{ data['uploadCompanyNumber'] }})</span>
+{{ govukRadios({
+  name: "slpSelectDocument",
+  fieldset: {
+    legend: {
+      text: "Select a document",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+{
+  value: "Confirmation statement for a Scottish limited partnership (SLP CS01)",
+  text: "Confirmation statement for a Scottish limited partnership (SLP CS01)"
+},
+{
+  value: "Give notice of individual person with significant control of a Scottish limited partnership (SLP PSC01)",
+  text: "Give notice of individual person with significant control of a Scottish limited partnership (SLP PSC01)"
+},
+{
+  value: "Give notice of relevant legal entity with significant control of a Scottish limited partnership (SLP PSC02)",
+  text: "Give notice of relevant legal entity with significant control of a Scottish limited partnership (SLP PSC02)"
+},
+{
+  value: "Give notice of other registrable person with significant control of a Scottish limited partnership (SLP PSC03)",
+  text: "Give notice of other registrable person with significant control of a Scottish limited partnership (SLP PSC03)"
+},
+{
+  value: "Give notice to change details of a person with significant control of a Scottish limited partnership (SLP PSC04)",
+  text: "Give notice to change details of a person with significant control of a Scottish limited partnership (SLP PSC04)"
+},
+{
+  value: "Give details of relevant legal entity with significant control of a Scottish limited partnership (SLP PSC05)",
+  text: "Give details of relevant legal entity with significant control of a Scottish limited partnership (SLP PSC05)"
+},
+{
+  value: "Give notice changing details of other person with significant control of a Scottish limited partnership (SLP PSC06)",
+  text: "Give notice changing details of other person with significant control of a Scottish limited partnership (SLP PSC06)"
+},
+{
+  value: "Give notice of ceasing to be a PSC, RLE or ORP of a Scottish limited partnership (SLP PSC07)",
+  text: "Give notice of ceasing to be a PSC, RLE or ORP of a Scottish limited partnership (SLP PSC07)"
+},
+{
+  value: "Give notice of a person of PSC statements for a Scottish limited partnership (SLP PSC08)",
+  text: "Give notice of a person of PSC statements for a Scottish limited partnership (SLP PSC08)"
+},
+{
+  value: "Give notice of update to PSC statements for a Scottish limited partnership (SLP PSC09)",
+  text: "Give notice of update to PSC statements for a Scottish limited partnership (SLP PSC09)"
+}
+
+  ]
+}) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

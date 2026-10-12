@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Confirm the PSC's correspondence address" %}
+
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+<form class="form" action="../../psc-add-another" method="post">
+
+
+
+
+
+
+
+
+     <input type="hidden" name="from" value="{{ from }}">
+
+
+  <span class="govuk-caption-l"> {{ data['psc1FirstName'] or "Georgina" }} {{ data['psc1LastName'] or "Smith" }}</span>
+
+
+
+<h1 class="govuk-heading-xl">Confirm the PSC's correspondence address</h1>
+
+<p>1 Magpie Avenue<br>Liverpool<br>L12 3GB</p>
+
+
+
+  <p><a href="javascript:void(0" class="govuk-link">Change <span class="govuk-visually-hidden">correspondence address</span></a><p>
+
+
+
+
+
+
+      
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+{{ govukInsetText({
+  html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>
+        <p>We'll show the PSC's correspondence address on the public register.</p>"
+}) }}
+
+</form>
+    </div>
+  </div>
+
+  
+{% endblock %}

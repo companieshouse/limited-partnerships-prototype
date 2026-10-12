@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="You cannot file a confirmation statement" %}
+
+{% block header %}
+   {% include "/includes/dynamic-service-name.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+    <h1 class="govuk-heading-l">You cannot file a confirmation statement</h1>
+
+     <p class="govuk-body">A confirmation statement cannot be filed for [LP NAME] because it has been closed.</p>
+
+     <p class="govuk-body">
+        <a href="https://www.gov.uk/contact-companies-house" class="govuk-link govuk-link--no-visited-state">Contact us</a> if you think this information is wrong. 
+      </p>
+
+      <p class="govuk-body">
+       If this is the wrong limited partnership, <a href="#" class="govuk-link govuk-link--no-visited-state">go back and enter a different company number</a>.
+      </p>
+    
+      <p class="govuk-body">
+      <a href="#" class="govuk-link govuk-link--no-visited-state">What did you think of this service?</a> (takes 2 minutes)
+      </p>
+    
+     
+</form>
+    </div>
+  </div>
+{% endblock %}

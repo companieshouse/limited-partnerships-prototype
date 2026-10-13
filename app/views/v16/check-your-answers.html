@@ -1129,16 +1129,17 @@
               Right to appoint or remove management
             </dt>
             <dd class="govuk-summary-list__value">
+              {% if data['rlerleOwnershipOfRightToAppointRemoveManagement'] == "The RLE holds, directly or indirectly, the right to appoint or remove a majority of the persons entitled to take part in the management of the limited partnership." %}
 
-               {% if data['rlerleOwnershipOfRightToAppointRemoveManagement'] == "" %}
 
-                <p class="govuk-body">Does not apply</p>
-
+               {{ data['rlerleOwnershipOfRightToAppointRemoveManagement'] }}
+               
+            
                {% else %}
 
-              <p class="govuk-body">
-                {{ data['rleControlByFirm3'] }}
-              </p>
+                <p class="govuk-body">
+                  <p class="govuk-body">Does not apply</p>
+                </p>
 
               {% endif %}
             </dd>
@@ -1150,15 +1151,19 @@
             <dd class="govuk-summary-list__value">
 
 
-              {% if data['rlerleSignificantInfluenceOrControl'] == "" %}
+               {% if data['rlerleSignificantInfluenceOrControl'] == "The RLE has the right to exercise, or actually exercises, significant influence or control over the limited partnership." %}
 
-                <p class="govuk-body">Does not apply</p>
 
+               {{ data['rlerleSignificantInfluenceOrControl'] }}
+               
+            
                {% else %}
 
-                {{ data['rleControlByFirm4'] }}</p>
+                <p class="govuk-body">
+                  <p class="govuk-body">Does not apply</p>
+                </p>
 
-            {% endif %}
+              {% endif %}
    
             </dd>
           </div>

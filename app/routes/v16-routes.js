@@ -374,7 +374,7 @@ router.post('/limited-partner-choice', function(request, response) {
 //lp add another
 router.post('/lp-add-another', function(request, response) {
     var addAnotherLP = request.session.data['addAnotherLP'];
-    var lpNumber = request.session.data['lpNumber'] || "";
+    var lpNumber = request.session.data['lpNumber'];
     var registrationOrTransition = request.session.data['registrationOrTransition'];
     var registerType = request.session.data['registerType'];
 
@@ -831,10 +831,11 @@ if (pscStatement === "no") {
 else {
 
    // if PSC information exists take the user to the PSC summmary page
-   if ('pscName' || 'pscLastName' || 'pscEntityName' || 'pscLegalForm') {
+   if ((request.session.data['pscName']=="") || (request.session.data['pscLastName']=="" || (request.session.data['pscEntityName']=="" || (request.session.data['pscLegalForm']=="")))) {
         response.redirect('v16/pscs/psc-add-another')
 
-    }else {
+    }
+    else {
         response.redirect('v16/pscs/psc-choice')
     }
 }

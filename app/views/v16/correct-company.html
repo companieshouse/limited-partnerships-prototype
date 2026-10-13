@@ -43,10 +43,27 @@
                value: {
                   text: "LP1444"
                }
+            },
+            {
+            key: {
+              text: "Incorporation date"
+            },
+               value: {
+                  text: "4 May 1977"
+               }
+            },
+            {
+            key: {
+              text: "Registered office address"
+            },
+               value: {
+                  html: "1 Orchard Street<br> Whitchurch<br>Cardiff<br>CF14 3UZ"
+               }
             }
         ]
       }) }}
 
+     
       {% else %}
              {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
@@ -66,6 +83,30 @@
                value: {
                   text: data['lpNumber'] or "SL012345"
                }
+            },
+               {
+            key: {
+              text: "Status"
+            },
+               value: {
+                  text:  "Active"
+               }
+            },
+            {
+            key: {
+              text: "Registered on"
+            },
+               value: {
+                  text: "4 May 1977"
+               }
+            },
+            {
+            key: {
+              text: "Registered office address"
+            },
+               value: {
+                  html: "1 Orchard Street<br> Whitchurch<br>Cardiff<br>CF14 3UZ"
+               }
             }
         ]
       }) }}
@@ -75,6 +116,12 @@
   text: "Continue"
   
 }) }}  
+
+<p class="govuk-body">
+  <a href="company-number" class="govuk-link govuk-link--no-visited-state">Choose a different company</a>
+</p>
+
+
 
 {% if (data['registrationOrTransition'] == "transition") %}
 

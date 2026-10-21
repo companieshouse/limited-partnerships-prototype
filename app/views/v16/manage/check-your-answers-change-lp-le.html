@@ -30,153 +30,147 @@
  {% set todayDate = "now" | govukDate %}
       {% set fallbackDate = "5 June 2025" %}
       {% set todayHtml =  (todayDate or fallbackDate) %}
-      {{ govukSummaryList({
-              classes: "govuk-!-margin-bottom-6",
-              rows: [
-                {
-                  key: {
-                    text: "Name"
-                  },
-                  value: {
-                    text: "GlobalTech"
-                  },
-                   actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "name"
-                      }
-                    ]
-                  }
-                },
-                        {
-                  key: {
-                    text: "Legal form or corporate identity"
-                  },
-                  value: {
-                    text: data['gp1LegalForm'] or "Private limited company"
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "legal form or corporate identity"
-                      }
-                    ]
-                  }
-                  
-                },
-                {
-                  key: {
-                    text: "Governing law"
-                  },
-                  value: {
-                    text: data['gp1GoverningLaw'] or "Companies Act 2006"
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "governing law"
-                      }
-                    ]
-                  }
-                },
-                    {
-                  key: {
-                    text: "Register"
-                  },
-                  value: {
-                    text: data['gp1Register'] or "Companies House public register"
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "register"
-                      }
-                    ]
-                  }
-                },
-                    {
-                  key: {
-                    text: "Country registered in"
-                  },
-                  value: {
-                    text: data['gp1CountryRegistered'] or "United Kingdom"
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "country registered in"
-                      }
-                    ]
-                  }
-                },
-                {
-                  key: {
-                    text: "Registration number"
-                  },
-                  value: {
-                    text: data['gp1RegistrationNumber'] or "00223344"
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "registration number"
-                      }
-                    ]
-                  }
-                },
-                {
-                  key: {
-                    text: "Principal office address"
-                  },
-                  value: {
-                    text: "24 Candy Lane, London, W1 3EE, United Kingdom"
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "principal office address"
-                      }
-                    ]
-                  }
-                },
+     
 
-                {
-                  key: {
-                    text: "Date of change"
-                  },
-                  value: {
-                    html: todayHtml
-                  },
-                
-                 actions: {
-                  items: [
-                    {
-                      href: "#",
-                      text: "Change",
-                      visuallyHiddenText: "name"
-                    }
-                  ]
-                }
-          }
-        ]
-      }) }}
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-6">
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Name
+    </dt>
+    <dd class="govuk-summary-list__value">
+      GlobalTech
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> name</span>
+      </a>
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Legal form or corporate identity
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ data['gp1LegalForm'] or "Private limited company" }}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> legal form or corporate identity</span>
+      </a>
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Governing law
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ data['gp1GoverningLaw'] or "Companies Act 2006" }}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> governing law</span>
+      </a>
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Register
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ data['gp1Register'] or "Companies House public register" }}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> register</span>
+      </a>
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Country registered in
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ data['gp1CountryRegistered'] or "United Kingdom" }}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> country registered in</span>
+      </a>
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Registration number
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ data['gp1RegistrationNumber'] or "00223344" }}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> registration number</span>
+      </a>
+    </dd>
+  </div>
+
+<!--  if data capital contributions, show the capital contributions row --> 
+  {% if data['totalCapitalContribution'] %}
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Capital contributions
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ data['totalCapitalContribution'] }} {{ data['otherCurrencySelector'] }} <br> <br> Types of contribution: {{ data['capitalContributionBreakdown'] }}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> principal office address</span>
+      </a>
+    </dd>
+  </div>
+
+  {% endif %}
 
 
 
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Principal office address
+    </dt>
+    <dd class="govuk-summary-list__value">
+      24 Candy Lane, London, W1 3EE, United Kingdom
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> principal office address</span>
+      </a>
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date of change
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ todayHtml }}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> date of change</span>
+      </a>
+    </dd>
+  </div>
+
+</dl>
 
   
 

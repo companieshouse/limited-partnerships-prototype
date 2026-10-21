@@ -1510,6 +1510,54 @@ router.post('/check-sic', function(request, response) {
   })
 
 
+  //updated limited partner details 
+
+  router.post('/lp-legal-entity', function(request, response) {
+
+        var registrationOrTransition = request.session.data['registrationOrTransition']
+
+        if (registrationOrTransition == "post") {
+            response.redirect("v16/manage/change-poa")
+        } else {
+            response.redirect("v16/address-pages/lp-legal-entity-poa/lp-legal-entity-poa-where")
+        }
+            
+
+})
+
+//This GET code is used to preppoluate the values when the user goes from Confirm the address to Manuallu entering it
+router.get('/lp-legal-entity', function (req, res) {
+    res.render('v16/lp-legal-entity', {
+      from: req.query.from // This makes `from` available in Nunjucks
+    });
+  });
+
+
+
+
+ router.post('/change-capital-contributions', function(request, response) {
+
+    var changeCapitalContributions = request.session.data['changeCapitalContributions']
+
+    if (changeCapitalContributions == "yes"){
+        response.redirect("v16/manage/capital-contributions")
+    }
+    else {
+
+        response.redirect("v16/manage/change-poa")
+        // nneds to be the radios page response.redirect("/v12/address-pages/gp-person-ca/gp-person-ca-manual")
+    }
+  })
+
+
+ router.post('/capital-contributions', function(request, response) {
+
+
+        response.redirect("v16/manage/change-poa")
+
+  })
+
+  
 
 
 module.exports=router;

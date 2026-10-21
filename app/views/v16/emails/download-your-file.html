@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Do you need to update this partner's usual residential address?" %}
+
+
+
+
+{% set serviceName %}
+
+{% endset %}
+
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/change-lp-ura" method="post" class="form">
+
+
+
+
+        <h1 class="govuk-heading-l">Download your file</h1>
+        <p class="govuk-body">This file is available to download until 14 January 2027.</p>
+        <p class="govuk-body">Make sure you save your file somewhere you can find it.</p>
+        <p class="govuk-body">
+  <a href="#" class="govuk-link">Download this PDF (0.1MB) to your device</a>
+        <p class="govuk-body">If you have any questions, contact CH Development.</p>
+
+   {{ govukButton({
+          text: "Continue"
+        }) }}      
+
+      <p class="govuk-body">
+        If you have any questions, contact  <a href="#" class="govuk-link">Companies House Notifications</a>.
+      </p>
+
+
+      </form>
+
+    </div>
+    <!--govuk-grid-row-->
+
+    <!--govuk-grid-column-two-thirds-->
+  </div>
+  <!--govuk-grid-column-two-thirds-->
+
+</main>
+</div>
+<!---govuk-width-container-->
+
+{% endblock %}

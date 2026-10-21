@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Do you need to update this partner's usual residential address?" %}
+
+
+{% set serviceName %}
+
+{% endset %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/change-lp-ura" method="post" class="form">
+ 
+
+      <h1 class="govuk-heading-l">Confirm your email address</h1>
+
+
+      <p class="govuk-body">For security, we need to confirm the email address the file was sent to before you can download it.</p>
+
+ <div class="govuk-form-group">
+      <label class="govuk-label" for="email">
+        Email address
+      </label>
+
+      <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email">
+    </div>
+
+  
+      {{ govukButton({
+              text: "Continue",
+              href:"download-your-file"
+            }) }}    
+        
+        <p class="govuk-body">
+        If you have any questions, contact  <a href="#" class="govuk-link">Companies House Notifications</a>.
+      </p>
+
+    
+
+
+      </form>
+
+    </div>
+    <!--govuk-grid-row-->
+
+    <!--govuk-grid-column-two-thirds-->
+  </div>
+  <!--govuk-grid-column-two-thirds-->
+
+</main>
+</div>
+<!---govuk-width-container-->
+
+{% endblock %}

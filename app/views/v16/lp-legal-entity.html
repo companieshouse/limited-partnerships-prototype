@@ -17,6 +17,7 @@
 
 
 
+
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -24,7 +25,7 @@
     <!-- Update journey -->
     {% if (data['registrationOrTransition'] == "post") %}
 
-    <form class="form" action="manage/change-poa" method="post">
+    <form class="form" action="manage/change-capital-contributions" method="post">
     {% else %} 
 
     <form class="form" action="address-pages/lp-legal-entity-poa/lp-legal-entity-poa-where" method="post">
@@ -61,6 +62,35 @@
 }) }}
 
 
+
+<!-- In the post-transition journey, we need to show the users 'existing' data if they select Update on an existing partner, the code below prepopulates data if the user has come to this page via the href="../gp-person?from=limited-partners-change" which has been set on the CHS profile link -->
+
+{% if data['from'] == "limited-partners-change" %}
+    {% set lp1EntityName = "GlobalTech" %}
+    {% set lp1LegalForm = "Private limited company" %}
+    {% set lp1GoverningLaw = "Companies Act 2006" %}
+    {% set lp1CountryRegistered = "United Kingdom" %}
+
+    {% set entityOnRegisterCheckedValue = "yes" %}
+   {% set entityOnRegisterValue = "entityOnRegisterCheckedValue" %}
+    {% set lpLegalEntity1Register = "Register of Companies UK" %}
+    {% set lpLegalEntity1RegistrationNumber = "00223344" %}
+
+ 
+{% else %}
+   
+    {% set lp1EntityName = "" %}
+    {% set lp1LegalForm = "" %}
+    {% set lp1GoverningLaw = "" %}
+    {% set lp1CountryRegistered = "" %}
+    {% set entityOnRegisterValue = "" %}
+    {% set lpLegalEntity1Register = "" %}
+    {% set lpLegalEntity1RegistrationNumber = "" %}
+{% endif %}
+
+
+
+
 {{ govukInput({
   label: {
     text: "What is the legal entity's name?",
@@ -68,6 +98,7 @@
     isPageHeading: true
   },
 
+  value: lp1EntityName,
   id: "lp1EntityName",
   name: "lp1EntityName"
 }) }}
@@ -81,6 +112,7 @@
   hint: {
     text: "This is the corporate body type. For example, private limited company."
   },
+  value: lp1LegalForm,
   id: "lp1LegalForm",
   name: "lp1LegalForm"
 }) }}
@@ -93,6 +125,7 @@
   hint: {
     text: "For example, the Companies Act 2006.    "
   },
+  value: lp1GoverningLaw,
   id: "lp1GoverningLaw",
   name: "lp1GoverningLaw"
 }) }}
@@ -106,8 +139,17 @@
   </label>
 
   <select class="govuk-select govuk-!-margin-top-3" id="lp1CountryRegistered" name="lp1CountryRegistered"> 
-      <option value="">Select a country</option>
-    <option value="United Kingdom">United Kingdom</option>
+
+    {% if data['from'] == "limited-partners-change" %}
+
+        <option value="United Kingdom">United Kingdom</option>
+    {% else %}
+
+          <option value="">Select a country</option>
+              <option value="United Kingdom">United Kingdom</option>
+    {% endif %}
+
+
     <option value="Afghanistan">Afghanistan</option>
     <option value="Aland Islands">Aland Islands</option>
      
@@ -631,10 +673,10 @@
         hint: {
           text: "For example, the Register of Companies UK."
         },
-        id: "GPLegalEntity1Register",
-        name: "GPLegalEntity1Register"
+        id: "lpLegalEntity1Register",
+        name: "lpLegalEntity1Register",
+        value: lpLegalEntity1Register
       }) }}
-
 
 
 
@@ -646,13 +688,16 @@
   hint: {
     text: "For example, the company number."
   },
-  id: "GPLegalEntity1RegistrationNumber",
-  name: "GPLegalEntity1RegistrationNumber",
-    classes: "govuk-!-width-one-half",
+  value: lpLegalEntity1RegistrationNumber,
+  id: "lpLegalEntity1RegistrationNumber",
+  name: "lpLegalEntity1RegistrationNumber",
+  classes: "govuk-!-width-one-half",
   inputmode: "numeric",
   spellcheck: false
 }) }}
   {% endset -%}
+
+
 
 
 
@@ -681,7 +726,9 @@
         ]
       }) }}
 
-  
+<!-- If not on the update journey display the capital contributions -->
+
+{% if data['from'] != "limited-partners-change" %}
 
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
@@ -937,7 +984,6 @@
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 
-
 <!-- do not show for registration or transition removed from v14 -->
 
 <!-- {% if data['registrationOrTransition'] !== "post" %}
@@ -956,6 +1002,9 @@
 }) }}
 {% endif %} -->
 
+
+{% endif %}
+<!--end of capital contributions section  -->
 
  {{ govukInsetText({
           html: "<h2 class='govuk-heading-m'>What information we'll show on the public register</h2>

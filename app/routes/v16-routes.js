@@ -353,18 +353,29 @@ router.post('/gp-add-another', function(request, response) {
 // save and continue functionality for limited partner section
 
 router.post('/limited-partner-section', function(request, response) {
+    const from = request.session.data['from'];
 
     response.redirect('v16/limited-partner-choice')
     
 })
 
 
+
 //limited partner choice - entity or person
 
 router.post('/limited-partner-choice', function(request, response) {
 
+    const from = request.session.data['from'];
+
     var limitedPartner = request.session.data['limitedPartner']
     if (limitedPartner == "person"){
+
+
+        //if from the register add a LP button
+        if (from == "add-a-limited-partner-register") {
+            request.session.data['addLPFromRegister'] = true;
+        }
+
         response.redirect("v16/lp-person")
     } else {
         response.redirect("v16/lp-legal-entity")
@@ -1315,13 +1326,20 @@ router.get('v16/lp-person', function (req, res) {
 
   router.post('/lp-person', function(request, response) {
 
-
+  const from = request.session.data['from'];
     var registrationOrTransition = request.session.data['registrationOrTransition']
        // Update journey
        if (registrationOrTransition == "post"){
-     
-        response.redirect("v16/manage/change-lp-ura")
-        
+
+        //post registration, add a limited partner from the register 
+
+            if (from == "add-a-limited-partner-register") {
+                response.redirect("v16/address-pages/lp-person-ura/lp-person-ura-where")
+            }
+            else {
+                response.redirect("v16/manage/change-lp-ura")
+            }
+
        }
        else {
 
@@ -1375,9 +1393,17 @@ router.post('/lp-person-ura-postcode-look-up', function(request, response) {
 
 router.post('/lp-person-ura-confirm-address', function(request, response) {
 
+    const from = request.session.data['from'];
+
     var registrationOrTransition = request.session.data['registrationOrTransition']
     if (registrationOrTransition == "post"){
-        response.redirect("v16/manage/date-of-change-partner-lp-person")
+
+        if (from == "add-a-limited-partner-register") {
+            response.redirect("v16/manage/check-your-answers-add-lp")
+        }
+        else {
+            response.redirect("v16/manage/date-of-change-partner-lp-person")
+        }
     }
     else {
         response.redirect("v16/lp-add-another")

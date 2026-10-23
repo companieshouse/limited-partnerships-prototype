@@ -22,10 +22,8 @@
 
 
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
   <form class="form" action="/lp-person" method="post">
 
@@ -39,9 +37,21 @@
 
 
   <!-- Update journey -->
-  {% if (data['registrationOrTransition'] == "post") %}
+{% if (data['registrationOrTransition'] == "post") %}
 
-<h1 class="govuk-heading-xl">Update a limited partner's details (person)</h1>
+
+    {% if data['from'] == "add-a-limited-partner-register" %}
+        <h1 class="govuk-heading-xl">Add a limited partner (person)</h1>
+
+
+    {% else %}
+    <h1 class="govuk-heading-xl">Update a limited partner's details (person)</h1>
+
+    
+    {% endif %}
+
+
+
 {% else %}  
 
 <h1 class="govuk-heading-xl">Add a limited partner (person)</h1>
@@ -178,7 +188,7 @@
 
 {% endif %}
 
-  {% if (data['registrationOrTransition'] !== "post") %}
+
 {{ govukDateInput({
   id: "date-of-birth",
   namePrefix: "date-of-birth",
@@ -192,7 +202,7 @@
     text: "For example, 27 3 2000"
   }
 }) }}
-{% endif %}
+
 
 
 <div class="govuk-form-group">

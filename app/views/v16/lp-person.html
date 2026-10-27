@@ -85,6 +85,11 @@
     {% set lp1LastName = "" %}
     {% set lp1nationality = "" %}
     {% set lp1CurrencySelector = "" %}
+    {% set lp1otherCurrencySelector = "" %}
+    {% set lp1totalCapitalContribution = "" %}
+    {% set lp1Money = false %}
+    {% set lp1Land = false %}
+    {% set lp1Services = false %}
 {% endif %}
 
 {{ govukInput({
@@ -222,7 +227,7 @@
 {% else %}
 
       <option value="">Select a nationality</option>
-       <option value="British">British</option>
+  
 
 {% endif %}
 
@@ -2261,13 +2266,13 @@
 
 
 
-
+  {% set lp1otherCurrencySelector = "" %}
 
  <div class="govuk-form-group ">
           <h2 class="govuk-label-wrapper"> <label for="autocomplete-default" class="govuk-label govuk-label--s">Currency</label></h2> 
 
           <p class="govuk-hint">Start typing a currency, then choose from the list.</p>
-          <div id="lp1otherCurrencySelector" class="autocomplete-wrapper"></div>
+          <div id="lp1otherCurrencySelector" class="autocomplete-wrapper" value=""></div>
 </div>
 
 <!--  Replacing the select to a typeahead v13 

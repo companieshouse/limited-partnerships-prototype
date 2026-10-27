@@ -3,7 +3,7 @@ var currency =
 
 var element = document.querySelector('#lp1otherCurrencySelector')
 var id = 'autocomplete-default'
-accessibleAutocomplete({element: element, id: id, source: currency, name: "currencies-1"})
+accessibleAutocomplete({element: element, id: id, source: currency, name: "currencies-1", defaultValue: 'British Pound (GBP)'})
 
 
 

@@ -26,7 +26,19 @@
 
         <h1 class="govuk-heading-xl">What is this partner's total capital contribution?</h1>
 
-        <!-- Capital contributions -->
+        <!--Set GloalTech Capital contributions -->
+
+    {% set lp1otherCurrencySelector = "British Pound (GBP)" %}
+    {% set lp1LegalForm = "Private limited company" %}
+    {% set lp1GoverningLaw = "Companies Act 2006" %}
+
+    {% set totalCapitalContribution = "100.00" %} 
+
+
+ <!-- {% set lp1capitalContributionBreakdown = ["Money"] %} -->
+    {% set Money = true %}
+
+
 
 
 <p class="govuk-body">This is the total value of all monetary and non-monetary contributions.
@@ -37,7 +49,7 @@
           <h2 class="govuk-label-wrapper"> <label for="autocomplete-default" class="govuk-label govuk-label--s">Currency</label></h2> 
 
           <p class="govuk-hint">Start typing a currency, then choose from the list.</p>
-          <div id="lp1otherCurrencySelector" class="autocomplete-wrapper"></div>
+          <div id="lp1otherCurrencySelector" class="autocomplete-wrapper" value="British Pound (GBP)"></div>
 </div>
 
 
@@ -57,7 +69,7 @@
       text: "Select currency",
       selected: true
     },
-     { "text": "British Pound (GBP)", "value": "GBP" },
+  { "text": "British Pound (GBP)", "value": "GBP", selected: true},
   { "text": "US Dollar (USD)", "value": "USD" },
   { "text": "Euro (EUR)", "value": "EUR" },
   { "text": "Afghan Afghani (AFN)", "value": "AFN" },
@@ -233,7 +245,8 @@
   },
   classes: "govuk-input--width-10",
   inputmode: "text",
-  spellcheck: false
+  spellcheck: false,
+  value: totalCapitalContribution
 }) }}
 
 
@@ -252,23 +265,28 @@
   items: [
     {
       value: "Money",
-      text: "Money"
+      text: "Money",
+      checked: Money
     },
     {
       value: "Land or property",
-      text: "Land or property"
+      text: "Land or property",
+      checked: Land
     },
     {
       value: "Shares or interests in other partnerships",
-      text: "Shares or interests in other partnerships"
+      text: "Shares or interests in other partnerships",
+      checked: Shares
     },
     {
       value: "Services or goods",
-      text: "Services or goods"
+      text: "Services or goods",
+      checked: Services
     },
     {
       value: "Any other asset",
-      text: "Any other asset"
+      text: "Any other asset",
+      checked: Assets
     }
   ]
 }) }}

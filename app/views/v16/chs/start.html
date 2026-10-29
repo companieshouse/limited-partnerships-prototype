@@ -27,16 +27,33 @@ Find and update company information
 
 <h1 class="govuk-heading-xl govuk-!-text-align-centre">Search the register </h1>
 
+
 <form action="search-results" method="post">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <p class="govuk-body">
+
+      <label class="govuk-label" for="search">
         Enter company name, number or officer name
-      </p>
+      </label>
+
       <div class="input-group">
-          <div><input class="search_input"></input></div>
-          <div><button class="govuk-button search_button"></button></div>
+        <div>
+          <input
+            class="search_input"
+            id="search"
+            name="search"
+            type="text">
+        </div>
+
+        <div>
+         <button
+  type="submit"
+  class="govuk-button search_button"
+  aria-label="Search">
+</button> <span class="govuk-visually-hidden">Press Enter to search</span>
+        </div>
       </div>
+
     </div>
   </div>
 </form>

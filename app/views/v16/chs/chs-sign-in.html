@@ -25,15 +25,12 @@ Find and update company information
  
 <h1 class="govuk-heading-l">Sign in to Companies House</h1>
 <p>If you have an existing Companies House account, enter your email address.<p>
-{{ govukInput({
-  label: {
-    text: "Email address",
-    classes: "govuk-label--s",
-    isPageHeading: true
-  },
-  id: "event-name",
-  name: "eventName"
-}) }}
+<div class="govuk-form-group">
+  <label class="govuk-label" for="email">
+    Email address
+  </label>
+  <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" autocomplete="email">
+</div>
 
 {{ govukButton({
   text: "Continue"

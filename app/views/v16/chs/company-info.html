@@ -36,15 +36,17 @@ Find and update company information
 
 
       <div class="search_container govuk-!-margin-bottom-5">
-        {{ govukInput({
+       {{ govukInput({
+          id: "search",
+          name: "search",
           label: {
             text: "Search",
             classes: "govuk-visually-hidden",
             isPageHeading: false
-          },
-          value: "Search for a company or officer",
-          classes: "search_input"
+          }
         }) }}
+
+        
         <img src="/public/images/search_icon.png" class="search_icon" alt="Search">
     </div>
 
@@ -473,6 +475,11 @@ Find and update company information
               <label class="govuk-label govuk-checkboxes__label" for="current_officers">
                 Current partners
               </label>
+              <legend class="govuk-fieldset__legend govuk-visually-hidden">
+
+              show current partners
+
+              </legend>
             </div>
           </div>
         </fieldset>
